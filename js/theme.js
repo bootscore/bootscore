@@ -1,0 +1,87 @@
+jQuery(document).ready(function ($) {
+
+
+    // Smooth Scroll
+    $(function () {
+        $('a[href*="#"]:not([href="#"]):not(a.comment-reply-link):not([href="#tab-reviews"]):not([href="#tab-additional_information"]):not([href="#tab-description"]):not([href="#reviews"]):not([href="#carouselExampleIndicators"]):not([data-smoothscroll="false"])').click(function () {
+            if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+                var target = $(this.hash);
+                target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+                if (target.length) {
+                    $('html, body').animate({
+                        // Change your offset according to your navbar height
+                        scrollTop: target.offset().top - 55
+                    }, 1000);
+                    return !1
+                }
+            }
+        })
+    });
+
+
+    // Scroll to ID from external url
+    if (window.location.hash) scroll(0, 0);
+    setTimeout(function () {
+        scroll(0, 0)
+    }, 1);
+    $(function () {
+        $('.scroll').on('click', function (e) {
+            e.preventDefault();
+            $('html, body').animate({
+                // Change your offset according to your navbar height
+                scrollTop: $($(this).attr('href')).offset().top - 55
+            }, 1000, 'swing')
+        });
+        if (window.location.hash) {
+            $('html, body').animate({
+                // Change your offset according to your navbar height
+                scrollTop: $(window.location.hash).offset().top - 55
+            }, 1000, 'swing')
+        }
+    });
+
+
+    // Scroll to top Button
+    $(window).scroll(function () {
+        var scroll = $(window).scrollTop();
+
+        if (scroll >= 500) {
+            $(".top-button").addClass("visible");
+        } else {
+            $(".top-button").removeClass("visible");
+        }
+    });
+
+    // Preloader
+    $(window).on('load', function () {
+        $('#status').fadeOut();
+        $('#preloader').delay(350).fadeOut('slow');
+        $('body').delay(350).css({
+            'overflow': 'visible'
+        })
+    })
+    setTimeout(function () {
+        $('#status').fadeOut();
+        $('#preloader').delay(350).fadeOut('slow');
+        $('body').delay(350).css({
+            'overflow': 'visible'
+        })
+    }, 1500);
+
+
+    // div height, add class to your content
+    $(".height-50").css("height", 0.5 * $(window).height());
+    $(".height-75").css("height", 0.75 * $(window).height());
+    $(".height-85").css("height", 0.85 * $(window).height());
+    $(".height-100").css("height", 1.0 * $(window).height());
+
+
+    // Forms
+    $('select, #billing_state').addClass('form-select');
+
+
+    // Alert links
+    $('.alert a').addClass('alert-link');
+
+
+}); // jQuery End

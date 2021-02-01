@@ -1,0 +1,161 @@
+
+.offcanvas.show {
+    transform: none;
+    transition: transform .3s ease-in-out;
+}
+
+.offcanvas-freeze {
+    overflow: hidden !important;
+    height: 100vh;
+}
+
+.backdrop-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1030;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: all .4s ease-in-out;
+}
+
+body.offcanvas-backdrop .backdrop-overlay {
+    opacity: 1;
+    visibility: visible;
+}
+
+.offcanvas.expand-xs.show {
+    transform: none;
+    transition: transform .3s ease-in-out;
+}
+
+.offcanvas.expand-xs {
+    position: fixed;
+    bottom: 0;
+    z-index: 1040;
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+    color: currentColor;
+    background-color: #fff;
+}
+
+.offcanvas-header.expand-xs {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+    align-items: center;
+    cursor: pointer;
+}
+
+.offcanvas-body.expand-xs {
+    padding: 1rem;
+    overflow-y: auto;
+}
+
+.offcanvas-left.expand-xs {
+    top: 0;
+    left: 0;
+    width: 400px;
+    transform: translateX(-100%);
+    transition: transform .3s ease-in-out;
+}
+
+.offcanvas-right.expand-xs {
+    top: 0;
+    right: 0;
+    width: 400px;
+    transform: translateX(100%);
+    transition: transform .3s ease-in-out;
+}
+
+.offcanvas-bottom.expand-xs {
+    right: 0;
+    left: 0;
+    height: 400px;
+    max-height: 100%;
+    transform: translateY(100%);
+    transition: transform .3s ease-in-out;
+}
+
+/* Hide offcanvas header in expanded navbar */
+@media (min-width: 992px) {
+    .offcanvas-header.expand-lg {
+        display: none;
+    }
+}
+
+@media (max-width: 991px) {
+
+    .offcanvas.expand-lg.show {
+        transform: none;
+        transition: transform .3s ease-in-out;
+    }
+
+    .offcanvas.expand-lg {
+        position: fixed;
+        bottom: 0;
+        z-index: 1040;
+        display: flex;
+        flex-direction: column;
+        max-width: 100%;
+        color: currentColor;
+        background-color: #fff;
+    }
+
+    .offcanvas-header.expand-lg {
+        display: flex;
+        justify-content: space-between;
+        padding: 1rem;
+        align-items: center;
+        cursor: pointer;
+    }
+
+    .offcanvas-body.expand-lg {
+        padding: 1rem;
+        overflow-y: auto;
+    }
+
+    .offcanvas-left.expand-lg {
+        top: 0;
+        left: 0;
+        width: 400px;
+        transform: translateX(-100%);
+        transition: transform .3s ease-in-out;
+    }
+
+    .offcanvas-right.expand-lg {
+        top: 0;
+        right: 0;
+        width: 400px;
+        transform: translateX(100%);
+        transition: transform .3s ease-in-out;
+    }
+
+    .offcanvas-bottom.expand-lg {
+        right: 0;
+        left: 0;
+        height: 400px;
+        max-height: 100%;
+        transform: translateY(100%);
+        transition: transform .3s ease-in-out;
+    }
+
+}
+
+.offcanvas-header {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1;
+}
+
+@media (max-width: 991px) {
+    #offcanvas-menu-right .offcanvas-body {
+        margin-top: 56px;
+    }
+}

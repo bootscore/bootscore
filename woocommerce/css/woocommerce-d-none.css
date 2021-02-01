@@ -1,0 +1,27 @@
+a.added_to_cart.wc-forward {
+    display: none;
+}
+
+.woocommerce div.product .woocommerce-tabs ul.tabs li:nth-child(1):before {
+    display: none;
+}
+
+ul.tabs.wc-tabs li:after {
+    display: none;
+}
+
+span#select2-billing_country-container {
+    display: none;
+}
+
+a.about_paypal {
+    display: none;
+}
+
+.woocommerce-message.alert .button.wc-forward {
+    display: none;
+} 
+
+form.cart .blockUI.blockOverlay {
+    display: none !important;
+}

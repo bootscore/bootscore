@@ -1,0 +1,397 @@
+# Copyright (C) 2017 Automattic
+# This file is distributed under the GNU General Public License v2 or later.
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: _s 1.0.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/tags/_s\n"
+"POT-Creation-Date: 2020-12-17 20:33+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: \n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"X-Generator: Loco https://localise.biz/\n"
+"Language: \n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;"
+
+#: functions.php:65
+msgid "Main Menu"
+msgstr ""
+
+#: functions.php:66
+msgid "Footer Menu"
+msgstr ""
+
+#: functions.php:118
+msgid "Top Nav"
+msgstr ""
+
+#: functions.php:120 functions.php:132 functions.php:144 functions.php:156
+#: functions.php:168 functions.php:180 functions.php:192 functions.php:204
+#: functions.php:216
+msgid "Add widgets here."
+msgstr ""
+
+#: functions.php:130
+msgid "Top Nav Search"
+msgstr ""
+
+#: functions.php:142
+msgid "Sidebar"
+msgstr ""
+
+#: functions.php:154
+msgid "Top Footer"
+msgstr ""
+
+#: functions.php:166
+msgid "Footer 1"
+msgstr ""
+
+#: functions.php:178
+msgid "Footer 2"
+msgstr ""
+
+#: functions.php:190
+msgid "Footer 3"
+msgstr ""
+
+#: functions.php:202
+msgid "Footer 4"
+msgstr ""
+
+#: functions.php:214
+msgid "404 Page"
+msgstr ""
+
+#: functions.php:408
+msgid "Password"
+msgstr ""
+
+#: functions.php:409
+msgid "Submit"
+msgstr ""
+
+#. Name of the template
+msgid "Blank with container"
+msgstr ""
+
+#: page-blank-with-container.php:21 page-sidebar-none.php:30
+#: page-blank-without-container.php:21 page-sidebar-left.php:35 page.php:40
+msgid "Pages:"
+msgstr ""
+
+#: category.php:58 author-sidebar-left.php:72 index.php:78 index.php:134
+#: archive.php:60 category-equal-height.php:59
+#: author-equal-height-sidebar-right.php:69 archive-sidebar-left.php:62
+#: author-masonry.php:69 archive-equal-height-sidebar-right.php:59
+#: category-masonry.php:59 archive-equal-height.php:59 archive-masonry.php:59
+#: category-sidebar-left.php:60 author-equal-height.php:69
+#: category-equal-height-sidebar-right.php:60
+#: template-parts/content-search.php:42
+msgid "Read more »"
+msgstr ""
+
+#: 404.php:22
+msgid "Page not found."
+msgstr ""
+
+#: 404.php:27
+msgid "Back Home &raquo;"
+msgstr ""
+
+#. Name of the template
+msgid "Sidebar left"
+msgstr ""
+
+#: single-sidebar-left.php:28 single-sidebar-none.php:25
+#: single-full-width-image.php:36 single.php:26
+msgid " by "
+msgstr ""
+
+#: header-woocommerce.php:91 header.php:93
+msgid "Close menu"
+msgstr ""
+
+#: header-woocommerce.php:136
+msgid "Close account"
+msgstr ""
+
+#: header-woocommerce.php:163
+msgid "Continue shopping"
+msgstr ""
+
+#: header-woocommerce.php:174
+msgid "Cart"
+msgstr ""
+
+#. Name of the template
+msgid "No Sidebar"
+msgstr ""
+
+#. %s: post title
+#: comments.php:34
+#, php-format
+msgctxt "comments title"
+msgid "One Comment &ldquo;%s&rdquo;"
+msgstr ""
+
+#. 1: number of comments, 2: post title
+#: comments.php:38
+#, php-format
+msgctxt "comments title"
+msgid "%1$s Comment on &ldquo;%2$s&rdquo;"
+msgid_plural "%1$s Comments on &ldquo;%2$s&rdquo;"
+msgstr[0] ""
+msgstr[1] ""
+
+#: comments.php:55 comments.php:73
+msgid "Comment navigation"
+msgstr ""
+
+#: comments.php:58 comments.php:76
+msgid "Older Comments"
+msgstr ""
+
+#: comments.php:59 comments.php:77
+msgid "Newer Comments"
+msgstr ""
+
+#: comments.php:91
+msgid "Comments are closed."
+msgstr ""
+
+#. %s: post title
+#: comments.php:98 inc/template-tags.php:110
+msgid "Leave a Comment"
+msgstr ""
+
+#: comments.php:99
+#, php-format
+msgid "Leave a Comment to %s"
+msgstr ""
+
+#: comments.php:100
+msgid "Cancel"
+msgstr ""
+
+#: comments.php:101
+msgid "Post Comment"
+msgstr ""
+
+#: comments.php:103
+msgid "Start typing..."
+msgstr ""
+
+#: comments.php:121 woocommerce/single-product-reviews.php:89
+msgid "Name*"
+msgstr ""
+
+#: comments.php:125 woocommerce/single-product-reviews.php:95
+msgid "Email* (will not be published)"
+msgstr ""
+
+#: comments.php:130
+msgid "Website"
+msgstr ""
+
+#. Name of the template
+msgid "Full width image"
+msgstr ""
+
+#. Name of the template
+msgid "Blank without container"
+msgstr ""
+
+#. Name of the template
+msgid "Left Sidebar"
+msgstr ""
+
+#. %s: search query.
+#: search.php:26
+#, php-format
+msgid "Search Results for: %s"
+msgstr ""
+
+#: footer.php:101
+msgid ""
+"Cookies help us deliver our services. By using our services, you agree to "
+"our use of cookies."
+msgstr ""
+
+#: footer.php:101
+msgid "/privacy-policy"
+msgstr ""
+
+#: footer.php:101
+msgid "More Information"
+msgstr ""
+
+#: footer.php:101
+msgid "Accept"
+msgstr ""
+
+#: author.php:69
+msgid "Read more"
+msgstr ""
+
+#. Name of the template
+msgid "Full Width Image"
+msgstr ""
+
+#: searchform.php:3
+msgid "Search"
+msgstr ""
+
+#: woocommerce/single-product-reviews.php:134
+msgid "Your review...*"
+msgstr ""
+
+#: inc/comment-list.php:32
+msgid "Pingback:"
+msgstr ""
+
+#. %s: Name of current post. Only visible to screen readers
+#: inc/comment-list.php:32 inc/comment-list.php:57 inc/template-tags.php:139
+msgid "Edit"
+msgstr ""
+
+#: inc/comment-list.php:49
+#, php-format
+msgid "%s <span class=\"says d-none\">says:</span>"
+msgstr ""
+
+#: inc/comment-list.php:54
+#, php-format
+msgctxt "1: date, 2: time"
+msgid "%1$s at %2$s"
+msgstr ""
+
+#: inc/comment-list.php:64
+msgid "Your comment is awaiting moderation."
+msgstr ""
+
+#: inc/comment-list.php:111
+msgid ""
+"Save my name, email, and website in this browser for the next time I comment."
+msgstr ""
+
+#: inc/class-wp-bootstrap-navwalker.php:366
+msgid "Add a menu"
+msgstr ""
+
+#. used between list items, there is a space after the comma
+#: inc/template-tags.php:38
+msgid ", "
+msgstr ""
+
+#: inc/template-tags.php:85
+#, php-format
+msgctxt "post author"
+msgid "by %s"
+msgstr ""
+
+#: inc/template-tags.php:167
+msgid "Leave a comment"
+msgstr ""
+
+#. 1: list of tags.
+#: inc/template-tags.php:191
+#, php-format
+msgid "Tagged %1$s"
+msgstr ""
+
+#: inc/template-tags.php:256
+msgid "Internet Explorer detected"
+msgstr ""
+
+#: inc/template-tags.php:257
+msgid "This website will offer limited functionality in this browser."
+msgstr ""
+
+#: inc/template-tags.php:258
+msgid "Please use a modern and secure web browser like"
+msgstr ""
+
+#: inc/template-tags.php:258
+msgid "or"
+msgstr ""
+
+#: inc/template-tags.php:258
+msgid "to display this site correctly."
+msgstr ""
+
+#: languages/plugin-translations.php:2
+msgid "All"
+msgstr ""
+
+#: languages/plugin-translations.php:3
+msgid "Look what I found: "
+msgstr ""
+
+#: template-parts/content-none.php:14
+msgid "Nothing Found for"
+msgstr ""
+
+#. 1: link to WP admin new post page.
+#: template-parts/content-none.php:25
+#, php-format
+msgid ""
+"Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+msgstr ""
+
+#: template-parts/content-none.php:37
+msgid ""
+"Sorry, but nothing matched your search terms. Please try again with some "
+"different keywords."
+msgstr ""
+
+#: template-parts/content-none.php:43
+msgid ""
+"It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
+"searching can help."
+msgstr ""
+
+#: woocommerce/myaccount/my-account-offcanvas.php:18
+msgid "Hello"
+msgstr ""
+
+#: woocommerce/cart/mini-cart.php:118
+msgid "To find out your shipping cost , Please proceed to checkout."
+msgstr ""
+
+#: woocommerce/loop/orderby.php:27
+msgid "Shop order"
+msgstr ""
+
+#. Name of the theme
+msgid "bootScore 5"
+msgstr ""
+
+#. Description of the theme
+msgid ""
+"A powerful Bootstrap Starter Onepage or Multi-Page Theme with WooCommerce "
+"Support. Examples: https://bootscore.me/#examples, Documentation: https:"
+"//bootscore.me/category/documentation/. This theme gives you full control "
+"whatever you do and the full freedom to design whatever you want. It comes "
+"with some useful header scripts and a wide selection of category, page, post,"
+" author and archive templates as well as sidebar, header, footer and 404 "
+"widgets. A preloader is included. There are just minor customizer settings "
+"in the backend. All important settings can only be made by touching the code."
+" Some CSS, HTML, PHP and JS Skills are required to customize it completely. "
+"Make bootScore your own!"
+msgstr ""
+
+#. URI of the theme
+msgid "https://bootscore.me/"
+msgstr ""
+
+#. Author of the theme
+msgid "Bastian Kreiter"
+msgstr ""
+
+#. Author URI of the theme
+msgid "https://crftwrk.de"
+msgstr ""
