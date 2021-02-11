@@ -37,15 +37,14 @@ jQuery(document).ready(function ($) {
         $('body').removeClass('offcanvas-backdrop offcanvas-freeze offcanvas-open')
     });
 
-
     // Close offcanvas, dropdown-menu and backdrop-overlay on resize
     window.onresize = function () {
         $('.offcanvas, .dropdown-menu').removeClass('show')
         $('body').removeClass('offcanvas-backdrop offcanvas-freeze offcanvas-open')
         $('.dropdown-menu').addClass('invisible')
     }
-
-
+    
+    
     // Mobile search button hide if empty
     if ($('.searchform').length != 1) {
         $('.top-nav-search-md, .top-nav-search-lg').addClass('hide');
@@ -53,8 +52,7 @@ jQuery(document).ready(function ($) {
     if ($('.searchform').length != 0) {
         $('.top-nav-search-md, .top-nav-search-lg').removeClass('hide');
     }
-
-
+    
     // Active menu item workaround, check navwalker when ready
     var url = window.location.pathname,
         urlRegExp = new RegExp(url.replace(/\/$/, '') + "$"); // create regexp to match current url pathname and remove trailing slash if present as it could collide with the link in navigation in case trailing slash wasn't present there

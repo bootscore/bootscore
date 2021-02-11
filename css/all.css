@@ -127,6 +127,11 @@ Header
 
 }
 
+.dropdown-search.dropdown-menu {
+    right: 0;
+    left: 0;
+}
+
 /*
 To top Button
 */

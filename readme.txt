@@ -6,7 +6,7 @@ Tags: featured-images, threaded-comments, translation-ready
 Requires at least: 4.5
 Tested up to: 5.6
 Requires PHP: 5.6
-Stable tag: 5.0.0.0
+Stable tag: 5.0.0.1
 License: GNU General Public License v2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -45,6 +45,10 @@ bootScore includes support for Infinite Scroll in Jetpack.
 
 
 == Changelog ==
+
+    = 5.0.0.1 - February 11 2021 =
+    
+        * [Update] Bootstrap 5.0.0-beta-2
 
     = 5.0.0.0 - January 29 2021 =
     
