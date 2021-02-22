@@ -93,6 +93,10 @@ jQuery(document).ready(function ($) {
     if ($('.current_page_parent').hasClass('active')) {
         $('.current_page_parent .nav-link').addClass('active');
     }
+    // Remove active on search page
+    if ($('body').hasClass('search')) {
+        $('.nav-link').removeClass('active');
+    }
     // Active menu item workaround End
 
 

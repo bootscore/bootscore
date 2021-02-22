@@ -55,8 +55,9 @@ bootScore includes support for Infinite Scroll in Jetpack.
 
 == Changelog ==
 
-    = 5.0.0.2 - February 22 2021 =
+    = 5.0.0.2 - March 15 2021 =
     
+        * [BUGFIX] Remove .active from all .nav-link if page is search-result
         * [NEW] HTML Markups (Theme Unit Test Data)
         * [NEW] Language: Italiano (thnx Domenico Carbone)
         * [BUGFIX] Add overflow-x: hidden to body to hide horizontal scrollbars on Windows Chrome and Firefox if width-100 class is used.
