@@ -32,12 +32,6 @@
 
 <body <?php body_class(); ?>>
 
-    <div id="preloader" class="align-items-center justify-content-center position-fixed">
-        <div id="status" class="spinner-border text-primary" role="status">
-            <span class="sr-only">Loading...</span>
-        </div>
-    </div>
-
     <div id="to-top"></div>
 
     <div id="page" class="site">
@@ -60,10 +54,10 @@
                             <button class="btn btn-outline-secondary" type="button" id="dropdown-search" data-bs-toggle="dropdown" aria-expanded="false">
                                 <i class="fas fa-search"></i>
                             </button>
-                            <div class="dropdown-search dropdown-menu position-fixed w-100 border-0 bg-light rounded-0" aria-labelledby="dropdown-search">
+                            <div class="dropdown-search dropdown-menu position-fixed border-0 bg-light rounded-0" aria-labelledby="dropdown-search">
                                 <div class="container">
                                     <?php if ( is_active_sidebar( 'top-nav-search' )) : ?>
-                                    <div class="w-100 mb-2">
+                                    <div class="mb-2">
                                         <?php dynamic_sidebar( 'top-nav-search' ); ?>
                                     </div>
                                     <?php endif; ?>
@@ -114,10 +108,10 @@
                             <button class="btn btn-outline-secondary" type="button" id="dropdown-search" data-bs-toggle="dropdown" aria-expanded="false">
                                 <i class="fas fa-search"></i>
                             </button>
-                            <div class="dropdown-search dropdown-menu position-fixed w-100 border-0 bg-light rounded-0" aria-labelledby="dropdown-search">
+                            <div class="dropdown-search dropdown-menu position-fixed border-0 bg-light rounded-0" aria-labelledby="dropdown-search">
                                 <div class="container">
                                     <?php if ( is_active_sidebar( 'top-nav-search' )) : ?>
-                                    <div class="w-100 mb-2">
+                                    <div class="mb-2">
                                         <?php dynamic_sidebar( 'top-nav-search' ); ?>
                                     </div>
                                     <?php endif; ?>

@@ -45,7 +45,7 @@
 
                 </div>
 
-                <footer class="entry-footer">
+                <footer class="entry-footer clear-both">
                     <p><?php bootscore_tags(); ?></p>
 
                     <nav aria-label="Page navigation example">

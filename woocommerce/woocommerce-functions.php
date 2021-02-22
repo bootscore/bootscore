@@ -37,7 +37,7 @@ add_action( 'after_setup_theme', 'register_ajax_cart' );
 function wc_scripts() {
 
 	// WooCommerce CSS	
-	wp_enqueue_style( 'woocommerce', get_template_directory_uri() . '/woocommerce/style.css');
+	wp_enqueue_style( 'woocommerce', get_template_directory_uri() . '/woocommerce/css/woocommerce-style.css');
 	
 	// WooCommerce JS
 	wp_enqueue_script( 'woocommerce-script', get_template_directory_uri() . '/woocommerce/js/woocommerce.js', array(), '20151215', true );

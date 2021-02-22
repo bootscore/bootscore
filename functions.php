@@ -235,19 +235,12 @@ add_filter( 'widget_text', 'do_shortcode' );
 // Shortcode in HTML-Widget End
 
 
-
 /**
  * Enqueue scripts and styles.
  */
 function bootscore_scripts() {
 	// Style CSS
 	wp_enqueue_style( 'bootscore-style', get_stylesheet_uri() );
-    
-    // All CSS to collect files via @import
-	wp_enqueue_style( 'all', get_template_directory_uri() . '/css/all.css');
-    
-    // Enqueue preloader. Using a minification plugin like JCH Optimize, Autoptimize or WP-rocket select to load not in footer.
-	wp_enqueue_style( 'preloader', get_template_directory_uri() . '/css/theme-preloader.css');
 
 	// Bootstrap	
 	wp_enqueue_style( 'bootstrap', get_template_directory_uri() . '/css/lib/bootstrap.min.css');
@@ -258,9 +251,6 @@ function bootscore_scripts() {
 	// Theme JS
 	wp_enqueue_script( 'bootscore-script', get_template_directory_uri() . '/js/theme.js', array(), '20151215', true );
     
-    // Theme Header JS
-	wp_enqueue_script( 'bootscore-header-script', get_template_directory_uri() . '/js/theme-header.js', array(), '20151215', true );
-	
 	// Bootstrap JS
 	wp_enqueue_script( 'bootstrap', get_template_directory_uri() . '/js/lib/bootstrap.bundle.min.js', array(), '20151215', true );
 	
@@ -271,6 +261,16 @@ function bootscore_scripts() {
 add_action( 'wp_enqueue_scripts', 'bootscore_scripts' );
 
 
+// Add <link rel=preload> to Fontawesome
+add_filter('style_loader_tag', 'wpse_231597_style_loader_tag');
+
+function wpse_231597_style_loader_tag($tag){
+
+    $tag = preg_replace("/id='font-awesome-css'/", "id='font-awesome-css' online=\"if(media!='all')media='all'\"", $tag);
+
+    return $tag;
+}
+// Add <link rel=preload> to Fontawesome End
 
 
 /**
@@ -407,7 +407,6 @@ add_filter( 'comment_form_defaults', 'bootscore_comment_form' );
 function bootscore_pw_form () {
 	$output = '
 		  <form action="'.get_option('siteurl').'/wp-login.php?action=postpass" method="post" class="form-inline">'."\n"
-		//.'<label for="post_password">Bitte Passwort eingeben:</label>'."\n"
 		.'<input name="post_password" type="password" size="" class="form-control me-2 my-1" placeholder="' . __('Password', 'bootscore') . '"/>'."\n"
 		.'<input type="submit" class="btn btn-outline-primary my-1" name="Submit" value="' . __('Submit', 'bootscore') . '" />'."\n"
 		.'</p>'."\n"
@@ -443,3 +442,14 @@ function bs_after_primary() {
     do_action('bs_after_primary');
 } 
 // Hook after #primary End
+
+
+// Open links in comments in new tab
+if ( ! function_exists( 'bs_comment_links_in_new_tab' ) ) :
+    function bs_comment_links_in_new_tab($text) 
+    {
+        return str_replace('<a', '<a target="_blank" rel=”nofollow”', $text);
+    }
+    add_filter('comment_text', 'bs_comment_links_in_new_tab');
+endif;
+// Open links in comments in new tab

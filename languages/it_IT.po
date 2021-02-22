@@ -1,0 +1,425 @@
+# Copyright (C) 2017 Automattic
+# This file is distributed under the GNU General Public License v2 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: _s 1.0.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/tags/_s\n"
+"POT-Creation-Date: 2021-01-09 11:33+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2021-02-20 06:37+0000\n"
+"Last-Translator: \n"
+"Language-Team: Italiano\n"
+"X-Generator: Loco https://localise.biz/\n"
+"Language: it_IT\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Loco-Version: 2.5.0; wp-5.6.1"
+
+#: single-sidebar-none.php:25 single-full-width-image.php:35 single.php:26
+#: single-sidebar-left.php:28
+msgid " by "
+msgstr " da "
+
+#: inc/comment-list.php:49
+#, php-format
+msgid "%s <span class=\"says d-none\">says:</span>"
+msgstr "%s <span class=\"says d-none\">dice:</span>"
+
+#. used between list items, there is a space after the comma
+#: inc/template-tags.php:38
+msgid ", "
+msgstr ", "
+
+#: languages/plugin-translations.php:5
+msgid "/privacy-policy"
+msgstr "/privacy-policy"
+
+#: inc/comment-list.php:54
+#, php-format
+msgctxt "1: date, 2: time"
+msgid "%1$s at %2$s"
+msgstr "%1$s alle %2$s"
+
+#: functions.php:214
+msgid "404 Page"
+msgstr "Errore 404"
+
+#. Description of the theme
+msgid ""
+"A powerful Bootstrap Starter Onepage or Multi-Page Theme with WooCommerce "
+"Support. Examples: https://bootscore.me/#examples, Documentation: https:"
+"//bootscore.me/category/documentation/. This theme gives you full control "
+"whatever you do and the full freedom to design whatever you want. It comes "
+"with some useful header scripts and a wide selection of category, page, post,"
+" author and archive templates as well as sidebar, header, footer and 404 "
+"widgets. A preloader is included. There are just minor customizer settings "
+"in the backend. All important settings can only be made by touching the code."
+" Some CSS, HTML, PHP and JS Skills are required to customize it completely. "
+"Make bootScore your own!"
+msgstr ""
+"Un potente Bootstrap Starter Onepage o Multi-Page Theme con supporto "
+"WooCommerce. Esempi: https://bootscore.me/#examples, Documentazione: https:"
+"//bootscore.me/category/documentation/. Questo tema ti offre il controllo "
+"completo su tutto quello che fai e la libert&agrave; di modificare il layout "
+"a tuo piacimento. Comprende una serie di script utili per le testate e "
+"un&rsquo;ampia selezione di template per le categorie, le pagine, gli "
+"articoli, gli autori e gli archivi, nonch&egrave; barre latarali, testate, "
+"pi&egrave; di pagina e pagine errore 404. Un preloader animato &egrave; "
+"incluso. Nel pannello di controllo ci sono solo delle impostazioni di "
+"personalizzazione minori. Le modifiche pi&ugrave; importanti possono essere "
+"fatte manipolando il codice. Per una completa personalizzazione sono "
+"richieste competenze di CSS, HTML, PHP e JS. Ottieni la tua copia di "
+"bootScore!"
+
+#: languages/plugin-translations.php:7
+msgid "Accept"
+msgstr "Accetto"
+
+#: functions.php:120 functions.php:132 functions.php:144 functions.php:156
+#: functions.php:168 functions.php:180 functions.php:192 functions.php:204
+#: functions.php:216
+msgid "Add widgets here."
+msgstr "Aggiungi i widget qui."
+
+#: languages/plugin-translations.php:2
+msgid "All"
+msgstr "Tutto"
+
+#: 404.php:27
+msgid "Back Home &raquo;"
+msgstr "Torna alla home &raquo;"
+
+#. Author of the theme
+msgid "Bastian Kreiter"
+msgstr "Bastian Kreiter"
+
+#. Name of the template
+msgid "Blank with container"
+msgstr "Vuoto con container"
+
+#. Name of the template
+msgid "Blank without container"
+msgstr "Vuoto senza container"
+
+#. Name of the theme
+msgid "bootScore 5"
+msgstr "bootScore 5"
+
+#: comments.php:100
+msgid "Cancel"
+msgstr "Annulla"
+
+#: header-woocommerce.php:173
+msgid "Cart"
+msgstr "Carrello"
+
+#: header-woocommerce.php:135
+msgid "Close account"
+msgstr "Chiudi"
+
+#: header.php:92 header-woocommerce.php:90
+msgid "Close menu"
+msgstr "Chiudi menu"
+
+#: comments.php:55 comments.php:73
+msgid "Comment navigation"
+msgstr "Navigazione commenti"
+
+#: comments.php:91
+msgid "Comments are closed."
+msgstr "I commenti sono chiusi."
+
+#. 1: number of comments, 2: post title
+#: comments.php:38
+#, php-format
+msgctxt "comments title"
+msgid "%1$s Comment on &ldquo;%2$s&rdquo;"
+msgid_plural "%1$s Comments on &ldquo;%2$s&rdquo;"
+msgstr[0] "%1$s commento su &ldquo;%2$s&rdquo;"
+msgstr[1] "%1$s commenti su &ldquo;%2$s&rdquo;"
+
+#. %s: post title
+#: comments.php:34
+#, php-format
+msgctxt "comments title"
+msgid "One Comment &ldquo;%s&rdquo;"
+msgstr "Un commento &ldquo;%s&rdquo;"
+
+#: header-woocommerce.php:162
+msgid "Continue shopping"
+msgstr "Continua gli acquisti"
+
+#: languages/plugin-translations.php:4
+msgid ""
+"Cookies help us deliver our services. By using our services, you agree to "
+"our use of cookies."
+msgstr ""
+"I cookie ci aiutano a fornire i nostri servizi. Utilizzando i nostri servizi,"
+" accetti l&rsquo;utilizzo dei cookie."
+
+#. %s: Name of current post. Only visible to screen readers
+#: inc/template-tags.php:139 inc/comment-list.php:32 inc/comment-list.php:57
+msgid "Edit"
+msgstr "Modifica"
+
+#: comments.php:125 woocommerce/single-product-reviews.php:95
+msgid "Email* (will not be published)"
+msgstr "Email* (non sarà pubblicata)"
+
+#: functions.php:166
+msgid "Footer 1"
+msgstr "Piè di pagina 1"
+
+#: functions.php:178
+msgid "Footer 2"
+msgstr "Piè di pagina 2"
+
+#: functions.php:190
+msgid "Footer 3"
+msgstr "Piè di pagina 3"
+
+#: functions.php:202
+msgid "Footer 4"
+msgstr "Piè di pagina 4"
+
+#: functions.php:66
+msgid "Footer Menu"
+msgstr "Menu piè di pagina"
+
+#. Name of the template
+msgid "Full Width Image"
+msgstr "Immagine a tutta larghezza"
+
+#. Name of the template
+msgid "Full width image"
+msgstr "Immagine a tutta larghezza"
+
+#: woocommerce/myaccount/my-account-offcanvas.php:17
+msgid "Hello"
+msgstr "Ciao"
+
+#: woocommerce/myaccount/my-account-offcanvas.php:22
+msgid ""
+"Here you can view your recent orders, manage your shipping and billing "
+"addresses, and edit your password and account details."
+msgstr ""
+"Qui uoi visualizzare i tuoi ordini recenti, gestire i tuoi indirizzi di "
+"spedizione e fatturazione, modificare la password e le informazioni del tuo "
+"accuont."
+
+#. URI of the theme
+msgid "https://bootscore.me/"
+msgstr "https://bootscore.me/"
+
+#. Author URI of the theme
+msgid "https://crftwrk.de"
+msgstr "https://crftwrk.de"
+
+#: inc/template-tags.php:256
+msgid "Internet Explorer detected"
+msgstr "Rilevato Internet Explorer"
+
+#: template-parts/content-none.php:43
+msgid ""
+"It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
+"searching can help."
+msgstr ""
+"Non abbiamo trovato quello che cerchi. Forse una ricerca potrebbe aiutare."
+
+#. %s: post title
+#: comments.php:98 inc/template-tags.php:110
+msgid "Leave a Comment"
+msgstr "Lascia un Commento"
+
+#: inc/template-tags.php:167
+msgid "Leave a comment"
+msgstr "Lascia un commento"
+
+#: comments.php:99
+#, php-format
+msgid "Leave a Comment to %s"
+msgstr "Lascia un Commento su %s"
+
+#. Name of the template
+msgid "Left Sidebar"
+msgstr "Barra laterale a sinistra"
+
+#: languages/plugin-translations.php:3
+msgid "Look what I found: "
+msgstr "Guarda cosa ho trovato:"
+
+#: functions.php:65
+msgid "Main Menu"
+msgstr "Menu principale"
+
+#: languages/plugin-translations.php:6
+msgid "More Information"
+msgstr "Maggiori informazioni"
+
+#: comments.php:121 woocommerce/single-product-reviews.php:89
+msgid "Name*"
+msgstr "Nome*"
+
+#: comments.php:59 comments.php:77
+msgid "Newer Comments"
+msgstr "Nuovi commenti"
+
+#. Name of the template
+msgid "No Sidebar"
+msgstr "Senza sidebar"
+
+#: template-parts/content-none.php:14
+msgid "Nothing Found for"
+msgstr "Nessun risultato per"
+
+#: comments.php:58 comments.php:76
+msgid "Older Comments"
+msgstr "Vecchi commenti"
+
+#: inc/template-tags.php:258
+msgid "or"
+msgstr "o"
+
+#: 404.php:22
+msgid "Page not found."
+msgstr "Pagina non trovata."
+
+#: page.php:40 page-blank-without-container.php:21 page-sidebar-none.php:30
+#: page-sidebar-left.php:35 page-blank-with-container.php:21
+msgid "Pages:"
+msgstr "Pagine:"
+
+#: functions.php:405
+msgid "Password"
+msgstr "Password"
+
+#: inc/comment-list.php:32
+msgid "Pingback:"
+msgstr "Pingback:"
+
+#: inc/template-tags.php:258
+msgid "Please use a modern and secure web browser like"
+msgstr "Ti consigliamo di utilizzare un browser moderno e sicuro come"
+
+#: inc/template-tags.php:85
+#, php-format
+msgctxt "post author"
+msgid "by %s"
+msgstr "da %s"
+
+#: comments.php:101
+msgid "Post Comment"
+msgstr "Commenta l&rsquo;articolo"
+
+#: author.php:69
+msgid "Read more"
+msgstr "Leggi tutto"
+
+#: category-equal-height.php:59 category-sidebar-left.php:60
+#: author-masonry.php:69 archive.php:60 author-equal-height.php:69
+#: archive-sidebar-left.php:62 archive-equal-height-sidebar-right.php:59
+#: category.php:58 archive-equal-height.php:59 index.php:78 index.php:134
+#: category-masonry.php:59 author-sidebar-left.php:72
+#: author-equal-height-sidebar-right.php:69 archive-masonry.php:59
+#: category-equal-height-sidebar-right.php:60
+#: template-parts/content-search.php:42
+msgid "Read more »"
+msgstr "Leggi tutto »"
+
+#. 1: link to WP admin new post page.
+#: template-parts/content-none.php:25
+#, php-format
+msgid ""
+"Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+msgstr ""
+"Pronto a pubblicare il tuo primo articolo? <a href=\"%1$s\">Inizia da qui</a>"
+"."
+
+#: inc/comment-list.php:111
+msgid ""
+"Save my name, email, and website in this browser for the next time I comment."
+msgstr ""
+"Memorizza il mio nome, email e sito web su questo browser per i prossimi "
+"commenti."
+
+#: searchform.php:3
+msgid "Search"
+msgstr "Cerca"
+
+#. %s: search query.
+#: search.php:26
+#, php-format
+msgid "Search Results for: %s"
+msgstr "Risultati della ricerca per: %s"
+
+#: woocommerce/loop/orderby.php:27
+msgid "Shop order"
+msgstr "Ordine shop"
+
+#: functions.php:142
+msgid "Sidebar"
+msgstr "Barra laterale"
+
+#. Name of the template
+msgid "Sidebar left"
+msgstr "Barra laterale a sinistra"
+
+#: template-parts/content-none.php:37
+msgid ""
+"Sorry, but nothing matched your search terms. Please try again with some "
+"different keywords."
+msgstr ""
+"Spiacenti, nessun contenuto corrisponde ai termini di ricerca inseriti. "
+"Riprova utilizzando parole chiave differenti."
+
+#: comments.php:103
+msgid "Start typing..."
+msgstr "Digita..."
+
+#: functions.php:406
+msgid "Submit"
+msgstr "Invia"
+
+#. 1: list of tags.
+#: inc/template-tags.php:191
+#, php-format
+msgid "Tagged %1$s"
+msgstr "Taggato %1$s"
+
+#: inc/template-tags.php:257
+msgid "This website will offer limited functionality in this browser."
+msgstr ""
+"Utilizzando questo browser il sito avrà delle limitazioni alle funzionalità."
+
+#: inc/template-tags.php:258
+msgid "to display this site correctly."
+msgstr "per visualizzare correttamente il sito."
+
+#: woocommerce/cart/mini-cart.php:118
+msgid "To find out your shipping cost , Please proceed to checkout."
+msgstr "Per conoscere le spese di spedizione, procedi con l&rsquo;ordine."
+
+#: functions.php:154
+msgid "Top Footer"
+msgstr "Sopra il footer"
+
+#: functions.php:118
+msgid "Top Nav"
+msgstr "Navigazione superiore"
+
+#: functions.php:130
+msgid "Top Nav Search"
+msgstr "Ricerca navigazione superiore"
+
+#: comments.php:130
+msgid "Website"
+msgstr "Sito web"
+
+#: inc/comment-list.php:64
+msgid "Your comment is awaiting moderation."
+msgstr "Il tuo commento è in attessa di moderazione."
+
+#: woocommerce/single-product-reviews.php:134
+msgid "Your review...*"
+msgstr "La tua recensione...*"

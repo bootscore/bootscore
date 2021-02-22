@@ -4,7 +4,7 @@ Theme URI: https://bootscore.me/
 Author: Bastian Kreiter
 Author URI: https://crftwrk.de
 Description: A powerful Bootstrap Starter Onepage or Multi-Page Theme with WooCommerce Support. <a href="https://bootscore.me/category/documentation/" target="_blank">Documentation</a>. This theme gives you full control whatever you do and the full freedom to design whatever you want. It comes with a wide selection of category, page, post, author and archive templates as well as sidebar, header, footer and 404 widgets. A preloader is included. There are no customizer settings in the backend. All settings can only be made by touching the code. Some CSS, HTML, PHP and JS Skills are required to customize it completely. Make bootScore your own!
-Version: 5.0.0.1
+Version: 5.0.0.2
 License: GNU General Public License v2 or later
 License URI: LICENSE
 Text Domain: bootscore
@@ -19,3 +19,919 @@ Underscores is distributed under the terms of the GNU GPL v2 or later.
 Normalizing styles have been helped along thanks to the fine work of
 Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 */
+
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+1.  Temporary Offcanvas (will be removed when official Bootstrap Offcanvas component is ready)
+2.  Temporary Badges (fixes Bootstrap hover state if badge is wrapped in a <a>...</a> tag)
+3.  Header
+4.  Body
+5.  Alerts
+6.  Breadcrumb
+7.  To Top Button
+8.  Single Post
+9.  Comments
+10. Archive
+11. Widgets
+12. Utilities
+13. Colors
+14. HTML Markups (Theme Unit Test Data)
+--------------------------------------------------------------*/
+
+
+
+/*--------------------------------------------------------------
+1. Temporary Offcanvas
+--------------------------------------------------------------*/
+
+.offcanvas.show {
+    transform: none;
+    transition: transform .3s ease-in-out;
+}
+
+.offcanvas-freeze {
+    overflow: hidden !important;
+    height: 100vh;
+}
+
+.backdrop-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1030;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: all .4s ease-in-out;
+}
+
+body.offcanvas-backdrop .backdrop-overlay {
+    opacity: 1;
+    visibility: visible;
+}
+
+.offcanvas.expand-xs.show {
+    transform: none;
+    transition: transform .3s ease-in-out;
+}
+
+.offcanvas.expand-xs {
+    position: fixed;
+    bottom: 0;
+    z-index: 1040;
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+    color: currentColor;
+    background-color: #fff;
+}
+
+.offcanvas-header.expand-xs {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+    align-items: center;
+    cursor: pointer;
+}
+
+.offcanvas-body.expand-xs {
+    padding: 1rem;
+    overflow-y: auto;
+}
+
+.offcanvas-left.expand-xs {
+    top: 0;
+    left: 0;
+    width: 400px;
+    transform: translateX(-100%);
+    transition: transform .3s ease-in-out;
+}
+
+.offcanvas-right.expand-xs {
+    top: 0;
+    right: 0;
+    width: 400px;
+    transform: translateX(100%);
+    transition: transform .3s ease-in-out;
+}
+
+.offcanvas-bottom.expand-xs {
+    right: 0;
+    left: 0;
+    height: 400px;
+    max-height: 100%;
+    transform: translateY(100%);
+    transition: transform .3s ease-in-out;
+}
+
+/* Hide offcanvas header in expanded navbar */
+@media (min-width: 992px) {
+    .offcanvas-header.expand-lg {
+        display: none;
+    }
+}
+
+@media (max-width: 991px) {
+
+    .offcanvas.expand-lg.show {
+        transform: none;
+        transition: transform .3s ease-in-out;
+    }
+
+    .offcanvas.expand-lg {
+        position: fixed;
+        bottom: 0;
+        z-index: 1040;
+        display: flex;
+        flex-direction: column;
+        max-width: 100%;
+        color: currentColor;
+        background-color: #fff;
+    }
+
+    .offcanvas-header.expand-lg {
+        display: flex;
+        justify-content: space-between;
+        padding: 1rem;
+        align-items: center;
+        cursor: pointer;
+    }
+
+    .offcanvas-body.expand-lg {
+        padding: 1rem;
+        overflow-y: auto;
+    }
+
+    .offcanvas-left.expand-lg {
+        top: 0;
+        left: 0;
+        width: 400px;
+        transform: translateX(-100%);
+        transition: transform .3s ease-in-out;
+    }
+
+    .offcanvas-right.expand-lg {
+        top: 0;
+        right: 0;
+        width: 400px;
+        transform: translateX(100%);
+        transition: transform .3s ease-in-out;
+    }
+
+    .offcanvas-bottom.expand-lg {
+        right: 0;
+        left: 0;
+        height: 400px;
+        max-height: 100%;
+        transform: translateY(100%);
+        transition: transform .3s ease-in-out;
+    }
+
+}
+
+.offcanvas-header {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1;
+}
+
+@media (max-width: 991px) {
+    #offcanvas-menu-right .offcanvas-body {
+        margin-top: 56px;
+    }
+}
+
+
+
+/*--------------------------------------------------------------
+2. Temporary Badges
+--------------------------------------------------------------*/
+
+.badge.bg-light,
+.badge.bg-warning,
+.badge.bg-info {
+    color: currentColor;
+}
+
+.badge.bg-secondary:hover,
+.badge.bg-primary:hover,
+.badge.bg-danger:hover,
+.badge.bg-sussess:hover,
+.badge.bg-dark:hover {
+    color: #fff;
+}
+
+.badge.bg-info:hover,
+.badge.bg-warning:hover,
+.badge.bg-light:hover {
+    color: currentColor;
+}
+
+a.badge,
+a.badge:hover {
+    text-decoration: none;
+}
+
+
+
+/*--------------------------------------------------------------
+3. Header
+--------------------------------------------------------------*/
+
+@media (max-width: 782px) {
+
+    .logged-in.admin-bar .fixed-top,
+    .logged-in.admin-bar .offcanvas {
+        top: 46px;
+    }
+
+    .logged-in.admin-bar .dropdown-search {
+        top: 100px !important;
+    }
+
+    #wpadminbar {
+        position: fixed;
+    }
+}
+
+@media (min-width: 783px) {
+
+    .logged-in.admin-bar .fixed-top,
+    .logged-in.admin-bar .offcanvas {
+        top: 32px;
+    }
+
+    .logged-in.admin-bar .dropdown-search {
+        top: 86px !important;
+    }
+}
+
+#nav-main .menu-item:last-child .nav-link {
+    padding-right: 0;
+}
+
+.dropdown-search.dropdown-menu {
+    top: 54px;
+}
+
+.top-nav-search-md.hide,
+.top-nav-search-lg.hide {
+    display: none !important;
+}
+
+.dropdown-search .searchform {
+    opacity: 0;
+    transition: opacity .8s;
+    transition-delay: .3s;
+}
+
+.dropdown-search.show .searchform {
+    opacity: 1;
+}
+
+.dropdown-search.dropdown-menu {
+    left: 0;
+    right: 0;
+}
+
+@media (max-width: 991px) {
+
+    .navbar-toggler.right,
+    .btn-dropdown.right {
+        padding-right: 0;
+        border: none;
+    }
+
+    .navbar-toggler.right:focus {
+        box-shadow: none;
+    }
+
+    #dropdown-search:hover {
+        color: currentColor;
+        background-color: transparent;
+        border-color: transparent;
+    }
+
+    #dropdown-search:focus {
+        box-shadow: none;
+    }
+
+}
+
+
+
+/*--------------------------------------------------------------
+4. Body
+--------------------------------------------------------------*/
+
+body {
+    position: relative;
+    word-break: break-word;
+}
+
+/* conflict scroll-behaviour: smooth with jquery smooth scroll */
+html {
+    scroll-behavior: auto !important;
+}
+
+::-moz-selection {
+    text-shadow: none;
+}
+
+::selection {
+    text-shadow: none;
+}
+
+#content {
+    min-height: 600px;
+}
+
+
+
+/*--------------------------------------------------------------
+5. Alerts
+--------------------------------------------------------------*/
+
+.alert.alert-danger,
+.alert.alert-warning,
+.alert.alert-info,
+.alert.alert-success {
+    padding-left: 3.25rem;
+}
+
+.alert::before {
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    position: absolute;
+    left: 1.25rem;
+    top: 50%;
+    transform: translate(0, -50%);
+}
+
+.alert-danger::before {
+    content: "\f071";
+}
+
+.alert-warning::before {
+    content: "\f06a";
+}
+
+.alert-info::before {
+    content: "\f05a";
+}
+
+.alert-success::before {
+    content: "\f058";
+}
+
+
+
+/*--------------------------------------------------------------
+6. Breadcrumb
+--------------------------------------------------------------*/
+
+@media (max-width: 991px) {
+
+    .breadcrumb {
+        display: block !important;
+        white-space: nowrap;
+        overflow-x: scroll;
+        overflow-y: hidden;
+        -ms-overflow-style: none;
+        overflow: -moz-scrollbars-none;
+        scrollbar-width: none;
+    }
+
+    .breadcrumb::-webkit-scrollbar {
+        display: none;
+    }
+
+}
+
+
+
+/*--------------------------------------------------------------
+7. To Top Button
+--------------------------------------------------------------*/
+
+#to-top {
+    height: 0;
+    position: absolute;
+    top: 0
+}
+
+.top-button {
+    position: fixed;
+    right: 5%;
+    bottom: 30px;
+    opacity: 0;
+    transition: opacity 1s;
+    z-index: 1020;
+}
+
+.top-button.visible {
+    opacity: 1;
+    transition: opacity 1s
+}
+
+
+
+/*--------------------------------------------------------------
+8. Single Post
+--------------------------------------------------------------*/
+
+img {
+    height: auto;
+    max-width: 100%;
+}
+
+.wp-post-image {
+    width: 100%;
+}
+
+.page-image img,
+.post-image img {
+    width: 100%;
+    object-fit: contain;
+    height: auto;
+}
+
+#featured-full-image {
+    background-size: cover;
+    background-position: 50%;
+    background-repeat: no-repeat;
+}
+
+[rel="prev"]:before {
+    content: "« ";
+}
+
+[rel="next"]:after {
+    content: " »";
+}
+
+
+
+/*--------------------------------------------------------------
+9. Comments
+--------------------------------------------------------------*/
+
+ul.comment-list {
+    list-style: none;
+    padding: 0;
+}
+
+ul.comment-list li {
+    list-style: none;
+}
+
+@media (max-width: 991px) {
+
+    .col.avatar {
+        max-width: 80px;
+    }
+
+    .comment-list ul.children {
+        padding-left: 80px;
+    }
+
+    .comment-list ul.children ul.children {
+        padding-left: 0;
+    }
+}
+
+@media (min-width: 992px) {
+
+    .col.avatar {
+        max-width: 128px;
+    }
+
+    .comment-list ul.children,
+    .comment-list ul.children ul.children {
+        padding-left: 128px;
+    }
+
+    .comment-list ul.children ul.children ul.children {
+        padding-left: 0;
+    }
+
+}
+
+.screen-reader-text {
+    clip: rect(1px, 1px, 1px, 1px);
+    position: absolute !important;
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+    word-wrap: normal !important;
+}
+
+#cancel-comment-reply-link {
+    margin-left: 1rem;
+}
+
+@media (max-width: 1199px) {
+    #comments pre {
+        white-space: break-spaces;
+    }
+}
+
+
+
+/*--------------------------------------------------------------
+10. Archive
+--------------------------------------------------------------*/
+
+@media (max-width: 767px) {
+    .card-img-left img {
+        border-top-left-radius: calc(.25rem - 1px);
+        border-top-right-radius: calc(.25rem - 1px);
+        width: 100%;
+        height: auto;
+    }
+}
+
+@media (min-width: 768px) {
+    .card-img-left img {
+        border-top-left-radius: calc(.25rem - 1px);
+        border-bottom-left-radius: calc(.25rem - 1px);
+        object-fit: cover;
+        height: 100%;
+        width: 100%;
+    }
+}
+
+@media (max-width: 991px) {
+    .card-img-left-md img {
+        border-top-left-radius: calc(.25rem - 1px);
+        border-top-right-radius: calc(.25rem - 1px);
+        width: 100%;
+        height: auto;
+    }
+}
+
+@media (min-width: 992px) {
+    .card-img-left-md img {
+        border-top-left-radius: calc(.25rem - 1px);
+        border-bottom-left-radius: calc(.25rem - 1px);
+        object-fit: cover;
+        height: 100%;
+        width: 100%;
+    }
+}
+
+
+
+/*--------------------------------------------------------------
+11. Widgets
+--------------------------------------------------------------*/
+
+.widget-area ul,
+.bootscore-footer ul {
+    padding: 0;
+    list-style: none;
+    margin-bottom: 0;
+}
+
+.widget-area ul li ul li {
+    padding: 0 1rem;
+}
+
+#footer-menu ul li a {
+    padding-left: 0;
+}
+
+
+
+/*--------------------------------------------------------------
+12. Utilities
+--------------------------------------------------------------*/
+
+/* 
+Add width-100 class to element to stretch it to the entire width 
+of the screen when element is in .container.
+https://bootscore.me/documentation/width-height-classes/
+*/
+
+/* Hide horizontal scrollbars on Windows Chrome & Firefox */
+body {
+    overflow-x: hidden;
+}
+
+.width-100 {
+    position: relative;
+    width: 100vw;
+    margin-left: -50vw;
+    left: 50%;
+}
+
+/* 
+Add underline-0 class to <a>..</a> to disable underline on hover
+*/
+.underline-0,
+.underline-0:hover,
+.underline-0:focus {
+    text-decoration: none !important;
+}
+
+/* 
+Hide racaptcha v3 badge 
+*/
+.grecaptcha-badge {
+    display: none !important;
+}
+
+
+.clear-both {
+    clear: both;
+}
+
+
+
+
+/*--------------------------------------------------------------
+13. Colors
+--------------------------------------------------------------*/
+
+.backdrop-overlay {
+    background-color: rgba(0, 0, 0, .5);
+    backdrop-filter: grayscale(100%) blur(7px);
+    -webkit-backdrop-filter: grayscale(100%) blur(7px);
+}
+
+::-moz-selection {
+    color: #fff;
+    background-color: var(--bs-primary);
+}
+
+::selection {
+    color: #fff;
+    background-color: var(--bs-primary);
+}
+
+pre {
+    background-color: var(--bs-light);
+}
+
+blockquote {
+    background-color: var(--bs-light);
+}
+
+q {
+    background-color: var(--bs-light);
+}
+
+:focus {
+    outline: none !important;
+    outline: -webkit-focus-ring-color none !important;
+    outline-color: -webkit-focus-ring-color none !important;
+    outline-style: none !important;
+    outline-width: 0 !important;
+}
+
+
+
+/*--------------------------------------------------------------
+14. HTML Markups (Theme Unit Test Data)
+--------------------------------------------------------------*/
+
+/*
+pre
+*/
+
+pre {
+    padding: 1rem;
+    border-radius: .25rem;
+}
+
+
+img {
+    height: auto;
+    max-width: 100%;
+}
+
+.wp-post-image {
+    width: 100%;
+}
+
+iframe {
+    max-width: 100%;
+}
+
+pre {
+    font-family: "Courier 10 Pitch", Courier, monospace;
+    font-size: 15px;
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    margin-bottom: 1.6em;
+    max-width: 100%;
+    overflow: auto;
+    padding: 1.6em;
+    border-radius: .25rem;
+}
+
+blockquote {
+    border-radius: .25rem;
+    padding: 1.25rem;
+}
+
+blockquote::before {
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    content: "\f10d";
+    font-size: xx-large;
+    float: left;
+    margin: -.1rem 1.25rem 0 0;
+}
+
+
+.wp-block-quote.is-style-large {
+    margin: 0 0 1rem;
+    padding: 1.25rem;
+}
+
+
+figure.wp-block-pullquote blockquote:before {
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    content: "\f10d";
+    font-size: xx-large;
+    display: block;
+    float: none;
+}
+
+q {
+    padding: .2rem .4rem;
+    font-size: 87.5%;
+    border-radius: .2rem;
+}
+
+q::before {
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    content: "\f10d";
+    font-size: 87.5%;
+    margin-right: .5rem;
+}
+
+.comment-content.card-block blockquote {
+    padding: 0;
+}
+
+.comment-content.card-block q {
+    padding: 0;
+    font-size: 100%;
+}
+
+
+/* Button Reset */
+
+.wp-block-button {
+    margin-bottom: none;
+}
+
+
+
+.wp-block-button__link {
+    background-color: none !important;
+    border: none;
+    border-radius: none;
+    box-shadow: none;
+    color: inherit;
+    cursor: pointer;
+    display: inline-block;
+    font-size: none;
+    margin: 0;
+    padding: none;
+    text-align: center;
+    text-decoration: none;
+    white-space: normal;
+    overflow-wrap: break-word;
+}
+
+
+/*--------------------------------------------------------------
+# Alignments
+--------------------------------------------------------------*/
+
+.alignleft {
+    display: inline;
+    float: left;
+    margin-right: 1.5em;
+}
+
+.alignright {
+    display: inline;
+    float: right;
+    margin-left: 1.5em;
+}
+
+.aligncenter {
+    clear: both;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/*--------------------------------------------------------------
+## Galleries
+--------------------------------------------------------------*/
+
+.gallery {
+    margin-bottom: 1.5em;
+}
+
+.gallery-item {
+    display: inline-block;
+    text-align: center;
+    vertical-align: top;
+    width: 100%;
+}
+
+.gallery-columns-2 .gallery-item {
+    max-width: 50%;
+}
+
+.gallery-columns-3 .gallery-item {
+    max-width: 33.33%;
+}
+
+.gallery-columns-4 .gallery-item {
+    max-width: 25%;
+}
+
+.gallery-columns-5 .gallery-item {
+    max-width: 20%;
+}
+
+.gallery-columns-6 .gallery-item {
+    max-width: 16.66%;
+}
+
+.gallery-columns-7 .gallery-item {
+    max-width: 14.28%;
+}
+
+.gallery-columns-8 .gallery-item {
+    max-width: 12.5%;
+}
+
+.gallery-columns-9 .gallery-item {
+    max-width: 11.11%;
+}
+
+.gallery-caption {
+    display: block;
+}
+
+/*--------------------------------------------------------------
+## Captions
+--------------------------------------------------------------*/
+.wp-caption {
+    margin-bottom: 1.5em;
+    max-width: 100%;
+}
+
+.wp-caption img[class*="wp-image-"] {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.wp-caption .wp-caption-text {
+    margin: 0.8075em 0;
+}
+
+.wp-caption-text {
+    text-align: center;
+}
+
+
+.blocks-gallery-grid .blocks-gallery-image figcaption,
+.blocks-gallery-grid .blocks-gallery-item figcaption,
+.wp-block-gallery .blocks-gallery-image figcaption,
+.wp-block-gallery .blocks-gallery-item figcaption {
+    overflow: auto;
+    padding: .5rem;
+    font-size: 1rem;
+    background: rgba(0, 0, 0, .5);
+    backdrop-filter: grayscale(100%) blur(7px);
+    -webkit-backdrop-filter: grayscale(100%) blur(7px);
+}
+
+/*--------------------------------------------------------------
+## Comments
+--------------------------------------------------------------*/
+.comment-content a {
+    word-wrap: break-word;
+}
+
+.bypostauthor {
+    display: block;
+}

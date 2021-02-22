@@ -37,7 +37,7 @@
                 <?php the_content(); ?>
             </div>
 
-            <footer class="entry-footer">
+            <footer class="entry-footer clear-both">
                 <!-- Tags & Edit Link -->
                 <p>
                     <?php bootscore_tags(); ?>

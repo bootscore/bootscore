@@ -6,7 +6,7 @@ Tags: featured-images, threaded-comments, translation-ready
 Requires at least: 4.5
 Tested up to: 5.6
 Requires PHP: 5.6
-Stable tag: 5.0.0.1
+Stable tag: 5.0.0.2
 License: GNU General Public License v2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -17,7 +17,7 @@ bootScore, Bootstrap 5 WordPress Theme, Copyright 2019 - 2021 Bastian Kreiter.
 
 Contributors: craftwerk
 
-A starter theme called Bootscore.
+A starter theme called bootScore.
 
 
 == Description ==
@@ -43,9 +43,35 @@ https://bootscore.me/category/documentation/
 
 bootScore includes support for Infinite Scroll in Jetpack.
 
+== Credits ==
+
+* Based on Underscores https://underscores.me/, (C) 2012-2017 Automattic, Inc., [GPLv2 or later](https://www.gnu.org/licenses/gpl-2.0.html)
+* normalize.css https://necolas.github.io/normalize.css/, (C) 2012-2016 Nicolas Gallagher and Jonathan Neal, [MIT](https://opensource.org/licenses/MIT)
+* Bootstrap https://getbootstrap.com/docs/5.0/about/license/
+* WP Bootstrap Navwalker by Edward McIntyre: https://github.com/twittem/wp-bootstrap-navwalker
+* Comments Section Script by wp-bootstrap-starter https://github.com/afterimagedesigns/wp-bootstrap-starter
+* Font Awesome https://fontawesome.com/license/free
+
 
 == Changelog ==
 
+    = 5.0.0.2 - February 22 2021 =
+    
+        * [NEW] HTML Markups (Theme Unit Test Data)
+        * [NEW] Language: Italiano (thnx Domenico Carbone)
+        * [BUGFIX] Add overflow-x: hidden to body to hide horizontal scrollbars on Windows Chrome and Firefox if width-100 class is used.
+        * [TEST] jQuery 3.5.1 ready
+        * [SEO] Merged all CSS in /woocommerce/css into one file woocommerce-style.css
+        * [SEO] Links in comments opens in new tab with rel=”nofollow” attribute (pluggable function, functions.php)
+        * [SEO] Add <link rel=preload> to Fontawesome (functions.php)
+        * [SEO] Merged theme-header.js and theme.js to reduce file requests
+        * [SEO] Moved all CSS from all.css to style.css to reduce file requests
+        * [SEO] Load all JS in footer
+        * [BUGFIX] Workaround to highlight menu links when active. (theme.js, WP Bootstrap Navwalker is still v4)
+        * [NEW] Hook after #primary in WooCommerce files
+        * [NEW] Time updated separator has an own class to hide simply via CSS if updated time is not needed, template-tags.php.
+        * [NEW] Removed Preloader from theme and made a plugin of it
+        
     = 5.0.0.1 - February 11 2021 =
     
         * [Update] Bootstrap 5.0.0-beta-2
@@ -55,11 +81,3 @@ bootScore includes support for Infinite Scroll in Jetpack.
         * Initial release
 
 
-== Credits ==
-
-* Based on Underscores https://underscores.me/, (C) 2012-2017 Automattic, Inc., [GPLv2 or later](https://www.gnu.org/licenses/gpl-2.0.html)
-* normalize.css https://necolas.github.io/normalize.css/, (C) 2012-2016 Nicolas Gallagher and Jonathan Neal, [MIT](https://opensource.org/licenses/MIT)
-* Bootstrap https://getbootstrap.com/docs/5.0/about/license/
-* WP Bootstrap Navwalker by Edward McIntyre: https://github.com/twittem/wp-bootstrap-navwalker
-* Comments Section Script by wp-bootstrap-starter https://github.com/afterimagedesigns/wp-bootstrap-starter
-* Font Awesome https://fontawesome.com/license/free
