@@ -239,20 +239,21 @@ add_filter( 'widget_text', 'do_shortcode' );
  * Enqueue scripts and styles.
  */
 function bootscore_scripts() {
-	// Style CSS
-	wp_enqueue_style( 'bootscore-style', get_stylesheet_uri() );
 
 	// Bootstrap	
 	wp_enqueue_style( 'bootstrap', get_template_directory_uri() . '/css/lib/bootstrap.min.css');
+    
+    // Style CSS
+	wp_enqueue_style( 'bootscore-style', get_stylesheet_uri() );
 	
 	// Fontawesome
 	wp_enqueue_style( 'fontawesome', get_template_directory_uri() . '/css/lib/fontawesome.min.css');
 
-	// Theme JS
-	wp_enqueue_script( 'bootscore-script', get_template_directory_uri() . '/js/theme.js', array(), '20151215', true );
-    
 	// Bootstrap JS
 	wp_enqueue_script( 'bootstrap', get_template_directory_uri() . '/js/lib/bootstrap.bundle.min.js', array(), '20151215', true );
+    
+    // Theme JS
+	wp_enqueue_script( 'bootscore-script', get_template_directory_uri() . '/js/theme.js', array(), '20151215', true );
 	
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );

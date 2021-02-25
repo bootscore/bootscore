@@ -4,9 +4,9 @@ Contributors: craftwerk
 Tags: featured-images, threaded-comments, translation-ready
 
 Requires at least: 4.5
-Tested up to: 5.6
+Tested up to: 5.6.2
 Requires PHP: 5.6
-Stable tag: 5.0.0.2
+Stable tag: 5.0.0.3
 License: GNU General Public License v2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -55,11 +55,17 @@ bootScore includes support for Infinite Scroll in Jetpack.
 
 == Changelog ==
 
+    = 5.0.0.3 - February 25 2021 =
+    
+        * [NEW] Translation: Português do Brasil (thnx Junio Jose)
+        * [BUGFIX] margin undefined Github issue https://github.com/craftwerkberlin/bootscore-5/issues/1 (thnx djcowan)
+        * [IMPROVEMENT] Reorder CSS load (thnx Daniel Munoz Rey)
+
     = 5.0.0.2 - March 15 2021 =
     
         * [BUGFIX] Remove .active from all .nav-link if page is search-result
         * [NEW] HTML Markups (Theme Unit Test Data)
-        * [NEW] Language: Italiano (thnx Domenico Carbone)
+        * [NEW] Translation: Italiano (thnx Domenico Carbone)
         * [BUGFIX] Add overflow-x: hidden to body to hide horizontal scrollbars on Windows Chrome and Firefox if width-100 class is used.
         * [TEST] jQuery 3.5.1 ready
         * [SEO] Merged all CSS in /woocommerce/css into one file woocommerce-style.css
