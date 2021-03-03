@@ -61,7 +61,7 @@ bootScore includes support for Infinite Scroll in Jetpack.
         * [BUGFIX] margin undefined Github issue https://github.com/craftwerkberlin/bootscore-5/issues/1 (thnx djcowan)
         * [IMPROVEMENT] Reorder CSS load (thnx Daniel Munoz Rey)
 
-    = 5.0.0.2 - March 15 2021 =
+    = 5.0.0.2 - February 15 2021 =
     
         * [BUGFIX] Remove .active from all .nav-link if page is search-result
         * [NEW] HTML Markups (Theme Unit Test Data)
