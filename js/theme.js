@@ -52,11 +52,11 @@ jQuery(document).ready(function ($) {
 
     // Close offcanvas, dropdown-menu and backdrop-overlay on resize
     window.onresize = function () {
-        $('.offcanvas, .dropdown-menu').removeClass('show')
+        $('.offcanvas, .dropdown-menu:not(.dropdown-search.dropdown-menu)').removeClass('show')
         $('body').removeClass('offcanvas-backdrop offcanvas-freeze offcanvas-open')
-        $('.dropdown-menu').addClass('invisible')
+        $('.dropdown-menu:not(.dropdown-search.dropdown-menu)').addClass('invisible')
     }
-    
+   
     
     // Mobile search button hide if empty
     if ($('.searchform').length != 1) {

@@ -63,7 +63,7 @@
                             <button class="btn btn-outline-secondary btn-dropdown right" type="button" id="dropdown-search" data-bs-toggle="dropdown" aria-expanded="false">
                                 <i class="fas fa-search"></i>
                             </button>
-                            <div class="dropdown-search dropdown-menu position-fixed border-0 bg-light rounded-0" aria-labelledby="dropdown-search">
+                            <div class="dropdown-search dropdown-menu position-fixed border-0 bg-light rounded-0 start-0 end-0" aria-labelledby="dropdown-search">
                                 <div class="container">
                                     <?php if ( is_active_sidebar( 'top-nav-search' )) : ?>
                                     <div class="mb-2">
