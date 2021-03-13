@@ -41,7 +41,7 @@ if ( ! function_exists( 'bootscore_comment' ) ) :
             <?php if ( 0 != $args['avatar_size'] ) echo get_avatar( $comment, $args['avatar_size'], '', '', array('class' => 'rounded') ); ?>
         </div>
 
-        <div class="col">
+        <div class="col comment-content">
             <div class="card">
                 <div class="card-body">
 
