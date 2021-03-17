@@ -46,8 +46,9 @@
                 </div>
 
                 <footer class="entry-footer clear-both">
-                    <p><?php bootscore_tags(); ?></p>
-
+                    <div class="mb-4">
+                        <?php bootscore_tags(); ?>
+                    </div>
                     <nav aria-label="Page navigation example">
                         <ul class="pagination justify-content-center">
                             <li class="page-item">

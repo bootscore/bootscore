@@ -38,11 +38,9 @@
             </div>
 
             <footer class="entry-footer clear-both">
-                <!-- Tags & Edit Link -->
-                <p>
+                <div class="mb-4">
                     <?php bootscore_tags(); ?>
-                </p>
-
+                </div>
                 <nav aria-label="Page navigation example">
                     <ul class="pagination justify-content-center">
                         <li class="page-item">
