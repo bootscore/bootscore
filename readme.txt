@@ -57,7 +57,7 @@ bootScore includes support for Infinite Scroll in Jetpack.
 
     = 5.0.1.0 - March 20 2021 =
     
-        * [Improvement] Close offcanvas cart and user dashboard on click <a> (woocommerce.js, not working MacOS Safari)
+        * [IMPROVEMENT] Close offcanvas cart and user dashboard on click <a> (woocommerce.js, not working MacOS Safari)
 
     = 5.0.0.9 - March 17 2021 =
     
@@ -113,7 +113,7 @@ bootScore includes support for Infinite Scroll in Jetpack.
         
     = 5.0.0.1 - February 11 2021 =
     
-        * [Update] Bootstrap 5.0.0-beta-2
+        * [UPDATE] Bootstrap 5.0.0-beta-2
 
     = 5.0.0.0 - January 29 2021 =
     
