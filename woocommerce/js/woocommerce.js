@@ -21,7 +21,7 @@ jQuery(document).ready(function ($) {
     });
 
     // Close all Offcanvas
-    $('.offcanvas-header, .backdrop-overlay, #offcanvas-cart-right a, #offcanvas-user-left').on('click', function () {
+    $('.offcanvas-header, .backdrop-overlay, #offcanvas-cart-right a, #offcanvas-user-left a').on('click', function () {
         $('#offcanvas-menu-left, #offcanvas-cart-right, #offcanvas-user-left').removeClass('show')
         $('body').removeClass('offcanvas-backdrop offcanvas-freeze offcanvas-open')
     });

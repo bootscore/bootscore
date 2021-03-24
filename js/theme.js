@@ -176,9 +176,6 @@ jQuery(document).ready(function ($) {
 
     // Alert links
     $('.alert a').addClass('alert-link');
-    
-    // Remove autop (WP 5.7)
-    jQuery('p:empty').remove();
 
 
 }); // jQuery End
