@@ -32,7 +32,7 @@ defined( 'ABSPATH' ) || exit;
     <div class="shipping_address">
 
         <?php do_action( 'woocommerce_before_checkout_shipping_form', $checkout ); ?>
-
+        <h3 class="mt-4"><?php esc_html_e( 'Delivery details', 'bootscore' ); ?></h3>
         <div class="woocommerce-shipping-fields__field-wrapper">
             <?php
 				$fields = $checkout->get_checkout_fields( 'shipping' );

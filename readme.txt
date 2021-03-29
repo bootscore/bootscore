@@ -6,7 +6,7 @@ Tags: featured-images, threaded-comments, translation-ready
 Requires at least: 4.5
 Tested up to: 5.7
 Requires PHP: 5.6
-Stable tag: 5.0.1.1
+Stable tag: 5.0.0.10
 License: GNU General Public License v2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -55,14 +55,15 @@ bootScore includes support for Infinite Scroll in Jetpack.
 
 == Changelog ==
 
-    = 5.0.1.1 - March 24 2021 =
+    = 5.0.0.10 - March 29 2021 =
     
+        * [NEW] Translation: Français (thnx Mike Collignon)
         * [BUGFIX] Offcanvas user will not close when filling out the form (woocommerce.js, thnx Mike Collignon)
-        * [BUGFIX] Removed autop in theme.js again (Bug with CF7)
-
-    = 5.0.1.0 - March 20 2021 =
-    
+        * [BUGFIX] Removed autop in theme.js again (Bug with CF7)  
+        * [IMPROVEMENT] Custom radios to shipping (cart-shipping.php, woocommerce-style.css)
+        * [IMPROVEMENT] New checkout page (form-checkout.php, form-billing.php, form-shipping.php, thnx Mike Collignon)
         * [IMPROVEMENT] Close offcanvas cart and user dashboard on click <a> (woocommerce.js, not working MacOS Safari)
+        * [IMPROVEMENT] Using Semantic Versioning https://semver.org
 
     = 5.0.0.9 - March 17 2021 =
     

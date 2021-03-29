@@ -36,6 +36,9 @@ jQuery(document).ready(function ($) {
     // Shipping Calculator
     $('input#calc_shipping_state').addClass('form-control');
     // Shipping Calculator End
+    
+    
+    
 
     // Custom Checkout checkbox validation
     // .form-row was used for validation, .form-row is removed in Bootstrap 5, use .custom-validation instead

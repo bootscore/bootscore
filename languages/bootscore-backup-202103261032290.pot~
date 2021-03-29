@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: _s 1.0.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/tags/_s\n"
-"POT-Creation-Date: 2021-03-26 10:32+0000\n"
+"POT-Creation-Date: 2021-01-09 11:33+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -16,8 +16,8 @@ msgstr ""
 "Language: \n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;"
 
-#: single-sidebar-none.php:28 single-full-width-image.php:38 single.php:29
-#: single-sidebar-left.php:31
+#: single-sidebar-none.php:25 single-full-width-image.php:35 single.php:26
+#: single-sidebar-left.php:28
 msgid " by "
 msgstr ""
 
@@ -47,14 +47,16 @@ msgstr ""
 
 #. Description of the theme
 msgid ""
-"A powerful Bootstrap 5 WordPress Starter Theme with WooCommerce Support. <a "
-"href=\"https://bootscore.me/category/documentation/\">Documentation</a>. "
-"This theme gives you full control whatever you do and the full freedom to "
-"design whatever you want. It comes with a wide selection of category, page, "
-"post, author and archive templates as well as sidebar, header, footer and "
-"404 widgets. There are no customizer settings in the backend. All settings "
-"can only be made by touching the code. Some CSS, HTML, PHP and JS Skills are "
-"required to customize it."
+"A powerful Bootstrap Starter Onepage or Multi-Page Theme with WooCommerce "
+"Support. Examples: https://bootscore.me/#examples, Documentation: https:"
+"//bootscore.me/category/documentation/. This theme gives you full control "
+"whatever you do and the full freedom to design whatever you want. It comes "
+"with some useful header scripts and a wide selection of category, page, post,"
+" author and archive templates as well as sidebar, header, footer and 404 "
+"widgets. A preloader is included. There are just minor customizer settings "
+"in the backend. All important settings can only be made by touching the code."
+" Some CSS, HTML, PHP and JS Skills are required to customize it completely. "
+"Make bootScore your own!"
 msgstr ""
 
 #: languages/plugin-translations.php:7
@@ -95,15 +97,15 @@ msgstr ""
 msgid "Cancel"
 msgstr ""
 
-#: header.php:193 header-woocommerce-01.php:167
+#: header-woocommerce.php:173
 msgid "Cart"
 msgstr ""
 
-#: header.php:131 header-woocommerce-01.php:129
+#: header-woocommerce.php:135
 msgid "Close account"
 msgstr ""
 
-#: header.php:86 header-default.php:84 header-woocommerce-01.php:84
+#: header.php:92 header-woocommerce.php:90
 msgid "Close menu"
 msgstr ""
 
@@ -131,7 +133,7 @@ msgctxt "comments title"
 msgid "One Comment &ldquo;%s&rdquo;"
 msgstr ""
 
-#: header.php:159 header.php:182 header-woocommerce-01.php:156
+#: header-woocommerce.php:162
 msgid "Continue shopping"
 msgstr ""
 
@@ -139,10 +141,6 @@ msgstr ""
 msgid ""
 "Cookies help us deliver our services. By using our services, you agree to "
 "our use of cookies."
-msgstr ""
-
-#: woocommerce/checkout/form-shipping.php:35
-msgid "Delivery details"
 msgstr ""
 
 #. %s: Name of current post. Only visible to screen readers
@@ -268,12 +266,12 @@ msgstr ""
 msgid "Page not found."
 msgstr ""
 
-#: page.php:43 page-blank-without-container.php:21 page-sidebar-none.php:33
-#: page-sidebar-left.php:38 page-blank-with-container.php:21
+#: page.php:40 page-blank-without-container.php:21 page-sidebar-none.php:30
+#: page-sidebar-left.php:35 page-blank-with-container.php:21
 msgid "Pages:"
 msgstr ""
 
-#: functions.php:411
+#: functions.php:405
 msgid "Password"
 msgstr ""
 
@@ -295,17 +293,17 @@ msgstr ""
 msgid "Post Comment"
 msgstr ""
 
-#: author.php:72
+#: author.php:69
 msgid "Read more"
 msgstr ""
 
-#: category-equal-height.php:63 category-sidebar-left.php:63
-#: author-masonry.php:73 archive.php:63 author-equal-height.php:73
-#: archive-sidebar-left.php:65 archive-equal-height-sidebar-right.php:62
-#: category.php:61 archive-equal-height.php:63 index.php:78 index.php:134
-#: category-masonry.php:63 author-sidebar-left.php:75
-#: author-equal-height-sidebar-right.php:72 archive-masonry.php:63
-#: category-equal-height-sidebar-right.php:63
+#: category-equal-height.php:59 category-sidebar-left.php:60
+#: author-masonry.php:69 archive.php:60 author-equal-height.php:69
+#: archive-sidebar-left.php:62 archive-equal-height-sidebar-right.php:59
+#: category.php:58 archive-equal-height.php:59 index.php:78 index.php:134
+#: category-masonry.php:59 author-sidebar-left.php:72
+#: author-equal-height-sidebar-right.php:69 archive-masonry.php:59
+#: category-equal-height-sidebar-right.php:60
 #: template-parts/content-search.php:42
 msgid "Read more »"
 msgstr ""
@@ -327,7 +325,7 @@ msgid "Search"
 msgstr ""
 
 #. %s: search query.
-#: search.php:29
+#: search.php:26
 #, php-format
 msgid "Search Results for: %s"
 msgstr ""
@@ -354,7 +352,7 @@ msgstr ""
 msgid "Start typing..."
 msgstr ""
 
-#: functions.php:412
+#: functions.php:406
 msgid "Submit"
 msgstr ""
 
