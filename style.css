@@ -4,7 +4,7 @@ Theme URI: https://bootscore.me/
 Author: Bastian Kreiter
 Author URI: https://crftwrk.de
 Description: A powerful Bootstrap 5 WordPress Starter Theme with WooCommerce Support. <a href="https://bootscore.me/category/documentation/" target="_blank">Documentation</a>. This theme gives you full control whatever you do and the full freedom to design whatever you want. It comes with a wide selection of category, page, post, author and archive templates as well as sidebar, header, footer and 404 widgets. There are no customizer settings in the backend. All settings can only be made by touching the code. Some CSS, HTML, PHP and JS Skills are required to customize it.
-Version: 5.0.0.10
+Version: 5.0.1.0
 License: GNU General Public License v2 or later
 License URI: LICENSE
 Text Domain: bootscore
@@ -37,180 +37,241 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 12. Utilities
 13. Colors
 14. HTML Markups (Theme Unit Test Data)
+15. Temporary bug fixes
 --------------------------------------------------------------*/
-
 
 
 /*--------------------------------------------------------------
 1. Temporary Offcanvas
 --------------------------------------------------------------*/
 
-.offcanvas.show {
-    transform: none;
-    transition: transform .3s ease-in-out;
+/* Hide default backdrop if a navbar has class fixed-top */
+.navbar-fixed-top-offcanvas.offcanvas-backdrop::before {
+    content: none;
 }
 
-.offcanvas-freeze {
-    overflow: hidden !important;
-    height: 100vh;
-}
-
-.backdrop-overlay {
+/* Place backdrop before navbar-toggler instead to display between navbar and offcanvas */
+.navbar-fixed-top-offcanvas .navbar.fixed-top::before {
+    content: "";
     position: fixed;
     top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1030;
-    cursor: pointer;
-    opacity: 0;
-    visibility: hidden;
-    transition: all .4s ease-in-out;
-}
-
-body.offcanvas-backdrop .backdrop-overlay {
-    opacity: 1;
-    visibility: visible;
-}
-
-.offcanvas.expand-xs.show {
-    transform: none;
-    transition: transform .3s ease-in-out;
-}
-
-.offcanvas.expand-xs {
-    position: fixed;
+    right: 0;
     bottom: 0;
-    z-index: 1040;
-    display: flex;
-    flex-direction: column;
-    max-width: 100%;
-    color: currentColor;
-    background-color: #fff;
-}
-
-.offcanvas-header.expand-xs {
-    display: flex;
-    justify-content: space-between;
-    padding: 1rem;
-    align-items: center;
+    left: 0;
+    background: rgba(0, 0, 0, .5);
     cursor: pointer;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility .15s linear, opacity .3s linear;
+    z-index: inherit;
 }
 
-.offcanvas-body.expand-xs {
-    padding: 1rem;
-    overflow-y: auto;
-}
-
-.offcanvas-left.expand-xs {
-    top: 0;
-    left: 0;
-    width: 400px;
-    transform: translateX(-100%);
-    transition: transform .3s ease-in-out;
-}
-
-.offcanvas-right.expand-xs {
-    top: 0;
-    right: 0;
-    width: 400px;
-    transform: translateX(100%);
-    transition: transform .3s ease-in-out;
-}
-
-.offcanvas-bottom.expand-xs {
-    right: 0;
-    left: 0;
-    height: 400px;
-    max-height: 100%;
-    transform: translateY(100%);
-    transition: transform .3s ease-in-out;
-}
-
-/* Hide offcanvas header in expanded navbar */
-@media (min-width: 992px) {
-    .offcanvas-header.expand-lg {
-        display: none;
-    }
-}
-
-@media (max-width: 991px) {
-
-    .offcanvas.expand-lg.show {
-        transform: none;
-        transition: transform .3s ease-in-out;
-    }
-
-    .offcanvas.expand-lg {
-        position: fixed;
-        bottom: 0;
-        z-index: 1040;
-        display: flex;
-        flex-direction: column;
-        max-width: 100%;
-        color: currentColor;
-        background-color: #fff;
-    }
-
-    .offcanvas-header.expand-lg {
-        display: flex;
-        justify-content: space-between;
-        padding: 1rem;
-        align-items: center;
-        cursor: pointer;
-    }
-
-    .offcanvas-body.expand-lg {
-        padding: 1rem;
-        overflow-y: auto;
-    }
-
-    .offcanvas-left.expand-lg {
-        top: 0;
-        left: 0;
-        width: 400px;
-        transform: translateX(-100%);
-        transition: transform .3s ease-in-out;
-    }
-
-    .offcanvas-right.expand-lg {
-        top: 0;
-        right: 0;
-        width: 400px;
-        transform: translateX(100%);
-        transition: transform .3s ease-in-out;
-    }
-
-    .offcanvas-bottom.expand-lg {
-        right: 0;
-        left: 0;
-        height: 400px;
-        max-height: 100%;
-        transform: translateY(100%);
-        transition: transform .3s ease-in-out;
-    }
-
+/*  Show backdrop via .offcanvas-backdrop body class */
+.navbar-fixed-top-offcanvas.offcanvas-backdrop .navbar.fixed-top::before {
+    visibility: visible;
+    opacity: 1;
 }
 
 .offcanvas-header {
-    position: absolute;
-    top: 0;
-    right: 0;
-    left: 0;
-    z-index: 1;
+    align-items: center;
 }
 
-@media (max-width: 991px) {
-    #offcanvas-menu-right .offcanvas-body {
-        margin-top: 56px;
+/* Expand-sm */
+@media (min-width: 576px) {
+
+    .navbar-expand-sm .offcanvas .offcanvas-header {
+        display: none;
     }
+
+    .navbar-expand-sm .offcanvas {
+        position: inherit;
+        bottom: 0;
+        flex-grow: 1;
+        visibility: visible !important;
+        transition: none;
+        transform: none;
+        border-left: none;
+        border-right: none;
+        z-index: inherit;
+    }
+
+    .navbar-expand-sm .offcanvas .offcanvas-body {
+        flex-grow: 0;
+        padding: 0;
+        overflow-y: visible;
+        display: flex;
+    }
+
+    .navbar-expand-sm .offcanvas-bottom {
+        border-top: none;
+        height: auto;
+    }
+
+    /* Override background-color in case bg-* color classes are used */
+    .navbar-expand-sm .offcanvas,
+    .navbar-expand-sm .offcanvas .offcanvas-body {
+        background-color: transparent !important;
+    }
+
 }
 
-.offcanvas-header:hover {
-    filter: brightness(0.95);
-    transition: filter .3s;
+/* Expand-md */
+@media (min-width: 768px) {
+
+    .navbar-expand-md .offcanvas .offcanvas-header {
+        display: none;
+    }
+
+    .navbar-expand-md .offcanvas {
+        position: inherit;
+        bottom: 0;
+        flex-grow: 1;
+        visibility: visible !important;
+        transition: none;
+        transform: none;
+        border-left: none;
+        border-right: none;
+        z-index: inherit;
+    }
+
+    .navbar-expand-md .offcanvas .offcanvas-body {
+        flex-grow: 0;
+        padding: 0;
+        overflow-y: visible;
+        display: flex;
+
+    }
+
+    .navbar-expand-md .offcanvas-bottom {
+        border-top: none;
+        height: auto;
+    }
+
+    /* Override background-color in case bg-* color classes are used */
+    .navbar-expand-md .offcanvas,
+    .navbar-expand-md .offcanvas .offcanvas-body {
+        background-color: transparent !important;
+    }
+
 }
 
+/* Expand-lg */
+@media (min-width: 992px) {
+
+    .navbar-expand-lg .offcanvas .offcanvas-header {
+        display: none;
+    }
+
+    .navbar-expand-lg .offcanvas {
+        position: inherit;
+        bottom: 0;
+        flex-grow: 1;
+        visibility: visible !important;
+        transition: none;
+        transform: none;
+        border-left: none;
+        border-right: none;
+        z-index: inherit;
+    }
+
+    .navbar-expand-lg .offcanvas .offcanvas-body {
+        flex-grow: 0;
+        padding: 0;
+        overflow-y: visible;
+        display: flex;
+    }
+
+    .navbar-expand-lg .offcanvas-bottom {
+        border-top: none;
+        height: auto;
+    }
+
+    /* Override background-color in case bg-* color classes are used */
+    .navbar-expand-lg .offcanvas,
+    .navbar-expand-lg .offcanvas .offcanvas-body {
+        background-color: transparent !important;
+    }
+
+}
+
+/* Expand-xl */
+@media (min-width: 1200px) {
+
+    .navbar-expand-xl .offcanvas .offcanvas-header {
+        display: none;
+    }
+
+    .navbar-expand-xl .offcanvas {
+        position: inherit;
+        bottom: 0;
+        flex-grow: 1;
+        visibility: visible !important;
+        transition: none;
+        transform: none;
+        border-left: none;
+        border-right: none;
+        z-index: inherit;
+    }
+
+    .navbar-expand-xl .offcanvas .offcanvas-body {
+        flex-grow: 0;
+        padding: 0;
+        overflow-y: visible;
+        display: flex;
+    }
+
+    .navbar-expand-xl .offcanvas-bottom {
+        border-top: none;
+        height: auto;
+    }
+
+    /* Override background-color in case bg-* color classes are used */
+    .navbar-expand-xl .offcanvas,
+    .navbar-expand-xl .offcanvas .offcanvas-body {
+        background-color: transparent !important;
+    }
+
+}
+
+/* Expand-xxl */
+@media (min-width: 1400px) {
+
+    .navbar-expand-xxl .offcanvas .offcanvas-header {
+        display: none;
+    }
+
+    .navbar-expand-xxl .offcanvas {
+        position: inherit;
+        bottom: 0;
+        flex-grow: 1;
+        visibility: visible !important;
+        background-color: transparent;
+        transition: none;
+        transform: none;
+        border-left: none;
+        border-right: none;
+        z-index: inherit;
+    }
+
+    .navbar-expand-xxl .offcanvas .offcanvas-body {
+        flex-grow: 0;
+        padding: 0;
+        overflow-y: visible;
+        display: flex;
+    }
+
+    .navbar-expand-xxl .offcanvas-bottom {
+        border-top: none;
+        height: auto;
+    }
+
+    /* Override background-color in case bg-* color classes are used */
+    .navbar-expand-xxl .offcanvas,
+    .navbar-expand-xxl .offcanvas .offcanvas-body {
+        background-color: transparent !important;
+    }
+
+}
 
 
 /*--------------------------------------------------------------
@@ -251,7 +312,7 @@ a.badge:hover {
 @media (max-width: 782px) {
 
     .logged-in.admin-bar .fixed-top,
-    .logged-in.admin-bar .offcanvas {
+    .logged-in.admin-bar .offcanvas:not(.offcanvas-bottom) {
         top: 46px;
     }
 
@@ -267,7 +328,7 @@ a.badge:hover {
 @media (min-width: 783px) {
 
     .logged-in.admin-bar .fixed-top,
-    .logged-in.admin-bar .offcanvas {
+    .logged-in.admin-bar .offcanvas:not(.offcanvas-bottom) {
         top: 32px;
     }
 
@@ -301,14 +362,9 @@ a.badge:hover {
 
 @media (max-width: 991px) {
 
-    .navbar-toggler.right,
     .btn-dropdown.right {
         padding-right: 0;
         border: none;
-    }
-
-    .navbar-toggler.right:focus {
-        box-shadow: none;
     }
 
     #dropdown-search:hover {
@@ -694,17 +750,40 @@ z-index
     z-index: 1070 !important;
 }
 
+/*
+Cursor
+*/
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+/*
+Focus
+*/
+
+.focus-0:focus {
+    box-shadow: none !important;
+}
+
+/* 
+Hover 
+*/
+
+.hover {
+    transition: filter .3s;
+}
+
+.hover:hover {
+    filter: brightness(0.95);
+}
+
 
 
 /*--------------------------------------------------------------
 13. Colors
 --------------------------------------------------------------*/
 
-.backdrop-overlay {
-    background-color: rgba(0, 0, 0, .5);
-    backdrop-filter: grayscale(100%) blur(7px);
-    -webkit-backdrop-filter: grayscale(100%) blur(7px);
-}
 
 ::-moz-selection {
     color: #fff;
@@ -976,4 +1055,17 @@ q::before {
 
 .bypostauthor {
     display: block;
+}
+
+
+/*--------------------------------------------------------------
+15. Temporary bug fixes
+--------------------------------------------------------------*/
+
+/*
+Remove autop (WP 5.7 bug near shortcode)
+https://wordpress.org/support/topic/how-to-stop-wp-from-adding-p-tag-automatically/
+*/
+p:empty:before {
+    content: none;
 }

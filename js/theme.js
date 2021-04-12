@@ -1,4 +1,3 @@
-
 /*--------------------------------------------------------------
 >>> TABLE OF CONTENTS:
 ----------------------------------------------------------------
@@ -11,22 +10,29 @@
 1. Temporary Header
 --------------------------------------------------------------*/
 
+
 jQuery(document).ready(function ($) {
 
+    // Offcanvas
+    // Workaround icon in offcanvas toggler https://github.com/twbs/bootstrap/issues/33457
+    $('.navbar-toggler').addClass('position-relative');
+    $('.navbar-toggler').append('<div class="toggler-overlay position-absolute top-0 end-0 bottom-0 start-0" data-bs-target="#offcanvas-navbar"></div>');
 
-    // Temp Offcanvas
-    // Freeze Body
-    $('.navbar-toggler.right').on('click', function () {
-        $('#offcanvas-menu-right').addClass('show')
-        $('body').toggleClass('offcanvas-backdrop offcanvas-freeze offcanvas-open')
+    // Check if navbar fixed-top component exists
+    if ($(".navbar.fixed-top")[0]) {
+        // Add body class to hide default .offcanvas-backdrop::before if .navbar.fixed-top exists
+        $("body").addClass("navbar-fixed-top-offcanvas");
+    }
+
+    // Data attribute to hide offcanvas and enable body scroll on resize through the breakpoints
+    $(window).on('resize', function () {
+        $('[data-bs-hideresize="true"]').offcanvas('hide');
     });
 
-    // Remove Freeze Body
-    $('.offcanvas-header, .backdrop-overlay').on('click', function () {
-        $('#offcanvas-menu-right').removeClass('show')
-        $('body').removeClass('offcanvas-backdrop offcanvas-freeze offcanvas-open')
+    // Close offcanvas on click a, keep .dropdown-menu open
+    $('.offcanvas a:not(.dropdown-toggle):not(a.remove_from_cart_button), a.dropdown-item').on('click', function () {
+        $('.offcanvas').offcanvas('hide');
     });
-    // Temp Offcanvas
 
 
     // Dropdown menu animation
@@ -44,20 +50,6 @@ jQuery(document).ready(function ($) {
     });
 
 
-    // Close dropdown and offcanvas on click .dropdown .nav-link, keep .dropdown-menu open
-    $('.navbar-nav>li>a:not(.dropdown-toggle), a.dropdown-item').on('click', function () {
-        $('.offcanvas').removeClass('show')
-        $('body').removeClass('offcanvas-backdrop offcanvas-freeze offcanvas-open')
-    });
-
-    // Close offcanvas, dropdown-menu and backdrop-overlay on resize
-    window.onresize = function () {
-        $('.offcanvas, .dropdown-menu:not(.dropdown-search.dropdown-menu)').removeClass('show')
-        $('body').removeClass('offcanvas-backdrop offcanvas-freeze offcanvas-open')
-        $('.dropdown-menu:not(.dropdown-search.dropdown-menu)').addClass('invisible')
-    }
-   
-    
     // Mobile search button hide if empty
     if ($('.searchform').length != 1) {
         $('.top-nav-search-md, .top-nav-search-lg').addClass('hide');
@@ -65,7 +57,8 @@ jQuery(document).ready(function ($) {
     if ($('.searchform').length != 0) {
         $('.top-nav-search-md, .top-nav-search-lg').removeClass('hide');
     }
-    
+
+
     // Active menu item workaround, check navwalker when ready
     var url = window.location.pathname,
         urlRegExp = new RegExp(url.replace(/\/$/, '') + "$"); // create regexp to match current url pathname and remove trailing slash if present as it could collide with the link in navigation in case trailing slash wasn't present there
@@ -169,7 +162,7 @@ jQuery(document).ready(function ($) {
     $(".height-75").css("height", 0.75 * $(window).height());
     $(".height-85").css("height", 0.85 * $(window).height());
     $(".height-100").css("height", 1.0 * $(window).height());
-    
+
     // Forms
     $('select, #billing_state').addClass('form-select');
 

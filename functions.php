@@ -454,3 +454,4 @@ if ( ! function_exists( 'bs_comment_links_in_new_tab' ) ) :
     add_filter('comment_text', 'bs_comment_links_in_new_tab');
 endif;
 // Open links in comments in new tab
+

@@ -1,44 +1,21 @@
 jQuery(document).ready(function ($) {
 
-    // Toggle Offcanvas Menu
-    $('.navbar-toggler.left').on('click', function () {
-        $('#offcanvas-menu-left').addClass('show')
-    });
-
-    // Toggle Offcanvas Cart
-    $('.cart-toggler.right, .single_add_to_cart_button:not(.product_type_variable):not(.product_type_external):not(.product_type_grouped)').on('click', function () {
-        $('#offcanvas-cart-right').addClass('show')
-    });
-
-    // Toggle Offcanvas User
-    $('.user-toggler.right').on('click', function () {
-        $('#offcanvas-user-left').addClass('show')
-    });
-
-    // Freeze Body
-    $('.navbar-toggler.left, .cart-toggler.right, .user-toggler.right, .single_add_to_cart_button:not(.product_type_variable):not(.product_type_external):not(.product_type_grouped)').on('click', function () {
-        $('body').addClass('offcanvas-backdrop offcanvas-freeze offcanvas-open')
-    });
-
-    // Close all Offcanvas
-    $('.offcanvas-header, .backdrop-overlay, #offcanvas-cart-right a, #offcanvas-user-left a').on('click', function () {
-        $('#offcanvas-menu-left, #offcanvas-cart-right, #offcanvas-user-left').removeClass('show')
-        $('body').removeClass('offcanvas-backdrop offcanvas-freeze offcanvas-open')
-    });
+    // Workaround icon in offcanvas toggler https://github.com/twbs/bootstrap/issues/33457
+    $('.cart-toggler').append('<div class="toggler-overlay position-absolute top-0 end-0 bottom-0 start-0" data-bs-target="#offcanvas-cart"></div>');
+    $('.user-toggler').addClass('position-relative');
+    $('.user-toggler').append('<div class="toggler-overlay position-absolute top-0 end-0 bottom-0 start-0" data-bs-target="#offcanvas-user"></div>');
 
 
-    // Review Checkbox
+    // Single add to cart button
+    $(".single_add_to_cart_button:not(.product_type_variable):not(.product_type_external):not(.product_type_grouped)").attr("data-bs-toggle","offcanvas").attr("data-bs-target","#offcanvas-cart");
+
+
+    // Review Checkbox Products
     $('.comment-form-cookies-consent').addClass('form-check');
     $('#wp-comment-cookies-consent').addClass('form-check-input');
     $('.comment-form-cookies-consent label').addClass('form-check-label');
     // Review Checkbox End
 
-    // Shipping Calculator
-    $('input#calc_shipping_state').addClass('form-control');
-    // Shipping Calculator End
-    
-    
-    
 
     // Custom Checkout checkbox validation
     // .form-row was used for validation, .form-row is removed in Bootstrap 5, use .custom-validation instead

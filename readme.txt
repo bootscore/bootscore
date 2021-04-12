@@ -6,7 +6,7 @@ Tags: featured-images, threaded-comments, translation-ready
 Requires at least: 4.5
 Tested up to: 5.7
 Requires PHP: 5.6
-Stable tag: 5.0.0.10
+Stable tag: 5.0.1.0
 License: GNU General Public License v2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -54,6 +54,15 @@ bootScore includes support for Infinite Scroll in Jetpack.
 
 
 == Changelog ==
+
+    = 5.0.1.0 - April 12 2021 =
+    
+        * [IMPROVEMENT] Font size WooCommerce prices
+        * [BUGFIX] Remove autop (WP 5.7 bug near shortcode, style.css) https://wordpress.org/support/topic/how-to-stop-wp-from-adding-p-tag-automatically/
+        * [BUGFIX] Radios cart-shipping.php on devices below 768px
+        * [BUGFIX] Offcanvas cart footer (iOS)
+        * [UPDATE] Replaced all Offcanvas with Bootstrap component
+        * [UPDATE] Bootstrap v5.0.0-beta3
 
     = 5.0.0.10 - March 29 2021 =
     

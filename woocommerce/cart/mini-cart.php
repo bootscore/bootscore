@@ -37,10 +37,8 @@ do_action( 'woocommerce_before_mini_cart' ); ?>
 				$product_price     = apply_filters( 'woocommerce_cart_item_price', WC()->cart->get_product_price( $_product ), $cart_item, $cart_item_key );
 				$product_permalink = apply_filters( 'woocommerce_cart_item_permalink', $_product->is_visible() ? $_product->get_permalink( $cart_item ) : '', $cart_item, $cart_item_key );
 				?>
-				<div class="woocommerce-mini-cart-item border-top <?php echo esc_attr( apply_filters( 'woocommerce_mini_cart_item_class', 'mini_cart_item', $cart_item, $cart_item_key ) ); ?>">
+				<div class="woocommerce-mini-cart-item border-top p-3 <?php echo esc_attr( apply_filters( 'woocommerce_mini_cart_item_class', 'mini_cart_item', $cart_item, $cart_item_key ) ); ?>">
 					
-                    <div class="py-3">
-                    
                         <div class="row">
                         
                             <div class="item-image col-3">
@@ -88,8 +86,7 @@ do_action( 'woocommerce_before_mini_cart' ); ?>
                             </div>
                            
                         </div><!--row-->
-                         
-                    </div>
+
                     
                 </div>
 				<?php
@@ -100,9 +97,8 @@ do_action( 'woocommerce_before_mini_cart' ); ?>
 		?>
 	</div>
 
-<div class="cart-footer bg-light text-center d-block">
-    
-    <div class="py-3">
+<div class="cart-footer bg-light text-center position-absolute bottom-0 p-3">
+
 
 	<p class="woocommerce-mini-cart__total total lead mb-1">
 		<?php
@@ -123,14 +119,13 @@ do_action( 'woocommerce_before_mini_cart' ); ?>
 	<div class="woocommerce-mini-cart__buttons buttons"><?php do_action( 'woocommerce_widget_shopping_cart_buttons' ); ?></div>
 
 	<?php do_action( 'woocommerce_widget_shopping_cart_after_buttons' ); ?>
-                                                     
-</div>
+
     
     </div>
 
 <?php else : ?>
 
-	<p class="woocommerce-mini-cart__empty-message alert alert-info"><?php esc_html_e( 'No products in the cart.', 'woocommerce' ); ?></p>
+	<p class="woocommerce-mini-cart__empty-message alert alert-info mx-3"><?php esc_html_e( 'No products in the cart.', 'woocommerce' ); ?></p>
 
 <?php endif; ?>
 
