@@ -13,8 +13,8 @@
  * the readme will list any important changes.
  *
  * @see     https://docs.woocommerce.com/document/template-structure/
- * @package WooCommerce/Templates
- * @version 3.7.0
+ * @package WooCommerce\Templates
+ * @version 5.2.0
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -39,55 +39,54 @@ do_action( 'woocommerce_before_mini_cart' ); ?>
 				?>
 				<div class="woocommerce-mini-cart-item border-top p-3 <?php echo esc_attr( apply_filters( 'woocommerce_mini_cart_item_class', 'mini_cart_item', $cart_item, $cart_item_key ) ); ?>">
 					
-                        <div class="row">
-                        
-                            <div class="item-image col-3">
-                                <div class="mt-1">
-                                    <?php if ( empty( $product_permalink ) ) : ?>
-                                        <?php echo $thumbnail; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-                                    <?php else : ?>
-                                        <a href="<?php echo esc_url( $product_permalink ); ?>">
-                                            <?php echo $thumbnail; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-                                        </a>
-                                    <?php endif; ?>
-                                </div>
-                            </div>
-                        
-                            <div class="item-name col-7">
-                                <?php if ( empty( $product_permalink ) ) : ?>
-                                    <?php echo $product_name; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-                                <?php else : ?>
-                                    <strong><a href="<?php echo esc_url( $product_permalink ); ?>">
-                                        <?php echo $product_name; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-                                    </a></strong>
-                                <?php endif; ?>
-                                    <div class="item-quantity">   
-                                        <?php echo wc_get_formatted_cart_item_data( $cart_item ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-                                        <?php echo apply_filters( 'woocommerce_widget_cart_item_quantity', '<span class="quantity">' . sprintf( '%s &times; %s', $cart_item['quantity'], $product_price ) . '</span>', $cart_item, $cart_item_key ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-                                    </div>
-                            </div>
-                        
-                        
-                        
-                            <div class="remove col-2 text-end">
-                                <?php echo apply_filters( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-                                'woocommerce_cart_item_remove_link',
-                                sprintf(
-                                    '<a href="%s" class="remove_from_cart_button btn btn-outline-danger btn-sm" aria-label="%s" data-product_id="%s" data-cart_item_key="%s" data-product_sku="%s">X</a>',
-                                    esc_url( wc_get_cart_remove_url( $cart_item_key ) ),
-                                    esc_attr__( 'Remove this item', 'woocommerce' ),
-                                    esc_attr( $product_id ),
-                                    esc_attr( $cart_item_key ),
-                                    esc_attr( $_product->get_sku() )
-                                ),
-                                $cart_item_key
-                            );
-                            ?>
-                            </div>
-                           
-                        </div><!--row-->
+                    <div class="row">
 
-                    
+                        <div class="item-image col-3">
+                            <div class="mt-1">
+                                <?php if ( empty( $product_permalink ) ) : ?>
+                                    <?php echo $thumbnail; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+                                <?php else : ?>
+                                    <a href="<?php echo esc_url( $product_permalink ); ?>">
+                                        <?php echo $thumbnail; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+                                    </a>
+                                <?php endif; ?>
+                            </div>
+                        </div>
+
+                        <div class="item-name col-7">
+                            <?php if ( empty( $product_permalink ) ) : ?>
+                                <?php echo $product_name; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+                            <?php else : ?>
+                                <strong><a href="<?php echo esc_url( $product_permalink ); ?>">
+                                    <?php echo $product_name; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+                                </a></strong>
+                            <?php endif; ?>
+                                <div class="item-quantity">   
+                                    <?php echo wc_get_formatted_cart_item_data( $cart_item ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+                                    <?php echo apply_filters( 'woocommerce_widget_cart_item_quantity', '<span class="quantity">' . sprintf( '%s &times; %s', $cart_item['quantity'], $product_price ) . '</span>', $cart_item, $cart_item_key ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+                                </div>
+                        </div>
+
+
+
+                        <div class="remove col-2 text-end">
+                            <?php echo apply_filters( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+                            'woocommerce_cart_item_remove_link',
+                            sprintf(
+                                '<a href="%s" class="remove_from_cart_button btn btn-outline-danger btn-sm" aria-label="%s" data-product_id="%s" data-cart_item_key="%s" data-product_sku="%s">X</a>',
+                                esc_url( wc_get_cart_remove_url( $cart_item_key ) ),
+                                esc_attr__( 'Remove this item', 'woocommerce' ),
+                                esc_attr( $product_id ),
+                                esc_attr( $cart_item_key ),
+                                esc_attr( $_product->get_sku() )
+                            ),
+                            $cart_item_key
+                        );
+                        ?>
+                        </div>
+
+                    </div><!--row-->
+                        
                 </div>
 				<?php
 			}
@@ -97,32 +96,29 @@ do_action( 'woocommerce_before_mini_cart' ); ?>
 		?>
 	</div>
 
-<div class="cart-footer bg-light text-center position-absolute bottom-0 p-3">
+    <div class="cart-footer bg-light text-center position-absolute bottom-0 p-3">
 
+        <p class="woocommerce-mini-cart__total total">
+            <?php
+            /**
+             * Hook: woocommerce_widget_shopping_cart_total.
+             *
+             * @hooked woocommerce_widget_shopping_cart_subtotal - 10
+             */
+            do_action( 'woocommerce_widget_shopping_cart_total' );
+            ?>
+        </p>
+        
+        <p class="text-muted small shipping-text"><?php esc_html_e('To find out your shipping cost , Please proceed to checkout.' , 'bootscore'); ?></p>
 
-	<p class="woocommerce-mini-cart__total total lead mb-1">
-		<?php
-		/**
-		 * Hook: woocommerce_widget_shopping_cart_total.
-		 *
-		 * @hooked woocommerce_widget_shopping_cart_subtotal - 10
-		 */
-		do_action( 'woocommerce_widget_shopping_cart_total' );
-		?>
-	</p>
-    
-    <p class="text-muted small shipping-text"><?php esc_html_e('To find out your shipping cost , Please proceed to checkout.' , 'bootscore'); ?></p>
-                             
+        <?php do_action( 'woocommerce_widget_shopping_cart_before_buttons' ); ?>
 
-	<?php do_action( 'woocommerce_widget_shopping_cart_before_buttons' ); ?>
+        <div class="woocommerce-mini-cart__buttons buttons"><?php do_action( 'woocommerce_widget_shopping_cart_buttons' ); ?></div>
 
-	<div class="woocommerce-mini-cart__buttons buttons"><?php do_action( 'woocommerce_widget_shopping_cart_buttons' ); ?></div>
+        <?php do_action( 'woocommerce_widget_shopping_cart_after_buttons' ); ?>
 
-	<?php do_action( 'woocommerce_widget_shopping_cart_after_buttons' ); ?>
-
-    
     </div>
-
+    
 <?php else : ?>
 
 	<p class="woocommerce-mini-cart__empty-message alert alert-info mx-3"><?php esc_html_e( 'No products in the cart.', 'woocommerce' ); ?></p>
