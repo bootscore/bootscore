@@ -4,7 +4,7 @@ Theme URI: https://bootscore.me/
 Author: Bastian Kreiter
 Author URI: https://crftwrk.de
 Description: A powerful Bootstrap 5 WordPress Starter Theme with WooCommerce Support. <a href="https://bootscore.me/category/documentation/" target="_blank">Documentation</a>. This theme gives you full control whatever you do and the full freedom to design whatever you want. It comes with a wide selection of category, page, post, author and archive templates as well as sidebar, header, footer and 404 widgets. There are no customizer settings in the backend. All settings can only be made by touching the code. Some CSS, HTML, PHP and JS Skills are required to customize it.
-Version: 5.0.1.1
+Version: 5.0.1.2
 License: GNU General Public License v2 or later
 License URI: LICENSE
 Text Domain: bootscore
@@ -1042,8 +1042,6 @@ q::before {
     padding: .5rem;
     font-size: 1rem;
     background: rgba(0, 0, 0, .5);
-    backdrop-filter: grayscale(100%) blur(7px);
-    -webkit-backdrop-filter: grayscale(100%) blur(7px);
 }
 
 /*--------------------------------------------------------------
@@ -1068,4 +1066,13 @@ https://wordpress.org/support/topic/how-to-stop-wp-from-adding-p-tag-automatical
 */
 p:empty:before {
     content: none;
+}
+
+
+/*
+Custom checkboxes, radios, range, and select on Mac/iOS Safari if custom Sass compiled bootstrap.min.css is used
+*/
+.form-check-input,
+.form-select {
+    -webkit-appearance: none;
 }

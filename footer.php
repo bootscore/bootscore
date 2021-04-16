@@ -11,8 +11,6 @@
 
 ?>
 
-	
-
 <footer>
 
     <div class="bootscore-footer bg-light pt-5 pb-3">
@@ -67,22 +65,18 @@
             </div>
             
             <!-- Footer Menu -->
-            <div id="footer-menu" class="footer-menu">
-           		<nav class="nav">
-            		<?php
-               			wp_nav_menu( array(
-               				'theme_location'    => 'secondary',
-               				'depth'             => 1,
-               				'container'         => 'div',
-               				'container_class'   => 'footer-menu',
-               				'container_id'      => 'footer-menu',
-               				'menu_class'        => 'nav',
-               				'fallback_cb'       => 'WP_Bootstrap_Navwalker::fallback',
-               				'walker'            => new WP_Bootstrap_Navwalker(),
-               			) );
-               		?>  
-				</nav>
-            </div>
+            <?php
+                wp_nav_menu( array(
+                    'theme_location'    => 'secondary',
+                    'depth'             => 1,
+                    'container'         => 'div',
+                    'container_class'   => 'bs-footer-menu',
+                    'container_id'      => 'footer-menu',
+                    'menu_class'        => 'nav',
+                    'fallback_cb'       => 'WP_Bootstrap_Navwalker::fallback',
+                    'walker'            => new WP_Bootstrap_Navwalker(),
+                ) );
+            ?>  
             <!-- Footer Menu -->
             
         </div>
