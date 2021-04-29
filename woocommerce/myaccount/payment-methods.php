@@ -67,7 +67,7 @@ do_action( 'woocommerce_before_account_payment_methods', $has_methods ); ?>
 
 <?php else : ?>
 
-	<p class="alert alert-primary"><?php esc_html_e( 'No saved methods found.', 'woocommerce' ); ?></p>
+	<p class="alert alert-info"><?php esc_html_e( 'No saved methods found.', 'woocommerce' ); ?></p>
 
 <?php endif; ?>
 

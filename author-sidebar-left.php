@@ -23,19 +23,15 @@
 
                 <main id="main" class="site-main">
 
-                    <!-- Title & Description -->
-                    <header class="page-header mb-4">
-
-                        <div class="row mb-4">
-                            <div class="col avatar">
-                                <?php echo get_avatar( get_the_author_meta('email'), '128', $default='', $alt='', array( 'class' => array( 'rounded' ) ) ); ?>
-                            </div>
-                            <div class="col">
-                                <h1><?php the_author(); ?></h1>
-                                <?php the_author_meta('description'); ?>
-                            </div>
+                    <!-- Author & Bio -->
+                    <header class="page-header mb-4 d-flex">
+                        <div class="flex-shrink-0 me-3">
+                            <?php echo get_avatar( get_the_author_meta('email'), '80', $default='', $alt='', array( 'class' => array( 'rounded' ) ) ); ?>
                         </div>
-
+                        <div class="author-bio">
+                            <h1><?php the_author(); ?></h1>
+                            <?php the_author_meta('description'); ?>
+                        </div>
                     </header>
 
                     <!-- .page-header -->

@@ -77,7 +77,7 @@
                     </div>
 
 
-                    <div class="offcanvas offcanvas-start" tabindex="-1" data-bs-hideresize="true" id="offcanvas-navbar" aria-labelledby="offcanvas-navbarLabel">
+                    <div class="offcanvas offcanvas-start" tabindex="-1" data-bs-hideresize="true" id="offcanvas-navbar">
                         <div class="offcanvas-header cursor-pointer hover bg-light text-primary" data-bs-dismiss="offcanvas">
                             <?php esc_html_e('Close menu' , 'bootscore'); ?> <i class="fas fa-chevron-right"></i>
                         </div>
@@ -140,7 +140,7 @@
             </nav>
 
             <!-- offcanvas user -->
-            <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvas-user" aria-labelledby="offcanvas-userLabel">
+            <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvas-user">
                 <div class="offcanvas-header cursor-pointer hover bg-light text-primary" data-bs-dismiss="offcanvas">
                     <?php esc_html_e('Close account' , 'bootscore'); ?> <i class="fas fa-chevron-right"></i>
                 </div>
@@ -152,7 +152,7 @@
             </div>
 
             <!-- offcanvas cart -->
-            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvas-cart" aria-labelledby="offcanvas-cartLabel">
+            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvas-cart">
                 <div class="offcanvas-header cursor-pointer hover bg-light text-primary" data-bs-dismiss="offcanvas">
                     <i class="fas fa-chevron-left"></i> <?php esc_html_e('Continue shopping' , 'bootscore'); ?>
                 </div>

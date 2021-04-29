@@ -4,7 +4,7 @@ Theme URI: https://bootscore.me/
 Author: Bastian Kreiter
 Author URI: https://crftwrk.de
 Description: A powerful Bootstrap 5 WordPress Starter Theme with WooCommerce Support. <a href="https://bootscore.me/category/documentation/" target="_blank">Documentation</a>. This theme gives you full control whatever you do and the full freedom to design whatever you want. It comes with a wide selection of category, page, post, author and archive templates as well as sidebar, header, footer and 404 widgets. There are no customizer settings in the backend. All settings can only be made by touching the code. Some CSS, HTML, PHP and JS Skills are required to customize it.
-Version: 5.0.1.2
+Version: 5.0.1.3
 License: GNU General Public License v2 or later
 License URI: LICENSE
 Text Domain: bootscore
@@ -40,18 +40,19 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 15. Temporary bug fixes
 --------------------------------------------------------------*/
 
-
 /*--------------------------------------------------------------
 1. Temporary Offcanvas
 --------------------------------------------------------------*/
 
-/* Hide default backdrop if a navbar has class fixed-top */
-.navbar-fixed-top-offcanvas.offcanvas-backdrop::before {
+/* Hide default backdrop if class fixed-top is used */
+
+.fixed-top-offcanvas.offcanvas-backdrop::before {
     content: none;
 }
 
-/* Place backdrop before navbar-toggler instead to display between navbar and offcanvas */
-.navbar-fixed-top-offcanvas .navbar.fixed-top::before {
+/* Place backdrop before fixed instead to display between navbar and offcanvas */
+
+.fixed-top-offcanvas .fixed-top::before {
     content: "";
     position: fixed;
     top: 0;
@@ -67,7 +68,8 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 }
 
 /*  Show backdrop via .offcanvas-backdrop body class */
-.navbar-fixed-top-offcanvas.offcanvas-backdrop .navbar.fixed-top::before {
+
+.fixed-top-offcanvas.offcanvas-backdrop .fixed-top::before {
     visibility: visible;
     opacity: 1;
 }
@@ -77,12 +79,11 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 }
 
 /* Expand-sm */
-@media (min-width: 576px) {
 
+@media (min-width: 576px) {
     .navbar-expand-sm .offcanvas .offcanvas-header {
         display: none;
     }
-
     .navbar-expand-sm .offcanvas {
         position: inherit;
         bottom: 0;
@@ -94,34 +95,28 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
         border-right: none;
         z-index: inherit;
     }
-
     .navbar-expand-sm .offcanvas .offcanvas-body {
         flex-grow: 0;
         padding: 0;
         overflow-y: visible;
         display: flex;
     }
-
     .navbar-expand-sm .offcanvas-bottom {
         border-top: none;
         height: auto;
     }
-
     /* Override background-color in case bg-* color classes are used */
-    .navbar-expand-sm .offcanvas,
-    .navbar-expand-sm .offcanvas .offcanvas-body {
+    .navbar-expand-sm .offcanvas, .navbar-expand-sm .offcanvas .offcanvas-body {
         background-color: transparent !important;
     }
-
 }
 
 /* Expand-md */
-@media (min-width: 768px) {
 
+@media (min-width: 768px) {
     .navbar-expand-md .offcanvas .offcanvas-header {
         display: none;
     }
-
     .navbar-expand-md .offcanvas {
         position: inherit;
         bottom: 0;
@@ -133,35 +128,28 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
         border-right: none;
         z-index: inherit;
     }
-
     .navbar-expand-md .offcanvas .offcanvas-body {
         flex-grow: 0;
         padding: 0;
         overflow-y: visible;
         display: flex;
-
     }
-
     .navbar-expand-md .offcanvas-bottom {
         border-top: none;
         height: auto;
     }
-
     /* Override background-color in case bg-* color classes are used */
-    .navbar-expand-md .offcanvas,
-    .navbar-expand-md .offcanvas .offcanvas-body {
+    .navbar-expand-md .offcanvas, .navbar-expand-md .offcanvas .offcanvas-body {
         background-color: transparent !important;
     }
-
 }
 
 /* Expand-lg */
-@media (min-width: 992px) {
 
+@media (min-width: 992px) {
     .navbar-expand-lg .offcanvas .offcanvas-header {
         display: none;
     }
-
     .navbar-expand-lg .offcanvas {
         position: inherit;
         bottom: 0;
@@ -173,34 +161,28 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
         border-right: none;
         z-index: inherit;
     }
-
     .navbar-expand-lg .offcanvas .offcanvas-body {
         flex-grow: 0;
         padding: 0;
         overflow-y: visible;
         display: flex;
     }
-
     .navbar-expand-lg .offcanvas-bottom {
         border-top: none;
         height: auto;
     }
-
     /* Override background-color in case bg-* color classes are used */
-    .navbar-expand-lg .offcanvas,
-    .navbar-expand-lg .offcanvas .offcanvas-body {
+    .navbar-expand-lg .offcanvas, .navbar-expand-lg .offcanvas .offcanvas-body {
         background-color: transparent !important;
     }
-
 }
 
 /* Expand-xl */
-@media (min-width: 1200px) {
 
+@media (min-width: 1200px) {
     .navbar-expand-xl .offcanvas .offcanvas-header {
         display: none;
     }
-
     .navbar-expand-xl .offcanvas {
         position: inherit;
         bottom: 0;
@@ -212,34 +194,28 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
         border-right: none;
         z-index: inherit;
     }
-
     .navbar-expand-xl .offcanvas .offcanvas-body {
         flex-grow: 0;
         padding: 0;
         overflow-y: visible;
         display: flex;
     }
-
     .navbar-expand-xl .offcanvas-bottom {
         border-top: none;
         height: auto;
     }
-
     /* Override background-color in case bg-* color classes are used */
-    .navbar-expand-xl .offcanvas,
-    .navbar-expand-xl .offcanvas .offcanvas-body {
+    .navbar-expand-xl .offcanvas, .navbar-expand-xl .offcanvas .offcanvas-body {
         background-color: transparent !important;
     }
-
 }
 
 /* Expand-xxl */
-@media (min-width: 1400px) {
 
+@media (min-width: 1400px) {
     .navbar-expand-xxl .offcanvas .offcanvas-header {
         display: none;
     }
-
     .navbar-expand-xxl .offcanvas {
         position: inherit;
         bottom: 0;
@@ -252,86 +228,62 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
         border-right: none;
         z-index: inherit;
     }
-
     .navbar-expand-xxl .offcanvas .offcanvas-body {
         flex-grow: 0;
         padding: 0;
         overflow-y: visible;
         display: flex;
     }
-
     .navbar-expand-xxl .offcanvas-bottom {
         border-top: none;
         height: auto;
     }
-
     /* Override background-color in case bg-* color classes are used */
-    .navbar-expand-xxl .offcanvas,
-    .navbar-expand-xxl .offcanvas .offcanvas-body {
+    .navbar-expand-xxl .offcanvas, .navbar-expand-xxl .offcanvas .offcanvas-body {
         background-color: transparent !important;
     }
-
 }
-
 
 /*--------------------------------------------------------------
 2. Temporary Badges
 --------------------------------------------------------------*/
 
-.badge.bg-light,
-.badge.bg-warning,
-.badge.bg-info {
+.badge.bg-light, .badge.bg-warning, .badge.bg-info {
     color: currentColor;
 }
 
-.badge.bg-secondary:hover,
-.badge.bg-primary:hover,
-.badge.bg-danger:hover,
-.badge.bg-sussess:hover,
-.badge.bg-dark:hover {
+.badge.bg-secondary:hover, .badge.bg-primary:hover, .badge.bg-danger:hover, .badge.bg-sussess:hover, .badge.bg-dark:hover {
     color: #fff;
 }
 
-.badge.bg-info:hover,
-.badge.bg-warning:hover,
-.badge.bg-light:hover {
+.badge.bg-info:hover, .badge.bg-warning:hover, .badge.bg-light:hover {
     color: currentColor;
 }
 
-a.badge,
-a.badge:hover {
+a.badge, a.badge:hover {
     text-decoration: none;
 }
-
-
 
 /*--------------------------------------------------------------
 3. Header
 --------------------------------------------------------------*/
 
 @media (max-width: 782px) {
-
-    .logged-in.admin-bar .fixed-top,
-    .logged-in.admin-bar .offcanvas:not(.offcanvas-bottom) {
+    .logged-in.admin-bar .fixed-top, .logged-in.admin-bar .offcanvas:not(.offcanvas-bottom) {
         top: 46px;
     }
-
     .logged-in.admin-bar .dropdown-search {
         top: 100px !important;
     }
-
     #wpadminbar {
         position: fixed;
     }
 }
 
 @media (min-width: 783px) {
-
-    .logged-in.admin-bar .fixed-top,
-    .logged-in.admin-bar .offcanvas:not(.offcanvas-bottom) {
+    .logged-in.admin-bar .fixed-top, .logged-in.admin-bar .offcanvas:not(.offcanvas-bottom) {
         top: 32px;
     }
-
     .logged-in.admin-bar .dropdown-search {
         top: 86px !important;
     }
@@ -345,8 +297,7 @@ a.badge:hover {
     top: 54px;
 }
 
-.top-nav-search-md.hide,
-.top-nav-search-lg.hide {
+.top-nav-search-md.hide, .top-nav-search-lg.hide {
     display: none !important;
 }
 
@@ -361,25 +312,19 @@ a.badge:hover {
 }
 
 @media (max-width: 991px) {
-
     .btn-dropdown.right {
         padding-right: 0;
         border: none;
     }
-
     #dropdown-search:hover {
         color: currentColor;
         background-color: transparent;
         border-color: transparent;
     }
-
     #dropdown-search:focus {
         box-shadow: none;
     }
-
 }
-
-
 
 /*--------------------------------------------------------------
 4. Body
@@ -391,6 +336,7 @@ body {
 }
 
 /* conflict scroll-behaviour: smooth with jquery smooth scroll */
+
 html {
     scroll-behavior: auto !important;
 }
@@ -407,16 +353,11 @@ html {
     min-height: 600px;
 }
 
-
-
 /*--------------------------------------------------------------
 5. Alerts
 --------------------------------------------------------------*/
 
-.alert.alert-danger,
-.alert.alert-warning,
-.alert.alert-info,
-.alert.alert-success {
+.alert.alert-danger, .alert.alert-warning, .alert.alert-info, .alert.alert-success {
     padding-left: 3.25rem;
 }
 
@@ -445,14 +386,11 @@ html {
     content: "\f058";
 }
 
-
-
 /*--------------------------------------------------------------
 6. Breadcrumb
 --------------------------------------------------------------*/
 
 @media (max-width: 991px) {
-
     .breadcrumb {
         display: block !important;
         white-space: nowrap;
@@ -462,14 +400,10 @@ html {
         overflow: -moz-scrollbars-none;
         scrollbar-width: none;
     }
-
     .breadcrumb::-webkit-scrollbar {
         display: none;
     }
-
 }
-
-
 
 /*--------------------------------------------------------------
 7. To Top Button
@@ -495,8 +429,6 @@ html {
     transition: opacity 1s
 }
 
-
-
 /*--------------------------------------------------------------
 8. Single Post
 --------------------------------------------------------------*/
@@ -510,8 +442,7 @@ img {
     width: 100%;
 }
 
-.page-image img,
-.post-image img {
+.page-image img, .post-image img {
     width: 100%;
     object-fit: contain;
     height: auto;
@@ -531,8 +462,6 @@ img {
     content: " »";
 }
 
-
-
 /*--------------------------------------------------------------
 9. Comments
 --------------------------------------------------------------*/
@@ -546,36 +475,24 @@ ul.comment-list li {
     list-style: none;
 }
 
+.avatar {
+    width: 80px;
+}
+
+.comment-list ul.children {
+    padding-left: 96px;
+}
+
 @media (max-width: 991px) {
-
-    .col.avatar {
-        max-width: 80px;
-    }
-
-    .comment-list ul.children {
-        padding-left: 80px;
-    }
-
     .comment-list ul.children ul.children {
         padding-left: 0;
     }
 }
 
 @media (min-width: 992px) {
-
-    .col.avatar {
-        max-width: 128px;
-    }
-
-    .comment-list ul.children,
-    .comment-list ul.children ul.children {
-        padding-left: 128px;
-    }
-
     .comment-list ul.children ul.children ul.children {
         padding-left: 0;
     }
-
 }
 
 .screen-reader-text {
@@ -592,22 +509,13 @@ ul.comment-list li {
 }
 
 /* 
-    Adding max width to comment col. 
-    When using <pre> in comment, col will not crached
+    Adding width to comment. 
+    When using <pre> in comment, comment-content will not crashed
 */
 
-@media (max-width: 991px) {
-    .col.comment-content {
-        max-width: max(100% - 80px);
-    }
+.comment-content {
+    width: calc(100% - 96px);
 }
-
-@media (min-width: 992px) {
-    .col.comment-content {
-        max-width: max(100% - 128px);
-    }
-}
-
 
 /*--------------------------------------------------------------
 10. Archive
@@ -651,14 +559,11 @@ ul.comment-list li {
     }
 }
 
-
-
 /*--------------------------------------------------------------
 11. Widgets
 --------------------------------------------------------------*/
 
-.widget-area ul,
-.bootscore-footer ul {
+.widget-area ul, .bootscore-footer ul {
     padding: 0;
     list-style: none;
     margin-bottom: 0;
@@ -672,8 +577,6 @@ ul.comment-list li {
     padding-left: 0;
 }
 
-
-
 /*--------------------------------------------------------------
 12. Utilities
 --------------------------------------------------------------*/
@@ -685,6 +588,7 @@ https://bootscore.me/documentation/width-height-classes/
 */
 
 /* Hide horizontal scrollbars on Windows Chrome & Firefox */
+
 body {
     overflow-x: hidden;
 }
@@ -699,15 +603,15 @@ body {
 /* 
 Add underline-0 class to <a>..</a> to disable underline on hover
 */
-.underline-0,
-.underline-0:hover,
-.underline-0:focus {
+
+.underline-0, .underline-0:hover, .underline-0:focus {
     text-decoration: none !important;
 }
 
 /* 
 Hide racaptcha v3 badge 
 */
+
 .grecaptcha-badge {
     display: none !important;
 }
@@ -715,6 +619,7 @@ Hide racaptcha v3 badge
 /* 
 Clear
 */
+
 .clear-both {
     clear: both;
 }
@@ -722,6 +627,7 @@ Clear
 /* 
 z-index
 */
+
 .zi-1000 {
     z-index: 1000 !important;
 }
@@ -778,19 +684,16 @@ Hover
     filter: brightness(0.95);
 }
 
-
-
 /*--------------------------------------------------------------
 13. Colors
 --------------------------------------------------------------*/
 
-
-::-moz-selection {
+::selection {
     color: #fff;
     background-color: var(--bs-primary);
 }
 
-::selection {
+::-moz-selection {
     color: #fff;
     background-color: var(--bs-primary);
 }
@@ -815,8 +718,6 @@ q {
     outline-width: 0 !important;
 }
 
-
-
 /*--------------------------------------------------------------
 14. HTML Markups (Theme Unit Test Data)
 --------------------------------------------------------------*/
@@ -829,7 +730,6 @@ pre {
     padding: 1rem;
     border-radius: .25rem;
 }
-
 
 img {
     height: auto;
@@ -870,12 +770,10 @@ blockquote::before {
     margin: -.1rem 1.25rem 0 0;
 }
 
-
 .wp-block-quote.is-style-large {
     margin: 0 0 1rem;
     padding: 1.25rem;
 }
-
 
 figure.wp-block-pullquote blockquote:before {
     font-family: "Font Awesome 5 Free";
@@ -909,14 +807,11 @@ q::before {
     font-size: 100%;
 }
 
-
 /* Button Reset */
 
 .wp-block-button {
     margin-bottom: none;
 }
-
-
 
 .wp-block-button__link {
     background-color: none !important;
@@ -934,7 +829,6 @@ q::before {
     white-space: normal;
     overflow-wrap: break-word;
 }
-
 
 /*--------------------------------------------------------------
 # Alignments
@@ -958,7 +852,6 @@ q::before {
     margin-left: auto;
     margin-right: auto;
 }
-
 
 /*--------------------------------------------------------------
 ## Galleries
@@ -1014,6 +907,7 @@ q::before {
 /*--------------------------------------------------------------
 ## Captions
 --------------------------------------------------------------*/
+
 .wp-caption {
     margin-bottom: 1.5em;
     max-width: 100%;
@@ -1033,11 +927,7 @@ q::before {
     text-align: center;
 }
 
-
-.blocks-gallery-grid .blocks-gallery-image figcaption,
-.blocks-gallery-grid .blocks-gallery-item figcaption,
-.wp-block-gallery .blocks-gallery-image figcaption,
-.wp-block-gallery .blocks-gallery-item figcaption {
+.blocks-gallery-grid .blocks-gallery-image figcaption, .blocks-gallery-grid .blocks-gallery-item figcaption, .wp-block-gallery .blocks-gallery-image figcaption, .wp-block-gallery .blocks-gallery-item figcaption {
     overflow: auto;
     padding: .5rem;
     font-size: 1rem;
@@ -1047,6 +937,7 @@ q::before {
 /*--------------------------------------------------------------
 ## Comments
 --------------------------------------------------------------*/
+
 .comment-content a {
     word-wrap: break-word;
 }
@@ -1054,7 +945,6 @@ q::before {
 .bypostauthor {
     display: block;
 }
-
 
 /*--------------------------------------------------------------
 15. Temporary bug fixes
@@ -1064,15 +954,15 @@ q::before {
 Remove autop (WP 5.7 bug near shortcode)
 https://wordpress.org/support/topic/how-to-stop-wp-from-adding-p-tag-automatically/
 */
+
 p:empty:before {
     content: none;
 }
 
-
 /*
 Custom checkboxes, radios, range, and select on Mac/iOS Safari if custom Sass compiled bootstrap.min.css is used
 */
-.form-check-input,
-.form-select {
+
+.form-check-input, .form-select {
     -webkit-appearance: none;
 }

@@ -6,7 +6,7 @@ Tags: featured-images, threaded-comments, translation-ready
 Requires at least: 4.5
 Tested up to: 5.7
 Requires PHP: 5.6
-Stable tag: 5.0.1.2
+Stable tag: 5.0.1.3
 License: GNU General Public License v2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -54,6 +54,14 @@ bootScore includes support for Infinite Scroll in Jetpack.
 
 
 == Changelog ==
+
+    = 5.0.1.3 - April 29 2021 =
+    
+        * [IMPROVEMENT] Replaced col in all author-*.php with custom media-object component (author-*.php)
+        * [IMPROVEMENT] Replaced col in comments with custom media-object component (comments-list.php, style.css)
+        * [IMPROVEMENT] Changed alert-primary to alert-info (payment-methods.php)
+        * [BUGFIX] Moved offcanvas backdrop from .navbar.fixed-top to fixed.top. Now it's possible to wrap the navbar in a fixed-top div.
+        * [SEO] Removed aria-labelledby="" from offcanvas (thnx Mike Collignon)
 
     = 5.0.1.2 - April 16 2021 =
     

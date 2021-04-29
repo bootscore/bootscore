@@ -18,10 +18,10 @@ jQuery(document).ready(function ($) {
     $('.navbar-toggler').addClass('position-relative');
     $('.navbar-toggler').append('<div class="toggler-overlay position-absolute top-0 end-0 bottom-0 start-0" data-bs-target="#offcanvas-navbar"></div>');
 
-    // Check if navbar fixed-top component exists
-    if ($(".navbar.fixed-top")[0]) {
-        // Add body class to hide default .offcanvas-backdrop::before if .navbar.fixed-top exists
-        $("body").addClass("navbar-fixed-top-offcanvas");
+    // Check if fixed-top class exists
+    if ($(".fixed-top")[0]) {
+        // Add body class to hide default .offcanvas-backdrop::before if .fixed-top exists
+        $("body").addClass("fixed-top-offcanvas");
     }
 
     // Data attribute to hide offcanvas and enable body scroll on resize through the breakpoints

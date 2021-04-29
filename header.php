@@ -76,7 +76,7 @@
                         <i class="text-secondary fas fa-bars"></i>
                     </button>
 
-                    <div class="offcanvas offcanvas-end" tabindex="-1" data-bs-hideresize="true" id="offcanvas-navbar" aria-labelledby="offcanvas-navbarLabel">
+                    <div class="offcanvas offcanvas-end" tabindex="-1" data-bs-hideresize="true" id="offcanvas-navbar">
                         <div class="offcanvas-header hover cursor-pointer bg-light text-primary" data-bs-dismiss="offcanvas">
                             <i class="fas fa-chevron-left"></i> <?php esc_html_e('Close menu' , 'bootscore'); ?>
                         </div>
