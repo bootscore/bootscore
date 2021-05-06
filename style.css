@@ -4,7 +4,7 @@ Theme URI: https://bootscore.me/
 Author: Bastian Kreiter
 Author URI: https://crftwrk.de
 Description: A powerful Bootstrap 5 WordPress Starter Theme with WooCommerce Support. <a href="https://bootscore.me/category/documentation/" target="_blank">Documentation</a>. This theme gives you full control whatever you do and the full freedom to design whatever you want. It comes with a wide selection of category, page, post, author and archive templates as well as sidebar, header, footer and 404 widgets. There are no customizer settings in the backend. All settings can only be made by touching the code. Some CSS, HTML, PHP and JS Skills are required to customize it.
-Version: 5.0.1.3
+Version: 5.0.1.4
 License: GNU General Public License v2 or later
 License URI: LICENSE
 Text Domain: bootscore
@@ -23,7 +23,7 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 /*--------------------------------------------------------------
 >>> TABLE OF CONTENTS:
 ----------------------------------------------------------------
-1.  Temporary Offcanvas (will be removed when official Bootstrap Offcanvas component is ready)
+1.  Temporary Offcanvas (will be removed when official Bootstrap offcanvas navbar integration is ready, https://examples.bootscore.me/bootstrap-offcanvas-navbar/)
 2.  Temporary Badges (fixes Bootstrap hover state if badge is wrapped in a <a>...</a> tag)
 3.  Header
 4.  Body
@@ -43,40 +43,6 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 /*--------------------------------------------------------------
 1. Temporary Offcanvas
 --------------------------------------------------------------*/
-
-/* Hide default backdrop if class fixed-top is used */
-
-.fixed-top-offcanvas.offcanvas-backdrop::before {
-    content: none;
-}
-
-/* Place backdrop before fixed instead to display between navbar and offcanvas */
-
-.fixed-top-offcanvas .fixed-top::before {
-    content: "";
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background: rgba(0, 0, 0, .5);
-    cursor: pointer;
-    visibility: hidden;
-    opacity: 0;
-    transition: visibility .15s linear, opacity .3s linear;
-    z-index: inherit;
-}
-
-/*  Show backdrop via .offcanvas-backdrop body class */
-
-.fixed-top-offcanvas.offcanvas-backdrop .fixed-top::before {
-    visibility: visible;
-    opacity: 1;
-}
-
-.offcanvas-header {
-    align-items: center;
-}
 
 /* Expand-sm */
 
@@ -656,6 +622,10 @@ z-index
     z-index: 1070 !important;
 }
 
+.zi-n1 {
+    z-index: -1 !important;
+}
+
 /*
 Cursor
 */
@@ -957,12 +927,4 @@ https://wordpress.org/support/topic/how-to-stop-wp-from-adding-p-tag-automatical
 
 p:empty:before {
     content: none;
-}
-
-/*
-Custom checkboxes, radios, range, and select on Mac/iOS Safari if custom Sass compiled bootstrap.min.css is used
-*/
-
-.form-check-input, .form-select {
-    -webkit-appearance: none;
 }

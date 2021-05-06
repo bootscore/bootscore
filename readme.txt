@@ -6,7 +6,7 @@ Tags: featured-images, threaded-comments, translation-ready
 Requires at least: 4.5
 Tested up to: 5.7
 Requires PHP: 5.6
-Stable tag: 5.0.1.3
+Stable tag: 5.0.1.4
 License: GNU General Public License v2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -55,12 +55,22 @@ bootScore includes support for Infinite Scroll in Jetpack.
 
 == Changelog ==
 
+    = 5.0.1.4 - May 06 2021 =
+        
+        * [NEW] .zi-n1 helper class to set negative z-index
+        * [BUGFIX] text-decoration: none hover product card (woocommerce-style.css)
+        * [REMOVED] Bugfix custom checkboxes, radios, range, and select on Mac/iOS Safari if custom Sass compiled bootstrap.min.css is used (style.css, fixed in compiler settings)
+        * [REMOVED] Workaround icon in offcanvas toggler https://github.com/twbs/bootstrap/issues/33457 (Bugfix Bootstrap 5.0.0, theme.js, woocommerce.js)
+        * [REMOVED] Backdrop if navbar has class .fixed-top. Uses Bootstrap offcanvas backdrop now (style.css, theme.js)
+        * [REMOVED] Offcanvas header align-items-center (style.css, Bootstrap included)
+        * [UPDATE] Bootstrap 5.0.0
+
     = 5.0.1.3 - April 29 2021 =
     
         * [IMPROVEMENT] Replaced col in all author-*.php with custom media-object component (author-*.php)
         * [IMPROVEMENT] Replaced col in comments with custom media-object component (comments-list.php, style.css)
         * [IMPROVEMENT] Changed alert-primary to alert-info (payment-methods.php)
-        * [BUGFIX] Moved offcanvas backdrop from .navbar.fixed-top to fixed.top. Now it's possible to wrap the navbar in a fixed-top div.
+        * [BUGFIX] Moved offcanvas backdrop from .navbar.fixed-top to .fixed-top. Now it's possible to wrap the navbar in a fixed-top div.
         * [SEO] Removed aria-labelledby="" from offcanvas (thnx Mike Collignon)
 
     = 5.0.1.2 - April 16 2021 =

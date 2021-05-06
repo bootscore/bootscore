@@ -1,15 +1,9 @@
 jQuery(document).ready(function ($) {
 
-    // Workaround icon in offcanvas toggler https://github.com/twbs/bootstrap/issues/33457
-    $('.cart-toggler').append('<div class="toggler-overlay position-absolute top-0 end-0 bottom-0 start-0" data-bs-target="#offcanvas-cart"></div>');
-    $('.user-toggler').addClass('position-relative');
-    $('.user-toggler').append('<div class="toggler-overlay position-absolute top-0 end-0 bottom-0 start-0" data-bs-target="#offcanvas-user"></div>');
-
-
     // Single add to cart button
     $(".single_add_to_cart_button:not(.product_type_variable):not(.product_type_external):not(.product_type_grouped)").attr("data-bs-toggle","offcanvas").attr("data-bs-target","#offcanvas-cart");
 
-
+    
     // Review Checkbox Products
     $('.comment-form-cookies-consent').addClass('form-check');
     $('#wp-comment-cookies-consent').addClass('form-check-input');

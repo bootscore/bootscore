@@ -13,17 +13,6 @@
 
 jQuery(document).ready(function ($) {
 
-    // Offcanvas
-    // Workaround icon in offcanvas toggler https://github.com/twbs/bootstrap/issues/33457
-    $('.navbar-toggler').addClass('position-relative');
-    $('.navbar-toggler').append('<div class="toggler-overlay position-absolute top-0 end-0 bottom-0 start-0" data-bs-target="#offcanvas-navbar"></div>');
-
-    // Check if fixed-top class exists
-    if ($(".fixed-top")[0]) {
-        // Add body class to hide default .offcanvas-backdrop::before if .fixed-top exists
-        $("body").addClass("fixed-top-offcanvas");
-    }
-
     // Data attribute to hide offcanvas and enable body scroll on resize through the breakpoints
     $(window).on('resize', function () {
         $('[data-bs-hideresize="true"]').offcanvas('hide');
