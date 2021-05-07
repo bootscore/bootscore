@@ -37,7 +37,7 @@ jQuery(document).ready(function ($) {
     $('.dropdown').on('hide.bs.dropdown', function (e) {
         $(this).find('.dropdown-menu').first().stop(true, true).slideUp();
     });
-
+    
 
     // Mobile search button hide if empty
     if ($('.searchform').length != 1) {

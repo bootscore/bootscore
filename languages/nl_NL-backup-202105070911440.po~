@@ -8,7 +8,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2021-03-16 20:44+0000\n"
+"PO-Revision-Date: 2021-03-16 21:16+0000\n"
 "Last-Translator: \n"
 "Language-Team: Nederlands\n"
 "X-Generator: Loco https://localise.biz/\n"
@@ -24,7 +24,7 @@ msgstr "door"
 #: inc/comment-list.php:49
 #, php-format
 msgid "%s <span class=\"says d-none\">says:</span>"
-msgstr ""
+msgstr "%s <span class=\"says d-none\">zegt:</span>"
 
 #. used between list items, there is a space after the comma
 #: inc/template-tags.php:38
@@ -58,6 +58,17 @@ msgid ""
 " Some CSS, HTML, PHP and JS Skills are required to customize it completely. "
 "Make bootScore your own!"
 msgstr ""
+"Een krachtig onepage of multi page Bootstrap basisthema met ondersteuning "
+"voor WooCommerce. Voorbeelden: https://bootscore.me/#examples, Documentatie: "
+"https://bootscore.me/category/documentation/. Dit thema geeft je volledige "
+"controle over wat je ook bouwt en de volledige vrijheid om te ontwerpen wat "
+"je wilt. Het thema bevat enkele nuttige header scripts en een brede selectie "
+"van categorie-, pagina-, bericht-, auteur- en archieftemplates, maar ook "
+"zijbalk, header, footer en 404 widgets. Een preloader is  inbegrepen. Er "
+"zijn slechts enkele kleine customizer instellingen in de backend. Alle "
+"belangrijke instellingen kunnen alleen in de code worden gedaan. Enige CSS, "
+"HTML, PHP en JS vaardigheden zijn vereist om het volledig op maat te maken. "
+"Gebruik bootScore zoals je wilt!"
 
 #: languages/plugin-translations.php:7
 msgid "Accept"
@@ -67,7 +78,7 @@ msgstr "Accepteer"
 #: functions.php:168 functions.php:180 functions.php:192 functions.php:204
 #: functions.php:216
 msgid "Add widgets here."
-msgstr ""
+msgstr "Widgets hier toevoegen."
 
 #: languages/plugin-translations.php:2
 msgid "All"
@@ -75,23 +86,23 @@ msgstr "Alle"
 
 #: 404.php:27
 msgid "Back Home &raquo;"
-msgstr ""
+msgstr "Terug naar de homepage &raquo;"
 
 #. Author of the theme
 msgid "Bastian Kreiter"
-msgstr ""
+msgstr "Bastian Kreiter"
 
 #. Name of the template
 msgid "Blank with container"
-msgstr ""
+msgstr "Blanco met container"
 
 #. Name of the template
 msgid "Blank without container"
-msgstr ""
+msgstr "Blanco zonder container"
 
 #. Name of the theme
 msgid "bootScore 5"
-msgstr ""
+msgstr "bootScore 5"
 
 #: comments.php:100
 msgid "Cancel"
@@ -111,11 +122,11 @@ msgstr "Sluit menu"
 
 #: comments.php:55 comments.php:73
 msgid "Comment navigation"
-msgstr ""
+msgstr "Navigatie reacties"
 
 #: comments.php:91
 msgid "Comments are closed."
-msgstr ""
+msgstr "Reacties zijn niet toegestaan."
 
 #. 1: number of comments, 2: post title
 #: comments.php:38
@@ -131,17 +142,19 @@ msgstr[1] "%1$s Reacties op &ldquo;%2$s&rdquo;"
 #, php-format
 msgctxt "comments title"
 msgid "One Comment &ldquo;%s&rdquo;"
-msgstr ""
+msgstr "Eén reactie &ldquo;%s&rdquo;"
 
 #: header-woocommerce.php:162
 msgid "Continue shopping"
-msgstr ""
+msgstr "Ga verder met winkelen"
 
 #: languages/plugin-translations.php:4
 msgid ""
 "Cookies help us deliver our services. By using our services, you agree to "
 "our use of cookies."
 msgstr ""
+"Cookies helpen onze diensten te verlenen. Door van onze diensten gebruik te "
+"maken stem je in met ons gebruik van cookies."
 
 #. %s: Name of current post. Only visible to screen readers
 #: inc/template-tags.php:139 inc/comment-list.php:32 inc/comment-list.php:57
@@ -154,144 +167,147 @@ msgstr "E-mailadres* (wordt niet gepubliceerd)"
 
 #: functions.php:166
 msgid "Footer 1"
-msgstr ""
+msgstr "Footer 1"
 
 #: functions.php:178
 msgid "Footer 2"
-msgstr ""
+msgstr "Footer 2"
 
 #: functions.php:190
 msgid "Footer 3"
-msgstr ""
+msgstr "Footer 3"
 
 #: functions.php:202
 msgid "Footer 4"
-msgstr ""
+msgstr "Footer 4"
 
 #: functions.php:66
 msgid "Footer Menu"
-msgstr ""
+msgstr "Footer menu"
 
 #. Name of the template
 msgid "Full Width Image"
-msgstr ""
+msgstr "Afbeelding in volle breedte"
 
 #. Name of the template
 msgid "Full width image"
-msgstr ""
+msgstr "Afbeelding in volle breedte"
 
 #: woocommerce/myaccount/my-account-offcanvas.php:17
 msgid "Hello"
-msgstr ""
+msgstr "Hallo"
 
 #: woocommerce/myaccount/my-account-offcanvas.php:22
 msgid ""
 "Here you can view your recent orders, manage your shipping and billing "
 "addresses, and edit your password and account details."
 msgstr ""
+"Hier kun je je recente bestellingen bekijken, je adresgegevens beheren en je "
+"wachtwoord en accountgegevens wijzigen."
 
 #. URI of the theme
 msgid "https://bootscore.me/"
-msgstr ""
+msgstr "https://bootscore.me/"
 
 #. Author URI of the theme
 msgid "https://crftwrk.de"
-msgstr ""
+msgstr "https://crftwrk.de"
 
 #: inc/template-tags.php:256
 msgid "Internet Explorer detected"
-msgstr ""
+msgstr "Internet Explorer gedetecteerd"
 
 #: template-parts/content-none.php:43
 msgid ""
 "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
 "searching can help."
 msgstr ""
+"We kunnen niet vinden wat je zoekt. Wellicht biedt de zoekfunctie uitkomst."
 
 #. %s: post title
 #: comments.php:98 inc/template-tags.php:110
 msgid "Leave a Comment"
-msgstr ""
+msgstr "Reageer"
 
 #: inc/template-tags.php:167
 msgid "Leave a comment"
-msgstr ""
+msgstr "Reageer"
 
 #: comments.php:99
 #, php-format
 msgid "Leave a Comment to %s"
-msgstr ""
+msgstr "Reageer op %s"
 
 #. Name of the template
 msgid "Left Sidebar"
-msgstr ""
+msgstr "Linker zijbalk"
 
 #: languages/plugin-translations.php:3
 msgid "Look what I found: "
-msgstr ""
+msgstr "Kijk wat ik heb gevonden:"
 
 #: functions.php:65
 msgid "Main Menu"
-msgstr ""
+msgstr "Hoofdmenu"
 
 #: languages/plugin-translations.php:6
 msgid "More Information"
-msgstr ""
+msgstr "Meer informatie"
 
 #: comments.php:121 woocommerce/single-product-reviews.php:89
 msgid "Name*"
-msgstr ""
+msgstr "Naam*"
 
 #: comments.php:59 comments.php:77
 msgid "Newer Comments"
-msgstr ""
+msgstr "Nieuwere reacties"
 
 #. Name of the template
 msgid "No Sidebar"
-msgstr ""
+msgstr "Geen zijbalk"
 
 #: template-parts/content-none.php:14
 msgid "Nothing Found for"
-msgstr ""
+msgstr "Niets gevonden voor"
 
 #: comments.php:58 comments.php:76
 msgid "Older Comments"
-msgstr ""
+msgstr "Oudere reacties"
 
 #: inc/template-tags.php:258
 msgid "or"
-msgstr ""
+msgstr "of"
 
 #: 404.php:22
 msgid "Page not found."
-msgstr ""
+msgstr "Pagina niet gevonden."
 
 #: page.php:40 page-blank-without-container.php:21 page-sidebar-none.php:30
 #: page-sidebar-left.php:35 page-blank-with-container.php:21
 msgid "Pages:"
-msgstr ""
+msgstr "Pagina's:"
 
 #: functions.php:405
 msgid "Password"
-msgstr ""
+msgstr "Wachtwoord"
 
 #: inc/comment-list.php:32
 msgid "Pingback:"
-msgstr ""
+msgstr "Pingback:"
 
 #: inc/template-tags.php:258
 msgid "Please use a modern and secure web browser like"
-msgstr ""
+msgstr "Gebruik alsjeblieft een moderne en veilige browser zoals"
 
 #: inc/template-tags.php:85
 #, php-format
 msgctxt "post author"
 msgid "by %s"
-msgstr ""
+msgstr "door %s"
 
 #: comments.php:101
 msgid "Post Comment"
-msgstr ""
+msgstr "Reactie"
 
 #: author.php:69
 msgid "Read more"
@@ -314,11 +330,14 @@ msgstr "Lees verder »"
 msgid ""
 "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
 msgstr ""
+"Klaar om je eerste bericht te schrijven? <a href=\"%1$s\">Begin hier</a>."
 
 #: inc/comment-list.php:111
 msgid ""
 "Save my name, email, and website in this browser for the next time I comment."
 msgstr ""
+"Bewaar mijn naam, e-mailadres en website in deze browser voor de volgende "
+"keer dat ik reageer."
 
 #: searchform.php:3
 msgid "Search"
@@ -347,10 +366,12 @@ msgid ""
 "Sorry, but nothing matched your search terms. Please try again with some "
 "different keywords."
 msgstr ""
+"Sorry, we hebben niets kunnen vinden. Probeer het opnieuw met een andere "
+"zoekopdracht."
 
 #: comments.php:103
 msgid "Start typing..."
-msgstr ""
+msgstr "Start met schrijven..."
 
 #: functions.php:406
 msgid "Submit"
@@ -360,31 +381,31 @@ msgstr "Verstuur"
 #: inc/template-tags.php:191
 #, php-format
 msgid "Tagged %1$s"
-msgstr ""
+msgstr "Getagd %1$s"
 
 #: inc/template-tags.php:257
 msgid "This website will offer limited functionality in this browser."
-msgstr ""
+msgstr "Deze website biedt beperkte functionaliteit in deze browser."
 
 #: inc/template-tags.php:258
 msgid "to display this site correctly."
-msgstr ""
+msgstr "om dit correct weer te geven."
 
 #: woocommerce/cart/mini-cart.php:118
 msgid "To find out your shipping cost , Please proceed to checkout."
-msgstr ""
+msgstr "Ga verder naar de checkout om je verzendkosten te berekenen."
 
 #: functions.php:154
 msgid "Top Footer"
-msgstr ""
+msgstr "Topfooter"
 
 #: functions.php:118
 msgid "Top Nav"
-msgstr ""
+msgstr "Topnavigatie"
 
 #: functions.php:130
 msgid "Top Nav Search"
-msgstr ""
+msgstr "Topnavigatie zooekblok"
 
 #: comments.php:130
 msgid "Website"
@@ -392,8 +413,8 @@ msgstr "Website"
 
 #: inc/comment-list.php:64
 msgid "Your comment is awaiting moderation."
-msgstr ""
+msgstr "Jouw reactie wacht op goedkeuring."
 
 #: woocommerce/single-product-reviews.php:134
 msgid "Your review...*"
-msgstr ""
+msgstr "Jouw beoordeling...*"

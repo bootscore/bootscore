@@ -8,18 +8,18 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2021-03-16 21:16+0000\n"
+"PO-Revision-Date: 2021-05-07 09:11+0000\n"
 "Last-Translator: \n"
 "Language-Team: Nederlands\n"
 "X-Generator: Loco https://localise.biz/\n"
 "Language: nl_NL\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Loco-Version: 2.5.2; wp-5.7"
+"X-Loco-Version: 2.5.2; wp-5.7.1"
 
 #: single-sidebar-none.php:25 single-full-width-image.php:35 single.php:26
 #: single-sidebar-left.php:28
 msgid " by "
-msgstr "door"
+msgstr " door "
 
 #: inc/comment-list.php:49
 #, php-format
