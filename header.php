@@ -25,8 +25,6 @@
     <link rel="mask-icon" href="<?php echo get_stylesheet_directory_uri();?>/img/favicon/safari-pinned-tab.svg" color="#0d6efd">
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="theme-color" content="#ffffff">
-    <!-- Loads the internal WP jQuery -->
-    <?php wp_enqueue_script('jquery'); ?>
     <?php wp_head(); ?>
 </head>
 
