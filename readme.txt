@@ -6,7 +6,7 @@ Tags: featured-images, threaded-comments, translation-ready
 Requires at least: 4.5
 Tested up to: 5.7
 Requires PHP: 5.6
-Stable tag: 5.0.1.6
+Stable tag: 5.0.1.7
 License: GNU General Public License v2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -54,6 +54,10 @@ bootScore includes support for Infinite Scroll in Jetpack.
 
 
 == Changelog ==
+
+    = 5.0.1.7 - May 12 2021 =
+        
+        * [UPDATE] grouped.php (WooCommerce 5.3.0)
 
     = 5.0.1.6 - May 11 2021 =
         

@@ -148,6 +148,10 @@ form.cart .blockUI.blockOverlay {
     width: 100%
 }
 
+.group_table .add-to-cart-container {
+    width: 130px;
+}
+
 #add_payment_method table.cart td.actions .coupon .input-text, .woocommerce-cart table.cart td.actions .coupon .input-text, .woocommerce-checkout table.cart td.actions .coupon .input-text {
     float: none;
     border: 0;
