@@ -100,7 +100,7 @@
                     <!-- Grid Layout -->
                     <?php if (have_posts() ) : ?>
                     <?php while (have_posts() ) : the_post(); ?>
-                    <?php if(is_sticky()) continue; //ignore sticy posts?>
+                    <?php if(is_sticky()) continue; //ignore sticky posts?>
                     <div class="card horizontal mb-4">
                         <div class="row">
                             <!-- Featured Image-->
