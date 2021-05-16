@@ -6,7 +6,7 @@ Tags: featured-images, threaded-comments, translation-ready
 Requires at least: 4.5
 Tested up to: 5.7
 Requires PHP: 5.6
-Stable tag: 5.0.1.8
+Stable tag: 5.0.1.9
 License: GNU General Public License v2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -54,6 +54,10 @@ bootScore includes support for Infinite Scroll in Jetpack.
 
 
 == Changelog ==
+
+    = 5.0.1.9 - May 16 2021 =
+        
+        * [BUGFIX] Added missing close </div> tag in page-full-width-image.php and single-full-width-image.php (thnx Trishah Woolley)
 
     = 5.0.1.8 - May 14 2021 =
         

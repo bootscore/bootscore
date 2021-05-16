@@ -18,12 +18,11 @@
 
         <main id="main" class="site-main">
 
-            <header class="entry-header">
-                <?php the_post(); ?>
-                <div class="height-75 bg-dark text-light align-items-end dflex mb-3" <?php $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'full' );?> <div id="featured-full-image" class"page-full-image" style="background-image: url('<?php echo $thumb['0'];?>')">
-                    <div class="container align-items-end d-flex h-100 pb-3">
-                        <?php the_title('<h1>', '</h1>'); ?>
-                    </div>
+            <?php $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'full' );?>
+            <header class="entry-header featured-full-width-img height-75 bg-dark text-light mb-3" style="background-image: url('<?php echo $thumb['0'];?>')">
+                <div class="container entry-header h-100 d-flex align-items-end pb-3">
+                    <h1 class="entry-title"><?php the_title(); ?></h1>
+                </div>
             </header>
 
             <div class="container pb-5">
