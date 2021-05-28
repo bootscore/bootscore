@@ -164,7 +164,7 @@ form.cart .blockUI.blockOverlay {
 }
 
 a.woocommerce-LoopProduct-link.woocommerce-loop-product__link, a.woocommerce-LoopProduct-link.woocommerce-loop-product__link:hover {
-    text-decoration: none;
+    text-decoration: none !important;
 }
 
 .woocommerce ul.cart_list li .star-rating, .woocommerce ul.product_list_widget li .star-rating {
@@ -270,10 +270,6 @@ button.single_add_to_cart_button.btn.btn-primary.disabled.wc-variation-selection
     margin-right: 0;
 }
 
-.woocommerce #reviews #comment {
-    height: 100%
-}
-
 label.custom-control-label {
     line-height: 1.5 !important
 }
@@ -357,25 +353,7 @@ span.password-input {
     border: 1px solid transparent
 }
 
-.woocommerce #reviews #comments ol.commentlist {
-    padding: 0
-}
 
-.woocommerce #reviews #comments ol.commentlist li img.avatar {
-    padding: 0;
-    width: 64px;
-    background: none;
-    border: none;
-    margin: 0;
-    box-shadow: none;
-    border-radius: .25rem
-}
-
-#reviews #comments ol.commentlist li .comment-text {
-    margin: 0 0 0 80px !important;
-    border: 1px solid transparent !important;
-    border-radius: .25rem !important
-}
 
 .woocommerce #respond input#submit, .woocommerce a.button, .woocommerce button.button, .woocommerce input.button {
     font-size: 1rem;
@@ -528,6 +506,20 @@ ul.tabs.wc-tabs {
     }
 }
 
+/* Comments */
+#woo-comments .star-rating {
+    float: right;
+    margin: 0;
+}
+
+#woo-comments .depth-2 {
+    padding-left: 65px;
+}
+
+#woo-comments p:last-child {
+    margin-bottom: 0;
+}
+
 /*--------------------------------------------------------------
 4. Colors
 --------------------------------------------------------------*/
@@ -630,10 +622,6 @@ ul.tabs.wc-tabs {
 
 .wc-gzd-product-name-left img {
     border-color: rgba(0, 0, 0, .125)
-}
-
-#reviews #comments ol.commentlist li .comment-text {
-    border-color: rgba(0, 0, 0, .125) !important;
 }
 
 .woocommerce #respond input#submit, .woocommerce a.button, .woocommerce button.button, .woocommerce input.button {

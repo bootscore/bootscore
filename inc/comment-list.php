@@ -1,8 +1,5 @@
 <?php
 
-
-
-
 // Comments
 function bootscore_reply()
 {
@@ -12,8 +9,6 @@ function bootscore_reply()
     }
 }
 add_action('wp_enqueue_scripts', 'bootscore_reply');
-
-
 
 
 // Comments
@@ -38,7 +33,7 @@ if (!function_exists('bootscore_comment')) :
 
             <li id="comment-<?php comment_ID(); ?>" <?php comment_class(empty($args['has_children']) ? '' : 'parent'); ?>>
 
-                <article id="div-comment-<?php comment_ID(); ?>" class="comment-body my-4 d-flex">
+                <article id="div-comment-<?php comment_ID(); ?>" class="comment-body mt-4 d-flex">
                     
                     <div class="flex-shrink-0 me-3">
                         <?php if (0 != $args['avatar_size']) echo get_avatar($comment, $args['avatar_size'], '', '', array('class' => 'img-thumbnail rounded-circle')); ?>

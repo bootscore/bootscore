@@ -8,15 +8,15 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2021-05-27 13:38+0000\n"
+"PO-Revision-Date: 2021-05-28 11:22+0000\n"
 "Last-Translator: Peach\n"
 "Language-Team: Svenska\n"
 "X-Generator: Loco https://localise.biz/\n"
-"Language: sv-SE\n"
+"Language: sv_SE\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Loco-Version: 2.5.2; wp-5.7.2"
 
-#: single-sidebar-none.php:28 single-full-width-image.php:38 single.php:29 
+#: single-sidebar-none.php:28 single-full-width-image.php:38 single.php:29
 #: single-sidebar-left.php:31
 msgid " by "
 msgstr "av"
@@ -69,8 +69,8 @@ msgstr ""
 msgid "Accept"
 msgstr "Godkänn"
 
-#: functions.php:120 functions.php:132 functions.php:144 functions.php:156 
-#: functions.php:168 functions.php:180 functions.php:192 functions.php:204 
+#: functions.php:120 functions.php:132 functions.php:144 functions.php:156
+#: functions.php:168 functions.php:180 functions.php:192 functions.php:204
 #: functions.php:216
 msgid "Add widgets here."
 msgstr "Lägg till widgets här."
@@ -109,7 +109,7 @@ msgstr "Kundvagn"
 
 #: header.php:131 header-woocommerce-01.php:129
 msgid "Close account"
-msgstr "Stäng konto"
+msgstr "Stäng"
 
 #: header.php:86 header-default.php:84 header-woocommerce-01.php:84
 msgid "Close menu"
@@ -282,7 +282,7 @@ msgstr "eller"
 msgid "Page not found."
 msgstr "Sidan hittas inte."
 
-#: page.php:43 page-blank-without-container.php:21 page-sidebar-none.php:33 
+#: page.php:43 page-blank-without-container.php:21 page-sidebar-none.php:33
 #: page-sidebar-left.php:38 page-blank-with-container.php:21
 msgid "Pages:"
 msgstr "Sidor:"
@@ -313,13 +313,13 @@ msgstr "Publicera kommentar"
 msgid "Read more"
 msgstr "Läs mer"
 
-#: category-equal-height.php:63 category-sidebar-left.php:63 
-#: author-masonry.php:73 archive.php:63 author-equal-height.php:73 
-#: archive-sidebar-left.php:65 archive-equal-height-sidebar-right.php:62 
-#: category.php:61 archive-equal-height.php:63 index.php:78 index.php:134 
-#: category-masonry.php:63 author-sidebar-left.php:75 
-#: author-equal-height-sidebar-right.php:72 archive-masonry.php:63 
-#: category-equal-height-sidebar-right.php:63 
+#: category-equal-height.php:63 category-sidebar-left.php:63
+#: author-masonry.php:73 archive.php:63 author-equal-height.php:73
+#: archive-sidebar-left.php:65 archive-equal-height-sidebar-right.php:62
+#: category.php:61 archive-equal-height.php:63 index.php:78 index.php:134
+#: category-masonry.php:63 author-sidebar-left.php:75
+#: author-equal-height-sidebar-right.php:72 archive-masonry.php:63
+#: category-equal-height-sidebar-right.php:63
 #: template-parts/content-search.php:42
 msgid "Read more »"
 msgstr "Läs mer »"
