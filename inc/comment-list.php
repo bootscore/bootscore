@@ -41,7 +41,7 @@ if (!function_exists('bootscore_comment')) :
                 <article id="div-comment-<?php comment_ID(); ?>" class="comment-body my-4 d-flex">
                     
                     <div class="flex-shrink-0 me-3">
-                        <?php if (0 != $args['avatar_size']) echo get_avatar($comment, $args['avatar_size'], '', '', array('class' => 'rounded')); ?>
+                        <?php if (0 != $args['avatar_size']) echo get_avatar($comment, $args['avatar_size'], '', '', array('class' => 'img-thumbnail rounded-circle')); ?>
                     </div>
                     
                     <div class="comment-content">

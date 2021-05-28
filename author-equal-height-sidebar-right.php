@@ -23,7 +23,7 @@
                     <!-- Author & Bio -->
                     <header class="page-header mb-4 d-flex">
                         <div class="flex-shrink-0 me-3">
-                            <?php echo get_avatar( get_the_author_meta('email'), '80', $default='', $alt='', array( 'class' => array( 'rounded' ) ) ); ?>
+                            <?php echo get_avatar( get_the_author_meta('email'), '80', $default='', $alt='', array( 'class' => array( 'img-thumbnail rounded-circle' ) ) ); ?>
                         </div>
                         <div class="author-bio">
                             <h1><?php the_author(); ?></h1>
