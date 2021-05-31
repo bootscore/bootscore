@@ -1,22 +1,24 @@
 /*--------------------------------------------------------------
 >>> TABLE OF CONTENTS:
 ----------------------------------------------------------------
-1.  Temporary Header
+1.  Header
 2.  Theme
 --------------------------------------------------------------*/
 
 
 /*--------------------------------------------------------------
-1. Temporary Header
+1. Header
 --------------------------------------------------------------*/
 
 
 jQuery(document).ready(function ($) {
 
+    
     // Data attribute to hide offcanvas and enable body scroll on resize through the breakpoints
     $(window).on('resize', function () {
         $('[data-bs-hideresize="true"]').offcanvas('hide');
     });
+    
 
     // Close offcanvas on click a, keep .dropdown-menu open
     $('.offcanvas a:not(.dropdown-toggle):not(a.remove_from_cart_button), a.dropdown-item').on('click', function () {
@@ -25,16 +27,13 @@ jQuery(document).ready(function ($) {
 
 
     // Dropdown menu animation
-    $('.dropdown-menu').addClass('invisible'); //FIRST TIME INVISIBLE
-
-    // Add slideup animation to dropdown open
-    $('.dropdown').on('show.bs.dropdown', function (e) {
-        $('.dropdown-menu').removeClass('invisible');
+    // Add slideDown animation to Bootstrap dropdown when expanding.
+    $('.dropdown').on('show.bs.dropdown', function () {
         $(this).find('.dropdown-menu').first().stop(true, true).slideDown();
     });
 
-    // Add slideup animation to dropdown close
-    $('.dropdown').on('hide.bs.dropdown', function (e) {
+    // Add slideUp animation to Bootstrap dropdown when collapsing.
+    $('.dropdown').on('hide.bs.dropdown', function () {
         $(this).find('.dropdown-menu').first().stop(true, true).slideUp();
     });
     
@@ -46,42 +45,13 @@ jQuery(document).ready(function ($) {
     if ($('.searchform').length != 0) {
         $('.top-nav-search-md, .top-nav-search-lg').removeClass('hide');
     }
+    
 
+    // Set parent nav-link active if blog post or shop item is open
+    $('.current-post-ancestor .nav-link').addClass('active');
+    $('.current_page_parent .nav-link').addClass('active');
 
-    // Active menu item workaround, check navwalker when ready
-    var url = window.location.pathname,
-        urlRegExp = new RegExp(url.replace(/\/$/, '') + "$"); // create regexp to match current url pathname and remove trailing slash if present as it could collide with the link in navigation in case trailing slash wasn't present there
-    // now grab every link from the navigation
-    $('.nav-link').each(function () {
-        // and test its normalized href against the url pathname regexp
-        if (urlRegExp.test(this.href.replace(/\/$/, ''))) {
-            $(this).addClass('active');
-        }
-    });
-    // Remove active on frontpage
-    if ($('body.home').length) {
-        $('.nav-link').removeClass('active');
-    }
-    // Add active to nav-link if menu-item is active
-    if ($('.current_page_item').hasClass('active')) {
-        $('.current_page_item.active .nav-link').addClass('active');
-    }
-    if ($('.current-menu-item').hasClass('active')) {
-        $('.current-menu-item.active .nav-link').addClass('active');
-    }
-    if ($('.current-post-ancestor').hasClass('active')) {
-        $('.current-post-ancestor .nav-link').addClass('active');
-    }
-    if ($('.current_page_parent').hasClass('active')) {
-        $('.current_page_parent .nav-link').addClass('active');
-    }
-    // Remove active on search page
-    if ($('body').hasClass('search')) {
-        $('.nav-link').removeClass('active');
-    }
-    // Active menu item workaround End
-
-
+    
 }); // jQuery End
 
 
@@ -152,6 +122,7 @@ jQuery(document).ready(function ($) {
     $(".height-85").css("height", 0.85 * $(window).height());
     $(".height-100").css("height", 1.0 * $(window).height());
 
+    
     // Forms
     $('select, #billing_state').addClass('form-select');
 

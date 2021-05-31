@@ -82,19 +82,19 @@
                             <?php esc_html_e('Close menu' , 'bootscore'); ?> <i class="fas fa-chevron-right"></i>
                         </div>
                         <div class="offcanvas-body">
-                            <!-- Wp Bootstrap Nav Walker -->
+                            <!-- Bootstrap 5 Nav Walker Main Menu -->
                             <?php
-                                wp_nav_menu( array(
-                                    'theme_location'    => 'primary',
-                                    'depth'             => 2,
-                                    'container'         => 'div',
-                                    'container_class'   => 'ms-auto',
-                                    'container_id'      => 'bootscore-navbar',
-                                    'menu_class'        => 'nav navbar-nav justify-content-end',
-                                    'fallback_cb'       => 'WP_Bootstrap_Navwalker::fallback',
-                                    'walker'            => new WP_Bootstrap_Navwalker(),
-                                ) );
+                                wp_nav_menu(array(
+                                    'theme_location' => 'main-menu',
+                                    'container' => false,
+                                    'menu_class' => '',
+                                    'fallback_cb' => '__return_false',
+                                    'items_wrap' => '<ul id="bootscore-navbar" class="navbar-nav ms-auto %2$s">%3$s</ul>',
+                                    'depth' => 2,
+                                    'walker' => new bootstrap_5_wp_nav_menu_walker()
+                                ));
                             ?>
+                            <!-- Bootstrap 5 Nav Walker Main Menu End -->
                         </div>
                     </div>
 

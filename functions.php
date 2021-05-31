@@ -13,13 +13,19 @@
 // WooCommerce End
 
 
-// Register Nav Walker class_alias
+// Register Bootstrap 5 Nav Walker
 if ( ! function_exists( 'register_navwalker' ) ) :
     function register_navwalker(){
-        require_once('inc/class-wp-bootstrap-navwalker.php');
+        require_once('inc/class-bootstrap-5-navwalker.php');
     }
 endif;
 add_action( 'after_setup_theme', 'register_navwalker' );
+
+
+// Register Menus
+register_nav_menu('main-menu', 'Main menu');
+register_nav_menu('footer-menu', 'Footer menu');
+
 
 // Register Comment List
 require_once('inc/comment-list.php');
@@ -59,12 +65,6 @@ if ( ! function_exists( 'bootscore_setup' ) ) :
 		 * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
 		 */
 		add_theme_support( 'post-thumbnails' );
-
-		// This theme uses wp_nav_menu() in one location.
-		register_nav_menus( array(
-			'primary' => esc_html__( 'Main Menu', 'bootscore' ),
-			'secondary' => esc_html__( 'Footer Menu', 'bootscore' ),
-		) );
 
 		/*
 		 * Switch default core markup for search form, comment form, and comments

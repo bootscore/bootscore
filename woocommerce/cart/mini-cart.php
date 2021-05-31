@@ -96,7 +96,7 @@ do_action( 'woocommerce_before_mini_cart' ); ?>
 		?>
 	</div>
 
-    <div class="cart-footer bg-light text-center position-absolute bottom-0 p-3">
+    <div class="cart-footer bg-light text-center position-absolute bottom-0 p-3 w-100">
 
         <p class="woocommerce-mini-cart__total total">
             <?php
@@ -109,7 +109,7 @@ do_action( 'woocommerce_before_mini_cart' ); ?>
             ?>
         </p>
         
-        <p class="text-muted small shipping-text"><?php esc_html_e('To find out your shipping cost , Please proceed to checkout.' , 'bootscore'); ?></p>
+        <p class="text-muted small shipping-text"><?php esc_html_e('To find out your shipping cost, please proceed to checkout.' , 'bootscore'); ?></p>
 
         <?php do_action( 'woocommerce_widget_shopping_cart_before_buttons' ); ?>
 

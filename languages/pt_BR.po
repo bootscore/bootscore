@@ -8,20 +8,20 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2021-02-25 10:23+0000\n"
+"PO-Revision-Date: 2021-05-30 09:20+0000\n"
 "Last-Translator: \n"
-"Language-Team: Português do Brasil\n"
+"Language-Team: Portuguese (Brazil)\n"
 "X-Generator: Loco https://localise.biz/\n"
 "Language: pt_BR\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Loco-Version: 2.5.0; wp-5.6.2"
+"X-Loco-Version: 2.5.2; wp-5.7.2"
 
-#: single-sidebar-none.php:25 single-full-width-image.php:35 single.php:26
-#: single-sidebar-left.php:28
+#: single-sidebar-left.php:31 single-sidebar-none.php:28
+#: single-full-width-image.php:34 single.php:29
 msgid " by "
 msgstr "por"
 
-#: inc/comment-list.php:49
+#: inc/comment-list.php:46
 #, php-format
 msgid "%s <span class=\"says d-none\">says:</span>"
 msgstr "%s <span class=\"says d-none\">diz:</span>"
@@ -29,13 +29,13 @@ msgstr "%s <span class=\"says d-none\">diz:</span>"
 #. used between list items, there is a space after the comma
 #: inc/template-tags.php:38
 msgid ", "
-msgstr ""
+msgstr ","
 
 #: languages/plugin-translations.php:5
 msgid "/privacy-policy"
 msgstr "/politica-de-privacidade"
 
-#: inc/comment-list.php:54
+#: inc/comment-list.php:51
 #, php-format
 msgctxt "1: date, 2: time"
 msgid "%1$s at %2$s"
@@ -47,28 +47,15 @@ msgstr "Página 404"
 
 #. Description of the theme
 msgid ""
-"A powerful Bootstrap Starter Onepage or Multi-Page Theme with WooCommerce "
-"Support. Examples: https://bootscore.me/#examples, Documentation: https:"
-"//bootscore.me/category/documentation/. This theme gives you full control "
-"whatever you do and the full freedom to design whatever you want. It comes "
-"with some useful header scripts and a wide selection of category, page, post,"
-" author and archive templates as well as sidebar, header, footer and 404 "
-"widgets. A preloader is included. There are just minor customizer settings "
-"in the backend. All important settings can only be made by touching the code."
-" Some CSS, HTML, PHP and JS Skills are required to customize it completely. "
-"Make bootScore your own!"
+"A powerful Bootstrap 5 WordPress Starter Theme with WooCommerce Support. <a "
+"href=\"https://bootscore.me/category/documentation/\">Documentation</a>. "
+"This theme gives you full control whatever you do and the full freedom to "
+"design whatever you want. It comes with a wide selection of category, page, "
+"post, author and archive templates as well as sidebar, header, footer and "
+"404 widgets. There are no customizer settings in the backend. All settings "
+"can only be made by touching the code. Some CSS, HTML, PHP and JS Skills are "
+"required to customize it."
 msgstr ""
-"Um poderoso tema Bootstrap para começar uma página ou Starter Onepage ou "
-"multiplas páginas com suporte WooCommerce. Exemplos: https://bootscore."
-"me/#examples, Documentação: https://bootscore.me/category/documentation/. "
-"Este tema oferece controle total sobre tudo o que você faz e liberdade total "
-"para projetar o que quiser. Ele vem com alguns scripts de cabeçalho úteis e "
-"uma ampla seleção de modelos de categoria, página, postagem, autor e arquivo,"
-" bem como barra lateral, cabeçalho, rodapé e widgets até na 404. Um pré-"
-"carregador está incluído. Existem apenas configurações secundárias do "
-"personalizador no back-end. Todas as configurações importantes só podem ser "
-"feitas alterando o código. Algumas habilidades em CSS, HTML, PHP e JS são "
-"necessárias para personalizá-lo completamente. Faça seu bootScore!"
 
 #: languages/plugin-translations.php:7
 msgid "Accept"
@@ -108,15 +95,15 @@ msgstr "bootScore 5"
 msgid "Cancel"
 msgstr "Cancelar"
 
-#: header-woocommerce.php:173
+#: header-woocommerce.php:166
 msgid "Cart"
 msgstr "Carrinho"
 
-#: header-woocommerce.php:135
+#: header-woocommerce.php:145
 msgid "Close account"
 msgstr "Fechar conta"
 
-#: header.php:92 header-woocommerce.php:90
+#: header-woocommerce.php:82 header.php:81
 msgid "Close menu"
 msgstr "Fechar menu"
 
@@ -144,7 +131,7 @@ msgctxt "comments title"
 msgid "One Comment &ldquo;%s&rdquo;"
 msgstr "Um comentário &ldquo;%s&rdquo;"
 
-#: header-woocommerce.php:162
+#: header-woocommerce.php:157
 msgid "Continue shopping"
 msgstr "Continue comprando"
 
@@ -156,8 +143,12 @@ msgstr ""
 "Cookies nos ajudam a entregar nossos serviços. Ao usar nossos serviços, você "
 "concorda com o uso de cookies."
 
+#: woocommerce/checkout/form-shipping.php:35
+msgid "Delivery details"
+msgstr "Detalhes da Entrega"
+
 #. %s: Name of current post. Only visible to screen readers
-#: inc/template-tags.php:139 inc/comment-list.php:32 inc/comment-list.php:57
+#: inc/comment-list.php:29 inc/comment-list.php:53 inc/template-tags.php:139
 msgid "Edit"
 msgstr "Editar"
 
@@ -283,16 +274,16 @@ msgstr "ou"
 msgid "Page not found."
 msgstr "Página não encontrada."
 
-#: page.php:40 page-blank-without-container.php:21 page-sidebar-none.php:30
-#: page-sidebar-left.php:35 page-blank-with-container.php:21
+#: page-blank-with-container.php:21 page-sidebar-none.php:33
+#: page-blank-without-container.php:21 page-sidebar-left.php:38 page.php:43
 msgid "Pages:"
 msgstr "Páginas:"
 
-#: functions.php:405
+#: functions.php:411
 msgid "Password"
 msgstr "Senha"
 
-#: inc/comment-list.php:32
+#: inc/comment-list.php:29
 msgid "Pingback:"
 msgstr "Pingback:"
 
@@ -310,17 +301,17 @@ msgstr "por %s"
 msgid "Post Comment"
 msgstr "Postar Comentário"
 
-#: author.php:69
+#: author.php:68
 msgid "Read more"
 msgstr "Leia mais"
 
-#: category-equal-height.php:59 category-sidebar-left.php:60
-#: author-masonry.php:69 archive.php:60 author-equal-height.php:69
-#: archive-sidebar-left.php:62 archive-equal-height-sidebar-right.php:59
-#: category.php:58 archive-equal-height.php:59 index.php:78 index.php:134
-#: category-masonry.php:59 author-sidebar-left.php:72
-#: author-equal-height-sidebar-right.php:69 archive-masonry.php:59
-#: category-equal-height-sidebar-right.php:60
+#: category.php:61 author-sidebar-left.php:71 index.php:78 index.php:134
+#: archive.php:63 category-equal-height.php:63
+#: author-equal-height-sidebar-right.php:68 archive-sidebar-left.php:65
+#: author-masonry.php:69 archive-equal-height-sidebar-right.php:62
+#: category-masonry.php:63 archive-equal-height.php:63 archive-masonry.php:63
+#: category-sidebar-left.php:63 author-equal-height.php:69
+#: category-equal-height-sidebar-right.php:63
 #: template-parts/content-search.php:42
 msgid "Read more »"
 msgstr "Leia mais »"
@@ -333,7 +324,7 @@ msgid ""
 msgstr ""
 "Pronto para publicar seu primeiro post? <a href=\"%1$s\"> Comece aqui </a>."
 
-#: inc/comment-list.php:111
+#: inc/comment-list.php:109
 msgid ""
 "Save my name, email, and website in this browser for the next time I comment."
 msgstr ""
@@ -345,7 +336,7 @@ msgid "Search"
 msgstr "Procurar"
 
 #. %s: search query.
-#: search.php:26
+#: search.php:29
 #, php-format
 msgid "Search Results for: %s"
 msgstr "Resultados para: %s"
@@ -374,7 +365,7 @@ msgstr ""
 msgid "Start typing..."
 msgstr "Comece a digitar..."
 
-#: functions.php:406
+#: functions.php:412
 msgid "Submit"
 msgstr "Enviar"
 
@@ -392,8 +383,9 @@ msgstr "Este site oferece funcionalidade limitada neste navegador."
 msgid "to display this site correctly."
 msgstr "para exibir este site corretamente."
 
-#: woocommerce/cart/mini-cart.php:118
-msgid "To find out your shipping cost , Please proceed to checkout."
+#: woocommerce/cart/mini-cart.php:112
+#| msgid "To find out your shipping cost , Please proceed to checkout."
+msgid "To find out your shipping cost, please proceed to checkout."
 msgstr ""
 "Para descobrir o custo de envio, prossiga para a finalização da compra."
 
@@ -413,7 +405,7 @@ msgstr "Pesquisa na Navegação principal"
 msgid "Website"
 msgstr "Website"
 
-#: inc/comment-list.php:64
+#: inc/comment-list.php:58
 msgid "Your comment is awaiting moderation."
 msgstr "Seu comentário está aguardando moderação."
 

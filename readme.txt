@@ -6,7 +6,7 @@ Tags: featured-images, threaded-comments, translation-ready
 Requires at least: 4.5
 Tested up to: 5.7.2
 Requires PHP: 5.6
-Stable tag: 5.0.1.12
+Stable tag: 5.0.2.0
 License: GNU General Public License v2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -49,12 +49,20 @@ bootScore includes support for Infinite Scroll in Jetpack.
 * Based on Underscores https://underscores.me/, (C) 2012-2017 Automattic, Inc., [GPLv2 or later](https://www.gnu.org/licenses/gpl-2.0.html)
 * normalize.css https://necolas.github.io/normalize.css/, (C) 2012-2016 Nicolas Gallagher and Jonathan Neal, [MIT](https://opensource.org/licenses/MIT)
 * Bootstrap https://getbootstrap.com/docs/5.0/about/license/
-* WP Bootstrap Navwalker by Edward McIntyre: https://github.com/twittem/wp-bootstrap-navwalker
+* Bootstrap 5 Wordpress Navbar Walker by AlexWebLab: https://github.com/AlexWebLab/bootstrap-5-wordpress-navbar-walker
 * Comments Section Script by wp-bootstrap-starter https://github.com/afterimagedesigns/wp-bootstrap-starter
 * Font Awesome https://fontawesome.com/license/free
 
 
 == Changelog ==
+
+    = 5.0.2.0 - May 31 2021 =
+        
+        * [BUGFIX] Added .w-100 class to offcanvas cart footer
+        * [REMOVED] JavaScript workaround to set .active class to .nav-link (done by new nav-walker now)
+        * [UPDATE] All languages
+        * [UPDATE] Dropdown menu slide animation (theme.js)
+        * [UPDATE] Replaced modified Bootstrap 4 Nav Walker with Bootstrap 5 Nav Walker https://github.com/AlexWebLab/bootstrap-5-wordpress-navbar-walker
 
     = 5.0.1.12 - May 28 2021 =
         

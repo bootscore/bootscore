@@ -8,21 +8,21 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2021-03-14 10:31+0000\n"
+"PO-Revision-Date: 2021-05-30 09:09+0000\n"
 "Last-Translator: \n"
-"Language-Team: Polski\n"
+"Language-Team: Polish\n"
 "X-Generator: Loco https://localise.biz/\n"
 "Language: pl_PL\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10 >= 2 && n%10<=4 "
 "&&(n%100<10||n%100 >= 20)? 1 : 2);\n"
 "X-Loco-Version: 2.5.2; wp-5.7"
 
-#: single-sidebar-none.php:25 single-full-width-image.php:35 single.php:26
-#: single-sidebar-left.php:28
+#: single-sidebar-left.php:31 single-sidebar-none.php:28
+#: single-full-width-image.php:34 single.php:29
 msgid " by "
 msgstr "stworzony przez"
 
-#: inc/comment-list.php:49
+#: inc/comment-list.php:46
 #, php-format
 msgid "%s <span class=\"says d-none\">says:</span>"
 msgstr "%s <span class=\"says d-none\">mówi:</span>"
@@ -36,7 +36,7 @@ msgstr ", "
 msgid "/privacy-policy"
 msgstr "/polityka-prywatnosci"
 
-#: inc/comment-list.php:54
+#: inc/comment-list.php:51
 #, php-format
 msgctxt "1: date, 2: time"
 msgid "%1$s at %2$s"
@@ -48,16 +48,14 @@ msgstr "Błąd 404"
 
 #. Description of the theme
 msgid ""
-"A powerful Bootstrap Starter Onepage or Multi-Page Theme with WooCommerce "
-"Support. Examples: https://bootscore.me/#examples, Documentation: https:"
-"//bootscore.me/category/documentation/. This theme gives you full control "
-"whatever you do and the full freedom to design whatever you want. It comes "
-"with some useful header scripts and a wide selection of category, page, post,"
-" author and archive templates as well as sidebar, header, footer and 404 "
-"widgets. A preloader is included. There are just minor customizer settings "
-"in the backend. All important settings can only be made by touching the code."
-" Some CSS, HTML, PHP and JS Skills are required to customize it completely. "
-"Make bootScore your own!"
+"A powerful Bootstrap 5 WordPress Starter Theme with WooCommerce Support. <a "
+"href=\"https://bootscore.me/category/documentation/\">Documentation</a>. "
+"This theme gives you full control whatever you do and the full freedom to "
+"design whatever you want. It comes with a wide selection of category, page, "
+"post, author and archive templates as well as sidebar, header, footer and "
+"404 widgets. There are no customizer settings in the backend. All settings "
+"can only be made by touching the code. Some CSS, HTML, PHP and JS Skills are "
+"required to customize it."
 msgstr ""
 "Bootstrap Starter Onepage lub Multi-page szablon ze wsparciem WooCommerce. "
 "Tu znajdziesz przykłady https://bootscore.me/#examples i dokumentację https:"
@@ -107,15 +105,15 @@ msgstr "bootScore 5"
 msgid "Cancel"
 msgstr "Anuluj"
 
-#: header-woocommerce.php:173
+#: header-woocommerce.php:166
 msgid "Cart"
 msgstr "Koszyk"
 
-#: header-woocommerce.php:135
+#: header-woocommerce.php:145
 msgid "Close account"
 msgstr "Zamknij konto"
 
-#: header.php:92 header-woocommerce.php:90
+#: header-woocommerce.php:82 header.php:81
 msgid "Close menu"
 msgstr "Zamknij menu"
 
@@ -144,7 +142,7 @@ msgctxt "comments title"
 msgid "One Comment &ldquo;%s&rdquo;"
 msgstr "Jeden komentarz &ldquo;%s&rdquo;"
 
-#: header-woocommerce.php:162
+#: header-woocommerce.php:157
 msgid "Continue shopping"
 msgstr "Kontynuuj zakupy"
 
@@ -156,8 +154,14 @@ msgstr ""
 "Strona wykorzystuje pliki cookies. Korzystając z naszej strony, zgadzasz się "
 "na ich użycie."
 
+#: woocommerce/checkout/form-shipping.php:35
+msgid "Delivery details"
+msgstr ""
+"\n"
+"Szczegóły dostawy"
+
 #. %s: Name of current post. Only visible to screen readers
-#: inc/template-tags.php:139 inc/comment-list.php:32 inc/comment-list.php:57
+#: inc/comment-list.php:29 inc/comment-list.php:53 inc/template-tags.php:139
 msgid "Edit"
 msgstr "Edytuj"
 
@@ -281,16 +285,16 @@ msgstr "lub"
 msgid "Page not found."
 msgstr "Nie odnaleziono strony"
 
-#: page.php:40 page-blank-without-container.php:21 page-sidebar-none.php:30
-#: page-sidebar-left.php:35 page-blank-with-container.php:21
+#: page-blank-with-container.php:21 page-sidebar-none.php:33
+#: page-blank-without-container.php:21 page-sidebar-left.php:38 page.php:43
 msgid "Pages:"
 msgstr "Strony:"
 
-#: functions.php:405
+#: functions.php:411
 msgid "Password"
 msgstr "Hasło"
 
-#: inc/comment-list.php:32
+#: inc/comment-list.php:29
 msgid "Pingback:"
 msgstr "Pingback:"
 
@@ -309,17 +313,17 @@ msgstr "napisał(a) %s"
 msgid "Post Comment"
 msgstr "Dodaj komentarz"
 
-#: author.php:69
+#: author.php:68
 msgid "Read more"
 msgstr "Czytaj dalej"
 
-#: category-equal-height.php:59 category-sidebar-left.php:60
-#: author-masonry.php:69 archive.php:60 author-equal-height.php:69
-#: archive-sidebar-left.php:62 archive-equal-height-sidebar-right.php:59
-#: category.php:58 archive-equal-height.php:59 index.php:78 index.php:134
-#: category-masonry.php:59 author-sidebar-left.php:72
-#: author-equal-height-sidebar-right.php:69 archive-masonry.php:59
-#: category-equal-height-sidebar-right.php:60
+#: category.php:61 author-sidebar-left.php:71 index.php:78 index.php:134
+#: archive.php:63 category-equal-height.php:63
+#: author-equal-height-sidebar-right.php:68 archive-sidebar-left.php:65
+#: author-masonry.php:69 archive-equal-height-sidebar-right.php:62
+#: category-masonry.php:63 archive-equal-height.php:63 archive-masonry.php:63
+#: category-sidebar-left.php:63 author-equal-height.php:69
+#: category-equal-height-sidebar-right.php:63
 #: template-parts/content-search.php:42
 msgid "Read more »"
 msgstr "Czytaj dalej »"
@@ -333,7 +337,7 @@ msgstr ""
 "Czy jesteś gotowy aby opublikować twój pierwszy wpis? <a href=\"%1$s\">"
 "Zacznij tutaj</a>."
 
-#: inc/comment-list.php:111
+#: inc/comment-list.php:109
 msgid ""
 "Save my name, email, and website in this browser for the next time I comment."
 msgstr "Zapisz moje imię, adres email i stronę internetową w tej przeglądarce."
@@ -343,7 +347,7 @@ msgid "Search"
 msgstr "Szukaj"
 
 #. %s: search query.
-#: search.php:26
+#: search.php:29
 #, php-format
 msgid "Search Results for: %s"
 msgstr "Wyniki wyszukiwanie dla: %s"
@@ -372,7 +376,7 @@ msgstr ""
 msgid "Start typing..."
 msgstr "Zacznij pisać..."
 
-#: functions.php:406
+#: functions.php:412
 msgid "Submit"
 msgstr "Wyślij"
 
@@ -390,8 +394,9 @@ msgstr "Ta strona ma ograniczone funcjonalności w tej przeglądarce."
 msgid "to display this site correctly."
 msgstr "żeby wyświetlić stronę poprawnie."
 
-#: woocommerce/cart/mini-cart.php:118
-msgid "To find out your shipping cost , Please proceed to checkout."
+#: woocommerce/cart/mini-cart.php:112
+#| msgid "To find out your shipping cost , Please proceed to checkout."
+msgid "To find out your shipping cost, please proceed to checkout."
 msgstr "Aby poznać koszt przesyłki, prejdź dalej do zamówienie."
 
 #: functions.php:154
@@ -410,7 +415,7 @@ msgstr "Wyszukiwanie w górnej nawigacji"
 msgid "Website"
 msgstr "Witryna"
 
-#: inc/comment-list.php:64
+#: inc/comment-list.php:58
 msgid "Your comment is awaiting moderation."
 msgstr "Twój komentarz oczekuje na akceptację moderatora."
 

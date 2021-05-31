@@ -8,20 +8,20 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2021-03-26 10:35+0000\n"
-"Language-Team: Français\n"
+"PO-Revision-Date: 2021-05-30 09:06+0000\n"
+"Language-Team: French (France)\n"
 "X-Generator: Loco https://localise.biz/\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "Last-Translator: \n"
 "Language: fr_FR\n"
 "X-Loco-Version: 2.5.2; wp-5.7"
 
-#: single-sidebar-none.php:28 single-full-width-image.php:38 single.php:29
-#: single-sidebar-left.php:31
+#: single-sidebar-left.php:31 single-sidebar-none.php:28
+#: single-full-width-image.php:34 single.php:29
 msgid " by "
 msgstr " par "
 
-#: inc/comment-list.php:49
+#: inc/comment-list.php:46
 #, php-format
 msgid "%s <span class=\"says d-none\">says:</span>"
 msgstr "%s <span class=\"says d-none\">dit :</span>"
@@ -35,7 +35,7 @@ msgstr ", "
 msgid "/privacy-policy"
 msgstr "/politique-de-confidentialite"
 
-#: inc/comment-list.php:54
+#: inc/comment-list.php:51
 #, php-format
 msgctxt "1: date, 2: time"
 msgid "%1$s at %2$s"
@@ -95,15 +95,15 @@ msgstr "bootScore 5"
 msgid "Cancel"
 msgstr "Annuler"
 
-#: header.php:193 header-woocommerce-01.php:167
+#: header-woocommerce.php:166
 msgid "Cart"
 msgstr "Panier"
 
-#: header.php:131 header-woocommerce-01.php:129
+#: header-woocommerce.php:145
 msgid "Close account"
 msgstr "Fermer"
 
-#: header.php:86 header-default.php:84 header-woocommerce-01.php:84
+#: header-woocommerce.php:82 header.php:81
 msgid "Close menu"
 msgstr "Fermer"
 
@@ -131,7 +131,7 @@ msgctxt "comments title"
 msgid "One Comment &ldquo;%s&rdquo;"
 msgstr "Un commentaire  &ldquo;%s&rdquo;"
 
-#: header.php:159 header.php:182 header-woocommerce-01.php:156
+#: header-woocommerce.php:157
 msgid "Continue shopping"
 msgstr "Fermer"
 
@@ -148,7 +148,7 @@ msgid "Delivery details"
 msgstr "Détails de livraison"
 
 #. %s: Name of current post. Only visible to screen readers
-#: inc/template-tags.php:139 inc/comment-list.php:32 inc/comment-list.php:57
+#: inc/comment-list.php:29 inc/comment-list.php:53 inc/template-tags.php:139
 msgid "Edit"
 msgstr "Modifer"
 
@@ -275,8 +275,8 @@ msgstr "ou"
 msgid "Page not found."
 msgstr "Page non trouvée."
 
-#: page.php:43 page-blank-without-container.php:21 page-sidebar-none.php:33
-#: page-sidebar-left.php:38 page-blank-with-container.php:21
+#: page-blank-with-container.php:21 page-sidebar-none.php:33
+#: page-blank-without-container.php:21 page-sidebar-left.php:38 page.php:43
 msgid "Pages:"
 msgstr "Pages :"
 
@@ -284,7 +284,7 @@ msgstr "Pages :"
 msgid "Password"
 msgstr "Mot de passe"
 
-#: inc/comment-list.php:32
+#: inc/comment-list.php:29
 msgid "Pingback:"
 msgstr "Pingback :"
 
@@ -302,16 +302,16 @@ msgstr "par %s"
 msgid "Post Comment"
 msgstr "Laisser un commentaire"
 
-#: author.php:72
+#: author.php:68
 msgid "Read more"
 msgstr "Lire la suite"
 
-#: category-equal-height.php:63 category-sidebar-left.php:63
-#: author-masonry.php:73 archive.php:63 author-equal-height.php:73
-#: archive-sidebar-left.php:65 archive-equal-height-sidebar-right.php:62
-#: category.php:61 archive-equal-height.php:63 index.php:78 index.php:134
-#: category-masonry.php:63 author-sidebar-left.php:75
-#: author-equal-height-sidebar-right.php:72 archive-masonry.php:63
+#: category.php:61 author-sidebar-left.php:71 index.php:78 index.php:134
+#: archive.php:63 category-equal-height.php:63
+#: author-equal-height-sidebar-right.php:68 archive-sidebar-left.php:65
+#: author-masonry.php:69 archive-equal-height-sidebar-right.php:62
+#: category-masonry.php:63 archive-equal-height.php:63 archive-masonry.php:63
+#: category-sidebar-left.php:63 author-equal-height.php:69
 #: category-equal-height-sidebar-right.php:63
 #: template-parts/content-search.php:42
 msgid "Read more »"
@@ -326,7 +326,7 @@ msgstr ""
 "Vous êtes prêt à publier votre premier article ? <a href=\"%1$s\"> Commencez "
 "ici </a>."
 
-#: inc/comment-list.php:111
+#: inc/comment-list.php:109
 msgid ""
 "Save my name, email, and website in this browser for the next time I comment."
 msgstr ""
@@ -385,8 +385,9 @@ msgstr "Ce site offrira des fonctionnalités limitées dans ce navigateur."
 msgid "to display this site correctly."
 msgstr "pour afficher ce site correctement."
 
-#: woocommerce/cart/mini-cart.php:118
-msgid "To find out your shipping cost , Please proceed to checkout."
+#: woocommerce/cart/mini-cart.php:112
+#| msgid "To find out your shipping cost , Please proceed to checkout."
+msgid "To find out your shipping cost, please proceed to checkout."
 msgstr "Les options de livraison seront mises à jour lors de la commande."
 
 #: functions.php:154
@@ -405,7 +406,7 @@ msgstr "Top - Recherche"
 msgid "Website"
 msgstr "Site web"
 
-#: inc/comment-list.php:64
+#: inc/comment-list.php:58
 msgid "Your comment is awaiting moderation."
 msgstr "Votre commentaire est en attente de modération."
 
