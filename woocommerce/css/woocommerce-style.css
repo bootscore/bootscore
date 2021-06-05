@@ -37,19 +37,19 @@
     margin-top: -56px
 }
 
-#offcanvas-cart.show .cart-loader {
-    opacity: 0;
-    transition: opacity .3s, visibility .3s;
-    transition-delay: 1s;
-    visibility: hidden
-}
 
 #offcanvas-cart .cart-loader {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .3s, visibility .3s;
+}
+
+#offcanvas-cart.loading .cart-loader {
     opacity: 1;
     visibility: visible;
-    transition: opacity .1s;
-    transition-delay: .3s
+    transition: opacity 0s, visibility 0s;
 }
+
 
 @media (max-width: 991px) {
     .navbar-toggler.left, .top-nav-search-md #dropdown-search {

@@ -192,14 +192,12 @@ if ( ! function_exists( 'bootscore_tags' ) ) :
 			}
 		}
 	}
+    add_filter( "term_links-post_tag", 'add_tag_class');
+
+    function add_tag_class($links) {
+        return str_replace('<a href="', '<a class="badge bg-secondary" href="', $links);
+    }
 endif;
-
-
-add_filter( "term_links-post_tag", 'add_tag_class');
-
-function add_tag_class($links) {
-    return str_replace('<a href="', '<a class="badge bg-secondary" href="', $links);
-}
 // Tags End
 
 

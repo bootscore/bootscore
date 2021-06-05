@@ -3,16 +3,15 @@
     https://aceplugins.com/ajax-add-to-cart-button-on-the-product-page-woocommerce/
 */
 
-
-
 // JS for AJAX Add to Cart handling
 function bootscore_product_page_ajax_add_to_cart_js() {
     ?><script type="text/javascript" charset="UTF-8">
+	
     jQuery(function($) {
 
         $('form.cart').on('submit', function(e) {
             e.preventDefault();
-
+			$(document.body).trigger('adding_to_cart',[]);
             var form = $(this);
             form.block({
                 message: null,

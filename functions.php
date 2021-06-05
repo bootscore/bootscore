@@ -10,25 +10,31 @@
 
 // WooCommerce
 //require get_template_directory() . '/woocommerce/woocommerce-functions.php';
-// WooCommerce End
+// WooCommerce END
 
 
 // Register Bootstrap 5 Nav Walker
 if ( ! function_exists( 'register_navwalker' ) ) :
     function register_navwalker(){
         require_once('inc/class-bootstrap-5-navwalker.php');
+        // Register Menus
+        register_nav_menu('main-menu', 'Main menu');
+        register_nav_menu('footer-menu', 'Footer menu');
     }
 endif;
 add_action( 'after_setup_theme', 'register_navwalker' );
-
-
-// Register Menus
-register_nav_menu('main-menu', 'Main menu');
-register_nav_menu('footer-menu', 'Footer menu');
+// Register Bootstrap 5 Nav Walker END
 
 
 // Register Comment List
-require_once('inc/comment-list.php');
+if ( ! function_exists( 'register_comment_list' ) ) :
+    function register_comment_list(){
+        // Register Comment List
+        require_once('inc/comment-list.php');
+    }
+endif;
+add_action( 'after_setup_theme', 'register_comment_list' );
+// Register Comment List END
 
 
 if ( ! function_exists( 'bootscore_setup' ) ) :
@@ -226,8 +232,7 @@ if ( ! function_exists( 'bootscore_widgets_init' ) ) :
 
 
 endif;
-// Widgets End
-
+// Widgets END
 
 
 // Shortcode in HTML-Widget
@@ -285,7 +290,6 @@ require get_template_directory() . '/inc/template-tags.php';
 require get_template_directory() . '/inc/template-functions.php';
 
 
-
 /**
  * Load Jetpack compatibility file.
  */
@@ -305,7 +309,7 @@ if ( ! function_exists( 'wpsites_query' ) ) :
     add_action( 'pre_get_posts', 'wpsites_query' );
 
 endif;
-// Amount of posts/products in category End
+// Amount of posts/products in category END
 
 
 // Pagination Categories
@@ -352,7 +356,7 @@ function bootscore_pagination($pages = '', $range = 2)
         // echo '<div class="pagination-info mb-5 text-center">[ <span class="text-muted">Page</span> '.$paged.' <span class="text-muted">of</span> '.$pages.' ]</div>';	 	
 	}
 }
-//Pagination Categories End
+//Pagination Categories END
 
 
 // Pagination Buttons Single Posts
@@ -363,13 +367,12 @@ function post_link_attributes($output) {
     $code = 'class="page-link"';
     return str_replace('<a href=', '<a '.$code.' href=', $output);
 }
-// Pagination Buttons Single Posts End
-
+// Pagination Buttons Single Posts END
 
 
 // Excerpt to pages
 add_post_type_support( 'page', 'excerpt' );
-// Excerpt to pages End
+// Excerpt to pages END
 
 
 // Breadcrumb
@@ -392,7 +395,7 @@ if ( ! function_exists( 'the_breadcrumb' ) ) :
     }
     add_filter( 'breadcrumbs', 'breadcrumbs' );
 endif;
-// Breadcrumb End
+// Breadcrumb END
 
 
 // Comment Button
@@ -401,7 +404,7 @@ function bootscore_comment_form( $args ) {
     return $args;    
 }
 add_filter( 'comment_form_defaults', 'bootscore_comment_form' );
-// Comment Button End
+// Comment Button END
 
 
 // Password protected form
@@ -415,7 +418,7 @@ function bootscore_pw_form () {
 	return $output;
 }
 add_filter("the_password_form","bootscore_pw_form");
-// Password protected form End
+// Password protected form END
 
 
 // Allow HTML in term (category, tag) descriptions
@@ -429,20 +432,20 @@ foreach ( array( 'pre_term_description' ) as $filter ) {
 foreach ( array( 'term_description' ) as $filter ) {
 	remove_filter( $filter, 'wp_kses_data' );
 }
-// Allow HTML in term (category, tag) descriptions End
+// Allow HTML in term (category, tag) descriptions END
 
 
 // Allow HTML in author bio
 remove_filter('pre_user_description', 'wp_filter_kses');
 add_filter( 'pre_user_description', 'wp_filter_post_kses');
-// Allow HTML in author bio End
+// Allow HTML in author bio END
 
 
 // Hook after #primary
 function bs_after_primary() {
     do_action('bs_after_primary');
 } 
-// Hook after #primary End
+// Hook after #primary END
 
 
 // Open links in comments in new tab
@@ -453,5 +456,5 @@ if ( ! function_exists( 'bs_comment_links_in_new_tab' ) ) :
     }
     add_filter('comment_text', 'bs_comment_links_in_new_tab');
 endif;
-// Open links in comments in new tab
+// Open links in comments in new tab END
 

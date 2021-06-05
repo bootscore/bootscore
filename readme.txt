@@ -6,7 +6,7 @@ Tags: featured-images, threaded-comments, translation-ready
 Requires at least: 4.5
 Tested up to: 5.7.2
 Requires PHP: 5.6
-Stable tag: 5.0.2.0
+Stable tag: 5.0.2.1
 License: GNU General Public License v2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -55,6 +55,13 @@ bootScore includes support for Infinite Scroll in Jetpack.
 
 
 == Changelog ==
+
+    = 5.0.2.1 - June 05 2021 =
+        
+        * [IMPROVEMENT] transition-delay on offcanvas-cart loader https://github.com/craftwerkberlin/bootscore-5/issues/6 (woocommerce-style.css, woocommerce.js, ajax-add-to-cart.php. Thnx Martin Holzer risingbytes.at)
+        * [IMPROVEMENT] Tags is a complete pluggable function now (template-tags.php)
+        * [IMPROVEMENT] Register comment-list.php is a pluggable function now. You can override file by register comment-list.php and place a copy in child .
+        * [IMPROVEMENT] Nav Walker and Menu register are a complete pluggable function now. You can create your own menus and use a different nav walker by override them in child-theme.
 
     = 5.0.2.0 - May 31 2021 =
         
