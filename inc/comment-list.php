@@ -92,7 +92,7 @@ endif; // ends check for bootscore_comment()
 add_filter('comment_form_defaults', 'custom_reply_title');
 function custom_reply_title($defaults)
 {
-    $defaults['title_reply_before'] = '<h2 id="reply-title">';
+    $defaults['title_reply_before'] = '<h2 id="reply-title" class="mt-4">';
     $defaults['title_reply_after'] = '</h2>';
     return $defaults;
 }

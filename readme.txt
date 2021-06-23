@@ -6,7 +6,7 @@ Tags: featured-images, threaded-comments, translation-ready
 Requires at least: 4.5
 Tested up to: 5.7.2
 Requires PHP: 5.6
-Stable tag: 5.0.2.1
+Stable tag: 5.0.2.2
 License: GNU General Public License v2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -55,6 +55,14 @@ bootScore includes support for Infinite Scroll in Jetpack.
 
 
 == Changelog ==
+
+    = 5.0.2.2 - June 23 2021 =
+        
+        * [IMPROVEMENT] Enqueue files with modification date to prevent browser from loading cached scripts and styles when file content changes. (Thnx Martin Holzer risingbytes.at)
+        * [IMPROVEMENT] Added transition-delay to cart-loader to prevent flickering loading
+        * [BUGFIX] Added mt-4 to #reply-title (comment-list.php)
+        * [UPDATE] Language Deutsch (Du/Sie)
+        * [UPDATE] Bootstrap 5.0.2
 
     = 5.0.2.1 - June 05 2021 =
         
