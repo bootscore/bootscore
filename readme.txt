@@ -6,7 +6,7 @@ Tags: featured-images, threaded-comments, translation-ready
 Requires at least: 4.5
 Tested up to: 5.7.2
 Requires PHP: 5.6
-Stable tag: 5.0.2.2
+Stable tag: 5.0.2.3
 License: GNU General Public License v2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -41,7 +41,7 @@ https://bootscore.me/category/documentation/
 
 = Does this theme support any plugins? =
 
-bootScore includes support for Infinite Scroll in Jetpack.
+bootScore includes support for WooCommerce and Infinite Scroll in Jetpack.
 
 
 == Credits ==
@@ -55,6 +55,23 @@ bootScore includes support for Infinite Scroll in Jetpack.
 
 
 == Changelog ==
+
+
+    = 5.0.2.3 - July 14 2021 =
+    
+        * [NEW] Language Čeština, thnx Petr Žaloudek https://webhned.eu
+        * [BUGFIX] Height modal fullscreen if .logged-in.admin-bar (style.css)
+        * [BUGFIX] Missing author and breadcrumb on single-full-width-image.php
+        * [BUGFIX] The “next page” pagination work properly on the 1st page (functions.php, thnx Mike Collignon, https://www.alox.co)
+        * [BUGFIX] Searchform can be placed in any widget positions without showing search button in navbar
+        * [IMPROVEMENT] Cleanup Scroll To Top Button (style.css, footer.php)
+        * [IMPROVEMENT] Search collapse button hide if empty removed by JS (theme.js, style.css)
+        * [IMPROVEMENT] Focus on collapsed show searchform input
+        * [IMPROVEMENT] header.php and header-woocommerce.php are completely new, more simple. Search button uses collapse component now instead of dropdown. Old header can still be used.
+        * [REMOVED] Data attribute data-bs-hideresize="true". Close menu offcanvas in navbar on resize direct (theme.js, header.php, header-woocommerce.php)
+        * [REMOVED] index-woocommerce.php
+        * [REMOVED] wp-block-button reset (style.css)
+        * [REMOVED] Quote block (style.css)
 
     = 5.0.2.2 - June 23 2021 =
         

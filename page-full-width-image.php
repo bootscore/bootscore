@@ -13,9 +13,6 @@
 <div id="content" class="site-content">
     <div id="primary" class="content-area">
 
-        <!-- Hook to add something nice -->
-        <?php bs_after_primary(); ?>
-
         <main id="main" class="site-main">
 
             <?php $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'full' );?>
@@ -26,6 +23,9 @@
             </header>
 
             <div class="container pb-5">
+                
+            <!-- Hook to add something nice -->
+            <?php bs_after_primary(); ?>
 
                 <div class="entry-content">
                     <?php the_content(); ?>

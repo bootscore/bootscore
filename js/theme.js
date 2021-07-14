@@ -13,12 +13,12 @@
 
 jQuery(document).ready(function ($) {
 
-    
-    // Data attribute to hide offcanvas and enable body scroll on resize through the breakpoints
+
+    // Hide offcanvas menu in navbar and enable body scroll on resize through the breakpoints
     $(window).on('resize', function () {
-        $('[data-bs-hideresize="true"]').offcanvas('hide');
+        $('.navbar .offcanvas').offcanvas('hide');
     });
-    
+
 
     // Close offcanvas on click a, keep .dropdown-menu open
     $('.offcanvas a:not(.dropdown-toggle):not(a.remove_from_cart_button), a.dropdown-item').on('click', function () {
@@ -36,22 +36,24 @@ jQuery(document).ready(function ($) {
     $('.dropdown').on('hide.bs.dropdown', function () {
         $(this).find('.dropdown-menu').first().stop(true, true).slideUp();
     });
-    
 
-    // Mobile search button hide if empty
-    if ($('.searchform').length != 1) {
-        $('.top-nav-search-md, .top-nav-search-lg').addClass('hide');
+
+    // Search collapse button hide if empty
+    if ($('#collapse-search .searchform').length != 1) {
+        $('.top-nav-search-md, .top-nav-search-lg').remove();
     }
-    if ($('.searchform').length != 0) {
-        $('.top-nav-search-md, .top-nav-search-lg').removeClass('hide');
-    }
-    
+
+    // Searchform focus
+    $('#collapse-search').on('shown.bs.collapse', function () {
+        $('.top-nav-search .searchform .form-control').focus();
+    });
+
 
     // Set parent nav-link active if blog post or shop item is open
     $('.current-post-ancestor .nav-link').addClass('active');
     $('.current_page_parent .nav-link').addClass('active');
 
-    
+
 }); // jQuery End
 
 
@@ -64,7 +66,7 @@ jQuery(document).ready(function ($) {
 jQuery(document).ready(function ($) {
 
 
-    // Smooth Scroll
+    // Smooth Scroll. Will be removed when Safari supports scroll-behaviour: smooth (Bootstrap 5).
     $(function () {
         $('a[href*="#"]:not([href="#"]):not(a.comment-reply-link):not([href="#tab-reviews"]):not([href="#tab-additional_information"]):not([href="#tab-description"]):not([href="#reviews"]):not([href="#carouselExampleIndicators"]):not([data-smoothscroll="false"])').click(function () {
             if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
@@ -82,7 +84,7 @@ jQuery(document).ready(function ($) {
     });
 
 
-    // Scroll to ID from external url
+    // Scroll to ID from external url. Will be removed when Safari supports scroll-behaviour: smooth (Bootstrap 5).
     if (window.location.hash) scroll(0, 0);
     setTimeout(function () {
         scroll(0, 0)
@@ -122,7 +124,7 @@ jQuery(document).ready(function ($) {
     $(".height-85").css("height", 0.85 * $(window).height());
     $(".height-100").css("height", 1.0 * $(window).height());
 
-    
+
     // Forms
     $('select, #billing_state').addClass('form-select');
 

@@ -2,7 +2,7 @@
 >>> TABLE OF CONTENTS:
 ----------------------------------------------------------------
 1.  Header
-2.  WooCommerce Display none
+2.  WooCommerce display none
 3.  WooCommerce
 4.  Colors
 
@@ -12,8 +12,9 @@
 1. Header
 --------------------------------------------------------------*/
 
+/* Since 5.1.0.0 logo is on the left in new header. Fallback to old header */
 @media (max-width: 991px) {
-    #nav-main .navbar-brand {
+    #nav-main .navbar-brand:not(#nav-main .navbar-brand.xs, #nav-main .navbar-brand.md) {
         position: absolute;
         left: 50%;
         transform: translate(-50%, 0px);
@@ -22,6 +23,8 @@
         min-height: 56px;
     }
 }
+/* Fallback to old header End */
+
 
 #offcanvas-cart .cart-list {
     /* height cart-footer */

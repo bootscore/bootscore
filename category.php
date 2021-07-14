@@ -49,11 +49,11 @@
                                     <?php if ( 'post' === get_post_type() ) : ?>
                                     <small class="text-muted mb-2">
                                         <?php
-									bootscore_date();
-									bootscore_author();
-									bootscore_comments();
-									bootscore_edit();
-									?>
+                                            bootscore_date();
+                                            bootscore_author();
+                                            bootscore_comments();
+                                            bootscore_edit();
+                                        ?>
                                     </small>
                                     <?php endif; ?>
                                     <!-- Excerpt & Read more -->

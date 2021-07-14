@@ -64,7 +64,7 @@ if ( ! function_exists( 'bs_mini_cart' ) ) :
         ?><span class="cart-content"><?php
         if ( $count > 0 ) {
             ?>
-        <span class="cart-content-count badge bg-danger"><?php echo esc_html( $count ); ?></span><span class="cart-total ms-1 d-none d-md-inline"><?php echo WC()->cart->get_cart_subtotal(); ?></span>
+        <span class="cart-content-count position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger border border-light"><?php echo esc_html( $count ); ?></span><span class="cart-total ms-1 d-none d-md-inline"><?php echo WC()->cart->get_cart_subtotal(); ?></span>
         <?php            
         }
             ?></span><?php

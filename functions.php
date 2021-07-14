@@ -257,7 +257,7 @@ function bootscore_scripts() {
 	// Bootstrap	
 	wp_enqueue_style( 'bootstrap', get_template_directory_uri() . '/css/lib/bootstrap.min.css', array(), $modificated );
     
-	// Fontawesome
+    // Fontawesome
 	wp_enqueue_style( 'fontawesome', get_template_directory_uri() . '/css/lib/fontawesome.min.css', array(), $modificated );
 
 	// Bootstrap JS
@@ -353,13 +353,14 @@ function bootscore_pagination($pages = '', $range = 2)
 		}
 		
 		if ($paged < $pages && $showitems < $pages) 
-			echo '<li class="page-item"><a class="page-link" href="'.get_pagenum_link($paged + 1).'" aria-label="Next Page">&rsaquo;</a></li>';  
+			echo '<li class="page-item"><a class="page-link" href="'.get_pagenum_link(($paged === 0 ? 1 : $paged) + 1).'" aria-label="Next Page">&rsaquo;</a></li>';  
 	
 	 	if ($paged < $pages-1 &&  $paged+$range-1 < $pages && $showitems < $pages) 
 			echo '<li class="page-item"><a class="page-link" href="'.get_pagenum_link($pages).'" aria-label="Last Page">&raquo;</a></li>';
 	
 	 	echo '</ul>';
         echo '</nav>';
+        // Uncomment this if you want to show [Page 2 of 30]
         // echo '<div class="pagination-info mb-5 text-center">[ <span class="text-muted">Page</span> '.$paged.' <span class="text-muted">of</span> '.$pages.' ]</div>';	 	
 	}
 }
@@ -464,4 +465,3 @@ if ( ! function_exists( 'bs_comment_links_in_new_tab' ) ) :
     add_filter('comment_text', 'bs_comment_links_in_new_tab');
 endif;
 // Open links in comments in new tab END
-

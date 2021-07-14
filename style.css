@@ -1,10 +1,12 @@
-/*!
+/*
 Theme Name: bootScore 5
 Theme URI: https://bootscore.me/
 Author: Bastian Kreiter
 Author URI: https://crftwrk.de
 Description: A powerful Bootstrap 5 WordPress Starter Theme with WooCommerce Support. <a href="https://bootscore.me/category/documentation/" target="_blank">Documentation</a>. This theme gives you full control whatever you do and the full freedom to design whatever you want. It comes with a wide selection of category, page, post, author and archive templates as well as sidebar, header, footer and 404 widgets. There are no customizer settings in the backend. All settings can only be made by touching the code. Some CSS, HTML, PHP and JS Skills are required to customize it.
-Version: 5.0.2.2
+Version: 5.0.2.3
+Tested up to: 5.7.2
+Requires PHP: 5.6
 License: GNU General Public License v2 or later
 License URI: LICENSE
 Text Domain: bootscore
@@ -23,29 +25,98 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 /*--------------------------------------------------------------
 >>> TABLE OF CONTENTS:
 ----------------------------------------------------------------
-1.  Temporary Offcanvas (will be removed when official Bootstrap offcanvas navbar integration is ready, https://examples.bootscore.me/bootstrap-offcanvas-navbar/)
-2.  Temporary Badges (fixes Bootstrap hover state if badge is wrapped in a <a>...</a> tag)
-3.  Header
-4.  Body
-5.  Alerts
-6.  Breadcrumb
-7.  To Top Button
-8.  Single Post
-9.  Comments
-10. Archive
-11. Widgets
-12. Utilities
-13. Colors
-14. HTML Markups (Theme Unit Test Data)
-15. Temporary bug fixes
+1.  Temporary
+2.  Header
+3.  Body
+4.  Alerts
+5.  Breadcrumb
+6.  To Top Button
+7.  Single Post
+8.  Comments
+9. Archive
+10. Widgets
+11. Utilities
+12. Colors
+13. HTML Markups (Theme Unit Test Data)
 --------------------------------------------------------------*/
 
 /*--------------------------------------------------------------
-1. Temporary Offcanvas
+1. Temporary
 --------------------------------------------------------------*/
 
-/* Offcanvas Backdrop fade */
+/* scroll-behaviour: smooth not supportet by Safari. 
+jQuery smooth scroll script will be removed when Safari supports it */
+html {
+    scroll-behavior: auto !important;
+}
 
+/*
+Remove autop (WP 5.7 bug near shortcode)
+https://wordpress.org/support/topic/how-to-stop-wp-from-adding-p-tag-automatically/
+*/
+
+p:empty:before {
+    content: none;
+}
+
+
+/* To Top Button Fallback (done by classes) */
+.top-button {
+    position: fixed;
+    z-index: 1020;
+}
+
+
+/* Dropdown Search (replaced by Collapse component in 5.1.0.0. Fallback to old headers) */
+@media (max-width: 782px) {
+
+    .logged-in.admin-bar .dropdown-search {
+        top: 100px !important;
+    }
+
+}
+
+@media (min-width: 783px) {
+
+    .logged-in.admin-bar .dropdown-search {
+        top: 86px !important;
+    }
+}
+
+.dropdown-search.dropdown-menu[data-bs-popper] {
+    top: 54px;
+}
+
+.dropdown-search .searchform {
+    opacity: 0;
+    transition: opacity .8s;
+    transition-delay: .3s;
+}
+
+.dropdown-search.show .searchform {
+    opacity: 1;
+}
+
+@media (max-width: 991px) {
+    .btn-dropdown.right {
+        padding-right: 0;
+        border: none;
+    }
+
+    #dropdown-search:hover {
+        color: currentColor;
+        background-color: transparent;
+        border-color: transparent;
+    }
+
+    #dropdown-search:focus {
+        box-shadow: none;
+    }
+}
+/* Dropdown Search Fallback End */
+
+
+/* Offcanvas Backdrop fade */
 .modal-backdrop.fade {
     transition: opacity .4s ease-in-out;
 }
@@ -55,6 +126,7 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 }
 
 
+/* Offcanvas */
 /* Expand-sm */
 @media (min-width: 576px) {
 
@@ -276,12 +348,11 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
     }
 
 }
+/* Offcanvas End */
 
 
-/*--------------------------------------------------------------
-2. Temporary Badges
---------------------------------------------------------------*/
 
+/* Badges (fixes Bootstrap hover state if badge is wrapped in a <a>...</a> tag) */
 .badge.bg-light,
 .badge.bg-warning,
 .badge.bg-info {
@@ -306,26 +377,29 @@ a.badge,
 a.badge:hover {
     text-decoration: none;
 }
+/* Badges End */
+
 
 /*--------------------------------------------------------------
-3. Header
+2. Header
 --------------------------------------------------------------*/
 
 @media (max-width: 782px) {
+    
+    #wpadminbar {
+        position: fixed;
+    }
 
     .logged-in.admin-bar .fixed-top,
     .logged-in.admin-bar .offcanvas:not(.offcanvas-bottom),
     .logged-in.admin-bar .modal {
         top: 46px;
     }
-
-    .logged-in.admin-bar .dropdown-search {
-        top: 100px !important;
+    
+    .logged-in.admin-bar .modal-fullscreen {
+        height: calc(100% - 46px);
     }
-
-    #wpadminbar {
-        position: fixed;
-    }
+    
 }
 
 @media (min-width: 783px) {
@@ -335,65 +409,25 @@ a.badge:hover {
     .logged-in.admin-bar .modal {
         top: 32px;
     }
-
-    .logged-in.admin-bar .dropdown-search {
-        top: 86px !important;
+    
+    .logged-in.admin-bar .modal-fullscreen {
+        height: calc(100% - 32px);
     }
+    
 }
 
 #nav-main .menu-item:last-child .nav-link {
     padding-right: 0;
 }
 
-.dropdown-search.dropdown-menu[data-bs-popper] {
-    top: 54px;
-}
-
-.top-nav-search-md.hide,
-.top-nav-search-lg.hide {
-    display: none !important;
-}
-
-.dropdown-search .searchform {
-    opacity: 0;
-    transition: opacity .8s;
-    transition-delay: .3s;
-}
-
-.dropdown-search.show .searchform {
-    opacity: 1;
-}
-
-@media (max-width: 991px) {
-    .btn-dropdown.right {
-        padding-right: 0;
-        border: none;
-    }
-
-    #dropdown-search:hover {
-        color: currentColor;
-        background-color: transparent;
-        border-color: transparent;
-    }
-
-    #dropdown-search:focus {
-        box-shadow: none;
-    }
-}
 
 /*--------------------------------------------------------------
-4. Body
+3. Body
 --------------------------------------------------------------*/
 
 body {
     position: relative;
     word-break: break-word;
-}
-
-/* conflict scroll-behaviour: smooth with jquery smooth scroll */
-
-html {
-    scroll-behavior: auto !important;
 }
 
 ::-moz-selection {
@@ -408,8 +442,9 @@ html {
     min-height: 600px;
 }
 
+
 /*--------------------------------------------------------------
-5. Alerts
+4. Alerts
 --------------------------------------------------------------*/
 
 .alert.alert-danger,
@@ -445,7 +480,7 @@ html {
 }
 
 /*--------------------------------------------------------------
-6. Breadcrumb
+5. Breadcrumb
 --------------------------------------------------------------*/
 
 @media (max-width: 991px) {
@@ -465,31 +500,25 @@ html {
 }
 
 /*--------------------------------------------------------------
-7. To Top Button
+6. To Top Button
 --------------------------------------------------------------*/
 
-#to-top {
-    height: 0;
-    position: absolute;
-    top: 0
-}
 
 .top-button {
-    position: fixed;
     right: 5%;
     bottom: 30px;
     opacity: 0;
     transition: opacity 1s;
-    z-index: 1020;
 }
+
 
 .top-button.visible {
     opacity: 1;
-    transition: opacity 1s
 }
 
+
 /*--------------------------------------------------------------
-8. Single Post
+7. Single Post
 --------------------------------------------------------------*/
 
 img {
@@ -523,7 +552,7 @@ img {
 }
 
 /*--------------------------------------------------------------
-9. Comments
+8. Comments
 --------------------------------------------------------------*/
 
 ul.comment-list {
@@ -578,7 +607,7 @@ ul.comment-list li {
 }
 
 /*--------------------------------------------------------------
-10. Archive
+9. Archive
 --------------------------------------------------------------*/
 
 @media (max-width: 767px) {
@@ -620,7 +649,7 @@ ul.comment-list li {
 }
 
 /*--------------------------------------------------------------
-11. Widgets
+10. Widgets
 --------------------------------------------------------------*/
 
 .widget-area ul,
@@ -639,7 +668,7 @@ ul.comment-list li {
 }
 
 /*--------------------------------------------------------------
-12. Utilities
+11. Utilities
 --------------------------------------------------------------*/
 
 /* 
@@ -752,7 +781,7 @@ Hover
 }
 
 /*--------------------------------------------------------------
-13. Colors
+12. Colors
 --------------------------------------------------------------*/
 
 ::selection {
@@ -769,14 +798,6 @@ pre {
     background-color: var(--bs-light);
 }
 
-blockquote {
-    background-color: var(--bs-light);
-}
-
-q {
-    background-color: var(--bs-light);
-}
-
 :focus {
     outline: none !important;
     outline: -webkit-focus-ring-color none !important;
@@ -786,7 +807,7 @@ q {
 }
 
 /*--------------------------------------------------------------
-14. HTML Markups (Theme Unit Test Data)
+13. HTML Markups (Theme Unit Test Data)
 --------------------------------------------------------------*/
 
 /*
@@ -803,99 +824,15 @@ img {
     max-width: 100%;
 }
 
-.wp-post-image {
-    width: 100%;
-}
-
 iframe {
     max-width: 100%;
 }
 
 pre {
-    font-family: "Courier 10 Pitch", Courier, monospace;
-    font-size: 15px;
-    font-size: 0.9375rem;
-    line-height: 1.6;
-    margin-bottom: 1.6em;
     max-width: 100%;
-    overflow: auto;
-    padding: 1.6em;
     border-radius: .25rem;
 }
 
-blockquote {
-    border-radius: .25rem;
-    padding: 1.25rem;
-}
-
-blockquote::before {
-    font-family: "Font Awesome 5 Free";
-    font-weight: 900;
-    content: "\f10d";
-    font-size: xx-large;
-    float: left;
-    margin: -.1rem 1.25rem 0 0;
-}
-
-.wp-block-quote.is-style-large {
-    margin: 0 0 1rem;
-    padding: 1.25rem;
-}
-
-figure.wp-block-pullquote blockquote:before {
-    font-family: "Font Awesome 5 Free";
-    font-weight: 900;
-    content: "\f10d";
-    font-size: xx-large;
-    display: block;
-    float: none;
-}
-
-q {
-    padding: .2rem .4rem;
-    font-size: 87.5%;
-    border-radius: .2rem;
-}
-
-q::before {
-    font-family: "Font Awesome 5 Free";
-    font-weight: 900;
-    content: "\f10d";
-    font-size: 87.5%;
-    margin-right: .5rem;
-}
-
-.comment-content.card-block blockquote {
-    padding: 0;
-}
-
-.comment-content.card-block q {
-    padding: 0;
-    font-size: 100%;
-}
-
-/* Button Reset */
-
-.wp-block-button {
-    margin-bottom: none;
-}
-
-.wp-block-button__link {
-    background-color: none !important;
-    border: none;
-    border-radius: none;
-    box-shadow: none;
-    color: inherit;
-    cursor: pointer;
-    display: inline-block;
-    font-size: none;
-    margin: 0;
-    padding: none;
-    text-align: center;
-    text-decoration: none;
-    white-space: normal;
-    overflow-wrap: break-word;
-}
 
 /*--------------------------------------------------------------
 # Alignments
@@ -1014,17 +951,4 @@ q::before {
 
 .bypostauthor {
     display: block;
-}
-
-/*--------------------------------------------------------------
-15. Temporary bug fixes
---------------------------------------------------------------*/
-
-/*
-Remove autop (WP 5.7 bug near shortcode)
-https://wordpress.org/support/topic/how-to-stop-wp-from-adding-p-tag-automatically/
-*/
-
-p:empty:before {
-    content: none;
 }

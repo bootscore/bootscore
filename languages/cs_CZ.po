@@ -1,0 +1,421 @@
+# Copyright (C) 2017 Automattic
+# This file is distributed under the GNU General Public License v2 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: _s 1.0.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/tags/_s\n"
+"POT-Creation-Date: 2021-05-30 09:05+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2021-07-14 09:11+0200\n"
+"Last-Translator: \n"
+"Language-Team: Čeština\n"
+"X-Generator: Poedit 3.0\n"
+"Language: cs_CZ\n"
+"Plural-Forms: nplurals=3; plural=( n == 1 ) ? 0 : ( n >= 2 && n <= 4 ) ? 1 : "
+"2;\n"
+"X-Loco-Version: 2.5.3; wp-5.7.2\n"
+
+#: single-sidebar-left.php:31 single-sidebar-none.php:28
+#: single-full-width-image.php:34 single.php:29
+msgid " by "
+msgstr ", autor/ka "
+
+#: inc/comment-list.php:46
+#, php-format
+msgid "%s <span class=\"says d-none\">says:</span>"
+msgstr "%s <span class=\"says d-none\">napsal/a:</span>"
+
+#. used between list items, there is a space after the comma
+#: inc/template-tags.php:38
+msgid ", "
+msgstr ", "
+
+#: languages/plugin-translations.php:5
+msgid "/privacy-policy"
+msgstr "/privacy-policy"
+
+#: inc/comment-list.php:51
+#, php-format
+msgctxt "1: date, 2: time"
+msgid "%1$s at %2$s"
+msgstr "%1$s v %2$s"
+
+#: functions.php:214
+msgid "404 Page"
+msgstr "Stránka 404"
+
+#. Description of the theme
+msgid ""
+"A powerful Bootstrap 5 WordPress Starter Theme with WooCommerce Support. <a "
+"href=\"https://bootscore.me/category/documentation/\">Documentation</a>. "
+"This theme gives you full control whatever you do and the full freedom to "
+"design whatever you want. It comes with a wide selection of category, page, "
+"post, author and archive templates as well as sidebar, header, footer and "
+"404 widgets. There are no customizer settings in the backend. All settings "
+"can only be made by touching the code. Some CSS, HTML, PHP and JS Skills are "
+"required to customize it."
+msgstr ""
+"Výkonná výchozí šablona pro Wordpress, založená na Bootstrapu 5 a s podporou "
+"Woocommerce. <a href=\"https://bootscore.me/category/documentation/"
+"\">Documentace</a> (v angličtině). Díky této šabloně máte plnou kontrolu nad "
+"tím, co děláte, a naprostou svobodu upravovat vzhled, jak chcete. Má velký "
+"výběr šablon pro kategorie, stránky, příspěvky, autory a archivy, stejně "
+"jako postranní panel, záhlaví, zápatí a stránku 404. V backendu nejsou žádná "
+"nastavení přizpůsobení. Všechna nastavení lze provést pouze úpravou kódu. K "
+"těmto úpravám budete potřebovat znalost CSS, HTML, PHP a JS."
+
+#: languages/plugin-translations.php:7
+msgid "Accept"
+msgstr "Souhlas"
+
+#: functions.php:120 functions.php:132 functions.php:144 functions.php:156
+#: functions.php:168 functions.php:180 functions.php:192 functions.php:204
+#: functions.php:216
+msgid "Add widgets here."
+msgstr "Zde přidejte widgety."
+
+#: languages/plugin-translations.php:2
+msgid "All"
+msgstr "Vše"
+
+#: 404.php:27
+msgid "Back Home &raquo;"
+msgstr "Zpět domů &raquo;"
+
+#. Author of the theme
+msgid "Bastian Kreiter"
+msgstr "Bastian Kreiter"
+
+#. Name of the template
+msgid "Blank with container"
+msgstr "Prázdná s kontejnerem"
+
+#. Name of the template
+msgid "Blank without container"
+msgstr "Prázdná bez kontejneru"
+
+#. Name of the theme
+msgid "bootScore 5"
+msgstr "bootScore 5"
+
+#: comments.php:100
+msgid "Cancel"
+msgstr "Zrušit"
+
+#: header-woocommerce.php:166
+msgid "Cart"
+msgstr "Košík"
+
+#: header-woocommerce.php:145
+msgid "Close account"
+msgstr "Zavřít panel účtu"
+
+#: header-woocommerce.php:82 header.php:81
+msgid "Close menu"
+msgstr "Zavřít menu"
+
+#: comments.php:55 comments.php:73
+msgid "Comment navigation"
+msgstr "Navigace komentáře"
+
+#: comments.php:91
+msgid "Comments are closed."
+msgstr "Komentáře nejsou povoleny."
+
+#. 1: number of comments, 2: post title
+#: comments.php:38
+#, php-format
+msgctxt "comments title"
+msgid "%1$s Comment on &ldquo;%2$s&rdquo;"
+msgid_plural "%1$s Comments on &ldquo;%2$s&rdquo;"
+msgstr[0] "%1$s komentář u &ldquo;%2$s&rdquo;"
+msgstr[1] "%1$s komentáře u &ldquo;%2$s&rdquo;"
+msgstr[2] "%1$s komentářů u &ldquo;%2$s&rdquo;"
+
+#. %s: post title
+#: comments.php:34
+#, php-format
+msgctxt "comments title"
+msgid "One Comment &ldquo;%s&rdquo;"
+msgstr "Jeden komentář &ldquo;%s&rdquo;"
+
+#: header-woocommerce.php:157
+msgid "Continue shopping"
+msgstr "Pokračovat v nakupování"
+
+#: languages/plugin-translations.php:4
+msgid ""
+"Cookies help us deliver our services. By using our services, you agree to "
+"our use of cookies."
+msgstr ""
+"Cookies nám pomáhají při poskytování našich služeb. Užitím služeb souhlasíte "
+"s použitím cookies."
+
+#: woocommerce/checkout/form-shipping.php:35
+msgid "Delivery details"
+msgstr "Podrobnosti doručení"
+
+#. %s: Name of current post. Only visible to screen readers
+#: inc/comment-list.php:29 inc/comment-list.php:53 inc/template-tags.php:139
+msgid "Edit"
+msgstr "Upravit"
+
+#: comments.php:125 woocommerce/single-product-reviews.php:95
+msgid "Email* (will not be published)"
+msgstr "Email* (nebude zveřejněn)"
+
+#: functions.php:166
+msgid "Footer 1"
+msgstr "Zápatí 1"
+
+#: functions.php:178
+msgid "Footer 2"
+msgstr "Zápatí 2"
+
+#: functions.php:190
+msgid "Footer 3"
+msgstr "Zápatí 3"
+
+#: functions.php:202
+msgid "Footer 4"
+msgstr "Zápatí 4"
+
+#: functions.php:66
+msgid "Footer Menu"
+msgstr "Menu zápatí"
+
+#. Name of the template
+msgid "Full Width Image"
+msgstr "Obrázek o plné šířce"
+
+#. Name of the template
+msgid "Full width image"
+msgstr "Obrázek o plné šířce"
+
+#: woocommerce/myaccount/my-account-offcanvas.php:17
+msgid "Hello"
+msgstr "Uživatel/ka: "
+
+#: woocommerce/myaccount/my-account-offcanvas.php:22
+msgid ""
+"Here you can view your recent orders, manage your shipping and billing "
+"addresses, and edit your password and account details."
+msgstr ""
+"Tady si můžete zobrazit své objednávky, vstupenky, upravit adresy, heslo "
+"a&nbsp;posrobnosti účtu."
+
+#. URI of the theme
+msgid "https://bootscore.me/"
+msgstr "https://bootscore.me/"
+
+#. Author URI of the theme
+msgid "https://crftwrk.de"
+msgstr "https://crftwrk.de"
+
+#: inc/template-tags.php:256
+msgid "Internet Explorer detected"
+msgstr "Zjištěn Internet Explorer"
+
+#: template-parts/content-none.php:43
+msgid ""
+"It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
+"searching can help."
+msgstr ""
+"Vypadá to, že nemůžeme najít to, co hledáte. Možná Vám pomůže vyhledávání."
+
+#. %s: post title
+#: comments.php:98 inc/template-tags.php:110
+msgid "Leave a Comment"
+msgstr "Napište komentář"
+
+#: inc/template-tags.php:167
+msgid "Leave a comment"
+msgstr "Napište komentář"
+
+#: comments.php:99
+#, php-format
+msgid "Leave a Comment to %s"
+msgstr "Napište komentář k %s"
+
+#. Name of the template
+msgid "Left Sidebar"
+msgstr "Levý postranní pael"
+
+#: languages/plugin-translations.php:3
+msgid "Look what I found: "
+msgstr "Našli jsme následující: "
+
+#: functions.php:65
+msgid "Main Menu"
+msgstr "Hlavní menu"
+
+#: languages/plugin-translations.php:6
+msgid "More Information"
+msgstr "Více informací"
+
+#: comments.php:121 woocommerce/single-product-reviews.php:89
+msgid "Name*"
+msgstr "Jméno*"
+
+#: comments.php:59 comments.php:77
+msgid "Newer Comments"
+msgstr "Novější komentáře"
+
+#. Name of the template
+msgid "No Sidebar"
+msgstr "Bez postranního panelu"
+
+#: template-parts/content-none.php:14
+msgid "Nothing Found for"
+msgstr "Žádné výsledky pro"
+
+#: comments.php:58 comments.php:76
+msgid "Older Comments"
+msgstr "Stqaršíí komentáře"
+
+#: inc/template-tags.php:258
+msgid "or"
+msgstr "nebo"
+
+#: 404.php:22
+msgid "Page not found."
+msgstr "Stránka nenalezena."
+
+#: page-blank-with-container.php:21 page-sidebar-none.php:33
+#: page-blank-without-container.php:21 page-sidebar-left.php:38 page.php:43
+msgid "Pages:"
+msgstr "Stránky:"
+
+#: functions.php:411
+msgid "Password"
+msgstr "Heslo"
+
+#: inc/comment-list.php:29
+msgid "Pingback:"
+msgstr "Pingback:"
+
+#: inc/template-tags.php:258
+msgid "Please use a modern and secure web browser like"
+msgstr "Prosíme, používejte moderní a bezpečný webový prohlížeč jako třeba"
+
+#: inc/template-tags.php:85
+#, php-format
+msgctxt "post author"
+msgid "by %s"
+msgstr "napsal/a %s"
+
+#: comments.php:101
+msgid "Post Comment"
+msgstr "Komentář příspěvku"
+
+#: author.php:68
+msgid "Read more"
+msgstr "Číst více"
+
+#: category.php:61 author-sidebar-left.php:71 index.php:78 index.php:134
+#: archive.php:63 category-equal-height.php:63
+#: author-equal-height-sidebar-right.php:68 archive-sidebar-left.php:65
+#: author-masonry.php:69 archive-equal-height-sidebar-right.php:62
+#: category-masonry.php:63 archive-equal-height.php:63 archive-masonry.php:63
+#: category-sidebar-left.php:63 author-equal-height.php:69
+#: category-equal-height-sidebar-right.php:63
+#: template-parts/content-search.php:42
+msgid "Read more »"
+msgstr "Číst více »"
+
+#. 1: link to WP admin new post page.
+#: template-parts/content-none.php:25
+#, php-format
+msgid ""
+"Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+msgstr ""
+"Připraven/a zveřejnit první příspěvek? <a href=\"%1$s\">Začnětě zde</a>."
+
+#: inc/comment-list.php:109
+msgid ""
+"Save my name, email, and website in this browser for the next time I comment."
+msgstr ""
+"Uložit mé jmén, email a webovou stránku v tomto prohlížeči pro další "
+"komentování."
+
+#: searchform.php:3
+msgid "Search"
+msgstr "Hledat"
+
+#. %s: search query.
+#: search.php:29
+#, php-format
+msgid "Search Results for: %s"
+msgstr "Výsledky vyhledávání pro: %s"
+
+#: woocommerce/loop/orderby.php:27
+msgid "Shop order"
+msgstr "Řazení obchodu"
+
+#: functions.php:142
+msgid "Sidebar"
+msgstr "Postranní panel"
+
+#. Name of the template
+msgid "Sidebar left"
+msgstr "Levý postranní panel"
+
+#: template-parts/content-none.php:37
+msgid ""
+"Sorry, but nothing matched your search terms. Please try again with some "
+"different keywords."
+msgstr ""
+"Je nám líto, ale nic neodpovídá Vámi hledaným výrazům. Zkuste to, prosíme, "
+"znovu s jinými klíčovými slovy."
+
+#: comments.php:103
+msgid "Start typing..."
+msgstr "Začněte psát..."
+
+#: functions.php:412
+msgid "Submit"
+msgstr "Odeslat"
+
+#. 1: list of tags.
+#: inc/template-tags.php:191
+#, php-format
+msgid "Tagged %1$s"
+msgstr "Označeno jako %1$s"
+
+#: inc/template-tags.php:257
+msgid "This website will offer limited functionality in this browser."
+msgstr "V tomto prohlížeči budou některé funkce stránky omezeny."
+
+#: inc/template-tags.php:258
+msgid "to display this site correctly."
+msgstr "pro správné zobrazení stránky."
+
+#: woocommerce/cart/mini-cart.php:112
+msgid "To find out your shipping cost, please proceed to checkout."
+msgstr "Pro zobrazení ceny dopravy pokračujte k pokladně."
+
+#: functions.php:154
+msgid "Top Footer"
+msgstr "Horní pole zápatí"
+
+#: functions.php:118
+msgid "Top Nav"
+msgstr "Horní navigace"
+
+#: functions.php:130
+msgid "Top Nav Search"
+msgstr "Hledání horní navigace"
+
+#: comments.php:130
+msgid "Website"
+msgstr "Webová stránky"
+
+#: inc/comment-list.php:58
+msgid "Your comment is awaiting moderation."
+msgstr "Váš komentář čeká na schválení."
+
+#: woocommerce/single-product-reviews.php:134
+msgid "Your review...*"
+msgstr "Vaše hodnocení...*"
