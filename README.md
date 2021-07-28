@@ -1,9 +1,12 @@
 
- 
+<div align="center">
+ <img src="https://raw.githubusercontent.com/craftwerkberlin/bootscore-5/main/img/logo/logo.svg" height="50">
+</div>
 
-<img src="https://raw.githubusercontent.com/craftwerkberlin/bootscore-5/main/img/logo/logo.svg" height="50">
+<div align="center">
+ <h1>Bootstrap 5 + WordPress starter theme</h1>
+ </div>
 
-# Bootstrap 5 + WordPress starter theme
 
 Site: https://bootscore.me/
 
@@ -41,7 +44,7 @@ You can use Github Issues to report something as well.
 
 For important updates read the [blog](https://bootscore.me/category/blog/) and subscribe to the [newsletter](https://bootscore.me/category/blog/#newsletter). You will be informed if there is something new you should know.
 
-## License
+## License & Credits
 
 - bootScore is like WordPress released under the terms of the GPL version 2 or (at your option) any later version. http://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html
 - Bootstrap, MIT License https://github.com/twbs/bootstrap/blob/main/LICENSE
