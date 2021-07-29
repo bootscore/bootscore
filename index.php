@@ -99,7 +99,7 @@
             <?php endif; ?>
             <!-- Post List -->
             <div class="row">
-                <div class="col">
+                <div class="col col-md-7 col-xxl-9">
                     <!-- Grid Layout -->
                     <?php if (have_posts() ) : ?>
                     <?php while (have_posts() ) : the_post(); ?>
