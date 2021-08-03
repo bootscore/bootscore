@@ -52,8 +52,9 @@
 
                             <!-- Offcanvas Navbar -->
                             <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvas-navbar">
-                                <div class="offcanvas-header hover cursor-pointer bg-light text-primary" data-bs-dismiss="offcanvas">
-                                    <i class="fas fa-chevron-left"></i> <?php esc_html_e('Close menu' , 'bootscore'); ?>
+                                <div class="offcanvas-header bg-light">
+                                    <h5 class="mb-0"><?php esc_html_e('Menu' , 'bootscore'); ?></h5>
+                                    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                                 </div>
                                 <div class="offcanvas-body">
                                     <!-- Bootstrap 5 Nav Walker Main Menu -->

@@ -27,7 +27,7 @@ do_action( 'woocommerce_before_shipping_calculator' ); ?>
 
 		<?php if ( apply_filters( 'woocommerce_shipping_calculator_enable_country', true ) ) : ?>
 			<p class="form-row form-row-wide" id="calc_shipping_country_field">
-				<select name="calc_shipping_country" id="calc_shipping_country" class="country_to_state country_select" rel="calc_shipping_state">
+				<select name="calc_shipping_country" id="calc_shipping_country" class="country_to_state country_select form-select" rel="calc_shipping_state">
 					<option value=""><?php esc_html_e( 'Select a country / region&hellip;', 'woocommerce' ); ?></option>
 					<?php
 					foreach ( WC()->countries->get_shipping_countries() as $key => $value ) {
@@ -47,12 +47,12 @@ do_action( 'woocommerce_before_shipping_calculator' ); ?>
 
 				if ( is_array( $states ) && empty( $states ) ) {
 					?>
-					<input class="form-control" type="hidden" name="calc_shipping_state" id="calc_shipping_state" placeholder="<?php esc_attr_e( 'State / County', 'woocommerce' ); ?>" />
+					<input class="form-control" type="hidden" name="calc_shipping_state" data-input-classes="input-text form-control"  id="calc_shipping_state" placeholder="<?php esc_attr_e( 'State / County', 'woocommerce' ); ?>" />
 					<?php
 				} elseif ( is_array( $states ) ) {
 					?>
 					<span>
-						<select name="calc_shipping_state" class="state_select" id="calc_shipping_state" data-placeholder="<?php esc_attr_e( 'State / County', 'woocommerce' ); ?>">
+						<select name="calc_shipping_state" class="state_select form-select" data-input-classes="form-select" id="calc_shipping_state" data-placeholder="<?php esc_attr_e( 'State / County', 'woocommerce' ); ?>">
 							<option value=""><?php esc_html_e( 'Select an option&hellip;', 'woocommerce' ); ?></option>
 							<?php
 							foreach ( $states as $ckey => $cvalue ) {
@@ -64,7 +64,7 @@ do_action( 'woocommerce_before_shipping_calculator' ); ?>
 					<?php
 				} else {
 					?>
-					<input type="text" class="input-text form-control" value="<?php echo esc_attr( $current_r ); ?>" placeholder="<?php esc_attr_e( 'State / County', 'woocommerce' ); ?>" name="calc_shipping_state" id="calc_shipping_state" />
+					<input type="text" class="input-text form-control" data-input-classes="input-text form-control" value="<?php echo esc_attr( $current_r ); ?>" placeholder="<?php esc_attr_e( 'State / County', 'woocommerce' ); ?>" name="calc_shipping_state" id="calc_shipping_state" />
 					<?php
 				}
 				?>

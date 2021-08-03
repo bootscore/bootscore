@@ -387,7 +387,7 @@ add_post_type_support( 'page', 'excerpt' );
 if ( ! function_exists( 'the_breadcrumb' ) ) :
     function the_breadcrumb() {
         if(!is_home()) {
-            echo '<nav class="breadcrumb mb-4 mt-2 bg-light py-1 px-2 rounded">';
+            echo '<nav class="breadcrumb mb-4 mt-2 bg-light py-2 px-3 small rounded">';
             echo '<a href="'.home_url('/').'">'.('<i class="fas fa-home"></i>').'</a><span class="divider">&nbsp;/&nbsp;</span>';
             if (is_category() || is_single()) {
                 the_category(' <span class="divider">&nbsp;/&nbsp;</span> ');

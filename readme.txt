@@ -4,11 +4,11 @@ Contributors: craftwerk
 Tags: featured-images, threaded-comments, translation-ready
 
 Requires at least: 4.5
-Tested up to: 5.7.2
+Tested up to: 5.8
 Requires PHP: 5.6
-Stable tag: 5.0.2.3
-License: GNU General Public License v2 or later
-License URI: https://www.gnu.org/licenses/gpl-2.0.html
+Stable tag: 5.0.2.4
+License: MIT License
+License URI: https://github.com/craftwerkberlin/bootscore-5/blob/main/LICENSE
 
 bootScore, Bootstrap 5 WordPress Theme, Copyright 2019 - 2021 Bastian Kreiter.
 
@@ -52,10 +52,25 @@ bootScore includes support for WooCommerce and Infinite Scroll in Jetpack.
 * Bootstrap 5 Wordpress Navbar Walker by AlexWebLab: https://github.com/AlexWebLab/bootstrap-5-wordpress-navbar-walker
 * Comments Section Script by wp-bootstrap-starter https://github.com/afterimagedesigns/wp-bootstrap-starter
 * Font Awesome https://fontawesome.com/license/free
+* Plugin Update Checker, YahnisElsts: https://github.com/YahnisElsts/plugin-update-checker/blob/master/license.txt
 
 
 == Changelog ==
 
+    = 5.0.2.4 - August 03 2021 =
+    
+        * [NEW] README.md
+        * [IMPROVEMENT] Changed remove from cart button btn &times; to trash icon (cart.php, mini-cart.php)
+        * [IMPROVEMENT] Fixed a.badge color by text-* class instead of CSS (style.css, template-tags.php)
+        * [IMPROVEMENT] Breadcrumb padding and font-size (functions.php, woocommerce-functions.php)
+        * [BUGFIX] .form-select (shipping-calculator.php Thnx Martin Holzer risingbytes.at)
+        * [BUGFIX] Keep offcanvas-user open on reload if contains login or register error alert (woocommerce.js)
+        * [BUGFIX] Error alert if login is failed (my-account-offcanvas.php, thanks Sean VanderMolen https://techpad.biz)
+        * [BUGFIX] Changed duplicate id's in offcanvas user (my-account-offcanvas.php, thanks cemmos https://github.com/craftwerkberlin/bootscore-5/issues/8)
+        * [BUGFIX] Add col-md-8 col-xxl-9 classes to post list in index.php (Thanks Tim Groeneveld, https://github.com/craftwerkberlin/bootscore-5/pull/7)
+        * [CHANGED] Default Bootstrap offcanvas-header (header.php, header-woocommerce.php, mini-cart-php)
+        * [CHANGED] GNU General Public License v2 to MIT License
+        * [REMOVED] bootstrap.min.css.map and bootstrap.bundle.min.js.map
 
     = 5.0.2.3 - July 14 2021 =
     

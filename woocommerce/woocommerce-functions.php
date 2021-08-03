@@ -194,7 +194,7 @@ if ( ! function_exists( 'bs_woocommerce_breadcrumbs' ) ) :
     function bs_woocommerce_breadcrumbs() {
         return array(
                 'delimiter'   => ' &nbsp;&#47;&nbsp; ',
-                'wrap_before' => '<nav class="breadcrumb mb-4 mt-2 bg-light py-1 px-2 rounded" itemprop="breadcrumb">',
+                'wrap_before' => '<nav class="breadcrumb mb-4 mt-2 bg-light py-2 px-3 small rounded" itemprop="breadcrumb">',
                 'wrap_after'  => '</nav>',
                 'before'      => '',
                 'after'       => '',

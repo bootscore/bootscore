@@ -40,13 +40,13 @@ bootScore is a time-saver and designed to quickly create clean mobile-first proj
 
 Check the [documentation](https://bootscore.me/category/documentation/). If you have a question, find a bug or have an idea, feel free to leave a comment in the  respective section. No question is stupid and every comment will be answered. You must be a verified owner to post a comment. To become a verified owner, "buy" bootScore for free in the shop.
 
-You can use Github Issues to report something as well.
+You can use Github Issues for reporting as well.
 
 For important updates read the [blog](https://bootscore.me/category/blog/) and subscribe to the [newsletter](https://bootscore.me/category/blog/#newsletter). You will be informed if there is something new you should know.
 
 ## License & Credits
 
-- bootScore is like WordPress released under the terms of the GPL version 2 or (at your option) any later version. http://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html
+- bootScore, MIT License https://github.com/craftwerkberlin/bootscore-5/blob/main/LICENSE
 - Bootstrap, MIT License https://github.com/twbs/bootstrap/blob/main/LICENSE
 - Bootstrap 5 WordPress Navbar Walker by AlexWebLab, MIT License https://github.com/AlexWebLab/bootstrap-5-wordpress-navbar-walker/blob/main/LICENSE
 - Font Awesome Free License https://fontawesome.com/license/free

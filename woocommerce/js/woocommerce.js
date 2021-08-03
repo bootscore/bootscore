@@ -3,7 +3,7 @@ jQuery(document).ready(function ($) {
     // Single add to cart button
     $(".single_add_to_cart_button:not(.product_type_variable):not(.product_type_external):not(.product_type_grouped)").attr("data-bs-toggle", "offcanvas").attr("data-bs-target", "#offcanvas-cart");
 
-        
+
     // Add loading class to offcanvas-cart
     $('body').bind('adding_to_cart', function () {
         $('#offcanvas-cart').addClass('loading');
@@ -14,14 +14,20 @@ jQuery(document).ready(function ($) {
     });
     // Add loading class to offcanvas-cart End
 
-    
+    // Keep offcanvas-user open on reload if contains login or register error alert
+    if ($("#offcanvas-user .alert").length > 0) {
+        $('#offcanvas-user').offcanvas('show');
+    }
+    // Keep offcanvas-user open on reload if contains login or register error alert End
+
+
     // Review Checkbox Products
     $('.comment-form-cookies-consent').addClass('form-check');
     $('#wp-comment-cookies-consent').addClass('form-check-input');
     $('.comment-form-cookies-consent label').addClass('form-check-label');
     // Review Checkbox End
 
-    
+
     // Custom Checkout checkbox validation
     // .form-row was used for validation, .form-row is removed in Bootstrap 5, use .custom-validation instead
     if (typeof wc_checkout_params === 'undefined') {

@@ -50,8 +50,9 @@
 
                         <!-- Offcanvas Navbar -->
                         <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvas-navbar">
-                            <div class="offcanvas-header hover cursor-pointer bg-light text-primary" data-bs-dismiss="offcanvas">
-                                <i class="fas fa-chevron-left"></i> <?php esc_html_e('Close menu' , 'bootscore'); ?>
+                            <div class="offcanvas-header bg-light">
+                                <h5 class="mb-0"><?php esc_html_e('Menu' , 'bootscore'); ?></h5>
+                                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                             </div>
                             <div class="offcanvas-body">
                                 <!-- Bootstrap 5 Nav Walker Main Menu -->
@@ -105,7 +106,7 @@
                                     ?></span>
                                 <?php } ?>
                             </button>
-                                
+
                             <!-- Navbar Toggler -->
                             <button class="btn btn-outline-secondary d-lg-none ms-1 ms-md-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas-navbar" aria-controls="offcanvas-navbar">
                                 <i class="fas fa-bars"></i>
@@ -130,8 +131,9 @@
 
             <!-- offcanvas user -->
             <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvas-user">
-                <div class="offcanvas-header cursor-pointer hover bg-light text-primary" data-bs-dismiss="offcanvas">
-                    <?php esc_html_e('Close account' , 'bootscore'); ?> <i class="fas fa-chevron-right"></i>
+                <div class="offcanvas-header bg-light">
+                    <h5 class="mb-0"><?php esc_html_e('Account' , 'bootscore'); ?></h5>
+                    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                 </div>
                 <div class="offcanvas-body">
                     <div class="my-offcancas-account">
@@ -142,8 +144,9 @@
 
             <!-- offcanvas cart -->
             <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvas-cart">
-                <div class="offcanvas-header cursor-pointer hover bg-light text-primary" data-bs-dismiss="offcanvas">
-                    <i class="fas fa-chevron-left"></i> <?php esc_html_e('Continue shopping' , 'bootscore'); ?>
+                <div class="offcanvas-header bg-light">
+                    <h5 class="mb-0"><?php esc_html_e('Cart' , 'bootscore'); ?></h5>
+                    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                 </div>
                 <div class="offcanvas-body p-0">
                     <div class="cart-loader bg-white position-absolute end-0 bottom-0 start-0 d-flex align-items-center justify-content-center">
@@ -152,7 +155,6 @@
                         </div>
                     </div>
                     <div class="cart-list">
-                        <h2 class="p-3"><?php esc_html_e('Cart' , 'bootscore'); ?></h2>
                         <div class="widget_shopping_cart_content"><?php woocommerce_mini_cart(); ?></div>
                     </div>
                 </div>
