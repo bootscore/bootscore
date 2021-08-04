@@ -465,3 +465,11 @@ if ( ! function_exists( 'bs_comment_links_in_new_tab' ) ) :
     add_filter('comment_text', 'bs_comment_links_in_new_tab');
 endif;
 // Open links in comments in new tab END
+
+
+// Disable Gutenberg blocks in widgets (WordPress 5.8)
+// Disables the block editor from managing widgets in the Gutenberg plugin.
+add_filter( 'gutenberg_use_widgets_block_editor', '__return_false' );
+// Disables the block editor from managing widgets.
+add_filter( 'use_widgets_block_editor', '__return_false' );
+// Disable Gutenberg blocks in widgets (WordPress 5.8) END

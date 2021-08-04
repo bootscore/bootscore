@@ -6,7 +6,7 @@ Tags: featured-images, threaded-comments, translation-ready
 Requires at least: 4.5
 Tested up to: 5.8
 Requires PHP: 5.6
-Stable tag: 5.0.2.4
+Stable tag: 5.0.2.5
 License: MIT License
 License URI: https://github.com/craftwerkberlin/bootscore-5/blob/main/LICENSE
 
@@ -56,6 +56,10 @@ bootScore includes support for WooCommerce and Infinite Scroll in Jetpack.
 
 
 == Changelog ==
+
+    = 5.0.2.5 - August 04 2021 =
+    
+        * [BUGFIX] Disable Gutenberg blocks in widgets and enable classic mode. Widgets like search won't work (WordPress 5.8, functions.php).
 
     = 5.0.2.4 - August 03 2021 =
     
