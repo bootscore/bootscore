@@ -8,13 +8,13 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2021-05-30 09:18+0000\n"
-"Last-Translator: \n"
+"PO-Revision-Date: 2021-08-05 15:32+0200\n"
+"Last-Translator: Justin Kruit <mail@justinkruit.com>\n"
 "Language-Team: Dutch\n"
-"X-Generator: Loco https://localise.biz/\n"
+"X-Generator: Poedit 2.4.3\n"
 "Language: nl_NL\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Loco-Version: 2.5.2; wp-5.7.2"
+"X-Loco-Version: 2.5.2; wp-5.7.2\n"
 
 #: single-sidebar-left.php:31 single-sidebar-none.php:28
 #: single-full-width-image.php:34 single.php:29
@@ -29,7 +29,7 @@ msgstr "%s <span class=\"says d-none\">zegt:</span>"
 #. used between list items, there is a space after the comma
 #: inc/template-tags.php:38
 msgid ", "
-msgstr ","
+msgstr ", "
 
 #: languages/plugin-translations.php:5
 msgid "/privacy-policy"
@@ -56,17 +56,15 @@ msgid ""
 "can only be made by touching the code. Some CSS, HTML, PHP and JS Skills are "
 "required to customize it."
 msgstr ""
-"Een krachtig onepage of multi page Bootstrap basisthema met ondersteuning "
-"voor WooCommerce. Voorbeelden: https://bootscore.me/#examples, Documentatie: "
-"https://bootscore.me/category/documentation/. Dit thema geeft je volledige "
-"controle over wat je ook bouwt en de volledige vrijheid om te ontwerpen wat "
-"je wilt. Het thema bevat enkele nuttige header scripts en een brede selectie "
-"van categorie-, pagina-, bericht-, auteur- en archieftemplates, maar ook "
-"zijbalk, header, footer en 404 widgets. Een preloader is  inbegrepen. Er "
-"zijn slechts enkele kleine customizer instellingen in de backend. Alle "
-"belangrijke instellingen kunnen alleen in de code worden gedaan. Enige CSS, "
-"HTML, PHP en JS vaardigheden zijn vereist om het volledig op maat te maken. "
-"Gebruik bootScore zoals je wilt!"
+"Een krachtig Bootstrap 5 WordPress Starter Thema met WooCommerce "
+"ondersteuning. <a href=\"https://bootscore.me/category/documentation/"
+"\">Documentatie</a>. Dit thema geeft je volledige controle over wat je doet "
+"en de volledige vrijheid om te ontwerpen wat je maar wilt. Het wordt "
+"geleverd met een brede selectie van categorie-, pagina-, post-, auteur- en "
+"archiefstemplates , evenals zijbalk-, header-, voettekst- en 404-widgets. Er "
+"zijn geen aanpassingsinstellingen in de backend. Alle instellingen kunnen "
+"alleen worden gemaakt door de code aan te raken. Enige CSS, HTML, PHP en JS "
+"vaardigheden zijn vereist om het aan te passen."
 
 #: languages/plugin-translations.php:7
 msgid "Accept"
@@ -246,7 +244,7 @@ msgstr "Linker zijbalk"
 
 #: languages/plugin-translations.php:3
 msgid "Look what I found: "
-msgstr "Kijk wat ik heb gevonden:"
+msgstr "Kijk wat ik gevonden heb: "
 
 #: functions.php:65
 msgid "Main Menu"
@@ -396,7 +394,7 @@ msgstr "om dit correct weer te geven."
 #: woocommerce/cart/mini-cart.php:112
 #| msgid "To find out your shipping cost , Please proceed to checkout."
 msgid "To find out your shipping cost, please proceed to checkout."
-msgstr "Ga verder naar de checkout om je verzendkosten te berekenen."
+msgstr "Ga verder naar het afrekenproces om je verzendkosten te berekenen."
 
 #: functions.php:154
 msgid "Top Footer"
