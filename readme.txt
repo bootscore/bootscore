@@ -6,7 +6,7 @@ Tags: featured-images, threaded-comments, translation-ready
 Requires at least: 4.5
 Tested up to: 5.8
 Requires PHP: 5.6
-Stable tag: 5.0.2.5
+Stable tag: 5.1.0.0
 License: MIT License
 License URI: https://github.com/craftwerkberlin/bootscore-5/blob/main/LICENSE
 
@@ -56,6 +56,12 @@ bootScore includes support for WooCommerce and Infinite Scroll in Jetpack.
 
 
 == Changelog ==
+
+    = 5.1.0.0 - August 05 2021 =
+    
+        * [REMOVED] Self-coded offcanvas navbar implementation (header.php, header-woocommerce.php, style.css, theme.js)
+        * [UPDATE] Uses Bootstrap 5.1.0 offcanvas navbar implementation now
+        * [UPDATE] Bootstrap 5.1.0
 
     = 5.0.2.5 - August 04 2021 =
     
