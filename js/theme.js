@@ -49,11 +49,6 @@ jQuery(document).ready(function ($) {
     });
 
 
-    // Set parent nav-link active if blog post or shop item is open
-    $('.current-post-ancestor .nav-link').addClass('active');
-    $('.current_page_parent .nav-link').addClass('active');
-
-
 }); // jQuery End
 
 
