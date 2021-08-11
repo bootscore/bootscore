@@ -6,7 +6,7 @@ Tags: featured-images, threaded-comments, translation-ready
 Requires at least: 4.5
 Tested up to: 5.8
 Requires PHP: 5.6
-Stable tag: 5.1.0.0
+Stable tag: 5.1.0.1
 License: MIT License
 License URI: https://github.com/craftwerkberlin/bootscore-5/blob/main/LICENSE
 
@@ -56,6 +56,13 @@ bootScore includes support for WooCommerce and Infinite Scroll in Jetpack.
 
 
 == Changelog ==
+
+    = 5.1.0.1 - August 11 2021 =
+    
+        * [IMPROVEMENT] Added d-lg-none to search collapse (header.php)
+        * [IMPROVEMENT] "current_page_parent" and "current-post-ancestor" to nav_walker, thanks Justin Kruit https://justinkruit.com
+        * [IMPROVEMENT] Dutch translation, thanks Justin Kruit https://justinkruit.com
+        * [REMOVED] Timestrap from enqueue styles and scripts (CSS overrides needed !important rule, functions.php, woocommerce-functions.php)
 
     = 5.1.0.0 - August 05 2021 =
     
