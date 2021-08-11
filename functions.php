@@ -244,28 +244,35 @@ add_filter( 'widget_text', 'do_shortcode' );
 //Enqueue scripts and styles
 function bootscore_scripts() {
     
-    // Style CSS
-	wp_enqueue_style( 'bootscore-style', get_stylesheet_uri() );
+    // Get modification time. Enqueue files with modification date to prevent browser from loading cached scripts and styles when file content changes. 
+    $modificated = date( 'YmdHi', filemtime( get_template_directory() . '/css/lib/bootstrap.min.css' ) );
+	$modificated = date( 'YmdHi', filemtime( get_stylesheet_directory() . '/style.css' ) );
+    $modificated = date( 'YmdHi', filemtime( get_template_directory() . '/css/lib/fontawesome.min.css' ) );
+    $modificated = date( 'YmdHi', filemtime( get_template_directory() . '/js/theme.js' ) );
+    $modificated = date( 'YmdHi', filemtime( get_template_directory() . '/js/lib/bootstrap.bundle.min.js' ) );
+
+	// Style CSS
+	wp_enqueue_style( 'bootscore-style', get_stylesheet_uri(), array(), $modificated );
+
+	// Bootstrap	
+	wp_enqueue_style( 'bootstrap', get_template_directory_uri() . '/css/lib/bootstrap.min.css', array(), $modificated );
     
-    // Bootstrap	
-	wp_enqueue_style( 'bootstrap', get_template_directory_uri() . '/css/lib/bootstrap.min.css');
-	
-	// Fontawesome
-	wp_enqueue_style( 'fontawesome', get_template_directory_uri() . '/css/lib/fontawesome.min.css');
+    // Fontawesome
+	wp_enqueue_style( 'fontawesome', get_template_directory_uri() . '/css/lib/fontawesome.min.css', array(), $modificated );
 
 	// Bootstrap JS
-	wp_enqueue_script( 'bootstrap', get_template_directory_uri() . '/js/lib/bootstrap.bundle.min.js', array(), '20151215', true );
+	wp_enqueue_script( 'bootstrap', get_template_directory_uri() . '/js/lib/bootstrap.bundle.min.js', array(), $modificated, true );
     
     // Theme JS
-	wp_enqueue_script( 'bootscore-script', get_template_directory_uri() . '/js/theme.js', array(), '20151215', true );
+	wp_enqueue_script( 'bootscore-script', get_template_directory_uri() . '/js/theme.js', array(), $modificated, true );
 	
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
 }
-
 add_action( 'wp_enqueue_scripts', 'bootscore_scripts' );
 //Enqueue scripts and styles END
+
 
 
 // Add <link rel=preload> to Fontawesome
