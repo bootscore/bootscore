@@ -109,7 +109,7 @@
                 </nav><!-- .navbar -->
 
               <!-- Top Nav Search Mobile Collapse -->
-                <div class="collapse container" id="collapse-search">
+                <div class="collapse container d-lg-none" id="collapse-search">
                     <?php if ( is_active_sidebar( 'top-nav-search' )) : ?>
                     <div class="mb-2">
                         <?php dynamic_sidebar( 'top-nav-search' ); ?>

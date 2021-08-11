@@ -35,16 +35,12 @@ add_action( 'after_setup_theme', 'register_ajax_cart' );
 
 //Scripts and Styles
 function wc_scripts() {
-    
-    // Get modification time. Enqueue files with modification date to prevent browser from loading cached scripts and styles when file content changes. 
-    $modificated = date( 'YmdHi', filemtime( get_template_directory() . '/woocommerce/css/woocommerce-style.css' ) );
-    $modificated = date( 'YmdHi', filemtime( get_template_directory() . '/woocommerce/js/woocommerce.js' ) );
 
 	// WooCommerce CSS	
-	wp_enqueue_style( 'woocommerce', get_template_directory_uri() . '/woocommerce/css/woocommerce-style.css', array(), $modificated );
+	wp_enqueue_style( 'woocommerce', get_template_directory_uri() . '/woocommerce/css/woocommerce-style.css');
 	
 	// WooCommerce JS
-	wp_enqueue_script( 'woocommerce-script', get_template_directory_uri() . '/woocommerce/js/woocommerce.js', array(), $modificated, true );
+	wp_enqueue_script( 'woocommerce-script', get_template_directory_uri() . '/woocommerce/js/woocommerce.js', array(), '20151215', true );
    
     if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
