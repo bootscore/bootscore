@@ -39,7 +39,7 @@ jQuery(document).ready(function ($) {
 
 
     // Search collapse button hide if empty
-    if ($('#collapse-search .searchform').length != 1) {
+    if ($('#collapse-search').children().length == 0) {
         $('.top-nav-search-md, .top-nav-search-lg').remove();
     }
 
