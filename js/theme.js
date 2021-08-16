@@ -45,7 +45,7 @@ jQuery(document).ready(function ($) {
 
     // Searchform focus
     $('#collapse-search').on('shown.bs.collapse', function () {
-        $('.top-nav-search .searchform .form-control').focus();
+        $('.top-nav-search input:first-of-type').focus();
     });
 
 
