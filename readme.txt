@@ -17,7 +17,7 @@ bootScore, Bootstrap 5 WordPress Theme, Copyright 2019 - 2021 Bastian Kreiter.
 
 A starter theme called bootScore.
 
-Contributors: craftwerk
+Contributors: crftwrk, justinkruit, timgws
 
 
 == Description ==
