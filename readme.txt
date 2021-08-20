@@ -55,7 +55,9 @@ bootScore includes support for WooCommerce and Infinite Scroll in Jetpack.
 * Plugin Update Checker, YahnisElsts: https://github.com/YahnisElsts/plugin-update-checker/blob/master/license.txt
 
 
-== Changelog == 
+== Changelog ==
+
+
 
     = 5.1.0.1 - August 11 2021 =
     

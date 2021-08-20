@@ -20,13 +20,11 @@ bootScore comes with seamless Bootstrap integration and full WooCommerce support
 
 1. Download the zip file right here by pressing the green `code` button above or get bootScore through the official [store](https://bootscore.me/shop/products/theme/bootscore-wordpress-theme/) (free) if you want to see how the WooCommerce checkout works. 
 
-2. **If you download via Github**, unzip file and remove `-main` branch from folder name and zip again. Folder name must be `bootscore-5`, otherwise child-theme(s) will not work.
-
-3. Upload theme via the WordPress theme-uploader and activate it.
+2. Upload theme via the WordPress theme-uploader and activate it.
 
 ## Child-theme(s)
 
-Edit theme in an upgrade-safe way using the provided child-theme(s). Build your site from scratch with [bootScore Child](https://bootscore.me/shop/products/child-themes/bootscore-child-theme/) or start a new WooCommerce shop with presetted [bootCommerce Child](https://bootscore.me/shop/products/child-themes/bootcommerce-5-child-theme/).
+Edit theme in an upgrade-safe way using the provided child-theme(s). Build your site from scratch with [bootScore Child](https://bootscore.me/shop/products/child-themes/bootscore-child-theme/) or start a new WooCommerce shop with presetted [bootCommerce Child](https://bootscore.me/shop/products/child-themes/bootcommerce-child-theme/).
 
 ## Plugins
 
