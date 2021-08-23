@@ -123,7 +123,7 @@ p:empty:before {
 
 
 /* Badges (Removes underline if badge is wrapped in a <a>...</a> tag) */
-a.badge {
+a.badge, a.badge:hover {
     text-decoration: none;
 }
 /* Badges End */
