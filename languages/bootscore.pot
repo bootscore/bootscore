@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: _s 1.0.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/tags/_s\n"
-"POT-Creation-Date: 2021-05-30 09:05+0000\n"
+"POT-Creation-Date: 2021-08-24 07:50+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -16,8 +16,8 @@ msgstr ""
 "Language: \n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;"
 
-#: single-sidebar-left.php:31 single-sidebar-none.php:28
-#: single-full-width-image.php:34 single.php:29
+#: single-sidebar-none.php:28 single-sidebar-left.php:31 single.php:29
+#: single-full-width-image.php:37
 msgid " by "
 msgstr ""
 
@@ -41,7 +41,7 @@ msgctxt "1: date, 2: time"
 msgid "%1$s at %2$s"
 msgstr ""
 
-#: functions.php:214
+#: functions.php:220
 msgid "404 Page"
 msgstr ""
 
@@ -61,9 +61,13 @@ msgstr ""
 msgid "Accept"
 msgstr ""
 
-#: functions.php:120 functions.php:132 functions.php:144 functions.php:156
-#: functions.php:168 functions.php:180 functions.php:192 functions.php:204
-#: functions.php:216
+#: header-woocommerce.php:135
+msgid "Account"
+msgstr ""
+
+#: functions.php:126 functions.php:138 functions.php:150 functions.php:162
+#: functions.php:174 functions.php:186 functions.php:198 functions.php:210
+#: functions.php:222
 msgid "Add widgets here."
 msgstr ""
 
@@ -88,23 +92,15 @@ msgid "Blank without container"
 msgstr ""
 
 #. Name of the theme
-msgid "bootScore 5"
+msgid "bootScore"
 msgstr ""
 
 #: comments.php:100
 msgid "Cancel"
 msgstr ""
 
-#: header-woocommerce.php:166
+#: header-woocommerce.php:148
 msgid "Cart"
-msgstr ""
-
-#: header-woocommerce.php:145
-msgid "Close account"
-msgstr ""
-
-#: header-woocommerce.php:82 header.php:81
-msgid "Close menu"
 msgstr ""
 
 #: comments.php:55 comments.php:73
@@ -131,10 +127,6 @@ msgctxt "comments title"
 msgid "One Comment &ldquo;%s&rdquo;"
 msgstr ""
 
-#: header-woocommerce.php:157
-msgid "Continue shopping"
-msgstr ""
-
 #: languages/plugin-translations.php:4
 msgid ""
 "Cookies help us deliver our services. By using our services, you agree to "
@@ -154,24 +146,20 @@ msgstr ""
 msgid "Email* (will not be published)"
 msgstr ""
 
-#: functions.php:166
+#: functions.php:172
 msgid "Footer 1"
 msgstr ""
 
-#: functions.php:178
+#: functions.php:184
 msgid "Footer 2"
 msgstr ""
 
-#: functions.php:190
+#: functions.php:196
 msgid "Footer 3"
 msgstr ""
 
-#: functions.php:202
+#: functions.php:208
 msgid "Footer 4"
-msgstr ""
-
-#: functions.php:66
-msgid "Footer Menu"
 msgstr ""
 
 #. Name of the template
@@ -182,11 +170,11 @@ msgstr ""
 msgid "Full width image"
 msgstr ""
 
-#: woocommerce/myaccount/my-account-offcanvas.php:17
+#: woocommerce/myaccount/my-account-offcanvas.php:19
 msgid "Hello"
 msgstr ""
 
-#: woocommerce/myaccount/my-account-offcanvas.php:22
+#: woocommerce/myaccount/my-account-offcanvas.php:24
 msgid ""
 "Here you can view your recent orders, manage your shipping and billing "
 "addresses, and edit your password and account details."
@@ -200,7 +188,7 @@ msgstr ""
 msgid "https://crftwrk.de"
 msgstr ""
 
-#: inc/template-tags.php:256
+#: inc/template-tags.php:254
 msgid "Internet Explorer detected"
 msgstr ""
 
@@ -232,8 +220,8 @@ msgstr ""
 msgid "Look what I found: "
 msgstr ""
 
-#: functions.php:65
-msgid "Main Menu"
+#: header-woocommerce.php:54 header.php:54
+msgid "Menu"
 msgstr ""
 
 #: languages/plugin-translations.php:6
@@ -260,7 +248,7 @@ msgstr ""
 msgid "Older Comments"
 msgstr ""
 
-#: inc/template-tags.php:258
+#: inc/template-tags.php:256
 msgid "or"
 msgstr ""
 
@@ -268,12 +256,12 @@ msgstr ""
 msgid "Page not found."
 msgstr ""
 
-#: page-blank-with-container.php:21 page-sidebar-none.php:33
-#: page-blank-without-container.php:21 page-sidebar-left.php:38 page.php:43
+#: page-blank-with-container.php:21 page-sidebar-left.php:38
+#: page-sidebar-none.php:33 page.php:43 page-blank-without-container.php:21
 msgid "Pages:"
 msgstr ""
 
-#: functions.php:411
+#: functions.php:427
 msgid "Password"
 msgstr ""
 
@@ -281,7 +269,7 @@ msgstr ""
 msgid "Pingback:"
 msgstr ""
 
-#: inc/template-tags.php:258
+#: inc/template-tags.php:256
 msgid "Please use a modern and secure web browser like"
 msgstr ""
 
@@ -299,14 +287,13 @@ msgstr ""
 msgid "Read more"
 msgstr ""
 
-#: category.php:61 author-sidebar-left.php:71 index.php:78 index.php:134
-#: archive.php:63 category-equal-height.php:63
-#: author-equal-height-sidebar-right.php:68 archive-sidebar-left.php:65
-#: author-masonry.php:69 archive-equal-height-sidebar-right.php:62
-#: category-masonry.php:63 archive-equal-height.php:63 archive-masonry.php:63
-#: category-sidebar-left.php:63 author-equal-height.php:69
+#: archive-sidebar-left.php:65 archive-equal-height.php:63 archive.php:63
+#: archive-equal-height-sidebar-right.php:62 category-equal-height.php:63
+#: category-sidebar-left.php:63 category.php:61 author-sidebar-left.php:71
+#: category-masonry.php:63 author-equal-height.php:69
 #: category-equal-height-sidebar-right.php:63
-#: template-parts/content-search.php:42
+#: author-equal-height-sidebar-right.php:68 author-masonry.php:69 index.php:81
+#: index.php:137 archive-masonry.php:63 template-parts/content-search.php:42
 msgid "Read more »"
 msgstr ""
 
@@ -336,7 +323,7 @@ msgstr ""
 msgid "Shop order"
 msgstr ""
 
-#: functions.php:142
+#: functions.php:148
 msgid "Sidebar"
 msgstr ""
 
@@ -354,7 +341,7 @@ msgstr ""
 msgid "Start typing..."
 msgstr ""
 
-#: functions.php:412
+#: functions.php:428
 msgid "Submit"
 msgstr ""
 
@@ -364,11 +351,11 @@ msgstr ""
 msgid "Tagged %1$s"
 msgstr ""
 
-#: inc/template-tags.php:257
+#: inc/template-tags.php:255
 msgid "This website will offer limited functionality in this browser."
 msgstr ""
 
-#: inc/template-tags.php:258
+#: inc/template-tags.php:256
 msgid "to display this site correctly."
 msgstr ""
 
@@ -376,15 +363,15 @@ msgstr ""
 msgid "To find out your shipping cost, please proceed to checkout."
 msgstr ""
 
-#: functions.php:154
+#: functions.php:160
 msgid "Top Footer"
 msgstr ""
 
-#: functions.php:118
+#: functions.php:124
 msgid "Top Nav"
 msgstr ""
 
-#: functions.php:130
+#: functions.php:136
 msgid "Top Nav Search"
 msgstr ""
 
