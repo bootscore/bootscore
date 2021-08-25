@@ -28,8 +28,8 @@ if ( apply_filters( 'woocommerce_checkout_show_terms', true ) && function_exists
     <p class="custom-validation validate-required">
 
         <span class="woocommerce-form__label woocommerce-form__label-for-checkbox checkbox form-check">
-            <input type="checkbox" id="customCheck1" class="woocommerce-form__input woocommerce-form__input-checkbox input-checkbox form-check-input" name="terms" <?php checked( apply_filters( 'woocommerce_terms_is_checked_default', isset( $_POST['terms'] ) ), true ); // WPCS: input var ok, csrf ok. ?> id="terms" />
-            <label class="woocommerce-terms-and-conditions-checkbox-text form-check-label" for="customCheck1"><?php wc_terms_and_conditions_checkbox_text(); ?>&nbsp;<span class="required">*</span></label>
+            <input type="checkbox" id="terms" class="woocommerce-form__input woocommerce-form__input-checkbox input-checkbox form-check-input" name="terms" <?php checked( apply_filters( 'woocommerce_terms_is_checked_default', isset( $_POST['terms'] ) ), true ); // WPCS: input var ok, csrf ok. ?> />
+            <label class="woocommerce-terms-and-conditions-checkbox-text form-check-label" for="terms"><?php wc_terms_and_conditions_checkbox_text(); ?>&nbsp;<span class="required">*</span></label> 
         </span>
 
         <input type="hidden" name="terms-field" value="1" />
