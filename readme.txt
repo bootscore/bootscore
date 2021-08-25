@@ -8,7 +8,7 @@ Tested up to: 5.8
 Requires PHP: 5.6
 Stable tag: 5.1.0.1
 License: MIT License
-License URI: https://github.com/craftwerkberlin/bootscore-5/blob/main/LICENSE
+License URI: https://github.com/crftwrk/bootscore/blob/main/LICENSE
 
 bootScore, Bootstrap 5 WordPress Theme, Copyright 2019 - 2021 Bastian Kreiter.
 
