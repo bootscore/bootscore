@@ -695,3 +695,8 @@ ul.tabs.wc-tabs {
 .woocommerce-info::before, .woocommerce-message::before, .restore-item, .restore-item:hover {
     color: inherit;
 }
+
+.woocommerce-invalid #terms {
+    outline: none;
+    outline-offset: 0;
+}
