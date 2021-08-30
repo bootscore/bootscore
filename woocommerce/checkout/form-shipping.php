@@ -22,17 +22,17 @@ defined( 'ABSPATH' ) || exit;
 <div class="woocommerce-shipping-fields">
     <?php if ( true === WC()->cart->needs_shipping_address() ) : ?>
 
-    <span id="ship-to-different-address">
-        <div class="woocommerce-form__label woocommerce-form__label-for-checkbox checkbox form-check mb-2">
-            <input id="ship-to-different-address-checkbox" class="woocommerce-form__input woocommerce-form__input-checkbox input-checkbox form-check-input" <?php checked( apply_filters( 'woocommerce_ship_to_different_address_checked', 'shipping' === get_option( 'woocommerce_ship_to_destination' ) ? 1 : 0 ), 1 ); ?> type="checkbox" name="ship_to_different_address" value="1" />
+    <div id="ship-to-different-address">
+        <div class="form-check mb-3 woocommerce-form__label woocommerce-form__label-for-checkbox checkbox">
+            <input id="ship-to-different-address-checkbox" class="form-check-input woocommerce-form__input woocommerce-form__input-checkbox input-checkbox" <?php checked( apply_filters( 'woocommerce_ship_to_different_address_checked', 'shipping' === get_option( 'woocommerce_ship_to_destination' ) ? 1 : 0 ), 1 ); ?> type="checkbox" name="ship_to_different_address" value="1" />
             <label class="form-check-label" for="ship-to-different-address-checkbox"><?php esc_html_e( 'Ship to a different address?', 'woocommerce' ); ?></label>
         </div>
-    </span>
+    </div>
 
     <div class="shipping_address">
 
         <?php do_action( 'woocommerce_before_checkout_shipping_form', $checkout ); ?>
-        <h3 class="mt-4"><?php esc_html_e( 'Delivery details', 'bootscore' ); ?></h3>
+        <h3><?php esc_html_e( 'Delivery details', 'bootscore' ); ?></h3>
         <div class="woocommerce-shipping-fields__field-wrapper">
             <?php
 				$fields = $checkout->get_checkout_fields( 'shipping' );
