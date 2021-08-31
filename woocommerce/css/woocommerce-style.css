@@ -524,6 +524,12 @@ ul.tabs.wc-tabs {
     margin-bottom: 0;
 }
 
+/* Forms */
+.woocommerce form .form-row input.input-text, .woocommerce form .form-row textarea {
+    line-height: inherit;
+}
+
+
 /*--------------------------------------------------------------
 4. Colors
 --------------------------------------------------------------*/
