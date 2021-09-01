@@ -702,7 +702,14 @@ ul.tabs.wc-tabs {
     color: inherit;
 }
 
+/* Validation */
 .woocommerce-invalid #terms {
     outline: none;
     outline-offset: 0;
+}
+
+/* Terms checkboxes */
+.woocommerce form .form-row .input-checkbox {
+    margin: .25em 0 0 -1.5rem;
+    vertical-align: top;
 }
