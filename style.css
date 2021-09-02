@@ -122,13 +122,6 @@ p:empty:before {
 /* Offcanvas Backdrop END */
 
 
-/* Badges (Removes underline if badge is wrapped in a <a>...</a> tag) */
-a.badge, a.badge:hover {
-    text-decoration: none;
-}
-/* Badges End */
-
-
 /*--------------------------------------------------------------
 2. Header
 --------------------------------------------------------------*/

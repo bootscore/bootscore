@@ -18,7 +18,7 @@ if ( ! function_exists( 'bootscore_category_badge' ) ) :
 			$i = 0;
             foreach( get_the_category() as $category ) {
 		      if ( 0 < $i ) $thelist .= ' ';
-						    $thelist .= '<a href="' . esc_url( get_category_link( $category->term_id ) ) . '" class="badge bg-secondary text-white">' . $category->name.'</a>';
+						    $thelist .= '<a href="' . esc_url( get_category_link( $category->term_id ) ) . '" class="badge bg-secondary text-white text-decoration-none">' . $category->name.'</a>';
 						    $i++;
             }
             echo $thelist;	
@@ -99,7 +99,6 @@ if ( ! function_exists( 'bootscore_comments' ) ) :
 	 * Prints HTML with meta information for the categories, tags and comments.
 	 */
 	function bootscore_comments() {
-
 
 		if ( ! is_single() && ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
 			echo ' | <i class="far fa-comments"></i> <span class="comments-link">';
@@ -195,7 +194,7 @@ if ( ! function_exists( 'bootscore_tags' ) ) :
     add_filter( "term_links-post_tag", 'add_tag_class');
 
     function add_tag_class($links) {
-        return str_replace('<a href="', '<a class="badge bg-secondary text-white" href="', $links);
+        return str_replace('<a href="', '<a class="badge bg-secondary text-white text-decoration-none" href="', $links);
     }
 endif;
 // Tags End
@@ -261,5 +260,5 @@ if ( ! function_exists( 'bootscore_ie_alert' ) ) :
         
 	}
 endif;
-
+// Internet Explorer Warning Alert End
 
