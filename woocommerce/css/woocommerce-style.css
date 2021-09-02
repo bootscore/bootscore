@@ -529,6 +529,16 @@ ul.tabs.wc-tabs {
     line-height: inherit;
 }
 
+/* Terms checkboxes */
+.woocommerce form .form-row .input-checkbox {
+    margin: .25em 0 0 -1.5rem;
+    vertical-align: top;
+}
+
+#account_password {
+    background-position: right 2.25rem center;
+}
+
 
 /*--------------------------------------------------------------
 4. Colors
@@ -542,7 +552,7 @@ ul.tabs.wc-tabs {
 }
 
 .woocommerce div.product p.price, .woocommerce div.product span.price, .card .price {
-    color: var(--bs-gray)
+    color: var(--bs-gray);
 }
 
 .woocommerce div.product p.price del, .woocommerce div.product span.price del, del, .card del .woocommerce-Price-amount.amount, .card del .woocommerce-Price-amount.amount {
@@ -553,29 +563,29 @@ ul.tabs.wc-tabs {
     color: var(--bs-danger);
 }
 
-.woocommerce form .form-row .required, .woocommerce form .form-row.woocommerce-invalid label, .woocommerce form .custom-validation.woocommerce-invalid label {
-    color: var(--bs-danger)
+.woocommerce form .form-row .required, .woocommerce form .form-row.woocommerce-invalid label {
+    color: var(--bs-danger);
 }
 
 .woocommerce form .form-row.woocommerce-invalid .select2-container, .woocommerce form .form-row.woocommerce-invalid input.input-text, .woocommerce form .form-row.woocommerce-invalid select {
-    border-color: var(--bs-danger)
+    border-color: var(--bs-danger);
 }
 
 .woocommerce form .form-row.woocommerce-validated .select2-container, .woocommerce form .form-row.woocommerce-validated input.input-text, .woocommerce form .form-row.woocommerce-validated select {
-    border-color: var(--bs-success)
+    border-color: var(--bs-success);
 }
 
 .woocommerce div.product p.price del, .woocommerce div.product span.price del {
-    opacity: 1
+    opacity: 1;
 }
 
 .card a.woocommerce-LoopProduct-link.woocommerce-loop-product__link {
-    color: currentColor
+    color: currentColor;
 }
 
 @media (max-width:768px) {
     .woocommerce table.shop_table_responsive tr:nth-child(2n) td, .woocommerce-page table.shop_table_responsive tr:nth-child(2n) td {
-        background-color: var(--bs-light)
+        background-color: var(--bs-light);
     }
 }
 
@@ -708,8 +718,4 @@ ul.tabs.wc-tabs {
     outline-offset: 0;
 }
 
-/* Terms checkboxes */
-.woocommerce form .form-row .input-checkbox {
-    margin: .25em 0 0 -1.5rem;
-    vertical-align: top;
-}
+
