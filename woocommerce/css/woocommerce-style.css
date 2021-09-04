@@ -239,27 +239,21 @@ ins {
 }
 
 #add_payment_method #payment div.payment_box, .woocommerce-cart #payment div.payment_box, .woocommerce-checkout #payment div.payment_box {
-    border-radius: .25rem
-}
-
-.card img.attachment-woocommerce_thumbnail {
-    width: 100%;
-    border-top-right-radius: calc(.25rem - 1px);
-    border-top-left-radius: calc(.25rem - 1px)
+    border-radius: .25rem;
 }
 
 .woocommerce div.product .woocommerce-tabs ul.tabs li:nth-child(1) {
-    margin-left: -16px
+    margin-left: -16px;
 }
 
 .woocommerce div.product .woocommerce-tabs ul.tabs::before {
-    z-index: 0
+    z-index: 0;
 }
 
 .woocommerce div.product .woocommerce-tabs ul.tabs li::before {
     border-bottom-right-radius: 0;
     border-width: 0;
-    box-shadow: none
+    box-shadow: none;
 }
 
 .woocommerce div.product .woocommerce-tabs ul.tabs li {
