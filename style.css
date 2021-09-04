@@ -496,8 +496,9 @@ Cursor
 Focus
 */
 
-.focus-0:focus {
+.focus-none {
     box-shadow: none !important;
+    outline: 0 !important;
 }
 
 /* 
