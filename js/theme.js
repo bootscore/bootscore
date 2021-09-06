@@ -121,7 +121,7 @@ jQuery(document).ready(function ($) {
 
 
     // Forms
-    $('select, #billing_state').addClass('form-select');
+    $('select').addClass('form-select').removeClass('form-control'); // form-control is added to select by WooCommerce form filter
 
 
     // Alert links
