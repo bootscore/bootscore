@@ -24,7 +24,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<h2 class="woocommerce-order-downloads__title"><?php esc_html_e( 'Downloads', 'woocommerce' ); ?></h2>
 	<?php endif; ?>
 
-	<table class="woocommerce-table woocommerce-table--order-downloads shop_table shop_table_responsive order_details">
+	<table class="rounded woocommerce-table woocommerce-table--order-downloads shop_table shop_table_responsive order_details">
 		<thead>
 			<tr>
 				<?php foreach ( wc_get_account_downloads_columns() as $column_id => $column_name ) : ?>
