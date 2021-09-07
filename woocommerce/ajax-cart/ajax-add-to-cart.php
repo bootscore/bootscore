@@ -58,7 +58,7 @@ function bootscore_product_page_ajax_add_to_cart_js() {
                     $('.woocommerce-error, .woocommerce-message, .woocommerce-info').remove();
 
                     // Add new notices
-                    form.closest('.product').before(response.fragments.notices_html)
+                    form.closest('.product').prev('.woocommerce-notices-wrapper').append(response.fragments.notices_html)
 
                     form.unblock();
                 }
