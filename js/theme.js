@@ -47,6 +47,11 @@ jQuery(document).ready(function ($) {
     $('#collapse-search').on('shown.bs.collapse', function () {
         $('.top-nav-search input:first-of-type').focus();
     });
+    
+    // Close collapse if searchform loses focus
+    $(".top-nav-search input:first-of-type").focusout(function () {
+        $('#collapse-search').collapse("hide");
+    });    
 
 
 }); // jQuery End
