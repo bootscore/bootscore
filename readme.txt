@@ -6,7 +6,7 @@ Tags: featured-images, threaded-comments, translation-ready
 Requires at least: 4.5
 Tested up to: 5.8
 Requires PHP: 5.6
-Stable tag: 5.1.0.1
+Stable tag: 5.1.1.0
 License: MIT License
 License URI: https://github.com/crftwrk/bootscore/blob/main/LICENSE
 
@@ -57,6 +57,27 @@ bootScore includes support for WooCommerce and Infinite Scroll in Jetpack.
 
 == Changelog ==
 
+
+    = 5.1.1.0 - September 08 2021 =
+    
+        * [IMPROVEMENT] Ajax product notice alerts (ajax-add-to-cart.php, thanks to Martin Holzer)
+        * [IMPROVEMENT] Close collapse if searchform loses focus
+        * [IMPROVEMENT] Filter class card-img-top to product loop img (woocommerce-functions.php, woocommerce-style.css)
+        * [IMPROVEMENT] Changed all WooCommerce colors to variables
+        * [IMPROVEMENT] Bootstrap form validation in WooCommerce checkout
+        * [IMPROVEMENT] Removed custom-validation from checkout checkboxes and readded form-row (terms.php, woocommerce-js, woocommerce-style.css)
+        * [IMPROVEMENT] Refactored checkout (form-checkout.php, form-billing.php, form-shipping.php, Klarna checkout)
+        * [IMPROVEMENT] pointer-events variation-add-to-cart-button.php (thanks to Martin Holzer)
+        * [IMPROVEMENT] Searchform focus (theme.js, thanks to Martin Holzer)
+        * [IMPROVEMENT] Readded and improved timestrap to scripts & styles (functions.php, woocommerce-functions.php, thanks to Martin Holzer)
+        * [IMPROVEMENT] top-nav-search widget. Every widget can be shown there now theme.js, thanks to Martin Holzer)
+        * [IMPROVEMENT] bootscore_pagination is a pluggable function now (functions.php, thanks to Martin Holzer)
+        * [NEW] Renamed folder to bootscore-main (Github)
+        * [NEW] Language: Pусский (thanks to Vladislav)
+        * [UPDATE] Updated order-details-customer.php
+        * [UPDATE] Updated terms.php (thanks to Emil Linden)
+        * [UPDATE] Update Font Awesome Free 5.15.4
+        * [UPDATE] Bootstrap 5.1.1
 
 
     = 5.1.0.1 - August 11 2021 =
