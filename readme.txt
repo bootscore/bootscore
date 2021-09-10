@@ -1,6 +1,6 @@
 === bootScore ===
 
-Contributors: The bootScore Contributors
+Contributors: Bastian Kreiter, Justin Kruit
 
 Tags: featured-images, threaded-comments, translation-ready
 
@@ -11,7 +11,7 @@ Stable tag: 5.1.1.0
 License: MIT License
 License URI: https://github.com/bootscore/bootscore/blob/main/LICENSE
 
-bootScore, Bootstrap 5 WordPress Theme, Copyright 2019 - 2021 Bastian Kreiter.
+bootScore, Bootstrap 5 WordPress Theme, Copyright 2019 - 2021 The bootScore Contributors.
 
 
 === Plugin Name ===
