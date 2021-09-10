@@ -1,89 +1,90 @@
 <?php
-	/**
-	 * Category Template: Masonry
-	 *
-	 * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
-	 *
-	 * @package Bootscore
-	 */
-	
-	get_header();
-	?>
+
+/**
+ * Category Template: Masonry
+ *
+ * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
+ *
+ * @package Bootscore
+ */
+
+get_header();
+?>
 <div id="content" class="site-content container py-5 mt-5">
-    <div id="primary" class="content-area">
+  <div id="primary" class="content-area">
 
-        <!-- Hook to add something nice -->
-        <?php bs_after_primary(); ?>
-        
-        <main id="main" class="site-main">
+    <!-- Hook to add something nice -->
+    <?php bs_after_primary(); ?>
 
-            <header class="page-header mb-4">
-                <h1><?php single_cat_title(); ?></h1>
-                <?php the_archive_description( '<div class="archive-description">', '</div>' ); ?>
-            </header>
+    <main id="main" class="site-main">
 
-            <div class="row" data-masonry='{"percentPosition": true }'>
-                <?php if (have_posts() ) : ?>
-                <?php while (have_posts() ) : the_post(); ?>
+      <header class="page-header mb-4">
+        <h1><?php single_cat_title(); ?></h1>
+        <?php the_archive_description('<div class="archive-description">', '</div>'); ?>
+      </header>
 
-                <div class="col-md-6 col-lg-4 col-xxl-3 mb-4">
+      <div class="row" data-masonry='{"percentPosition": true }'>
+        <?php if (have_posts()) : ?>
+          <?php while (have_posts()) : the_post(); ?>
 
-                    <div class="card">
+            <div class="col-md-6 col-lg-4 col-xxl-3 mb-4">
 
-                        <?php the_post_thumbnail('medium', array('class' => 'card-img-top')); ?>
+              <div class="card">
 
-                        <div class="card-body">
+                <?php the_post_thumbnail('medium', array('class' => 'card-img-top')); ?>
 
-                            <?php bootscore_category_badge(); ?>
+                <div class="card-body">
 
-                            <h2 class="blog-post-title">
-                                <a href="<?php the_permalink(); ?>">
-                                    <?php the_title(); ?>
-                                </a>
-                            </h2>
+                  <?php bootscore_category_badge(); ?>
 
-                            <?php if ( 'post' === get_post_type() ) : ?>
+                  <h2 class="blog-post-title">
+                    <a href="<?php the_permalink(); ?>">
+                      <?php the_title(); ?>
+                    </a>
+                  </h2>
 
-                            <small class="text-muted mb-2">
-                                <?php
-								bootscore_date();
-								bootscore_author();
-								bootscore_comments();
-								bootscore_edit();
-								?>
-                            </small>
+                  <?php if ('post' === get_post_type()) : ?>
 
-                            <?php endif; ?>
+                    <small class="text-muted mb-2">
+                      <?php
+                      bootscore_date();
+                      bootscore_author();
+                      bootscore_comments();
+                      bootscore_edit();
+                      ?>
+                    </small>
 
-                            <div class="card-text">
-                                <?php the_excerpt(); ?>
-                            </div>
+                  <?php endif; ?>
 
-                            <div class="">
-                                <a class="read-more" href="<?php the_permalink(); ?>"><?php _e('Read more »', 'bootscore'); ?></a>
-                            </div>
+                  <div class="card-text">
+                    <?php the_excerpt(); ?>
+                  </div>
 
-                            <?php bootscore_tags(); ?>
+                  <div class="">
+                    <a class="read-more" href="<?php the_permalink(); ?>"><?php _e('Read more »', 'bootscore'); ?></a>
+                  </div>
 
-                        </div><!-- card-body -->
+                  <?php bootscore_tags(); ?>
 
-                    </div><!-- card -->
+                </div><!-- card-body -->
 
-                </div><!-- col -->
+              </div><!-- card -->
 
-                <?php endwhile; ?>
-                <?php endif; ?>
+            </div><!-- col -->
 
-            </div><!-- row -->
+          <?php endwhile; ?>
+        <?php endif; ?>
 
-            <!-- Pagination -->
-            <div>
-                <?php bootscore_pagination(); ?>
-            </div>
+      </div><!-- row -->
 
-        </main><!-- #main -->
+      <!-- Pagination -->
+      <div>
+        <?php bootscore_pagination(); ?>
+      </div>
 
-    </div><!-- #primary -->
+    </main><!-- #main -->
+
+  </div><!-- #primary -->
 </div><!-- #content -->
 <?php
 get_footer();
