@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Product Loop Start
  *
@@ -15,9 +16,10 @@
  * @version     3.3.0
  */
 
-if ( ! defined( 'ABSPATH' ) ) {
-	exit;
+if (!defined('ABSPATH')) {
+  exit;
 }
 ?>
 
-<div class="row"><!-- End in loop-end.php -->
+<div class="row">
+  <!-- End in loop-end.php -->

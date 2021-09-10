@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Order Customer Details
  *
@@ -15,52 +16,52 @@
  * @version 5.6.0
  */
 
-defined( 'ABSPATH' ) || exit;
+defined('ABSPATH') || exit;
 
-$show_shipping = ! wc_ship_to_billing_address_only() && $order->needs_shipping_address();
+$show_shipping = !wc_ship_to_billing_address_only() && $order->needs_shipping_address();
 ?>
 <section class="woocommerce-customer-details">
 
-	<?php if ( $show_shipping ) : ?>
+  <?php if ($show_shipping) : ?>
 
-	<section class="row">
-		<div class="col-lg-6 mb-4">
-            
-	<?php endif; ?>
+    <section class="row">
+      <div class="col-lg-6 mb-4">
 
-	<h2 class="woocommerce-column__title"><?php esc_html_e( 'Billing address', 'woocommerce' ); ?></h2>
+      <?php endif; ?>
 
-	<address>
-		<?php echo wp_kses_post( $order->get_formatted_billing_address( esc_html__( 'N/A', 'woocommerce' ) ) ); ?>
+      <h2 class="woocommerce-column__title"><?php esc_html_e('Billing address', 'woocommerce'); ?></h2>
 
-		<?php if ( $order->get_billing_phone() ) : ?>
-			<p class="woocommerce-customer-details--phone"><?php echo esc_html( $order->get_billing_phone() ); ?></p>
-		<?php endif; ?>
+      <address>
+        <?php echo wp_kses_post($order->get_formatted_billing_address(esc_html__('N/A', 'woocommerce'))); ?>
 
-		<?php if ( $order->get_billing_email() ) : ?>
-			<p class="woocommerce-customer-details--email"><?php echo esc_html( $order->get_billing_email() ); ?></p>
-		<?php endif; ?>
-	</address>
+        <?php if ($order->get_billing_phone()) : ?>
+          <p class="woocommerce-customer-details--phone"><?php echo esc_html($order->get_billing_phone()); ?></p>
+        <?php endif; ?>
 
-	<?php if ( $show_shipping ) : ?>
+        <?php if ($order->get_billing_email()) : ?>
+          <p class="woocommerce-customer-details--email"><?php echo esc_html($order->get_billing_email()); ?></p>
+        <?php endif; ?>
+      </address>
 
-		</div><!-- /.col-1 -->
+      <?php if ($show_shipping) : ?>
 
-		<div class="col-lg-6 mb-4">
-        <h2 class="woocommerce-column__title"><?php esc_html_e( 'Shipping address', 'woocommerce' ); ?></h2>
-			<address>
-				<?php echo wp_kses_post( $order->get_formatted_shipping_address( esc_html__( 'N/A', 'woocommerce' ) ) ); ?>
+      </div><!-- /.col-1 -->
 
-				<?php if ( $order->get_shipping_phone() ) : ?>
-					<p class="woocommerce-customer-details--phone"><?php echo esc_html( $order->get_shipping_phone() ); ?></p>
-				<?php endif; ?>
-			</address>
-		</div><!-- /.col-2 -->
+      <div class="col-lg-6 mb-4">
+        <h2 class="woocommerce-column__title"><?php esc_html_e('Shipping address', 'woocommerce'); ?></h2>
+        <address>
+          <?php echo wp_kses_post($order->get_formatted_shipping_address(esc_html__('N/A', 'woocommerce'))); ?>
 
-	</section><!-- /.col2-set -->
+          <?php if ($order->get_shipping_phone()) : ?>
+            <p class="woocommerce-customer-details--phone"><?php echo esc_html($order->get_shipping_phone()); ?></p>
+          <?php endif; ?>
+        </address>
+      </div><!-- /.col-2 -->
 
-	<?php endif; ?>
+    </section><!-- /.col2-set -->
 
-	<?php do_action( 'woocommerce_order_details_after_customer_details', $order ); ?>
+  <?php endif; ?>
+
+  <?php do_action('woocommerce_order_details_after_customer_details', $order); ?>
 
 </section>
