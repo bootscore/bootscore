@@ -1,47 +1,48 @@
 <?php
-    /**
-     * Template Name: Full Width Image
-     *
-     * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
-     *
-     * @package Bootscore
-     */
-    
-    get_header();
-    ?>
+
+/**
+ * Template Name: Full Width Image
+ *
+ * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
+ *
+ * @package Bootscore
+ */
+
+get_header();
+?>
 
 <div id="content" class="site-content">
-    <div id="primary" class="content-area">
+  <div id="primary" class="content-area">
 
-        <main id="main" class="site-main">
+    <main id="main" class="site-main">
 
-            <?php $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'full' );?>
-            <header class="entry-header featured-full-width-img height-75 bg-dark text-light mb-3" style="background-image: url('<?php echo $thumb['0'];?>')">
-                <div class="container entry-header h-100 d-flex align-items-end pb-3">
-                    <h1 class="entry-title"><?php the_title(); ?></h1>
-                </div>
-            </header>
+      <?php $thumb = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'full'); ?>
+      <header class="entry-header featured-full-width-img height-75 bg-dark text-light mb-3" style="background-image: url('<?php echo $thumb['0']; ?>')">
+        <div class="container entry-header h-100 d-flex align-items-end pb-3">
+          <h1 class="entry-title"><?php the_title(); ?></h1>
+        </div>
+      </header>
 
-            <div class="container pb-5">
-                
-            <!-- Hook to add something nice -->
-            <?php bs_after_primary(); ?>
+      <div class="container pb-5">
 
-                <div class="entry-content">
-                    <?php the_content(); ?>
-                </div>
+        <!-- Hook to add something nice -->
+        <?php bs_after_primary(); ?>
 
-                <footer class="entry-footer">
+        <div class="entry-content">
+          <?php the_content(); ?>
+        </div>
 
-                </footer>
+        <footer class="entry-footer">
 
-                <?php comments_template(); ?>
+        </footer>
 
-            </div><!-- container -->
+        <?php comments_template(); ?>
 
-        </main><!-- #main -->
+      </div><!-- container -->
 
-    </div><!-- #primary -->
+    </main><!-- #main -->
+
+  </div><!-- #primary -->
 </div><!-- #content -->
 <?php
 get_footer();
