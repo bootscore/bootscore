@@ -9,7 +9,7 @@
 1. Header
 --------------------------------------------------------------*/
 
-jQuery(document).ready(function ($) {
+jQuery(function ($) {
   // Hide offcanvas menu in navbar and enable body scroll on resize through the breakpoints
   $(window).on('resize', function () {
     $('.navbar .offcanvas').offcanvas('hide');
@@ -51,7 +51,7 @@ jQuery(document).ready(function ($) {
 2. Theme
 --------------------------------------------------------------*/
 
-jQuery(document).ready(function ($) {
+jQuery(function ($) {
   // Smooth Scroll. Will be removed when Safari supports scroll-behaviour: smooth (Bootstrap 5).
   $(function () {
     $('a[href*="#"]:not([href="#"]):not(a.comment-reply-link):not([href="#tab-reviews"]):not([href="#tab-additional_information"]):not([href="#tab-description"]):not([href="#reviews"]):not([href="#carouselExampleIndicators"]):not([data-smoothscroll="false"])').click(function () {
@@ -85,7 +85,7 @@ jQuery(document).ready(function ($) {
   });
 
   // Scroll to top Button
-  $(window).scroll(function () {
+  $(window).on('scroll', function () {
     var scroll = $(window).scrollTop();
 
     if (scroll >= 500) {
