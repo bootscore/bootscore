@@ -1,0 +1,406 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: https://wordpress.org/tags/_s\n"
+"POT-Creation-Date: 2021-08-24 07:50+0000\n"
+"PO-Revision-Date: 2021-09-11 18:07+0300\n"
+"Last-Translator: Murat Esgin <info@lavinya.net>\n"
+"Language-Team: \n"
+"Language: tr_TR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.0\n"
+"X-Poedit-Basepath: .\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: single-sidebar-none.php:28 single-sidebar-left.php:31 single.php:29
+#: single-full-width-image.php:37
+msgid " by "
+msgstr " <i class=\"far fa-user\" title=\"Yazar:\"></i> "
+
+#: inc/comment-list.php:46
+#, php-format
+msgid "%s <span class=\"says d-none\">says:</span>"
+msgstr "%s <span class=\"says d-none\">diyorki:</span>"
+
+#. used between list items, there is a space after the comma
+#: inc/template-tags.php:38
+msgid ", "
+msgstr ", "
+
+#: languages/plugin-translations.php:5
+msgid "/privacy-policy"
+msgstr ""
+
+#: inc/comment-list.php:51
+#, php-format
+msgctxt "1: date, 2: time"
+msgid "%1$s at %2$s"
+msgstr "%1$s de %2$s"
+
+#: functions.php:220
+msgid "404 Page"
+msgstr "404 Sayfası"
+
+#. Description of the theme
+msgid ""
+"A powerful Bootstrap 5 WordPress Starter Theme with WooCommerce Support. <a "
+"href=\"https://bootscore.me/category/documentation/\">Documentation</a>. "
+"This theme gives you full control whatever you do and the full freedom to "
+"design whatever you want. It comes with a wide selection of category, page, "
+"post, author and archive templates as well as sidebar, header, footer and "
+"404 widgets. There are no customizer settings in the backend. All settings "
+"can only be made by touching the code. Some CSS, HTML, PHP and JS Skills are "
+"required to customize it."
+msgstr ""
+"WooCommerce Desteği ile güçlü bir Bootstrap 5 WordPress Başlangıç Teması. <a "
+"href=\"https://bootscore.me/category/documentation/\">Belgeler</a>. Bu tema "
+"size ne yaparsanız yapın tam kontrol ve istediğinizi tasarlamak için tam "
+"özgürlük verir. Çok çeşitli kategori, sayfa, gönderi, yazar ve arşiv "
+"şablonlarının yanı sıra kenar çubuğu, üstbilgi, altbilgi ve 404 widget'ları "
+"ile birlikte gelir. Arka uçta özelleştirici ayarı yoktur. Tüm ayarlar sadece "
+"koda dokunularak yapılabilir. Özelleştirmek için bazı CSS, HTML, PHP ve JS "
+"Becerileri gereklidir."
+
+#: languages/plugin-translations.php:7
+msgid "Accept"
+msgstr "Kabul"
+
+#: header-woocommerce.php:135
+msgid "Account"
+msgstr "Hesap"
+
+#: functions.php:126 functions.php:138 functions.php:150 functions.php:162
+#: functions.php:174 functions.php:186 functions.php:198 functions.php:210
+#: functions.php:222
+msgid "Add widgets here."
+msgstr "Widget'ları buraya ekleyin."
+
+#: languages/plugin-translations.php:2
+msgid "All"
+msgstr "Tümü"
+
+#: 404.php:27
+msgid "Back Home &raquo;"
+msgstr "Eve Dön &raquo;"
+
+#. Author of the theme
+msgid "Bastian Kreiter"
+msgstr "Bastian Kreiter"
+
+#. Name of the template
+#, fuzzy
+msgid "Blank with container"
+msgstr "Blank with container"
+
+#. Name of the template
+#, fuzzy
+msgid "Blank without container"
+msgstr "Blank without container"
+
+#. Name of the theme
+msgid "bootScore"
+msgstr "bootScore"
+
+#: comments.php:100
+msgid "Cancel"
+msgstr "İptal"
+
+#: header-woocommerce.php:148
+msgid "Cart"
+msgstr "Sepet"
+
+#: comments.php:55 comments.php:73
+msgid "Comment navigation"
+msgstr "Yorum gezintisi"
+
+#: comments.php:91
+msgid "Comments are closed."
+msgstr "Yorumlar şimdilik kapalı."
+
+#. 1: number of comments, 2: post title
+#: comments.php:38
+#, php-format
+msgctxt "comments title"
+msgid "%1$s Comment on &ldquo;%2$s&rdquo;"
+msgid_plural "%1$s Comments on &ldquo;%2$s&rdquo;"
+msgstr[0] "&ldquo;%2$s&rdquo; hakkında %1$s yorum"
+msgstr[1] "&ldquo;%2$s&rdquo; hakkında %1$s yorumlar"
+
+#. %s: post title
+#: comments.php:34
+#, php-format
+msgctxt "comments title"
+msgid "One Comment &ldquo;%s&rdquo;"
+msgstr "&ldquo;%s&rdquo; hakkında bir yorum"
+
+#: languages/plugin-translations.php:4
+msgid ""
+"Cookies help us deliver our services. By using our services, you agree to "
+"our use of cookies."
+msgstr ""
+"Çerezler hizmetlerimizi sunmamıza yardımcı olabilir. Hizmetlerimizi "
+"kullanarak çerezleri kullanmamızı kabul edersiniz."
+
+#: woocommerce/checkout/form-shipping.php:35
+msgid "Delivery details"
+msgstr "Teslimat ayrıntıları"
+
+#. %s: Name of current post. Only visible to screen readers
+#: inc/comment-list.php:29 inc/comment-list.php:53 inc/template-tags.php:139
+msgid "Edit"
+msgstr "Düzenle"
+
+#: comments.php:125 woocommerce/single-product-reviews.php:95
+msgid "Email* (will not be published)"
+msgstr "E-posta* (yayınlanmaz)"
+
+#: functions.php:172
+msgid "Footer 1"
+msgstr "Footer 1"
+
+#: functions.php:184
+msgid "Footer 2"
+msgstr "Footer 2"
+
+#: functions.php:196
+msgid "Footer 3"
+msgstr "Footer 3"
+
+#: functions.php:208
+msgid "Footer 4"
+msgstr "Footer 4"
+
+#. Name of the template
+msgid "Full Width Image"
+msgstr "Tam Genişlikte Görüntü"
+
+#. Name of the template
+msgid "Full width image"
+msgstr "Tam genişlikte görüntü"
+
+#: woocommerce/myaccount/my-account-offcanvas.php:19
+msgid "Hello"
+msgstr "Merhaba"
+
+#: woocommerce/myaccount/my-account-offcanvas.php:24
+msgid ""
+"Here you can view your recent orders, manage your shipping and billing "
+"addresses, and edit your password and account details."
+msgstr ""
+"Burada son siparişlerinizi görüntüleyebilir, kargo ve fatura adreslerinizi "
+"yönetebilir, şifrenizi ve hesap bilgilerinizi düzenleyebilirsiniz."
+
+#. URI of the theme
+msgid "https://bootscore.me/"
+msgstr "https://bootscore.me/"
+
+#. Author URI of the theme
+msgid "https://crftwrk.de"
+msgstr "https://crftwrk.de"
+
+#: inc/template-tags.php:254
+msgid "Internet Explorer detected"
+msgstr "Internet Explorer algılandı"
+
+#: template-parts/content-none.php:43
+msgid ""
+"It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
+"searching can help."
+msgstr ""
+"Aradığınız sayfa bulunamadı. Belki arama kutusu aradığınızı bulma konusunda "
+"yardımcı olabilir."
+
+#. %s: post title
+#: comments.php:98 inc/template-tags.php:110
+msgid "Leave a Comment"
+msgstr "Bu fotoğraf hakkında bir inceleme/yorum yapın."
+
+#: inc/template-tags.php:167
+msgid "Leave a comment"
+msgstr "Bu fotoğraf hakkında bir inceleme/yorum yapın."
+
+#: comments.php:99
+#, php-format
+msgid "Leave a Comment to %s"
+msgstr "%s için cevap bırakın"
+
+#. Name of the template
+msgid "Left Sidebar"
+msgstr "Birincil yan sütun"
+
+#: languages/plugin-translations.php:3
+msgid "Look what I found: "
+msgstr "Bak ne buldum: "
+
+#: header-woocommerce.php:54 header.php:54
+msgid "Menu"
+msgstr "Menü"
+
+#: languages/plugin-translations.php:6
+msgid "More Information"
+msgstr "Daha Fazla Bilgi"
+
+#: comments.php:121 woocommerce/single-product-reviews.php:89
+msgid "Name*"
+msgstr "İsim"
+
+#: comments.php:59 comments.php:77
+msgid "Newer Comments"
+msgstr "Yeni yorumlar"
+
+#. Name of the template
+msgid "No Sidebar"
+msgstr "No Sidebar"
+
+#: template-parts/content-none.php:14
+msgid "Nothing Found for"
+msgstr "Bulunamadı"
+
+#: comments.php:58 comments.php:76
+msgid "Older Comments"
+msgstr "Eski yorumlar"
+
+#: inc/template-tags.php:256
+msgid "or"
+msgstr "veya"
+
+#: 404.php:22
+msgid "Page not found."
+msgstr "Sayfa bulunamadı."
+
+#: page-blank-with-container.php:21 page-sidebar-left.php:38
+#: page-sidebar-none.php:33 page.php:43 page-blank-without-container.php:21
+msgid "Pages:"
+msgstr "Sayfalar:"
+
+#: functions.php:427
+msgid "Password"
+msgstr "Şifre"
+
+#: inc/comment-list.php:29
+msgid "Pingback:"
+msgstr "Geri izleme:"
+
+#: inc/template-tags.php:256
+msgid "Please use a modern and secure web browser like"
+msgstr "Lütfen modern ve güvenli bir web tarayıcısı kullanın"
+
+#: inc/template-tags.php:85
+#, php-format
+msgctxt "post author"
+msgid "by %s"
+msgstr "%s tarafından"
+
+#: comments.php:101
+msgid "Post Comment"
+msgstr "Yorum Gönder"
+
+#: author.php:68
+msgid "Read more"
+msgstr "Daha fazla"
+
+#: archive-sidebar-left.php:65 archive-equal-height.php:63 archive.php:63
+#: archive-equal-height-sidebar-right.php:62 category-equal-height.php:63
+#: category-sidebar-left.php:63 category.php:61 author-sidebar-left.php:71
+#: category-masonry.php:63 author-equal-height.php:69
+#: category-equal-height-sidebar-right.php:63
+#: author-equal-height-sidebar-right.php:68 author-masonry.php:69 index.php:81
+#: index.php:137 archive-masonry.php:63 template-parts/content-search.php:42
+msgid "Read more »"
+msgstr "Daha fazla »"
+
+#. 1: link to WP admin new post page.
+#: template-parts/content-none.php:25
+#, php-format
+msgid ""
+"Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+msgstr ""
+"İlk yazınızı yayınlamaya hazır mısınız? <a href=\"%s\">Buradan başlayın</a>."
+
+#: inc/comment-list.php:109
+msgid ""
+"Save my name, email, and website in this browser for the next time I comment."
+msgstr ""
+"Bir sonraki yorumumda adımı, e-postamı ve web sitemi bu tarayıcıya kaydedin."
+
+#: searchform.php:3
+msgid "Search"
+msgstr "Arama"
+
+#. %s: search query.
+#: search.php:29
+#, php-format
+msgid "Search Results for: %s"
+msgstr "Arama sonuçları: %s"
+
+#: woocommerce/loop/orderby.php:27
+msgid "Shop order"
+msgstr "Mağaza siparişi"
+
+#: functions.php:148
+msgid "Sidebar"
+msgstr "Sidebar"
+
+#. Name of the template
+msgid "Sidebar left"
+msgstr "Sidebar left"
+
+#: template-parts/content-none.php:37
+msgid ""
+"Sorry, but nothing matched your search terms. Please try again with some "
+"different keywords."
+msgstr ""
+"Üzgünüm ama hiçbir şey arama terimlerinizle uyuşmuyor. Lütfen bazı farklı "
+"anahtar sözcüklerle yeniden deneyin."
+
+#: comments.php:103
+msgid "Start typing..."
+msgstr "Yazmaya başla..."
+
+#: functions.php:428
+msgid "Submit"
+msgstr "Gönder"
+
+#. 1: list of tags.
+#: inc/template-tags.php:191
+#, php-format
+msgid "Tagged %1$s"
+msgstr "%1$s etiketleriyle gönderilmiştir."
+
+#: inc/template-tags.php:255
+msgid "This website will offer limited functionality in this browser."
+msgstr "Bu web sitesi bu tarayıcıda sınırlı işlevsellik sunacaktır."
+
+#: inc/template-tags.php:256
+msgid "to display this site correctly."
+msgstr "bu siteyi doğru görüntülemek için."
+
+#: woocommerce/cart/mini-cart.php:112
+msgid "To find out your shipping cost, please proceed to checkout."
+msgstr "Kargo maliyetinizi öğrenmek için lütfen ödeme işlemine geçin."
+
+#: functions.php:160
+msgid "Top Footer"
+msgstr "Top Footer"
+
+#: functions.php:124
+msgid "Top Nav"
+msgstr "Top Nav"
+
+#: functions.php:136
+msgid "Top Nav Search"
+msgstr "Top Nav Search"
+
+#: comments.php:130
+msgid "Website"
+msgstr "Website"
+
+#: inc/comment-list.php:58
+msgid "Your comment is awaiting moderation."
+msgstr "Yorumunuz denetim için bekliyor."
+
+#: woocommerce/single-product-reviews.php:134
+msgid "Your review...*"
+msgstr "İncelemeniz...*"
