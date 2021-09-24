@@ -10,6 +10,9 @@ require_once "scssphp/scss.inc.php";
 
 use ScssPhp\ScssPhp\Compiler;
 
+/**
+ * Compiles the scss to a css file to be read by the browser.
+ */
 function bootscore_compile_scss() {
   $compiler = new Compiler();
 
@@ -36,8 +39,12 @@ function bootscore_compile_scss() {
   }
 }
 
-bootscore_compile_scss();
 
+/**
+ * Checks if the scss files and returns the last modified times added together.
+ *
+ * @return float Last modified times added together.
+ */
 function bootscore_get_last_modified_scss() {
   $directory = get_stylesheet_directory() . '/css/lib/';
   $files = scandir($directory);
