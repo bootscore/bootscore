@@ -254,8 +254,7 @@ function bootscore_scripts() {
   // Style CSS
   wp_enqueue_style('bootscore-style', get_stylesheet_uri(), array(), $modificated_styleCss);
 
-  // Bootstrap	
-  // wp_enqueue_style('bootstrap', get_template_directory_uri() . '/css/lib/bootstrap.min.css', array(), $modificated_bootstrapCss);
+  // bootScore
   require_once 'inc/scss-compiler.php';
   wp_enqueue_style('bootscore', get_template_directory_uri() . '/css/main.css', array(), $modificated_bootscoreCss);
     
