@@ -45,7 +45,7 @@ function bootscore_get_last_modified_scss() {
   foreach ($files as $file) {
     if (strpos($file, '.scss') !== false || strpos($file, '.css') !== false) {
       $file_stats = stat($directory . $file);
-      $total_last_modified = $file_stats['mtime'];
+      $total_last_modified += $file_stats['mtime'];
     }
   }
   return $total_last_modified;
