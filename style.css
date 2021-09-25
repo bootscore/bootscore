@@ -50,6 +50,11 @@ html {
   scroll-behavior: auto !important;
 }
 
+/* Checks and select fallback for webkit browsers. Doesn't compile correctly? */
+.form-check-input, .form-select {
+  -webkit-appearance: none;
+}
+
 /*
 Remove autop (WP 5.7 bug near shortcode)
 https://wordpress.org/support/topic/how-to-stop-wp-from-adding-p-tag-automatically/
