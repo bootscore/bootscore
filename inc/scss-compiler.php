@@ -15,13 +15,15 @@ use ScssPhp\ScssPhp\Compiler;
  */
 function bootscore_compile_scss() {
   $compiler = new Compiler();
+    
+  $compiler->setOutputStyle(\ScssPhp\ScssPhp\OutputStyle::COMPRESSED);
 
-  $scss_file = get_stylesheet_directory() . '/css/lib/main.scss';
-  $css_file = get_stylesheet_directory() . '/css/main.css';
+  $scss_file = get_stylesheet_directory() . '/css/scss/bootstrap.min.scss';
+  $css_file = get_stylesheet_directory() . '/css/lib/bootstrap.min.css';
 
   $compiler->setImportPaths(dirname($scss_file));
   if (is_child_theme()) {
-    $compiler->addImportPath(get_template_directory() . '/css/lib/');
+    $compiler->addImportPath(get_template_directory() . '/css/scss/');
   }
 
   $last_modified = bootscore_get_last_modified_scss();
@@ -46,7 +48,9 @@ function bootscore_compile_scss() {
  * @return float Last modified times added together.
  */
 function bootscore_get_last_modified_scss() {
-  $directory = get_stylesheet_directory() . '/css/lib/';
+
+  $directory = get_stylesheet_directory() . '/css/scss/';
+
   $files = scandir($directory);
   $total_last_modified = 0;
   foreach ($files as $file) {
