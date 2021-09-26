@@ -48,7 +48,9 @@ function bootscore_compile_scss() {
  * @return float Last modified times added together.
  */
 function bootscore_get_last_modified_scss() {
+
   $directory = get_stylesheet_directory() . '/css/scss/';
+
   $files = scandir($directory);
   $total_last_modified = 0;
   foreach ($files as $file) {

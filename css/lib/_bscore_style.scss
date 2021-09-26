@@ -1,27 +1,3 @@
-/*
-Theme Name: bootScore
-Theme URI: https://bootscore.me/
-Author: Bastian Kreiter
-Author URI: https://crftwrk.de
-Description: A powerful Bootstrap 5 WordPress Starter Theme with WooCommerce Support. <a href="https://bootscore.me/category/documentation/" target="_blank">Documentation</a>. This theme gives you full control whatever you do and the full freedom to design whatever you want. It comes with a wide selection of category, page, post, author and archive templates as well as sidebar, header, footer and 404 widgets. There are no customizer settings in the backend. All settings can only be made by touching the code. Some CSS, HTML, PHP and JS Skills are required to customize it.
-Version: 5.1.1.0
-Tested up to: 5.8
-Requires PHP: 5.6
-License: MIT License
-License URI: https://github.com/crftwrk/bootscore/blob/main/LICENSE
-Text Domain: bootscore
-Tags: featured-images, threaded-comments, translation-ready
-
-This theme, like WordPress, is licensed under the GPL.
-Use it to make something cool, have fun, and share what you've learned with others.
-
-Bootscore is based on Underscores https://underscores.me/, (C) 2012-2017 Automattic, Inc.
-Underscores is distributed under the terms of the GNU GPL v2 or later.
-
-Normalizing styles have been helped along thanks to the fine work of
-Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
-*/
-
 /*--------------------------------------------------------------
 >>> TABLE OF CONTENTS:
 ----------------------------------------------------------------
@@ -48,11 +24,6 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 jQuery smooth scroll script will be removed when Safari supports it */
 html {
   scroll-behavior: auto !important;
-}
-
-/* Checks and select fallback for webkit browsers. Doesn't compile correctly? */
-.form-check-input, .form-select {
-  -webkit-appearance: none;
 }
 
 /*
