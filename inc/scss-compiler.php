@@ -15,7 +15,7 @@ use ScssPhp\ScssPhp\Compiler;
  */
 function bootscore_compile_scss() {
   $compiler = new Compiler();
-    
+
   $compiler->setOutputStyle(\ScssPhp\ScssPhp\OutputStyle::COMPRESSED);
 
   $scss_file = get_stylesheet_directory() . '/css/scss/bootstrap.min.scss';
