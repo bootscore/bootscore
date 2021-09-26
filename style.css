@@ -51,8 +51,9 @@ html {
 }
 
 /* Checks and select fallback for webkit browsers. Doesn't compile correctly? */
-.form-check-input, .form-select {
+.form-check-input, .form-select, .form-range {
   -webkit-appearance: none;
+  -moz-appearance: none;
 }
 
 /*
