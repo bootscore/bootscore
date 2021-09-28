@@ -66,6 +66,11 @@ function bootscore_get_last_modified_scss($theme_directory) {
   return $total_last_modified;
 }
 
+/**
+ * Check if the child theme has scss files included.
+ *
+ * @return boolean True when child theme has scss files.
+ */
 function bootscore_child_has_scss() {
   return file_exists(get_stylesheet_directory() . '/css/scss/bootstrap.min.scss');
 }
