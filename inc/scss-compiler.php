@@ -36,7 +36,7 @@ function bootscore_compile_scss() {
   $stored_modified = get_theme_mod('bootscore_scss_modified_timestamp', 0);
 
   try {
-    if ($last_modified > $stored_modified) {
+    if ($last_modified > $stored_modified || !file_exists($css_file)) {
       $compiled = $compiler->compileString(file_get_contents($scss_file));
       file_put_contents($css_file, $compiled->getCss());
 
