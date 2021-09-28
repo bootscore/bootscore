@@ -18,15 +18,21 @@ function bootscore_compile_scss() {
 
   $compiler->setOutputStyle(\ScssPhp\ScssPhp\OutputStyle::COMPRESSED);
 
-  $scss_file = get_stylesheet_directory() . '/css/scss/bootstrap.min.scss';
-  $css_file = get_stylesheet_directory() . '/css/lib/bootstrap.min.css';
+  if(bootscore_child_has_scss()) {
+    $theme_directory = get_stylesheet_directory();
+  } else {
+    $theme_directory = get_template_directory();
+  }
+
+  $scss_file = $theme_directory . '/css/scss/bootstrap.min.scss';
+  $css_file = $theme_directory . '/css/lib/bootstrap.min.css';
 
   $compiler->setImportPaths(dirname($scss_file));
-  if (is_child_theme()) {
+  if (is_child_theme() && bootscore_child_has_scss()) {
     $compiler->addImportPath(get_template_directory() . '/css/scss/');
   }
 
-  $last_modified = bootscore_get_last_modified_scss();
+  $last_modified = bootscore_get_last_modified_scss($theme_directory);
   $stored_modified = get_theme_mod('bootscore_scss_modified_timestamp', 0);
 
   try {
@@ -47,8 +53,8 @@ function bootscore_compile_scss() {
  *
  * @return float Last modified times added together.
  */
-function bootscore_get_last_modified_scss() {
-  $directory = get_stylesheet_directory() . '/css/scss/';
+function bootscore_get_last_modified_scss($theme_directory) {
+  $directory = $theme_directory . '/css/scss/';
   $files = scandir($directory);
   $total_last_modified = 0;
   foreach ($files as $file) {
@@ -58,4 +64,8 @@ function bootscore_get_last_modified_scss() {
     }
   }
   return $total_last_modified;
+}
+
+function bootscore_child_has_scss() {
+  return file_exists(get_stylesheet_directory() . '/css/scss/bootstrap.min.scss');
 }
