@@ -18,7 +18,7 @@ function bootscore_compile_scss() {
 
   $compiler->setOutputStyle(\ScssPhp\ScssPhp\OutputStyle::COMPRESSED);
 
-  if(bootscore_child_has_scss()) {
+  if(bootscore_child_has_scss() && is_child_theme()) {
     $theme_directory = get_stylesheet_directory();
   } else {
     $theme_directory = get_template_directory();
