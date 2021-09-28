@@ -5,9 +5,9 @@ Contributors: Bastian Kreiter, Justin Kruit
 Tags: featured-images, threaded-comments, translation-ready
 
 Requires at least: 4.5
-Tested up to: 5.8
+Tested up to: 5.8.1
 Requires PHP: 5.6
-Stable tag: 5.1.1.0
+Stable tag: 5.1.1.1
 License: MIT License
 License URI: https://github.com/bootscore/bootscore/blob/main/LICENSE
 
@@ -58,6 +58,14 @@ bootScore includes support for WooCommerce and Infinite Scroll in Jetpack.
 
 
 == Changelog ==
+
+
+    = 5.1.1.1 - September 29 2021 =
+
+        * [IMPROVEMENT] WooCommerce colors to variables
+        * [IMPROVEMENT] Reformatted all files
+        * [NEW] Translation: Türkçe (thanks to Murat Esgin)
+        * [NEW] Added Bootstrap source and compiler to theme
 
 
     = 5.1.1.0 - September 08 2021 =
