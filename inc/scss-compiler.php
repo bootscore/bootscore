@@ -18,7 +18,7 @@ function bootscore_compile_scss() {
 
   $compiler->setOutputStyle(\ScssPhp\ScssPhp\OutputStyle::COMPRESSED);
 
-  if(bootscore_child_has_scss() && is_child_theme()) {
+  if (bootscore_child_has_scss() && is_child_theme()) {
     $theme_directory = get_stylesheet_directory();
   } else {
     $theme_directory = get_template_directory();
@@ -39,7 +39,7 @@ function bootscore_compile_scss() {
     if ($last_modified > $stored_modified || !file_exists($css_file)) {
       $compiled = $compiler->compileString(file_get_contents($scss_file));
 
-      if(!file_exists(dirname($css_file))) {
+      if (!file_exists(dirname($css_file))) {
         mkdir(dirname($css_file), 0755, true);
       }
 
