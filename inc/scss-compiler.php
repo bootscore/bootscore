@@ -38,6 +38,11 @@ function bootscore_compile_scss() {
   try {
     if ($last_modified > $stored_modified || !file_exists($css_file)) {
       $compiled = $compiler->compileString(file_get_contents($scss_file));
+
+      if(!file_exists(dirname($css_file))) {
+        mkdir(dirname($css_file), 0755, true);
+      }
+
       file_put_contents($css_file, $compiled->getCss());
 
       set_theme_mod('bootscore_scss_modified_timestamp', $last_modified);
