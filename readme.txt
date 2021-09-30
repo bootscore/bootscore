@@ -1,13 +1,13 @@
 === bootScore ===
 
-Contributors: Bastian Kreiter, Justin Kruit
+Contributors: Bastian Kreiter, Justin Kruit, Martin Holzer, Tim Groeneveld
 
 Tags: featured-images, threaded-comments, translation-ready
 
 Requires at least: 4.5
-Tested up to: 5.8
+Tested up to: 5.8.1
 Requires PHP: 5.6
-Stable tag: 5.1.1.0
+Stable tag: 5.1.1.1
 License: MIT License
 License URI: https://github.com/bootscore/bootscore/blob/main/LICENSE
 
@@ -53,10 +53,19 @@ bootScore includes support for WooCommerce and Infinite Scroll in Jetpack.
 * Bootstrap 5 Wordpress Navbar Walker by AlexWebLab: https://github.com/AlexWebLab/bootstrap-5-wordpress-navbar-walker
 * Comments Section Script by wp-bootstrap-starter https://github.com/afterimagedesigns/wp-bootstrap-starter
 * Font Awesome https://fontawesome.com/license/free
-* Plugin Update Checker, YahnisElsts: https://github.com/YahnisElsts/plugin-update-checker/blob/master/license.txt
+* Plugin Update Checker by YahnisElsts, MIT License https://github.com/YahnisElsts/plugin-update-checker/blob/master/license.txt
+* scssphp by Leaf Corcoran, MIT License https://github.com/scssphp/scssphp/blob/master/LICENSE.md
 
 
 == Changelog ==
+
+
+    = 5.1.1.1 - September 29 2021 =
+
+        * [IMPROVEMENT] WooCommerce colors to variables
+        * [IMPROVEMENT] Reformatted all files
+        * [NEW] Translation: Türkçe (thanks to Murat Esgin)
+        * [NEW] Added Bootstrap source and compiler to theme
 
 
     = 5.1.1.0 - September 08 2021 =

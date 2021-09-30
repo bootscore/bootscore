@@ -48,5 +48,7 @@ For important updates read the [blog](https://bootscore.me/category/blog/) and s
 - Bootstrap, MIT License https://github.com/twbs/bootstrap/blob/main/LICENSE
 - Bootstrap 5 WordPress Navbar Walker by AlexWebLab, MIT License https://github.com/AlexWebLab/bootstrap-5-wordpress-navbar-walker/blob/main/LICENSE
 - Font Awesome Free License https://fontawesome.com/license/free
+- scssphp by Leaf Corcoran, MIT License https://github.com/scssphp/scssphp/blob/master/LICENSE.md
+- Plugin Update Checker by YahnisElsts, MIT License https://github.com/YahnisElsts/plugin-update-checker/blob/master/license.txt
 
 
