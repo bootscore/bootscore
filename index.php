@@ -24,7 +24,7 @@ get_header();
     <main id="main" class="site-main">
 
       <!-- Header -->
-      <div class="bootstore-header py-3 py-md-5 text-center">
+      <div class="py-3 py-md-5 text-center">
         <h1 class="display-1"><?php bloginfo('name'); ?></h1>
         <p class="lead"><?php bloginfo('description'); ?></p>
       </div>
