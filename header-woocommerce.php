@@ -26,12 +26,12 @@
   <link rel="mask-icon" href="<?php echo get_stylesheet_directory_uri(); ?>/img/favicon/safari-pinned-tab.svg" color="#0d6efd">
   <meta name="msapplication-TileColor" content="#ffffff">
   <meta name="theme-color" content="#ffffff">
-  <!-- Loads the internal WP jQuery. Required if a 3rd party plugin loads jQuery in header instead in footer -->
-  <?php wp_enqueue_script('jquery'); ?>
   <?php wp_head(); ?>
 </head>
 
 <body <?php body_class(); ?>>
+    
+  <?php wp_body_open(); ?>
 
   <div id="to-top"></div>
 
@@ -52,7 +52,7 @@
             <!-- Offcanvas Navbar -->
             <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvas-navbar">
               <div class="offcanvas-header bg-light">
-                <h5 class="mb-0"><?php esc_html_e('Menu', 'bootscore'); ?></h5>
+                <span class="h5 mb-0"><?php esc_html_e('Menu', 'bootscore'); ?></span>
                 <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
               </div>
               <div class="offcanvas-body">
@@ -133,7 +133,7 @@
       <!-- offcanvas user -->
       <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvas-user">
         <div class="offcanvas-header bg-light">
-          <h5 class="mb-0"><?php esc_html_e('Account', 'bootscore'); ?></h5>
+          <span class="h5 mb-0"><?php esc_html_e('Account', 'bootscore'); ?></span>
           <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <div class="offcanvas-body">
@@ -146,7 +146,7 @@
       <!-- offcanvas cart -->
       <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvas-cart">
         <div class="offcanvas-header bg-light">
-          <h5 class="mb-0"><?php esc_html_e('Cart', 'bootscore'); ?></h5>
+          <span class="h5 mb-0"><?php esc_html_e('Cart', 'bootscore'); ?></span>
           <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <div class="offcanvas-body p-0">
