@@ -7,7 +7,7 @@ Tags: featured-images, threaded-comments, translation-ready
 Requires at least: 4.5
 Tested up to: 5.8.1
 Requires PHP: 5.6
-Stable tag: 5.1.1.1
+Stable tag: 5.1.2.0
 License: MIT License
 License URI: https://github.com/bootscore/bootscore/blob/main/LICENSE
 
@@ -17,8 +17,6 @@ bootScore, Bootstrap 5 WordPress Theme, Copyright 2019 - 2021 The bootScore Cont
 === Plugin Name ===
 
 A starter theme called bootScore.
-
-Contributors: crftwrk, justinkruit, timgws
 
 
 == Description ==
@@ -58,6 +56,13 @@ bootScore includes support for WooCommerce and Infinite Scroll in Jetpack.
 
 
 == Changelog ==
+
+    = 5.1.2.0 - October 06 2021 =
+
+        * [REMOVED] jQuery in header.php
+        * [NEW] Added missing wp_body_open hook
+        * [SEO] Changed offcanvas header <h5> to <span class="h5"> for SEO reason
+        * [UPDATE] Bootstrap 5.1.2
 
 
     = 5.1.1.1 - September 29 2021 =
