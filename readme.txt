@@ -63,6 +63,7 @@ bootScore includes support for WooCommerce and Infinite Scroll in Jetpack.
         * [NEW] Added missing wp_body_open hook
         * [SEO] Changed offcanvas header <h5> to <span class="h5"> for SEO reason
         * [UPDATE] Bootstrap 5.1.2
+        * [IMPROVEMENT] Compile scss when Bootstrap has been updated
 
 
     = 5.1.1.1 - September 29 2021 =
