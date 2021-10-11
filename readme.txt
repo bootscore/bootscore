@@ -7,7 +7,7 @@ Tags: featured-images, threaded-comments, translation-ready
 Requires at least: 4.5
 Tested up to: 5.8.1
 Requires PHP: 5.6
-Stable tag: 5.1.2.0
+Stable tag: 5.1.3.0
 License: MIT License
 License URI: https://github.com/bootscore/bootscore/blob/main/LICENSE
 
@@ -56,6 +56,10 @@ bootScore includes support for WooCommerce and Infinite Scroll in Jetpack.
 
 
 == Changelog ==
+
+    = 5.1.3.0 - October 11 2021 =
+
+        * [UPDATE] Bootstrap 5.1.3
 
     = 5.1.2.0 - October 06 2021 =
 
