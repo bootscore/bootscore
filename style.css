@@ -49,10 +49,14 @@ html {
   scroll-behavior: auto !important;
 }
 
-/* Checks and select fallback for webkit browsers. Doesn't compile correctly? */
+/* Checks, select and form-range fix for webkit browsers. Doesn't compile correctly? */
 .form-check-input, .form-select, .form-range {
   -webkit-appearance: none;
   -moz-appearance: none;
+}
+
+.form-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
 }
 
 /*
