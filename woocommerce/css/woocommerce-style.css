@@ -175,6 +175,10 @@ form.cart .blockUI.blockOverlay {
   margin: 1rem auto;
 }
 
+.card .star-rating span::before {
+  text-align: left;
+}
+
 a.woocommerce-LoopProduct-link.woocommerce-loop-product__link,
 a.woocommerce-LoopProduct-link.woocommerce-loop-product__link:hover {
   text-decoration: none !important;
