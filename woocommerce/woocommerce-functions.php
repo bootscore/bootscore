@@ -185,7 +185,7 @@ function custom_loop_product_thumbnail() {
 
 // Add filter function for bootstrap syntax in terms.php
 
-  function getCorrectedTerms($html) {
+  function bootscore_wc_get_corrected_terms($html) {
     $doc = new DOMDocument();
     if ( !empty($html) && $doc->loadHtml($html))
     {
@@ -227,7 +227,7 @@ function custom_loop_product_thumbnail() {
     }
   }
   
-  function captureHookOutput($hookName) {
+  function bootscore_wc_capture_hook_output($hookName) {
     ob_start(); // start capturing output.
     do_action($hookName);
     $hookContent = ob_get_contents(); // the actions output will now be stored in the variable as a string!

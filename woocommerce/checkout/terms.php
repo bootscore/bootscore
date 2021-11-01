@@ -12,7 +12,7 @@ defined('ABSPATH') || exit;
 if (apply_filters('woocommerce_checkout_show_terms', true) && function_exists('wc_terms_and_conditions_checkbox_enabled'))
 {
 
-  echo getCorrectedTerms(captureHookOutput('woocommerce_checkout_before_terms_and_conditions'));
+  echo bootscore_wc_get_corrected_terms(bootscore_wc_capture_hook_output('woocommerce_checkout_before_terms_and_conditions'));
   ?>
   <div class="woocommerce-terms-and-conditions-wrapper">
     <?php
@@ -24,7 +24,7 @@ if (apply_filters('woocommerce_checkout_show_terms', true) && function_exists('w
      * @hooked wc_terms_and_conditions_page_content() Shows t&c page content. Priority 30.
      */
 
-    echo getCorrectedTerms(captureHookOutput('woocommerce_checkout_terms_and_conditions'));
+    echo bootscore_wc_get_corrected_terms(bootscore_wc_capture_hook_output('woocommerce_checkout_terms_and_conditions'));
     ?>
     <?php if (wc_terms_and_conditions_checkbox_enabled()) : ?>
       <p class="form-row validate-required">
@@ -37,5 +37,5 @@ if (apply_filters('woocommerce_checkout_show_terms', true) && function_exists('w
     <?php endif; ?>
   </div>
   <?php
-    echo getCorrectedTerms(captureHookOutput('woocommerce_checkout_after_terms_and_conditions'));
+    echo bootscore_wc_get_corrected_terms(bootscore_wc_capture_hook_output('woocommerce_checkout_after_terms_and_conditions'));
 }
