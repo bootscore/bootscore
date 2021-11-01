@@ -183,8 +183,13 @@ function custom_loop_product_thumbnail() {
 }
 // Add card-img-top class to product loop End
 
-// Add filter function for bootstrap syntax in terms.php
-
+  
+  /**
+   * Get the corrected terms for Woocommerce.
+   *
+   * @param  string $html The original terms.
+   * @return string The corrected terms.
+   */
   function bootscore_wc_get_corrected_terms($html) {
     $doc = new DOMDocument();
     if ( !empty($html) && $doc->loadHtml($html))
@@ -226,13 +231,17 @@ function custom_loop_product_thumbnail() {
       //error maybe return $html?
     }
   }
-  
+    
+  /**
+   * Capture the output of a hook.
+   *
+   * @param  string $hookName The name of the hook to capture.
+   * @return string The output of the hook.
+   */
   function bootscore_wc_capture_hook_output($hookName) {
-    ob_start(); // start capturing output.
+    ob_start();
     do_action($hookName);
-    $hookContent = ob_get_contents(); // the actions output will now be stored in the variable as a string!
-    ob_end_clean(); // never forget this or you will keep capturing output.
+    $hookContent = ob_get_contents();
+    ob_end_clean();
     return $hookContent;
   }
-
-// Add filter function for bootstrap syntax in terms.php
