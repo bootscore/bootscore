@@ -194,21 +194,12 @@ a.woocommerce-LoopProduct-link.woocommerce-loop-product__link:hover {
   width: 100%;
 }
 
-span.badge.bg-danger.sale {
+.badge.sale,
+.badge.sale-product {
   position: absolute;
-  left: 1rem;
   top: 1rem;
-}
-
-span.badge.bg-danger.sale,
-span.badge.bg-danger.sale-product {
+  left: 1rem;
   font-size: 1.25rem;
-}
-
-.sale-product {
-  position: absolute;
-  left: 1rem;
-  top: 1rem;
   z-index: 1;
 }
 
