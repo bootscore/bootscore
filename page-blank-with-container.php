@@ -12,6 +12,9 @@ get_header();
 ?>
 <div id="content" class="site-content container">
   <div id="primary" class="content-area">
+    
+    <!-- Hook to add something nice -->
+    <?php bs_after_primary(); ?>
 
     <main id="main" class="site-main">
 
