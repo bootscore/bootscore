@@ -152,7 +152,7 @@ body {
 5. Breadcrumb
 --------------------------------------------------------------*/
 
-@media (max-width: 991px) {
+@include media-breakpoint-down(lg) {
   .breadcrumb {
     display: block !important;
     white-space: nowrap;
@@ -238,13 +238,13 @@ ul.comment-list li {
   padding-left: 96px;
 }
 
-@media (max-width: 991px) {
+@include media-breakpoint-down(lg) {
   .comment-list ul.children ul.children {
     padding-left: 0;
   }
 }
 
-@media (min-width: 992px) {
+@include media-breakpoint-up(lg) {
   .comment-list ul.children ul.children ul.children {
     padding-left: 0;
   }
@@ -276,7 +276,7 @@ ul.comment-list li {
 9. Archive
 --------------------------------------------------------------*/
 
-@media (max-width: 767px) {
+@include media-breakpoint-down(md) {
   .card-img-left img {
     border-top-left-radius: calc(0.25rem - 1px);
     border-top-right-radius: calc(0.25rem - 1px);
@@ -285,7 +285,7 @@ ul.comment-list li {
   }
 }
 
-@media (min-width: 768px) {
+@include media-breakpoint-up(md) {
   .card-img-left img {
     border-top-left-radius: calc(0.25rem - 1px);
     border-bottom-left-radius: calc(0.25rem - 1px);
@@ -295,7 +295,7 @@ ul.comment-list li {
   }
 }
 
-@media (max-width: 991px) {
+@include media-breakpoint-down(lg) {
   .card-img-left-md img {
     border-top-left-radius: calc(0.25rem - 1px);
     border-top-right-radius: calc(0.25rem - 1px);
@@ -304,7 +304,7 @@ ul.comment-list li {
   }
 }
 
-@media (min-width: 992px) {
+@include media-breakpoint-up(lg) {
   .card-img-left-md img {
     border-top-left-radius: calc(0.25rem - 1px);
     border-bottom-left-radius: calc(0.25rem - 1px);
