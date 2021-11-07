@@ -12,19 +12,6 @@
 1. Header
 --------------------------------------------------------------*/
 
-/* Since 5.1.0.0 logo is on the left in new header. Fallback to old header */
-@media (max-width: 991px) {
-  #nav-main .navbar-brand:not(#nav-main .navbar-brand.xs, #nav-main .navbar-brand.md) {
-    position: absolute;
-    left: 50%;
-    transform: translate(-50%, 0px);
-  }
-  #nav-main {
-    min-height: 56px;
-  }
-}
-/* Fallback to old header End */
-
 #offcanvas-cart .cart-list {
   /* height cart-footer */
   padding-bottom: 208px;

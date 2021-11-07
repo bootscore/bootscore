@@ -67,57 +67,6 @@ p:empty:before {
   content: none;
 }
 
-/* To Top Button Fallback (done by classes) */
-.top-button {
-  position: fixed;
-  z-index: 1020;
-}
-
-/* Dropdown Search (replaced by Collapse component in 5.1.0.0. Fallback to old headers) */
-@media (max-width: 782px) {
-  .logged-in.admin-bar .dropdown-search {
-    top: 100px !important;
-  }
-}
-
-@media (min-width: 783px) {
-  .logged-in.admin-bar .dropdown-search {
-    top: 86px !important;
-  }
-}
-
-.dropdown-search.dropdown-menu[data-bs-popper] {
-  top: 54px;
-}
-
-.dropdown-search .searchform {
-  opacity: 0;
-  transition: opacity 0.8s;
-  transition-delay: 0.3s;
-}
-
-.dropdown-search.show .searchform {
-  opacity: 1;
-}
-
-@media (max-width: 991px) {
-  .btn-dropdown.right {
-    padding-right: 0;
-    border: none;
-  }
-
-  #dropdown-search:hover {
-    color: currentColor;
-    background-color: transparent;
-    border-color: transparent;
-  }
-
-  #dropdown-search:focus {
-    box-shadow: none;
-  }
-}
-/* Dropdown Search Fallback End */
-
 /* Offcanvas Backdrop */
 .offcanvas-backdrop.fade {
   transition: opacity 0.4s ease-in-out;
