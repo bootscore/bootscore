@@ -1,0 +1,24 @@
+.wp-post-image {
+  width: 100%;
+}
+
+.page-image img,
+.post-image img {
+  width: 100%;
+  object-fit: contain;
+  height: auto;
+}
+
+.featured-full-width-img {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+[rel='prev']:before {
+  content: '« ';
+}
+
+[rel='next']:after {
+  content: ' »';
+}

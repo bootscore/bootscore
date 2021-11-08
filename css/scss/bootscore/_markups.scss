@@ -1,0 +1,121 @@
+//HTML Markups (Theme Unit Test Data)
+
+pre {
+  max-width: 100%;
+  padding: 1rem;
+  border-radius: 0.25rem;
+}
+
+img {
+  height: auto;
+  max-width: 100%;
+}
+
+iframe {
+  max-width: 100%;
+}
+
+.alignleft {
+  display: inline;
+  float: left;
+  margin-right: 1.5em;
+}
+
+.alignright {
+  display: inline;
+  float: right;
+  margin-left: 1.5em;
+}
+
+.aligncenter {
+  clear: both;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+// Gallery
+
+.wp-caption {
+  margin-bottom: 1.5em;
+  max-width: 100%;
+
+  img[class*='wp-image-'] {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .wp-caption-text {
+    margin: 0.8075em 0;
+  }
+}
+
+.wp-caption-text {
+  text-align: center;
+}
+
+.gallery {
+  margin-bottom: 1.5em;
+}
+
+.gallery-item {
+  display: inline-block;
+  text-align: center;
+  vertical-align: top;
+  width: 100%;
+}
+
+.gallery-columns-2 .gallery-item {
+  max-width: 50%;
+}
+
+.gallery-columns-3 .gallery-item {
+  max-width: 33.33%;
+}
+
+.gallery-columns-4 .gallery-item {
+  max-width: 25%;
+}
+
+.gallery-columns-5 .gallery-item {
+  max-width: 20%;
+}
+
+.gallery-columns-6 .gallery-item {
+  max-width: 16.66%;
+}
+
+.gallery-columns-7 .gallery-item {
+  max-width: 14.28%;
+}
+
+.gallery-columns-8 .gallery-item {
+  max-width: 12.5%;
+}
+
+.gallery-columns-9 .gallery-item {
+  max-width: 11.11%;
+}
+
+.gallery-caption {
+  display: block;
+}
+
+.blocks-gallery-grid {
+  .blocks-gallery-image figcaption, .blocks-gallery-item figcaption {
+    overflow: auto;
+    padding: 0.5rem;
+    font-size: 1rem;
+    background: rgba(0, 0, 0, 0.5);
+  }
+}
+
+.wp-block-gallery {
+  .blocks-gallery-image figcaption, .blocks-gallery-item figcaption {
+    overflow: auto;
+    padding: 0.5rem;
+    font-size: 1rem;
+    background: rgba(0, 0, 0, 0.5);
+  }
+}

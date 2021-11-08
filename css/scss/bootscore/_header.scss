@@ -1,0 +1,31 @@
+@media (max-width: 782px) {
+  #wpadminbar {
+    position: fixed;
+  }
+
+  .logged-in.admin-bar {
+    .fixed-top, .offcanvas:not(.offcanvas-bottom), .modal {
+      top: 46px;
+    }
+
+    .modal-fullscreen {
+      height: calc(100% - 46px);
+    }
+  }
+}
+
+@media (min-width: 783px) {
+  .logged-in.admin-bar {
+    .fixed-top, .offcanvas:not(.offcanvas-bottom), .modal {
+      top: 32px;
+    }
+
+    .modal-fullscreen {
+      height: calc(100% - 32px);
+    }
+  }
+}
+
+#nav-main .menu-item:last-child .nav-link {
+  padding-right: 0;
+}

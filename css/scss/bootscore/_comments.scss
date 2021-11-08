@@ -1,0 +1,54 @@
+ul.comment-list {
+  list-style: none;
+  padding: 0;
+
+  li {
+    list-style: none;
+  }
+}
+
+.avatar {
+  width: 80px;
+}
+
+.comment-list ul.children {
+  padding-left: 96px;
+}
+
+@include media-breakpoint-down(lg) {
+  .comment-list ul.children ul.children {
+    padding-left: 0;
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  .comment-list ul.children ul.children ul.children {
+    padding-left: 0;
+  }
+}
+
+.screen-reader-text {
+  clip: rect(1px, 1px, 1px, 1px);
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  word-wrap: normal !important;
+}
+
+#cancel-comment-reply-link {
+  margin-left: 1rem;
+}
+  
+// Adding width to comment. When using <pre> in comment, comment-content will not crashed
+.comment-content {
+  width: calc(100% - 96px);
+
+  a {
+    word-wrap: break-word;
+  }
+}
+
+.bypostauthor {
+  display: block;
+}
