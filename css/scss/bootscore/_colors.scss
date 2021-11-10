@@ -1,10 +1,10 @@
 ::selection {
-  color: #fff;
+  color: var(--bs-white);
   background-color: var(--bs-primary);
 }
 
 ::-moz-selection {
-  color: #fff;
+  color: var(--bs-white);
   background-color: var(--bs-primary);
 }
 
