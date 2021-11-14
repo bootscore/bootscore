@@ -242,7 +242,7 @@ function bootscore_wc_capture_hook_output($hookName) {
 
 // Redirect to my-account if offcanvas login failed
 add_action( 'woocommerce_login_failed', 'bootscore_redirect_on_login_failed' , 10, 0 );
-function bootscore_redirect_on_login_failed() : void {
+function bootscore_redirect_on_login_failed() {
   // Logout user doesn't have session, we need this to display notices
   if ( ! WC()->session->has_session() ) {
     WC()->session->set_customer_session_cookie( true );
