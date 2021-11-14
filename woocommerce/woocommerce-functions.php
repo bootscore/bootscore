@@ -241,22 +241,22 @@ function bootscore_wc_capture_hook_output($hookName) {
 
 
 // Redirect to my-account if offcanvas login failed
-add_action( 'woocommerce_login_failed', 'bootscore_redirect_on_login_failed' , 10, 0 );
+add_action('woocommerce_login_failed', 'bootscore_redirect_on_login_failed', 10, 0);
 function bootscore_redirect_on_login_failed() {
   // Logout user doesn't have session, we need this to display notices
-  if ( ! WC()->session->has_session() ) {
-    WC()->session->set_customer_session_cookie( true );
+  if (!WC()->session->has_session()) {
+    WC()->session->set_customer_session_cookie(true);
   }
-  wp_redirect( wp_validate_redirect( wc_get_page_permalink( 'myaccount' ) ) );
-    exit;
+  wp_redirect(wp_validate_redirect(wc_get_page_permalink('myaccount')));
+  exit;
 }
 // Redirect to my-account if offcanvas login failed End
 
 
 // Redirect to home on logout
-add_action('wp_logout','bootscore_redirect_after_logout');
-function bootscore_redirect_after_logout(){
-  wp_redirect( home_url() );
+add_action('wp_logout', 'bootscore_redirect_after_logout');
+function bootscore_redirect_after_logout() {
+  wp_redirect(home_url());
   exit();
 }
 // Redirect to home on logout End
