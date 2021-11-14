@@ -10,9 +10,6 @@ if (!defined('ABSPATH')) {
 
 ?>
 
-<!-- Error notice if login failed -->
-<?php wc_print_notices(); ?>
-
 <?php if (is_user_logged_in()) { ?>
 
   <div class="account-salution">
