@@ -68,6 +68,13 @@ function bootscore_get_last_modified_scss($theme_directory) {
       $total_last_modified += $file_stats['mtime'];
     }
   }
+  $bootscore_files = scandir(get_template_directory() . '/css/scss/bootscore/');
+  foreach ($bootscore_files as $file) {
+    if (strpos($file, '.scss') !== false || strpos($file, '.css') !== false) {
+      $file_stats = stat(get_template_directory() . '/css/scss/bootscore/' . $file);
+      $total_last_modified += $file_stats['mtime'];
+    }
+  }
   $total_last_modified += stat(get_template_directory() . '/css/scss/bootstrap/bootstrap.scss')['mtime'];
   return $total_last_modified;
 }
