@@ -35,8 +35,10 @@ function bootscore_compile_scss() {
   $last_modified = bootscore_get_last_modified_scss($theme_directory);
   $stored_modified = get_theme_mod('bootscore_scss_modified_timestamp', 0);
 
+  $is_environment_dev = (wp_get_environment_type() === 'development');
+
   try {
-    if ($last_modified > $stored_modified || !file_exists($css_file)) {
+    if ($last_modified > $stored_modified || !file_exists($css_file) || $is_environment_dev) {
       $compiled = $compiler->compileString(file_get_contents($scss_file));
 
       if (!file_exists(dirname($css_file))) {
