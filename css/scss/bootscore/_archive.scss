@@ -1,0 +1,37 @@
+@include media-breakpoint-down(md) {
+  .card-img-left img {
+    border-top-left-radius: $border-radius;
+    border-top-right-radius: $border-radius;
+    width: 100%;
+    height: auto;
+  }
+}
+
+@include media-breakpoint-up(md) {
+  .card-img-left img {
+    border-top-left-radius: $border-radius;
+    border-bottom-left-radius: $border-radius;
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+  }
+}
+
+@include media-breakpoint-down(lg) {
+  .card-img-left-md img {
+    border-top-left-radius: $border-radius;
+    border-top-right-radius: $border-radius;
+    width: 100%;
+    height: auto;
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  .card-img-left-md img {
+    border-top-left-radius: $border-radius;
+    border-bottom-left-radius: $border-radius;
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+  }
+}

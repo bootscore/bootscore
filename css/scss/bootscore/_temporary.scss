@@ -1,0 +1,31 @@
+// scroll-behaviour: smooth not supportet by Safari. 
+// jQuery smooth scroll script will be removed when Safari supports it */
+html {
+  scroll-behavior: auto !important;
+}
+
+// Checks, select and form-range fix for webkit browsers. Doesn't compile correctly?
+.form-check-input, .form-select, .form-range {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+.form-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+}
+
+
+// Remove autop (WP 5.7 bug near shortcode)
+// https://wordpress.org/support/topic/how-to-stop-wp-from-adding-p-tag-automatically/
+p:empty:before {
+  content: none;
+}
+
+// Offcanvas Backdrop
+.offcanvas-backdrop.fade {
+  transition: opacity 0.4s ease-in-out;
+}
+
+.offcanvas-backdrop {
+  cursor: pointer;
+}

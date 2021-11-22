@@ -1,0 +1,10 @@
+.top-button {
+  right: 5%;
+  bottom: 30px;
+  opacity: 0;
+  transition: opacity 1s;
+}
+
+.top-button.visible {
+  opacity: 1;
+}

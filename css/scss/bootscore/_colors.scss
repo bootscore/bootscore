@@ -1,0 +1,21 @@
+::selection {
+  color: var(--bs-white);
+  background-color: var(--bs-primary);
+}
+
+::-moz-selection {
+  color: var(--bs-white);
+  background-color: var(--bs-primary);
+}
+
+pre {
+  background-color: var(--bs-light);
+}
+
+:focus {
+  outline: none !important;
+  outline: -webkit-focus-ring-color none !important;
+  outline-color: -webkit-focus-ring-color none !important;
+  outline-style: none !important;
+  outline-width: 0 !important;
+}

@@ -1,0 +1,72 @@
+/* 
+Add width-100 class to element to stretch it to the entire width 
+of the screen when element is in .container.
+https://bootscore.me/documentation/width-height-classes/
+*/
+
+// Hide horizontal scrollbars on Windows Chrome & Firefox
+body {
+  overflow-x: hidden;
+}
+
+.width-100 {
+  position: relative;
+  width: 100vw;
+  margin-left: -50vw;
+  left: 50%;
+}
+
+// Hide racaptcha v3 badge 
+.grecaptcha-badge {
+  display: none !important;
+}
+
+// Clear
+.clear-both {
+  clear: both;
+}
+
+// z-index
+.zi-1000 {
+  z-index: 1000 !important;
+}
+
+.zi-1020 {
+  z-index: 1020 !important;
+}
+
+.zi-1030 {
+  z-index: 1030 !important;
+}
+
+.zi-1040 {
+  z-index: 1040 !important;
+}
+
+.zi-1050 {
+  z-index: 1050 !important;
+}
+
+.zi-1060 {
+  z-index: 1060 !important;
+}
+
+.zi-1070 {
+  z-index: 1070 !important;
+}
+
+.zi-n1 {
+  z-index: -1 !important;
+}
+
+// Cursor
+.cursor-pointer {
+  cursor: pointer;
+}
+
+
+//Focus
+.focus-none {
+  box-shadow: none !important;
+  outline: 0 !important;
+}

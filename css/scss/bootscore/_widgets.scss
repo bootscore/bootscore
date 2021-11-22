@@ -1,0 +1,14 @@
+.widget-area ul,
+.bootscore-footer ul {
+  padding: 0;
+  list-style: none;
+  margin-bottom: 0;
+}
+
+.widget-area ul li ul li {
+  padding: 0 1rem;
+}
+
+#footer-menu li a {
+  padding-left: 0;
+}
