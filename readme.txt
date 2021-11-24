@@ -1,6 +1,6 @@
 === bootScore ===
 
-Contributors: Bastian Kreiter, Justin Kruit, Martin Holzer, Tim Groeneveld
+Contributors: Bastian Kreiter, Justin Kruit, Martin Holzer, Tim Groeneveld, Laurent Binder
 
 Tags: featured-images, threaded-comments, translation-ready
 
