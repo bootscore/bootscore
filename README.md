@@ -36,9 +36,7 @@ bootScore is a time-saver and designed to quickly create clean mobile-first proj
 
 ## Help
 
-Check the [documentation](https://bootscore.me/category/documentation/). If you have a question, find a bug or have an idea, feel free to leave a comment in the  respective section. No question is stupid and every comment will be answered. You must be a verified owner to post a comment. To become a verified owner, "buy" bootScore for free in the shop.
-
-You can use Github Issues for reporting as well.
+Check the [documentation](https://bootscore.me/category/documentation/). If you have a question, find a bug or have an idea, feel free to open an issue.
 
 For important updates read the [blog](https://bootscore.me/category/blog/) and subscribe to the [newsletter](https://bootscore.me/category/blog/#newsletter). You will be informed if there is something new you should know.
 
