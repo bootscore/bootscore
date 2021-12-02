@@ -51,6 +51,8 @@ jQuery(function ($) {
 2. Theme
 --------------------------------------------------------------*/
 
+if(checkForIE()){renderIeBrowserCheck()};
+
 jQuery(function ($) {
   // Smooth Scroll. Will be removed when Safari supports scroll-behaviour: smooth (Bootstrap 5).
   $(function () {
@@ -107,3 +109,39 @@ jQuery(function ($) {
   // Alert links
   $('.alert a').addClass('alert-link');
 }); // jQuery End
+
+
+/*--------------------------------------------------------------
+3. Utility
+--------------------------------------------------------------*/
+
+/**
+ * Script to get the used OS to fix the scroll behaviour only on IOS / MAC devices.
+ * https://stackoverflow.com/questions/38241480/detect-macos-ios-windows-android-and-linux-os-with-js
+ *
+ */
+function checkForIE() {
+  if (window.document.documentMode) {
+    return true;
+  }
+  return false;
+}
+
+function renderIeBrowserCheck () {
+
+  let div = document.createElement('div');
+  div.setAttribute('style' ,'position:fixed;top:0;right:0;bottom:0;left:0;background:white;z-index:2000;display:flex;justify-content:center;align-items:center;');
+  div.innerHTML =
+      '<div style="max-width: 90vw;">' +
+        '<h1>' + /*esc_html__('Internet Explorer detected', 'bootscore')*/'Internet Explorer detected' + '</h1>' +
+        '<p className="lead">' + /*esc_html__('This website will offer limited functionality in this browser.', 'bootscore')*/'This website can\'t be displayed in this browser' + '</p>' +
+        '<p className="lead">' + /*esc_html__('Please use a modern and secure web browser like', 'bootscore')*/'Please use a modern and secure web browser like' +
+          ' <a href="https://www.mozilla.org/firefox/" target="_blank">Mozilla Firefox</a>, ' +
+          '<a href="https://www.google.com/chrome/" target="_blank">Google Chrome</a>, ' +
+          '<a href="https://www.opera.com/" target="_blank">Opera</a> ' +
+          /*esc_html__('or', 'bootscore')*/'or' + ' <a href="https://www.microsoft.com/edge" target="_blank">Microsoft Edge</a> ' +
+          /*esc_html__('to display this site correctly.', 'bootscore')*/'to display this site correctly.' +
+        '</p>' +
+      '</div>';
+  document.body.appendChild(div);
+}
