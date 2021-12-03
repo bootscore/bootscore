@@ -162,5 +162,3 @@
       </div>
 
     </header><!-- #masthead -->
-
-    <?php bootscore_ie_alert(); ?>

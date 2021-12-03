@@ -478,3 +478,19 @@ add_filter('gutenberg_use_widgets_block_editor', '__return_false');
 // Disables the block editor from managing widgets.
 add_filter('use_widgets_block_editor', '__return_false');
 // Disable Gutenberg blocks in widgets (WordPress 5.8) END
+
+
+// Load IE warning javascript
+wp_enqueue_script( 'ie-warning', get_template_directory_uri() . '/js/ie-warning.js', array(), false, true);
+add_action( 'wp_footer', 'add_localization');
+function add_localization () {
+    $translation_array = array(
+        'ie_detected' => __('Internet Explorer detected', 'bootscore'),
+        'limited_functionality' => __('This website will offer limited functionality in this browser.', 'bootscore'),
+        'different_browser' => __('Please use a modern and secure web browser like', 'bootscore'),
+        'or' => __('or', 'bootscore'),
+        'to_display' => __('to display this site correctly.', 'bootscore')
+    );
+    wp_localize_script( 'ie-warning', 'translation', $translation_array );
+}
+// Load IE warning javascript - END

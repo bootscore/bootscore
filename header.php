@@ -121,5 +121,3 @@
       </div><!-- .fixed-top .bg-light -->
 
     </header><!-- #masthead -->
-
-    <?php bootscore_ie_alert(); ?>
