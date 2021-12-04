@@ -271,6 +271,11 @@ function bootscore_scripts() {
 
   // Theme JS
   wp_enqueue_script('bootscore-script', get_template_directory_uri() . '/js/theme.js', array('jquery'), $modificated_themeJs, true);
+  wp_localize_script('bootscore-script', 'bootscore', array(
+    'ie_title' => __('Internet Explorer detected', 'bootscore'),
+    'ie_limited_functionality' => __('This website will offer limited functionality in this browser.', 'bootscore'),
+    'ie_modern_browsers' => sprintf(__('Please use a modern and secure web browser like <a href="%1$s" target="_blank">Mozilla Firefox</a>, <a href="%1$s" target="_blank">Google Chrome</a>, <a href="%1$s" target="_blank">Opera</a> or <a href="%1$s" target="_blank">Microsoft Edge</a> to display this site correctly.', 'bootscore'), esc_url('https://www.mozilla.org/firefox/'), esc_url('https://www.google.com/chrome/'), esc_url('http://www.opera.com/'), esc_url('https://www.microsoft.com/edge'))
+  ));
 
   if (is_singular() && comments_open() && get_option('thread_comments')) {
     wp_enqueue_script('comment-reply');
@@ -478,19 +483,3 @@ add_filter('gutenberg_use_widgets_block_editor', '__return_false');
 // Disables the block editor from managing widgets.
 add_filter('use_widgets_block_editor', '__return_false');
 // Disable Gutenberg blocks in widgets (WordPress 5.8) END
-
-
-// Load IE warning javascript
-// wp_enqueue_script( 'ie-warning', get_template_directory_uri() . '/js/ie-warning.js', array(), false, true);
-add_action( 'wp_footer', 'add_localization');
-function add_localization () {
-    $translation_array = array(
-        'ie_detected' => __('Internet Explorer detected', 'bootscore'),
-        'limited_functionality' => __('This website will offer limited functionality in this browser.', 'bootscore'),
-        'different_browser' => __('Please use a modern and secure web browser like', 'bootscore'),
-        'or' => __('or', 'bootscore'),
-        'to_display' => __('to display this site correctly.', 'bootscore')
-    );
-    wp_localize_script( 'ie-warning', 'translation', $translation_array );
-}
-// Load IE warning javascript - END

@@ -117,19 +117,13 @@ jQuery(function ($) {
     IEWarningDiv.innerHTML =
       '<div style="max-width: 90vw;">' +
       '<h1>' +
-      translation.ie_detected +
+      bootscore.ie_title +
       '</h1>' +
       '<p className="lead">' +
-      translation.limited_functionality +
+      bootscore.ie_limited_functionality +
       '</p>' +
       '<p className="lead">' +
-      translation.different_browser +
-      ' <a href="https://www.mozilla.org/firefox/" target="_blank">Mozilla Firefox</a>, ' +
-      '<a href="https://www.google.com/chrome/" target="_blank">Google Chrome</a>, ' +
-      '<a href="https://www.opera.com/" target="_blank">Opera</a> ' +
-      translation.or +
-      ' <a href="https://www.microsoft.com/edge" target="_blank">Microsoft Edge</a> ' +
-      translation.to_display +
+      bootscore.ie_modern_browsers +
       '</p>' +
       '</div>';
     document.body.appendChild(IEWarningDiv);
