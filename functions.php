@@ -274,7 +274,7 @@ function bootscore_scripts() {
   wp_localize_script('bootscore-script', 'bootscore', array(
     'ie_title' => __('Internet Explorer detected', 'bootscore'),
     'ie_limited_functionality' => __('This website will offer limited functionality in this browser.', 'bootscore'),
-    'ie_modern_browsers' => sprintf(__('Please use a modern and secure web browser like <a href="%1$s" target="_blank">Mozilla Firefox</a>, <a href="%1$s" target="_blank">Google Chrome</a>, <a href="%1$s" target="_blank">Opera</a> or <a href="%1$s" target="_blank">Microsoft Edge</a> to display this site correctly.', 'bootscore'), esc_url('https://www.mozilla.org/firefox/'), esc_url('https://www.google.com/chrome/'), esc_url('http://www.opera.com/'), esc_url('https://www.microsoft.com/edge'))
+    'ie_modern_browsers' => sprintf(wp_kses(__('Please use a modern and secure web browser like <a href="%1$s" target="_blank">Mozilla Firefox</a>, <a href="%1$s" target="_blank">Google Chrome</a>, <a href="%1$s" target="_blank">Opera</a> or <a href="%1$s" target="_blank">Microsoft Edge</a> to display this site correctly.', 'bootscore'), array(  'a' => array( 'href' => array(), 'target' => array() ) ) ), esc_url('https://www.mozilla.org/firefox/'), esc_url('https://www.google.com/chrome/'), esc_url('http://www.opera.com/'), esc_url('https://www.microsoft.com/edge'))
   ));
 
   if (is_singular() && comments_open() && get_option('thread_comments')) {
