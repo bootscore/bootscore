@@ -54,7 +54,9 @@ jQuery(function ($) {
 jQuery(function ($) {
   // Smooth Scroll. Will be removed when Safari supports scroll-behaviour: smooth (Bootstrap 5).
   $(function () {
-    $('a[href*="#"]:not([href="#"]):not(a.comment-reply-link):not([href="#tab-reviews"]):not([href="#tab-additional_information"]):not([href="#tab-description"]):not([href="#reviews"]):not([href="#carouselExampleIndicators"]):not([data-smoothscroll="false"])').click(function () {
+    $(
+      'a[href*="#"]:not([href="#"]):not(a.comment-reply-link):not([href="#tab-reviews"]):not([href="#tab-additional_information"]):not([href="#tab-description"]):not([href="#reviews"]):not([href="#carouselExampleIndicators"]):not([data-smoothscroll="false"])',
+    ).click(function () {
       if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
         var target = $(this.hash);
         target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
@@ -106,4 +108,30 @@ jQuery(function ($) {
 
   // Alert links
   $('.alert a').addClass('alert-link');
+
+  // IE Warning
+  if (window.document.documentMode || true) {
+    let IEWarningDiv = document.createElement('div');
+    IEWarningDiv.setAttribute('class', 'position-fixed top-0 end-0 bottom-0 start-0 d-flex justify-content-center align-items-center');
+    IEWarningDiv.setAttribute('style', 'background:white;z-index:1999');
+    IEWarningDiv.innerHTML =
+      '<div style="max-width: 90vw;">' +
+      '<h1>' +
+      translation.ie_detected +
+      '</h1>' +
+      '<p className="lead">' +
+      translation.limited_functionality +
+      '</p>' +
+      '<p className="lead">' +
+      translation.different_browser +
+      ' <a href="https://www.mozilla.org/firefox/" target="_blank">Mozilla Firefox</a>, ' +
+      '<a href="https://www.google.com/chrome/" target="_blank">Google Chrome</a>, ' +
+      '<a href="https://www.opera.com/" target="_blank">Opera</a> ' +
+      translation.or +
+      ' <a href="https://www.microsoft.com/edge" target="_blank">Microsoft Edge</a> ' +
+      translation.to_display +
+      '</p>' +
+      '</div>';
+    document.body.appendChild(IEWarningDiv);
+  }
 }); // jQuery End

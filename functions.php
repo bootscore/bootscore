@@ -481,7 +481,7 @@ add_filter('use_widgets_block_editor', '__return_false');
 
 
 // Load IE warning javascript
-wp_enqueue_script( 'ie-warning', get_template_directory_uri() . '/js/ie-warning.js', array(), false, true);
+// wp_enqueue_script( 'ie-warning', get_template_directory_uri() . '/js/ie-warning.js', array(), false, true);
 add_action( 'wp_footer', 'add_localization');
 function add_localization () {
     $translation_array = array(
