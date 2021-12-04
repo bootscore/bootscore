@@ -110,7 +110,7 @@ jQuery(function ($) {
   $('.alert a').addClass('alert-link');
 
   // IE Warning
-  if (window.document.documentMode || true) {
+  if (window.document.documentMode) {
     let IEWarningDiv = document.createElement('div');
     IEWarningDiv.setAttribute('class', 'position-fixed top-0 end-0 bottom-0 start-0 d-flex justify-content-center align-items-center');
     IEWarningDiv.setAttribute('style', 'background:white;z-index:1999');
