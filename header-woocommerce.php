@@ -137,7 +137,7 @@
           <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <div class="offcanvas-body">
-          <div class="my-offcancas-account">
+          <div class="my-offcanvas-account">
             <?php include get_template_directory() . '/woocommerce/myaccount/my-account-offcanvas.php'; ?>
           </div>
         </div>
