@@ -386,7 +386,3 @@ msgstr ""
 #: woocommerce/single-product-reviews.php:134
 msgid "Your review...*"
 msgstr ""
-
-#: functions.php:277
-msgid "Please use a modern and secure web browser like <a href=\"%1$s\" target=\"_blank\">Mozilla Firefox</a>, <a href=\"%1$s\" target=\"_blank\">Google Chrome</a>, <a href=\"%1$s\" target=\"_blank\">Opera</a> or <a href=\"%1$s\" target=\"_blank\">Microsoft Edge</a> to display this site correctly."
-msgstr ""
