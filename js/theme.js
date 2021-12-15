@@ -123,9 +123,11 @@ jQuery(function ($) {
       bootscore.ie_limited_functionality +
       '</p>' +
       '<p className="lead">' +
-      bootscore.ie_modern_browsers +
+      bootscore.ie_modern_browsers_1 + bootscore.ie_modern_browsers_2 + bootscore.ie_modern_browsers_3 + bootscore.ie_modern_browsers_4 + bootscore.ie_modern_browsers_5 +
       '</p>' +
       '</div>';
     document.body.appendChild(IEWarningDiv);
   }
+  // IE Warning End
+  
 }); // jQuery End
