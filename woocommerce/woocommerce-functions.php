@@ -262,9 +262,8 @@ function bootscore_redirect_after_logout() {
 // Redirect to home on logout End
 
 
-
+// Redirect to my-account after (un)sucessful registration
 add_action('wp_loaded', 'bootscore_redirect_after_registration', 999);
-//Redirect to my-account after (un)sucessful registration
 function bootscore_redirect_after_registration() {
   $nonce_value = isset($_POST['_wpnonce']) ? wp_unslash($_POST['_wpnonce']) : ''; // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
   $nonce_value = isset($_POST['woocommerce-register-nonce']) ? wp_unslash($_POST['woocommerce-register-nonce']) : $nonce_value; // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
@@ -276,3 +275,4 @@ function bootscore_redirect_after_registration() {
     exit;
   }
 }
+// Redirect to my-account after (un)sucessful registration End
