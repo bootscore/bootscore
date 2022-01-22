@@ -8,6 +8,8 @@
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
  * @package Bootscore
+ * 
+ * @version 5.1.3.1
  */
 
 ?>
@@ -95,12 +97,12 @@
 
               <!-- Search Toggler Mobile -->
               <button class="btn btn-outline-secondary d-lg-none ms-1 ms-md-2 top-nav-search-md" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-search" aria-expanded="false" aria-controls="collapse-search">
-                <i class="fas fa-search"></i>
+                <i class="fas fa-search"></i><span class="visually-hidden-focusable">Search</span>
               </button>
 
               <!-- Navbar Toggler -->
               <button class="btn btn-outline-secondary d-lg-none ms-1 ms-md-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas-navbar" aria-controls="offcanvas-navbar">
-                <i class="fas fa-bars"></i>
+                <i class="fas fa-bars"></i><span class="visually-hidden-focusable">Menu</span>
               </button>
 
             </div><!-- .header-actions -->
