@@ -1,16 +1,3 @@
-/*--------------------------------------------------------------
->>> TABLE OF CONTENTS:
-----------------------------------------------------------------
-1.  Header
-2.  WooCommerce display none
-3.  WooCommerce
-4.  Colors
-
---------------------------------------------------------------*/
-
-
-
-
 
 
 /*--------------------------------------------------------------
@@ -99,14 +86,7 @@ a.woocommerce-LoopProduct-link.woocommerce-loop-product__link:hover {
   width: 100%;
 }
 
-.badge.sale,
-.badge.sale-product {
-  position: absolute;
-  top: 1rem;
-  left: 1rem;
-  font-size: 1.25rem;
-  z-index: 1;
-}
+
 
 .card.h-100.d-flex.product a:hover {
   text-decoration: none;
@@ -130,18 +110,7 @@ a.woocommerce-LoopProduct-link.woocommerce-loop-product__link:hover {
   }
 }
 
-.woocommerce table.shop_table td {
-  border-top: 1px solid;
-}
 
-#add_payment_method .cart-collaterals .cart_totals tr td,
-#add_payment_method .cart-collaterals .cart_totals tr th,
-.woocommerce-cart .cart-collaterals .cart_totals tr td,
-.woocommerce-cart .cart-collaterals .cart_totals tr th,
-.woocommerce-checkout .cart-collaterals .cart_totals tr td,
-.woocommerce-checkout .cart-collaterals .cart_totals tr th {
-  border-top: 1px solid;
-}
 
 .woocommerce-price-suffix {
   display: block;
@@ -201,6 +170,7 @@ label.custom-control-label {
   text-align: left;
   border-radius: 0;
 }
+
 
 .woocommerce .blockUI.blockOverlay:before,
 .woocommerce .loader:before,
@@ -278,26 +248,11 @@ span.password-input {
   width: 100%;
 }
 
-button#place_order {
-  width: 100%;
-  margin-top: 1rem;
-}
 
-.woocommerce table.shop_attributes td {
-  font-style: normal;
-}
 
-.woocommerce table.shop_attributes td {
-  border-bottom: 1px solid;
-}
 
-.woocommerce table.shop_attributes th {
-  border-bottom: 1px solid;
-}
 
-.woocommerce table.shop_attributes {
-  border-top: 1px solid;
-}
+
 
 .product_meta .sku_wrapper::after,
 .product_meta .posted_in::after {
@@ -310,14 +265,7 @@ button#place_order {
   border-top: none;
 }
 
-@media (max-width: 768px) {
-  td.actions,
-  .woocommerce table.shop_table_responsive tr:nth-child(2n) td,
-  .woocommerce-page table.shop_table_responsive tr:nth-child(2n) td {
-    border-bottom-right-radius: calc(0.25rem - 1px);
-    border-bottom-left-radius: calc(0.25rem - 1px);
-  }
-}
+
 
 ul.tabs.wc-tabs::-webkit-scrollbar {
   display: none;
@@ -331,17 +279,7 @@ ul.tabs.wc-tabs {
   text-align: center;
 }
 
-@media (max-width: 991px) {
-  a.btn.btn-outline-primary.btn-sm.invoice {
-    margin-top: 0.25rem;
-  }
-}
 
-@media (min-width: 992px) {
-  a.btn.btn-outline-primary.btn-sm.invoice {
-    margin-left: 0.25rem;
-  }
-}
 
 .woocommerce form .show-password-input,
 .woocommerce-page form .show-password-input {
@@ -372,17 +310,8 @@ ul.tabs.wc-tabs {
   }
 }
 
-/* Block buttons download breakpoint WooCommerce is 769 px! */
 
-@media (min-width: 769px) {
-  a.woocommerce-MyAccount-downloads-file.btn.btn-outline-primary.btn-sm {
-    display: block;
-  }
-}
 
-.restore-item {
-  font-weight: bold;
-}
 
 .woocommerce ul#shipping_method li {
   padding-left: 0;
@@ -393,63 +322,14 @@ ul.tabs.wc-tabs {
   font-weight: normal;
 }
 
-.card .price .woocommerce-Price-amount.amount {
-  font-size: 1.25rem;
-}
-
-.woocommerce div.product p.price .woocommerce-Price-amount.amount {
-  font-size: 2.5rem;
-}
-
-.woocommerce-variation-price {
-  font-size: 2rem;
-}
 
 .woocommerce div.product form.cart .variations {
   margin-bottom: 0;
 }
 
-@media (max-width: 768px) {
-  .woocommerce ul#shipping_method {
-    clear: both;
-    text-align: left;
-    margin: 2rem 0 0 0 !important;
-  }
-  .woocommerce-shipping-destination {
-    text-align: left;
-  }
-  .woocommerce-shipping-calculator {
-    text-align: left;
-  }
-}
 
-/* Comments */
-#woo-comments .star-rating {
-  float: right;
-  margin: 0;
-}
 
-#woo-comments .depth-2 {
-  padding-left: 65px;
-}
 
-#woo-comments p:last-child {
-  margin-bottom: 0;
-}
 
-/* Forms */
-.woocommerce form .form-row input.input-text,
-.woocommerce form .form-row textarea {
-  line-height: inherit;
-}
 
-/* Terms checkboxes */
-.woocommerce form .form-row .input-checkbox {
-  margin: 0.25em 0 0 -1.5rem;
-  vertical-align: top;
-}
-
-#account_password {
-  background-position: right 2.25rem center;
-}
 
