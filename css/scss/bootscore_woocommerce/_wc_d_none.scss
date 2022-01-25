@@ -1,0 +1,17 @@
+/*--------------------------------------------------------------
+WooCommerce display none
+--------------------------------------------------------------*/
+
+a.added_to_cart.wc-forward,
+.woocommerce div.product .woocommerce-tabs ul.tabs li:nth-child(1):before,
+ul.tabs.wc-tabs li:after,
+span#select2-billing_country-container,
+a.about_paypal,
+.woocommerce-message.alert .button.wc-forward {
+  display: none;
+}
+
+// Hide overlay in product add-to-cart-button 
+form.cart .blockUI.blockOverlay {
+  display: none !important;
+}

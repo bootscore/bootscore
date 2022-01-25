@@ -1,0 +1,48 @@
+/*--------------------------------------------------------------
+WooCommerce Buttons
+--------------------------------------------------------------*/
+
+/*
+.woocommerce #respond input#submit,
+.woocommerce a.button,
+.woocommerce button.button,
+.woocommerce input.button {
+  color: var(--bscore-wc-button-color, var(--bs-primary));
+  background-color: transparent;
+  border-color: var(--bscore-wc-button-border, var(--bs-primary));
+}
+
+.woocommerce #respond input#submit:hover,
+.woocommerce a.button:hover,
+.woocommerce button.button:hover,
+.woocommerce input.button:hover {
+  color: var(--bscore-wc-button-color-hover, var(--bs-white));
+  background-color: var(--bscore-wc-button-border-hover, var(--bs-primary));
+}
+*/
+
+
+
+/*
+.woocommerce #respond input#submit,
+.woocommerce a.button,
+.woocommerce button.button,
+.woocommerce input.button {
+  font-size: 1rem;
+  line-height: 1.5;
+  padding: 0.375rem 0.75rem;
+  font-weight: 400;
+  border-radius: 0.25rem;
+  border: 1px solid;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+*/
+
+.woocommerce #respond input#submit,
+.woocommerce a.button,
+.woocommerce button.button,
+.woocommerce input.button {
+  @extend .btn;
+  @extend .btn-outline-primary;
+}
