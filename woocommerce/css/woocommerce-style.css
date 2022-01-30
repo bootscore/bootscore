@@ -84,10 +84,6 @@ a.woocommerce-LoopProduct-link.woocommerce-loop-product__link:hover {
 
 
 
-.card.h-100.d-flex.product a:hover {
-  text-decoration: none;
-}
-
 .woocommerce .col2-set .col-1,
 .woocommerce-page .col2-set .col-1 {
   float: none;
@@ -116,11 +112,6 @@ ins {
   text-decoration: none;
 }
 
-#add_payment_method #payment div.payment_box,
-.woocommerce-cart #payment div.payment_box,
-.woocommerce-checkout #payment div.payment_box {
-  border-radius: 0.25rem;
-}
 
 
 
@@ -152,37 +143,8 @@ label.custom-control-label {
 }
 
 
-.woocommerce .blockUI.blockOverlay:before,
-.woocommerce .loader:before,
-#offcanvas-cart .blockUI.blockOverlay:before,
-#offcanvas-cart .loader:before {
-  height: 3em;
-  width: 3em;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  margin-left: -0.5em;
-  margin-top: -0.5em;
-  display: block;
-  content: '';
-  -webkit-animation: none;
-  -moz-animation: none;
-  animation: none;
-  background: none;
-  background-size: cover;
-  line-height: 1;
-  text-align: center;
-  font-size: 2em;
-  display: inline-block;
-  width: 2rem;
-  height: 2rem;
-  vertical-align: text-bottom;
-  border: 0.13em solid currentColor;
-  border-right-color: transparent;
-  border-radius: 50%;
-  -webkit-animation: spinner-border 0.75s linear infinite;
-  animation: spinner-border 0.75s linear infinite;
-}
+
+
 
 .woocommerce-variation.single_variation {
   margin-bottom: 2rem;
