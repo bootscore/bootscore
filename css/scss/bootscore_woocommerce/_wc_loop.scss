@@ -1,0 +1,14 @@
+/*--------------------------------------------------------------
+Loop
+--------------------------------------------------------------*/
+
+// Hide View cart
+.card .added_to_cart.wc-forward {
+  display: none;
+}
+
+// Star ratings
+.card .star-rating {
+  float: none;
+  margin: 1rem auto;
+}

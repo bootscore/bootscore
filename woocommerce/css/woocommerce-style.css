@@ -61,11 +61,7 @@
   padding: 0;
 }
 
-.products .card .star-rating,
-.card .star-rating {
-  float: none;
-  margin: 1rem auto;
-}
+
 
 .card .star-rating span::before {
   text-align: left;
@@ -126,23 +122,7 @@ ins {
   border-radius: 0.25rem;
 }
 
-.woocommerce div.product .woocommerce-tabs ul.tabs li:nth-child(1) {
-  margin-left: -16px;
-}
 
-.woocommerce div.product .woocommerce-tabs ul.tabs::before {
-  z-index: 0;
-}
-
-.woocommerce div.product .woocommerce-tabs ul.tabs li::before {
-  border-bottom-right-radius: 0;
-  border-width: 0;
-  box-shadow: none;
-}
-
-.woocommerce div.product .woocommerce-tabs ul.tabs li {
-  border-radius: 0.25rem 0.25rem 0 0;
-}
 
 button.single_add_to_cart_button.btn.btn-primary.disabled.wc-variation-selection-needed:hover {
   cursor: not-allowed;
