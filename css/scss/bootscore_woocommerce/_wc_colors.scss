@@ -67,7 +67,7 @@ ins {
 .woocommerce-cart .cart-collaterals .cart_totals tr th,
 .woocommerce-checkout .cart-collaterals .cart_totals tr td,
 .woocommerce-checkout .cart-collaterals .cart_totals tr th {
-  border-color: var(--bscore-wc-cart-totals-divider, var(--bs-gray-300)) !important;
+  border-color: var(--bscore-wc-cart-totals-divider, var(--bs-gray-300));
 }
 
 #add_payment_method #payment div.payment_box,
