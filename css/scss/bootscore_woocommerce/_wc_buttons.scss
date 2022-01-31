@@ -10,7 +10,6 @@ WooCommerce Buttons
   @extend .btn-outline-primary;
 }
 
-
 // Block buttons download breakpoint WooCommerce is 769px
 @media (min-width: 769px) {
   a.woocommerce-MyAccount-downloads-file.btn.btn-outline-primary.btn-sm {
