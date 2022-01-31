@@ -1,0 +1,25 @@
+/*--------------------------------------------------------------
+WooCommerce Checkout
+--------------------------------------------------------------*/
+
+#add_payment_method #payment div.payment_box,
+.woocommerce-cart #payment div.payment_box,
+.woocommerce-checkout #payment div.payment_box {
+  @extend .rounded;
+}
+
+.woocommerce-terms-and-conditions {
+  border: none;
+  box-shadow: none;
+  border-radius: 0.25rem;
+}
+
+.woocommerce form.checkout_coupon,
+.woocommerce form.login,
+.woocommerce form.register {
+  border: none;
+  padding: 0;
+  margin: 0;
+  //text-align: left;
+  //border-radius: 0;
+}

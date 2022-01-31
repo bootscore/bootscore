@@ -1,0 +1,32 @@
+/*--------------------------------------------------------------
+WooCommerce Forms
+--------------------------------------------------------------*/
+
+.woocommerce form .form-row input.input-text,
+.woocommerce form .form-row textarea {
+  line-height: inherit;
+}
+
+/* Terms checkboxes */
+.woocommerce form .form-row .input-checkbox {
+  margin: 0.25em 0 0 -1.5rem;
+  vertical-align: top;
+}
+
+#account_password {
+  background-position: right 2.25rem center;
+}
+
+.woocommerce form .show-password-input,
+.woocommerce-page form .show-password-input {
+  top: 0.5em;
+}
+
+.woocommerce form .form-row {
+  padding: 0;
+  margin: 0 0 1rem;
+}
+
+.woocommerce form .form-row label {
+  line-height: 1.5;
+}

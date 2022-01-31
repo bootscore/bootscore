@@ -1,0 +1,37 @@
+/*--------------------------------------------------------------
+WooCommerce Tables
+--------------------------------------------------------------*/
+
+.woocommerce table.shop_attributes td {
+  border-bottom: 1px solid;
+}
+
+.woocommerce table.shop_attributes th {
+  border-bottom: 1px solid;
+}
+
+.woocommerce table.shop_attributes {
+  border-top: 1px solid;
+}
+
+@include media-breakpoint-down(md) {
+  td.actions,
+  .woocommerce table.shop_table_responsive tr:nth-child(2n) td,
+  .woocommerce-page table.shop_table_responsive tr:nth-child(2n) td {
+    border-bottom-right-radius: calc(0.25rem - 1px);
+    border-bottom-left-radius: calc(0.25rem - 1px);
+  }
+}
+
+.woocommerce table.shop_table td {
+  border-top: 1px solid;
+}
+
+#add_payment_method .cart-collaterals .cart_totals tr td,
+#add_payment_method .cart-collaterals .cart_totals tr th,
+.woocommerce-cart .cart-collaterals .cart_totals tr td,
+.woocommerce-cart .cart-collaterals .cart_totals tr th,
+.woocommerce-checkout .cart-collaterals .cart_totals tr td,
+.woocommerce-checkout .cart-collaterals .cart_totals tr th {
+  border-top: 1px solid;
+}

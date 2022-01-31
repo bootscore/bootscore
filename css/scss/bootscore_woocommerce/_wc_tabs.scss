@@ -1,0 +1,61 @@
+/*--------------------------------------------------------------
+WooCommerce Tabs
+--------------------------------------------------------------*/
+
+
+// Tabs
+.woocommerce div.product .woocommerce-tabs ul.tabs li:nth-child(1) {
+  margin-left: -16px;
+}
+
+.woocommerce div.product .woocommerce-tabs ul.tabs::before {
+  z-index: 0;
+}
+
+.woocommerce div.product .woocommerce-tabs ul.tabs li::before {
+  border-bottom-right-radius: 0;
+  border-width: 0;
+  box-shadow: none;
+}
+
+.woocommerce div.product .woocommerce-tabs ul.tabs li:nth-child(1):before,
+ul.tabs.wc-tabs li:after {
+  display: none;
+}
+
+.woocommerce div.product .woocommerce-tabs ul.tabs li {
+  @extend .rounded-top;
+}
+
+/*
+// Futire idea
+.tabs.wc-tabs {
+  @extend .nav;
+  @extend .nav-tabs;
+}
+
+.tabs.wc-tabs li {
+  @extend .nav-item;
+}
+
+.tabs.wc-tabs li a {
+  @extend .nav-link;
+}
+*/
+
+ul.tabs.wc-tabs {
+  overflow-x: auto !important;
+  white-space: nowrap;
+}
+
+.tabs.wc-tabs::-webkit-scrollbar {
+  display: none;
+}
+
+.tabs.wc-tabs {
+  -ms-overflow-style: none;
+}
+
+.reviews_tab {
+  margin-right: 0;
+}

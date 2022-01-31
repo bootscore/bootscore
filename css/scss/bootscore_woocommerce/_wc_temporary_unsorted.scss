@@ -1,0 +1,106 @@
+/*--------------------------------------------------------------
+WooCommerce Temporary Unsorted
+--------------------------------------------------------------*/
+
+.woocommerce .woocommerce-customer-details address {
+  border: 0;
+  width: 100%;
+  padding: 0;
+}
+
+.woocommerce .cart-collaterals .cart_totals,
+.woocommerce-page .cart-collaterals .cart_totals {
+  float: none;
+  width: 100%;
+}
+
+.group_table .add-to-cart-container {
+  width: 130px;
+}
+
+#add_payment_method table.cart td.actions .coupon .input-text,
+.woocommerce-cart table.cart td.actions .coupon .input-text,
+.woocommerce-checkout table.cart td.actions .coupon .input-text {
+  float: none;
+  border: 0;
+  padding: 0;
+}
+
+.woocommerce ul.cart_list li .star-rating,
+.woocommerce ul.product_list_widget li .star-rating {
+  float: none;
+  margin: 0.5rem 0;
+}
+
+.woocommerce-input-wrapper {
+  width: 100%;
+}
+
+.woocommerce .col2-set .col-1,
+.woocommerce-page .col2-set .col-1 {
+  float: none;
+  width: 100%;
+}
+
+.woocommerce .col2-set .col-2,
+.woocommerce-page .col2-set .col-2 {
+  float: none;
+  width: 100%;
+}
+
+
+@include media-breakpoint-down(md) {
+  .refresh-cart {
+    width: 100%;
+  }
+}
+
+.woocommerce-price-suffix {
+  display: block;
+}
+
+ins {
+  text-decoration: none;
+}
+
+label.custom-control-label {
+  line-height: 1.5 !important;
+}
+
+#payment label.form-check-label img {
+  height: 1.25rem;
+  margin-left: 0.25rem;
+}
+
+.woocommerce-variation.single_variation {
+  margin-bottom: 2rem;
+}
+
+.woocommerce .woocommerce-terms-and-conditions,
+.woocommerce-page .woocommerce-terms-and-conditions {
+  margin-bottom: 1rem;
+  padding: 1.25rem;
+}
+
+/*
+span.password-input {
+  width: 100%;
+}
+*/
+
+#order_review .legal label {
+  display: block !important;
+}
+
+.place-order div {
+  width: 100%;
+}
+
+.woocommerce ul#shipping_method li {
+  padding-left: 0;
+}
+
+.woocommerce div.product p.price ins,
+.woocommerce div.product span.price ins {
+  font-weight: normal;
+}

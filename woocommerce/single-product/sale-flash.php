@@ -25,7 +25,7 @@ global $post, $product;
 ?>
 <?php if ($product->is_on_sale()) : ?>
 
-	<?php echo apply_filters('woocommerce_sale_flash', '<span class="badge bg-danger sale-product">%</span>', $post, $product); ?>
+	<?php echo apply_filters('woocommerce_sale_flash', '<span class="badge bg-danger sale">%</span>', $post, $product); ?>
 
 <?php endif;
 
