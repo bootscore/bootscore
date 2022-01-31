@@ -38,11 +38,7 @@ add_action('after_setup_theme', 'register_ajax_cart');
 function wc_scripts() {
 
   // Get modification time. Enqueue files with modification date to prevent browser from loading cached scripts and styles when file content changes. 
-  $modificated_WooCommercestyleCss = date('YmdHi', filemtime(get_template_directory() . '/woocommerce/css/woocommerce-style.css'));
   $modificated_WooCommerceJS = date('YmdHi', filemtime(get_template_directory() . '/woocommerce/js/woocommerce.js'));
-
-  // WooCommerce CSS	
-  wp_enqueue_style('woocommerce', get_template_directory_uri() . '/woocommerce/css/woocommerce-style.css', array(), $modificated_WooCommercestyleCss);
 
   // WooCommerce JS
   wp_enqueue_script('woocommerce-script', get_template_directory_uri() . '/woocommerce/js/woocommerce.js', array(), $modificated_WooCommerceJS, true);
