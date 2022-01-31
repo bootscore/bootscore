@@ -1,5 +1,5 @@
 /*--------------------------------------------------------------
-Loop
+WooCommerce Loop
 --------------------------------------------------------------*/
 
 // Hide View cart
@@ -11,4 +11,14 @@ Loop
 .card .star-rating {
   float: none;
   margin: 1rem auto;
+}
+
+.card .star-rating span::before {
+  text-align: left;
+}
+
+// Loop link
+a.woocommerce-LoopProduct-link.woocommerce-loop-product__link,
+a.woocommerce-LoopProduct-link.woocommerce-loop-product__link:hover {
+  text-decoration: none;
 }

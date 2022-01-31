@@ -34,3 +34,8 @@ button#place_order {
   width: 100%;
   margin-top: 1rem;
 }
+
+// Cursor variable product needs selection
+button.single_add_to_cart_button.btn.btn-primary.disabled.wc-variation-selection-needed:hover {
+  cursor: not-allowed;
+}

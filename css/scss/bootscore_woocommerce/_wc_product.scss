@@ -1,5 +1,5 @@
 /*--------------------------------------------------------------
-Product
+WooCommerce Product Page
 --------------------------------------------------------------*/
 
 
@@ -19,4 +19,19 @@ Product
   display: none !important;
 }
 
+// Line break in meta
+.product_meta .sku_wrapper::after,
+.product_meta .posted_in::after {
+  content: '\A';
+  white-space: pre;
+}
+
+// Variations select
+.woocommerce div.product form.cart .variations select {
+  margin-right: 0;
+}
+
+.woocommerce div.product form.cart .variations {
+  margin-bottom: 0;
+}
 
