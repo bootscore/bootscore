@@ -1,5 +1,5 @@
 /*--------------------------------------------------------------
-Tabs
+WooCommerce Tabs
 --------------------------------------------------------------*/
 
 
@@ -27,10 +27,8 @@ ul.tabs.wc-tabs li:after {
   @extend .rounded-top;
 }
 
-
-
-
 /*
+// Futire idea
 .tabs.wc-tabs {
   @extend .nav;
   @extend .nav-tabs;
@@ -44,7 +42,6 @@ ul.tabs.wc-tabs li:after {
   @extend .nav-link;
 }
 */
-
 
 ul.tabs.wc-tabs {
   overflow-x: auto !important;
