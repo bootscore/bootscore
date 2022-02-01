@@ -21,7 +21,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 ?>
 <div <?php wc_product_cat_class( 'col-md-6 col-lg-4 col-xxl-3 mb-4', $category ); ?>>
   
-  <div class="card">
+  <div class="card h-100">
     
 	<?php
 	/**
@@ -39,7 +39,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	do_action( 'woocommerce_before_subcategory_title', $category );
 
     ?>
-      <div class="card-body">
+      <div class="card-body d-flex flex-column">
         <?php
     
         /**
