@@ -20,6 +20,11 @@ WooCommerce Checkout
   border: none;
   padding: 0;
   margin: 0;
-  //text-align: left;
-  //border-radius: 0;
 }
+
+// Hide Paypal img and link
+#payment .payment_method_paypal img,
+.woocommerce-checkout #payment .payment_method_paypal .about_paypal {
+  display: none;
+}
+
