@@ -7,7 +7,16 @@ WooCommerce Loader
 .woocommerce .loader:before,
 #offcanvas-cart .blockUI.blockOverlay:before,
 #offcanvas-cart .loader:before {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -0.5em;
+  margin-top: -0.5em;
+  content: '';
   background: none;
+  line-height: 1;
+  text-align: center;
+  font-size: 2em;
 }
 
 // spinner-border
