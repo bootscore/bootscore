@@ -6,7 +6,7 @@ WooCommerce Loop
 
 // Hide View cart
 .added_to_cart.wc-forward {
-  display: none;
+  display: none !important;
 }
 
 // Star ratings
