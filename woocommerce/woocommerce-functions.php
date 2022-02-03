@@ -91,18 +91,6 @@ endif;
 // WooCommerce Breadcrumb End
 
 
-// Optional Telephone
-if (!function_exists('evolution_phone_no_pflicht')) :
-
-  function evolution_phone_no_pflicht($address_fields) {
-    $address_fields['billing_phone']['required'] = false;
-    return $address_fields;
-  }
-  add_filter('woocommerce_billing_fields', 'evolution_phone_no_pflicht', 10, 1);
-endif;
-// Optional Telephone End
-
-
 // Bootstrap Billing forms
 function iap_wc_bootstrap_form_field_args($args, $key, $value) {
 
