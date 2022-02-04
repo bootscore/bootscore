@@ -2,17 +2,14 @@
 WooCommerce Single Product Tabs
 --------------------------------------------------------------*/
 
+// Make tabs horrizontally scrollable 
 .tab-scroller {
-  overflow-x: auto;
   white-space: nowrap;
 }
 
 .tab-scroller .nav {
   flex-wrap: nowrap;
-  //margin-right: -77px;
-  //width: 121%;
 }
-
 
 // Hide scrollbars
 .tab-scroller::-webkit-scrollbar {
