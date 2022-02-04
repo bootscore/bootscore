@@ -10,7 +10,8 @@ WooCommerce Loop
 }
 
 // Star ratings
-.card .star-rating {
+.card .star-rating, 
+.woocommerce .card .star-rating {
   float: none;
   margin: 1rem auto;
 }
