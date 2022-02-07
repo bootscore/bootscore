@@ -45,8 +45,11 @@ Alerts
 .must-log-in {
   @extend .alert;
   @extend .alert-info;
+}
 
-  a {
-    @extend .alert-link;
-  }
+
+// Reset link colors
+.alert a {
+  color: inherit;
+  font-weight: 700;
 }

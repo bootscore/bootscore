@@ -1,0 +1,9 @@
+/*--------------------------------------------------------------
+WooCommerce Alerts
+--------------------------------------------------------------*/
+
+// Reset icon color in alerts
+.woocommerce-info::before,
+.woocommerce-message::before {
+  color: inherit;
+}

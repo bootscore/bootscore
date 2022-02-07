@@ -147,13 +147,6 @@ ins {
   background-color: var(--bscore-wc-price-slider, var(--bs-primary));
 }
 
-.woocommerce-info::before,
-.woocommerce-message::before,
-.restore-item,
-.restore-item:hover {
-  color: inherit;
-}
-
 /* Validation */
 .woocommerce-invalid #terms {
   outline: none;
