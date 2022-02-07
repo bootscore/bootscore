@@ -101,6 +101,4 @@ jQuery(function ($) {
   $('.height-85').css('height', 0.85 * $(window).height());
   $('.height-100').css('height', 1.0 * $(window).height());
 
-  // Alert links
-  $('.alert a').addClass('alert-link');
 }); // jQuery End

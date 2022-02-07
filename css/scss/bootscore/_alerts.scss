@@ -2,6 +2,7 @@
 Alerts
 --------------------------------------------------------------*/
 
+
 .alert {
 
   &.alert-danger,
@@ -21,6 +22,7 @@ Alerts
   }
 }
 
+
 // Add icons
 .alert-danger::before {
   content: '\f071';
@@ -38,8 +40,13 @@ Alerts
   content: '\f058';
 }
 
+
 // Add alert-info to must-log-in comments
 .must-log-in {
   @extend .alert;
   @extend .alert-info;
+
+  a {
+    @extend .alert-link;
+  }
 }
