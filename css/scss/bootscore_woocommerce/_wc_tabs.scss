@@ -2,7 +2,7 @@
 WooCommerce Single Product Tabs
 --------------------------------------------------------------*/
 
-// Make tabs horizontally scrollable
+// Make tabs horrizontally scrollable
 .tab-scroller {
   white-space: nowrap;
 
@@ -15,5 +15,5 @@ WooCommerce Single Product Tabs
     display: none;
   }
 
-  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
