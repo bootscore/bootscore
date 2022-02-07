@@ -101,9 +101,4 @@ jQuery(function ($) {
   $('.height-85').css('height', 0.85 * $(window).height());
   $('.height-100').css('height', 1.0 * $(window).height());
 
-  // Forms
-  $('select').addClass('form-select').removeClass('form-control'); // form-control is added to select by WooCommerce form filter
-
-  // Alert links
-  $('.alert a').addClass('alert-link');
 }); // jQuery End
