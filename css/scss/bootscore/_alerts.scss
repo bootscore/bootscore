@@ -49,7 +49,7 @@ Alerts
 
 
 // Reset link colors
-.alert a {
+.alert a:not(.alert a.btn) {
   color: inherit;
   font-weight: 700;
 }
