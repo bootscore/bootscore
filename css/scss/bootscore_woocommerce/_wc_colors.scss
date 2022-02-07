@@ -86,21 +86,8 @@ ins {
   border-bottom-color: var(--bscore-wc-payment-box, var(--bs-light));
 }
 
-.woocommerce div.product .woocommerce-tabs ul.tabs li {
-  border: 1px solid var(--bscore-wc-tabs-border, var(--bs-gray-300));
-  background-color: var(--bscore-wc-tabs-bg, var(--bs-light));
-}
-
-.woocommerce div.product .woocommerce-tabs ul.tabs::before {
-  border-bottom: 1px solid var(--bscore-wc-tabs-border, var(--bs-gray-300));
-}
-
 .woocommerce-terms-and-conditions {
   background: var(--bscore-terms, var(--bs-light));
-}
-
-.woocommerce div.product .woocommerce-tabs ul.tabs li a {
-  color: var(--bscore-wc-tabs-a, var(--bs-primary));
 }
 
 .woocommerce-checkout .shop_table {
