@@ -6,14 +6,10 @@
 }
 .woocommerce {
     .quantity {
-            input.qty {
-            appearance: textfield;
-            -webkit-appearance: none;
-            -moz-appearance: textfield;
-            }
-            .btn {
-                font-size: .75rem;
-            }
+        input.qty {
+        appearance: textfield;
+        -webkit-appearance: none;
+        -moz-appearance: textfield;
+        }
     }
-
 }
