@@ -1,0 +1,19 @@
+/* Hide browser arrows in quantity input */
+.quantity input::-webkit-outer-spin-button,
+.quantity input::-webkit-inner-spin-button {
+  display: none;
+  margin: 0;
+}
+.woocommerce {
+    .quantity {
+            input.qty {
+            appearance: textfield;
+            -webkit-appearance: none;
+            -moz-appearance: textfield;
+            }
+            .btn {
+                font-size: .75rem;
+            }
+    }
+
+}

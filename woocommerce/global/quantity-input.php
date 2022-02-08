@@ -28,11 +28,11 @@ if ($max_value && $min_value === $max_value) {
   /* translators: %s: Quantity. */
   $label = !empty($args['product_name']) ? sprintf(esc_html__('%s quantity', 'woocommerce'), wp_strip_all_tags($args['product_name'])) : esc_html__('Quantity', 'woocommerce');
 ?>
-  <div class="quantity">
-    <?php do_action('woocommerce_before_quantity_input_field'); ?>
-    <label class="screen-reader-text" for="<?php echo esc_attr($input_id); ?>"><?php echo esc_attr($label); ?></label>
-    <input type="number" id="<?php echo esc_attr($input_id); ?>" class="input-text qty text form-control ms-auto ms-lg-0" step="<?php echo esc_attr($step); ?>" min="<?php echo esc_attr($min_value); ?>" max="<?php echo esc_attr(0 < $max_value ? $max_value : ''); ?>" name="<?php echo esc_attr($input_name); ?>" value="<?php echo esc_attr($input_value); ?>" title="<?php echo esc_attr_x('Qty', 'Product quantity input tooltip', 'woocommerce'); ?>" size="4" placeholder="<?php echo esc_attr($placeholder); ?>" inputmode="<?php echo esc_attr($inputmode); ?>" />
-    <?php do_action('woocommerce_after_quantity_input_field'); ?>
+  <div class="quantity d-flex mb-2 mb-xxl-0 me-sm-3">
+    <button type="button" class="btn btn-secondary qty_button minus rounded-0 rounded-start"><i class="fas fa-minus"></i></button>
+    <label class="screen-reader-text" for="<?php echo esc_attr($input_id); ?>"><?php esc_html_e('Quantity', 'woocommerce'); ?></label>
+    <input type="number" id="<?php echo esc_attr($input_id); ?>" class="input-text qty text form-control w-100 rounded-0" step="<?php echo esc_attr($step); ?>" min="<?php echo esc_attr($min_value); ?>" max="<?php echo esc_attr(0 < $max_value ? $max_value : ''); ?>" name="<?php echo esc_attr($input_name); ?>" value="<?php echo esc_attr($input_value); ?>" title="<?php echo esc_attr_x('Qty', 'Product quantity input tooltip', 'woocommerce'); ?>" size="4" pattern="<?php echo esc_attr($pattern); ?>" inputmode="<?php echo esc_attr($inputmode); ?>" aria-labelledby="<?php echo esc_attr($labelledby); ?>" />
+    <button type="button" class="btn btn-secondary qty_button plus rounded-0 rounded-end"><i class="fas fa-plus"></i></button>
   </div>
 <?php
 }
