@@ -1,20 +1,23 @@
+/*--------------------------------------------------------------
+Single page-*.php and post-*.php
+--------------------------------------------------------------*/
+
+
+// Featured image
 .wp-post-image {
   width: 100%;
 }
 
-.page-image img,
-.post-image img {
-  width: 100%;
-  object-fit: contain;
-  height: auto;
-}
 
+// Featured full-width- image
 .featured-full-width-img {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 }
 
+
+// Pagination
 [rel='prev']:before {
   content: '« ';
 }

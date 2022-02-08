@@ -1,0 +1,15 @@
+/*--------------------------------------------------------------
+Offcanvas
+--------------------------------------------------------------*/
+
+
+// Offcanvas Backdrop
+.offcanvas-backdrop.fade {
+  transition: opacity 0.4s ease-in-out;
+}
+
+
+// Show that the background is clickable and can close offcanvas on click
+.offcanvas-backdrop {
+  cursor: pointer;
+}
