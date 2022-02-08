@@ -1,31 +1,62 @@
+/*--------------------------------------------------------------
+Header
+--------------------------------------------------------------*/
+
+
+// Mobile
 @media (max-width: 782px) {
+  // Fixed admin-bar
   #wpadminbar {
     position: fixed;
   }
 
   .logged-in.admin-bar {
-    .fixed-top, .offcanvas:not(.offcanvas-bottom), .modal {
+
+    // Push content down when WP admin-bar is visible
+    .fixed-top,
+    .offcanvas:not(.offcanvas-bottom),
+    .modal-dialog {
       top: 46px;
     }
 
-    .modal-fullscreen {
+    // Adjust modal height
+    .modal-fullscreen,
+    .modal-fullscreen-sm-down,
+    .modal-fullscreen-md-down,
+    .modal-fullscreen-lg-down,
+    .modal-fullscreen-xl-down,
+    .modal-fullscreen-xxl-down {
       height: calc(100% - 46px);
     }
   }
 }
 
+
+// Desktop
 @media (min-width: 783px) {
   .logged-in.admin-bar {
-    .fixed-top, .offcanvas:not(.offcanvas-bottom), .modal {
+
+    // Push content down when WP admin-bar is visible
+    .fixed-top,
+    .offcanvas:not(.offcanvas-bottom),
+    .modal-dialog {
       top: 32px;
     }
 
-    .modal-fullscreen {
+    // Adjust modal height
+    .modal-fullscreen,
+    .modal-fullscreen-sm-down,
+    .modal-fullscreen-md-down,
+    .modal-fullscreen-lg-down,
+    .modal-fullscreen-xl-down,
+    .modal-fullscreen-xxl-down {
       height: calc(100% - 32px);
     }
   }
 }
 
+
+// Reset Bootstrap last nav-bar nav-link padding
 #nav-main .menu-item:last-child .nav-link {
   padding-right: 0;
 }

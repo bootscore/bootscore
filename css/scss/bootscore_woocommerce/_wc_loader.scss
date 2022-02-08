@@ -1,0 +1,55 @@
+/*--------------------------------------------------------------
+WooCommerce Loader
+--------------------------------------------------------------*/
+
+// reset WooCommerce default loader
+.woocommerce .blockUI.blockOverlay:before,
+.woocommerce .loader:before,
+#offcanvas-cart .blockUI.blockOverlay:before,
+#offcanvas-cart .loader:before {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -0.5em;
+  margin-top: -0.5em;
+  content: '';
+  background: none;
+  line-height: 1;
+  text-align: center;
+  font-size: 2em;
+}
+
+// spinner-border
+.woocommerce .blockUI.blockOverlay:before,
+.woocommerce .loader:before,
+#offcanvas-cart .blockUI.blockOverlay:before,
+#offcanvas-cart .loader:before {
+  display: inline-block;
+  width: 2rem;
+  height: 2rem;
+  vertical-align: text-bottom;
+  border: 0.13em solid currentColor;
+  border-right-color: transparent;
+  border-radius: 50%;
+  -webkit-animation: spinner-border 0.75s linear infinite;
+  animation: spinner-border 0.75s linear infinite;
+}
+
+/*
+// spinner-grow
+// Copy this to child for spinner-grow instead spinner-border
+.woocommerce .blockUI.blockOverlay:before,
+.woocommerce .loader:before,
+#offcanvas-cart .blockUI.blockOverlay:before,
+#offcanvas-cart .loader:before {
+  display: inline-block;
+  width: 2rem;
+  height: 2rem;
+  vertical-align: -.125em;
+  background-color: currentColor;
+  border-radius: 50%;
+  opacity: 0;
+  -webkit-animation: .75s linear infinite spinner-grow;
+  animation: .75s linear infinite spinner-grow;
+}
+*/

@@ -1,0 +1,39 @@
+/*--------------------------------------------------------------
+WooCommerce Loop
+--------------------------------------------------------------*/
+
+// Products
+
+// Hide View cart
+.added_to_cart.wc-forward {
+  display: none !important;
+}
+
+// Star ratings
+.card .star-rating, 
+.woocommerce .card .star-rating {
+  float: none;
+  margin: 1rem auto;
+}
+
+.card .star-rating span::before {
+  text-align: left;
+}
+
+// Loop link
+a.woocommerce-LoopProduct-link.woocommerce-loop-product__link,
+a.woocommerce-LoopProduct-link.woocommerce-loop-product__link:hover {
+  text-decoration: none;
+}
+
+// Categories
+
+// If loop item is WC subcategory, set btn to bottom
+.product-category .card-body a {
+  margin-top: auto;
+}
+
+// Category loop image
+.product-category .card img {
+  @extend .card-img-top;
+}

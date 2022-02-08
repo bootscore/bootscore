@@ -1,0 +1,29 @@
+/*--------------------------------------------------------------
+Offcanvas Cart
+--------------------------------------------------------------*/
+
+#offcanvas-cart .cart-list {
+  padding-bottom: 208px; // height cart-footer
+}
+
+.cart-loader {
+  top: 56px;
+  z-index: 1;
+}
+
+.cart-loader .loader-icon {
+  margin-top: -56px;
+}
+
+#offcanvas-cart .cart-loader {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s, visibility 0.3s;
+  transition-delay: 0.1s;
+}
+
+#offcanvas-cart.loading .cart-loader {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0s, visibility 0s;
+}

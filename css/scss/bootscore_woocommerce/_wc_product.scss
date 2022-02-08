@@ -1,0 +1,35 @@
+/*--------------------------------------------------------------
+WooCommerce Product Page
+--------------------------------------------------------------*/
+
+
+// Hide button in alert
+.alert .button.wc-forward {
+  display: none;
+}
+
+// Hide View cart
+.cart .added_to_cart.wc-forward {
+  display: none;
+}
+
+// Hide overlay in product add-to-cart-button 
+.cart .blockUI.blockOverlay {
+  display: none !important;
+}
+
+// Line break in meta
+.product_meta .sku_wrapper::after,
+.product_meta .posted_in::after {
+  content: '\A';
+  white-space: pre;
+}
+
+// Variations select
+.woocommerce div.product form.cart .variations select {
+  margin-right: 0;
+}
+
+.woocommerce div.product form.cart .variations {
+  margin-bottom: 0;
+}

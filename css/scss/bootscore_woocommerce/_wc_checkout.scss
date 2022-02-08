@@ -1,0 +1,30 @@
+/*--------------------------------------------------------------
+WooCommerce Checkout
+--------------------------------------------------------------*/
+
+#add_payment_method #payment div.payment_box,
+.woocommerce-cart #payment div.payment_box,
+.woocommerce-checkout #payment div.payment_box {
+  @extend .rounded;
+}
+
+.woocommerce-terms-and-conditions {
+  border: none;
+  box-shadow: none;
+  border-radius: 0.25rem;
+}
+
+.woocommerce form.checkout_coupon,
+.woocommerce form.login,
+.woocommerce form.register {
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+// Hide Paypal img and link
+#payment .payment_method_paypal img,
+.woocommerce-checkout #payment .payment_method_paypal .about_paypal {
+  display: none;
+}
+

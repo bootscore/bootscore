@@ -1,5 +1,14 @@
+/*--------------------------------------------------------------
+Alerts
+--------------------------------------------------------------*/
+
+
 .alert {
-  &.alert-danger, &.alert-warning, &.alert-info, &.alert-success {
+
+  &.alert-danger,
+  &.alert-warning,
+  &.alert-info,
+  &.alert-success {
     padding-left: 3.25rem;
   }
 
@@ -13,6 +22,8 @@
   }
 }
 
+
+// Add icons
 .alert-danger::before {
   content: '\f071';
 }
@@ -29,14 +40,16 @@
   content: '\f058';
 }
 
-// Alert info to closed and must-log-in comments
-.must-log-in,
-.no-comments {
+
+// Add alert-info to must-log-in comments
+.must-log-in {
   @extend .alert;
   @extend .alert-info;
-  @extend .mt-4;
+}
 
-  a {
-    @extend .alert-link;
-  }
+
+// Reset link colors
+.alert a:not(.alert a.btn) {
+  color: inherit;
+  font-weight: 700;
 }

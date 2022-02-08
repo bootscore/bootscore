@@ -54,7 +54,7 @@ jQuery(function ($) {
 jQuery(function ($) {
   // Smooth Scroll. Will be removed when Safari supports scroll-behaviour: smooth (Bootstrap 5).
   $(function () {
-    $('a[href*="#"]:not([href="#"]):not(a.comment-reply-link):not([href="#tab-reviews"]):not([href="#tab-additional_information"]):not([href="#tab-description"]):not([href="#reviews"]):not([href="#carouselExampleIndicators"]):not([data-smoothscroll="false"])').click(function () {
+    $('a[href*="#"]:not([href="#"]):not(a.comment-reply-link):not([href="#tab-reviews"]):not([href="#tab-additional_information"]):not([href="#tab-description"]):not([href="#reviews"]):not([href="#carouselExampleIndicators"]):not(.wc-tabs .nav-link):not([data-smoothscroll="false"])').click(function () {
       if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
         var target = $(this.hash);
         target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
@@ -101,12 +101,6 @@ jQuery(function ($) {
   $('.height-85').css('height', 0.85 * $(window).height());
   $('.height-100').css('height', 1.0 * $(window).height());
 
-  // Forms
-  $('select').addClass('form-select').removeClass('form-control'); // form-control is added to select by WooCommerce form filter
-
-  // Alert links
-  $('.alert a').addClass('alert-link');
-
   // IE Warning
   if (window.document.documentMode) {
     let IEWarningDiv = document.createElement('div');
@@ -127,5 +121,5 @@ jQuery(function ($) {
     document.body.appendChild(IEWarningDiv);
   }
   // IE Warning End
-  
+
 }); // jQuery End

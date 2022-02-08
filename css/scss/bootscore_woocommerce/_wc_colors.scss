@@ -1,0 +1,154 @@
+/*--------------------------------------------------------------
+WooCommerce Colors
+--------------------------------------------------------------*/
+
+.woocommerce div.product p.price,
+.woocommerce div.product span.price,
+.card .price {
+  color: var(--bscore-wc-price, var(--bs-gray));
+}
+
+.woocommerce div.product p.price del,
+.woocommerce div.product span.price del,
+del,
+.card del .woocommerce-Price-amount.amount,
+.card del .woocommerce-Price-amount.amount {
+  opacity: 0.6 !important;
+}
+
+.woocommerce div.product p.price ins,
+.woocommerce div.product span.price ins,
+ins {
+  color: var(--bscore-wc-price-sale, var(--bs-danger));
+}
+
+.woocommerce form .form-row .required,
+.woocommerce form .form-row.woocommerce-invalid label {
+  color: var(--bscore-wc-form-invalid, var(--bs-danger));
+}
+
+.woocommerce form .form-row.woocommerce-invalid .select2-container,
+.woocommerce form .form-row.woocommerce-invalid input.input-text,
+.woocommerce form .form-row.woocommerce-invalid select {
+  border-color: var(--bscore-wc-form-invalid, var(--bs-danger));
+}
+
+.woocommerce form .form-row.woocommerce-validated .select2-container,
+.woocommerce form .form-row.woocommerce-validated input.input-text,
+.woocommerce form .form-row.woocommerce-validated select {
+  border-color: var(--bscore-wc-form-valid, var(--bs-success));
+}
+
+.woocommerce div.product p.price del,
+.woocommerce div.product span.price del {
+  opacity: 1;
+}
+
+.card a.woocommerce-LoopProduct-link.woocommerce-loop-product__link {
+  color: currentColor;
+}
+
+// Tables
+
+@include media-breakpoint-down(md) {
+  .woocommerce table.shop_table_responsive tr:nth-child(2n) td,
+  .woocommerce-page table.shop_table_responsive tr:nth-child(2n) td {
+    background-color: var(--bscore-shop-table-responsive, var(--bs-light));
+  }
+}
+
+.woocommerce table.shop_table,
+.woocommerce table.shop_table td,
+.woocommerce table.shop_table tbody th, 
+.woocommerce table.shop_table tfoot td, .woocommerce table.shop_table tfoot th,
+#add_payment_method .cart-collaterals .cart_totals tr td,
+#add_payment_method .cart-collaterals .cart_totals tr th,
+.woocommerce-cart .cart-collaterals .cart_totals tr td,
+.woocommerce-cart .cart-collaterals .cart_totals tr th,
+.woocommerce-checkout .cart-collaterals .cart_totals tr td,
+.woocommerce-checkout .cart-collaterals .cart_totals tr th,
+.woocommerce table.shop_attributes td, 
+.woocommerce table.shop_attributes th,
+.woocommerce table.shop_attributes {
+  border-color: var(--bscore-wc-shop-table-border, var(--bs-gray-300));
+}
+
+#add_payment_method #payment div.payment_box,
+.woocommerce-cart #payment div.payment_box,
+.woocommerce-checkout #payment div.payment_box {
+  background-color: var(--bscore-wc-payment-box, var(--bs-light));
+  color: currentColor;
+}
+
+#add_payment_method #payment div.payment_box::before,
+.woocommerce-cart #payment div.payment_box::before,
+.woocommerce-checkout #payment div.payment_box::before {
+  border-bottom-color: var(--bscore-wc-payment-box, var(--bs-light));
+}
+
+.woocommerce-terms-and-conditions {
+  background: var(--bscore-terms, var(--bs-light));
+}
+
+.woocommerce-checkout .shop_table {
+  background-color: var(--bscore-wc-shop-table-bg, var(--bs-white));
+}
+
+
+.woocommerce div.product .stock {
+  color: currentColor;
+}
+
+.woocommerce div.product .out-of-stock {
+  color: var(--bscore-wc-out-of-stock, var(--bs-danger));
+}
+
+/* Gallery Overlay */
+.pswp__bg {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+
+// Loader
+.woocommerce .blockUI.blockOverlay,
+.woocommerce .loader,
+#offcanvas-cart .blockUI.blockOverlay,
+#offcanvas-cart .loader {
+  background-color: var(--bscore-wc-loader-bg, var(--bs-body-bg)) !important;
+  opacity: 1 !important;
+}
+
+.woocommerce .blockUI.blockOverlay:before,
+.woocommerce .loader:before,
+#offcanvas-cart .blockUI.blockOverlay:before,
+#offcanvas-cart .loader:before {
+  color: var(--bscore-wc-loader-color, var(--bs-primary));
+}
+
+// Product attributes
+.woocommerce table.shop_attributes tr:nth-child(even) td,
+.woocommerce table.shop_attributes tr:nth-child(even) th {
+  background: var(--bscore-wc-attributes-tr, var(--bs-light));
+}
+
+// Product attributes End
+
+.pswp__ui--fit .pswp__caption,
+.pswp__ui--fit .pswp__top-bar {
+  background-color: rgba(0, 0, 0, 0) !important;
+}
+
+.woocommerce .widget_price_filter .price_slider_wrapper .ui-widget-content {
+  background-color: var(--bscore-wc-price-slider-bg, var(--bs-dark));
+}
+
+.woocommerce .widget_price_filter .ui-slider .ui-slider-handle,
+.woocommerce .widget_price_filter .ui-slider .ui-slider-range {
+  background-color: var(--bscore-wc-price-slider, var(--bs-primary));
+}
+
+/* Validation */
+.woocommerce-invalid #terms {
+  outline: none;
+  outline-offset: 0;
+}

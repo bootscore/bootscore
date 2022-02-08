@@ -1,3 +1,9 @@
+/*--------------------------------------------------------------
+Widgets
+--------------------------------------------------------------*/
+
+
+// Reset ul in sidebar and footer widgets
 .widget-area ul,
 .bootscore-footer ul {
   padding: 0;
@@ -5,10 +11,14 @@
   margin-bottom: 0;
 }
 
+
+// Reset nested ul in sidebar widgets
 .widget-area ul li ul li {
   padding: 0 1rem;
 }
 
+
+// Reset padding-left in Footer menu
 #footer-menu li a {
   padding-left: 0;
 }

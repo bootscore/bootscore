@@ -1,0 +1,17 @@
+/*--------------------------------------------------------------
+WooCommerce Alerts
+--------------------------------------------------------------*/
+
+// Reset icon color in alerts
+.woocommerce-info::before,
+.woocommerce-message::before,
+.wc-stripe-error::before {
+  color: inherit;
+}
+
+// Add alert to stripe notice
+.wc-stripe-error {
+  @extend .alert;
+  @extend .alert-danger;
+  @extend .mt-3;
+}

@@ -1,0 +1,35 @@
+/*--------------------------------------------------------------
+WooCommerce Thank You Page
+--------------------------------------------------------------*/
+
+// Icon in  alert
+.woocommerce ul.order_details::before {
+  content: '\f058';
+}
+
+// Borders in alert
+@include media-breakpoint-down(md) {
+  
+  .woocommerce ul.order_details li {
+    border-right: none;
+  }
+  
+  li.woocommerce-order-overview__order.order,
+  li.woocommerce-order-overview__date.date,
+  li.woocommerce-order-overview__email.email {
+    margin-bottom: 1rem;
+  }
+  
+  .woocommerce ul.order_details li {
+    float: none;
+  }
+  
+}
+
+@include media-breakpoint-up(md) {
+  
+  .woocommerce ul.order_details li {
+    border-right: 1px solid;
+  }
+  
+}

@@ -1,13 +1,13 @@
 === bootScore ===
 
-Contributors: Bastian Kreiter, Justin Kruit, Martin Holzer, Tim Groeneveld, Laurent Binder
+Contributors: Bastian Kreiter, Justin Kruit, Martin Holzer, Tim Groeneveld, Laurent Binder, Patrick, Gustavo Silva
 
 Tags: featured-images, threaded-comments, translation-ready
 
 Requires at least: 4.5
-Tested up to: 5.8.1
+Tested up to: 5.9
 Requires PHP: 5.6
-Stable tag: 5.1.3.0
+Stable tag: 5.1.3.1
 License: MIT License
 License URI: https://github.com/bootscore/bootscore/blob/main/LICENSE
 
@@ -56,6 +56,41 @@ bootScore includes support for WooCommerce and Infinite Scroll in Jetpack.
 
 
 == Changelog ==
+
+    = 5.1.3.1 - January 25 2022 =
+    
+        CSS
+
+        [IMPROVEMENT] Pushed style.css to scss files #33
+        [IMPROVEMENT] Added _bscore_woocommerce.scss file to prepare merging css to scss #41
+        [IMPROVEMENT] @extend alert alert-info to comments .must-log-in and .no-comment
+        [BUGFIX] form-range in webkit browsers
+        [BUGFIX] Rating stars in product loop
+        [BUGFIX] Modal height and position if body has classes logged-in admin-bar
+        [REMOVED] @import "fontawesome"; in css/scss/bootstrap.min.scss
+        
+        PHP
+
+        [IMPROVEMENT] Force scss compile when environment is development #39
+        [IMPROVEMENT] Added hook bs_after_primary to page-blank-with-container.php and page-blank-without-container.php
+        [IMPROVEMENT] Added btn-outline-primary to payment-methods.php #42
+        [IMPROVEMENT] Added btn-outline-primary to payment.php #43
+        [IMPROVEMENT] Added btn-outline-primary to thankyou.php #44
+        [IMPROVEMENT] Added visually-hidden-focusable class to buttons in header.php and footer.php to fix accessibility issues #73
+        [BUGFIX] Added missing jquery on new install in enqueue script #34
+        [BUGFIX] Added redirect if offcanvas login failed #36
+        [BUGFIX] Added redirect to my-account after registration #68
+        [BUGFIX] Built a "filter" for terms.php #31
+        [BUGFIX] Fixed class typo in header-woocommerce.php #9
+        
+        Languages
+
+        [NEW] Language: Español de Colombia, thanks to Osdeibi Acurero
+        [NEW] Language: Español de Venezuela, thanks to Osdeibi Acurero
+        
+        Updates
+
+        [UPDATE] scssphp 1.10.0 #66
 
     = 5.1.3.0 - October 11 2021 =
 

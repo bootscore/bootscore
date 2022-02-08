@@ -1,0 +1,17 @@
+/*--------------------------------------------------------------
+WooCommerce Shipping
+--------------------------------------------------------------*/
+
+@include media-breakpoint-down(md) {
+  .woocommerce ul#shipping_method {
+    clear: both;
+    text-align: left;
+    margin: 2rem 0 0 0 !important;
+  }
+  .woocommerce-shipping-destination {
+    text-align: left;
+  }
+  .woocommerce-shipping-calculator {
+    text-align: left;
+  }
+}

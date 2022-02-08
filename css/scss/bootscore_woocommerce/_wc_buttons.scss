@@ -1,0 +1,40 @@
+/*--------------------------------------------------------------
+WooCommerce Buttons
+--------------------------------------------------------------*/
+
+.woocommerce #respond input#submit,
+.woocommerce a.button,
+.woocommerce button.button,
+.woocommerce input.button {
+  @extend .btn;
+  @extend .btn-outline-primary;
+}
+
+// Block buttons download breakpoint WooCommerce is 769px
+@media (min-width: 769px) {
+  a.woocommerce-MyAccount-downloads-file.btn.btn-outline-primary.btn-sm {
+    display: block;
+  }
+}
+
+@include media-breakpoint-down(lg) {
+  a.btn.btn-outline-primary.btn-sm.invoice {
+    margin-top: 0.25rem;
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  a.btn.btn-outline-primary.btn-sm.invoice {
+    margin-left: 0.25rem;
+  }
+}
+
+button#place_order {
+  width: 100%;
+  margin-top: 1rem;
+}
+
+// Cursor variable product needs selection
+button.single_add_to_cart_button.btn.btn-primary.disabled.wc-variation-selection-needed:hover {
+  cursor: not-allowed;
+}

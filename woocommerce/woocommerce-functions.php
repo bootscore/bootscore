@@ -38,11 +38,7 @@ add_action('after_setup_theme', 'register_ajax_cart');
 function wc_scripts() {
 
   // Get modification time. Enqueue files with modification date to prevent browser from loading cached scripts and styles when file content changes. 
-  $modificated_WooCommercestyleCss = date('YmdHi', filemtime(get_template_directory() . '/woocommerce/css/woocommerce-style.css'));
   $modificated_WooCommerceJS = date('YmdHi', filemtime(get_template_directory() . '/woocommerce/js/woocommerce.js'));
-
-  // WooCommerce CSS	
-  wp_enqueue_style('woocommerce', get_template_directory_uri() . '/woocommerce/css/woocommerce-style.css', array(), $modificated_WooCommercestyleCss);
 
   // WooCommerce JS
   wp_enqueue_script('woocommerce-script', get_template_directory_uri() . '/woocommerce/js/woocommerce.js', array(), $modificated_WooCommerceJS, true);
@@ -93,18 +89,6 @@ if (!function_exists('bs_woocommerce_breadcrumbs')) :
   }
 endif;
 // WooCommerce Breadcrumb End
-
-
-// Optional Telephone
-if (!function_exists('evolution_phone_no_pflicht')) :
-
-  function evolution_phone_no_pflicht($address_fields) {
-    $address_fields['billing_phone']['required'] = false;
-    return $address_fields;
-  }
-  add_filter('woocommerce_billing_fields', 'evolution_phone_no_pflicht', 10, 1);
-endif;
-// Optional Telephone End
 
 
 // Bootstrap Billing forms
@@ -184,6 +168,24 @@ function custom_loop_product_thumbnail() {
 // Add card-img-top class to product loop End
 
 
+// Category loop button and badge
+if (!function_exists('woocommerce_template_loop_category_title')) :
+  function woocommerce_template_loop_category_title( $category ) { 
+    ?> 
+    <h2 class="woocommerce-loop-category__title btn btn-primary w-100 mb-0"> 
+      <?php 
+        echo $category->name; 
+
+        if ( $category->count > 0 ) 
+          echo apply_filters( 'woocommerce_subcategory_count_html', ' <mark class="count badge bg-white text-dark">(' . $category->count . ')</mark>', $category ); 
+      ?> 
+    </h2> 
+    <?php 
+  } 
+endif;
+// Category loop button and badge End
+
+
 // Correct hooked checkboxes in checkout
 /**
  * Get the corrected terms for Woocommerce.
@@ -260,3 +262,24 @@ function bootscore_redirect_after_logout() {
   exit();
 }
 // Redirect to home on logout End
+
+
+// Redirect to my-account after (un)sucessful registration
+add_action('wp_loaded', 'bootscore_redirect_after_registration', 999);
+function bootscore_redirect_after_registration() {
+  $nonce_value = isset($_POST['_wpnonce']) ? wp_unslash($_POST['_wpnonce']) : ''; // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
+  $nonce_value = isset($_POST['woocommerce-register-nonce']) ? wp_unslash($_POST['woocommerce-register-nonce']) : $nonce_value; // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
+  if (isset($_POST['register'], $_POST['email']) && wp_verify_nonce($nonce_value, 'woocommerce-register')) {
+    if (!WC()->session->has_session()) {
+      WC()->session->set_customer_session_cookie(true);
+    }
+    wp_redirect(wp_validate_redirect(wc_get_page_permalink('myaccount')));
+    exit;
+  }
+}
+// Redirect to my-account after (un)sucessful registration End
+
+
+
+
+
