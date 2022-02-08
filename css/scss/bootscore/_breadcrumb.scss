@@ -1,3 +1,9 @@
+/*--------------------------------------------------------------
+Breadcrumb
+--------------------------------------------------------------*/
+
+
+// Make breadcrumb horizontally scrollable
 @include media-breakpoint-down(lg) {
   .breadcrumb {
     display: block !important;

@@ -1,16 +1,25 @@
+/*--------------------------------------------------------------
+Header
+--------------------------------------------------------------*/
+
+
+// Mobile
 @media (max-width: 782px) {
+  // Fixed admin-bar
   #wpadminbar {
     position: fixed;
   }
 
   .logged-in.admin-bar {
 
+    // Push content down when WP admin-bar is visible
     .fixed-top,
     .offcanvas:not(.offcanvas-bottom),
     .modal-dialog {
       top: 46px;
     }
 
+    // Adjust modal height
     .modal-fullscreen,
     .modal-fullscreen-sm-down,
     .modal-fullscreen-md-down,
@@ -22,15 +31,19 @@
   }
 }
 
+
+// Desktop
 @media (min-width: 783px) {
   .logged-in.admin-bar {
 
+    // Push content down when WP admin-bar is visible
     .fixed-top,
     .offcanvas:not(.offcanvas-bottom),
     .modal-dialog {
       top: 32px;
     }
 
+    // Adjust modal height
     .modal-fullscreen,
     .modal-fullscreen-sm-down,
     .modal-fullscreen-md-down,
@@ -42,6 +55,8 @@
   }
 }
 
+
+// Reset Bootstrap last nav-bar nav-link padding
 #nav-main .menu-item:last-child .nav-link {
   padding-right: 0;
 }

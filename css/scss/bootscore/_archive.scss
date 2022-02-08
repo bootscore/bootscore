@@ -1,22 +1,10 @@
-@include media-breakpoint-down(md) {
-  .card-img-left img {
-    border-top-left-radius: $border-radius;
-    border-top-right-radius: $border-radius;
-    width: 100%;
-    height: auto;
-  }
-}
+/*--------------------------------------------------------------
+Archive
+--------------------------------------------------------------*/
 
-@include media-breakpoint-up(md) {
-  .card-img-left img {
-    border-top-left-radius: $border-radius;
-    border-bottom-left-radius: $border-radius;
-    object-fit: cover;
-    height: 100%;
-    width: 100%;
-  }
-}
+// Horizontal card images
 
+// category.php, archive.php, author.php and search results
 @include media-breakpoint-down(lg) {
   .card-img-left-md img {
     border-top-left-radius: $border-radius;
@@ -31,7 +19,28 @@
     border-top-left-radius: $border-radius;
     border-bottom-left-radius: $border-radius;
     object-fit: cover;
-    height: 100%;
     width: 100%;
+    height: 100%;
+  }
+}
+
+
+// Sticky post in index.php
+@include media-breakpoint-down(md) {
+  .card-img-left img {
+    border-top-left-radius: $border-radius;
+    border-top-right-radius: $border-radius;
+    width: 100%;
+    height: auto;
+  }
+}
+
+@include media-breakpoint-up(md) {
+  .card-img-left img {
+    border-top-left-radius: $border-radius;
+    border-bottom-left-radius: $border-radius;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
   }
 }

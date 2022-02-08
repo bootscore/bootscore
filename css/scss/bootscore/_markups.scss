@@ -1,3 +1,21 @@
+/*--------------------------------------------------------------
+Markups
+--------------------------------------------------------------*/
+
+
+body {
+  position: relative;
+  word-break: break-word;
+  // Hide horizontal scrollbars on Windows Chrome & Firefox when using width-100 class
+  overflow-x: hidden;
+}
+
+// Min-height to content
+#content {
+  min-height: 600px;
+}
+
+
 //HTML Markups (Theme Unit Test Data)
 
 pre {

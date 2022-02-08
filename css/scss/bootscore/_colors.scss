@@ -1,3 +1,9 @@
+/*--------------------------------------------------------------
+Colors
+--------------------------------------------------------------*/
+
+
+// Text selection
 ::selection {
   color: var(--bs-white);
   background-color: var(--bs-primary);
@@ -8,10 +14,14 @@
   background-color: var(--bs-primary);
 }
 
+
+// pre tag
 pre {
   background-color: var(--bs-light);
 }
 
+
+// Reset focus
 :focus {
   outline: none !important;
   outline: -webkit-focus-ring-color none !important;
