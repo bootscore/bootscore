@@ -9,7 +9,7 @@
  *
  * @package Bootscore
  * 
- * @version 5.1.3.1
+ * @version 5.2.0.0
  */
 
 ?>
@@ -123,5 +123,3 @@
       </div><!-- .fixed-top .bg-light -->
 
     </header><!-- #masthead -->
-
-    <?php bootscore_ie_alert(); ?>
