@@ -836,6 +836,15 @@ body {
   https://github.com/bootscore/bootcommerce-child/archive/refs/heads/main.zip
 
 -----------------------------------------------------------------------------*/
+@font-face {
+  font-family: "Quicksand";
+  src: url(./fonts/Quicksand.ttf?117d04cd9dfc53f409ff5202c35c470e) format("truetype");
+}
+@font-face {
+  font-family: "iranyekanweblightfanum";
+  src: url(./fonts/iranyekanweblightfanum.eot?93ce7a85ea0aff1c0d38a3583fbc6445), url(./fonts/iranyekanweblightfanum.woff?b29cf05ee1d8c79734a5269838332fde) format("woff"), url(./fonts/iranyekanweblightfanum.ttf?ba850144120396ab9cc58e1f751a4872) format("truetype");
+}
 body {
   background-color: #6f42c1 !important;
+  font-family: "iranyekanweblightfanum" !important;
 }

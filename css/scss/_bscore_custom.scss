@@ -21,6 +21,20 @@
 
 -----------------------------------------------------------------------------*/
 
+
+@font-face {
+  font-family: "Quicksand";
+  src: url("fonts/Quicksand.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "iranyekanweblightfanum";
+  src: url("fonts/iranyekanweblightfanum.eot"), url("fonts/iranyekanweblightfanum.woff") format("woff"),
+  url("fonts/iranyekanweblightfanum.ttf") format("truetype");
+}
+
+
 body{
   background-color: #6f42c1 !important;
+  font-family: "iranyekanweblightfanum" !important;
 }
