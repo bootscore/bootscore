@@ -14,95 +14,95 @@
 
 -----------------------------------------------------------------------------*/
 .btn-primary {
-  color: #e6e6e6;
-  background-color: #000;
-  border-color: black;
+  color: white;
+  background-color: #3E497A;
+  border-color: #313a61;
 }
 .btn-primary:hover {
-  color: #b3b3b3;
-  background-color: #0d0d0d;
-  border-color: #1a1a1a;
+  color: white;
+  background-color: #47538b;
+  border-color: #4f5d9c;
 }
 .btn-check:focus + .btn-primary, .btn-primary:focus {
-  color: #b3b3b3;
-  background-color: #0d0d0d;
-  border-color: #1a1a1a;
-  box-shadow: 0 0 0 0.25rem rgba(35, 35, 35, 0.5);
+  color: white;
+  background-color: #47538b;
+  border-color: #4f5d9c;
+  box-shadow: 0 0 0 0.25rem rgba(80, 88, 121, 0.5);
 }
 .btn-check:checked + .btn-primary, .btn-check:active + .btn-primary, .btn-primary:active, .btn-primary.active, .show > .btn-primary.dropdown-toggle {
   color: #fff;
-  background-color: #333333;
-  border-color: #1a1a1a;
+  background-color: #323a62;
+  border-color: #252c49;
 }
 .btn-check:checked + .btn-primary:focus, .btn-check:active + .btn-primary:focus, .btn-primary:active:focus, .btn-primary.active:focus, .show > .btn-primary.dropdown-toggle:focus {
-  box-shadow: 0 0 0 0.25rem rgba(35, 35, 35, 0.5);
+  box-shadow: 0 0 0 0.25rem rgba(80, 88, 121, 0.5);
 }
 .btn-primary:disabled, .btn-primary.disabled {
   color: #fff;
-  background-color: #000;
-  border-color: black;
+  background-color: #3E497A;
+  border-color: #313a61;
 }
 
 .text-primary {
-  color: #000 !important;
+  color: #3E497A !important;
 }
 
 .bg-primary {
-  background-color: #000 !important;
+  background-color: #3E497A !important;
 }
 
 .table-primary {
-  background-color: #000 !important;
+  background-color: #3E497A !important;
 }
 
 .link-primary {
-  color: #000 !important;
+  color: #3E497A !important;
 }
 
 .btn-secondary {
   color: white;
-  background-color: #6c757d;
-  border-color: #5a6268;
+  background-color: #F1D00A;
+  border-color: #ccb008;
 }
 .btn-secondary:hover {
   color: white;
-  background-color: #78828a;
-  border-color: #868e96;
+  background-color: #f6d71f;
+  border-color: #f7db37;
 }
 .btn-check:focus + .btn-secondary, .btn-secondary:focus {
   color: white;
-  background-color: #78828a;
-  border-color: #868e96;
-  box-shadow: 0 0 0 0.25rem rgba(115, 122, 127, 0.5);
+  background-color: #f6d71f;
+  border-color: #f7db37;
+  box-shadow: 0 0 0 0.25rem rgba(212, 188, 45, 0.5);
 }
 .btn-check:checked + .btn-secondary, .btn-check:active + .btn-secondary, .btn-secondary:active, .btn-secondary.active, .show > .btn-secondary.dropdown-toggle {
-  color: #fff;
-  background-color: #565e64;
-  border-color: #444a4e;
+  color: #000;
+  background-color: #c1a608;
+  border-color: #998406;
 }
 .btn-check:checked + .btn-secondary:focus, .btn-check:active + .btn-secondary:focus, .btn-secondary:active:focus, .btn-secondary.active:focus, .show > .btn-secondary.dropdown-toggle:focus {
-  box-shadow: 0 0 0 0.25rem rgba(115, 122, 127, 0.5);
+  box-shadow: 0 0 0 0.25rem rgba(212, 188, 45, 0.5);
 }
 .btn-secondary:disabled, .btn-secondary.disabled {
-  color: #fff;
-  background-color: #6c757d;
-  border-color: #5a6268;
+  color: #000;
+  background-color: #F1D00A;
+  border-color: #ccb008;
 }
 
 .text-secondary {
-  color: #6c757d !important;
+  color: #F1D00A !important;
 }
 
 .bg-secondary {
-  background-color: #6c757d !important;
+  background-color: #F1D00A !important;
 }
 
 .table-secondary {
-  background-color: #6c757d !important;
+  background-color: #F1D00A !important;
 }
 
 .link-secondary {
-  color: #6c757d !important;
+  color: #F1D00A !important;
 }
 
 .btn-success {
@@ -845,6 +845,39 @@ body {
   src: url(./fonts/iranyekanweblightfanum.eot?93ce7a85ea0aff1c0d38a3583fbc6445), url(./fonts/iranyekanweblightfanum.woff?b29cf05ee1d8c79734a5269838332fde) format("woff"), url(./fonts/iranyekanweblightfanum.ttf?ba850144120396ab9cc58e1f751a4872) format("truetype");
 }
 body {
-  background-color: #6f42c1 !important;
+  background-color: #3E497A !important;
   font-family: "iranyekanweblightfanum" !important;
+}
+
+.ltr {
+  direction: ltr;
+}
+
+.font-w-900 {
+  font-weight: 900;
+}
+
+.font-w-700 {
+  font-weight: 700;
+}
+
+.text-justify {
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+a:link {
+  text-decoration: none;
+}
+
+a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+a:active {
+  text-decoration: none;
 }

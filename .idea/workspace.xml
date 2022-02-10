@@ -2,19 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d3932dfb-c1b1-470f-9a66-6f2eb6ad49da" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/css/scss/fonts/Quicksand.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/css/scss/fonts/Verlag-Light.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/css/scss/fonts/iranyekanweblightfanum.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/css/scss/fonts/iranyekanweblightfanum.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/css/scss/fonts/iranyekanweblightfanum.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fonts/Quicksand.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fonts/iranyekanweblightfanum.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fonts/iranyekanweblightfanum.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fonts/iranyekanweblightfanum.woff" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/css/scss/_bscore_custom.scss" beforeDir="false" afterPath="$PROJECT_DIR$/css/scss/_bscore_custom.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/scss/_bscore_variables.scss" beforeDir="false" afterPath="$PROJECT_DIR$/css/scss/_bscore_variables.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/theme.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/theme.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webpack.mix.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.mix.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,7 +54,7 @@
       <option name="presentableId" value="Default" />
       <updated>1644527764764</updated>
       <workItem from="1644527766304" duration="897000" />
-      <workItem from="1644528907771" duration="5595000" />
+      <workItem from="1644528907771" duration="5870000" />
     </task>
     <task id="LOCAL-00001" summary="ADD LARAVEL MIX FOR BUILD SCSS BETHER THAN">
       <created>1644532424630</created>
@@ -85,7 +77,14 @@
       <option name="project" value="LOCAL" />
       <updated>1644533911827</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="ADD LARAVEL MIX FOR BUILD SCSS BETHER THAN">
+      <created>1644534609121</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1644534609121</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

@@ -34,7 +34,41 @@
 }
 
 
-body{
-  background-color: #6f42c1 !important;
+body {
+  background-color: $primary !important;
   font-family: "iranyekanweblightfanum" !important;
+}
+
+
+.ltr {
+  direction: ltr;
+}
+
+.font-w-900 {
+  font-weight: 900;
+}
+
+.font-w-700 {
+  font-weight: 700;
+}
+
+.text-justify {
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+a:link {
+  text-decoration: none;
+}
+
+a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+a:active {
+  text-decoration: none;
 }
