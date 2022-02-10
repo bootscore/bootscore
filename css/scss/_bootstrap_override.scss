@@ -1,0 +1,37 @@
+$theme-colors: (
+        "primary": $primary,
+        "secondary": $secondary,
+        "success": $success,
+        "info": $info,
+        "warning": $warning,
+        "danger": $danger,
+        "light": $light,
+        "dark": $dark
+);
+
+@each $color, $value in $theme-colors {
+
+  .btn-#{$color} {
+    @include button-variant($value, darken($value, 7.5%), lighten($value, 90%), lighten($value, 5%), lighten($value, 10%), lighten($value, 70%));
+  }
+
+  .text-#{$color} {
+    color: $value !important;
+  }
+
+  .bg-#{$color} {
+    background-color: $value !important;
+  }
+
+  .table-#{$color} {
+    background-color: $value !important;
+  }
+
+  .link-#{$color} {
+    color: $value !important;
+  }
+
+
+}
+
+

@@ -1,0 +1,16 @@
+body {
+  position: relative;
+  word-break: break-word;
+}
+
+::-moz-selection {
+  text-shadow: none;
+}
+
+::selection {
+  text-shadow: none;
+}
+
+#content {
+  min-height: 600px;
+}

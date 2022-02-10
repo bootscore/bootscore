@@ -1,0 +1,22 @@
+@import "bscore_variables";
+
+//@import "~bootstrap/scss/bootstrap";
+
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/_variables";
+@import "~bootstrap/scss/mixins";
+
+//three bellow lines need in _bscore_style alert scss
+//@import "~bootstrap/scss/utilities";
+//@import "~bootstrap/scss/utilities/api";
+//@import "~bootstrap/scss/alert";
+
+@import "~bootstrap/scss/mixins/buttons";
+@import "~bootstrap/scss/mixins/gradients";
+@import "~bootstrap/scss/mixins/box-shadow"; //use in override button mixins
+@import "_bootstrap_override";
+//
+@import "bscore_style";
+////@import "bscore_woocommerce"; // Remove comments to activate WooCommerce styles
+@import "bscore_custom";
+
