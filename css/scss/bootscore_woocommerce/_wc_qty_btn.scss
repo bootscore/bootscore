@@ -13,3 +13,39 @@
         }
     }
 }
+
+// Single product page
+.woocommerce {
+  div.product form.cart {
+    display: flex;
+
+    div.quantity {
+      float: none;
+      margin-right: 1rem;
+      width: 140px; // Fixed width for input group
+    }
+  }
+
+  // Width input field
+  .quantity .qty {
+    width: 2rem;
+  }
+
+  // Add to cart button
+  div.product form.cart .btn {
+    flex-grow: 1;
+  }
+}
+
+
+// Cart page
+.woocommerce-cart-form .product-quantity .quantity {
+  width: 140px; // Fixed width for input group
+}
+
+// Woocommerce breakpoint is at 769px
+@media (max-width: 768px) {
+  .woocommerce-cart-form .product-quantity .quantity {
+    margin-left: auto;
+  }
+}
