@@ -41,15 +41,16 @@ Alerts
 }
 
 
-// Add alert-info to must-log-in comments
-.must-log-in {
-  @extend .alert;
-  @extend .alert-info;
-}
-
-
 // Reset link colors
 .alert a:not(.alert a.btn) {
   color: inherit;
   font-weight: 700;
+}
+
+
+// Add alert-info to must-log-in comments
+.must-log-in {
+  @extend .alert;
+  @extend .alert-info;
+  @extend .mt-3;
 }
