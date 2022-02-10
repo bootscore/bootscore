@@ -62,3 +62,8 @@
     margin-left: auto;
   }
 }
+
+// Hide quantity if product can only be purchased once
+.quantity.hidden {
+  display: none;
+}
