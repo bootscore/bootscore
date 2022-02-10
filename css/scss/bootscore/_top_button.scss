@@ -1,15 +1,10 @@
-/*--------------------------------------------------------------
-To top button 
---------------------------------------------------------------*/
-
-
 .top-button {
   right: 5%;
   bottom: 30px;
   opacity: 0;
   transition: opacity 1s;
+}
 
-  &.visible {
-    opacity: 1;
-  }
+.top-button.visible {
+  opacity: 1;
 }

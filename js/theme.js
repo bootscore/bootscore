@@ -54,7 +54,7 @@ jQuery(function ($) {
 jQuery(function ($) {
   // Smooth Scroll. Will be removed when Safari supports scroll-behaviour: smooth (Bootstrap 5).
   $(function () {
-    $('a[href*="#"]:not([href="#"]):not(a.comment-reply-link):not([href="#tab-reviews"]):not([href="#tab-additional_information"]):not([href="#tab-description"]):not([href="#reviews"]):not([href="#carouselExampleIndicators"]):not(.wc-tabs .nav-link):not([data-smoothscroll="false"])').click(function () {
+    $('a[href*="#"]:not([href="#"]):not(a.comment-reply-link):not([href="#tab-reviews"]):not([href="#tab-additional_information"]):not([href="#tab-description"]):not([href="#reviews"]):not([href="#carouselExampleIndicators"]):not([data-smoothscroll="false"])').click(function () {
       if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
         var target = $(this.hash);
         target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
@@ -101,25 +101,9 @@ jQuery(function ($) {
   $('.height-85').css('height', 0.85 * $(window).height());
   $('.height-100').css('height', 1.0 * $(window).height());
 
-  // IE Warning
-  if (window.document.documentMode) {
-    let IEWarningDiv = document.createElement('div');
-    IEWarningDiv.setAttribute('class', 'position-fixed top-0 end-0 bottom-0 start-0 d-flex justify-content-center align-items-center');
-    IEWarningDiv.setAttribute('style', 'background:white;z-index:1999');
-    IEWarningDiv.innerHTML =
-      '<div style="max-width: 90vw;">' +
-      '<h1>' +
-      bootscore.ie_title +
-      '</h1>' +
-      '<p className="lead">' +
-      bootscore.ie_limited_functionality +
-      '</p>' +
-      '<p className="lead">' +
-      bootscore.ie_modern_browsers_1 + bootscore.ie_modern_browsers_2 + bootscore.ie_modern_browsers_3 + bootscore.ie_modern_browsers_4 + bootscore.ie_modern_browsers_5 +
-      '</p>' +
-      '</div>';
-    document.body.appendChild(IEWarningDiv);
-  }
-  // IE Warning End
+  // Forms
+  $('select').addClass('form-select').removeClass('form-control'); // form-control is added to select by WooCommerce form filter
 
+  // Alert links
+  $('.alert a').addClass('alert-link');
 }); // jQuery End

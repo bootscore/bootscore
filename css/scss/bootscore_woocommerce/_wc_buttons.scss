@@ -17,8 +17,7 @@ WooCommerce Buttons
   }
 }
 
-// WooCommerce breakpoints are at 769px
-@media (max-width: 768px) {
+@include media-breakpoint-down(lg) {
   a.btn.btn-outline-primary.btn-sm.invoice {
     margin-top: 0.25rem;
   }
@@ -38,12 +37,4 @@ button#place_order {
 // Cursor variable product needs selection
 button.single_add_to_cart_button.btn.btn-primary.disabled.wc-variation-selection-needed:hover {
   cursor: not-allowed;
-}
-
-// Update cart button
-// WooCommerce breakpoints are at 769px
-@media (max-width: 768px) {
-  .shop_table_responsive .actions button:not(.input-group button) {
-    width: 100%;
-  }
 }

@@ -2,4 +2,3 @@
 node_modules/
 package-lock.json
 .prettierrc
-css/lib/bootstrap.min.css

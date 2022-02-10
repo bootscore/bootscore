@@ -243,13 +243,21 @@ endif;
 // Internet Explorer Warning Alert
 if (!function_exists('bootscore_ie_alert')) :
   /**
-   * Deprecated - functionality is removed already - Code will be removed in a future release.
-   * Replaced with a js solution to prevent page caching
-   *
-   * (Displays an alert if page is browsed by Internet Explorer)
-   *
-   * function stays to not break child themes with the function bootscore_ie_alert() immediately
+   * Displays an alert if page is browsed by Internet Explorer
    */
-  function bootscore_ie_alert() { }
+  function bootscore_ie_alert() {
+    $ua = htmlentities($_SERVER['HTTP_USER_AGENT'], ENT_QUOTES, 'UTF-8');
+    if (preg_match('~MSIE|Internet Explorer~i', $ua) || (strpos($ua, 'Trident/7.0') !== false && strpos($ua, 'rv:11.0') !== false)) {
+      echo '
+                    <div class="container pt-5">
+                        <div class="alert alert-warning alert-dismissible fade show mt-4" role="alert">
+                            <h1>' . esc_html__('Internet Explorer detected', 'bootscore') . '</h1>
+                            <p class="lead">' . esc_html__('This website will offer limited functionality in this browser.', 'bootscore') . '</p>
+                            <p class="lead">' . esc_html__('Please use a modern and secure web browser like', 'bootscore') . ' <a href="https://www.mozilla.org/firefox/" target="_blank">Mozilla Firefox</a>, <a href="https://www.google.com/chrome/" target="_blank">Google Chrome</a>, <a href="https://www.opera.com/" target="_blank">Opera</a> ' . esc_html__('or', 'bootscore') . ' <a href="https://www.microsoft.com/edge" target="_blank">Microsoft Edge</a> ' . esc_html__('to display this site correctly.', 'bootscore') . '</p>
+                        </div>
+                    </div>
+               ';
+    }
+  }
 endif;
 // Internet Explorer Warning Alert End

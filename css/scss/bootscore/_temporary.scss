@@ -1,26 +1,17 @@
-/*--------------------------------------------------------------
-Temporary
---------------------------------------------------------------*/
-
-
 // scroll-behaviour: smooth not supportet by Safari. 
 // jQuery smooth scroll script will be removed when Safari supports it */
 html {
   scroll-behavior: auto !important;
 }
 
-
-// Prefix webkit browsers checks, select and form-range
-.form-check-input, .form-select {
+// Checks, select and form-range fix for webkit browsers. Doesn't compile correctly?
+.form-check-input, .form-select, .form-range {
   -webkit-appearance: none;
+  -moz-appearance: none;
 }
 
-.form-range {
+.form-range::-webkit-slider-thumb {
   -webkit-appearance: none;
-
-  &::-webkit-slider-thumb {
-    -webkit-appearance: none;
-  }
 }
 
 
@@ -30,8 +21,11 @@ p:empty:before {
   content: none;
 }
 
+// Offcanvas Backdrop
+.offcanvas-backdrop.fade {
+  transition: opacity 0.4s ease-in-out;
+}
 
-// Hide racaptcha v3 badge 
-.grecaptcha-badge {
-  display: none !important;
+.offcanvas-backdrop {
+  cursor: pointer;
 }

@@ -1,9 +1,3 @@
-/*--------------------------------------------------------------
-Comments
---------------------------------------------------------------*/
-
-
-// Reset list-style
 ul.comment-list {
   list-style: none;
   padding: 0;
@@ -13,13 +7,10 @@ ul.comment-list {
   }
 }
 
-
-// Avatar size
 .avatar {
   width: 80px;
 }
 
-// Comment padding
 .comment-list ul.children {
   padding-left: 96px;
 }
@@ -35,7 +26,6 @@ ul.comment-list {
     padding-left: 0;
   }
 }
-
 
 .screen-reader-text {
   clip: rect(1px, 1px, 1px, 1px);
