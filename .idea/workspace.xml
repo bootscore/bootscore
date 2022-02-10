@@ -4,8 +4,6 @@
     <list default="true" id="d3932dfb-c1b1-470f-9a66-6f2eb6ad49da" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/css/scss/_bscore_custom.scss" beforeDir="false" afterPath="$PROJECT_DIR$/css/scss/_bscore_custom.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/scss/_bscore_variables.scss" beforeDir="false" afterPath="$PROJECT_DIR$/css/scss/_bscore_variables.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/theme.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/theme.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -54,7 +52,7 @@
       <option name="presentableId" value="Default" />
       <updated>1644527764764</updated>
       <workItem from="1644527766304" duration="897000" />
-      <workItem from="1644528907771" duration="5870000" />
+      <workItem from="1644528907771" duration="6577000" />
     </task>
     <task id="LOCAL-00001" summary="ADD LARAVEL MIX FOR BUILD SCSS BETHER THAN">
       <created>1644532424630</created>
@@ -84,7 +82,14 @@
       <option name="project" value="LOCAL" />
       <updated>1644534609121</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="ADD LARAVEL MIX FOR BUILD SCSS BETHER THAN">
+      <created>1644534861198</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1644534861198</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
