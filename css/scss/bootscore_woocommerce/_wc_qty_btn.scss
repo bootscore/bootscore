@@ -43,6 +43,19 @@
   width: 140px; // Fixed width for input group
 }
 
+// woocommerce breakpoint is at 992px
+@media (max-width: 991px) {
+  // put qty-btn and add to cart on two lines
+  .woocommerce div.product form.cart {
+    flex-wrap: wrap;
+    div.quantity {
+      margin-right: auto;
+      width: 100%;
+      margin-bottom: 0.5rem;
+    }
+  }
+}
+
 // Woocommerce breakpoint is at 769px
 @media (max-width: 768px) {
   .woocommerce-cart-form .product-quantity .quantity {
