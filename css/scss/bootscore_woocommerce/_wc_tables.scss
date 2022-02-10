@@ -2,6 +2,7 @@
 WooCommerce Tables
 --------------------------------------------------------------*/
 
+
 .woocommerce table.shop_attributes td {
   border-bottom: 1px solid;
 }
@@ -14,13 +15,15 @@ WooCommerce Tables
   border-top: 1px solid;
 }
 
-@include media-breakpoint-down(md) {
-  td.actions,
-  .woocommerce table.shop_table_responsive tr:nth-child(2n) td,
-  .woocommerce-page table.shop_table_responsive tr:nth-child(2n) td {
-    border-bottom-right-radius: calc(0.25rem - 1px);
-    border-bottom-left-radius: calc(0.25rem - 1px);
+// Border radius cart actions
+// WooCommerce breakpoints are at 769px
+@media (max-width: 768px) {
+
+  .shop_table_responsive td.actions {
+    border-bottom-right-radius: $border-radius;
+    border-bottom-left-radius: $border-radius;
   }
+
 }
 
 .woocommerce table.shop_table td {
