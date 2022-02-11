@@ -87,17 +87,17 @@
 
               <!-- Search Toggler -->
               <button class="btn btn-outline-secondary ms-1 ms-md-2 top-nav-search-md" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-search" aria-expanded="false" aria-controls="collapse-search">
-                <i class="fas fa-search"></i><span class="visually-hidden-focusable">Search</span>
+                <i class="fa-solid fa-magnifying-glass"></i><span class="visually-hidden-focusable">Search</span>
               </button>
 
               <!-- User Toggler -->
               <button class="btn btn-outline-secondary ms-1 ms-md-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas-user" aria-controls="offcanvas-user">
-                <i class="fas fa-user"></i><span class="visually-hidden-focusable">Account</span>
+                <i class="fa-solid fa-user"></i><span class="visually-hidden-focusable">Account</span>
               </button>
 
               <!-- Mini Cart Toggler -->
               <button class="btn btn-outline-secondary ms-1 ms-md-2 position-relative" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas-cart" aria-controls="offcanvas-cart">
-                <i class="fas fa-shopping-bag"></i><span class="visually-hidden-focusable">Cart</span>
+                <i class="fa-solid fa-bag-shopping"></i><span class="visually-hidden-focusable">Cart</span>
                 <?php if (in_array('woocommerce/woocommerce.php', apply_filters('active_plugins', get_option('active_plugins')))) {
                   $count = WC()->cart->cart_contents_count;
                 ?>
@@ -112,7 +112,7 @@
 
               <!-- Navbar Toggler -->
               <button class="btn btn-outline-secondary d-lg-none ms-1 ms-md-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas-navbar" aria-controls="offcanvas-navbar">
-                <i class="fas fa-bars"></i><span class="visually-hidden-focusable">Menu</span>
+                <i class="fa-solid fa-bars"></i><span class="visually-hidden-focusable">Menu</span>
               </button>
 
             </div><!-- .header-actions -->
