@@ -80,7 +80,7 @@ do_action('woocommerce_before_mini_cart'); ?>
               <?php echo apply_filters( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
                 'woocommerce_cart_item_remove_link',
                 sprintf(
-                  '<a href="%s" class="remove_from_cart_button text-danger aria-label="%s" data-product_id="%s" data-cart_item_key="%s" data-product_sku="%s"><i class="far fa-trash-alt"></i></a>',
+                  '<a href="%s" class="remove_from_cart_button text-danger aria-label="%s" data-product_id="%s" data-cart_item_key="%s" data-product_sku="%s"><i class="fa-regular fa-trash-can"></i></a>',
                   esc_url(wc_get_cart_remove_url($cart_item_key)),
                   esc_attr__('Remove this item', 'woocommerce'),
                   esc_attr($product_id),
