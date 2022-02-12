@@ -15,6 +15,7 @@ use ScssPhp\ScssPhp\Compiler;
  */
 function bootscore_compile_scss() {
   $compiler = new Compiler();
+  $compiler->setSourceMap(Compiler::SOURCE_MAP_FILE);
 
   $compiler->setOutputStyle(\ScssPhp\ScssPhp\OutputStyle::COMPRESSED);
 
@@ -37,6 +38,14 @@ function bootscore_compile_scss() {
 
   $is_environment_dev = (wp_get_environment_type() === 'development');
 
+  if ($is_environment_dev) {
+    $compiler->setSourceMapOptions([
+      'sourceMapURL'      => '/' . substr(str_replace(ABSPATH, '', $css_file), 0, -3) . 'map',
+      'sourceMapBasepath' => substr(str_replace('\\', '/', ABSPATH), 0, -1),
+      'sourceRoot' => '/',
+    ]);
+  }
+
   try {
     if ($last_modified > $stored_modified || !file_exists($css_file) || $is_environment_dev) {
       $compiled = $compiler->compileString(file_get_contents($scss_file));
@@ -46,6 +55,9 @@ function bootscore_compile_scss() {
       }
 
       file_put_contents($css_file, $compiled->getCss());
+      if ($is_environment_dev) {
+        file_put_contents(substr($css_file, 0, -3) . 'map', $compiled->getSourceMap());
+      }
 
       set_theme_mod('bootscore_scss_modified_timestamp', $last_modified);
     }
