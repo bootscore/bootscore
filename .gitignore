@@ -2,5 +2,5 @@
 node_modules/
 package-lock.json
 .prettierrc
-css/lib/bootstrap.min.css
-css/lib/bootstrap.min.map
+css/main.css
+css/main.map
