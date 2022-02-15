@@ -82,7 +82,7 @@ function bootscore_get_last_modified_scss($theme_directory) {
       $total_last_modified += $file_stats['mtime'];
     }
   }
-  $total_last_modified += stat(get_template_directory() . '/scss/main.scss')['mtime'];
+  $total_last_modified += stat(get_template_directory() . '/scss/bootstrap/bootstrap.scss')['mtime'];
   return $total_last_modified;
 }
 
