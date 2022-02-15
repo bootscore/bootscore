@@ -1,19 +1,26 @@
+/*--------------------------------------------------------------
+WooCommerce Quantity Input
+--------------------------------------------------------------*/
+
 /* Hide browser arrows in quantity input */
 .woocommerce {
-    .quantity {
-        input::-webkit-outer-spin-button,
-        input::-webkit-inner-spin-button {
-          display: none;
-          margin: 0;
-        }
-        input.qty {
-        appearance: textfield;
-        -webkit-appearance: none;
-        -moz-appearance: textfield;
-        }
+  .quantity {
+
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+      display: none;
+      margin: 0;
     }
+
+    input.qty {
+      appearance: textfield;
+      -webkit-appearance: none;
+      -moz-appearance: textfield;
+    }
+  }
 }
 
+/*
 // Single product page
 .woocommerce {
   div.product form.cart {
@@ -36,6 +43,7 @@
     flex-grow: 1;
   }
 }
+*/
 
 
 // Cart page
@@ -43,11 +51,13 @@
   width: 140px; // Fixed width for input group
 }
 
+/*
 // Put qty-btn and add to cart on two lines
 // woocommerce breakpoint is at 992px
 @media (min-width: 769px) and (max-width: 991px) {
   .woocommerce div.product form.cart {
     flex-wrap: wrap;
+
     div.quantity {
       margin-right: auto;
       width: 100%;
@@ -55,6 +65,7 @@
     }
   }
 }
+*/
 
 // Woocommerce breakpoint is at 769px
 @media (max-width: 768px) {

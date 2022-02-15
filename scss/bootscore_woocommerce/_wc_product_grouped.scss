@@ -1,0 +1,14 @@
+/*--------------------------------------------------------------
+WooCommerce Grouped Product
+--------------------------------------------------------------*/
+
+
+// Stack add to cart button
+form.cart.grouped_form {
+  flex-direction: column;
+}
+
+// First column same width as quantity input
+.group_table .add-to-cart-container {
+    width: 140px;
+}
