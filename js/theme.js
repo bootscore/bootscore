@@ -10,10 +10,6 @@
 --------------------------------------------------------------*/
 
 jQuery(function ($) {
-  // Hide offcanvas menu in navbar and enable body scroll on resize through the breakpoints
-  $(window).on('resize', function () {
-    $('.navbar .offcanvas').offcanvas('hide');
-  });
 
   // Close offcanvas on click a, keep .dropdown-menu open
   $('.offcanvas a:not(.dropdown-toggle):not(a.remove_from_cart_button), a.dropdown-item').on('click', function () {
