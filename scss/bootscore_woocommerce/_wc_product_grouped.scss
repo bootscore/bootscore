@@ -3,12 +3,13 @@ WooCommerce Grouped Product
 --------------------------------------------------------------*/
 
 
-// Stack add to cart button
-form.cart.grouped_form {
-  flex-direction: column;
+// First table column same width as quantity-input
+.woocommerce div.product form.cart .group_table td:first-child {
+    width: 140px;
+    text-align: left;
 }
 
-// First column same width as quantity input
-.group_table .add-to-cart-container {
-    width: 140px;
+// Stack add-to-cart button
+form.cart.grouped_form {
+  flex-direction: column;
 }

@@ -3,7 +3,7 @@ WooCommerce Single Product
 --------------------------------------------------------------*/
 
 
-// Quantity and add to cart button
+// Quantity and add-to-cart-button
 .woocommerce {
   div.product form.cart {
     display: flex;
@@ -11,7 +11,7 @@ WooCommerce Single Product
     div.quantity {
       float: none;
       margin-right: 1rem;
-      width: 140px; // Fixed width for input group
+      //width: 140px; // Fixed width for input group
     }
   }
 
@@ -20,13 +20,13 @@ WooCommerce Single Product
     width: 2rem;
   }
 
-  // Add to cart button
+  // Add-to-cart-button
   div.product form.cart .btn {
     flex-grow: 1;
   }
 }
 
-// Stack qty and button in two lines
+// Stack quantity and add-to-cart-button in two lines
 // WooCommerce breakpoint is at 769px
 @media (min-width: 769px) and (max-width: 991px) {
   .woocommerce div.product form.cart {

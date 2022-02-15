@@ -2,79 +2,29 @@
 WooCommerce Quantity Input
 --------------------------------------------------------------*/
 
-/* Hide browser arrows in quantity input */
-.woocommerce {
-  .quantity {
 
-    input::-webkit-outer-spin-button,
-    input::-webkit-inner-spin-button {
-      display: none;
-      margin: 0;
-    }
+.woocommerce .quantity input {
 
-    input.qty {
-      appearance: textfield;
-      -webkit-appearance: none;
-      -moz-appearance: textfield;
-    }
+  // Hide browser arrows in quantity input 
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    display: none;
+    margin: 0;
+  }
+
+  &.qty {
+    appearance: textfield;
+    -webkit-appearance: none;
+    -moz-appearance: textfield;
   }
 }
 
-/*
-// Single product page
-.woocommerce {
-  div.product form.cart {
-    display: flex;
+// Fixed width for quantity input
+.quantity {
+  width: 140px;  
 
-    div.quantity {
-      float: none;
-      margin-right: 1rem;
-      width: 140px; // Fixed width for input group
-    }
+  // Hide quantity if product can only be purchased once
+  &.hidden {
+    display: none;
   }
-
-  // Width input field
-  .quantity .qty {
-    width: 2rem;
-  }
-
-  // Add to cart button
-  div.product form.cart .btn {
-    flex-grow: 1;
-  }
-}
-*/
-
-
-// Cart page
-.woocommerce-cart-form .product-quantity .quantity {
-  width: 140px; // Fixed width for input group
-}
-
-/*
-// Put qty-btn and add to cart on two lines
-// woocommerce breakpoint is at 992px
-@media (min-width: 769px) and (max-width: 991px) {
-  .woocommerce div.product form.cart {
-    flex-wrap: wrap;
-
-    div.quantity {
-      margin-right: auto;
-      width: 100%;
-      margin-bottom: 0.5rem;
-    }
-  }
-}
-*/
-
-// Woocommerce breakpoint is at 769px
-@media (max-width: 768px) {
-  .woocommerce-cart-form .product-quantity .quantity {
-    margin-left: auto;
-  }
-}
-
-// Hide quantity if product can only be purchased once
-.quantity.hidden {
-  display: none;
 }
