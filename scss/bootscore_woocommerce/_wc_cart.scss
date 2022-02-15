@@ -1,0 +1,11 @@
+/*--------------------------------------------------------------
+WooCommerce Cart
+--------------------------------------------------------------*/
+
+// Right align quantity input in mobile
+// Woocommerce breakpoint is at 769px
+@media (max-width: 768px) {
+  .woocommerce-cart-form .product-quantity .quantity {
+    margin-left: auto;
+  }
+}

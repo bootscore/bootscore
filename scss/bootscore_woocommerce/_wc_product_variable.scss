@@ -1,0 +1,35 @@
+/*--------------------------------------------------------------
+WooCommerce Variable Product
+--------------------------------------------------------------*/
+
+
+/*
+// Line break after label
+table.variations th,
+table.variations td {
+  display: list-item;
+  list-style: none;
+}
+*/
+
+// Quantity and add-to-cart-button
+form.variations_form.cart {
+  flex-direction: column;
+}
+
+.woocommerce-variation-add-to-cart.variations_button {
+  display: flex;
+}
+
+// Stack quantity and add-to-cart-button in two lines
+// WooCommerce breakpoint is at 769px
+@media (min-width: 769px) and (max-width: 991px) {
+  .woocommerce-variation-add-to-cart.variations_button {
+    display: block;
+  }
+
+  form.variations_form.cart .single_add_to_cart_button {
+    width: 100%;
+  }
+}
+// Quantity and add to cart button END
