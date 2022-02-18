@@ -73,7 +73,7 @@ function bootscore_compile_scss() {
  * @return float Last modified times added together.
  */
 function bootscore_get_last_modified_scss($theme_directory) {
-  $directory = $theme_directory . '/css/scss/';
+  $directory = $theme_directory . '/scss/';
   $files = scandir($directory);
   $total_last_modified = 0;
   foreach ($files as $file) {
