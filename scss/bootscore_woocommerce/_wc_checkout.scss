@@ -2,17 +2,16 @@
 WooCommerce Checkout
 --------------------------------------------------------------*/
 
+/*
 #add_payment_method #payment div.payment_box,
 .woocommerce-cart #payment div.payment_box,
 .woocommerce-checkout #payment div.payment_box {
   @extend .rounded;
 }
+*/
 
-.woocommerce-terms-and-conditions {
-  border: none;
-  box-shadow: none;
-  border-radius: 0.25rem;
-}
+
+
 
 .woocommerce form.checkout_coupon,
 .woocommerce form.login,
@@ -22,9 +21,27 @@ WooCommerce Checkout
   margin: 0;
 }
 
+
 // Hide Paypal img and link
 #payment .payment_method_paypal img,
 .woocommerce-checkout #payment .payment_method_paypal .about_paypal {
   display: none;
 }
 
+
+// Terms & conditions collapse box
+.woocommerce .woocommerce-terms-and-conditions,
+.woocommerce-page .woocommerce-terms-and-conditions {
+  border: none;
+  box-shadow: none;
+  border-radius: $border-radius;
+  margin-bottom: 1rem;
+  padding: 1rem;
+}
+
+
+// Place order button
+.woocommerce #payment #place_order,
+.woocommerce-page #payment #place_order {
+  margin-bottom: 0;
+}

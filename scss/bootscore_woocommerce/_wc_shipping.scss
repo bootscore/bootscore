@@ -20,6 +20,11 @@ WooCommerce Shipping
   }
 }
 
+// Shipping radios
+.woocommerce ul#shipping_method li {
+  padding-left: 0;
+}
+
 // Update button
 .shipping-calculator-form button {
   width: 100%;

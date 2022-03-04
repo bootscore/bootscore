@@ -9,3 +9,11 @@ WooCommerce Cart
     margin-left: auto;
   }
 }
+
+
+// Cart totals
+.woocommerce .cart-collaterals .cart_totals,
+.woocommerce-page .cart-collaterals .cart_totals {
+  float: none;
+  width: 100%;
+}
