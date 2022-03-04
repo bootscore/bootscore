@@ -8,15 +8,25 @@ WooCommerce Product Page
   display: none;
 }
 
+
 // Hide View cart
 .cart .added_to_cart.wc-forward {
   display: none;
 }
 
+
+// Product page price font-size
+.woocommerce div.product p.price,
+.woocommerce div.product span.price {
+  font-size: 2rem;
+}
+
+
 // Hide overlay in product add-to-cart-button 
 .cart .blockUI.blockOverlay {
   display: none !important;
 }
+
 
 // Line break in meta
 .product_meta .sku_wrapper::after,
@@ -25,11 +35,8 @@ WooCommerce Product Page
   white-space: pre;
 }
 
-// Variations select
-.woocommerce div.product form.cart .variations select {
-  margin-right: 0;
-}
 
-.woocommerce div.product form.cart .variations {
-  margin-bottom: 0;
+// Reset italic font in product additional information tab
+.woocommerce table.shop_attributes td {
+  font-style: normal;
 }
