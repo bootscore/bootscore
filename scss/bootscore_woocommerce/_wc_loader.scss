@@ -2,6 +2,7 @@
 WooCommerce Loader
 --------------------------------------------------------------*/
 
+
 // reset WooCommerce default loader
 .woocommerce .blockUI.blockOverlay:before,
 .woocommerce .loader:before,
@@ -19,6 +20,7 @@ WooCommerce Loader
   font-size: 2em;
 }
 
+
 // spinner-border
 .woocommerce .blockUI.blockOverlay:before,
 .woocommerce .loader:before,
@@ -34,6 +36,7 @@ WooCommerce Loader
   -webkit-animation: spinner-border 0.75s linear infinite;
   animation: spinner-border 0.75s linear infinite;
 }
+
 
 /*
 // spinner-grow

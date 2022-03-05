@@ -12,6 +12,17 @@ table.variations td {
 }
 */
 
+
+// Variations select
+.woocommerce div.product form.cart .variations select {
+  margin-right: 0;
+}
+
+.woocommerce div.product form.cart .variations {
+  margin-bottom: 0;
+}
+
+
 // Quantity and add-to-cart-button
 form.variations_form.cart {
   flex-direction: column;
@@ -33,3 +44,9 @@ form.variations_form.cart {
   }
 }
 // Quantity and add to cart button END
+
+
+// Cursor variable product needs selection
+button.single_add_to_cart_button.btn.btn-primary.disabled.wc-variation-selection-needed:hover {
+  cursor: not-allowed;
+}

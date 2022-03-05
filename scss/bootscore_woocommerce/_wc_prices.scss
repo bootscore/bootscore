@@ -1,0 +1,22 @@
+/*--------------------------------------------------------------
+WooCommerce Prices
+--------------------------------------------------------------*/
+
+
+// Remove underline
+ins {
+  text-decoration: none;
+}
+
+// font-weight
+.woocommerce div.product p.price ins,
+.woocommerce div.product span.price ins {
+  font-weight: normal;
+}
+
+
+/*
+.woocommerce-price-suffix {
+  display: block;
+}
+*/
