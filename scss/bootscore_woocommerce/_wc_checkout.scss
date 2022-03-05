@@ -2,23 +2,14 @@
 WooCommerce Checkout
 --------------------------------------------------------------*/
 
-/*
-#add_payment_method #payment div.payment_box,
-.woocommerce-cart #payment div.payment_box,
-.woocommerce-checkout #payment div.payment_box {
-  @extend .rounded;
-}
-*/
 
-
-
-
-.woocommerce form.checkout_coupon,
-.woocommerce form.login,
-.woocommerce form.register {
-  border: none;
-  padding: 0;
-  margin: 0;
+// Reset coupon collapse
+.woocommerce form {
+  &.checkout_coupon, &.login, &.register {
+    border: none;
+    padding: 0;
+    margin: 0;
+  }
 }
 
 
@@ -40,8 +31,19 @@ WooCommerce Checkout
 }
 
 
+// Adjust terms checkboxes
+.woocommerce form .form-row .input-checkbox {
+  margin: 0.25em 0 0 -1.5rem;
+  vertical-align: top;
+}
+
 // Place order button
 .woocommerce #payment #place_order,
 .woocommerce-page #payment #place_order {
   margin-bottom: 0;
+}
+
+button#place_order {
+  width: 100%;
+  margin-top: 1rem;
 }

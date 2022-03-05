@@ -30,9 +30,11 @@ WooCommerce Loop
 
 
 // Loop link
-a.woocommerce-LoopProduct-link.woocommerce-loop-product__link,
-a.woocommerce-LoopProduct-link.woocommerce-loop-product__link:hover {
+a.woocommerce-LoopProduct-link.woocommerce-loop-product__link {
   text-decoration: none;
+  &:hover {
+    text-decoration: none;
+  }
 }
 
 

@@ -2,11 +2,10 @@
 WooCommerce Shop Page
 --------------------------------------------------------------*/
 
-.woocommerce .woocommerce-result-count,
-.woocommerce-page .woocommerce-result-count {
-  float: none;
-}
 
+// Result count & ordering
+.woocommerce .woocommerce-result-count,
+.woocommerce-page .woocommerce-result-count,
 .woocommerce .woocommerce-ordering,
 .woocommerce-page .woocommerce-ordering {
   float: none;

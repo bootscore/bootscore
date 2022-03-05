@@ -9,8 +9,33 @@ WooCommerce My Account
   width: 100%;
 }
 
+
 // Content
 .woocommerce-account .woocommerce-MyAccount-content {
   float: none;
   width: 100%;
+}
+
+
+// Download button
+// WooCommerce breakpoint is 769px
+@media (min-width: 769px) {
+  a.woocommerce-MyAccount-downloads-file.btn.btn-outline-primary.btn-sm {
+    display: block;
+  }
+}
+
+
+// Invoice button
+// WooCommerce breakpoint is 769px
+@media (max-width: 768px) {
+  a.btn.btn-outline-primary.btn-sm.invoice {
+    margin-top: 0.25rem;
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  a.btn.btn-outline-primary.btn-sm.invoice {
+    margin-left: 0.25rem;
+  }
 }

@@ -44,3 +44,9 @@ form.variations_form.cart {
   }
 }
 // Quantity and add to cart button END
+
+
+// Cursor variable product needs selection
+button.single_add_to_cart_button.btn.btn-primary.disabled.wc-variation-selection-needed:hover {
+  cursor: not-allowed;
+}
