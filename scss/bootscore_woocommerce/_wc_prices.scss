@@ -9,14 +9,15 @@ ins {
 }
 
 
-// font-weight
+// Font weight
 .woocommerce div.product p.price ins,
 .woocommerce div.product span.price ins {
   font-weight: normal;
 }
 
 
-// Line break for taxes
+// Line break and font size for taxes
 .woocommerce-price-suffix {
   display: block;
+  font-size: 0.875rem;
 }
