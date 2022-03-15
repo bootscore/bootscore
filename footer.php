@@ -8,6 +8,8 @@
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
  * @package Bootscore
+ *
+ * @version 5.2.0.0
  */
 
 ?>
@@ -90,9 +92,8 @@
 
 </footer>
 
-<div class="top-button position-fixed zi-1020">
-  <a href="#to-top" class="btn btn-primary shadow"><i class="fa-solid fa-chevron-up"></i><span class="visually-hidden-focusable">To top</span></a>
-</div>
+<!-- To top button -->
+<a href="#" class="btn btn-primary shadow top-button position-fixed zi-1020"><i class="fa-solid fa-chevron-up"></i><span class="visually-hidden-focusable">To top</span></a>
 
 </div><!-- #page -->
 
