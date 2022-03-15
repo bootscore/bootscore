@@ -1,12 +1,5 @@
 /*--------------------------------------------------------------
->>> TABLE OF CONTENTS:
-----------------------------------------------------------------
-1.  Header
-2.  Theme
---------------------------------------------------------------*/
-
-/*--------------------------------------------------------------
-1. Header
+Theme JS
 --------------------------------------------------------------*/
 
 jQuery(function ($) {
@@ -40,44 +33,6 @@ jQuery(function ($) {
   // Close collapse if searchform loses focus
   $('.top-nav-search input:first-of-type').focusout(function () {
     $('#collapse-search').collapse('hide');
-  });
-}); // jQuery End
-
-/*--------------------------------------------------------------
-2. Theme
---------------------------------------------------------------*/
-
-jQuery(function ($) {
-  // Smooth Scroll. Will be removed when Safari supports scroll-behaviour: smooth (Bootstrap 5).
-  $(function () {
-    $('a[href*="#"]:not([href="#"]):not(a.comment-reply-link):not([href="#tab-reviews"]):not([href="#tab-additional_information"]):not([href="#tab-description"]):not([href="#reviews"]):not([href="#carouselExampleIndicators"]):not(.wc-tabs .nav-link):not([data-smoothscroll="false"])').click(function () {
-      if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
-        var target = $(this.hash);
-        target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
-        if (target.length) {
-          // Change your offset according to your navbar height
-          $('html, body').animate({ scrollTop: target.offset().top - 55 }, 1000);
-          return !1;
-        }
-      }
-    });
-  });
-
-  // Scroll to ID from external url. Will be removed when Safari supports scroll-behaviour: smooth (Bootstrap 5).
-  if (window.location.hash) scroll(0, 0);
-  setTimeout(function () {
-    scroll(0, 0);
-  }, 1);
-  $(function () {
-    $('.scroll').on('click', function (e) {
-      e.preventDefault();
-      // Change your offset according to your navbar height
-      $('html, body').animate({ scrollTop: $($(this).attr('href')).offset().top - 55 }, 1000, 'swing');
-    });
-    if (window.location.hash) {
-      // Change your offset according to your navbar height
-      $('html, body').animate({ scrollTop: $(window.location.hash).offset().top - 55 }, 1000, 'swing');
-    }
   });
 
   // Scroll to top Button

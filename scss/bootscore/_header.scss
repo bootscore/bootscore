@@ -3,6 +3,12 @@ Header
 --------------------------------------------------------------*/
 
 
+// Navbar height
+html {
+  scroll-padding-top: 55px;
+}
+
+
 // Mobile
 @media (max-width: 782px) {
   // Fixed admin-bar

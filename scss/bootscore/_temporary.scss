@@ -3,13 +3,6 @@ Temporary
 --------------------------------------------------------------*/
 
 
-// scroll-behaviour: smooth not supportet by Safari. 
-// jQuery smooth scroll script will be removed when Safari supports it */
-html {
-  scroll-behavior: auto !important;
-}
-
-
 // Prefix webkit browsers checks, select and form-range
 .form-check-input, .form-select {
   -webkit-appearance: none;
