@@ -9,17 +9,6 @@ jQuery(function ($) {
     $('.offcanvas').offcanvas('hide');
   });
 
-  // Dropdown menu animation
-  // Add slideDown animation to Bootstrap dropdown when expanding.
-  $('.dropdown').on('show.bs.dropdown', function () {
-    $(this).find('.dropdown-menu').first().stop(true, true).slideDown();
-  });
-
-  // Add slideUp animation to Bootstrap dropdown when collapsing.
-  $('.dropdown').on('hide.bs.dropdown', function () {
-    $(this).find('.dropdown-menu').first().stop(true, true).slideUp();
-  });
-
   // Search collapse button hide if empty
   if ($('#collapse-search').children().length == 0) {
     $('.top-nav-search-md, .top-nav-search-lg').remove();
