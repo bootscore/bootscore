@@ -40,3 +40,9 @@ WooCommerce Product Page
 .woocommerce table.shop_attributes td {
   font-style: normal;
 }
+
+
+// Fix related products if no product tab (disabled reviews, no product description, no attributes) is used
+.related.products {
+  clear: both;
+}
