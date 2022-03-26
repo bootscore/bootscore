@@ -27,10 +27,14 @@ function bootscore() {
 
 
 // Register Ajax Cart
-function register_ajax_cart() {
-  require_once('ajax-cart/ajax-add-to-cart.php');
-}
-add_action('after_setup_theme', 'register_ajax_cart');
+if (!function_exists('register_ajax_cart')) :
+
+  function register_ajax_cart() {
+    require_once('ajax-cart/ajax-add-to-cart.php');
+  }
+  add_action('after_setup_theme', 'register_ajax_cart');
+
+endif;
 // Register Ajax Cart End
 
 
