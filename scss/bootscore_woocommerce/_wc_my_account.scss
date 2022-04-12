@@ -20,7 +20,7 @@ WooCommerce My Account
 // Download button
 // WooCommerce breakpoint is 769px
 @media (min-width: 769px) {
-  a.woocommerce-MyAccount-downloads-file.btn.btn-outline-primary.btn-sm {
+  .woocommerce-MyAccount-downloads-file {
     display: block;
   }
 }
@@ -29,13 +29,20 @@ WooCommerce My Account
 // Invoice button
 // WooCommerce breakpoint is 769px
 @media (max-width: 768px) {
-  a.btn.btn-outline-primary.btn-sm.invoice {
+  .invoice {
+    margin-left: 0.25rem;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 991px) {
+  .invoice {
     margin-top: 0.25rem;
   }
 }
 
+
 @include media-breakpoint-up(lg) {
-  a.btn.btn-outline-primary.btn-sm.invoice {
+  .invoice {
     margin-left: 0.25rem;
   }
 }
