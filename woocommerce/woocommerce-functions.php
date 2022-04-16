@@ -181,13 +181,21 @@ if (!function_exists('woocommerce_template_loop_category_title')) :
         echo $category->name; 
 
         if ( $category->count > 0 ) 
-          echo apply_filters( 'woocommerce_subcategory_count_html', ' <mark class="count badge bg-white text-dark">(' . $category->count . ')</mark>', $category ); 
+          echo apply_filters( 'woocommerce_subcategory_count_html', ' <mark class="count badge bg-white text-dark">' . $category->count . '</mark>', $category ); 
       ?> 
     </h2> 
     <?php 
   } 
 endif;
 // Category loop button and badge End
+
+
+// Remove () in WC category widget
+add_filter( 'wp_list_categories', 'update_count_output' );
+function update_count_output($output) {
+  return preg_replace('/\<span class\=\"count\"\>\((\d+)\)\<\/span\>/', '<span class="count">$1</span>', $output);
+}
+// Remove () in WC category widget End
 
 
 // Correct hooked checkboxes in checkout
@@ -282,8 +290,3 @@ function bootscore_redirect_after_registration() {
   }
 }
 // Redirect to my-account after (un)sucessful registration End
-
-
-
-
-
