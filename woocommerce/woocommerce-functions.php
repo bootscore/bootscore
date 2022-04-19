@@ -190,14 +190,6 @@ endif;
 // Category loop button and badge End
 
 
-// Remove () in WC category widget
-add_filter( 'wp_list_categories', 'update_count_output' );
-function update_count_output($output) {
-  return preg_replace('/\<span class\=\"count\"\>\((\d+)\)\<\/span\>/', '<span class="count">$1</span>', $output);
-}
-// Remove () in WC category widget End
-
-
 // Correct hooked checkboxes in checkout
 /**
  * Get the corrected terms for Woocommerce.
