@@ -181,7 +181,7 @@ if (!function_exists('woocommerce_template_loop_category_title')) :
         echo $category->name; 
 
         if ( $category->count > 0 ) 
-          echo apply_filters( 'woocommerce_subcategory_count_html', ' <mark class="count badge bg-white text-dark">(' . $category->count . ')</mark>', $category ); 
+          echo apply_filters( 'woocommerce_subcategory_count_html', ' <mark class="count badge bg-white text-dark">' . $category->count . '</mark>', $category ); 
       ?> 
     </h2> 
     <?php 
@@ -282,8 +282,3 @@ function bootscore_redirect_after_registration() {
   }
 }
 // Redirect to my-account after (un)sucessful registration End
-
-
-
-
-
