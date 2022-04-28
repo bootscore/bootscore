@@ -10,11 +10,19 @@ body {
   overflow-x: hidden;
 }
 
-// Min-height to content
-#content {
-  min-height: 600px;
+// Make the footer stick to the bottom
+html, body, #page {
+  height: 100%;
 }
 
+#page {
+  display: flex;
+  flex-direction: column;
+}
+
+#content {
+  flex: 1;
+}
 
 //HTML Markups (Theme Unit Test Data)
 
