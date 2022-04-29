@@ -343,6 +343,8 @@ if (!function_exists('bootscore_pagination')) :
   function bootscore_pagination($pages = '', $range = 2) {
     $showitems = ($range * 2) + 1;
     global $paged;
+    // default page to one if not provided
+    if(empty($paged)) $paged = 1;
     if ($pages == '') {
       global $wp_query;
       $pages = $wp_query->max_num_pages;
