@@ -2,7 +2,6 @@
 WooCommerce Colors
 --------------------------------------------------------------*/
 
-
 .woocommerce div.product p.price,
 .woocommerce div.product span.price,
 .card .price {
@@ -60,15 +59,16 @@ ins {
 
 .woocommerce table.shop_table,
 .woocommerce table.shop_table td,
-.woocommerce table.shop_table tbody th, 
-.woocommerce table.shop_table tfoot td, .woocommerce table.shop_table tfoot th,
+.woocommerce table.shop_table tbody th,
+.woocommerce table.shop_table tfoot td,
+.woocommerce table.shop_table tfoot th,
 #add_payment_method .cart-collaterals .cart_totals tr td,
 #add_payment_method .cart-collaterals .cart_totals tr th,
 .woocommerce-cart .cart-collaterals .cart_totals tr td,
 .woocommerce-cart .cart-collaterals .cart_totals tr th,
 .woocommerce-checkout .cart-collaterals .cart_totals tr td,
 .woocommerce-checkout .cart-collaterals .cart_totals tr th,
-.woocommerce table.shop_attributes td, 
+.woocommerce table.shop_attributes td,
 .woocommerce table.shop_attributes th,
 .woocommerce table.shop_attributes {
   border-color: var(--bscore-wc-shop-table-border, var(--bs-gray-300));
@@ -95,7 +95,6 @@ ins {
   background-color: var(--bscore-wc-shop-table-bg, var(--bs-white));
 }
 
-
 .woocommerce div.product .stock {
   color: currentColor;
 }
@@ -108,7 +107,6 @@ ins {
 .pswp__bg {
   background-color: rgba(0, 0, 0, 0.8);
 }
-
 
 // Loader
 .woocommerce .blockUI.blockOverlay,

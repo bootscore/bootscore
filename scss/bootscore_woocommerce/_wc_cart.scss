@@ -2,7 +2,6 @@
 WooCommerce Cart
 --------------------------------------------------------------*/
 
-
 // Right align quantity input in mobile
 // Woocommerce breakpoint is at 769px
 @media (max-width: 768px) {
@@ -11,14 +10,12 @@ WooCommerce Cart
   }
 }
 
-
 // Cart totals
 .woocommerce .cart-collaterals .cart_totals,
 .woocommerce-page .cart-collaterals .cart_totals {
   float: none;
   width: 100%;
 }
-
 
 // Update cart button
 // WooCommerce breakpoints are at 769px

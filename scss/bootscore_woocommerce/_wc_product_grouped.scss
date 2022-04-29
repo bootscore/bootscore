@@ -2,11 +2,10 @@
 WooCommerce Grouped Product
 --------------------------------------------------------------*/
 
-
 // First table column same width as quantity-input
 .woocommerce div.product form.cart .group_table td:first-child {
-    width: 140px;
-    text-align: left;
+  width: 140px;
+  text-align: left;
 }
 
 // Stack add-to-cart button
