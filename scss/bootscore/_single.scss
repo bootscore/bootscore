@@ -15,10 +15,10 @@ Single page-*.php and post-*.php
 }
 
 // Pagination
-[rel='prev']:before {
-  content: '« ';
+[rel="prev"]:before {
+  content: "« ";
 }
 
-[rel='next']:after {
-  content: ' »';
+[rel="next"]:after {
+  content: " »";
 }

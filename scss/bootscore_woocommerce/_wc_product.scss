@@ -26,7 +26,7 @@ WooCommerce Product Page
 // Line break in meta
 .product_meta .sku_wrapper::after,
 .product_meta .posted_in::after {
-  content: '\A';
+  content: "\A";
   white-space: pre;
 }
 
