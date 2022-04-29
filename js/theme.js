@@ -15,11 +15,11 @@ jQuery(function ($) {
 
   // Searchform focus
   $('#collapse-search').on('shown.bs.collapse', function () {
-    $('.top-nav-search input:first-of-type').focus();
+    $('.top-nav-search input:first-of-type').trigger('focus');
   });
 
   // Close collapse if searchform loses focus
-  $('.top-nav-search input:first-of-type').focusout(function () {
+  $('.top-nav-search input:first-of-type').on('focusout', function () {
     $('#collapse-search').collapse('hide');
   });
 
