@@ -2,7 +2,6 @@
 Comments
 --------------------------------------------------------------*/
 
-
 // Reset list-style
 ul.comment-list {
   list-style: none;
@@ -12,7 +11,6 @@ ul.comment-list {
     list-style: none;
   }
 }
-
 
 // Avatar size
 .avatar {
@@ -36,7 +34,6 @@ ul.comment-list {
   }
 }
 
-
 .screen-reader-text {
   clip: rect(1px, 1px, 1px, 1px);
   position: absolute !important;
@@ -49,7 +46,7 @@ ul.comment-list {
 #cancel-comment-reply-link {
   margin-left: 1rem;
 }
-  
+
 // Adding width to comment. When using <pre> in comment, comment-content will not crashed
 .comment-content {
   width: calc(100% - 96px);
