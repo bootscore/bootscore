@@ -67,7 +67,7 @@ if (!function_exists('bs_mini_cart')) :
       <?php } ?>
     </span>
 
-<?php
+  <?php
     $fragments['span.cart-content'] = ob_get_clean();
 
     return $fragments;
@@ -174,18 +174,18 @@ function custom_loop_product_thumbnail() {
 
 // Category loop button and badge
 if (!function_exists('woocommerce_template_loop_category_title')) :
-  function woocommerce_template_loop_category_title( $category ) { 
-    ?> 
-    <h2 class="woocommerce-loop-category__title btn btn-primary w-100 mb-0"> 
-      <?php 
-        echo $category->name; 
+  function woocommerce_template_loop_category_title($category) {
+  ?>
+    <h2 class="woocommerce-loop-category__title btn btn-primary w-100 mb-0">
+      <?php
+      echo $category->name;
 
-        if ( $category->count > 0 ) 
-          echo apply_filters( 'woocommerce_subcategory_count_html', ' <mark class="count badge bg-white text-dark">' . $category->count . '</mark>', $category ); 
-      ?> 
-    </h2> 
-    <?php 
-  } 
+      if ($category->count > 0)
+        echo apply_filters('woocommerce_subcategory_count_html', ' <mark class="count badge bg-white text-dark">' . $category->count . '</mark>', $category);
+      ?>
+    </h2>
+<?php
+  }
 endif;
 // Category loop button and badge End
 

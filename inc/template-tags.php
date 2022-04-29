@@ -250,6 +250,7 @@ if (!function_exists('bootscore_ie_alert')) :
    *
    * function stays to not break child themes with the function bootscore_ie_alert() immediately
    */
-  function bootscore_ie_alert() { }
+  function bootscore_ie_alert() {
+  }
 endif;
 // Internet Explorer Warning Alert End
