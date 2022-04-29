@@ -121,25 +121,25 @@ if (!function_exists('bootscore_widgets_init')) :
 
     // Top Nav
     register_sidebar(array(
-      'name' => esc_html__('Top Nav', 'bootscore'),
-      'id' => 'top-nav',
-      'description' => esc_html__('Add widgets here.', 'bootscore'),
+      'name'          => esc_html__('Top Nav', 'bootscore'),
+      'id'            => 'top-nav',
+      'description'   => esc_html__('Add widgets here.', 'bootscore'),
       'before_widget' => '<div class="ms-3">',
-      'after_widget' => '</div>',
-      'before_title' => '<div class="widget-title d-none">',
-      'after_title' => '</div>'
+      'after_widget'  => '</div>',
+      'before_title'  => '<div class="widget-title d-none">',
+      'after_title'   => '</div>'
     ));
     // Top Nav End
 
     // Top Nav Search
     register_sidebar(array(
-      'name' => esc_html__('Top Nav Search', 'bootscore'),
-      'id' => 'top-nav-search',
-      'description' => esc_html__('Add widgets here.', 'bootscore'),
+      'name'          => esc_html__('Top Nav Search', 'bootscore'),
+      'id'            => 'top-nav-search',
+      'description'   => esc_html__('Add widgets here.', 'bootscore'),
       'before_widget' => '<div class="top-nav-search">',
-      'after_widget' => '</div>',
-      'before_title' => '<div class="widget-title d-none">',
-      'after_title' => '</div>'
+      'after_widget'  => '</div>',
+      'before_title'  => '<div class="widget-title d-none">',
+      'after_title'   => '</div>'
     ));
     // Top Nav Search End
 
@@ -157,73 +157,73 @@ if (!function_exists('bootscore_widgets_init')) :
 
     // Top Footer
     register_sidebar(array(
-      'name' => esc_html__('Top Footer', 'bootscore'),
-      'id' => 'top-footer',
-      'description' => esc_html__('Add widgets here.', 'bootscore'),
+      'name'          => esc_html__('Top Footer', 'bootscore'),
+      'id'            => 'top-footer',
+      'description'   => esc_html__('Add widgets here.', 'bootscore'),
       'before_widget' => '<div class="footer_widget mb-5">',
-      'after_widget' => '</div>',
-      'before_title' => '<h2 class="widget-title">',
-      'after_title' => '</h2>'
+      'after_widget'  => '</div>',
+      'before_title'  => '<h2 class="widget-title">',
+      'after_title'   => '</h2>'
     ));
     // Top Footer End
 
     // Footer 1
     register_sidebar(array(
-      'name' => esc_html__('Footer 1', 'bootscore'),
-      'id' => 'footer-1',
-      'description' => esc_html__('Add widgets here.', 'bootscore'),
+      'name'          => esc_html__('Footer 1', 'bootscore'),
+      'id'            => 'footer-1',
+      'description'   => esc_html__('Add widgets here.', 'bootscore'),
       'before_widget' => '<div class="footer_widget mb-4">',
-      'after_widget' => '</div>',
-      'before_title' => '<h2 class="widget-title h4">',
-      'after_title' => '</h2>'
+      'after_widget'  => '</div>',
+      'before_title'  => '<h2 class="widget-title h4">',
+      'after_title'   => '</h2>'
     ));
     // Footer 1 End
 
     // Footer 2
     register_sidebar(array(
-      'name' => esc_html__('Footer 2', 'bootscore'),
-      'id' => 'footer-2',
-      'description' => esc_html__('Add widgets here.', 'bootscore'),
+      'name'          => esc_html__('Footer 2', 'bootscore'),
+      'id'            => 'footer-2',
+      'description'   => esc_html__('Add widgets here.', 'bootscore'),
       'before_widget' => '<div class="footer_widget mb-4">',
-      'after_widget' => '</div>',
-      'before_title' => '<h2 class="widget-title h4">',
-      'after_title' => '</h2>'
+      'after_widget'  => '</div>',
+      'before_title'  => '<h2 class="widget-title h4">',
+      'after_title'   => '</h2>'
     ));
     // Footer 2 End
 
     // Footer 3
     register_sidebar(array(
-      'name' => esc_html__('Footer 3', 'bootscore'),
-      'id' => 'footer-3',
-      'description' => esc_html__('Add widgets here.', 'bootscore'),
+      'name'          => esc_html__('Footer 3', 'bootscore'),
+      'id'            => 'footer-3',
+      'description'   => esc_html__('Add widgets here.', 'bootscore'),
       'before_widget' => '<div class="footer_widget mb-4">',
-      'after_widget' => '</div>',
-      'before_title' => '<h2 class="widget-title h4">',
-      'after_title' => '</h2>'
+      'after_widget'  => '</div>',
+      'before_title'  => '<h2 class="widget-title h4">',
+      'after_title'   => '</h2>'
     ));
     // Footer 3 End
 
     // Footer 4
     register_sidebar(array(
-      'name' => esc_html__('Footer 4', 'bootscore'),
-      'id' => 'footer-4',
-      'description' => esc_html__('Add widgets here.', 'bootscore'),
+      'name'          => esc_html__('Footer 4', 'bootscore'),
+      'id'            => 'footer-4',
+      'description'   => esc_html__('Add widgets here.', 'bootscore'),
       'before_widget' => '<div class="footer_widget mb-4">',
-      'after_widget' => '</div>',
-      'before_title' => '<h2 class="widget-title h4">',
-      'after_title' => '</h2>'
+      'after_widget'  => '</div>',
+      'before_title'  => '<h2 class="widget-title h4">',
+      'after_title'   => '</h2>'
     ));
     // Footer 4 End
 
     // 404 Page
     register_sidebar(array(
-      'name' => esc_html__('404 Page', 'bootscore'),
-      'id' => '404-page',
-      'description' => esc_html__('Add widgets here.', 'bootscore'),
+      'name'          => esc_html__('404 Page', 'bootscore'),
+      'id'            => '404-page',
+      'description'   => esc_html__('Add widgets here.', 'bootscore'),
       'before_widget' => '<div class="mb-4">',
-      'after_widget' => '</div>',
-      'before_title' => '<h1 class="widget-title">',
-      'after_title' => '</h1>'
+      'after_widget'  => '</div>',
+      'before_title'  => '<h1 class="widget-title">',
+      'after_title'   => '</h1>'
     ));
     // 404 Page End
 
@@ -271,16 +271,16 @@ function bootscore_scripts() {
 
   // Theme JS
   wp_enqueue_script('bootscore-script', get_template_directory_uri() . '/js/theme.js', array('jquery'), $modificated_themeJs, true);
-  
+
   // IE Warning
   wp_localize_script('bootscore-script', 'bootscore', array(
-    'ie_title' => __('Internet Explorer detected', 'bootscore'),
+    'ie_title'                 => __('Internet Explorer detected', 'bootscore'),
     'ie_limited_functionality' => __('This website will offer limited functionality in this browser.', 'bootscore'),
-    'ie_modern_browsers_1' => __('Please use a modern and secure web browser like', 'bootscore'),
-    'ie_modern_browsers_2' => __(' <a href="https://www.mozilla.org/firefox/" target="_blank">Mozilla Firefox</a>, <a href="https://www.google.com/chrome/" target="_blank">Google Chrome</a>, <a href="https://www.opera.com/" target="_blank">Opera</a> ' , 'bootscore'),
-    'ie_modern_browsers_3' => __('or', 'bootscore'),
-    'ie_modern_browsers_4' => __(' <a href="https://www.microsoft.com/edge" target="_blank">Microsoft Edge</a> ' , 'bootscore'),
-    'ie_modern_browsers_5' => __('to display this site correctly.', 'bootscore'),
+    'ie_modern_browsers_1'     => __('Please use a modern and secure web browser like', 'bootscore'),
+    'ie_modern_browsers_2'     => __(' <a href="https://www.mozilla.org/firefox/" target="_blank">Mozilla Firefox</a>, <a href="https://www.google.com/chrome/" target="_blank">Google Chrome</a>, <a href="https://www.opera.com/" target="_blank">Opera</a> ', 'bootscore'),
+    'ie_modern_browsers_3'     => __('or', 'bootscore'),
+    'ie_modern_browsers_4'     => __(' <a href="https://www.microsoft.com/edge" target="_blank">Microsoft Edge</a> ', 'bootscore'),
+    'ie_modern_browsers_5'     => __('to display this site correctly.', 'bootscore'),
   ));
   // IE Warning End
 

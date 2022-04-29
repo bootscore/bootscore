@@ -2,9 +2,7 @@
 Alerts
 --------------------------------------------------------------*/
 
-
 .alert {
-
   &.alert-danger,
   &.alert-warning,
   &.alert-info,
@@ -21,31 +19,28 @@ Alerts
   }
 }
 
-
 // Add icons
 .alert-danger::before {
-  content: '\f071';
+  content: "\f071";
 }
 
 .alert-warning::before {
-  content: '\f06a';
+  content: "\f06a";
 }
 
 .alert-info::before {
-  content: '\f05a';
+  content: "\f05a";
 }
 
 .alert-success::before {
-  content: '\f058';
+  content: "\f058";
 }
-
 
 // Reset link colors
 .alert a:not(.alert a.btn) {
   color: inherit;
   font-weight: 700;
 }
-
 
 // Add alert-info to must-log-in comments
 .must-log-in {

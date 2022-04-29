@@ -2,7 +2,6 @@
 Markups
 --------------------------------------------------------------*/
 
-
 body {
   position: relative;
   word-break: break-word;
@@ -11,7 +10,9 @@ body {
 }
 
 // Make the footer stick to the bottom
-html, body, #page {
+html,
+body,
+#page {
   height: 100%;
 }
 
@@ -66,7 +67,7 @@ iframe {
   margin-bottom: 1.5em;
   max-width: 100%;
 
-  img[class*='wp-image-'] {
+  img[class*="wp-image-"] {
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -129,7 +130,8 @@ iframe {
 }
 
 .blocks-gallery-grid {
-  .blocks-gallery-image figcaption, .blocks-gallery-item figcaption {
+  .blocks-gallery-image figcaption,
+  .blocks-gallery-item figcaption {
     overflow: auto;
     padding: 0.5rem;
     font-size: 1rem;
@@ -138,7 +140,8 @@ iframe {
 }
 
 .wp-block-gallery {
-  .blocks-gallery-image figcaption, .blocks-gallery-item figcaption {
+  .blocks-gallery-image figcaption,
+  .blocks-gallery-item figcaption {
     overflow: auto;
     padding: 0.5rem;
     font-size: 1rem;

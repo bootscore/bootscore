@@ -2,10 +2,8 @@
 WooCommerce Quantity Input
 --------------------------------------------------------------*/
 
-
 .woocommerce .quantity input {
-
-  // Hide browser arrows in quantity input 
+  // Hide browser arrows in quantity input
   &::-webkit-outer-spin-button,
   &::-webkit-inner-spin-button {
     display: none;
@@ -19,10 +17,9 @@ WooCommerce Quantity Input
   }
 }
 
-
 // Fixed width for quantity input
 .quantity {
-  width: 140px;  
+  width: 140px;
 
   // Hide quantity if product can only be purchased once
   &.hidden {

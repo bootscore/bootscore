@@ -2,7 +2,6 @@
 WooCommerce Loop
 --------------------------------------------------------------*/
 
-
 // Products
 
 // Price font-size
@@ -10,15 +9,13 @@ WooCommerce Loop
   font-size: 1.25rem;
 }
 
-
 // Hide View cart
 .added_to_cart.wc-forward {
   display: none !important;
 }
 
-
 // Star ratings
-.card .star-rating, 
+.card .star-rating,
 .woocommerce .card .star-rating {
   float: none;
   margin: 1rem auto;
@@ -28,7 +25,6 @@ WooCommerce Loop
   text-align: left;
 }
 
-
 // Loop link
 a.woocommerce-LoopProduct-link.woocommerce-loop-product__link {
   text-decoration: none;
@@ -36,7 +32,6 @@ a.woocommerce-LoopProduct-link.woocommerce-loop-product__link {
     text-decoration: none;
   }
 }
-
 
 // Categories
 

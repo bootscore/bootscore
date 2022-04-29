@@ -2,20 +2,17 @@
 WooCommerce My Account
 --------------------------------------------------------------*/
 
-
 // Navigation
 .woocommerce-account .woocommerce-MyAccount-navigation {
   float: none;
   width: 100%;
 }
 
-
 // Content
 .woocommerce-account .woocommerce-MyAccount-content {
   float: none;
   width: 100%;
 }
-
 
 // Download button
 // WooCommerce breakpoint is 769px
@@ -24,7 +21,6 @@ WooCommerce My Account
     display: block;
   }
 }
-
 
 // Invoice button
 // WooCommerce breakpoint is 769px
@@ -39,7 +35,6 @@ WooCommerce My Account
     margin-top: 0.25rem;
   }
 }
-
 
 @include media-breakpoint-up(lg) {
   .invoice {

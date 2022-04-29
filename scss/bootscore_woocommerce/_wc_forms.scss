@@ -2,10 +2,10 @@
 WooCommerce Forms
 --------------------------------------------------------------*/
 
-
 // Reset form-row
 .woocommerce form .form-row {
-  input.input-text, textarea {
+  input.input-text,
+  textarea {
     line-height: inherit;
   }
 }
@@ -17,7 +17,6 @@ WooCommerce Forms
     line-height: 1.5;
   }
 }
-
 
 // Account password
 #account_password {

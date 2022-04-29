@@ -2,12 +2,10 @@
 Header
 --------------------------------------------------------------*/
 
-
 // Navbar height
 html {
   scroll-padding-top: 55px;
 }
-
 
 // Mobile
 @media (max-width: 782px) {
@@ -17,7 +15,6 @@ html {
   }
 
   .logged-in.admin-bar {
-
     // Push content down when WP admin-bar is visible
     .fixed-top,
     .offcanvas:not(.offcanvas-bottom),
@@ -37,11 +34,9 @@ html {
   }
 }
 
-
 // Desktop
 @media (min-width: 783px) {
   .logged-in.admin-bar {
-
     // Push content down when WP admin-bar is visible
     .fixed-top,
     .offcanvas:not(.offcanvas-bottom),
@@ -60,7 +55,6 @@ html {
     }
   }
 }
-
 
 // Reset Bootstrap last nav-bar nav-link padding
 #nav-main .menu-item:last-child .nav-link {

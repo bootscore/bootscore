@@ -2,7 +2,6 @@
 WooCommerce Single Product
 --------------------------------------------------------------*/
 
-
 // Quantity and add-to-cart-button
 .woocommerce {
   div.product form.cart {
@@ -30,7 +29,7 @@ WooCommerce Single Product
 @media (min-width: 769px) and (max-width: 991px) {
   .woocommerce div.product form.cart {
     flex-wrap: wrap;
-    
+
     div.quantity {
       margin-right: auto;
       width: 100%;
