@@ -4,11 +4,11 @@ jQuery(function ($) {
   // Single add to cart button END
 
   // Add loading class to offcanvas-cart
-  $('body').bind('adding_to_cart', function () {
+  $('body').on('adding_to_cart', function () {
     $('#offcanvas-cart').addClass('loading');
   });
 
-  $('body').bind('added_to_cart', function () {
+  $('body').on('added_to_cart', function () {
     $('#offcanvas-cart').removeClass('loading');
   });
   // Add loading class to offcanvas-cart END
