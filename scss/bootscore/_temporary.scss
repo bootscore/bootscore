@@ -26,3 +26,10 @@ p:empty:before {
 .grecaptcha-badge {
   display: none !important;
 }
+
+
+// Bs 5.2.0-beta-1 Pagination Hotfix
+.page-item:not(:first-child) .page-link {
+  //margin-left: calc($pagination-border-width * -1); // Variable doesn't work
+  margin-left: -1px;
+}
