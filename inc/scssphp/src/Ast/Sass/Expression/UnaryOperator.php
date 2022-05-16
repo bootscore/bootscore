@@ -10,14 +10,15 @@
  * @link http://scssphp.github.io/scssphp
  */
 
-namespace ScssPhp\ScssPhp;
+namespace ScssPhp\ScssPhp\Ast\Sass\Expression;
 
 /**
- * SCSSPHP version
- *
- * @author Leaf Corcoran <leafot@gmail.com>
+ * @internal
  */
-class Version
+final class UnaryOperator
 {
-    const VERSION = '1.10.3';
+    const PLUS = '+';
+    const MINUS = '-';
+    const DIVIDE = '/';
+    const NOT = 'not';
 }

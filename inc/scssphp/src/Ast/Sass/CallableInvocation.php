@@ -10,14 +10,9 @@
  * @link http://scssphp.github.io/scssphp
  */
 
-namespace ScssPhp\ScssPhp;
+namespace ScssPhp\ScssPhp\Ast\Sass;
 
-/**
- * SCSSPHP version
- *
- * @author Leaf Corcoran <leafot@gmail.com>
- */
-class Version
+interface CallableInvocation extends SassNode
 {
-    const VERSION = '1.10.3';
+    public function getArguments(): ArgumentInvocation;
 }

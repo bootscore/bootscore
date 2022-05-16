@@ -10,14 +10,12 @@
  * @link http://scssphp.github.io/scssphp
  */
 
-namespace ScssPhp\ScssPhp;
+namespace ScssPhp\ScssPhp\Util;
 
 /**
- * SCSSPHP version
- *
- * @author Leaf Corcoran <leafot@gmail.com>
+ * @internal
  */
-class Version
+interface Equatable
 {
-    const VERSION = '1.10.3';
+    public function equals(object $other): bool;
 }

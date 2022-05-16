@@ -10,14 +10,13 @@
  * @link http://scssphp.github.io/scssphp
  */
 
-namespace ScssPhp\ScssPhp;
+namespace ScssPhp\ScssPhp\Value;
 
 /**
- * SCSSPHP version
- *
- * @author Leaf Corcoran <leafot@gmail.com>
+ * @internal
  */
-class Version
+final class ColorFormat
 {
-    const VERSION = '1.10.3';
+    const RGB_FUNCTION = 'rgbFunction';
+    const HSL_FUNCTION = 'hslFunction';
 }

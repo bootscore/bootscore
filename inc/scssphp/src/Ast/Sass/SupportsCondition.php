@@ -10,14 +10,13 @@
  * @link http://scssphp.github.io/scssphp
  */
 
-namespace ScssPhp\ScssPhp;
+namespace ScssPhp\ScssPhp\Ast\Sass;
 
 /**
- * SCSSPHP version
+ * An interface for defining the condition a `@supports` rule selects.
  *
- * @author Leaf Corcoran <leafot@gmail.com>
+ * @internal
  */
-class Version
+interface SupportsCondition extends SassNode
 {
-    const VERSION = '1.10.3';
 }

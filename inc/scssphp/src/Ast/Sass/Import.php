@@ -10,14 +10,13 @@
  * @link http://scssphp.github.io/scssphp
  */
 
-namespace ScssPhp\ScssPhp;
+namespace ScssPhp\ScssPhp\Ast\Sass;
 
 /**
- * SCSSPHP version
+ * An interface for different types of import.
  *
- * @author Leaf Corcoran <leafot@gmail.com>
+ * @internal
  */
-class Version
+interface Import extends SassNode
 {
-    const VERSION = '1.10.3';
 }
