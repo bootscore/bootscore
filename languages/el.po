@@ -1,0 +1,493 @@
+# Copyright (C) 2017 Automattic
+# This file is distributed under the GNU General Public License v2 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: _s 1.0.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/tags/_s\n"
+"POT-Creation-Date: 2021-08-24 07:50+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2022-06-01 15:02+0000\n"
+"Last-Translator: \n"
+"Language-Team: Ελληνικά\n"
+"X-Generator: Loco https://localise.biz/\n"
+"Language: el\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Loco-Version: 2.6.2; wp-6.0"
+
+# Common WordPress theme terms are left in the default language as they are global standards and any translation of these words could lead to confusion as to what they refer to.
+#: single-sidebar-none.php:28 single-sidebar-left.php:31 single.php:29
+#: single-full-width-image.php:37
+msgid " by "
+msgstr " by "
+
+# Common WordPress theme terms are left in the default language as they are global standards and any translation of these words could lead to confusion as to what they refer to.
+#: inc/comment-list.php:46
+#, php-format
+msgid "%s <span class=\"says d-none\">says:</span>"
+msgstr "%s <span class=\"says d-none\">λέει:</span>"
+
+# Common WordPress theme terms are left in the default language as they are global standards and any translation of these words could lead to confusion as to what they refer to.
+#. used between list items, there is a space after the comma
+#: inc/template-tags.php:38
+msgid ", "
+msgstr ", "
+
+# Common WordPress theme terms are left in the default language as they are global standards and any translation of these words could lead to confusion as to what they refer to.
+#: languages/plugin-translations.php:5
+msgid "/privacy-policy"
+msgstr "/πολιτική-απορρήτου"
+
+# Common WordPress theme terms are left in the default language as they are global standards and any translation of these words could lead to confusion as to what they refer to.
+#: inc/comment-list.php:51
+#, php-format
+msgctxt "1: date, 2: time"
+msgid "%1$s at %2$s"
+msgstr "%1$s στις %2$s"
+
+# Common WordPress theme terms are left in the default language as they are global standards and any translation of these words could lead to confusion as to what they refer to.
+#: functions.php:220
+msgid "404 Page"
+msgstr "Σελίδα 404"
+
+# Common WordPress theme terms are left in the default language as they are global standards and any translation of these words could lead to confusion as to what they refer to.
+#. Description of the theme
+msgid ""
+"A powerful Bootstrap 5 WordPress Starter Theme with WooCommerce Support. <a "
+"href=\"https://bootscore.me/category/documentation/\">Documentation</a>. "
+"This theme gives you full control whatever you do and the full freedom to "
+"design whatever you want. It comes with a wide selection of category, page, "
+"post, author and archive templates as well as sidebar, header, footer and "
+"404 widgets. There are no customizer settings in the backend. All settings "
+"can only be made by touching the code. Some CSS, HTML, PHP and JS Skills are "
+"required to customize it."
+msgstr ""
+"Ενα δυνατό Bootstrap 5 Wordpress Starter Theme με υποστήριξη για WooCommerce."
+" <a href=\"https://bootscore.me/category/documentation/\">Documentation</a>. "
+"Αυτό το theme σας δίνει πλήρη έλεγχο ότι και να κάνετε και πλήρη ελευθερία "
+"για να σχεδιάσετε οτι θέλετε. Έρχεται με μια μεγάλη γκάμα απο template για "
+"κατηγορίες, σελίδες, αναρτήσεις, συντάκτες και για αρχείο καθώς και widget "
+"για sidebar, header, footer και για την σελίδα 404. Δεν υπάρχουν ρυθμίσεις "
+"customizer στο πίσω μέρος. Όλες οι ρυθμίσεις μπορούν να γίνουν μόνο "
+"αγγίζοντας τον κώδικα. Κάποιες CSS, HTML, PHP και JS γνώσεις είναι "
+"απαραίτητες για να το προσαρμόσετε."
+
+# Common WordPress theme terms are left in the default language as they are global standards and any translation of these words could lead to confusion as to what they refer to.
+#: languages/plugin-translations.php:7
+msgid "Accept"
+msgstr "Αποδοχή"
+
+# Common WordPress theme terms are left in the default language as they are global standards and any translation of these words could lead to confusion as to what they refer to.
+#: header-woocommerce.php:135
+msgid "Account"
+msgstr "Λογαριασμός"
+
+# Common WordPress theme terms are left in the default language as they are global standards and any translation of these words could lead to confusion as to what they refer to.
+#: functions.php:126 functions.php:138 functions.php:150 functions.php:162
+#: functions.php:174 functions.php:186 functions.php:198 functions.php:210
+#: functions.php:222
+msgid "Add widgets here."
+msgstr "Προσθέστε widgets εδώ."
+
+# Common WordPress theme terms are left in the default language as they are global standards and any translation of these words could lead to confusion as to what they refer to.
+#: languages/plugin-translations.php:2
+msgid "All"
+msgstr "Όλα"
+
+# Common WordPress theme terms are left in the default language as they are global standards and any translation of these words could lead to confusion as to what they refer to.
+#: 404.php:27
+msgid "Back Home &raquo;"
+msgstr "Πίσω Αρχική &raquo;"
+
+# Common WordPress theme terms are left in the default language as they are global standards and any translation of these words could lead to confusion as to what they refer to.
+#. Author of the theme
+msgid "Bastian Kreiter"
+msgstr "Bastian Kreiter"
+
+# Common WordPress theme terms are left in the default language as they are global standards and any translation of these words could lead to confusion as to what they refer to.
+#. Name of the template
+msgid "Blank with container"
+msgstr "Κενό με container"
+
+# Common WordPress theme terms are left in the default language as they are global standards and any translation of these words could lead to confusion as to what they refer to.
+#. Name of the template
+msgid "Blank without container"
+msgstr "Κενό χωρίς container"
+
+# Common WordPress theme terms are left in the default language as they are global standards and any translation of these words could lead to confusion as to what they refer to.
+#. Name of the theme
+msgid "bootScore"
+msgstr "bootScore"
+
+# Common WordPress theme terms are left in the default language as they are global standards and any translation of these words could lead to confusion as to what they refer to.
+#: comments.php:100
+msgid "Cancel"
+msgstr "Άκυρο"
+
+# Common WordPress theme terms are left in the default language as they are global standards and any translation of these words could lead to confusion as to what they refer to.
+#: header-woocommerce.php:148
+msgid "Cart"
+msgstr "Καλάθι"
+
+# Common WordPress theme terms are left in the default language as they are global standards and any translation of these words could lead to confusion as to what they refer to.
+#: comments.php:55 comments.php:73
+msgid "Comment navigation"
+msgstr "Πλοήγηση στα σχόλια"
+
+# Common WordPress theme terms are left in the default language as they are global standards and any translation of these words could lead to confusion as to what they refer to.
+#: comments.php:91
+msgid "Comments are closed."
+msgstr "Τα σχόλια είναι κλειδωμένα."
+
+# Common WordPress theme terms are left in the default language as they are global standards and any translation of these words could lead to confusion as to what they refer to.
+#. 1: number of comments, 2: post title
+#: comments.php:38
+#, php-format
+msgctxt "comments title"
+msgid "%1$s Comment on &ldquo;%2$s&rdquo;"
+msgid_plural "%1$s Comments on &ldquo;%2$s&rdquo;"
+msgstr[0] "%1$s Σχόλιο στο &ldquo;%2$s&rdquo;"
+msgstr[1] "%1$s Σχόλια στο &ldquo;%2$s&rdquo;"
+
+# Common WordPress theme terms are left in the default language as they are global standards and any translation of these words could lead to confusion as to what they refer to.
+#. %s: post title
+#: comments.php:34
+#, php-format
+msgctxt "comments title"
+msgid "One Comment &ldquo;%s&rdquo;"
+msgstr "Ένα Σχόλιο &ldquo;%s&rdquo;"
+
+# Common WordPress theme terms are left in the default language as they are global standards and any translation of these words could lead to confusion as to what they refer to.
+#: languages/plugin-translations.php:4
+msgid ""
+"Cookies help us deliver our services. By using our services, you agree to "
+"our use of cookies."
+msgstr ""
+"Τα cookies μας βοηθούν να παρέχουμε τις υπηρεσίες μας. Χρησιμοποιώντας τις "
+"υπηρεσίες μας, συμφωνείτε με τη χρήση των cookies."
+
+# Common WordPress theme terms are left in the default language as they are global standards and any translation of these words could lead to confusion as to what they refer to.
+#: woocommerce/checkout/form-shipping.php:35
+msgid "Delivery details"
+msgstr "Λεπτομέρειες παράδοσης"
+
+# Common WordPress theme terms are left in the default language as they are global standards and any translation of these words could lead to confusion as to what they refer to.
+#. %s: Name of current post. Only visible to screen readers
+#: inc/comment-list.php:29 inc/comment-list.php:53 inc/template-tags.php:139
+msgid "Edit"
+msgstr "Επεξεργασία"
+
+# Common WordPress theme terms are left in the default language as they are global standards and any translation of these words could lead to confusion as to what they refer to.
+#: comments.php:125 woocommerce/single-product-reviews.php:95
+msgid "Email* (will not be published)"
+msgstr "Email* (δεν θα δημοσιευθεί)"
+
+# Common WordPress theme terms are left in the default language as they are global standards and any translation of these words could lead to confusion as to what they refer to.
+#: functions.php:172
+msgid "Footer 1"
+msgstr "Footer 1"
+
+# Common WordPress theme terms are left in the default language as they are global standards and any translation of these words could lead to confusion as to what they refer to.
+#: functions.php:184
+msgid "Footer 2"
+msgstr "Footer 2"
+
+# Common WordPress theme terms are left in the default language as they are global standards and any translation of these words could lead to confusion as to what they refer to.
+#: functions.php:196
+msgid "Footer 3"
+msgstr "Footer 3"
+
+# Common WordPress theme terms are left in the default language as they are global standards and any translation of these words could lead to confusion as to what they refer to.
+#: functions.php:208
+msgid "Footer 4"
+msgstr "Footer 4"
+
+# Common WordPress theme terms are left in the default language as they are global standards and any translation of these words could lead to confusion as to what they refer to.
+#. Name of the template
+msgid "Full Width Image"
+msgstr "Εικόνα πλήρους πλάτους"
+
+# Common WordPress theme terms are left in the default language as they are global standards and any translation of these words could lead to confusion as to what they refer to.
+#. Name of the template
+msgid "Full width image"
+msgstr "Εικόνα πλήρους πλάτους"
+
+# Common WordPress theme terms are left in the default language as they are global standards and any translation of these words could lead to confusion as to what they refer to.
+#: woocommerce/myaccount/my-account-offcanvas.php:19
+msgid "Hello"
+msgstr "Γεια σας"
+
+# Common WordPress theme terms are left in the default language as they are global standards and any translation of these words could lead to confusion as to what they refer to.
+#: woocommerce/myaccount/my-account-offcanvas.php:24
+msgid ""
+"Here you can view your recent orders, manage your shipping and billing "
+"addresses, and edit your password and account details."
+msgstr ""
+"Εδώ μπορείτε να δείτε τις πρόσφατες παραγγελίες σας, να διαχειριστείτε τις "
+"διευθύνσεις αποστολής και χρέωσης και να επεξεργαστείτε τον κωδικό πρόσβασης "
+"και τα στοιχεία του λογαριασμού σας."
+
+# Common WordPress theme terms are left in the default language as they are global standards and any translation of these words could lead to confusion as to what they refer to.
+#. URI of the theme
+msgid "https://bootscore.me/"
+msgstr "https://bootscore.me/"
+
+# Common WordPress theme terms are left in the default language as they are global standards and any translation of these words could lead to confusion as to what they refer to.
+#. Author URI of the theme
+msgid "https://crftwrk.de"
+msgstr "https://crftwrk.de"
+
+# Common WordPress theme terms are left in the default language as they are global standards and any translation of these words could lead to confusion as to what they refer to.
+#: inc/template-tags.php:254
+msgid "Internet Explorer detected"
+msgstr "Εντοπίστηκε ο Internet Explorer"
+
+# Common WordPress theme terms are left in the default language as they are global standards and any translation of these words could lead to confusion as to what they refer to.
+#: template-parts/content-none.php:43
+msgid ""
+"It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
+"searching can help."
+msgstr ""
+"Φαίνεται ότι δεν μπορούμε να βρούμε αυτό που ψάχνετε. Ίσως η αναζήτηση "
+"μπορεί να βοηθήσει."
+
+# Common WordPress theme terms are left in the default language as they are global standards and any translation of these words could lead to confusion as to what they refer to.
+#. %s: post title
+#: comments.php:98 inc/template-tags.php:110
+msgid "Leave a Comment"
+msgstr "Αφήστε ένα σχόλιο"
+
+# Common WordPress theme terms are left in the default language as they are global standards and any translation of these words could lead to confusion as to what they refer to.
+#: inc/template-tags.php:167
+msgid "Leave a comment"
+msgstr "Αφήστε ένα σχόλιο"
+
+# Common WordPress theme terms are left in the default language as they are global standards and any translation of these words could lead to confusion as to what they refer to.
+#: comments.php:99
+#, php-format
+msgid "Leave a Comment to %s"
+msgstr "Αφήστε ένα σχόλιο στο %s"
+
+# Common WordPress theme terms are left in the default language as they are global standards and any translation of these words could lead to confusion as to what they refer to.
+#. Name of the template
+msgid "Left Sidebar"
+msgstr "Αριστερή Sidebar"
+
+# Common WordPress theme terms are left in the default language as they are global standards and any translation of these words could lead to confusion as to what they refer to.
+#: languages/plugin-translations.php:3
+msgid "Look what I found: "
+msgstr "Κοίτα τι βρήκα:"
+
+# Common WordPress theme terms are left in the default language as they are global standards and any translation of these words could lead to confusion as to what they refer to.
+#: header-woocommerce.php:54 header.php:54
+msgid "Menu"
+msgstr "Μενού"
+
+# Common WordPress theme terms are left in the default language as they are global standards and any translation of these words could lead to confusion as to what they refer to.
+#: languages/plugin-translations.php:6
+msgid "More Information"
+msgstr "Περισσότερες πληροφορίες"
+
+# Common WordPress theme terms are left in the default language as they are global standards and any translation of these words could lead to confusion as to what they refer to.
+#: comments.php:121 woocommerce/single-product-reviews.php:89
+msgid "Name*"
+msgstr "Όνομα*"
+
+# Common WordPress theme terms are left in the default language as they are global standards and any translation of these words could lead to confusion as to what they refer to.
+#: comments.php:59 comments.php:77
+msgid "Newer Comments"
+msgstr "Νεότερα σχόλια"
+
+# Common WordPress theme terms are left in the default language as they are global standards and any translation of these words could lead to confusion as to what they refer to.
+#. Name of the template
+msgid "No Sidebar"
+msgstr "Χωρίς Sidebar"
+
+# Common WordPress theme terms are left in the default language as they are global standards and any translation of these words could lead to confusion as to what they refer to.
+#: template-parts/content-none.php:14
+msgid "Nothing Found for"
+msgstr "Δεν βρέθηκε τίποτα για"
+
+# Common WordPress theme terms are left in the default language as they are global standards and any translation of these words could lead to confusion as to what they refer to.
+#: comments.php:58 comments.php:76
+msgid "Older Comments"
+msgstr "Παλαιότερα σχόλια"
+
+# Common WordPress theme terms are left in the default language as they are global standards and any translation of these words could lead to confusion as to what they refer to.
+#: inc/template-tags.php:256
+msgid "or"
+msgstr "ή"
+
+# Common WordPress theme terms are left in the default language as they are global standards and any translation of these words could lead to confusion as to what they refer to.
+#: 404.php:22
+msgid "Page not found."
+msgstr "Η σελίδα δεν βρέθηκε."
+
+# Common WordPress theme terms are left in the default language as they are global standards and any translation of these words could lead to confusion as to what they refer to.
+#: page-blank-with-container.php:21 page-sidebar-left.php:38
+#: page-sidebar-none.php:33 page.php:43 page-blank-without-container.php:21
+msgid "Pages:"
+msgstr "Σελίδες:"
+
+# Common WordPress theme terms are left in the default language as they are global standards and any translation of these words could lead to confusion as to what they refer to.
+#: functions.php:427
+msgid "Password"
+msgstr "Κωδικός Πρόσβασης"
+
+# Common WordPress theme terms are left in the default language as they are global standards and any translation of these words could lead to confusion as to what they refer to.
+#: inc/comment-list.php:29
+msgid "Pingback:"
+msgstr "Pingback:"
+
+# Common WordPress theme terms are left in the default language as they are global standards and any translation of these words could lead to confusion as to what they refer to.
+#: inc/template-tags.php:256
+msgid "Please use a modern and secure web browser like"
+msgstr ""
+"Παρακαλώ χρησιμοποιήστε ένα σύγχρονο και ασφαλές πρόγραμμα περιήγησης όπως"
+
+# Common WordPress theme terms are left in the default language as they are global standards and any translation of these words could lead to confusion as to what they refer to.
+#: inc/template-tags.php:85
+#, php-format
+msgctxt "post author"
+msgid "by %s"
+msgstr "by %s"
+
+# Common WordPress theme terms are left in the default language as they are global standards and any translation of these words could lead to confusion as to what they refer to.
+#: comments.php:101
+msgid "Post Comment"
+msgstr "Αναρτήστε Σχόλιο"
+
+# Common WordPress theme terms are left in the default language as they are global standards and any translation of these words could lead to confusion as to what they refer to.
+#: author.php:68
+msgid "Read more"
+msgstr "Διαβάστε περισσότερα"
+
+# Common WordPress theme terms are left in the default language as they are global standards and any translation of these words could lead to confusion as to what they refer to.
+#: archive-sidebar-left.php:65 archive-equal-height.php:63 archive.php:63
+#: archive-equal-height-sidebar-right.php:62 category-equal-height.php:63
+#: category-sidebar-left.php:63 category.php:61 author-sidebar-left.php:71
+#: category-masonry.php:63 author-equal-height.php:69
+#: category-equal-height-sidebar-right.php:63
+#: author-equal-height-sidebar-right.php:68 author-masonry.php:69 index.php:81
+#: index.php:137 archive-masonry.php:63 template-parts/content-search.php:42
+msgid "Read more »"
+msgstr "Διαβάστε περισσότερα »"
+
+# Common WordPress theme terms are left in the default language as they are global standards and any translation of these words could lead to confusion as to what they refer to.
+#. 1: link to WP admin new post page.
+#: template-parts/content-none.php:25
+#, php-format
+msgid ""
+"Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+msgstr ""
+"Είστε έτοιμοι να δημοσιεύσετε την πρώτη σας ανάρτηση; <a href=\"%1$s\">"
+"Ξεκινήστε εδώ</a>."
+
+# Common WordPress theme terms are left in the default language as they are global standards and any translation of these words could lead to confusion as to what they refer to.
+#: inc/comment-list.php:109
+msgid ""
+"Save my name, email, and website in this browser for the next time I comment."
+msgstr ""
+"Αποθηκεύστε το όνομα, το email και τον ιστότοπό μου σε αυτό το πρόγραμμα "
+"περιήγησης για την επόμενη φορά που θα σχολιάσω."
+
+# Common WordPress theme terms are left in the default language as they are global standards and any translation of these words could lead to confusion as to what they refer to.
+#: searchform.php:3
+msgid "Search"
+msgstr "Αναζήτηση"
+
+# Common WordPress theme terms are left in the default language as they are global standards and any translation of these words could lead to confusion as to what they refer to.
+#. %s: search query.
+#: search.php:29
+#, php-format
+msgid "Search Results for: %s"
+msgstr "Αποτελέσματα αναζήτησης για: %s"
+
+# Common WordPress theme terms are left in the default language as they are global standards and any translation of these words could lead to confusion as to what they refer to.
+#: woocommerce/loop/orderby.php:27
+msgid "Shop order"
+msgstr "Παραγγελία καταστήματος"
+
+# Common WordPress theme terms are left in the default language as they are global standards and any translation of these words could lead to confusion as to what they refer to.
+#: functions.php:148
+msgid "Sidebar"
+msgstr "Sidebar"
+
+# Common WordPress theme terms are left in the default language as they are global standards and any translation of these words could lead to confusion as to what they refer to.
+#. Name of the template
+msgid "Sidebar left"
+msgstr "Sidebar αριστερά"
+
+# Common WordPress theme terms are left in the default language as they are global standards and any translation of these words could lead to confusion as to what they refer to.
+#: template-parts/content-none.php:37
+msgid ""
+"Sorry, but nothing matched your search terms. Please try again with some "
+"different keywords."
+msgstr ""
+"Λυπούμαστε, αλλά τίποτα δεν ταιριάζει με τους όρους αναζήτησής σας. Παρακαλώ "
+"δοκιμάστε ξανά με διαφορετικές λέξεις κλειδιά."
+
+# Common WordPress theme terms are left in the default language as they are global standards and any translation of these words could lead to confusion as to what they refer to.
+#: comments.php:103
+msgid "Start typing..."
+msgstr "Ξεκινήστε να πληκτρολογείτε..."
+
+# Common WordPress theme terms are left in the default language as they are global standards and any translation of these words could lead to confusion as to what they refer to.
+#: functions.php:428
+msgid "Submit"
+msgstr "Υποβολή"
+
+# Common WordPress theme terms are left in the default language as they are global standards and any translation of these words could lead to confusion as to what they refer to.
+#. 1: list of tags.
+#: inc/template-tags.php:191
+#, php-format
+msgid "Tagged %1$s"
+msgstr "Με ετικέτα %1$s"
+
+# Common WordPress theme terms are left in the default language as they are global standards and any translation of these words could lead to confusion as to what they refer to.
+#: inc/template-tags.php:255
+msgid "This website will offer limited functionality in this browser."
+msgstr ""
+"Αυτός ο ιστότοπος θα προσφέρει περιορισμένη λειτουργικότητα σε αυτό το "
+"πρόγραμμα περιήγησης."
+
+# Common WordPress theme terms are left in the default language as they are global standards and any translation of these words could lead to confusion as to what they refer to.
+#: inc/template-tags.php:256
+msgid "to display this site correctly."
+msgstr "για να εμφανίσετε σωστά αυτόν τον ιστότοπο."
+
+# Common WordPress theme terms are left in the default language as they are global standards and any translation of these words could lead to confusion as to what they refer to.
+#: woocommerce/cart/mini-cart.php:112
+msgid "To find out your shipping cost, please proceed to checkout."
+msgstr "Για να μάθετε το κόστος αποστολής, προχωρήστε στο ταμείο."
+
+# Common WordPress theme terms are left in the default language as they are global standards and any translation of these words could lead to confusion as to what they refer to.
+#: functions.php:160
+msgid "Top Footer"
+msgstr "Επάνω Footer"
+
+# Common WordPress theme terms are left in the default language as they are global standards and any translation of these words could lead to confusion as to what they refer to.
+#: functions.php:124
+msgid "Top Nav"
+msgstr "Επάνω Nav"
+
+# Common WordPress theme terms are left in the default language as they are global standards and any translation of these words could lead to confusion as to what they refer to.
+#: functions.php:136
+msgid "Top Nav Search"
+msgstr "Επάνω Nav Αναζήτηση"
+
+# Common WordPress theme terms are left in the default language as they are global standards and any translation of these words could lead to confusion as to what they refer to.
+#: comments.php:130
+msgid "Website"
+msgstr "Ιστοσελίδα"
+
+# Common WordPress theme terms are left in the default language as they are global standards and any translation of these words could lead to confusion as to what they refer to.
+#: inc/comment-list.php:58
+msgid "Your comment is awaiting moderation."
+msgstr "Το σχόλιό σας αναμένει εποπτεία."
+
+# Common WordPress theme terms are left in the default language as they are global standards and any translation of these words could lead to confusion as to what they refer to.
+#: woocommerce/single-product-reviews.php:134
+msgid "Your review...*"
+msgstr "Η κριτική σας...*"
