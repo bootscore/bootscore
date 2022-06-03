@@ -5,9 +5,9 @@ Contributors: Bastian Kreiter, Justin Kruit, Martin Holzer, Tim Groeneveld, Laur
 Tags: featured-images, threaded-comments, translation-ready
 
 Requires at least: 4.5
-Tested up to: 5.9
+Tested up to: 6.0
 Requires PHP: 5.6
-Stable tag: 5.1.3.1
+Stable tag: 5.1.3.2
 License: MIT License
 License URI: https://github.com/bootscore/bootscore/blob/main/LICENSE
 
@@ -56,6 +56,10 @@ bootScore includes support for WooCommerce and Infinite Scroll in Jetpack.
 
 
 == Changelog ==
+
+    = 5.1.3.2 - June 03 2022 =
+    
+        [BUGFIX] Offcanvas backdrop in Chrome/Edge
 
     = 5.1.3.1 - January 25 2022 =
     
