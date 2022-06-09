@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Template Name: Blank without container
+ * Template Name: Blank without container (Don't use it. Use Blank template instead. This file will be removed later)
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
