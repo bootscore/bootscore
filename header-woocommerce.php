@@ -9,7 +9,7 @@
  *
  * @package Bootscore
  * 
- * @version 5.2.0.0
+ * @version 5.2.0.0-beta1
  */
 
 ?>
@@ -41,7 +41,7 @@
 
       <div class="fixed-top bg-light">
 
-        <nav id="nav-main" class="navbar navbar-expand-lg navbar-light">
+        <nav id="nav-main" class="navbar navbar-expand-lg">
 
           <div class="container">
 
