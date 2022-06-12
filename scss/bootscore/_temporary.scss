@@ -26,3 +26,8 @@ p:empty:before {
 .grecaptcha-badge {
   display: none !important;
 }
+
+// Bootstrap 5.2.0-beta1 Pagination border hotfix
+.page-item:not(:first-child) .page-link {
+  margin-left: -1px;
+}
