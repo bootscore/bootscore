@@ -292,16 +292,16 @@ add_action('wp_enqueue_scripts', 'bootscore_scripts');
 //Enqueue scripts and styles END
 
 
-// Add <link rel=preload> to Fontawesome
-add_filter('style_loader_tag', 'wpse_231597_style_loader_tag');
+// Preload Font Awesome
+add_filter('style_loader_tag', 'bootscore_fa_preload');
 
-function wpse_231597_style_loader_tag($tag) {
+function bootscore_fa_preload($tag) {
 
-  $tag = preg_replace("/id='font-awesome-css'/", "id='font-awesome-css' online=\"if(media!='all')media='all'\"", $tag);
+  $tag = preg_replace("/id='fontawesome-css'/", "id='fontawesome-css' online=\"if(media!='all')media='all'\"", $tag);
 
   return $tag;
 }
-// Add <link rel=preload> to Fontawesome END
+// Preload Font Awesome END
 
 
 /**
