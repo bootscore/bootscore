@@ -4,15 +4,19 @@ Admin bar
 
 // Mobile
 @media (max-width: 782px) {
+
   // Fixed admin-bar
   #wpadminbar {
     position: fixed;
   }
 
   .logged-in.admin-bar {
+
     // Push content down when WP admin-bar is visible
     .fixed-top,
     .offcanvas:not(.offcanvas-bottom),
+    .offcanvas-sm,
+    .offcanvas-md,
     .modal-dialog {
       top: 46px;
     }
@@ -32,9 +36,13 @@ Admin bar
 // Desktop
 @media (min-width: 783px) {
   .logged-in.admin-bar {
+
     // Push content down when WP admin-bar is visible
     .fixed-top,
     .offcanvas:not(.offcanvas-bottom),
+    .offcanvas-lg,
+    .offcanvas-xl,
+    .offcanvas-xxl,
     .modal-dialog {
       top: 32px;
     }
