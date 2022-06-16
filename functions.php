@@ -240,6 +240,16 @@ add_filter('widget_text', 'do_shortcode');
 // Shortcode in HTML-Widget End
 
 
+// Register scssphp
+if (!function_exists('register_scssphp')) :
+  function register_scssphp() {
+    // Register scssphp
+    require_once('inc/scss-compiler.php');
+  }
+endif;
+add_action('after_setup_theme', 'register_scssphp');
+// Register scssphp END
+
 
 //Enqueue scripts and styles
 function bootscore_scripts() {
@@ -259,7 +269,6 @@ function bootscore_scripts() {
   wp_enqueue_style('bootscore-style', get_stylesheet_uri(), array(), $modificated_styleCss);
 
   // bootScore
-  require_once 'inc/scss-compiler.php';
   bootscore_compile_scss();
   wp_enqueue_style('main', get_template_directory_uri() . '/css/main.css', array(), $modificated_bootscoreCss);
 
