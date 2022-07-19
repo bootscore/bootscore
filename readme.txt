@@ -5,9 +5,9 @@ Contributors: Bastian Kreiter, Justin Kruit, Martin Holzer, Tim Groeneveld, Laur
 Tags: featured-images, threaded-comments, translation-ready
 
 Requires at least: 4.5
-Tested up to: 6.0
+Tested up to: 6.0.1
 Requires PHP: 5.6
-Stable tag: 5.1.3.2
+Stable tag: 5.2.0.0
 License: MIT License
 License URI: https://github.com/bootscore/bootscore/blob/main/LICENSE
 
