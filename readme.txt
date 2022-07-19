@@ -57,6 +57,61 @@ bootScore includes support for WooCommerce and Infinite Scroll in Jetpack.
 
 == Changelog ==
 
+    = 5.2.0.0 - July 21 2022 =
+
+        CSS
+
+        [IMPROVEMENT] Add scss sourcemap support when theme is in dev_mode #98
+        [IMPROVEMENT] Set compiled output to css/main.css #99
+        [IMPROVEMENT] WooCommerce CSS to SCSS #82
+        [IMPROVEMENT] Clean-up bootscore styles scss #90
+        [IMPROVEMENT] Removed Paypal img and link in checkout 61ff0eb
+        [IMPROVEMENT] Extend select and alerts instead adding classes by JavaScript #89
+        [IMPROVEMENT] Make footer stick to bottom #145
+        [IMPROVEMENT] Admin bar #149
+        [IMPROVEMENT] Moved Font Awesome to own folder #167
+        [IMPROVEMENT] Font Awesome handling #168
+        [REMOVED] Empty _fontawesome.scss b5d2bf6
+        [REMOVED] Custom _offcanvas.scss #159
+        [BUGFIX] Fixed star-rating in related products 9e4779e
+        [BUGFIX] Fixed responsive tables and buttons in cart page #93
+        [BUGFIX] Fixed related products if no product tab (disabled reviews, no product description, no attributes) is used #121
+        [BUGFIX] Invoice button in orders #136
+        
+        PHP
+
+        [IMPROVEMENT] Bootstrap to single-product tabs #87
+        [IMPROVEMENT] Added -/+ Buttons to WC quantity input #91
+        [IMPROVEMENT] Register ajax cart to pluggable function #123
+        [IMPROVEMENT] Removed () from WC product count #138
+        [IMPROVEMENT] Added page-blank.php #163
+        [IMPROVEMENT] Moved page/single templates to subfolders #163
+        [IMPROVEMENT] Responsive offcanvas sidebar #171
+        [IMPROVEMENT] Removed unused loop templates #176
+        [BUGFIX] WooCommerce sub categories in loop #84
+        [BUGFIX] input-group in checkout form-coupon.php f52963b
+        [BUGFIX] Pagination detect first page #148
+        [REMOVED] Optional telephone in checkout snippet. Can be made by WC customizer settings now 8e71711
+        
+        JS
+
+        [BUGFIX] Replaced Internet Explorer Alert PHP function by JavaScript 37
+        [BUGFIX] Removed self-closing offcanvas in navbar on resize #102
+        [REMOVED] Smooth-scroll script #114
+        [REMOVED] Dropdown slide effect script #115
+        
+        Languages
+
+        [NEW] Português, thanks to Gustavo Silva #81
+        [NEW] 繁體中文, thanks to TershiXia #112
+        [NEW] ελληνική, thanks to Alexandros Kourmoulakis #161
+        
+        Updates
+
+        [UPDATE] Bootstrap https://github.com/bootscore/bootscore/commits/5.2.0.0-release
+        [UPDATE] Font Awesome 6.1.1 free #120
+        [UPDATE] scssphp 1.10.3 #158
+
     = 5.1.3.2 - June 03 2022 =
     
         [BUGFIX] Offcanvas backdrop in Chrome/Edge
