@@ -427,11 +427,13 @@ endif;
 
 
 // Comment Button
-function bootscore_comment_form($args) {
-  $args['class_submit'] = 'btn btn-outline-primary'; // since WP 4.1    
-  return $args;
-}
-add_filter('comment_form_defaults', 'bootscore_comment_form');
+if (!function_exists('bootscore_comment_form')) :
+  function bootscore_comment_form($args) {
+    $args['class_submit'] = 'btn btn-outline-primary'; // since WP 4.1    
+    return $args;
+  }
+  add_filter('comment_form_defaults', 'bootscore_comment_form');
+endif;
 // Comment Button END
 
 
