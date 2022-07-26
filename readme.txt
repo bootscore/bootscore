@@ -1,6 +1,6 @@
 === bootScore ===
 
-Contributors: Bastian Kreiter, Justin Kruit, Martin Holzer, Tim Groeneveld, Laurent Binder, Patrick, Gustavo Silva, TershiXia, electronicsandprogramming, charly, Alexandros Kourmoulakis, Sven Geiß
+Contributors: Bastian Kreiter, Justin Kruit, Martin Holzer, Tim Groeneveld, Laurent Binder, Patrick, Gustavo Silva, TershiXia, electronicsandprogramming, charly, Alexandros Kourmoulakis, Sven Geiß, ucalegonte
 
 Tags: featured-images, threaded-comments, translation-ready
 
