@@ -4,7 +4,8 @@ Offcanvas Cart
 
 // Height cart-footer
 #offcanvas-cart .cart-list {
-  padding-bottom: 208px;
+  height: calc(100% - 214px); // Height cart-footer
+  overflow-y: auto;
 }
 
 // Cart loader

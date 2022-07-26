@@ -43,17 +43,15 @@ do_action('woocommerce_before_mini_cart'); ?>
           <div class="row">
 
             <div class="item-image col-3">
-              <div class="mt-1">
-                <?php if (empty($product_permalink)) : ?>
+              <?php if (empty($product_permalink)) : ?>
+                <?php echo $thumbnail; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped 
+                ?>
+              <?php else : ?>
+                <a href="<?php echo esc_url($product_permalink); ?>">
                   <?php echo $thumbnail; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped 
                   ?>
-                <?php else : ?>
-                  <a href="<?php echo esc_url($product_permalink); ?>">
-                    <?php echo $thumbnail; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped 
-                    ?>
-                  </a>
-                <?php endif; ?>
-              </div>
+                </a>
+              <?php endif; ?>
             </div>
 
             <div class="item-name col-7">
@@ -62,9 +60,9 @@ do_action('woocommerce_before_mini_cart'); ?>
                 ?>
               <?php else : ?>
                 <strong><a href="<?php echo esc_url($product_permalink); ?>">
-                    <?php echo $product_name; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped 
-                    ?>
-                  </a></strong>
+                  <?php echo $product_name; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped 
+                  ?>
+                </a></strong>
               <?php endif; ?>
               <div class="item-quantity">
                 <?php echo wc_get_formatted_cart_item_data($cart_item); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped 
