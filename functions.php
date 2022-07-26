@@ -427,25 +427,29 @@ endif;
 
 
 // Comment Button
-function bootscore_comment_form($args) {
-  $args['class_submit'] = 'btn btn-outline-primary'; // since WP 4.1    
-  return $args;
-}
-add_filter('comment_form_defaults', 'bootscore_comment_form');
+if (!function_exists('bootscore_comment_button')) :
+  function bootscore_comment_button($args) {
+    $args['class_submit'] = 'btn btn-outline-primary'; // since WP 4.1    
+    return $args;
+  }
+  add_filter('comment_form_defaults', 'bootscore_comment_button');
+endif;
 // Comment Button END
 
 
 // Password protected form
-function bootscore_pw_form() {
-  $output = '
-		  <form action="' . get_option('siteurl') . '/wp-login.php?action=postpass" method="post" class="form-inline">' . "\n"
-    . '<input name="post_password" type="password" size="" class="form-control me-2 my-1" placeholder="' . __('Password', 'bootscore') . '"/>' . "\n"
-    . '<input type="submit" class="btn btn-outline-primary my-1" name="Submit" value="' . __('Submit', 'bootscore') . '" />' . "\n"
-    . '</p>' . "\n"
-    . '</form>' . "\n";
-  return $output;
-}
-add_filter("the_password_form", "bootscore_pw_form");
+if (!function_exists('bootscore_pw_form')) :
+  function bootscore_pw_form() {
+    $output = '
+        <form action="' . get_option('siteurl') . '/wp-login.php?action=postpass" method="post" class="form-inline">' . "\n"
+      . '<input name="post_password" type="password" size="" class="form-control me-2 my-1" placeholder="' . __('Password', 'bootscore') . '"/>' . "\n"
+      . '<input type="submit" class="btn btn-outline-primary my-1" name="Submit" value="' . __('Submit', 'bootscore') . '" />' . "\n"
+      . '</p>' . "\n"
+      . '</form>' . "\n";
+    return $output;
+  }
+  add_filter("the_password_form", "bootscore_pw_form");
+endif;
 // Password protected form END
 
 
