@@ -24,7 +24,7 @@ do_action('woocommerce_before_mini_cart'); ?>
 
 <?php if (!WC()->cart->is_empty()) : ?>
 
-  <div class="woocommerce-mini-cart cart_list product_list_widget <?php echo esc_attr($args['list_class']); ?>">
+  <div class="woocommerce-mini-cart cart_list product_list_widget list-group list-group-flush <?php echo esc_attr($args['list_class']); ?>">
     <?php
     do_action('woocommerce_before_mini_cart_contents');
 
@@ -38,7 +38,7 @@ do_action('woocommerce_before_mini_cart'); ?>
         $product_price     = apply_filters('woocommerce_cart_item_price', WC()->cart->get_product_price($_product), $cart_item, $cart_item_key);
         $product_permalink = apply_filters('woocommerce_cart_item_permalink', $_product->is_visible() ? $_product->get_permalink($cart_item) : '', $cart_item, $cart_item_key);
     ?>
-        <div class="woocommerce-mini-cart-item border-bottom p-3 <?php echo esc_attr(apply_filters('woocommerce_mini_cart_item_class', 'mini_cart_item', $cart_item, $cart_item_key)); ?>">
+        <div class="woocommerce-mini-cart-item list-group-item <?php echo esc_attr(apply_filters('woocommerce_mini_cart_item_class', 'mini_cart_item', $cart_item, $cart_item_key)); ?>">
 
           <div class="row">
 
