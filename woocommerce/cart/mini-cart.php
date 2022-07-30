@@ -24,7 +24,7 @@ do_action('woocommerce_before_mini_cart'); ?>
 
 <?php if (!WC()->cart->is_empty()) : ?>
 
-  <div class="woocommerce-mini-cart cart_list product_list_widget <?php echo esc_attr($args['list_class']); ?>">
+  <div class="woocommerce-mini-cart cart_list product_list_widget list-group list-group-flush <?php echo esc_attr($args['list_class']); ?>">
     <?php
     do_action('woocommerce_before_mini_cart_contents');
 
@@ -38,22 +38,20 @@ do_action('woocommerce_before_mini_cart'); ?>
         $product_price     = apply_filters('woocommerce_cart_item_price', WC()->cart->get_product_price($_product), $cart_item, $cart_item_key);
         $product_permalink = apply_filters('woocommerce_cart_item_permalink', $_product->is_visible() ? $_product->get_permalink($cart_item) : '', $cart_item, $cart_item_key);
     ?>
-        <div class="woocommerce-mini-cart-item border-bottom p-3 <?php echo esc_attr(apply_filters('woocommerce_mini_cart_item_class', 'mini_cart_item', $cart_item, $cart_item_key)); ?>">
+        <div class="woocommerce-mini-cart-item list-group-item <?php echo esc_attr(apply_filters('woocommerce_mini_cart_item_class', 'mini_cart_item', $cart_item, $cart_item_key)); ?>">
 
           <div class="row">
 
             <div class="item-image col-3">
-              <div class="mt-1">
-                <?php if (empty($product_permalink)) : ?>
+              <?php if (empty($product_permalink)) : ?>
+                <?php echo $thumbnail; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped 
+                ?>
+              <?php else : ?>
+                <a href="<?php echo esc_url($product_permalink); ?>">
                   <?php echo $thumbnail; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped 
                   ?>
-                <?php else : ?>
-                  <a href="<?php echo esc_url($product_permalink); ?>">
-                    <?php echo $thumbnail; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped 
-                    ?>
-                  </a>
-                <?php endif; ?>
-              </div>
+                </a>
+              <?php endif; ?>
             </div>
 
             <div class="item-name col-7">
@@ -62,9 +60,9 @@ do_action('woocommerce_before_mini_cart'); ?>
                 ?>
               <?php else : ?>
                 <strong><a href="<?php echo esc_url($product_permalink); ?>">
-                    <?php echo $product_name; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped 
-                    ?>
-                  </a></strong>
+                  <?php echo $product_name; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped 
+                  ?>
+                </a></strong>
               <?php endif; ?>
               <div class="item-quantity">
                 <?php echo wc_get_formatted_cart_item_data($cart_item); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped 
@@ -104,7 +102,7 @@ do_action('woocommerce_before_mini_cart'); ?>
     ?>
   </div>
 
-  <div class="cart-footer bg-light text-center position-absolute bottom-0 p-3 w-100">
+  <div class="cart-footer bg-light text-center p-3">
 
     <p class="woocommerce-mini-cart__total total">
       <?php

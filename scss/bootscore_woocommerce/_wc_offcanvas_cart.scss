@@ -2,15 +2,29 @@
 Offcanvas Cart
 --------------------------------------------------------------*/
 
-// Height cart-footer
-#offcanvas-cart .cart-list {
-  padding-bottom: 208px;
+#offcanvas-cart {
+  .cart-list {
+    height: 100%;
+  }
+
+  .widget_shopping_cart_content {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .woocommerce-mini-cart {
+    flex: 1;
+    overflow-y: auto;
+  }
 }
 
 // Cart loader
 .cart-loader {
   top: 56px;
   z-index: 1;
+  overflow: hidden; // Stop Apple Safari flickering when .widget_shopping_cart_content reached 100% height
+
   .loader-icon {
     margin-top: -56px;
   }
@@ -23,6 +37,7 @@ Offcanvas Cart
     transition: opacity 0.3s, visibility 0.3s;
     transition-delay: 0.1s;
   }
+
   &.loading .cart-loader {
     opacity: 1;
     visibility: visible;
