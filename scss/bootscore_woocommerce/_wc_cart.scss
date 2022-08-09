@@ -17,10 +17,18 @@ WooCommerce Cart
   width: 100%;
 }
 
-// Update cart button
 // WooCommerce breakpoints are at 769px
 @media (max-width: 768px) {
+
+  // Update cart button
   .shop_table_responsive .actions button:not(.input-group button) {
     width: 100%;
+  }
+
+  // Coupon input in cart page
+  .woocommerce table.cart td.actions .coupon input,
+  .woocommerce-page #content table.cart td.actions .coupon input,
+  .woocommerce-page table.cart td.actions .coupon input {
+    width: 1%;
   }
 }
