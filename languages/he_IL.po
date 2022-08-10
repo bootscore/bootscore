@@ -1,0 +1,420 @@
+# Copyright (C) 2017 Automattic
+# This file is distributed under the GNU General Public License v2 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: _s 1.0.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/tags/_s\n"
+"POT-Creation-Date: 2022-06-20 07:52+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2022-08-10 03:50+0000\n"
+"Last-Translator: \n"
+"Language-Team: Hebrew\n"
+"X-Generator: Loco https://localise.biz/\n"
+"Language: he-IL\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Loco-Version: 2.6.2; wp-6.0.1"
+
+#: functions.php:282
+msgid ""
+" <a href=\"https://www.microsoft.com/edge\" target=\"_blank\">Microsoft "
+"Edge</a> "
+msgstr ""
+
+#: functions.php:280
+msgid ""
+" <a href=\"https://www.mozilla.org/firefox/\" target=\"_blank\">Mozilla "
+"Firefox</a>, <a href=\"https://www.google.com/chrome/\" target=\"_blank\">"
+"Google Chrome</a>, <a href=\"https://www.opera.com/\" target=\"_blank\">"
+"Opera</a> "
+msgstr ""
+
+#: single.php:29 single-templates/single-sidebar-none.php:28 
+#: single-templates/single-sidebar-left.php:31 
+#: single-templates/single-full-width-image.php:37
+#, fuzzy
+msgid " by "
+msgstr "על ידי"
+
+#: inc/comment-list.php:44
+#, php-format
+msgid "%s <span class=\"says d-none\">says:</span>"
+msgstr ""
+
+#. used between list items, there is a space after the comma
+#: inc/template-tags.php:39
+msgid ", "
+msgstr ""
+
+#: languages/plugin-translations.php:5
+msgid "/privacy-policy"
+msgstr ""
+
+#: inc/comment-list.php:49
+#, php-format
+msgctxt "1: date, 2: time"
+msgid "%1$s at %2$s"
+msgstr "%1$s בשעה %2$s"
+
+#: functions.php:220
+msgid "404 Page"
+msgstr "עמוד 404"
+
+#. Description of the theme
+msgid ""
+"A powerful Bootstrap 5 WordPress Starter Theme with WooCommerce Support. <a "
+"href=\"https://bootscore.me/category/documentation/\">Documentation</a>. "
+"This theme gives you full control whatever you do and the full freedom to "
+"design whatever you want. It comes with a wide selection of category, page, "
+"post, author and archive templates as well as sidebar, header, footer and "
+"404 widgets. There are no customizer settings in the backend. All settings "
+"can only be made by touching the code. Some CSS, HTML, PHP and JS Skills are "
+"required to customize it."
+msgstr ""
+
+#: languages/plugin-translations.php:7
+msgid "Accept"
+msgstr "אשר"
+
+#: header-woocommerce.php:136
+msgid "Account"
+msgstr "חשבון"
+
+#: functions.php:126 functions.php:138 functions.php:150 functions.php:162 
+#: functions.php:174 functions.php:186 functions.php:198 functions.php:210 
+#: functions.php:222
+msgid "Add widgets here."
+msgstr ""
+
+#: languages/plugin-translations.php:2
+msgid "All"
+msgstr "הכל"
+
+#: 404.php:28
+msgid "Back Home &raquo;"
+msgstr "חזרה הביתה &raquo;"
+
+#. Name of the template
+msgid "Blank"
+msgstr "ריק"
+
+#. Name of the template
+msgid "Blank with container"
+msgstr ""
+
+#. Name of the template
+msgid ""
+"Blank without container (Don't use it. Use Blank template instead. This file "
+"will be removed later)"
+msgstr ""
+
+#. Name of the theme
+#. Author of the theme
+msgid "bootScore"
+msgstr ""
+
+#: comments.php:104
+msgid "Cancel"
+msgstr "בטל"
+
+#: header-woocommerce.php:149
+msgid "Cart"
+msgstr "עגלה"
+
+#: comments.php:57 comments.php:77
+#, fuzzy
+msgid "Comment navigation"
+msgstr "ניווט בתגובות"
+
+#: comments.php:95
+msgid "Comments are closed."
+msgstr "תגובות סגורות."
+
+#. 1: number of comments, 2: post title
+#: comments.php:39
+#, php-format
+msgctxt "comments title"
+msgid "%1$s Comment on &ldquo;%2$s&rdquo;"
+msgid_plural "%1$s Comments on &ldquo;%2$s&rdquo;"
+msgstr[0] ""
+msgstr[1] ""
+
+#. %s: post title
+#: comments.php:35
+#, php-format
+msgctxt "comments title"
+msgid "One Comment &ldquo;%s&rdquo;"
+msgstr "תגובה אחת &ldquo;%s&rdquo;"
+
+#: languages/plugin-translations.php:4
+msgid ""
+"Cookies help us deliver our services. By using our services, you agree to "
+"our use of cookies."
+msgstr ""
+"קובצי Cookie עוזרים לנו להפעיל את האתר שלנו. על ידי שימוש באתר שלנו, אתה "
+"מסכים לשימוש שלנו בעוגיות."
+
+#: woocommerce/checkout/form-shipping.php:36
+msgid "Delivery details"
+msgstr "פרטי משלוח"
+
+#. %s: Name of current post. Only visible to screen readers
+#: inc/comment-list.php:27 inc/comment-list.php:51 inc/template-tags.php:139
+msgid "Edit"
+msgstr "ערוך"
+
+#: comments.php:129 woocommerce/single-product-reviews.php:96
+msgid "Email* (will not be published)"
+msgstr "אימייל* (לא יפורסם)"
+
+#: functions.php:172
+msgid "Footer 1"
+msgstr ""
+
+#: functions.php:184
+msgid "Footer 2"
+msgstr ""
+
+#: functions.php:196
+msgid "Footer 3"
+msgstr ""
+
+#: functions.php:208
+msgid "Footer 4"
+msgstr ""
+
+#. Name of the template
+msgid "Full Width Image"
+msgstr ""
+
+#. Name of the template
+msgid "Full width image"
+msgstr ""
+
+#: woocommerce/myaccount/my-account-offcanvas.php:17
+msgid "Hello"
+msgstr ""
+
+#: woocommerce/myaccount/my-account-offcanvas.php:22
+msgid ""
+"Here you can view your recent orders, manage your shipping and billing "
+"addresses, and edit your password and account details."
+msgstr ""
+"כאן תוכל לראות את ההזמנות האחרונות שלך, לנהל את כתובות המשלוח והחיוב שלך "
+"ולערוך את הסיסמה ופרטי החשבון שלך."
+
+#. Author URI of the theme
+msgid "https://bootscore.me"
+msgstr ""
+
+#. URI of the theme
+msgid "https://bootscore.me/"
+msgstr ""
+
+#: functions.php:277
+msgid "Internet Explorer detected"
+msgstr ""
+
+#: template-parts/content-none.php:44
+msgid ""
+"It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
+"searching can help."
+msgstr "נראה שאיננו יכולים למצוא את מה שאתה מחפש. אולי חיפוש באתר יכול לעזור."
+
+#. %s: post title
+#: comments.php:102 inc/template-tags.php:111
+msgid "Leave a Comment"
+msgstr "השאר תגובה"
+
+#: inc/template-tags.php:167
+msgid "Leave a comment"
+msgstr "השאר תגובה"
+
+#: comments.php:103
+#, php-format
+msgid "Leave a Comment to %s"
+msgstr "השאירו תגובה ל%s"
+
+#. Name of the template
+msgid "Left Sidebar"
+msgstr ""
+
+#: languages/plugin-translations.php:3
+msgid "Look what I found: "
+msgstr "תראה מה מצאתי:"
+
+#: header-woocommerce.php:55 header.php:55
+msgid "Menu"
+msgstr "תפריט"
+
+#: languages/plugin-translations.php:6
+msgid "More Information"
+msgstr "עוד מידע"
+
+#: comments.php:126 woocommerce/single-product-reviews.php:90
+msgid "Name*"
+msgstr "שם*"
+
+#: comments.php:61 comments.php:81
+msgid "Newer Comments"
+msgstr "תגובות חדשות יותר"
+
+#. Name of the template
+msgid "No Sidebar"
+msgstr ""
+
+#: template-parts/content-none.php:15
+msgid "Nothing Found for"
+msgstr "שום דבר לא נמצא עבור"
+
+#: comments.php:60 comments.php:80
+msgid "Older Comments"
+msgstr "תגובות ישנות יותר"
+
+#: sidebar.php:21
+msgid "Open side menu"
+msgstr "פתח את תפריט הצד"
+
+#: functions.php:281
+msgid "or"
+msgstr "או"
+
+#: 404.php:23
+msgid "Page not found."
+msgstr "הדף לא נמצא."
+
+#: page.php:44 page-templates/page-blank-with-container.php:25 
+#: page-templates/page-sidebar-left.php:39 page-templates/page-blank.php:25 
+#: page-templates/page-sidebar-none.php:34 
+#: page-templates/page-blank-without-container.php:25
+msgid "Pages:"
+msgstr "עמודים:"
+
+#: functions.php:442
+msgid "Password"
+msgstr "סיסמה"
+
+#: inc/comment-list.php:27
+msgid "Pingback:"
+msgstr "פינג-בק:"
+
+#: functions.php:279
+msgid "Please use a modern and secure web browser like"
+msgstr ""
+
+#: inc/template-tags.php:87
+#, php-format
+msgctxt "post author"
+msgid "by %s"
+msgstr "מאת %s"
+
+#: comments.php:105
+msgid "Post Comment"
+msgstr "פרסם תגובה"
+
+#: author.php:69
+msgid "Read more"
+msgstr "קרא עוד"
+
+#: archive-sidebar-left.php:66 archive-equal-height.php:64 archive.php:64 
+#: archive-equal-height-sidebar-right.php:63 category-equal-height.php:64 
+#: category-sidebar-left.php:64 category.php:62 author-sidebar-left.php:72 
+#: category-masonry.php:64 author-equal-height.php:70 
+#: category-equal-height-sidebar-right.php:64 
+#: author-equal-height-sidebar-right.php:69 author-masonry.php:70 index.php:82 
+#: index.php:139 archive-masonry.php:64 template-parts/content-search.php:43
+msgid "Read more »"
+msgstr "קרא עוד »"
+
+#. 1: link to WP admin new post page.
+#: template-parts/content-none.php:26
+#, php-format
+msgid ""
+"Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+msgstr "מוכן לפרסם את הפוסט הראשון שלך? <a href=\"%1$s\">התחל כאן</a>."
+
+#: inc/comment-list.php:105
+msgid ""
+"Save my name, email, and website in this browser for the next time I comment."
+msgstr "שמור את שמי, הדוא\"ל והאתר שלי בדפדפן הזה לפעם הבאה שאגיב."
+
+#: searchform.php:3
+msgid "Search"
+msgstr "חיפוש"
+
+#. %s: search query.
+#: search.php:30
+#, php-format
+msgid "Search Results for: %s"
+msgstr "תוצאות חיפוש עבור: %s"
+
+#: woocommerce/loop/orderby.php:28
+msgid "Shop order"
+msgstr "הזמנת חנות"
+
+#: functions.php:148 sidebar.php:26
+msgid "Sidebar"
+msgstr ""
+
+#. Name of the template
+msgid "Sidebar left"
+msgstr ""
+
+#: template-parts/content-none.php:38
+msgid ""
+"Sorry, but nothing matched your search terms. Please try again with some "
+"different keywords."
+msgstr ""
+"מצטערים, אבל שום דבר לא תאם את מונחי החיפוש שלך. אנא נסה שוב עם כמה מילות "
+"מפתח שונות."
+
+#: comments.php:107
+msgid "Start typing..."
+msgstr "תתחיל להקליד..."
+
+#: functions.php:443
+msgid "Submit"
+msgstr "שלח"
+
+#. 1: list of tags.
+#: inc/template-tags.php:191
+#, php-format
+msgid "Tagged %1$s"
+msgstr "מתויג %1$s"
+
+#: functions.php:278
+msgid "This website will offer limited functionality in this browser."
+msgstr ""
+
+#: functions.php:283
+msgid "to display this site correctly."
+msgstr ""
+
+#: woocommerce/cart/mini-cart.php:120
+msgid "To find out your shipping cost, please proceed to checkout."
+msgstr "כדי לברר את עלות המשלוח שלך, אנא המשך לקופה."
+
+#: functions.php:160
+msgid "Top Footer"
+msgstr ""
+
+#: functions.php:124
+msgid "Top Nav"
+msgstr ""
+
+#: functions.php:136
+msgid "Top Nav Search"
+msgstr ""
+
+#: comments.php:134
+msgid "Website"
+msgstr "אתר"
+
+#: inc/comment-list.php:56
+msgid "Your comment is awaiting moderation."
+msgstr "ההערה שלך ממתינה למתן."
+
+#: woocommerce/single-product-reviews.php:135
+msgid "Your review...*"
+msgstr "הביקורת שלך...*"
