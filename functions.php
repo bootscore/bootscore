@@ -245,23 +245,19 @@ add_filter('widget_text', 'do_shortcode');
 function bootscore_scripts() {
 
   // Get modification time. Enqueue files with modification date to prevent browser from loading cached scripts and styles when file content changes.
+  $modificated_bootscoreCss = (file_exists(get_template_directory() . '/css/main.css')) ? date('YmdHi', filemtime(get_template_directory() . '/css/main.css')) : 1;
   $modificated_styleCss = date('YmdHi', filemtime(get_stylesheet_directory() . '/style.css'));
-  if (file_exists(get_template_directory() . '/css/main.css')) {
-    $modificated_bootscoreCss = date('YmdHi', filemtime(get_template_directory() . '/css/main.css'));
-  } else {
-    $modificated_bootscoreCss = 1;
-  }
   $modificated_fontawesomeCss = date('YmdHi', filemtime(get_template_directory() . '/fontawesome/css/all.min.css'));
   $modificated_bootstrapJs = date('YmdHi', filemtime(get_template_directory() . '/js/lib/bootstrap.bundle.min.js'));
   $modificated_themeJs = date('YmdHi', filemtime(get_template_directory() . '/js/theme.js'));
-
-  // Style CSS
-  wp_enqueue_style('bootscore-style', get_stylesheet_uri(), array(), $modificated_styleCss);
 
   // bootScore
   require_once 'inc/scss-compiler.php';
   bootscore_compile_scss();
   wp_enqueue_style('main', get_template_directory_uri() . '/css/main.css', array(), $modificated_bootscoreCss);
+  
+  // Style CSS
+  wp_enqueue_style('bootscore-style', get_stylesheet_uri(), array(), $modificated_styleCss);
 
   // Fontawesome
   wp_enqueue_style('fontawesome', get_template_directory_uri() . '/fontawesome/css/all.min.css', array(), $modificated_fontawesomeCss);
