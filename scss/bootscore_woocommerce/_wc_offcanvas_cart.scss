@@ -17,21 +17,16 @@ Offcanvas Cart
     flex: 1;
     overflow-y: auto;
   }
-}
 
-// Cart loader
-.cart-loader {
-  top: 56px;
-  z-index: 1;
-  overflow: hidden; // Stop Apple Safari flickering when .widget_shopping_cart_content reached 100% height
-
-  .loader-icon {
-    margin-top: -56px;
+  // Cart loader
+  .offcanvas-body {
+    position: relative;
   }
-}
 
-#offcanvas-cart {
   .cart-loader {
+    top: 0;
+    z-index: 1;
+    overflow: hidden; // Stop Apple Safari flickering when .widget_shopping_cart_content reached 100% height
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.3s, visibility 0.3s;
