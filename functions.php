@@ -245,11 +245,7 @@ add_filter('widget_text', 'do_shortcode');
 function bootscore_scripts() {
 
   // Get modification time. Enqueue files with modification date to prevent browser from loading cached scripts and styles when file content changes.
-  if (file_exists(get_template_directory() . '/css/main.css')) {
-    $modificated_bootscoreCss = date('YmdHi', filemtime(get_template_directory() . '/css/main.css'));
-  } else {
-    $modificated_bootscoreCss = 1;
-  }
+  $modificated_bootscoreCss = (file_exists(get_template_directory() . '/css/main.css')) ? date('YmdHi', filemtime(get_template_directory() . '/css/main.css')) : 1;
   $modificated_styleCss = date('YmdHi', filemtime(get_stylesheet_directory() . '/style.css'));
   $modificated_fontawesomeCss = date('YmdHi', filemtime(get_template_directory() . '/fontawesome/css/all.min.css'));
   $modificated_bootstrapJs = date('YmdHi', filemtime(get_template_directory() . '/js/lib/bootstrap.bundle.min.js'));
