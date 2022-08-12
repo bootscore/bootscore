@@ -1,6 +1,6 @@
 jQuery(function ($) {
   // Single add to cart button
-  $('body.archive .product-type-simple .single_add_to_cart_button, body.single-product .single_add_to_cart_button').attr('data-bs-toggle', 'offcanvas').attr('data-bs-target', '#offcanvas-cart');
+  $('.single_add_to_cart_button:not(.product_type_variable):not(.product_type_external):not(.product_type_grouped)').attr('data-bs-toggle', 'offcanvas').attr('data-bs-target', '#offcanvas-cart');
   // Single add to cart button END
 
   // Add loading class to offcanvas-cart
