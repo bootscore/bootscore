@@ -24,7 +24,7 @@ bootScore comes with seamless Bootstrap integration and full WooCommerce support
 
 ### Composer
 
-Read [here](https://bootscore.me/documentation/installation/) how to install bootScore via Composser.
+Read [here](https://bootscore.me/documentation/installation/) how to install bootScore via Composer.
 
 ## Child-theme(s)
 
