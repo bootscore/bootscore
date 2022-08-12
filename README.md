@@ -40,9 +40,18 @@ bootScore is a time-saver and designed to quickly create clean mobile-first proj
 
 ## Help
 
-Check the [documentation](https://bootscore.me/category/documentation/). If you have a question, find a bug or have an idea, feel free to open an issue.
+### Discussions
+Check the [documentation](https://bootscore.me/category/documentation/). If you have a general question or need help with your project, feel free to open a new [discussion](https://github.com/bootscore/bootscore/discussions). Maybe your question is in [help wanted](https://github.com/bootscore/bootscore/issues?q=is%3Aissue+label%3A%22help+wanted%22+) labeled issues already solved.
 
+### Issues
+If you find a bug or have a feature idea, you're welcome to open an [issue](https://github.com/bootscore/bootscore/issues). Please check [closed issues](https://github.com/bootscore/bootscore/issues?q=is%3Aissue+is%3Aclosed) first to avoid duplicates.
+
+### Newsletter
 For important updates read the [blog](https://bootscore.me/category/blog/) and subscribe to the [newsletter](https://bootscore.me/category/blog/#newsletter). You will be informed if there is something new you should know.
+
+### Pull requests
+
+We’re happy if you want to contribute. Just fork the repository, do your changes and create a pull request. Every PR will be reviewed. If everything is fine we’ll merge your changes to the `main` branch.
 
 ## License & Credits
 
