@@ -57,7 +57,7 @@ get_header();
                             </div>
                             <div class="col-2 text-end">
                               <!-- Featured -->
-                              <div class="badge bg-danger"><span class=""><i class="fas fa-star"></i></i></span></div>
+                              <div class="badge bg-danger"><span class=""><i class="fa-solid fa-star"></i></span></div>
                             </div>
                           </div>
                           <!-- Title -->

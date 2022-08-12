@@ -19,12 +19,16 @@ bootScore comes with seamless Bootstrap integration and full WooCommerce support
 
 ## Installation
 
-1. Download latest release [bootscore-main.zip](https://github.com/bootscore/bootscore/releases) or get bootScore through the official [store](https://bootscore.me/shop/products/theme/bootscore-wordpress-theme/) (free) if you want to see how the WooCommerce checkout works. 
+1. Download latest release [bootscore-main.zip](https://github.com/bootscore/bootscore/releases) or get bootScore through the official [site](https://bootscore.me/#download).
 2. Upload theme via the WordPress theme-uploader and activate it.
+
+### Composer
+
+Read [here](https://bootscore.me/documentation/installation/) how to install bootScore via Composer.
 
 ## Child-theme(s)
 
-Edit theme in an upgrade-safe way using the provided child-theme(s). Build your site from scratch with [bootScore Child](https://bootscore.me/shop/products/child-themes/bootscore-child-theme/) or start a new WooCommerce shop with presetted [bootCommerce Child](https://bootscore.me/shop/products/child-themes/bootcommerce-5-child-theme/).
+Edit theme in an upgrade-safe way using the provided child-theme(s). Build your site from scratch with [bootScore Child](https://bootscore.me/shop/products/child-themes/bootscore-child-theme/) or start a new WooCommerce shop with presetted [bootCommerce Child](https://bootscore.me/shop/products/child-themes/bootcommerce-5-child-theme/) (WooCommerce plugin is required).
 
 ## Plugins
 
@@ -36,9 +40,18 @@ bootScore is a time-saver and designed to quickly create clean mobile-first proj
 
 ## Help
 
-Check the [documentation](https://bootscore.me/category/documentation/). If you have a question, find a bug or have an idea, feel free to open an issue.
+### Discussions
+Check the [documentation](https://bootscore.me/category/documentation/). If you have a general question or need help with your project, feel free to open a new [discussion](https://github.com/bootscore/bootscore/discussions). Maybe your question is in [help wanted](https://github.com/bootscore/bootscore/issues?q=is%3Aissue+label%3A%22help+wanted%22+) labeled issues already solved.
 
+### Issues
+If you find a bug or have a feature idea, you're welcome to open an [issue](https://github.com/bootscore/bootscore/issues). Please check [closed issues](https://github.com/bootscore/bootscore/issues?q=is%3Aissue+is%3Aclosed) first to avoid duplicates.
+
+### Newsletter
 For important updates read the [blog](https://bootscore.me/category/blog/) and subscribe to the [newsletter](https://bootscore.me/category/blog/#newsletter). You will be informed if there is something new you should know.
+
+### Pull requests
+
+We’re happy if you want to contribute. Just fork the repository, do your changes and create a pull request. Every PR will be reviewed. If everything is fine we’ll merge your changes to the `main` branch.
 
 ## License & Credits
 
