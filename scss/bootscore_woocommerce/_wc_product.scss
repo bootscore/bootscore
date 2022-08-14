@@ -7,8 +7,8 @@ WooCommerce Product Page
   display: none;
 }
 
-// Hide View cart
-.cart .added_to_cart.wc-forward {
+// Hide View cart in loop and product pages
+.woocommerce a.added_to_cart {
   display: none;
 }
 
