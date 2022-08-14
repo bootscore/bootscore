@@ -19,6 +19,12 @@ WooCommerce Checkout
   display: none;
 }
 
+// Override WC border-radius: 5px; in #payment card
+#add_payment_method #payment, .woocommerce-cart #payment,
+.woocommerce-checkout #payment {
+  border-radius: $border-radius;
+}
+
 // Terms & conditions collapse box
 .woocommerce .woocommerce-terms-and-conditions,
 .woocommerce-page .woocommerce-terms-and-conditions {
@@ -38,10 +44,8 @@ WooCommerce Checkout
 // Place order button
 .woocommerce #payment #place_order,
 .woocommerce-page #payment #place_order {
-  margin-bottom: 0;
-}
-
-button#place_order {
   width: 100%;
   margin-top: 1rem;
+  margin-bottom: 0;
+  float: none;
 }
