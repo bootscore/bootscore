@@ -128,7 +128,7 @@ endif;
 // Edit Link
 if (!function_exists('bootscore_edit')) :
   /**
-   * Prints HTML with the comment count for the current post.
+   * Prints HTML with the edit link for the current post.
    */
   function bootscore_edit() {
 
