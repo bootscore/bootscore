@@ -38,4 +38,11 @@ Offcanvas Cart
     visibility: visible;
     transition: opacity 0s, visibility 0s;
   }
+
+  // Cart alert
+  .woocommerce-message {
+    margin-top: $modal-inner-padding;
+    margin-right: $modal-inner-padding;
+    margin-left: $modal-inner-padding;
+  }
 }

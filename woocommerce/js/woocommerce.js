@@ -12,6 +12,11 @@ jQuery(function ($) {
     $('#offcanvas-cart').removeClass('loading');
   });
   // Add loading class to offcanvas-cart END
+  
+  // Hide alert in offcanvas-cart when offcanvas is closed
+  $('#offcanvas-cart').on('hidden.bs.offcanvas', function () {
+    $('#offcanvas-cart .woocommerce-message').remove();
+  });
 
   // Review Checkbox Products
   $('.comment-form-cookies-consent').addClass('form-check');
