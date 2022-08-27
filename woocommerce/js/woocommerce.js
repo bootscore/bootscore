@@ -6,7 +6,7 @@ jQuery(function ($) {
 
   // Open offcanvas-cart when cart is loaded
   $('body').on('added_to_cart', function () {
-    $('#offcanvas-cart').removeClass('loading').offcanvas('show');;
+    $('#offcanvas-cart').removeClass('loading').offcanvas('show');
   });
   
   // Hide alert in offcanvas-cart when offcanvas is closed
