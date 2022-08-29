@@ -40,8 +40,12 @@ Offcanvas Cart
   }
 
   // Cart alert
-  .woocommerce-message {
+  // Top margin to first alert only. If grouped product one is out of stock there are two alerts.
+  .woocommerce-message:first-child {
     margin-top: $modal-inner-padding;
+  }
+
+  .woocommerce-message {
     margin-right: $modal-inner-padding;
     margin-left: $modal-inner-padding;
   }
