@@ -108,3 +108,4 @@ function bootscore_ajax_add_to_cart_add_fragments($fragments) {
 }
 add_filter('woocommerce_add_to_cart_fragments', 'bootscore_ajax_add_to_cart_add_fragments');
 // Add fragments for notices End
+

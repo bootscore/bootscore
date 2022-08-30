@@ -20,12 +20,17 @@ jQuery(function ($) {
     //$('.single_add_to_cart_button').removeClass('bg-success');
     $('.single_add_to_cart_button .spinner-border').remove();
     //$('.single_add_to_cart_button .btn-overlay').remove();
+
+    // Create fake alert to offcanvas cart in archive
+    $('.woocommerce-mini-cart').prepend('<div class="woocommerce-message alert alert-success">Product has been added to your cart.</div>');
   });
 
   // Hide alert in offcanvas-cart when offcanvas is closed
   $('#offcanvas-cart').on('hidden.bs.offcanvas', function () {
     $('#offcanvas-cart .woocommerce-message').remove();
   });
+
+
 
   // Review Checkbox Products
   $('.comment-form-cookies-consent').addClass('form-check');
@@ -100,5 +105,5 @@ jQuery(function ($) {
     // Trigger change event
     $qty.trigger('change');
   });
-  // WC Quantity Input End
+  // WC Quantity Input End 
 }); // jQuery End
