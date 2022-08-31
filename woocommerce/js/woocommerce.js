@@ -22,7 +22,7 @@ jQuery(function ($) {
     //$('.single_add_to_cart_button .btn-overlay').remove();
 
     // Create fake alert to offcanvas cart in archive
-    $('.woocommerce-mini-cart').prepend('<div class="woocommerce-message alert alert-success">Product has been added to your cart.</div>');
+    //$('.woocommerce-mini-cart').prepend('<div class="woocommerce-message alert alert-success">Product has been added to your cart.</div>');
   });
 
   // Hide alert in offcanvas-cart when offcanvas is closed
