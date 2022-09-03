@@ -63,7 +63,121 @@ function bootscore_product_page_ajax_add_to_cart_js() {
             form.unblock();
           }
         });
+
+
       });
+
+
+
+      $('a.ajax_add_to_cart').on('click', function(e) {
+        
+        e.preventDefault();
+
+
+        $('.woocommerce-error, .woocommerce-message, .woocommerce-info').remove();
+
+        var prod_title = ($(this).parents('.card-body').parent().find('.woocommerce-loop-product__title').show().html());
+
+        
+
+        $(document.body).trigger('adding_to_cart', []);
+
+        var $thisbutton = $(this);
+        try {
+            var href = $thisbutton.prop('href').split('?')[1];
+
+            if (href.indexOf('add-to-cart') === -1) return;
+        } catch (err) {
+            return;
+        }
+
+        //e.preventDefault();
+
+        var product_id = href.split('=')[1];
+
+        var data = {
+            product_id: product_id
+        };
+
+        $(document.body).trigger('adding_to_cart', [$thisbutton, data]);
+        
+        $.ajax({
+          
+          type: 'post',
+            url: wc_add_to_cart_params.wc_ajax_url.replace(
+                '%%endpoint%%',
+                'add_to_cart'
+            ),
+            data: data,
+
+            complete: function(response) {
+                $thisbutton.addClass('added').removeClass('loading');
+
+            },
+
+          success: function(response) {
+
+              
+             
+              if (response.error & response.product_url) {
+                  //window.location = response.product_url;
+                  console.log( response.error );
+                 
+                  //return false;
+              }else {
+                  $(document.body).trigger('added_to_cart', [
+                      response.fragments,
+                      response.cart_hash,
+                      $thisbutton
+                  ]);
+
+                  console.log( "Error-: "+ response.error );
+
+  
+                  //Remove existing notices
+                  $('.woocommerce-error, .woocommerce-message, .woocommerce-info').remove();
+
+                  if( response.error == true ){
+                    
+                    var notice = "<div class='woocommerce-message alert alert-danger'> You cannot add that amount to the cart — we have 1 in stock and you already have 1 in your cart.</div>";
+                   
+                   
+
+                  }else{
+                    
+                    var notice = `<div class="woocommerce-message alert alert-success">“${prod_title}” has been added to your cart.  </div>`;
+
+                  }
+
+                  
+
+                  // Add new notices to offcanvas
+                  setTimeout(function () {
+                    $('.woocommerce-mini-cart').prepend(notice);
+                    
+                  }, 100);
+
+                  
+                  
+                  
+                  // console.log("notice", notice );
+                  //$('.woocommerce-mini-cart').prepend(response.fragments.notices_html);
+
+              }
+          }
+
+        });
+
+
+      });
+
+      
+      
+
+      
+
+
+
     });
   </script>
 <?php
@@ -107,5 +221,7 @@ function bootscore_ajax_add_to_cart_add_fragments($fragments) {
   return $fragments;
 }
 add_filter('woocommerce_add_to_cart_fragments', 'bootscore_ajax_add_to_cart_add_fragments');
-// Add fragments for notices End
 
+
+// Stop redirecting after stock error
+add_filter( 'woocommerce_cart_redirect_after_error', '__return_false' );
