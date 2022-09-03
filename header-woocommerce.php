@@ -9,7 +9,7 @@
  *
  * @package Bootscore
  * 
- * @version 5.2.0.0
+ * @version 5.3.0.0
  */
 
 ?>
@@ -150,11 +150,6 @@
           <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <div class="offcanvas-body p-0">
-          <div class="cart-loader bg-white position-absolute end-0 bottom-0 start-0 d-flex align-items-center justify-content-center">
-            <div class="loader-icon ">
-              <div class="spinner-border text-primary"></div>
-            </div>
-          </div>
           <div class="cart-list">
             <div class="widget_shopping_cart_content"><?php woocommerce_mini_cart(); ?></div>
           </div>

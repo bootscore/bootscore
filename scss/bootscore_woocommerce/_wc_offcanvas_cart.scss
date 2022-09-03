@@ -3,6 +3,11 @@ Offcanvas Cart
 --------------------------------------------------------------*/
 
 #offcanvas-cart {
+  // Hide extsting cart-loader in header.php, remove this in v6
+  .cart-loader {
+    display: none !important;
+  }
+
   .cart-list {
     height: 100%;
   }
@@ -16,27 +21,6 @@ Offcanvas Cart
   .woocommerce-mini-cart {
     flex: 1;
     overflow-y: auto;
-  }
-
-  // Cart loader
-  .offcanvas-body {
-    position: relative;
-  }
-
-  .cart-loader {
-    top: 0;
-    z-index: 1;
-    overflow: hidden; // Stop Apple Safari flickering when .widget_shopping_cart_content reached 100% height
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s, visibility 0.3s;
-    transition-delay: 0.1s;
-  }
-
-  &.loading .cart-loader {
-    opacity: 1;
-    visibility: visible;
-    transition: opacity 0s, visibility 0s;
   }
 
   // Cart alert
