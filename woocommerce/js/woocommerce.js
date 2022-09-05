@@ -1,22 +1,5 @@
 jQuery(function ($) {
 
-  // Add loading spinner to add_to_cart_button 
-  $('.single_add_to_cart_button:not(.product_type_variable.single_add_to_cart_button):not(.product_type_grouped.single_add_to_cart_button):not(.product_type_external.single_add_to_cart_button):not(.product-type-external .single_add_to_cart_button):not(.product-type-external .single_add_to_cart_button)').click(function () {
-    $(this).prepend('<span class="spinner-border spinner-border-sm me-1"></span>');
-  });
-
-  $('body').on('added_to_cart', function () {
-    // Open offcanvas-cart when cart is loaded
-    $('#offcanvas-cart').offcanvas('show');
-    // Remove loading spinner
-    $('.single_add_to_cart_button .spinner-border').remove();
-  });
-
-  // Hide alert in offcanvas-cart when offcanvas is closed
-  $('#offcanvas-cart').on('hidden.bs.offcanvas', function () {
-    $('#offcanvas-cart .woocommerce-message').remove();
-  });
-
   // Review Checkbox Products
   $('.comment-form-cookies-consent').addClass('form-check');
   $('#wp-comment-cookies-consent').addClass('form-check-input');

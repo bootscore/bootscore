@@ -173,7 +173,22 @@ function bootscore_product_page_ajax_add_to_cart_js() {
 
       
       
+  // Add loading spinner to add_to_cart_button 
+  $('.single_add_to_cart_button:not(.product_type_variable.single_add_to_cart_button):not(.product_type_grouped.single_add_to_cart_button):not(.product_type_external.single_add_to_cart_button):not(.product-type-external .single_add_to_cart_button):not(.product-type-external .single_add_to_cart_button)').click(function () {
+    $(this).prepend('<span class="spinner-border spinner-border-sm me-1"></span>');
+  });
 
+  $('body').on('added_to_cart', function () {
+    // Open offcanvas-cart when cart is loaded
+    $('#offcanvas-cart').offcanvas('show');
+    // Remove loading spinner
+    $('.single_add_to_cart_button .spinner-border').remove();
+  });
+
+  // Hide alert in offcanvas-cart when offcanvas is closed
+  $('#offcanvas-cart').on('hidden.bs.offcanvas', function () {
+    $('#offcanvas-cart .woocommerce-message').remove();
+  });
       
 
 
@@ -225,3 +240,27 @@ add_filter('woocommerce_add_to_cart_fragments', 'bootscore_ajax_add_to_cart_add_
 
 // Stop redirecting after stock error
 add_filter( 'woocommerce_cart_redirect_after_error', '__return_false' );
+
+
+
+// Minicart Header
+if (!function_exists('bs_mini_cart')) :
+  function bs_mini_cart($fragments) {
+
+    ob_start();
+    $count = WC()->cart->cart_contents_count; ?>
+    <span class="cart-content">
+      <?php if ($count > 0) { ?>
+        <span class="cart-content-count position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger border border-light"><?php echo esc_html($count); ?></span><span class="cart-total ms-1 d-none d-md-inline"><?php echo WC()->cart->get_cart_subtotal(); ?></span>
+      <?php } ?>
+    </span>
+
+  <?php
+    $fragments['span.cart-content'] = ob_get_clean();
+
+    return $fragments;
+  }
+  add_filter('woocommerce_add_to_cart_fragments', 'bs_mini_cart');
+
+endif;
+// Minicart Header End
