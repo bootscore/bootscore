@@ -1,36 +1,21 @@
 jQuery(function ($) {
-  // Add loading class to offcanvas-cart
-  $('body').on('adding_to_cart', function () {
-    $('#offcanvas-cart').addClass('loading');
-    //$('.single_add_to_cart_button').addClass('bg-success');
-  });
 
   // Add loading spinner to add_to_cart_button 
   $('.single_add_to_cart_button:not(.product_type_variable.single_add_to_cart_button):not(.product_type_grouped.single_add_to_cart_button):not(.product_type_external.single_add_to_cart_button):not(.product-type-external .single_add_to_cart_button):not(.product-type-external .single_add_to_cart_button)').click(function () {
-    //$(this).addClass('bg-success');
     $(this).prepend('<span class="spinner-border spinner-border-sm me-1"></span>');
-    //$(this).append('<div class="btn-overlay position-absolute top-0 end-0 bottom-0 start-0 bg-primary"><span class="spinner-border spinner-border-sm"></span></div>');
   });
 
-  // Open offcanvas-cart when cart is loaded
   $('body').on('added_to_cart', function () {
     // Open offcanvas-cart when cart is loaded
-    $('#offcanvas-cart').removeClass('loading').offcanvas('show');
+    $('#offcanvas-cart').offcanvas('show');
     // Remove loading spinner
-    //$('.single_add_to_cart_button').removeClass('bg-success');
     $('.single_add_to_cart_button .spinner-border').remove();
-    //$('.single_add_to_cart_button .btn-overlay').remove();
-
-    // Create fake alert to offcanvas cart in archive
-    //$('.woocommerce-mini-cart').prepend('<div class="woocommerce-message alert alert-success">Product has been added to your cart.</div>');
   });
 
   // Hide alert in offcanvas-cart when offcanvas is closed
   $('#offcanvas-cart').on('hidden.bs.offcanvas', function () {
     $('#offcanvas-cart .woocommerce-message').remove();
   });
-
-
 
   // Review Checkbox Products
   $('.comment-form-cookies-consent').addClass('form-check');
