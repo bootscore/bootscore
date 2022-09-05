@@ -8,7 +8,8 @@ WooCommerce Product Page
 }
 
 // Hide View cart in loop and product pages
-.woocommerce a.added_to_cart {
+.woocommerce a.added_to_cart,
+a.added_to_cart {
   display: none;
 }
 
