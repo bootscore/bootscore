@@ -2,26 +2,10 @@
 WooCommerce Product Page
 --------------------------------------------------------------*/
 
-// Hide button in alert
-.alert .button.wc-forward {
-  display: none;
-}
-
-// Hide View cart in loop and product pages
-.woocommerce a.added_to_cart,
-a.added_to_cart {
-  display: none;
-}
-
 // Product page price font-size
 .woocommerce div.product p.price,
 .woocommerce div.product span.price {
   font-size: 2rem;
-}
-
-// Hide overlay in product add-to-cart-button
-.cart .blockUI.blockOverlay {
-  display: none !important;
 }
 
 // Line break in meta
