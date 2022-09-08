@@ -26,21 +26,3 @@ p:empty:before {
 .grecaptcha-badge {
   display: none !important;
 }
-
-// Bootstrap 5.2.0 Pagination border-radius hotfix
-// Disable border-radius
-.page-item .page-link {
-  border-radius: 0;
-}
-
-// Add border-radius to pagination first child
-.page-item:first-child .page-link {
-  border-top-left-radius: var(--bs-pagination-border-radius);
-  border-bottom-left-radius: var(--bs-pagination-border-radius);
-}
-
-// Add border-radius to pagination last child
-.page-item:last-child .page-link {
-  border-top-right-radius: var(--bs-pagination-border-radius);
-  border-bottom-right-radius: var(--bs-pagination-border-radius);
-}
