@@ -1,13 +1,13 @@
 === bootScore ===
 
-Contributors: Bastian Kreiter, Justin Kruit, Martin Holzer, Tim Groeneveld, Laurent Binder, Patrick, Gustavo Silva, TershiXia, electronicsandprogramming, charly, Alexandros Kourmoulakis, Sven Geiß, ucalegonte
+Contributors: Bastian Kreiter, Justin Kruit, Martin Holzer, Tim Groeneveld, Laurent Binder, Patrick, Gustavo Silva, TershiXia, electronicsandprogramming, charly, Alexandros Kourmoulakis, Sven Geiß, ucalegonte, Benhaim Ido
 
 Tags: featured-images, threaded-comments, translation-ready
 
 Requires at least: 4.5
-Tested up to: 6.0.1
+Tested up to: 6.0.2
 Requires PHP: 5.6
-Stable tag: 5.2.0.0
+Stable tag: 5.2.1.0
 License: MIT License
 License URI: https://github.com/bootscore/bootscore/blob/main/LICENSE
 
@@ -56,6 +56,40 @@ bootScore includes support for WooCommerce and Infinite Scroll in Jetpack.
 
 
 == Changelog ==
+
+    = 5.2.1.0 - September 08 2022 =
+    
+        CSS
+
+        * [IMPROVEMENT] Offcanvas cart-loader #199
+        * [IMPROVEMENT] Load style.css after main.css #201
+        * [BUGFIX] Coupon input in cart page #203
+        * [BUGFIX] border-radius in checkout #payment card #214
+        * [BUGFIX] Set checkout shipping table heading to top #236
+        * [BUGFIX] Hide "View cart" in loop and product pages #237
+        * [REMOVED] #nav-main nav-link last-child padding #233
+        * [REMOVED] Pagination border hotfix 5628280
+        * [REMOVED] bS Cookie Settings modal fallback #220
+        
+        PHP
+
+        * [IMPROVEMENT] Make comment button and pw protected form function pluggable #193
+        * [IMPROVEMENT] Offcanvas cart-items to list-group-flush #194
+        * [REMOVED] Empty IE alert function #197
+        
+        JavaScript
+
+        * [IMPROVEMENT] WC product offcanvas #205
+        
+        Languages
+
+        [NEW] עברית, thanks to Benhaim Ido #204
+        
+        Updates
+
+        [UPDATE] scssphp 1.11.0 #246
+        [UPDATE] Font Awesome 6.1.2 #196
+        [UPDATE] Bootstrap 5.2.1
 
     = 5.2.0.0 - July 22 2022 =
 

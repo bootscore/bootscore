@@ -25,6 +25,11 @@ WooCommerce Checkout
   border-radius: $border-radius;
 }
 
+// Set shipping table to top
+.woocommerce-shipping-totals th {
+  vertical-align: top;
+}
+
 // Terms & conditions collapse box
 .woocommerce .woocommerce-terms-and-conditions,
 .woocommerce-page .woocommerce-terms-and-conditions {
