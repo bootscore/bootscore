@@ -34,8 +34,7 @@ get_header();  ?>
             <small class="text-muted">
               <?php
               bootscore_date();
-              _e(' by ', 'bootscore');
-              the_author_posts_link();
+              bootscore_author();
               bootscore_comment_count();
               ?>
             </small>
