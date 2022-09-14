@@ -59,7 +59,7 @@ bootScore includes support for WooCommerce and Infinite Scroll in Jetpack.
 
     = 5.2.1.1 - September 15 2022 =
     
-        * [IMPROVEMENT] Same author meta function in `single-*.php` as in loop
+        * [IMPROVEMENT] Same author meta function in single-*.php as in loop
         * [UPDATE] form-login.php (WooCommerce 6.9.0)
 
     = 5.2.1.0 - September 08 2022 =
