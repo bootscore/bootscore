@@ -7,7 +7,7 @@ Tags: featured-images, threaded-comments, translation-ready
 Requires at least: 4.5
 Tested up to: 6.0.2
 Requires PHP: 5.6
-Stable tag: 5.2.1.0
+Stable tag: 5.2.1.1
 License: MIT License
 License URI: https://github.com/bootscore/bootscore/blob/main/LICENSE
 
@@ -56,6 +56,14 @@ bootScore includes support for WooCommerce and Infinite Scroll in Jetpack.
 
 
 == Changelog ==
+
+    = 5.2.1.1 - September 15 2022 =
+    
+        PHP
+    
+        * [IMPROVEMENT] Same author meta function in single-*.php as in loop #251
+        * [UPDATE] form-login.php (WooCommerce 6.9.0) #255
+        * [BUGFIX] Readded empty IE alert function #258
 
     = 5.2.1.0 - September 08 2022 =
     
