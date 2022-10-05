@@ -9,6 +9,14 @@
     }
   ],
   "type": "wordpress-theme",
+  "readme": "readme.md",
+  "homepage": "https://bootscore.me/",
+  "support": {
+    "issues": "https://github.com/bootscore/bootscore/issues",
+    "forum": "https://github.com/bootscore/bootscore/discussions",
+    "source": "https://github.com/bootscore/bootscore",
+    "docs": "https://bootscore.me/documentation/"
+  },
   "keywords": [
     "wordpress",
     "theme",
