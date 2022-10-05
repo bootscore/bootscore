@@ -3,11 +3,18 @@
   "description": "A powerful, free Bootstrap 5 starter theme for WordPress.",
   "minimum-stability": "stable",
   "license": "MIT",
+  "authors": [
+    {
+      "name": "The Bootscore Authors"
+    }
+  ],
   "type": "wordpress-theme",
   "keywords": [
     "wordpress",
     "theme",
     "bootscore",
-    "bootstrap"
+    "bootstrap",
+    "bootcommerce",
+    "woocommerce"
   ]
 }
