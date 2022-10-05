@@ -9,7 +9,7 @@
     }
   ],
   "type": "wordpress-theme",
-  "readme": "readme.md",
+  "readme": "README.md",
   "homepage": "https://bootscore.me/",
   "support": {
     "issues": "https://github.com/bootscore/bootscore/issues",
