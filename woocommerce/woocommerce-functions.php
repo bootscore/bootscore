@@ -84,7 +84,7 @@ if (!function_exists('bs_woocommerce_breadcrumbs')) :
   function bs_woocommerce_breadcrumbs() {
     return array(
       'delimiter'   => '',
-      'wrap_before' => "<nav aria-label='breadcrumb' class='mb-4 mt-2 py-2 px-3'>
+      'wrap_before' => "<nav aria-label='breadcrumb' class='wc-breadcrumb breadcrumb-scroller p-3'>
       <ol class='breadcrumb'>",
       'wrap_after'  => '</ol>
       </nav>',
