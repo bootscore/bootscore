@@ -62,7 +62,11 @@ function bootscore_compile_scss() {
       set_theme_mod('bootscore_scss_modified_timestamp', $last_modified);
     }
   } catch (Exception $e) {
+    if ($is_environment_dev) {
     wp_die('<b>bootScore SCSS Compiler - Caught exception:</b><br><br> ' . $e->getMessage());
+    } else {
+      wp_die('<b>SCSS ERROR!');
+    }
   }
 }
 
