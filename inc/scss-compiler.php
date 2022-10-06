@@ -33,7 +33,7 @@ function bootscore_compile_scss() {
   $last_modified = bootscore_get_last_modified_scss($theme_directory);
   $stored_modified = get_theme_mod('bootscore_scss_modified_timestamp', 0);
 
-  $is_environment_dev = (wp_get_environment_type() === ('development' || 'local'));
+  $is_environment_dev = in_array(wp_get_environment_type(), array('development','local'), true);
 
   if ($is_environment_dev) {
     $compiler->setSourceMap(Compiler::SOURCE_MAP_FILE);
@@ -64,9 +64,9 @@ function bootscore_compile_scss() {
     }
   } catch (Exception $e) {
     if ($is_environment_dev) {
-    wp_die('<b>bootScore SCSS Compiler - Caught exception:</b><br><br> ' . $e->getMessage());
-    } else {
-      wp_die('<b>SCSS ERROR!');
+      wp_die('<b>bootScore SCSS Compiler - Caught exception:</b><br><br> ' . $e->getMessage());
+    } else { // supress error message for production
+      wp_die('<b>SCSS ERROR!</b>');
     }
   }
 }
