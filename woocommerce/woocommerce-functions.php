@@ -289,8 +289,8 @@ remove_action('wp_footer', 'woocommerce_demo_store');
 // add custom bs5 wc store notice
 add_action('wp_body_open', 'custom_store_notice');
 function custom_store_notice()
-{
-  if (is_store_notice_showing()) { ?>
+{ // only if notice is enabled, and is not empty (empty notice looks bad!)
+  if (is_store_notice_showing() && get_option('woocommerce_demo_store_notice')) { ?>
     <!-- woo commerce store notice -->
     <div class="container-fluid">
       <div class="row">
