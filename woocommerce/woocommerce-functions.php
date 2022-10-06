@@ -282,3 +282,28 @@ function bootscore_redirect_after_registration() {
   }
 }
 // Redirect to my-account after (un)sucessful registration End
+
+
+// remove default wc store notice
+remove_action('wp_footer', 'woocommerce_demo_store');
+// add custom bs5 wc store notice
+add_action('wp_body_open', 'custom_store_notice');
+function custom_store_notice()
+{
+  if (is_store_notice_showing()) { ?>
+    <!-- woo commerce store notice -->
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col p-0">
+          <div class="wc-store-notice alert alert-info text-center rounded-0 alert-dismissible" role="alert">
+            <?php echo get_option('woocommerce_demo_store_notice'); ?>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  <?php }
+}
+
+
