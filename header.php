@@ -37,87 +37,83 @@
 
   <div id="page" class="site">
 
-    <header id="masthead" class="site-header">
+    <header id="masthead" class="site-header sticky-top">
 
-      <div class="fixed-top bg-light">
+      <nav id="nav-main" class="navbar navbar-expand-lg bg-light">
 
-        <nav id="nav-main" class="navbar navbar-expand-lg">
+        <div class="container">
 
-          <div class="container">
+          <!-- Navbar Brand -->
+          <a class="navbar-brand xs d-md-none" href="<?php echo esc_url(home_url()); ?>"><img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/img/logo/logo-sm.svg" alt="logo" class="logo xs"></a>
+          <a class="navbar-brand md d-none d-md-block" href="<?php echo esc_url(home_url()); ?>"><img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/img/logo/logo.svg" alt="logo" class="logo md"></a>
 
-            <!-- Navbar Brand -->
-            <a class="navbar-brand xs d-md-none" href="<?php echo esc_url(home_url()); ?>"><img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/img/logo/logo-sm.svg" alt="logo" class="logo xs"></a>
-            <a class="navbar-brand md d-none d-md-block" href="<?php echo esc_url(home_url()); ?>"><img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/img/logo/logo.svg" alt="logo" class="logo md"></a>
+          <!-- Offcanvas Navbar -->
+          <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvas-navbar">
+            <div class="offcanvas-header bg-light">
+              <span class="h5 mb-0"><?php esc_html_e('Menu', 'bootscore'); ?></span>
+              <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+              <!-- Bootstrap 5 Nav Walker Main Menu -->
+              <?php
+              wp_nav_menu(array(
+                'theme_location' => 'main-menu',
+                'container' => false,
+                'menu_class' => '',
+                'fallback_cb' => '__return_false',
+                'items_wrap' => '<ul id="bootscore-navbar" class="navbar-nav ms-auto %2$s">%3$s</ul>',
+                'depth' => 2,
+                'walker' => new bootstrap_5_wp_nav_menu_walker()
+              ));
+              ?>
+              <!-- Bootstrap 5 Nav Walker Main Menu End -->
+            </div>
+          </div>
 
-            <!-- Offcanvas Navbar -->
-            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvas-navbar">
-              <div class="offcanvas-header bg-light">
-                <span class="h5 mb-0"><?php esc_html_e('Menu', 'bootscore'); ?></span>
-                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-              </div>
-              <div class="offcanvas-body">
-                <!-- Bootstrap 5 Nav Walker Main Menu -->
-                <?php
-                wp_nav_menu(array(
-                  'theme_location' => 'main-menu',
-                  'container' => false,
-                  'menu_class' => '',
-                  'fallback_cb' => '__return_false',
-                  'items_wrap' => '<ul id="bootscore-navbar" class="navbar-nav ms-auto %2$s">%3$s</ul>',
-                  'depth' => 2,
-                  'walker' => new bootstrap_5_wp_nav_menu_walker()
-                ));
-                ?>
-                <!-- Bootstrap 5 Nav Walker Main Menu End -->
-              </div>
+
+          <div class="header-actions d-flex align-items-center">
+
+            <!-- Top Nav Widget -->
+            <div class="top-nav-widget">
+              <?php if (is_active_sidebar('top-nav')) : ?>
+                <div>
+                  <?php dynamic_sidebar('top-nav'); ?>
+                </div>
+              <?php endif; ?>
             </div>
 
-
-            <div class="header-actions d-flex align-items-center">
-
-              <!-- Top Nav Widget -->
-              <div class="top-nav-widget">
-                <?php if (is_active_sidebar('top-nav')) : ?>
-                  <div>
-                    <?php dynamic_sidebar('top-nav'); ?>
-                  </div>
-                <?php endif; ?>
-              </div>
-
-              <!-- Searchform Large -->
-              <div class="d-none d-lg-block ms-1 ms-md-2 top-nav-search-lg">
-                <?php if (is_active_sidebar('top-nav-search')) : ?>
-                  <div>
-                    <?php dynamic_sidebar('top-nav-search'); ?>
-                  </div>
-                <?php endif; ?>
-              </div>
-
-              <!-- Search Toggler Mobile -->
-              <button class="btn btn-outline-secondary d-lg-none ms-1 ms-md-2 top-nav-search-md" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-search" aria-expanded="false" aria-controls="collapse-search">
-                <i class="fa-solid fa-magnifying-glass"></i><span class="visually-hidden-focusable">Search</span>
-              </button>
-
-              <!-- Navbar Toggler -->
-              <button class="btn btn-outline-secondary d-lg-none ms-1 ms-md-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas-navbar" aria-controls="offcanvas-navbar">
-                <i class="fa-solid fa-bars"></i><span class="visually-hidden-focusable">Menu</span>
-              </button>
-
-            </div><!-- .header-actions -->
-
-          </div><!-- .container -->
-
-        </nav><!-- .navbar -->
-
-        <!-- Top Nav Search Mobile Collapse -->
-        <div class="collapse container d-lg-none" id="collapse-search">
-          <?php if (is_active_sidebar('top-nav-search')) : ?>
-            <div class="mb-2">
-              <?php dynamic_sidebar('top-nav-search'); ?>
+            <!-- Searchform Large -->
+            <div class="d-none d-lg-block ms-1 ms-md-2 top-nav-search-lg">
+              <?php if (is_active_sidebar('top-nav-search')) : ?>
+                <div>
+                  <?php dynamic_sidebar('top-nav-search'); ?>
+                </div>
+              <?php endif; ?>
             </div>
-          <?php endif; ?>
-        </div>
 
-      </div><!-- .fixed-top .bg-light -->
+            <!-- Search Toggler Mobile -->
+            <button class="btn btn-outline-secondary d-lg-none ms-1 ms-md-2 top-nav-search-md" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-search" aria-expanded="false" aria-controls="collapse-search">
+              <i class="fa-solid fa-magnifying-glass"></i><span class="visually-hidden-focusable">Search</span>
+            </button>
+
+            <!-- Navbar Toggler -->
+            <button class="btn btn-outline-secondary d-lg-none ms-1 ms-md-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas-navbar" aria-controls="offcanvas-navbar">
+              <i class="fa-solid fa-bars"></i><span class="visually-hidden-focusable">Menu</span>
+            </button>
+
+          </div><!-- .header-actions -->
+
+        </div><!-- .container -->
+
+      </nav><!-- .navbar -->
+
+      <!-- Top Nav Search Mobile Collapse -->
+      <div class="collapse container d-lg-none" id="collapse-search">
+        <?php if (is_active_sidebar('top-nav-search')) : ?>
+          <div class="mb-2">
+            <?php dynamic_sidebar('top-nav-search'); ?>
+          </div>
+        <?php endif; ?>
+      </div>
 
     </header><!-- #masthead -->
