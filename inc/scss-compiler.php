@@ -65,8 +65,8 @@ function bootscore_compile_scss() {
   } catch (Exception $e) {
     if ($is_environment_dev) {
       wp_die('<b>bootScore SCSS Compiler - Caught exception:</b><br><br> ' . $e->getMessage());
-    } else { // supress error message for production
-      wp_die('<b>SCSS ERROR!</b>');
+    } else {
+      wp_die('Something went wrong with the SCSS compiler.');
     }
   }
 }
