@@ -37,7 +37,7 @@
 
   <div id="page" class="site">
 
-    <header id="masthead" class="site-header sticky-top">
+    <header id="masthead" class="site-header fixed-top">
 
       <nav id="nav-main" class="navbar navbar-expand-lg bg-light">
 
