@@ -289,15 +289,16 @@ function bootscore_redirect_after_registration() {
 // remove default wc store notice
 remove_action('wp_footer', 'woocommerce_demo_store');
 // add custom bs5 wc store notice
-add_action('wp_body_open', 'custom_store_notice');
+add_action('wp_footer', 'custom_store_notice');
 function custom_store_notice()
 { // only if notice is enabled, and is not empty (empty notice looks bad!)
-  if (is_store_notice_showing() && get_option('woocommerce_demo_store_notice')) { ?>
+  if (is_store_notice_showing() && get_option('woocommerce_demo_store_notice')) {
+    ?>
     <!-- woo commerce store notice -->
-    <div class="container-fluid">
+    <div class="container-fluid fixed-top wc-store-notice">
       <div class="row">
         <div class="col p-0">
-          <div class="wc-store-notice alert alert-info text-center rounded-0 alert-dismissible" role="alert">
+          <div class="alert alert-info text-center rounded-0 alert-dismissible" role="alert">
             <?php echo get_option('woocommerce_demo_store_notice'); ?>
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
           </div>
@@ -306,6 +307,12 @@ function custom_store_notice()
     </div>
 
   <?php }
+}
+// add custom class for store notice css
+add_filter('body_class','custom_store_notice_body_class');
+function custom_store_notice_body_class($classes) {
+  $classes[] = 'wc-store-notice';
+  return $classes;
 }
 
 

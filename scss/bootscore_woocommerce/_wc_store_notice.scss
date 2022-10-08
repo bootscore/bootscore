@@ -1,5 +1,68 @@
-.wc-store-notice.alert {
-  &:before {
-    content: none;
+.wc-store-notice {
+  .alert {
+    // prevent notice from being multi-line
+    white-space: nowrap;
+    &:before {
+      content: none;
+    }
+  }
+}
+
+/*--------------------------------------------------------------
+WooCommerce store notice
+--------------------------------------------------------------*/
+
+// Mobile
+@media (max-width: 782px) {
+
+  .woocommerce-demo-store.wc-store-notice {
+
+    // Push content down when WP admin-bar is visible
+    .fixed-top:not(.wc-store-notice),
+    .offcanvas:not(.offcanvas-bottom),
+    .offcanvas-sm,
+    .offcanvas-md,
+    .modal-dialog {
+       
+        top: 46px;
+      
+      
+    }
+
+    // Adjust modal height
+    .modal-fullscreen,
+    .modal-fullscreen-sm-down,
+    .modal-fullscreen-md-down,
+    .modal-fullscreen-lg-down,
+    .modal-fullscreen-xl-down,
+    .modal-fullscreen-xxl-down {
+      height: calc(100% - 46px);
+    }
+  }
+}
+
+// Desktop
+@media (min-width: 783px) {
+  .woocommerce-demo-store.wc-store-notice {
+
+    // Push content down when WP admin-bar is visible
+    .fixed-top:not(.wc-store-notice),
+    .offcanvas:not(.offcanvas-bottom),
+    .offcanvas-lg,
+    .offcanvas-xl,
+    .offcanvas-xxl,
+    .modal-dialog {
+      top: 32px;
+    }
+
+    // Adjust modal height
+    .modal-fullscreen,
+    .modal-fullscreen-sm-down,
+    .modal-fullscreen-md-down,
+    .modal-fullscreen-lg-down,
+    .modal-fullscreen-xl-down,
+    .modal-fullscreen-xxl-down {
+      height: calc(100% - 32px);
+    }
   }
 }
