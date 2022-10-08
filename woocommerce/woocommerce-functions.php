@@ -60,11 +60,13 @@ if (!function_exists('bs_woocommerce_breadcrumbs')) :
   add_filter('woocommerce_breadcrumb_defaults', 'bs_woocommerce_breadcrumbs');
   function bs_woocommerce_breadcrumbs() {
     return array(
-      'delimiter'   => ' &nbsp;&#47;&nbsp; ',
-      'wrap_before' => '<nav class="breadcrumb mb-4 mt-2 bg-light py-2 px-3 small rounded" itemprop="breadcrumb">',
-      'wrap_after'  => '</nav>',
-      'before'      => '',
-      'after'       => '',
+      'delimiter'   => '',
+      'wrap_before' => "<nav aria-label='breadcrumb' class='wc-breadcrumb breadcrumb-scroller mb-4 mt-2 py-2 px-3 bg-light rounded'>
+      <ol class='breadcrumb mb-0'>",
+      'wrap_after'  => '</ol>
+      </nav>',
+      'before'      => '<li class="breadcrumb-item">',
+      'after'       => '</li>',
       'home'        => _x('Home', 'breadcrumb', 'woocommerce'),
     );
   }

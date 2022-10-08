@@ -1,0 +1,11 @@
+/*--------------------------------------------------------------
+WooCommerce Breadcrumb
+--------------------------------------------------------------*/
+
+// additional code for wc breadcrumbs, 
+// as the wc breadcrumb function does not allow for custom 
+// class for last child
+.wc-breadcrumb .breadcrumb-item:last-child {
+  color: var(--bs-breadcrumb-item-active-color);
+  padding-right: $spacer;
+}
