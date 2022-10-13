@@ -288,11 +288,6 @@ function bootscore_redirect_after_registration() {
 
 // WooCommerce store notice
 // ************************
-// create Hook after #masthead
-function bs_after_masthead()
-{
-  do_action('bs_after_masthead');
-}
 // remove default wc store notice
 remove_action('wp_footer', 'woocommerce_demo_store');
 // add custom bs5 wc store notice to bs_after_masthead hook
