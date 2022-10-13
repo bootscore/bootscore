@@ -1,0 +1,12 @@
+/*--------------------------------------------------------------
+WooCommerce store notice
+--------------------------------------------------------------*/
+
+.wc-store-notice {
+  alert {
+    // remove icons (added by bootscore to alerts)
+    &:before {
+      content: none;
+    }
+  }
+}

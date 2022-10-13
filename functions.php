@@ -482,6 +482,11 @@ function bs_after_primary() {
 }
 // Hook after #primary END
 
+// Hook after #masthead
+function bs_after_masthead() {
+  do_action('bs_after_masthead');
+}
+// Hook after #masthead END
 
 // Open links in comments in new tab
 if (!function_exists('bs_comment_links_in_new_tab')) :
