@@ -286,33 +286,33 @@ function bootscore_redirect_after_registration() {
 // Redirect to my-account after (un)sucessful registration End
 
 
+// WooCommerce store notice
+// ************************
+// create Hook after #masthead
+function bs_after_masthead()
+{
+  do_action('bs_after_masthead');
+}
 // remove default wc store notice
 remove_action('wp_footer', 'woocommerce_demo_store');
-// add custom bs5 wc store notice
-add_action('wp_footer', 'custom_store_notice');
-function custom_store_notice()
-{ // only if notice is enabled, and is not empty (empty notice looks bad!)
-  if (is_store_notice_showing() && get_option('woocommerce_demo_store_notice')) {
-    ?>
-    <!-- woo commerce store notice -->
-    <div class="container-fluid wc-store-notice">
-      <div class="row">
-        <div class="col p-0">
-          <div class="alert alert-info text-center rounded-0 alert-dismissible mb-0" role="alert">
-            <?php echo get_option('woocommerce_demo_store_notice'); ?>
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+// add custom bs5 wc store notice to bs_after_masthead hook
+add_action('bs_after_masthead', 'bs_store_notice');
+if (!function_exists('bs_store_notice')) {
+  function bs_store_notice()
+  { // only if notice is enabled, and is not empty (empty notice looks bad!)
+    if (is_store_notice_showing() && get_option('woocommerce_demo_store_notice')) { ?>
+      <!-- woo commerce store notice -->
+      <div class="container-fluid wc-store-notice">
+        <div class="row">
+          <div class="col p-0">
+            <div class="alert alert-info text-center rounded-0 alert-dismissible mb-0" role="alert">
+              <?php echo get_option('woocommerce_demo_store_notice'); ?>
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-
-  <?php }
+<?php }
+  }
 }
-// add custom class for store notice css
-// add_filter('body_class','custom_store_notice_body_class');
-// function custom_store_notice_body_class($classes) {
-//   $classes[] = 'wc-store-notice-active';
-//   return $classes;
-// }
-
-
+// WooCommerce store notice End
