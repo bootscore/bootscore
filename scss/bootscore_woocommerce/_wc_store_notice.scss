@@ -4,47 +4,9 @@ WooCommerce store notice
 
 .wc-store-notice {
   alert {
-    // prevent notice from being multi-line
-    white-space: nowrap;
     // remove icons (added by bootscore to alerts)
     &:before {
       content: none;
     }
   }
-}
-
-.woocommerce-demo-store.wc-store-notice-active {
-  .alert {
-    // prevent notice from being multi-line
-    white-space: nowrap;
-    // remove icons (added by bootscore to alerts)
-    &:before {
-      content: none;
-    }
-  }
-
-  // // Push content down when WP admin-bar is visible
-  // .fixed-top:not(.wc-store-notice),
-  // .offcanvas:not(.offcanvas-bottom),
-  // .offcanvas-sm,
-  // .offcanvas-md,
-  // .modal-dialog {
-  //   // @media (max-width: 782px) {
-  //   //   top: 46px;
-  //   // }
-  //   // @media (min-width: 783px) {
-  //   //   top: 32px;
-  //   // }
-  //   top: 58px;
-  // }
-
-  // // Adjust modal height
-  // .modal-fullscreen,
-  // .modal-fullscreen-sm-down,
-  // .modal-fullscreen-md-down,
-  // .modal-fullscreen-lg-down,
-  // .modal-fullscreen-xl-down,
-  // .modal-fullscreen-xxl-down {
-  //   height: calc(100% - 46px);
-  // }
 }
