@@ -291,7 +291,7 @@ function bootscore_redirect_after_registration() {
 // remove default wc store notice
 remove_action('wp_footer', 'woocommerce_demo_store');
 // add custom bs5 wc store notice to bs_after_masthead hook
-add_action('bs_after_masthead', 'bs_store_notice');
+add_action('bs_after_masthead', 'bs_store_notice', 5);
 if (!function_exists('bs_store_notice')) {
   function bs_store_notice()
   { // only if notice is enabled, and is not empty (empty notice looks bad!)
