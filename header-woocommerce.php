@@ -158,3 +158,4 @@
       </div>
 
     </header><!-- #masthead -->
+    <?php bs_after_masthead(); ?>
