@@ -15,9 +15,6 @@ use ScssPhp\ScssPhp\Compiler;
  */
 function bootscore_compile_scss() {
   $compiler = new Compiler();
-  $compiler->setSourceMap(Compiler::SOURCE_MAP_FILE);
-
-  $compiler->setOutputStyle(\ScssPhp\ScssPhp\OutputStyle::COMPRESSED);
 
   if (bootscore_child_has_scss() && is_child_theme()) {
     $theme_directory = get_stylesheet_directory();
@@ -36,14 +33,18 @@ function bootscore_compile_scss() {
   $last_modified = bootscore_get_last_modified_scss($theme_directory);
   $stored_modified = get_theme_mod('bootscore_scss_modified_timestamp', 0);
 
-  $is_environment_dev = (wp_get_environment_type() === 'development');
+  $is_environment_dev = in_array(wp_get_environment_type(), array('development','local'), true);
 
   if ($is_environment_dev) {
+    $compiler->setSourceMap(Compiler::SOURCE_MAP_FILE);
     $compiler->setSourceMapOptions([
       'sourceMapURL'      => site_url('', 'relative') . '/' . substr(str_replace(ABSPATH, '', $css_file), 0, -3) . 'map',
       'sourceMapBasepath' => substr(str_replace('\\', '/', ABSPATH), 0, -1),
       'sourceRoot'        => site_url('', 'relative') . '/',
     ]);
+    $compiler->setOutputStyle(\ScssPhp\ScssPhp\OutputStyle::EXPANDED);
+  } else {
+    $compiler->setOutputStyle(\ScssPhp\ScssPhp\OutputStyle::COMPRESSED);
   }
 
   try {
@@ -62,7 +63,11 @@ function bootscore_compile_scss() {
       set_theme_mod('bootscore_scss_modified_timestamp', $last_modified);
     }
   } catch (Exception $e) {
-    wp_die('<b>bootScore SCSS Compiler - Caught exception:</b><br><br> ' . $e->getMessage());
+    if ($is_environment_dev) {
+      wp_die('<b>bootScore SCSS Compiler - Caught exception:</b><br><br> ' . $e->getMessage());
+    } else {
+      wp_die('Something went wrong with the SCSS compiler.');
+    }
   }
 }
 
