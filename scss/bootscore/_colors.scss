@@ -15,7 +15,7 @@ Colors
 
 // pre tag
 pre {
-  background-color: var(--bs-light);
+  background-color: var(--#{$prefix}light);
 }
 
 // Reset focus
