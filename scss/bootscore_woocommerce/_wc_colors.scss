@@ -5,7 +5,7 @@ WooCommerce Colors
 .woocommerce div.product p.price,
 .woocommerce div.product span.price,
 .card .price {
-  color: var(--bscore-wc-price, var(--bs-gray));
+  color: var(--bscore-wc-price, var(--#{$prefix}gray));
 }
 
 .woocommerce div.product p.price del,
@@ -19,24 +19,24 @@ del,
 .woocommerce div.product p.price ins,
 .woocommerce div.product span.price ins,
 ins {
-  color: var(--bscore-wc-price-sale, var(--bs-danger));
+  color: var(--bscore-wc-price-sale, var(--#{$prefix}danger));
 }
 
 .woocommerce form .form-row .required,
 .woocommerce form .form-row.woocommerce-invalid label {
-  color: var(--bscore-wc-form-invalid, var(--bs-danger));
+  color: var(--bscore-wc-form-invalid, var(--#{$prefix}danger));
 }
 
 .woocommerce form .form-row.woocommerce-invalid .select2-container,
 .woocommerce form .form-row.woocommerce-invalid input.input-text,
 .woocommerce form .form-row.woocommerce-invalid select {
-  border-color: var(--bscore-wc-form-invalid, var(--bs-danger));
+  border-color: var(--bscore-wc-form-invalid, var(--#{$prefix}danger));
 }
 
 .woocommerce form .form-row.woocommerce-validated .select2-container,
 .woocommerce form .form-row.woocommerce-validated input.input-text,
 .woocommerce form .form-row.woocommerce-validated select {
-  border-color: var(--bscore-wc-form-valid, var(--bs-success));
+  border-color: var(--bscore-wc-form-valid, var(--#{$prefix}success));
 }
 
 .woocommerce div.product p.price del,
@@ -53,7 +53,7 @@ ins {
 @include media-breakpoint-down(md) {
   .woocommerce table.shop_table_responsive tr:nth-child(2n) td,
   .woocommerce-page table.shop_table_responsive tr:nth-child(2n) td {
-    background-color: var(--bscore-shop-table-responsive, var(--bs-light));
+    background-color: var(--bscore-shop-table-responsive, var(--#{$prefix}light));
   }
 }
 
@@ -71,28 +71,28 @@ ins {
 .woocommerce table.shop_attributes td,
 .woocommerce table.shop_attributes th,
 .woocommerce table.shop_attributes {
-  border-color: var(--bscore-wc-shop-table-border, var(--bs-gray-300));
+  border-color: var(--bscore-wc-shop-table-border, var(--#{$prefix}gray-300));
 }
 
 #add_payment_method #payment div.payment_box,
 .woocommerce-cart #payment div.payment_box,
 .woocommerce-checkout #payment div.payment_box {
-  background-color: var(--bscore-wc-payment-box, var(--bs-light));
+  background-color: var(--bscore-wc-payment-box, var(--#{$prefix}light));
   color: currentColor;
 }
 
 #add_payment_method #payment div.payment_box::before,
 .woocommerce-cart #payment div.payment_box::before,
 .woocommerce-checkout #payment div.payment_box::before {
-  border-bottom-color: var(--bscore-wc-payment-box, var(--bs-light));
+  border-bottom-color: var(--bscore-wc-payment-box, var(--#{$prefix}light));
 }
 
 .woocommerce-terms-and-conditions {
-  background: var(--bscore-terms, var(--bs-light));
+  background: var(--bscore-terms, var(--#{$prefix}light));
 }
 
 .woocommerce-checkout .shop_table {
-  background-color: var(--bscore-wc-shop-table-bg, var(--bs-white));
+  background-color: var(--bscore-wc-shop-table-bg, var(--#{$prefix}white));
 }
 
 .woocommerce div.product .stock {
@@ -100,7 +100,7 @@ ins {
 }
 
 .woocommerce div.product .out-of-stock {
-  color: var(--bscore-wc-out-of-stock, var(--bs-danger));
+  color: var(--bscore-wc-out-of-stock, var(--#{$prefix}danger));
 }
 
 /* Gallery Overlay */
@@ -113,7 +113,7 @@ ins {
 .woocommerce .loader,
 #offcanvas-cart .blockUI.blockOverlay,
 #offcanvas-cart .loader {
-  background-color: var(--bscore-wc-loader-bg, var(--bs-body-bg)) !important;
+  background-color: var(--bscore-wc-loader-bg, var(--#{$prefix}body-bg)) !important;
   opacity: 1 !important;
 }
 
@@ -121,13 +121,13 @@ ins {
 .woocommerce .loader:before,
 #offcanvas-cart .blockUI.blockOverlay:before,
 #offcanvas-cart .loader:before {
-  color: var(--bscore-wc-loader-color, var(--bs-primary));
+  color: var(--bscore-wc-loader-color, var(--#{$prefix}primary));
 }
 
 // Product attributes
 .woocommerce table.shop_attributes tr:nth-child(even) td,
 .woocommerce table.shop_attributes tr:nth-child(even) th {
-  background: var(--bscore-wc-attributes-tr, var(--bs-light));
+  background: var(--bscore-wc-attributes-tr, var(--#{$prefix}light));
 }
 
 // Product attributes End
@@ -138,12 +138,12 @@ ins {
 }
 
 .woocommerce .widget_price_filter .price_slider_wrapper .ui-widget-content {
-  background-color: var(--bscore-wc-price-slider-bg, var(--bs-dark));
+  background-color: var(--bscore-wc-price-slider-bg, var(--#{$prefix}dark));
 }
 
 .woocommerce .widget_price_filter .ui-slider .ui-slider-handle,
 .woocommerce .widget_price_filter .ui-slider .ui-slider-range {
-  background-color: var(--bscore-wc-price-slider, var(--bs-primary));
+  background-color: var(--bscore-wc-price-slider, var(--#{$prefix}primary));
 }
 
 /* Validation */
