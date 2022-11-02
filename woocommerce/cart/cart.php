@@ -13,7 +13,7 @@
  *
  * @see     https://docs.woocommerce.com/document/template-structure/
  * @package WooCommerce\Templates
- * @version 4.4.0
+ * @version 7.0.1
  */
 
 defined('ABSPATH') || exit;
@@ -143,14 +143,14 @@ do_action('woocommerce_before_cart'); ?>
             <div class="coupon">
               <div class="input-group">
                 <input type="text" name="coupon_code" class="form-control" id="coupon_code" value="" placeholder="<?php esc_attr_e('Coupon code', 'woocommerce'); ?>" />
-                <button type="submit" class="input-group-text btn btn-outline-primary" name="apply_coupon" value="<?php esc_attr_e('Apply coupon', 'woocommerce'); ?>"><?php esc_attr_e('Apply coupon', 'woocommerce'); ?></button>
+                  <button type="submit" class="input-group-text btn btn-outline-primary<?php echo esc_attr( wc_wp_theme_get_element_class_name( 'button' ) ? ' ' . wc_wp_theme_get_element_class_name( 'button' ) : '' ); ?>" name="apply_coupon" value="<?php esc_attr_e( 'Apply coupon', 'woocommerce' ); ?>"><?php esc_attr_e( 'Apply coupon', 'woocommerce' ); ?></button>
                 <?php do_action('woocommerce_cart_coupon'); ?>
               </div>
             </div>
           <?php } ?>
 
-          <button type="submit" class="btn btn-outline-primary" name="update_cart" value="<?php esc_attr_e('Update cart', 'woocommerce'); ?>"><?php esc_html_e('Update cart', 'woocommerce'); ?></button>
-
+           <button type="submit" class="btn btn-outline-primary<?php echo esc_attr( wc_wp_theme_get_element_class_name( 'button' ) ? ' ' . wc_wp_theme_get_element_class_name( 'button' ) : '' ); ?>" name="update_cart" value="<?php esc_attr_e( 'Update cart', 'woocommerce' ); ?>"><?php esc_html_e( 'Update cart', 'woocommerce' ); ?></button>
+          
           <?php do_action('woocommerce_cart_actions'); ?>
 
           <?php wp_nonce_field('woocommerce-cart', 'woocommerce-cart-nonce'); ?>

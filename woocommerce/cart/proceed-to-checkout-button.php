@@ -16,13 +16,13 @@
  * @see     https://docs.woocommerce.com/document/template-structure/
  * @author  WooThemes
  * @package WooCommerce/Templates
- * @version 3.6.1
+ * @version 7.0.1
  */
 
 // Exit if accessed directly.
 defined('ABSPATH') || exit;
 ?>
 
-<a href="<?php echo esc_url(wc_get_checkout_url()); ?>" class="btn btn-primary btn-lg d-block">
+<a href="<?php echo esc_url( wc_get_checkout_url() ); ?>" class="btn btn-primary btn-lg d-block<?php echo esc_attr( wc_wp_theme_get_element_class_name( 'button' ) ? ' ' . wc_wp_theme_get_element_class_name( 'button' ) : '' ); ?>">
   <?php esc_html_e('Proceed to checkout', 'woocommerce'); ?>
 </a>
