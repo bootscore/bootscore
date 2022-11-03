@@ -4,18 +4,18 @@ Colors
 
 // Text selection
 ::selection {
-  color: var(--bs-white);
-  background-color: var(--bs-primary);
+  color: var(--#{$prefix}white);
+  background-color: var(--#{$prefix}primary);
 }
 
 ::-moz-selection {
-  color: var(--bs-white);
-  background-color: var(--bs-primary);
+  color: var(--#{$prefix}white);
+  background-color: var(--#{$prefix}primary);
 }
 
 // pre tag
 pre {
-  background-color: var(--bs-light);
+  background-color: var(--#{$prefix}light);
 }
 
 // Reset focus
