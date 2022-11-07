@@ -1,0 +1,404 @@
+# CC BY-NC-SA 4.0 2022
+# Tamas Dohany - https://iamdtms.hu
+msgid ""
+msgstr ""
+"Project-Id-Version: _s 1.0.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/tags/_s\n"
+"POT-Creation-Date: 2022-06-20 07:52+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2022-11-07 10:59+0000\n"
+"Last-Translator: \n"
+"Language-Team: Magyar\n"
+"X-Generator: Loco https://localise.biz/\n"
+"Language: hu-HU\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Loco-Version: 2.6.3; wp-6.1"
+
+#: functions.php:282
+msgid ""
+" <a href=\"https://www.microsoft.com/edge\" target=\"_blank\">Microsoft "
+"Edge</a> "
+msgstr ""
+" <a href=\"https://www.microsoft.com/edge\" target=\"_blank\">Microsoft "
+"Edge</a> "
+
+#: functions.php:280
+msgid ""
+" <a href=\"https://www.mozilla.org/firefox/\" target=\"_blank\">Mozilla "
+"Firefox</a>, <a href=\"https://www.google.com/chrome/\" target=\"_blank\">"
+"Google Chrome</a>, <a href=\"https://www.opera.com/\" target=\"_blank\">"
+"Opera</a> "
+msgstr ""
+" <a href=\"https://www.mozilla.org/firefox/\" target=\"_blank\">Mozilla "
+"Firefox</a>, <a href=\"https://www.google.com/chrome/\" target=\"_blank\">"
+"Google Chrome</a>, <a href=\"https://www.opera.com/\" target=\"_blank\">"
+"Opera</a> "
+
+#: single.php:29 single-templates/single-sidebar-none.php:28 
+#: single-templates/single-sidebar-left.php:31 
+#: single-templates/single-full-width-image.php:37
+msgid " (author) "
+msgstr " (szerző) "
+
+#: inc/comment-list.php:44
+#, php-format
+msgid "%s <span class=\"says d-none\">says:</span>"
+msgstr "%s <span class=\"says d-none\">mondja:</span>"
+
+#. used between list items, there is a space after the comma
+#: inc/template-tags.php:39
+msgid ", "
+msgstr ", "
+
+#: languages/plugin-translations.php:5
+msgid "/privacy-policy"
+msgstr "/privacy-policy"
+
+#: inc/comment-list.php:49
+#, php-format
+msgctxt "1: dátum, 2: idő"
+msgid "%1$s at %2$s"
+msgstr "%1$s %2$s -kor"
+
+#: functions.php:220
+msgid "404 Page"
+msgstr "404 oldal"
+
+#. Description of the theme
+msgid ""
+"A powerful Bootstrap 5 WordPress Starter Theme with WooCommerce Support. <a "
+"href=\"https://bootscore.me/category/documentation/\">Documentation</a>. "
+"This theme gives you full control whatever you do and the full freedom to "
+"design whatever you want. It comes with a wide selection of category, page, "
+"post, author and archive templates as well as sidebar, header, footer and "
+"404 widgets. There are no customizer settings in the backend. All settings "
+"can only be made by touching the code. Some CSS, HTML, PHP and JS Skills are "
+"required to customize it."
+msgstr "CC BY-NC-SA 4.0 2022 Tamas Dohany - https://iamdtms.hu"
+
+#: languages/plugin-translations.php:7
+msgid "Accept"
+msgstr "Elfogad"
+
+#: header-woocommerce.php:136
+msgid " Account"
+msgstr "Fiók"
+
+#: functions.php:126 functions.php:138 functions.php:150 functions.php:162 
+#: functions.php:174 functions.php:186 functions.php:198 functions.php:210 
+#: functions.php:222
+msgid "Add widgets here."
+msgstr "Widgetek hozzáadása itt."
+
+#: languages/plugin-translations.php:2
+msgid "All"
+msgstr "Minden"
+
+#: 404.php:28
+msgid "Back Home &raquo;"
+msgstr "Vissza a nyitólapra &raquo;"
+
+#. Name of the template
+msgid "Empty"
+msgstr "Üres"
+
+#. Name of the template
+msgid "Blank with container"
+msgstr "Üres tárolóval"
+
+#. Name of the template
+msgid "Blank without container"
+msgstr ""
+"Üres tárolóval (Ne használd. Használj inkábáb egy üres templatet helyette. A "
+"fájl el lesz távolítva később)"
+
+#. Name of the theme
+#. Author of the theme
+msgid "Tamas Dohany"
+msgstr "Tamas Dohany"
+
+#: comments.php:104
+msgid "Cancel"
+msgstr "Mégsem"
+
+#: header-woocommerce.php:149
+msgid "Cart"
+msgstr "Kosár"
+
+#: comments.php:57 comments.php:77
+msgid "Add to navigation"
+msgstr "Hozzászólás navigáció"
+
+#: comments.php:95
+msgid "Comments are closed."
+msgstr "Nem lehet hozzászólni."
+
+#. 1: number of comments, 2: post title
+#: comments.php:39
+#, php-format
+msgctxt "comments title"
+msgid ""
+msgstr "%1$s Comment on &ldquo;%2$s&rdquo;"
+
+#. %s: post title
+#: comments.php:35
+#, php-format
+msgctxt "comments title"
+msgid "One Comment &ldquo;%s&rdquo;"
+msgstr "1 hozzászólás &ldquo;%s&rdquo;"
+
+#: languages/plugin-translations.php:4
+msgid ""
+"Cookies help us deliver our services. By using our services, you agree to "
+"our use of cookies."
+msgstr ""
+"A sütik segítenek a szolgáltatás kézbesítésében. A szolgáltatás "
+"használatával elfogadod a sütik használatát."
+
+#: woocommerce/checkout/form-shipping.php:36
+msgid "Delivery details"
+msgstr "Kézbesítési részletek"
+
+#. %s: Name of current post. Only visible to screen readers
+#: inc/comment-list.php:27 inc/comment-list.php:51 inc/template-tags.php:139
+msgid "Edit"
+msgstr "Szerkesztés"
+
+#: comments.php:129 woocommerce/single-product-reviews.php:96
+msgid "Email* (will not be published)"
+msgstr "Email* (nem lesz publikálva)"
+
+#: functions.php:172
+msgid "Footer 1"
+msgstr "Lábléc 1"
+
+#: functions.php:184
+msgid "Footer 2"
+msgstr "Lábléc 2"
+
+#: functions.php:196
+msgid "Footer 3"
+msgstr "Lábléc 3"
+
+#: functions.php:208
+msgid "Footer 4"
+msgstr "Lábléc 4"
+
+#. Name of the template
+msgid "Full Width Image"
+msgstr "Teljes szélességű kép"
+
+#: woocommerce/myaccount/my-account-offcanvas.php:17
+msgid "Hello"
+msgstr "Helló"
+
+#: woocommerce/myaccount/my-account-offcanvas.php:22
+msgid ""
+"Here you can view your recent orders, manage your shipping and billing "
+"addresses, and edit your password and account details."
+msgstr ""
+
+#: functions.php:277
+msgid "Internet Explorer detected"
+msgstr "Internet Explorer azonosítva"
+
+#: template-parts/content-none.php:44
+msgid ""
+"It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
+"searching can help."
+msgstr "Úgy tűnik, nem található amit keresel, talán a keresés segíthet."
+
+#. %s: post title
+#: comments.php:102 inc/template-tags.php:111
+msgid "Leave a Comment"
+msgstr "Hozzászólás"
+
+#: comments.php:103
+#, php-format
+msgid "Leave a Comment to %s"
+msgstr "Hozzászólás ehhez: %s"
+
+#. Name of the template
+msgid "Left Sidebar"
+msgstr "Bal oldalsáv"
+
+#: languages/plugin-translations.php:3
+msgid "Look what I found: "
+msgstr "Nézd mit találtam: "
+
+#: header-woocommerce.php:55 header.php:55
+msgid "Menu"
+msgstr "Menü"
+
+#: languages/plugin-translations.php:6
+msgid "More Information"
+msgstr "További információ"
+
+#: comments.php:126 woocommerce/single-product-reviews.php:90
+msgid "Name*"
+msgstr "Név*"
+
+#: comments.php:61 comments.php:81
+msgid "Newer Comments"
+msgstr "Legújabb bejegyzések"
+
+#. Name of the template
+msgid "No Sidebar"
+msgstr "Nincs oldalsáv"
+
+#: template-parts/content-none.php:15
+msgid "Nothing Found for"
+msgstr "Semmit nem találtunk erre"
+
+#: comments.php:60 comments.php:80
+msgid "Older Comments"
+msgstr "Régebbi hozzászólok"
+
+#: sidebar.php:21
+msgid "Open Sidebar menu"
+msgstr "Oldalsó menü kinyitása"
+
+#: functions.php:281
+msgid "or"
+msgstr "vagy"
+
+#: 404.php:23
+msgid "Page not found."
+msgstr "Az oldal nem található."
+
+#: page.php:44 page-templates/page-blank-with-container.php:25 
+#: page-templates/page-sidebar-left.php:39 page-templates/page-blank.php:25 
+#: page-templates/page-sidebar-none.php:34 
+#: page-templates/page-blank-without-container.php:25
+msgid "Pages: "
+msgstr "Oldalak:"
+
+#: functions.php:442
+msgid "Password"
+msgstr "Jelszó"
+
+#: inc/comment-list.php:27
+msgid "Pingback:"
+msgstr "Visszajelzés:"
+
+#: functions.php:279
+msgid "Please use a modern and secure web browser like"
+msgstr "Kérlek használj modern és bizonságos böngészőt, mint "
+
+#: inc/template-tags.php:87
+#, php-format
+msgctxt "post author"
+msgid "by %s"
+msgstr "%s által"
+
+#: comments.php:105
+msgid "Post Comment"
+msgstr "Hozzászólás beküldése"
+
+#: author.php:69
+msgid "Read more"
+msgstr "Olvass tovább"
+
+#: archive-sidebar-left.php:66 archive-equal-height.php:64 archive.php:64 
+#: archive-equal-height-sidebar-right.php:63 category-equal-height.php:64 
+#: category-sidebar-left.php:64 category.php:62 author-sidebar-left.php:72 
+#: category-masonry.php:64 author-equal-height.php:70 
+#: category-equal-height-sidebar-right.php:64 
+#: author-equal-height-sidebar-right.php:69 author-masonry.php:70 index.php:82 
+#: index.php:139 archive-masonry.php:64 template-parts/content-search.php:43
+msgid "Read more »"
+msgstr "Olvass tovább »"
+
+#. 1: link to WP admin new post page.
+#: template-parts/content-none.php:26
+#, php-format
+msgid ""
+"Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+msgstr ""
+"Készen állsz, hogy közzé tedd az első bejegyzésed? <a href=\"%1$s\">Itt "
+"tudod elkezdeni</a>."
+
+#: inc/comment-list.php:105
+msgid ""
+"Save my name, email, and website in this browser for the next time I comment."
+msgstr ""
+"Mentse el a nevem, az email címem és a weboldalam a böngészőbe a "
+"legközelebbi alkalomra, mikor hozzászólok."
+
+#: searchform.php:3
+msgid "Search"
+msgstr "Keresés"
+
+#. %s: search query.
+#: search.php:30
+#, php-format
+msgid "Search Results for: %s"
+msgstr "Találati lista: %s"
+
+#: woocommerce/loop/orderby.php:28
+msgid "Shop order"
+msgstr "Áruházi rendelés"
+
+#: functions.php:148 sidebar.php:26
+msgid "Sidebar"
+msgstr "Oldalsáv"
+
+#: template-parts/content-none.php:38
+msgid ""
+"Sorry, but nothing matched your search terms. Please try again with some "
+"different keywords."
+msgstr ""
+"Sajnáljuk, de semmi találat nincsen a keresési feltételre. Kérljük próblja "
+"újra más kulcsszavakkal."
+
+#: comments.php:107
+msgid "Start typing..."
+msgstr "Írás elkezdése..."
+
+#: functions.php:443
+msgid "Submit"
+msgstr "Beküldés"
+
+#. 1: list of tags.
+#: inc/template-tags.php:191
+#, php-format
+msgid "Tagged %1$s"
+msgstr "Címkézve: %1$s"
+
+#: functions.php:278
+msgid "This website will offer limited functionality in this browser."
+msgstr "Ez a weboldal limitált működésű ebben a böngészőben."
+
+#: functions.php:283
+msgid "to display this site correctly."
+msgstr "hogy rendes megjelenítést kapjon a weboldal."
+
+#: woocommerce/cart/mini-cart.php:120
+msgid "To find out your shipping cost, please proceed to checkout."
+msgstr "Hogy kitaláld a szállítási költséget, kérlek lépj tovább a fizetésre."
+
+#: functions.php:160
+msgid "Top Footer"
+msgstr "Felső lábléc"
+
+#: functions.php:124
+msgid "Top Nav"
+msgstr "Felső navigáció"
+
+#: functions.php:136
+msgid "Top Nav Search"
+msgstr "Felső navigáció: keresés"
+
+#: comments.php:134
+msgid "Website"
+msgstr "Weboldal"
+
+#: inc/comment-list.php:56
+msgid "Your comment is awaiting moderation."
+msgstr "A hozzászólásod moderációra vár."
+
+#: woocommerce/single-product-reviews.php:135
+msgid "Your review...*"
+msgstr "Értékelésed...*"
