@@ -50,3 +50,42 @@ Offcanvas Cart
 a.added_to_cart {
   display: none;
 }
+
+
+
+
+
+
+
+// btn-loader, overlayCSS is not an option
+
+.single_add_to_cart_button {
+  position: relative;
+}
+
+.single_add_to_cart_button .btn-loader {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--bs-btn-bg); // Works not with btn-outline-
+  border-radius: var(--bs-btn-border-radius);
+}
+
+/*
+// Version works with btn-outline-
+.single_add_to_cart_button.loading {
+  color: transparent;
+}
+
+.single_add_to_cart_button.loading .btn-loader {
+  color: var(--bs-btn-color);
+}
+*/
+
+
+
