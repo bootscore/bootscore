@@ -3,6 +3,7 @@ Offcanvas Cart
 --------------------------------------------------------------*/
 
 #offcanvas-cart {
+
   // Hide extsting cart-loader in header.php, remove this in v6
   .cart-loader {
     display: none !important;
@@ -88,4 +89,20 @@ a.added_to_cart {
 */
 
 
+// Stretched link if product in loop is out of stock to prevent Read more button from click
+.card.outofstock .woocommerce-loop-product__link::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+}
 
+
+/*
+.outofstock .woocommerce-loop-product__link:first-child {
+   padding: 30px;
+}
+*/
