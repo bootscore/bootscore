@@ -57,16 +57,12 @@ bootScore includes support for WooCommerce and Infinite Scroll in Jetpack.
 
 == Changelog ==
 
-    = 5.2.3.0 - November 23 2022 =
+    = 5.2.3.0 - December 25 2022 =
 
-        Updates
-
-        * [UPDATE] Bootstrap 5.2.3 5ee387b
-
-        Languages
-
-        * [IMPROVEMENT] Türkçe #308
-        * [NEW] Magyar, thanks to iamdtms #309
+        * [UPDATE] WC 7.2.0 templates
+        * [UPDATE] Bootstrap 5.2.3
+        * [IMPROVEMENT] Türkçe
+        * [NEW] Magyar, thanks to iamdtms
 
 
     = 5.2.2.1 - November 03 2022 =
