@@ -20,9 +20,4 @@ WooCommerce Quantity Input
 // Fixed width for quantity input
 .quantity {
   width: 140px;
-
-  // Hide quantity if product can only be purchased once
-  &.hidden {
-    display: none;
-  }
 }
