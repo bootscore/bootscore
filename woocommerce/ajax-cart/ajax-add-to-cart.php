@@ -12,7 +12,9 @@ function bootscore_product_page_ajax_add_to_cart_js() {
       $('form.cart:not(.product-type-external form.cart)').on('submit', function(e) {
         e.preventDefault();
         $(document.body).trigger('adding_to_cart', []);
+        
         var form = $(this);
+        /*
         form.block({
           message: null,
           overlayCSS: {
@@ -20,6 +22,11 @@ function bootscore_product_page_ajax_add_to_cart_js() {
             opacity: 0.6
           }
         });
+        */
+
+        //$('.single_add_to_cart_button').addClass('loading');
+        // Add loading class to button, hide in grouped products if product is out of stock
+        $(this).find('.single_add_to_cart_button:not(.outofstock .single_add_to_cart_button)').addClass('loading');
 
         var formData = new FormData(form[0]);
         formData.append('add-to-cart', form.find('[name=add-to-cart]').val());
@@ -69,7 +76,7 @@ function bootscore_product_page_ajax_add_to_cart_js() {
 
 
 
-      $('a.ajax_add_to_cart').on('click', function(e) {
+      $('a.ajax_add_to_cart:not(.outofstock a.ajax_add_to_cart)').on('click', function(e) {
         
         e.preventDefault();
 
@@ -179,17 +186,23 @@ function bootscore_product_page_ajax_add_to_cart_js() {
   });
   */
       
+      /*
         // Add loading spinner to add_to_cart_button 
   $('.single_add_to_cart_button:not(.product_type_variable.single_add_to_cart_button):not(.product_type_grouped.single_add_to_cart_button):not(.product_type_external.single_add_to_cart_button):not(.product-type-external .single_add_to_cart_button):not(.product-type-external .single_add_to_cart_button)').click(function () {
     $(this).prepend('<div class="btn-loader"><span class="spinner-border spinner-border-sm"></span></div>');
   });
+  */
+      
+  // Add loading spinner to add_to_cart_button
+  $('.single_add_to_cart_button').prepend('<div class="btn-loader"><span class="spinner-border spinner-border-sm"></span></div>');
 
+      //$('.outofstock .btn').attr('target', '_blank');
 
   $('body').on('added_to_cart', function () {
     // Open offcanvas-cart when cart is loaded
     $('#offcanvas-cart').offcanvas('show');
     // Remove loading spinner
-    $('.single_add_to_cart_button .btn-loader').remove();
+    //$('.single_add_to_cart_button .btn-loader').remove();
   });
 
   // Hide alert in offcanvas-cart when offcanvas is closed

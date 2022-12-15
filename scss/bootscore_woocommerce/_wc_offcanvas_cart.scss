@@ -36,10 +36,12 @@ Offcanvas Cart
   }
 }
 
+/*
 // Hide overlay in product add-to-cart-button
 .cart .blockUI.blockOverlay {
   display: none !important;
 }
+*/
 
 // Hide button in alert
 .alert .button.wc-forward {
@@ -51,6 +53,18 @@ Offcanvas Cart
 a.added_to_cart {
   display: none;
 }
+
+
+.single_add_to_cart_button .btn-loader {
+  opacity: 0;
+}
+
+.single_add_to_cart_button.loading .btn-loader {
+  opacity: 1;
+}
+
+
+
 
 
 
@@ -88,7 +102,7 @@ a.added_to_cart {
 }
 */
 
-
+/*
 // Stretched link if product in loop is out of stock to prevent Read more button from click
 .card.outofstock .woocommerce-loop-product__link::after {
   content: "";
@@ -99,7 +113,7 @@ a.added_to_cart {
   left: 0;
   z-index: 1;
 }
-
+*/
 
 /*
 .outofstock .woocommerce-loop-product__link:first-child {
