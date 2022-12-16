@@ -36,17 +36,12 @@ Offcanvas Cart
   }
 }
 
-/*
-// Hide overlay in product add-to-cart-button
-.cart .blockUI.blockOverlay {
-  display: none !important;
-}
-*/
 
 // Hide button in alert
 .alert .button.wc-forward {
   display: none;
 }
+
 
 // Hide View cart in loop and product pages
 .woocommerce a.added_to_cart,
@@ -55,68 +50,26 @@ a.added_to_cart {
 }
 
 
-.single_add_to_cart_button .btn-loader {
-  opacity: 0;
-}
-
-.single_add_to_cart_button.loading .btn-loader {
-  opacity: 1;
-}
-
-
-
-
-
-
-
-
-
-
 // btn-loader, overlayCSS is not an option
-
 .single_add_to_cart_button {
   position: relative;
-}
 
-.single_add_to_cart_button .btn-loader {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: var(--bs-btn-bg); // Works not with btn-outline-
-  border-radius: var(--bs-btn-border-radius);
-}
+  .btn-loader {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--bs-btn-bg);
+    border-radius: var(--bs-btn-border-radius);
+  }
 
-/*
-// Version works with btn-outline-
-.single_add_to_cart_button.loading {
-  color: transparent;
+  &.loading {
+    .btn-loader {
+      display: flex;
+    }
+  }
 }
-
-.single_add_to_cart_button.loading .btn-loader {
-  color: var(--bs-btn-color);
-}
-*/
-
-/*
-// Stretched link if product in loop is out of stock to prevent Read more button from click
-.card.outofstock .woocommerce-loop-product__link::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: 1;
-}
-*/
-
-/*
-.outofstock .woocommerce-loop-product__link:first-child {
-   padding: 30px;
-}
-*/
