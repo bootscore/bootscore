@@ -20,4 +20,10 @@ WooCommerce Quantity Input
 // Fixed width for quantity input
 .quantity {
   width: 140px;
+
+  // Disable input if product is 1 in stock or limit purchases to 1 item per order
+  // https://github.com/woocommerce/woocommerce/pull/35767
+  [max="1"] {
+    @extend .form-control:disabled;
+  }
 }
