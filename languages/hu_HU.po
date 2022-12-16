@@ -1,20 +1,20 @@
-# Copyright (C) 2017 Automattic
-# This file is distributed under the GNU General Public License v2 or later.
+# CC BY-NC-SA 4.0 2022
+# Tamas Dohany - https://iamdtms.hu
 msgid ""
 msgstr ""
-"Project-Id-Version: Bootscore theme TR translation, 1.1\n"
+"Project-Id-Version: _s 1.0.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/tags/_s\n"
 "POT-Creation-Date: 2022-06-20 07:52+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2022-11-06 23:27+0300\n"
-"Language-Team: info@lavinya.net\n"
-"X-Generator: Poedit 2.3\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"Last-Translator: Murat Esgin <info@lavinya.net>\n"
-"Language: tr_TR\n"
-"X-Poedit-SourceCharset: UTF-8\n"
+"PO-Revision-Date: 2022-11-07 10:59+0000\n"
+"Last-Translator: \n"
+"Language-Team: Magyar\n"
+"X-Generator: Loco https://localise.biz/\n"
+"Language: hu-HU\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Loco-Version: 2.6.3; wp-6.1"
 
 #: functions.php:282
 msgid ""
@@ -27,25 +27,25 @@ msgstr ""
 #: functions.php:280
 msgid ""
 " <a href=\"https://www.mozilla.org/firefox/\" target=\"_blank\">Mozilla "
-"Firefox</a>, <a href=\"https://www.google.com/chrome/\" target=\"_blank"
-"\">Google Chrome</a>, <a href=\"https://www.opera.com/\" target=\"_blank"
-"\">Opera</a> "
+"Firefox</a>, <a href=\"https://www.google.com/chrome/\" target=\"_blank\">"
+"Google Chrome</a>, <a href=\"https://www.opera.com/\" target=\"_blank\">"
+"Opera</a> "
 msgstr ""
 " <a href=\"https://www.mozilla.org/firefox/\" target=\"_blank\">Mozilla "
-"Firefox</a>, <a href=\"https://www.google.com/chrome/\" target=\"_blank"
-"\">Google Chrome</a>, <a href=\"https://www.opera.com/\" target=\"_blank"
-"\">Opera</a> "
+"Firefox</a>, <a href=\"https://www.google.com/chrome/\" target=\"_blank\">"
+"Google Chrome</a>, <a href=\"https://www.opera.com/\" target=\"_blank\">"
+"Opera</a> "
 
-#: single.php:29 single-templates/single-sidebar-none.php:28
-#: single-templates/single-sidebar-left.php:31
+#: single.php:29 single-templates/single-sidebar-none.php:28 
+#: single-templates/single-sidebar-left.php:31 
 #: single-templates/single-full-width-image.php:37
-msgid " by "
-msgstr " tarafından "
+msgid " (author) "
+msgstr " (szerző) "
 
 #: inc/comment-list.php:44
 #, php-format
 msgid "%s <span class=\"says d-none\">says:</span>"
-msgstr "%s <span class=\"says d-none\">diyor ki:</span>"
+msgstr "%s <span class=\"says d-none\">mondja:</span>"
 
 #. used between list items, there is a space after the comma
 #: inc/template-tags.php:39
@@ -58,13 +58,13 @@ msgstr "/privacy-policy"
 
 #: inc/comment-list.php:49
 #, php-format
-msgctxt "1: date, 2: time"
+msgctxt "1: dátum, 2: idő"
 msgid "%1$s at %2$s"
-msgstr "%1$s de %2$s"
+msgstr "%1$s %2$s -kor"
 
 #: functions.php:220
 msgid "404 Page"
-msgstr "404 Sayfası"
+msgstr "404 oldal"
 
 #. Description of the theme
 msgid ""
@@ -76,189 +76,157 @@ msgid ""
 "404 widgets. There are no customizer settings in the backend. All settings "
 "can only be made by touching the code. Some CSS, HTML, PHP and JS Skills are "
 "required to customize it."
-msgstr ""
-"WooCommerce Desteği ile güçlü bir Bootstrap 5 WordPress Başlangıç Teması. <a "
-"href=\"https://bootscore.me/category/documentation/\">Belgeler</a>. Bu tema "
-"size ne yaparsanız yapın tam kontrol ve istediğinizi tasarlamak için tam "
-"özgürlük verir. Çok çeşitli kategori, sayfa, gönderi, yazar ve arşiv "
-"şablonlarının yanı sıra kenar çubuğu, üstbilgi, altbilgi ve 404 widget'ları "
-"ile birlikte gelir. Arka uçta özelleştirici ayarı yoktur. Tüm ayarlar sadece "
-"koda dokunularak yapılabilir. Özelleştirmek için bazı CSS, HTML, PHP ve JS "
-"Becerileri gereklidir."
+msgstr "CC BY-NC-SA 4.0 2022 Tamas Dohany - https://iamdtms.hu"
 
 #: languages/plugin-translations.php:7
 msgid "Accept"
-msgstr "Kabul"
+msgstr "Elfogad"
 
 #: header-woocommerce.php:136
-msgid "Account"
-msgstr "Hesap"
+msgid " Account"
+msgstr "Fiók"
 
-#: functions.php:126 functions.php:138 functions.php:150 functions.php:162
-#: functions.php:174 functions.php:186 functions.php:198 functions.php:210
+#: functions.php:126 functions.php:138 functions.php:150 functions.php:162 
+#: functions.php:174 functions.php:186 functions.php:198 functions.php:210 
 #: functions.php:222
 msgid "Add widgets here."
-msgstr "Widget'ları buraya ekleyin."
+msgstr "Widgetek hozzáadása itt."
 
 #: languages/plugin-translations.php:2
 msgid "All"
-msgstr "Tümü"
+msgstr "Minden"
 
 #: 404.php:28
 msgid "Back Home &raquo;"
-msgstr "Eve Dön &raquo;"
+msgstr "Vissza a nyitólapra &raquo;"
 
 #. Name of the template
-msgid "Blank"
-msgstr "Boş"
+msgid "Empty"
+msgstr "Üres"
 
 #. Name of the template
 msgid "Blank with container"
-msgstr "Container ile boş"
+msgstr "Üres tárolóval"
 
 #. Name of the template
-msgid ""
-"Blank without container (Don't use it. Use Blank template instead. This file "
-"will be removed later)"
+msgid "Blank without container"
 msgstr ""
-"Konteynersiz boş. (Kullanmayın. Bunun yerine Boş şablon kullanın. Bu dosya "
-"daha sonra kaldırılacaktır)"
+"Üres tárolóval (Ne használd. Használj inkábáb egy üres templatet helyette. A "
+"fájl el lesz távolítva később)"
 
 #. Name of the theme
 #. Author of the theme
-msgid "bootScore"
-msgstr "bootScore"
+msgid "Tamas Dohany"
+msgstr "Tamas Dohany"
 
 #: comments.php:104
 msgid "Cancel"
-msgstr "İptal"
+msgstr "Mégsem"
 
 #: header-woocommerce.php:149
 msgid "Cart"
-msgstr "Sepet"
+msgstr "Kosár"
 
 #: comments.php:57 comments.php:77
-msgid "Comment navigation"
-msgstr "Yorum gezintisi"
+msgid "Add to navigation"
+msgstr "Hozzászólás navigáció"
 
 #: comments.php:95
 msgid "Comments are closed."
-msgstr "Yoruma kapalı."
+msgstr "Nem lehet hozzászólni."
 
 #. 1: number of comments, 2: post title
 #: comments.php:39
 #, php-format
 msgctxt "comments title"
-msgid "%1$s Comment on &ldquo;%2$s&rdquo;"
-msgid_plural "%1$s Comments on &ldquo;%2$s&rdquo;"
-msgstr[0] "&ldquo;%2$s&rdquo; hakkında %1$s yorum"
-msgstr[1] "&ldquo;%2$s&rdquo; hakkında %1$s yorumlar"
+msgid ""
+msgstr "%1$s Comment on &ldquo;%2$s&rdquo;"
 
 #. %s: post title
 #: comments.php:35
 #, php-format
 msgctxt "comments title"
 msgid "One Comment &ldquo;%s&rdquo;"
-msgstr "&ldquo;%s&rdquo; hakkında bir yorum"
+msgstr "1 hozzászólás &ldquo;%s&rdquo;"
 
 #: languages/plugin-translations.php:4
 msgid ""
 "Cookies help us deliver our services. By using our services, you agree to "
 "our use of cookies."
 msgstr ""
-"Çerezler, hizmetlerimizi sunmamıza yardımcı olur. Hizmetlerimizi kullanarak, "
-"çerez kullanımımızı kabul etmiş olursunuz."
+"A sütik segítenek a szolgáltatás kézbesítésében. A szolgáltatás "
+"használatával elfogadod a sütik használatát."
 
 #: woocommerce/checkout/form-shipping.php:36
 msgid "Delivery details"
-msgstr "Teslimat detayları"
+msgstr "Kézbesítési részletek"
 
 #. %s: Name of current post. Only visible to screen readers
 #: inc/comment-list.php:27 inc/comment-list.php:51 inc/template-tags.php:139
 msgid "Edit"
-msgstr "Düzenle"
+msgstr "Szerkesztés"
 
 #: comments.php:129 woocommerce/single-product-reviews.php:96
 msgid "Email* (will not be published)"
-msgstr "E-posta* (yayınlanmayacak)"
+msgstr "Email* (nem lesz publikálva)"
 
 #: functions.php:172
 msgid "Footer 1"
-msgstr "Altbilgi 1"
+msgstr "Lábléc 1"
 
 #: functions.php:184
 msgid "Footer 2"
-msgstr "Altbilgi 2"
+msgstr "Lábléc 2"
 
 #: functions.php:196
 msgid "Footer 3"
-msgstr "Altbilgi 3"
+msgstr "Lábléc 3"
 
 #: functions.php:208
 msgid "Footer 4"
-msgstr "Altbilgi 4"
+msgstr "Lábléc 4"
 
 #. Name of the template
 msgid "Full Width Image"
-msgstr "Tam Genişlikte Görüntü"
-
-#. Name of the template
-msgid "Full width image"
-msgstr "Tam genişlikte görüntü"
+msgstr "Teljes szélességű kép"
 
 #: woocommerce/myaccount/my-account-offcanvas.php:17
 msgid "Hello"
-msgstr "Merhaba"
+msgstr "Helló"
 
 #: woocommerce/myaccount/my-account-offcanvas.php:22
 msgid ""
 "Here you can view your recent orders, manage your shipping and billing "
 "addresses, and edit your password and account details."
 msgstr ""
-"Burada son siparişlerinizi görüntüleyebilir, kargo ve fatura adreslerinizi "
-"yönetebilir, şifrenizi ve hesap ayrıntılarınızı düzenleyebilirsiniz."
-
-#. Author URI of the theme
-msgid "https://bootscore.me"
-msgstr "https://bootscore.me"
-
-#. URI of the theme
-msgid "https://bootscore.me/"
-msgstr "https://bootscore.me/"
 
 #: functions.php:277
 msgid "Internet Explorer detected"
-msgstr "Internet Explorer algılandı"
+msgstr "Internet Explorer azonosítva"
 
 #: template-parts/content-none.php:44
 msgid ""
 "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
 "searching can help."
-msgstr ""
-"Aradığınız sayfa bulunamadı. Belki arama kutusu aradığınızı bulma konusunda "
-"yardımcı olabilir."
+msgstr "Úgy tűnik, nem található amit keresel, talán a keresés segíthet."
 
 #. %s: post title
 #: comments.php:102 inc/template-tags.php:111
 msgid "Leave a Comment"
-msgstr "Yorum Yap"
-
-#: inc/template-tags.php:167
-msgid "Leave a comment"
-msgstr "Yorum yap"
+msgstr "Hozzászólás"
 
 #: comments.php:103
 #, php-format
 msgid "Leave a Comment to %s"
-msgstr "%s için cevap bırakın"
+msgstr "Hozzászólás ehhez: %s"
 
 #. Name of the template
 msgid "Left Sidebar"
-msgstr "Birincil yan sütun"
+msgstr "Bal oldalsáv"
 
 #: languages/plugin-translations.php:3
 msgid "Look what I found: "
-msgstr "Bak ne buldum: "
+msgstr "Nézd mit találtam: "
 
 #: header-woocommerce.php:55 header.php:55
 msgid "Menu"
@@ -266,82 +234,82 @@ msgstr "Menü"
 
 #: languages/plugin-translations.php:6
 msgid "More Information"
-msgstr "Daha Fazla Bilgi"
+msgstr "További információ"
 
 #: comments.php:126 woocommerce/single-product-reviews.php:90
 msgid "Name*"
-msgstr "İsim*"
+msgstr "Név*"
 
 #: comments.php:61 comments.php:81
 msgid "Newer Comments"
-msgstr "Yeni yorumlar"
+msgstr "Legújabb bejegyzések"
 
 #. Name of the template
 msgid "No Sidebar"
-msgstr "Kenar Çubuğu Yok"
+msgstr "Nincs oldalsáv"
 
 #: template-parts/content-none.php:15
 msgid "Nothing Found for"
-msgstr "Hiçbir şey bulunamadı"
+msgstr "Semmit nem találtunk erre"
 
 #: comments.php:60 comments.php:80
 msgid "Older Comments"
-msgstr "Eski yorumlar"
+msgstr "Régebbi hozzászólok"
 
 #: sidebar.php:21
-msgid "Open side menu"
-msgstr "Yan menüyü aç"
+msgid "Open Sidebar menu"
+msgstr "Oldalsó menü kinyitása"
 
 #: functions.php:281
 msgid "or"
-msgstr "veya"
+msgstr "vagy"
 
 #: 404.php:23
 msgid "Page not found."
-msgstr "Sayfa bulunamadı."
+msgstr "Az oldal nem található."
 
-#: page.php:44 page-templates/page-blank-with-container.php:25
-#: page-templates/page-sidebar-left.php:39 page-templates/page-blank.php:25
-#: page-templates/page-sidebar-none.php:34
+#: page.php:44 page-templates/page-blank-with-container.php:25 
+#: page-templates/page-sidebar-left.php:39 page-templates/page-blank.php:25 
+#: page-templates/page-sidebar-none.php:34 
 #: page-templates/page-blank-without-container.php:25
-msgid "Pages:"
-msgstr "Sayfalar:"
+msgid "Pages: "
+msgstr "Oldalak:"
 
 #: functions.php:442
 msgid "Password"
-msgstr "Şifre"
+msgstr "Jelszó"
 
 #: inc/comment-list.php:27
 msgid "Pingback:"
-msgstr "Geri izleme:"
+msgstr "Visszajelzés:"
 
 #: functions.php:279
 msgid "Please use a modern and secure web browser like"
-msgstr "Please use a modern and secure web browser like"
+msgstr "Kérlek használj modern és bizonságos böngészőt, mint "
 
 #: inc/template-tags.php:87
 #, php-format
 msgctxt "post author"
 msgid "by %s"
-msgstr "%s tarafından"
+msgstr "%s által"
 
 #: comments.php:105
 msgid "Post Comment"
-msgstr "Yorum Gönder"
+msgstr "Hozzászólás beküldése"
 
 #: author.php:69
 msgid "Read more"
-msgstr "Daha fazla"
+msgstr "Olvass tovább"
 
-#: archive-sidebar-left.php:66 archive-equal-height.php:64 archive.php:64
-#: archive-equal-height-sidebar-right.php:63 category-equal-height.php:64
-#: category-sidebar-left.php:64 category.php:62 author-sidebar-left.php:72
-#: category-masonry.php:64 author-equal-height.php:70
-#: category-equal-height-sidebar-right.php:64
-#: author-equal-height-sidebar-right.php:69 author-masonry.php:70 index.php:82
+#: archive-sidebar-left.php:66 archive-equal-height.php:64 archive.php:64 
+#: archive-equal-height-sidebar-right.php:63 category-equal-height.php:64 
+#: category-sidebar-left.php:64 category.php:62 author-sidebar-left.php:72 
+#: category-masonry.php:64 author-equal-height.php:70 
+#: category-equal-height-sidebar-right.php:64 
+#: author-equal-height-sidebar-right.php:69 author-masonry.php:70 index.php:82 
 #: index.php:139 archive-masonry.php:64 template-parts/content-search.php:43
 msgid "Read more »"
-msgstr "Daha fazla »"
+msgstr "Olvass tovább »"
 
 #. 1: link to WP admin new post page.
 #: template-parts/content-none.php:26
@@ -349,90 +317,88 @@ msgstr "Daha fazla »"
 msgid ""
 "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
 msgstr ""
-"İlk yazınızı yayınlamaya hazır mısınız? <a href=\"%s\">Buradan başlayın</a>."
+"Készen állsz, hogy közzé tedd az első bejegyzésed? <a href=\"%1$s\">Itt "
+"tudod elkezdeni</a>."
 
 #: inc/comment-list.php:105
 msgid ""
 "Save my name, email, and website in this browser for the next time I comment."
 msgstr ""
-"Bir sonraki yorumumda adımı, e-postamı ve web sitemi bu tarayıcıya kaydedin."
+"Mentse el a nevem, az email címem és a weboldalam a böngészőbe a "
+"legközelebbi alkalomra, mikor hozzászólok."
 
 #: searchform.php:3
 msgid "Search"
-msgstr "Arama"
+msgstr "Keresés"
 
 #. %s: search query.
 #: search.php:30
 #, php-format
 msgid "Search Results for: %s"
-msgstr "Arama sonuçları: %s"
+msgstr "Találati lista: %s"
 
 #: woocommerce/loop/orderby.php:28
 msgid "Shop order"
-msgstr "Sipariş verin"
+msgstr "Áruházi rendelés"
 
 #: functions.php:148 sidebar.php:26
 msgid "Sidebar"
-msgstr "Kenar çubuğu"
-
-#. Name of the template
-msgid "Sidebar left"
-msgstr "Sol kenar çubuğu"
+msgstr "Oldalsáv"
 
 #: template-parts/content-none.php:38
 msgid ""
 "Sorry, but nothing matched your search terms. Please try again with some "
 "different keywords."
 msgstr ""
-"Üzgünüm ama hiçbir şey arama terimlerinizle uyuşmuyor. Lütfen bazı farklı "
-"anahtar sözcüklerle yeniden deneyin."
+"Sajnáljuk, de semmi találat nincsen a keresési feltételre. Kérljük próblja "
+"újra más kulcsszavakkal."
 
 #: comments.php:107
 msgid "Start typing..."
-msgstr "Yazmaya başla..."
+msgstr "Írás elkezdése..."
 
 #: functions.php:443
 msgid "Submit"
-msgstr "Gönder"
+msgstr "Beküldés"
 
 #. 1: list of tags.
 #: inc/template-tags.php:191
 #, php-format
 msgid "Tagged %1$s"
-msgstr "%1$s etiketleriyle gönderilmiştir."
+msgstr "Címkézve: %1$s"
 
 #: functions.php:278
 msgid "This website will offer limited functionality in this browser."
-msgstr "Bu web sitesi bu tarayıcıda sınırlı işlevsellik sunacaktır."
+msgstr "Ez a weboldal limitált működésű ebben a böngészőben."
 
 #: functions.php:283
 msgid "to display this site correctly."
-msgstr "bu siteyi doğru görüntülemek için."
+msgstr "hogy rendes megjelenítést kapjon a weboldal."
 
 #: woocommerce/cart/mini-cart.php:120
 msgid "To find out your shipping cost, please proceed to checkout."
-msgstr "Gönderim maliyetinizi öğrenmek için lütfen ödeme işlemine geçin."
+msgstr "Hogy kitaláld a szállítási költséget, kérlek lépj tovább a fizetésre."
 
 #: functions.php:160
 msgid "Top Footer"
-msgstr "Üst Altbilgi"
+msgstr "Felső lábléc"
 
 #: functions.php:124
 msgid "Top Nav"
-msgstr "Üst Nav"
+msgstr "Felső navigáció"
 
 #: functions.php:136
 msgid "Top Nav Search"
-msgstr "Üst Nav Arama"
+msgstr "Felső navigáció: keresés"
 
 #: comments.php:134
 msgid "Website"
-msgstr "İnternet sitesi"
+msgstr "Weboldal"
 
 #: inc/comment-list.php:56
 msgid "Your comment is awaiting moderation."
-msgstr "Yorumunuz denetlenmeyi bekliyor."
+msgstr "A hozzászólásod moderációra vár."
 
 #: woocommerce/single-product-reviews.php:135
 msgid "Your review...*"
-msgstr "Yorumunuz...*"
+msgstr "Értékelésed...*"

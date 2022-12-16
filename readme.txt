@@ -1,13 +1,13 @@
 === bootScore ===
 
-Contributors: Bastian Kreiter, Justin Kruit, Martin Holzer, Tim Groeneveld, Laurent Binder, Patrick, Gustavo Silva, TershiXia, electronicsandprogramming, charly, Alexandros Kourmoulakis, Sven Geiß, ucalegonte, Benhaim Ido, Sean Emerson, Androidacy
+Contributors: Bastian Kreiter, Justin Kruit, Martin Holzer, Tim Groeneveld, Laurent Binder, Patrick, Gustavo Silva, TershiXia, electronicsandprogramming, charly, Alexandros Kourmoulakis, Sven Geiß, ucalegonte, Benhaim Ido, Sean Emerson, Androidacy, Tamás Dohány
 
 Tags: featured-images, threaded-comments, translation-ready
 
 Requires at least: 4.5
-Tested up to: 6.1
+Tested up to: 6.1.1
 Requires PHP: 5.6
-Stable tag: 5.2.2.1
+Stable tag: 5.2.3.0
 License: MIT License
 License URI: https://github.com/bootscore/bootscore/blob/main/LICENSE
 
@@ -57,7 +57,15 @@ bootScore includes support for WooCommerce and Infinite Scroll in Jetpack.
 
 == Changelog ==
 
-    = 5.2.2.0 - November 03 2022 =
+    = 5.2.3.0 - December 16 2022 =
+
+        * [UPDATE] WC 7.2.0 templates
+        * [UPDATE] Bootstrap 5.2.3
+        * [IMPROVEMENT] Türkçe
+        * [NEW] Magyar, thanks to iamdtms
+
+
+    = 5.2.2.1 - November 03 2022 =
     
         PHP
 
