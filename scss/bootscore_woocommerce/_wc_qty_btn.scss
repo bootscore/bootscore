@@ -21,8 +21,9 @@ WooCommerce Quantity Input
 .quantity {
   width: 140px;
 
-  // Hide quantity if product can only be purchased once
-  &.hidden {
-    display: none;
+  // Disable input if product is 1 in stock or limit purchases to 1 item per order
+  // https://github.com/woocommerce/woocommerce/pull/35767
+  [max="1"] {
+    @extend .form-control:disabled;
   }
 }
