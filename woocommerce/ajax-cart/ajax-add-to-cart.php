@@ -146,13 +146,13 @@ function bootscore_product_page_ajax_add_to_cart_js() {
 
                   if( response.error == true ){
                     
-                    var notice = "<div class='woocommerce-message alert alert-danger'> You cannot add that amount to the cart — we have 1 in stock and you already have 1 in your cart.</div>";
+                    var notice = `<div class='woocommerce-message alert alert-danger'>You cannot add another “${prod_title}” to your cart.</div>`;
                    
                    
 
                   }else{
                     
-                    var notice = `<div class="woocommerce-message alert alert-success">“${prod_title}” has been added to your cart.  </div>`;
+                    var notice = `<div class="woocommerce-message alert alert-success">“${prod_title}” has been added to your cart.</div>`;
 
                   }
 
