@@ -28,7 +28,7 @@ echo apply_filters(
   sprintf(
     '<div class="add-to-cart-container mt-auto"><a href="%s" title="%s" data-quantity="%s" class="%s product_type_%s single_add_to_cart_button btn btn-primary d-block %s" %s> %s</a></div>',
     esc_url($product->add_to_cart_url()),
-    esc_attr( $product->get_title()),
+    esc_attr( $product->get_title()), // Add title to get product name in ajax cart
     esc_attr(isset($args['quantity']) ? $args['quantity'] : 1),
     $product->is_purchasable() && $product->is_in_stock() ? 'add_to_cart_button' : '',
     esc_attr($product->get_type()),
