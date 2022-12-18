@@ -146,13 +146,13 @@ function bootscore_product_page_ajax_add_to_cart_js() {
 
                   if( response.error == true ){
                     
-                    var notice = `<div class='woocommerce-message alert alert-danger'>You cannot add another “${prod_title}” to your cart.</div>`;
+                    var notice = `<div class='woocommerce-message alert alert-danger'><?php _e('You cannot add another','bootscore'); ?> “${prod_title}” <?php _e('to your cart.','bootscore'); ?></div>`;
                    
                    
 
                   }else{
                     
-                    var notice = `<div class="woocommerce-message alert alert-success">“${prod_title}” has been added to your cart.</div>`;
+                    var notice = `<div class="woocommerce-message alert alert-success">“${prod_title}” <?php _e('has been added to your cart.','bootscore'); ?></div>`;
 
                   }
 
