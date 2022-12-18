@@ -1,4 +1,16 @@
 <?php
+
+
+// Add the product name as data argument to Ajax add to cart buttons
+add_filter( "woocommerce_loop_add_to_cart_args", "filter_wc_loop_add_to_cart_args", 20, 2 );
+function filter_wc_loop_add_to_cart_args( $args, $product ) {
+    if ( $product->supports( 'ajax_add_to_cart' ) && $product->is_purchasable() && $product->is_in_stock() ) {
+        $args['attributes']['product-title'] = $product->get_name();
+    }
+    return $args;
+}
+
+
 /*
     https://aceplugins.com/ajax-add-to-cart-button-on-the-product-page-woocommerce/
 */
@@ -83,9 +95,17 @@ function bootscore_product_page_ajax_add_to_cart_js() {
 
         $('.woocommerce-error, .woocommerce-message, .woocommerce-info').remove();
 
-        var prod_title = ($(this).parents('.card-body').parent().find('.woocommerce-loop-product__title').show().html());
+        //var prod_title = ($(this).parents('.card-body').parent().find('.woocommerce-loop-product__title').show().html());
 
+        //var prod_name = data-product_name;
+//var prod_title = ('data-product_name').text('data-product_name');
         
+        var prod_title = "";
+
+  prod_title = $(this).attr("product-title");
+  //alert(title);
+  //return false;
+
 
         $(document.body).trigger('adding_to_cart', []);
 
