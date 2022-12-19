@@ -8,33 +8,27 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2022-06-20 07:56+0000\n"
+"PO-Revision-Date: 2022-12-19 12:07+0000\n"
 "Last-Translator: \n"
-"Language-Team: German\n"
+"Language-Team: Deutsch\n"
 "X-Generator: Loco https://localise.biz/\n"
 "Language: de_DE\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Loco-Version: 2.5.2; wp-5.7.2"
+"X-Loco-Version: 2.6.3; wp-6.1.1"
 
-#: functions.php:282
+#: functions.php:278
 msgid ""
 " <a href=\"https://www.microsoft.com/edge\" target=\"_blank\">Microsoft "
 "Edge</a> "
 msgstr ""
 
-#: functions.php:280
+#: functions.php:276
 msgid ""
 " <a href=\"https://www.mozilla.org/firefox/\" target=\"_blank\">Mozilla "
 "Firefox</a>, <a href=\"https://www.google.com/chrome/\" target=\"_blank\">"
 "Google Chrome</a>, <a href=\"https://www.opera.com/\" target=\"_blank\">"
 "Opera</a> "
 msgstr ""
-
-#: single.php:29 single-templates/single-sidebar-none.php:28
-#: single-templates/single-sidebar-left.php:31
-#: single-templates/single-full-width-image.php:37
-msgid " by "
-msgstr " von "
 
 #: inc/comment-list.php:44
 #, php-format
@@ -110,10 +104,9 @@ msgstr ""
 
 #. Name of the theme
 #. Author of the theme
-#, fuzzy
 #| msgid "bootScore 5"
 msgid "bootScore"
-msgstr "bootScore 5"
+msgstr "bootScore"
 
 #: comments.php:104
 msgid "Cancel"
@@ -193,6 +186,10 @@ msgstr "Bild in voller Breite"
 msgid "Full width image"
 msgstr "Bild in voller Breite"
 
+#: woocommerce/ajax-cart/ajax-add-to-cart.php:138
+msgid "has been added to your cart."
+msgstr "wurde deinem Warenkorb hinzugefügt."
+
 #: woocommerce/myaccount/my-account-offcanvas.php:17
 msgid "Hello"
 msgstr "Hallo"
@@ -213,7 +210,7 @@ msgstr ""
 msgid "https://bootscore.me/"
 msgstr "https://bootscore.me/"
 
-#: functions.php:277
+#: functions.php:273
 msgid "Internet Explorer detected"
 msgstr "Internet Explorer erkannt"
 
@@ -237,7 +234,7 @@ msgstr "Kommentar schreiben"
 #: comments.php:103
 #, php-format
 msgid "Leave a Comment to %s"
-msgstr "Kommentar schreiben"
+msgstr "Kommentar schreiben %s"
 
 #. Name of the template
 msgid "Left Sidebar"
@@ -247,7 +244,7 @@ msgstr "Linke Sidebar"
 msgid "Look what I found: "
 msgstr "Schau mal was ich gefunden habe: "
 
-#: header-woocommerce.php:55 header.php:55
+#: header.php:55 header-woocommerce.php:55
 msgid "Menu"
 msgstr "Menü"
 
@@ -279,7 +276,7 @@ msgstr "Ältere Kommentare"
 msgid "Open side menu"
 msgstr "Seitenmenü öffnen"
 
-#: functions.php:281
+#: functions.php:277
 msgid "or"
 msgstr "oder"
 
@@ -288,13 +285,13 @@ msgid "Page not found."
 msgstr "Seite nicht gefunden."
 
 #: page.php:44 page-templates/page-blank-with-container.php:25
-#: page-templates/page-sidebar-left.php:39 page-templates/page-blank.php:25
-#: page-templates/page-sidebar-none.php:34
+#: page-templates/page-sidebar-none.php:34 page-templates/page-blank.php:25
 #: page-templates/page-blank-without-container.php:25
+#: page-templates/page-sidebar-left.php:39
 msgid "Pages:"
 msgstr "Seiten:"
 
-#: functions.php:442
+#: functions.php:448
 msgid "Password"
 msgstr "Passwort"
 
@@ -302,7 +299,7 @@ msgstr "Passwort"
 msgid "Pingback:"
 msgstr "Pingback:"
 
-#: functions.php:279
+#: functions.php:275
 msgid "Please use a modern and secure web browser like"
 msgstr "Bitte verwende einen modernen und sicheren Browser wie z.B."
 
@@ -316,17 +313,8 @@ msgstr "von %s"
 msgid "Post Comment"
 msgstr "Kommentar senden"
 
-#: author.php:69
-msgid "Read more"
-msgstr "mehr"
-
-#: archive-sidebar-left.php:66 archive-equal-height.php:64 archive.php:64
-#: archive-equal-height-sidebar-right.php:63 category-equal-height.php:64
-#: category-sidebar-left.php:64 category.php:62 author-sidebar-left.php:72
-#: category-masonry.php:64 author-equal-height.php:70
-#: category-equal-height-sidebar-right.php:64
-#: author-equal-height-sidebar-right.php:69 author-masonry.php:70 index.php:82
-#: index.php:139 archive-masonry.php:64 template-parts/content-search.php:43
+#: archive.php:64 index.php:82 index.php:139
+#: template-parts/content-search.php:43
 msgid "Read more »"
 msgstr "Weiterlesen »"
 
@@ -380,7 +368,7 @@ msgstr ""
 msgid "Start typing..."
 msgstr "Kommentar"
 
-#: functions.php:443
+#: functions.php:449
 msgid "Submit"
 msgstr "Senden"
 
@@ -390,18 +378,22 @@ msgstr "Senden"
 msgid "Tagged %1$s"
 msgstr "Schlagworte %1$s"
 
-#: functions.php:278
+#: functions.php:274
 msgid "This website will offer limited functionality in this browser."
 msgstr "Diese Webseite bietet eingeschränkte Funktionen in diesem Browser."
 
-#: functions.php:283
+#: functions.php:279
 msgid "to display this site correctly."
 msgstr "um diese Webseite korrekt darzustellen."
 
-#: woocommerce/cart/mini-cart.php:120
+#: woocommerce/cart/mini-cart.php:118
 #| msgid "To find out your shipping cost , Please proceed to checkout."
 msgid "To find out your shipping cost, please proceed to checkout."
 msgstr "Um deine Versandkosten zu berechnen, gehe bitte zur Kasse."
+
+#: woocommerce/ajax-cart/ajax-add-to-cart.php:136
+msgid "to your cart."
+msgstr "zum Warenkorb hinzufügen."
 
 #: functions.php:160
 msgid "Top Footer"
@@ -418,6 +410,10 @@ msgstr "Top Navigation Suche"
 #: comments.php:134
 msgid "Website"
 msgstr "Webseite"
+
+#: woocommerce/ajax-cart/ajax-add-to-cart.php:136
+msgid "You cannot add another"
+msgstr "Du kannst keinen weiteren"
 
 #: inc/comment-list.php:56
 msgid "Your comment is awaiting moderation."
