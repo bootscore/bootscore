@@ -1,6 +1,8 @@
 <?php
 
 // Add the product name as data argument to Ajax add to cart buttons
+// We can add and use a title="" in /loop/add-to-cart.php as well instead using this filter 
+// https://github.com/bootscore/bootscore/commit/598d1f1b4454f8826985a7c2210568bd5a814fe1
 add_filter( "woocommerce_loop_add_to_cart_args", "filter_wc_loop_add_to_cart_args", 20, 2 );
 function filter_wc_loop_add_to_cart_args( $args, $product ) {
     if ( $product->supports( 'ajax_add_to_cart' ) && $product->is_purchasable() && $product->is_in_stock() ) {
