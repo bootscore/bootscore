@@ -74,4 +74,5 @@ jQuery(function ($) {
     $qty.trigger('change');
   });
   // WC Quantity Input End 
+  
 }); // jQuery End

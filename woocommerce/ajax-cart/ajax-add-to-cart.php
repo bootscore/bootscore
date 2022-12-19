@@ -1,6 +1,5 @@
 <?php
 
-
 // Add the product name as data argument to Ajax add to cart buttons
 add_filter( "woocommerce_loop_add_to_cart_args", "filter_wc_loop_add_to_cart_args", 20, 2 );
 function filter_wc_loop_add_to_cart_args( $args, $product ) {
@@ -11,11 +10,7 @@ function filter_wc_loop_add_to_cart_args( $args, $product ) {
 }
 
 
-/*
-    https://aceplugins.com/ajax-add-to-cart-button-on-the-product-page-woocommerce/
-*/
-
-// JS for AJAX Add to Cart handling
+// JS for AJAX Add to Cart handling https://aceplugins.com/ajax-add-to-cart-button-on-the-product-page-woocommerce/
 function bootscore_product_page_ajax_add_to_cart_js() {
 ?>
   <script type="text/javascript" charset="UTF-8">
@@ -24,19 +19,9 @@ function bootscore_product_page_ajax_add_to_cart_js() {
       $('form.cart:not(.product-type-external form.cart)').on('submit', function(e) {
         e.preventDefault();
         $(document.body).trigger('adding_to_cart', []);
-        
-        var form = $(this);
-        /*
-        form.block({
-          message: null,
-          overlayCSS: {
-            background: '#fff',
-            opacity: 0.6
-          }
-        });
-        */
 
-        //$('.single_add_to_cart_button').addClass('loading');
+        var form = $(this);
+
         // Add loading class to button, hide in grouped products if product is out of stock
         $(this).find('.single_add_to_cart_button:not(.outofstock .single_add_to_cart_button)').addClass('loading');
 
@@ -83,154 +68,99 @@ function bootscore_product_page_ajax_add_to_cart_js() {
           }
         });
 
-
       });
 
-
-
       $('a.ajax_add_to_cart:not(.outofstock a.ajax_add_to_cart)').on('click', function(e) {
-        
-        e.preventDefault();
 
+        e.preventDefault();
 
         $('.woocommerce-error, .woocommerce-message, .woocommerce-info').remove();
 
-        //var prod_title = ($(this).parents('.card-body').parent().find('.woocommerce-loop-product__title').show().html());
-
-        //var prod_name = data-product_name;
-//var prod_title = ('data-product_name').text('data-product_name');
-        
+        // Get product name from product-title=""
         var prod_title = "";
-
-  prod_title = $(this).attr("product-title");
-  //alert(title);
-  //return false;
-
+        prod_title = $(this).attr("product-title");
 
         $(document.body).trigger('adding_to_cart', []);
 
         var $thisbutton = $(this);
         try {
-            var href = $thisbutton.prop('href').split('?')[1];
+          var href = $thisbutton.prop('href').split('?')[1];
 
-            if (href.indexOf('add-to-cart') === -1) return;
+          if (href.indexOf('add-to-cart') === -1) return;
         } catch (err) {
-            return;
+          return;
         }
-
-        //e.preventDefault();
 
         var product_id = href.split('=')[1];
 
         var data = {
-            product_id: product_id
+          product_id: product_id
         };
 
         $(document.body).trigger('adding_to_cart', [$thisbutton, data]);
-        
+
         $.ajax({
-          
+
           type: 'post',
-            url: wc_add_to_cart_params.wc_ajax_url.replace(
-                '%%endpoint%%',
-                'add_to_cart'
-            ),
-            data: data,
+          url: wc_add_to_cart_params.wc_ajax_url.replace(
+            '%%endpoint%%',
+            'add_to_cart'
+          ),
+          data: data,
 
-            complete: function(response) {
-                $thisbutton.addClass('added').removeClass('loading');
+          complete: function(response) {
+            $thisbutton.addClass('added').removeClass('loading');
 
-            },
+          },
 
           success: function(response) {
 
-              
-             
-              if (response.error & response.product_url) {
-                  //window.location = response.product_url;
-                  console.log( response.error );
-                 
-                  //return false;
-              }else {
-                  $(document.body).trigger('added_to_cart', [
-                      response.fragments,
-                      response.cart_hash,
-                      $thisbutton
-                  ]);
+            if (response.error & response.product_url) {
+              console.log(response.error);
 
-                  console.log( "Error-: "+ response.error );
+            } else {
+              $(document.body).trigger('added_to_cart', [
+                response.fragments,
+                response.cart_hash,
+                $thisbutton
+              ]);
 
-  
-                  //Remove existing notices
-                  $('.woocommerce-error, .woocommerce-message, .woocommerce-info').remove();
+              console.log("Error-: " + response.error);
 
-                  if( response.error == true ){
-                    
-                    var notice = `<div class='woocommerce-message alert alert-danger'><?php _e('You cannot add another','bootscore'); ?> “${prod_title}” <?php _e('to your cart.','bootscore'); ?></div>`;
-                   
-                   
+              //Remove existing notices
+              $('.woocommerce-error, .woocommerce-message, .woocommerce-info').remove();
 
-                  }else{
-                    
-                    var notice = `<div class="woocommerce-message alert alert-success">“${prod_title}” <?php _e('has been added to your cart.','bootscore'); ?></div>`;
-
-                  }
-
-                  
-
-                  // Add new notices to offcanvas
-                  setTimeout(function () {
-                    $('.woocommerce-mini-cart').prepend(notice);
-                    
-                  }, 100);
-
-                  
-                  
-                  
-                  // console.log("notice", notice );
-                  //$('.woocommerce-mini-cart').prepend(response.fragments.notices_html);
-
+              if (response.error == true) {
+                var notice = `<div class='woocommerce-message alert alert-danger'><?php _e('You cannot add another','bootscore'); ?> “${prod_title}” <?php _e('to your cart.','bootscore'); ?></div>`;
+              } else {
+                var notice = `<div class="woocommerce-message alert alert-success">“${prod_title}” <?php _e('has been added to your cart.','bootscore'); ?></div>`;
               }
+
+              // Add new notices to offcanvas
+              setTimeout(function() {
+                $('.woocommerce-mini-cart').prepend(notice);
+              }, 100);
+
+            }
           }
 
         });
 
-
       });
 
-      
-      /*
-  // Add loading spinner to add_to_cart_button 
-  $('.single_add_to_cart_button:not(.product_type_variable.single_add_to_cart_button):not(.product_type_grouped.single_add_to_cart_button):not(.product_type_external.single_add_to_cart_button):not(.product-type-external .single_add_to_cart_button):not(.product-type-external .single_add_to_cart_button)').click(function () {
-    $(this).prepend('<span class="spinner-border spinner-border-sm me-1"></span>');
-  });
-  */
-      
-      /*
-        // Add loading spinner to add_to_cart_button 
-  $('.single_add_to_cart_button:not(.product_type_variable.single_add_to_cart_button):not(.product_type_grouped.single_add_to_cart_button):not(.product_type_external.single_add_to_cart_button):not(.product-type-external .single_add_to_cart_button):not(.product-type-external .single_add_to_cart_button)').click(function () {
-    $(this).prepend('<div class="btn-loader"><span class="spinner-border spinner-border-sm"></span></div>');
-  });
-  */
-      
-  // Add loading spinner to add_to_cart_button
-  $('.single_add_to_cart_button').prepend('<div class="btn-loader"><span class="spinner-border spinner-border-sm"></span></div>');
 
-      //$('.outofstock .btn').attr('target', '_blank');
+      // Add loading spinner to add_to_cart_button
+      $('.single_add_to_cart_button').prepend('<div class="btn-loader"><span class="spinner-border spinner-border-sm"></span></div>');
 
-  $('body').on('added_to_cart', function () {
-    // Open offcanvas-cart when cart is loaded
-    $('#offcanvas-cart').offcanvas('show');
-    // Remove loading spinner
-    //$('.single_add_to_cart_button .btn-loader').remove();
-  });
+      $('body').on('added_to_cart', function() {
+        // Open offcanvas-cart when cart is loaded
+        $('#offcanvas-cart').offcanvas('show');
+      });
 
-  // Hide alert in offcanvas-cart when offcanvas is closed
-  $('#offcanvas-cart').on('hidden.bs.offcanvas', function () {
-    $('#offcanvas-cart .woocommerce-message').remove();
-  });
-      
-
+      // Hide alert in offcanvas-cart when offcanvas is closed
+      $('#offcanvas-cart').on('hidden.bs.offcanvas', function() {
+        $('#offcanvas-cart .woocommerce-message').remove();
+      });
 
 
     });
@@ -280,4 +210,3 @@ add_filter('woocommerce_add_to_cart_fragments', 'bootscore_ajax_add_to_cart_add_
 
 // Stop redirecting after stock error
 add_filter( 'woocommerce_cart_redirect_after_error', '__return_false' );
-
