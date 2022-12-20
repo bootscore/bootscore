@@ -33,10 +33,8 @@ get_header();
         </div>
 
         <footer class="entry-footer">
-
+          <?php comments_template(); ?>
         </footer>
-
-        <?php comments_template(); ?>
 
       </div><!-- container -->
 

@@ -33,25 +33,17 @@ get_header();
             <?php the_title('<h1>', '</h1>'); ?>
             <!-- Featured Image-->
             <?php bootscore_post_thumbnail(); ?>
-            <!-- .entry-header -->
           </header>
 
           <div class="entry-content">
             <!-- Content -->
             <?php the_content(); ?>
-            <!-- .entry-content -->
-            <?php wp_link_pages(array(
-              'before' => '<div class="page-links">' . esc_html__('Pages:', 'bootscore'),
-              'after'  => '</div>',
-            ));
-            ?>
           </div>
 
           <footer class="entry-footer">
-
-          </footer>
           <!-- Comments -->
           <?php comments_template(); ?>
+          </footer>
 
         </main><!-- #main -->
 
