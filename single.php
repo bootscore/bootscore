@@ -52,9 +52,8 @@ get_header();  ?>
                 </li>
               </ul>
             </nav>
+            <?php comments_template(); ?>
           </footer>
-
-          <?php comments_template(); ?>
 
         </main> <!-- #main -->
 

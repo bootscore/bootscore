@@ -27,9 +27,7 @@ get_header();  ?>
         <?php the_breadcrumb(); ?>
 
         <div class="entry-content">
-
           <?php bootscore_category_badge(); ?>
-
           <p class="entry-meta">
             <small class="text-muted">
               <?php
@@ -39,9 +37,7 @@ get_header();  ?>
               ?>
             </small>
           </p>
-
           <?php the_content(); ?>
-
         </div>
 
         <footer class="entry-footer clear-both">
@@ -58,9 +54,8 @@ get_header();  ?>
               </li>
             </ul>
           </nav>
+          <?php comments_template(); ?>
         </footer>
-
-        <?php comments_template(); ?>
 
       </div><!-- container -->
 
