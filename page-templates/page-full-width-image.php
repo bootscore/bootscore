@@ -36,11 +36,12 @@ get_header();
           <?php comments_template(); ?>
         </footer>
 
-      </div><!-- container -->
+      </div>
 
-    </main><!-- #main -->
+    </main>
 
-  </div><!-- #primary -->
-</div><!-- #content -->
+  </div>
+</div>
+
 <?php
 get_footer();

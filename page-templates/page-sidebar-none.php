@@ -10,6 +10,7 @@
 
 get_header();
 ?>
+
 <div id="content" class="site-content container py-5 mt-5">
   <div id="primary" class="content-area">
 
@@ -20,25 +21,22 @@ get_header();
 
         <header class="entry-header">
           <?php the_post(); ?>
-          <!-- Title -->
-          <?php the_title('<h1>', '</h1>'); ?>
-          <!-- Featured Image-->
+          <h1><?php the_title(); ?></h1>
           <?php bootscore_post_thumbnail(); ?>
         </header>
 
         <div class="entry-content">
-          <!-- Content -->
           <?php the_content(); ?>
         </div>
 
         <footer class="entry-footer">
-        <!-- Comments -->
-        <?php comments_template(); ?>
+          <?php comments_template(); ?>
         </footer>
 
-      </main><!-- #main -->
+      </main>
 
-  </div><!-- #primary -->
-</div><!-- #content -->
+  </div>
+</div>
+
 <?php
 get_footer();

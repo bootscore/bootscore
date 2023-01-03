@@ -10,6 +10,7 @@
 
 get_header();
 ?>
+
 <div id="content" class="site-content">
   <div id="primary" class="content-area">
 
@@ -23,9 +24,10 @@ get_header();
         <?php the_content(); ?>
       </div>
 
-    </main><!-- #main -->
+    </main>
 
-  </div><!-- #primary -->
-</div><!-- #content -->
+  </div>
+</div>
+
 <?php
 get_footer();

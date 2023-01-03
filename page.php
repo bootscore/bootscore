@@ -29,30 +29,26 @@ get_header();
 
           <header class="entry-header">
             <?php the_post(); ?>
-            <!-- Title -->
-            <?php the_title('<h1>', '</h1>'); ?>
-            <!-- Featured Image-->
+            <h1><?php the_title(); ?></h1>
             <?php bootscore_post_thumbnail(); ?>
           </header>
 
           <div class="entry-content">
-            <!-- Content -->
             <?php the_content(); ?>
           </div>
 
           <footer class="entry-footer">
-          <!-- Comments -->
           <?php comments_template(); ?>
           </footer>
 
-        </main><!-- #main -->
+        </main>
 
-      </div><!-- col -->
+      </div>
       <?php get_sidebar(); ?>
-    </div><!-- row -->
+    </div>
 
-  </div><!-- #primary -->
-</div><!-- #content -->
+  </div>
+</div>
 
 <?php
 get_footer();
