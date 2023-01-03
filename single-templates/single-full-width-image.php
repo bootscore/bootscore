@@ -1,10 +1,11 @@
 <?php
-/*
-	 * Template Name: Full width image
-	 * Template Post Type: post
-	 */
+/**
+ * Template Name: Full width image
+ * Template Post Type: post
+ */
 
-get_header();  ?>
+get_header();  
+?>
 
 <div id="content" class="site-content">
   <div id="primary" class="content-area">
@@ -31,9 +32,9 @@ get_header();  ?>
           <p class="entry-meta">
             <small class="text-muted">
               <?php
-              bootscore_date();
-              bootscore_author();
-              bootscore_comment_count();
+                bootscore_date();
+                bootscore_author();
+                bootscore_comment_count();
               ?>
             </small>
           </p>
@@ -44,7 +45,7 @@ get_header();  ?>
           <div class="mb-4">
             <?php bootscore_tags(); ?>
           </div>
-          <nav aria-label="Page navigation example">
+          <nav aria-label="bS page navigation">
             <ul class="pagination justify-content-center">
               <li class="page-item">
                 <?php previous_post_link('%link'); ?>
@@ -57,10 +58,12 @@ get_header();  ?>
           <?php comments_template(); ?>
         </footer>
 
-      </div><!-- container -->
+      </div>
 
-    </main><!-- #main -->
+    </main>
 
-  </div><!-- #primary -->
-</div><!-- #content -->
-<?php get_footer(); ?>
+  </div>
+</div>
+
+<?php
+get_footer();
