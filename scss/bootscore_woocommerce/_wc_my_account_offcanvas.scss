@@ -1,0 +1,26 @@
+/*--------------------------------------------------------------
+WooCommerce My Account Offcanvas
+--------------------------------------------------------------*/
+
+// Add show-password to non Woo pages
+#offcanvas-user {
+  .offcanvas-password.show-password-input {
+    position: absolute;
+    right: 0.7em;
+    top: 2rem;
+    cursor: pointer;
+
+    &::after {
+      font-family: WooCommerce;
+      speak: never;
+      font-weight: 400;
+      font-variant: normal;
+      text-transform: none;
+      line-height: 1;
+      -webkit-font-smoothing: antialiased;
+      margin-left: 0.618em;
+      content: "\e010";
+      text-decoration: none;
+    }
+  }
+}

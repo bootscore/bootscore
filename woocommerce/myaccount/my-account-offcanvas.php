@@ -55,9 +55,10 @@ if (!defined('ABSPATH')) {
             <input type="text" class="woocommerce-Input woocommerce-Input--text input-text form-control" name="username" id="username_1" autocomplete="username" value="<?php echo (!empty($_POST['username'])) ? esc_attr(wp_unslash($_POST['username'])) : ''; ?>" /><?php // @codingStandardsIgnoreLine 
                                                                                                                                                                                                                                                                         ?>
           </p>
-          <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
+          <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide position-relative">
             <label for="password_1"><?php esc_html_e('Password', 'woocommerce'); ?>&nbsp;<span class="required">*</span></label>
             <input class="woocommerce-Input woocommerce-Input--text input-text form-control" type="password" name="password" id="password_1" autocomplete="current-password" />
+            <span class="offcanvas-password show-password-input"></span>
           </p>
 
           <?php do_action('woocommerce_login_form'); ?>
@@ -99,23 +100,22 @@ if (!defined('ABSPATH')) {
 
               <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
                 <label for="reg_username_1"><?php esc_html_e('Username', 'woocommerce'); ?>&nbsp;<span class="required">*</span></label>
-                <input type="text" class="woocommerce-Input woocommerce-Input--text input-text form-control" name="username" id="reg_username_1" autocomplete="username" value="<?php echo (!empty($_POST['username'])) ? esc_attr(wp_unslash($_POST['username'])) : ''; ?>" /><?php // @codingStandardsIgnoreLine 
-                                                                                                                                                                                                                                                                                ?>
+                <input type="text" class="woocommerce-Input woocommerce-Input--text input-text form-control" name="username" id="reg_username_1" autocomplete="username" value="<?php echo (!empty($_POST['username'])) ? esc_attr(wp_unslash($_POST['username'])) : ''; ?>" /><?php // @codingStandardsIgnoreLine                                                                                                                                                                                                                                                               ?>
               </p>
 
             <?php endif; ?>
 
             <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
               <label for="reg_email_1"><?php esc_html_e('Email address', 'woocommerce'); ?>&nbsp;<span class="required">*</span></label>
-              <input type="email" class="woocommerce-Input woocommerce-Input--text input-text form-control" name="email" id="reg_email_1" autocomplete="email" value="<?php echo (!empty($_POST['email'])) ? esc_attr(wp_unslash($_POST['email'])) : ''; ?>" /><?php // @codingStandardsIgnoreLine 
-                                                                                                                                                                                                                                                                ?>
+              <input type="email" class="woocommerce-Input woocommerce-Input--text input-text form-control" name="email" id="reg_email_1" autocomplete="email" value="<?php echo (!empty($_POST['email'])) ? esc_attr(wp_unslash($_POST['email'])) : ''; ?>" /><?php // @codingStandardsIgnoreLine                                                                                                                                                                                                                                                              ?>
             </p>
 
             <?php if ('no' === get_option('woocommerce_registration_generate_password')) : ?>
 
-              <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide mb-3">
+              <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide mb-3 position-relative">
                 <label for="reg_password_1"><?php esc_html_e('Password', 'woocommerce'); ?>&nbsp;<span class="required">*</span></label>
                 <input type="password" class="woocommerce-Input woocommerce-Input--text input-text form-control" name="password" id="reg_password_1" autocomplete="new-password" />
+                <span class="offcanvas-password show-password-input"></span>  
               </p>
 
             <?php else : ?>
