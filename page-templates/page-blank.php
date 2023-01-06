@@ -10,6 +10,7 @@
 
 get_header();
 ?>
+
 <div id="content" class="site-content">
   <div id="primary" class="content-area">
 
@@ -21,16 +22,12 @@ get_header();
       <div class="entry-content">
         <?php the_post(); ?>
         <?php the_content(); ?>
-        <?php wp_link_pages(array(
-          'before' => '<div class="page-links">' . esc_html__('Pages:', 'bootscore'),
-          'after'  => '</div>',
-        ));
-        ?>
       </div>
 
-    </main><!-- #main -->
+    </main>
 
-  </div><!-- #primary -->
-</div><!-- #content -->
+  </div>
+</div>
+
 <?php
 get_footer();

@@ -18,7 +18,6 @@ get_header();
     <?php bs_after_primary(); ?>
 
     <div class="row">
-      <!-- sidebar -->
       <?php get_sidebar(); ?>
       <div class="col-md-8 col-xxl-9 order-first order-md-last">
 
@@ -26,34 +25,25 @@ get_header();
 
           <header class="entry-header">
             <?php the_post(); ?>
-            <?php the_category(', ') ?><?php the_terms($post->ID, 'isopost_categories', ' ', ' / '); ?>
-            <?php the_title('<h1>', '</h1>'); ?>
+            <h1><?php the_title(); ?></h1>
             <?php bootscore_post_thumbnail(); ?>
           </header>
 
           <div class="entry-content">
-            <!-- Content -->
             <?php the_content(); ?>
-            <!-- .entry-content -->
-            <?php wp_link_pages(array(
-              'before' => '<div class="page-links">' . esc_html__('Pages:', 'bootscore'),
-              'after'  => '</div>',
-            ));
-            ?>
           </div>
 
           <footer class="entry-footer">
-
+            <?php comments_template(); ?>
           </footer>
 
-          <?php comments_template(); ?>
+        </main>
 
-        </main><!-- #main -->
+      </div>
+    </div>
 
-      </div><!-- col -->
-    </div><!-- row -->
+  </div>
+</div>
 
-  </div><!-- #primary -->
-</div><!-- #contenty -->
 <?php
 get_footer();
