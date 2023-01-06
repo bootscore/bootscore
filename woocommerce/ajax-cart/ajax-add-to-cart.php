@@ -4,11 +4,12 @@
 // We can add and use a title="" in /loop/add-to-cart.php as well instead using this filter 
 // https://github.com/bootscore/bootscore/commit/598d1f1b4454f8826985a7c2210568bd5a814fe1
 add_filter( "woocommerce_loop_add_to_cart_args", "filter_wc_loop_add_to_cart_args", 20, 2 );
-function filter_wc_loop_add_to_cart_args( $args, $product ) {
-    if ( $product->supports( 'ajax_add_to_cart' ) && $product->is_purchasable() && $product->is_in_stock() ) {
-        $args['attributes']['product-title'] = $product->get_name();
-    }
-    return $args;
+function filter_wc_loop_add_to_cart_args($args, $product) {
+  if ($product->supports('ajax_add_to_cart') && $product->is_purchasable() && $product->is_in_stock()) {
+    $args['attributes']['product-title'] = $product->get_name();
+  }
+
+  return $args;
 }
 
 
@@ -79,8 +80,8 @@ function bootscore_product_page_ajax_add_to_cart_js() {
         $('.woocommerce-error, .woocommerce-message, .woocommerce-info').remove();
 
         // Get product name from product-title=""
-        var prod_title = "";
-        prod_title = $(this).attr("product-title");
+        var prod_title = '';
+        prod_title = $(this).attr('product-title');
 
         $(document.body).trigger('adding_to_cart', []);
 
@@ -127,15 +128,15 @@ function bootscore_product_page_ajax_add_to_cart_js() {
                 $thisbutton
               ]);
 
-              console.log("Error-: " + response.error);
+              console.log('Error-: ' + response.error);
 
               //Remove existing notices
               $('.woocommerce-error, .woocommerce-message, .woocommerce-info').remove();
 
               if (response.error == true) {
-                var notice = `<div class='woocommerce-message alert alert-danger'><?php _e('You cannot add another','bootscore'); ?> “${prod_title}” <?php _e('to your cart.','bootscore'); ?></div>`;
+                var notice = `<div class='woocommerce-message alert alert-danger'><?php _e('You cannot add another', 'bootscore'); ?> “${prod_title}” <?php _e('to your cart.', 'bootscore'); ?></div>`;
               } else {
-                var notice = `<div class="woocommerce-message alert alert-success">“${prod_title}” <?php _e('has been added to your cart.','bootscore'); ?></div>`;
+                var notice = `<div class="woocommerce-message alert alert-success">“${prod_title}” <?php _e('has been added to your cart.', 'bootscore'); ?></div>`;
               }
 
               // Add new notices to offcanvas
@@ -163,14 +164,14 @@ function bootscore_product_page_ajax_add_to_cart_js() {
       $('#offcanvas-cart').on('hidden.bs.offcanvas', function() {
         $('#offcanvas-cart .woocommerce-message').remove();
       });
-      
+
       // Refresh ajax mini-cart on browser back button
       // https://github.com/woocommerce/woocommerce/issues/32454
       var isChromium = window.chrome;
       if (isChromium) {
-        $(window).on('pageshow', function (e) {
+        $(window).on('pageshow', function(e) {
           if (e.originalEvent.persisted) {
-            setTimeout(function () {
+            setTimeout(function() {
               $(document.body).trigger('wc_fragment_refresh');
             }, 100);
           }
