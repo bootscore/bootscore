@@ -23,12 +23,12 @@ function bootscore_product_page_ajax_add_to_cart_js() {
         e.preventDefault();
         $(document.body).trigger('adding_to_cart', []);
 
-        var form = $(this);
+        const form = $(this);
 
         // Add loading class to button, hide in grouped products if product is out of stock
         $(this).find('.single_add_to_cart_button:not(.outofstock .single_add_to_cart_button)').addClass('loading');
 
-        var formData = new FormData(form[0]);
+        const formData = new FormData(form[0]);
         formData.append('add-to-cart', form.find('[name=add-to-cart]').val());
 
         // Ajax action.
@@ -56,7 +56,7 @@ function bootscore_product_page_ajax_add_to_cart_js() {
               return;
             }
 
-            var $thisbutton = form.find('.single_add_to_cart_button'); //
+            const $thisbutton = form.find('.single_add_to_cart_button'); //
 
             // Trigger event so themes can refresh other areas.
             $(document.body).trigger('added_to_cart', [response.fragments, response.cart_hash, $thisbutton]);
@@ -80,23 +80,24 @@ function bootscore_product_page_ajax_add_to_cart_js() {
         $('.woocommerce-error, .woocommerce-message, .woocommerce-info').remove();
 
         // Get product name from product-title=""
-        var prod_title = '';
+        let prod_title = '';
         prod_title = $(this).attr('product-title');
 
         $(document.body).trigger('adding_to_cart', []);
 
-        var $thisbutton = $(this);
+        let $thisbutton = $(this);
+        let href = '';
         try {
-          var href = $thisbutton.prop('href').split('?')[1];
+          href = $thisbutton.prop('href').split('?')[1];
 
           if (href.indexOf('add-to-cart') === -1) return;
         } catch (err) {
           return;
         }
 
-        var product_id = href.split('=')[1];
+        let product_id = href.split('=')[1];
 
-        var data = {
+        let data = {
           product_id: product_id
         };
 
@@ -133,10 +134,11 @@ function bootscore_product_page_ajax_add_to_cart_js() {
               //Remove existing notices
               $('.woocommerce-error, .woocommerce-message, .woocommerce-info').remove();
 
+              let notice = '';
               if (response.error == true) {
-                var notice = `<div class='woocommerce-message alert alert-danger'><?php _e('You cannot add another', 'bootscore'); ?> “${prod_title}” <?php _e('to your cart.', 'bootscore'); ?></div>`;
+                notice = `<div class='woocommerce-message alert alert-danger'><?php _e('You cannot add another', 'bootscore'); ?> “${prod_title}” <?php _e('to your cart.', 'bootscore'); ?></div>`;
               } else {
-                var notice = `<div class="woocommerce-message alert alert-success">“${prod_title}” <?php _e('has been added to your cart.', 'bootscore'); ?></div>`;
+                notice = `<div class="woocommerce-message alert alert-success">“${prod_title}” <?php _e('has been added to your cart.', 'bootscore'); ?></div>`;
               }
 
               // Add new notices to offcanvas
@@ -167,7 +169,7 @@ function bootscore_product_page_ajax_add_to_cart_js() {
 
       // Refresh ajax mini-cart on browser back button
       // https://github.com/woocommerce/woocommerce/issues/32454
-      var isChromium = window.chrome;
+      const isChromium = window.chrome;
       if (isChromium) {
         $(window).on('pageshow', function(e) {
           if (e.originalEvent.persisted) {
