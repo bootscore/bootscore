@@ -163,7 +163,19 @@ function bootscore_product_page_ajax_add_to_cart_js() {
       $('#offcanvas-cart').on('hidden.bs.offcanvas', function() {
         $('#offcanvas-cart .woocommerce-message').remove();
       });
-
+      
+      // Refresh ajax mini-cart on browser back button
+      // https://github.com/woocommerce/woocommerce/issues/32454
+      var isChromium = window.chrome;
+      if (isChromium) {
+        $(window).on('pageshow', function (e) {
+          if (e.originalEvent.persisted) {
+            setTimeout(function () {
+              $(document.body).trigger('wc_fragment_refresh');
+            }, 100);
+          }
+        });
+      }
 
     });
   </script>
