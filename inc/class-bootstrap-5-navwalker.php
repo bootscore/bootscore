@@ -1,7 +1,8 @@
 <?php
 
 /*
-https://github.com/AlexWebLab/bootstrap-5-wordpress-navbar-walker
+  taken over from https://raw.githubusercontent.com/imanishpushkar/bs5-navwalker/master/navbar.php
+  in accordance to https://github.com/bootscore/bootscore/discussions/347
 */
 
 // bootstrap 5 wp_nav_menu walker
@@ -32,7 +33,7 @@ class bootstrap_5_wp_nav_menu_walker extends Walker_Nav_menu
       }
     }
     $indent = str_repeat("\t", $depth);
-    $submenu = ($depth > 0) ? ' sub-menu' : '';
+    $submenu = ($depth > 0) ? ' dropdown-submenu' : '';
     $output .= "\n$indent<ul class=\"dropdown-menu$submenu " . esc_attr(implode(" ",$dropdown_menu_class)) . " depth_$depth\">\n";
   }
 
@@ -51,7 +52,7 @@ class bootstrap_5_wp_nav_menu_walker extends Walker_Nav_menu
     $classes[] = 'nav-item';
     $classes[] = 'nav-item-' . $item->ID;
     if ($depth && $args->walker->has_children) {
-      $classes[] = 'dropdown-menu dropdown-menu-end';
+      $classes[] = 'dropdown-menu-child-item dropdown-menu-end at_depth_' . $depth;
     }
 
     $class_names =  join(' ', apply_filters('nav_menu_css_class', array_filter($classes), $item, $args));
@@ -67,9 +68,18 @@ class bootstrap_5_wp_nav_menu_walker extends Walker_Nav_menu
     $attributes .= !empty($item->xfn) ? ' rel="' . esc_attr($item->xfn) . '"' : '';
     $attributes .= !empty($item->url) ? ' href="' . esc_attr($item->url) . '"' : '';
 
-    $active_class = ($item->current || $item->current_item_ancestor || in_array("current_page_parent", $item->classes, true) || in_array("current-post-ancestor", $item->classes, true)) ? 'active' : '';
+    /* $active_class = ($item->current || $item->current_item_ancestor || in_array("current_page_parent", $item->classes, true) || in_array("current-post-ancestor", $item->classes, true)) ? 'active' : '';
+    $nav_link_class = ($depth > 0) ? 'dropdown-item ' : 'nav-link '; */
+
+    $active_class = ($item->current || $item->current_item_ancestor) ? 'active' : '';
     $nav_link_class = ( $depth > 0 ) ? 'dropdown-item ' : 'nav-link ';
     $attributes .= ( $args->walker->has_children ) ? ' class="'. $nav_link_class . $active_class . ' dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"' : ' class="'. $nav_link_class . $active_class . '"';
+
+    if ($args->walker->has_children) {
+      $attributes .=  ' class="' . $nav_link_class . $active_class . ' dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" data-bs-auto-close="outside" aria-expanded="false"';
+    } else {
+      $attributes .=  ' class="' . $nav_link_class . $active_class . '"';
+    }
 
     $item_output = $args->before;
     $item_output .= '<a' . $attributes . '>';
