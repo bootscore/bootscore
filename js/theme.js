@@ -3,11 +3,11 @@ Theme JS
 --------------------------------------------------------------*/
 
 jQuery(function ($) {
+
   // Close offcanvas on click a, keep .dropdown-menu open (see https://github.com/bootscore/bootscore/discussions/347)
-  $('.offcanvas a:not(.dropdown-toggle):not(a.remove_from_cart_button), a.dropdown-item:not(.dropdown-toggle)').on('click', function () {
+  $('.offcanvas a:not(.dropdown-toggle, .remove_from_cart_button)').on('click', function () {
     $('.offcanvas').offcanvas('hide');
   });
-
 
   $('.offcanvas a:not(.dropdown-toggle):not(a.remove_from_cart_button), a.dropdown-item').on('click', function () {
     $('.offcanvas').offcanvas('hide');
