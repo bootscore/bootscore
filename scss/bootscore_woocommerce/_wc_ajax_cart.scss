@@ -1,0 +1,75 @@
+/*--------------------------------------------------------------
+Ajax Cart
+--------------------------------------------------------------*/
+
+#offcanvas-cart {
+
+  // Hide extsting cart-loader in header.php, remove this in v6
+  .cart-loader {
+    display: none !important;
+  }
+
+  .cart-list {
+    height: 100%;
+  }
+
+  .widget_shopping_cart_content {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .woocommerce-mini-cart {
+    flex: 1;
+    overflow-y: auto;
+  }
+
+  // Cart alert
+  // Top margin to first alert only. If grouped product one is out of stock there are two alerts.
+  .woocommerce-message:first-child {
+    margin-top: $modal-inner-padding;
+  }
+
+  .woocommerce-message {
+    margin-right: $modal-inner-padding;
+    margin-left: $modal-inner-padding;
+  }
+}
+
+
+// Hide button in alert
+.alert .button.wc-forward {
+  display: none;
+}
+
+
+// Hide View cart in loop and product pages
+.woocommerce a.added_to_cart,
+a.added_to_cart {
+  display: none;
+}
+
+
+// btn-loader, overlayCSS is not an option
+.single_add_to_cart_button {
+  position: relative;
+
+  .btn-loader {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--#{$prefix}btn-bg);
+    border-radius: var(--#{$prefix}btn-border-radius);
+  }
+
+  &.loading {
+    .btn-loader {
+      display: flex;
+    }
+  }
+}

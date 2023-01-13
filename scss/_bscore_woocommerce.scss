@@ -2,6 +2,7 @@
  * bootScore WooCommerce 5.2.3.1 (https://bootscore.me/)
  */
 
+@import "bootscore_woocommerce/wc_ajax_cart";
 @import "bootscore_woocommerce/wc_alerts";
 @import "bootscore_woocommerce/wc_breadcrumb";
 @import "bootscore_woocommerce/wc_cart";
@@ -14,7 +15,6 @@
 @import "bootscore_woocommerce/wc_my_account";
 @import "bootscore_woocommerce/wc_my_account_offcanvas";
 @import "bootscore_woocommerce/wc_qty_btn";
-@import "bootscore_woocommerce/wc_offcanvas_cart";
 @import "bootscore_woocommerce/wc_prices";
 @import "bootscore_woocommerce/wc_product";
 @import "bootscore_woocommerce/wc_product_grouped";
