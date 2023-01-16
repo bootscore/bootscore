@@ -9,7 +9,7 @@ Tags: featured-images, threaded-comments, translation-ready
 Requires at least: 4.5
 Tested up to: 6.1.1
 Requires PHP: 5.6
-Stable tag: 5.2.3.0
+Stable tag: 5.2.3.1
 License: MIT License
 License URI: https://github.com/bootscore/bootscore/blob/main/LICENSE
 
@@ -58,6 +58,17 @@ bootScore includes support for WooCommerce and Infinite Scroll in Jetpack.
 
 
 == Changelog ==
+
+    = 5.2.3.1 - January 16 2023 =
+    
+        * [UPDATE] quantity-input.php (WooCommerce 7.2) #331
+        * [UPDATE] cart-shipping.php (WooCommerce 7.3) #354
+        * [UPDATE] Password message for my-account-offcanvas.php #341
+        * [IMPROVEMENT] Refactored ajax cart #329
+        * [IMPROVEMENT] Clean-up single-*.php's and page-*.php's #332
+        * [IMPROVEMENT] Prevent self-closing offcanvas if dropdown has nested dropdowns (modified nav-walker with 3 or more levels depth) #350
+        * [IMPROVEMENT] Make use of admin bar height css var for offcanvas and modal #360
+        * [BUGFIX] Add show-password to all pages in WC user offcanvas #344
 
     = 5.2.3.0 - December 16 2022 =
 
