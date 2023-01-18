@@ -3,6 +3,9 @@
 /**
  * Bootscore functions and definitions
  *
+ * SPDX-FileCopyrightText: © 2021 Bastian Kreitrer (crftwrk) <pst@crftwrk.de>
+ * SPDX-License-Identifier: MIT
+ *
  * @link https://developer.wordpress.org/themes/basics/theme-functions/
  *
  * @package Bootscore

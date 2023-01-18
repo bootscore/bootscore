@@ -1,6 +1,10 @@
 <?php
 /**
  * Template Post Type: post
+ *
+ * SPDX-FileCopyrightText: © 2021 Bastian Kreitrer (crftwrk) <pst@crftwrk.de>
+ * SPDX-License-Identifier: MIT
+ *
  */
 
 get_header();  
