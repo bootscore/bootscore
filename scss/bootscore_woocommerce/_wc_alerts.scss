@@ -32,3 +32,10 @@ WooCommerce Alerts
   @extend .alert-danger;
   @extend .mt-3;
 }
+
+// Hide all buttons inside WC alerts
+.woocommerce-error a.woocommerce-Button.button,
+.woocommerce-info a.woocommerce-Button.button,
+.woocommerce-message a.woocommerce-Button.button {
+  display: none;
+}
