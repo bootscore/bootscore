@@ -147,18 +147,6 @@ add_action('woocommerce_widget_shopping_cart_buttons', 'my_woocommerce_widget_sh
 // Mini cart widget buttons End
 
 
-// Cart empty message alert
-remove_action('woocommerce_cart_is_empty', 'wc_empty_cart_message', 10);
-add_action('woocommerce_cart_is_empty', 'custom_empty_cart_message', 10);
-
-function custom_empty_cart_message() {
-  $html  = '<div class="cart-empty alert alert-info">';
-  $html .= wp_kses_post(apply_filters('wc_empty_cart_message', __('Your cart is currently empty.', 'woocommerce')));
-  echo $html . '</div>';
-}
-// Cart empty message alert End
-
-
 // Add card-img-top class to product loop
 remove_action('woocommerce_before_shop_loop_item_title', 'woocommerce_template_loop_product_thumbnail', 10);
 add_action('woocommerce_before_shop_loop_item_title', 'custom_loop_product_thumbnail', 10);
