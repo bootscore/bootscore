@@ -2,6 +2,7 @@
 WooCommerce Buttons
 --------------------------------------------------------------*/
 
+
 // Widget buttons
 .woocommerce {
   #respond input#submit,
@@ -9,6 +10,16 @@ WooCommerce Buttons
   button.button,
   input.button {
     @extend .btn;
-    @extend .btn-outline-primary;
+    @extend .btn-outline-danger;
   }
 }
+
+
+
+.woocommerce div.product form.cart button.button,
+.woocommerce-cart .wc-proceed-to-checkout a.checkout-button {
+  @extend .btn;
+  @extend .btn-warning;
+}
+
+

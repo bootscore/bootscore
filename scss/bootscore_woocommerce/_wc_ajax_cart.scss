@@ -75,3 +75,28 @@ a.added_to_cart {
     }
   }
 }
+
+
+
+// Hide default Woo btn loader
+.woocommerce #respond input#submit.loading::after,
+.woocommerce a.button.loading::after,
+.woocommerce button.button.loading::after,
+.woocommerce input.button.loading::after {
+  display: none;
+}
+
+// Hide default Woo btn loaded
+.woocommerce #respond input#submit.added::after,
+.woocommerce a.button.added::after,
+.woocommerce button.button.added::after,
+.woocommerce input.button.added::after {
+  display: none;
+}
+
+.woocommerce #respond input#submit.loading,
+.woocommerce a.button.loading,
+.woocommerce button.button.loading,
+.woocommerce input.button.loading {
+  opacity: 1;
+}

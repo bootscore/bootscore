@@ -32,3 +32,9 @@ WooCommerce Cart
     width: 1%;
   }
 }
+
+// Proceed to checkout btn
+.woocommerce-cart .wc-proceed-to-checkout a.checkout-button {
+  @extend .btn-lg;
+  display: block;
+}
