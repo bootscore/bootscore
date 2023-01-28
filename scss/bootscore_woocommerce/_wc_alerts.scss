@@ -3,10 +3,27 @@ WooCommerce Alerts
 --------------------------------------------------------------*/
 
 // Reset icon color in alerts
+.woocommerce-error::before,
 .woocommerce-info::before,
 .woocommerce-message::before,
 .wc-stripe-error::before {
   color: inherit;
+}
+
+// Add alert styles to WooCommerce notices
+.woocommerce-error {
+  @extend .alert;
+  @extend .alert-danger;
+}
+
+.woocommerce-info {
+  @extend .alert;
+  @extend .alert-info;
+}
+
+.woocommerce-message {
+  @extend .alert;
+  @extend .alert-success;
 }
 
 // Add alert to stripe notice
@@ -14,4 +31,11 @@ WooCommerce Alerts
   @extend .alert;
   @extend .alert-danger;
   @extend .mt-3;
+}
+
+// Hide all buttons inside WC alerts
+.woocommerce-error a.woocommerce-Button.button,
+.woocommerce-info a.woocommerce-Button.button,
+.woocommerce-message a.woocommerce-Button.button {
+  display: none;
 }
