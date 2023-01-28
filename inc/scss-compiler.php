@@ -14,6 +14,12 @@ use ScssPhp\ScssPhp\Compiler;
  * Compiles the scss to a css file to be read by the browser.
  */
 function bootscore_compile_scss() {
+  $disable_compiler = apply_filters('bootscore_scss_disable_compiler', (defined('BOOTSCORE_SCSS_DISABLE_COMPILER') && BOOTSCORE_SCSS_DISABLE_COMPILER));
+
+  if ($disable_compiler) {
+    return;
+  }
+
   $compiler = new Compiler();
 
   if (bootscore_child_has_scss() && is_child_theme()) {
@@ -34,6 +40,7 @@ function bootscore_compile_scss() {
   $stored_modified = get_theme_mod('bootscore_scss_modified_timestamp', 0);
 
   $is_environment_dev = in_array(wp_get_environment_type(), array('development','local'), true);
+  $skip_environment_check = apply_filters('bootscore_scss_skip_environment_check', (defined('BOOTSCORE_SCSS_SKIP_ENVIRONMENT_CHECK') && BOOTSCORE_SCSS_SKIP_ENVIRONMENT_CHECK));
 
   if ($is_environment_dev) {
     $compiler->setSourceMap(Compiler::SOURCE_MAP_FILE);
@@ -48,7 +55,7 @@ function bootscore_compile_scss() {
   }
 
   try {
-    if ($last_modified > $stored_modified || !file_exists($css_file) || $is_environment_dev) {
+    if ($last_modified > $stored_modified || !file_exists($css_file) || $is_environment_dev && !$skip_environment_check) {
       $compiled = $compiler->compileString(file_get_contents($scss_file));
 
       if (!file_exists(dirname($css_file))) {
