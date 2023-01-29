@@ -2,22 +2,14 @@
 WooCommerce Variable Product
 --------------------------------------------------------------*/
 
-/*
-// Line break after label
-table.variations th,
-table.variations td {
-  display: list-item;
-  list-style: none;
-}
-*/
 
 // Variations select
-.woocommerce div.product form.cart .variations select {
-  margin-right: 0;
-}
-
 .woocommerce div.product form.cart .variations {
   margin-bottom: 0;
+
+  select {
+    margin-right: 0;
+  }
 }
 
 // Quantity and add-to-cart-button
@@ -40,9 +32,10 @@ form.variations_form.cart {
     width: 100%;
   }
 }
-// Quantity and add to cart button END
 
-// Cursor variable product needs selection
-button.single_add_to_cart_button.btn.btn-primary.disabled.wc-variation-selection-needed:hover {
-  cursor: not-allowed;
+// Enable window alert on btn click if no selection is made
+.woocommerce button.disabled.button,
+.woocommerce div.product form.cart button.disabled.button {
+  pointer-events: auto;
+  cursor: inherit;
 }
