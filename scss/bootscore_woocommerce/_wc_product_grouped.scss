@@ -8,6 +8,11 @@ WooCommerce Grouped Product
   text-align: left;
 }
 
+// Full width button if product is out of stock
+.woocommerce-grouped-product-list a.button {
+  width: 100%;
+}
+
 // Stack add-to-cart button
 form.cart.grouped_form {
   flex-direction: column;
