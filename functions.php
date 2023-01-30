@@ -8,6 +8,7 @@
  * @package Bootscore
  */
 
+include 'inc/fa-shortcode.php';
 
 // WooCommerce
 //require get_template_directory() . '/woocommerce/woocommerce-functions.php';
