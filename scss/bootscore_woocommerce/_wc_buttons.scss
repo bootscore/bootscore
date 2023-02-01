@@ -6,7 +6,7 @@ WooCommerce Buttons
 // Widget buttons
 .woocommerce {
   #respond input#submit,
-  //a.button,
+  a.button,
   button.button,
   input.button {
     @extend .btn;
@@ -14,7 +14,13 @@ WooCommerce Buttons
   }
 }
 
-.woocommerce a.button,
+// Table buttons
+.woocommerce .shop_table a.button {
+  @extend .btn-sm;
+}
+
+// Add to cart buttons
+.woocommerce .card a.button,
 .woocommerce div.product form.cart button.button,
 .woocommerce-cart .wc-proceed-to-checkout a.checkout-button {
   @extend .btn;
