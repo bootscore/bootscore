@@ -3,6 +3,9 @@
 /**
  * The template for displaying comments
  *
+ * SPDX-FileCopyrightText: © 2021 Bastian Kreitrer (crftwrk) <pst@crftwrk.de>
+ * SPDX-License-Identifier: MIT
+ *
  * This is the template that displays the area of the page that contains both the current comments
  * and the comment form.
  *

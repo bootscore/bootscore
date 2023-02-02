@@ -1,4 +1,8 @@
 <?php
+ /**
+ * SPDX-FileCopyrightText: © 2021 Bastian Kreitrer (crftwrk) <pst@crftwrk.de>
+ * SPDX-License-Identifier: MIT
+ */
 
 // Comments
 function bootscore_reply() {

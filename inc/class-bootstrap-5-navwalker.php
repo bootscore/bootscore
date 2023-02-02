@@ -1,7 +1,11 @@
 <?php
 
 /*
-https://github.com/AlexWebLab/bootstrap-5-wordpress-navbar-walker
+ *
+ * SPDX-FileCopyrightText: © 2021 Alex WebLab
+ * SPDX-License-Identifier: MIT
+ * 
+ * https://github.com/AlexWebLab/bootstrap-5-wordpress-navbar-walker
 */
 
 // bootstrap 5 wp_nav_menu walker

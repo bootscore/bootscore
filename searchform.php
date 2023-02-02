@@ -1,3 +1,7 @@
+<!-- 
+ * SPDX-FileCopyrightText: © 2021 Bastian Kreitrer (crftwrk) <pst@crftwrk.de>
+ * SPDX-License-Identifier: MIT
+-->
 <!-- Search Button Outline Secondary Right -->
 <form class="searchform input-group" method="get" action="<?php echo esc_url(home_url('/')); ?>">
   <input type="text" name="s" class="form-control" placeholder="<?php _e('Search', 'bootscore'); ?>">

@@ -3,6 +3,10 @@
 /**
  * The sidebar containing the main widget area
  *
+ * SPDX-FileCopyrightText: © 2021 Bastian Kreitrer (crftwrk) <pst@crftwrk.de>
+ * SPDX-License-Identifier: MIT
+ *
+ *
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
  * @package Bootscore

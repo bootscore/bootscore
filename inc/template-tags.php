@@ -5,6 +5,10 @@
  *
  * Eventually, some of the functionality here could be replaced by core features.
  *
+ * SPDX-FileCopyrightText: © 2021 Bastian Kreitrer (crftwrk) <pst@crftwrk.de>
+ * SPDX-License-Identifier: MIT
+ *
+ *
  * @package Bootscore
  */
 

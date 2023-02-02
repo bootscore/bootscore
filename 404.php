@@ -3,6 +3,9 @@
 /**
  * The template for displaying 404 pages (not found)
  *
+ * SPDX-FileCopyrightText: © 2021 Bastian Kreitrer (crftwrk) <pst@crftwrk.de>
+ * SPDX-License-Identifier: MIT
+ *
  * @link https://codex.wordpress.org/Creating_an_Error_404_Page
  *
  * @package Bootscore

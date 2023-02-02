@@ -3,6 +3,10 @@
 /**
  * The template for displaying search results pages
  *
+ * SPDX-FileCopyrightText: © 2021 Bastian Kreitrer (crftwrk) <pst@crftwrk.de>
+ * SPDX-License-Identifier: MIT
+ *
+ *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#search-result
  *
  * @package Bootscore

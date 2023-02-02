@@ -1,6 +1,10 @@
 <?php
 /**
  * Template Name: Full width image
+ *
+ * SPDX-FileCopyrightText: © 2021 Bastian Kreitrer (crftwrk) <pst@crftwrk.de>
+ * SPDX-License-Identifier: MIT
+ *
  * Template Post Type: post
  */
 

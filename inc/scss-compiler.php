@@ -3,6 +3,9 @@
 /**
  * Functions to compile scss in the theme itself
  *
+ * SPDX-FileCopyrightText: © 2021 Bastian Kreitrer (crftwrk) <pst@crftwrk.de>
+ * SPDX-License-Identifier: MIT
+ *
  * @package Bootscore
  */
 

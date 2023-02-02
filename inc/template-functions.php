@@ -3,6 +3,10 @@
 /**
  * Functions which enhance the theme by hooking into WordPress
  *
+ *
+ * SPDX-FileCopyrightText: © 2021 Bastian Kreitrer (crftwrk) <pst@crftwrk.de>
+ * SPDX-License-Identifier: MIT
+ *
  * @package Bootscore
  */
 
