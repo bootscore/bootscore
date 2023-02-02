@@ -9,7 +9,7 @@ WooCommerce Buttons
   a.button,
   button.button,
   input.button,
-  a.button.alt {
+  a.button.alt:not(a.checkout-button) {
     @extend .btn;
     @extend .btn-outline-primary;
   }
