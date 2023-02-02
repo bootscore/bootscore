@@ -53,7 +53,7 @@ a.added_to_cart {
 
 
 // btn-loader, overlayCSS is not an option
-.single_add_to_cart_button, 
+.single_add_to_cart_button,
 .ajax_add_to_cart {
   position: relative;
 
@@ -78,28 +78,27 @@ a.added_to_cart {
 }
 
 
+// Reset default Woo btn loader
+.woocommerce {
 
-// Hide default Woo btn loader
-.woocommerce #respond input#submit.loading::after,
-.woocommerce a.button.loading::after,
-.woocommerce button.button.loading::after,
-.woocommerce input.button.loading::after {
-  display: none;
-}
+  #respond input#submit.loading::after,
+  a.button.loading::after,
+  button.button.loading::after,
+  input.button.loading::after,
+  #respond input#submit.added::after,
+  a.button.added::after,
+  button.button.added::after,
+  input.button.added::after {
+    display: none;
+  }
 
-// Hide default Woo btn loaded
-.woocommerce #respond input#submit.added::after,
-.woocommerce a.button.added::after,
-.woocommerce button.button.added::after,
-.woocommerce input.button.added::after {
-  display: none;
-}
+  #respond input#submit.loading,
+  a.button.loading,
+  button.button.loading,
+  input.button.loading {
+    opacity: 1;
+    padding-left: 0;
+    padding-right: 0;
+  }
 
-.woocommerce #respond input#submit.loading,
-.woocommerce a.button.loading,
-.woocommerce button.button.loading,
-.woocommerce input.button.loading {
-  opacity: 1;
-  padding-left: 0;
-  padding-right: 0;
 }

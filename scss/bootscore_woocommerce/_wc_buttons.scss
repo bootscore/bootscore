@@ -8,9 +8,10 @@ WooCommerce Buttons
   #respond input#submit,
   a.button,
   button.button,
-  input.button {
+  input.button,
+  a.button.alt {
     @extend .btn;
-    @extend .btn-outline-danger;
+    @extend .btn-outline-primary;
   }
 }
 
@@ -24,7 +25,7 @@ WooCommerce Buttons
 .woocommerce div.product form.cart button.button,
 .woocommerce-cart .wc-proceed-to-checkout a.checkout-button {
   @extend .btn;
-  @extend .btn-warning;
+  @extend .btn-primary;
 }
 
 
