@@ -421,7 +421,6 @@ function the_breadcrumb() {
     }
     echo '</ol>';
     echo '</nav>';
-    echo '</nav>';
   }
 }
 add_filter('breadcrumbs', 'breadcrumbs');
