@@ -2,42 +2,40 @@
 WooCommerce My Account
 --------------------------------------------------------------*/
 
-// Navigation
-.woocommerce-account .woocommerce-MyAccount-navigation {
-  float: none;
-  width: 100%;
-}
-
-// Content
-.woocommerce-account .woocommerce-MyAccount-content {
-  float: none;
-  width: 100%;
+.woocommerce-account {
+  // Navigation
+  .woocommerce-MyAccount-navigation,
+  // Content
+  .woocommerce-MyAccount-content {
+    float: none;
+    width: 100%;
+  }
 }
 
 // Download button
 // WooCommerce breakpoint is 769px
 @media (min-width: 769px) {
   .woocommerce-MyAccount-downloads-file {
-    display: block;
+    width: 100%
   }
 }
 
 // Invoice button
 // WooCommerce breakpoint is 769px
 @media (max-width: 768px) {
-  .invoice {
-    margin-left: 0.25rem;
+  .woocommerce .shop_table a.button.invoice {
+    margin-left: ($spacer * .25);
   }
 }
 
 @media (min-width: 769px) and (max-width: 991px) {
-  .invoice {
-    margin-top: 0.25rem;
+  .woocommerce .shop_table a.button.invoice {
+    margin-top: ($spacer * .25);
   }
 }
 
 @include media-breakpoint-up(lg) {
-  .invoice {
-    margin-left: 0.25rem;
+  .woocommerce .shop_table a.button.invoice {
+    margin-left: ($spacer * .25);
   }
 }

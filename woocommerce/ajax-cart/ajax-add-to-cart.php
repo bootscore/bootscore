@@ -155,7 +155,7 @@ function bootscore_product_page_ajax_add_to_cart_js() {
 
 
       // Add loading spinner to add_to_cart_button
-      $('.single_add_to_cart_button').prepend('<div class="btn-loader"><span class="spinner-border spinner-border-sm"></span></div>');
+      $('.single_add_to_cart_button, .ajax_add_to_cart').prepend('<div class="btn-loader"><span class="spinner-border spinner-border-sm"></span></div>');
 
       $('body').on('added_to_cart', function() {
         // Open offcanvas-cart when cart is loaded
