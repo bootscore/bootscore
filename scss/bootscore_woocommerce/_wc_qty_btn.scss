@@ -21,3 +21,8 @@ WooCommerce Quantity Input
 .quantity {
   width: 140px;
 }
+
+// Disable quantity input in cart page if only 1 product is in stock
+.qty[max="1"] {
+  @extend :disabled;
+}
