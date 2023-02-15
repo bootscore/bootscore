@@ -73,6 +73,9 @@ jQuery(function ($) {
     // Trigger change event
     $qty.trigger('change');
   });
+  
+  // Hide quantity input in product page if product is sold individually or only 1 in stock
+  $('.qty[type=hidden]').closest('.quantity').remove();
   // WC Quantity Input End 
   
 }); // jQuery End
