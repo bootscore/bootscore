@@ -2,18 +2,18 @@
 
 Contributors: Bastian Kreiter, Justin Kruit, Martin Holzer, Tim Groeneveld, Laurent Binder, Patrick, Gustavo Silva, TershiXia, 
 electronicsandprogramming, charly, Alexandros Kourmoulakis, Sven Geiß, ucalegonte, Benhaim Ido, Sean Emerson, Androidacy, Tamás Dohány,
-David Vanderhaeghe, Karsten Reincke
+David Vanderhaeghe, Karsten Reincke, Patrick Champoux
 
 Tags: featured-images, threaded-comments, translation-ready
 
 Requires at least: 4.5
 Tested up to: 6.1.1
 Requires PHP: 5.6
-Stable tag: 5.2.3.1
+Stable tag: 5.2.3.2
 License: MIT License
 License URI: https://github.com/bootscore/bootscore/blob/main/LICENSE
 
-bootScore, Bootstrap 5 WordPress Theme, Copyright 2019 - 2021 The bootScore Contributors.
+bootScore, Bootstrap 5 WordPress Theme, Copyright 2019 - 2023 The bootScore Contributors.
 
 
 === Plugin Name ===
@@ -59,6 +59,18 @@ bootScore includes support for WooCommerce and Infinite Scroll in Jetpack.
 
 == Changelog ==
 
+    = 5.2.3.2 - February 16 2023 =
+    
+        * [IMPROVEMENT] Remove WooCommerce notice templates #372
+        * [IMPROVEMENT] Remove WooCommerce btn templates #386
+        * [IMPROVEMENT] Add more control over scss compiler #375
+        * [UPDATE] screenshot.png 016bfc7
+        * [UPDATE] Fontawesome 6.3.0 #394
+        * [UPDATE] quantity-input.php (WooCommerce 7.4.0) e93256e 5a77059
+        * [UPDATE] cart.php (WooCommerce 7.4.0) ffb674c
+        * [BUGFIX] Extend compound selectors #395
+        * [BUGFIX] Remove duplicated nav closing tag in the_breadcrumb() #398
+
     = 5.2.3.1 - January 16 2023 =
     
         * [UPDATE] quantity-input.php (WooCommerce 7.2) #331
@@ -76,7 +88,6 @@ bootScore includes support for WooCommerce and Infinite Scroll in Jetpack.
         * [UPDATE] Bootstrap 5.2.3
         * [IMPROVEMENT] Türkçe
         * [NEW] Magyar, thanks to iamdtms
-
 
     = 5.2.2.1 - November 03 2022 =
     
