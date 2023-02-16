@@ -27,3 +27,8 @@ WooCommerce Quantity Input
     @extend :disabled;
   }
 }
+
+// Hide quantity input if product is sold individually
+.sold-individually .quantity {
+  display: none;
+}

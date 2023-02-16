@@ -73,7 +73,7 @@ function bootscore_product_page_ajax_add_to_cart_js() {
 
       });
 
-      $('a.ajax_add_to_cart:not(.outofstock a.ajax_add_to_cart)').on('click', function(e) {
+      $('a.ajax_add_to_cart').on('click', function(e) {
 
         e.preventDefault();
 
@@ -136,9 +136,9 @@ function bootscore_product_page_ajax_add_to_cart_js() {
 
               let notice = '';
               if (response.error == true) {
-                notice = `<div class='woocommerce-message alert alert-danger'><?php _e('You cannot add another', 'bootscore'); ?> “${prod_title}” <?php _e('to your cart.', 'bootscore'); ?></div>`;
+                notice = `<div class='woocommerce-error'><?php _e('You cannot add another', 'bootscore'); ?> “${prod_title}” <?php _e('to your cart.', 'bootscore'); ?></div>`;
               } else {
-                notice = `<div class="woocommerce-message alert alert-success">“${prod_title}” <?php _e('has been added to your cart.', 'bootscore'); ?></div>`;
+                notice = `<div class="woocommerce-message">“${prod_title}” <?php _e('has been added to your cart.', 'bootscore'); ?></div>`;
               }
 
               // Add new notices to offcanvas
@@ -164,7 +164,7 @@ function bootscore_product_page_ajax_add_to_cart_js() {
 
       // Hide alert in offcanvas-cart when offcanvas is closed
       $('#offcanvas-cart').on('hidden.bs.offcanvas', function() {
-        $('#offcanvas-cart .woocommerce-message').remove();
+        $('#offcanvas-cart .woocommerce-message, #offcanvas-cart .woocommerce-error').remove();
       });
 
       // Refresh ajax mini-cart on browser back button
