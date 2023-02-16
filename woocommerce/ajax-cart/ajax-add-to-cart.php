@@ -136,9 +136,9 @@ function bootscore_product_page_ajax_add_to_cart_js() {
 
               let notice = '';
               if (response.error == true) {
-                notice = `<div class='woocommerce-message alert alert-danger'><?php _e('You cannot add another', 'bootscore'); ?> “${prod_title}” <?php _e('to your cart.', 'bootscore'); ?></div>`;
+                notice = `<div class='woocommerce-error'><?php _e('You cannot add another', 'bootscore'); ?> “${prod_title}” <?php _e('to your cart.', 'bootscore'); ?></div>`;
               } else {
-                notice = `<div class="woocommerce-message alert alert-success">“${prod_title}” <?php _e('has been added to your cart.', 'bootscore'); ?></div>`;
+                notice = `<div class="woocommerce-message">“${prod_title}” <?php _e('has been added to your cart.', 'bootscore'); ?></div>`;
               }
 
               // Add new notices to offcanvas
