@@ -73,7 +73,7 @@ function bootscore_product_page_ajax_add_to_cart_js() {
 
       });
 
-      $('a.ajax_add_to_cart:not(.outofstock a.ajax_add_to_cart)').on('click', function(e) {
+      $('a.ajax_add_to_cart').on('click', function(e) {
 
         e.preventDefault();
 
