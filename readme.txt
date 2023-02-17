@@ -70,7 +70,7 @@ bootScore includes support for WooCommerce and Infinite Scroll in Jetpack.
         * [UPDATE] quantity-input.php (WooCommerce 7.4.0) 15f84aa
         * [UPDATE] cart.php (WooCommerce 7.4.0) 6f3fa58
         * [BUGFIX] Extend compound selectors #395
-        * [BUGFIX] Remove duplicated nav closing tag in the_breadcrumb() #398
+        * [BUGFIX] Remove duplicated nav closing tag in the_breadcrumb #398
 
     = 5.2.3.1 - January 16 2023 =
     
