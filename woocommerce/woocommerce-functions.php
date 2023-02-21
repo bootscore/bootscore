@@ -274,66 +274,18 @@ function bootscore_redirect_after_registration() {
 // Redirect to my-account after (un)sucessful registration End
 
 
+// Add -/+ buttons to quantity-input.php
+add_action( 'woocommerce_before_quantity_input_field', 'bs_quantity_minus_button' );
 
+function bs_quantity_minus_button() {
+  echo '<button type="button" class="minus input-group-text" >-</button>';
+}
 
-
-// Quantity buttons
-add_action( 'woocommerce_after_quantity_input_field', 'ts_quantity_plus_sign' );
+add_action( 'woocommerce_after_quantity_input_field', 'bs_quantity_plus_button' );
  
-function ts_quantity_plus_sign() {
-   echo '<button type="button" class="plus input-group-text" >+</button>';
+function bs_quantity_plus_button() {
+  echo '<button type="button" class="plus input-group-text" >+</button>';
 }
  
-add_action( 'woocommerce_before_quantity_input_field', 'ts_quantity_minus_sign' );
-
-function ts_quantity_minus_sign() {
-   echo '<button type="button" class="minus input-group-text" >-</button>';
-}
- 
-add_action( 'wp_header', 'ts_quantity_plus_minus' );
- 
-
-/*
-function ts_quantity_plus_minus() {
-   // To run this on the single product page
-   if ( ! is_product() ) return;
-   ?>
-   <script type="text/javascript">
-          
-      jQuery(document).ready(function($){   
-          
-            $('form.cart').on( 'click', 'button.plus, button.minus', function() {
- 
-            // Get current quantity values
-            var qty = $( this ).closest( 'form.cart' ).find( '.qty' );
-            var val   = parseFloat(qty.val());
-            var max = parseFloat(qty.attr( 'max' ));
-            var min = parseFloat(qty.attr( 'min' ));
-            var step = parseFloat(qty.attr( 'step' ));
- 
-            // Change the value if plus or minus
-            if ( $( this ).is( '.plus' ) ) {
-               if ( max && ( max <= val ) ) {
-                  qty.val( max );
-               } 
-            else {
-               qty.val( val + step );
-                 }
-            } 
-            else {
-               if ( min && ( min >= val ) ) {
-                  qty.val( min );
-               } 
-               else if ( val > 1 ) {
-                  qty.val( val - step );
-               }
-            }
-             
-         });
-          
-      });
-          
-   </script>
-   <?php
-}
-*/
+add_action( 'wp_header', 'bs_quantity_plus_minus' );
+// Add -/+ buttons to quantity-input.php End

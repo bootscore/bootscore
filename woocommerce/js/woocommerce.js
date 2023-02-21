@@ -30,7 +30,6 @@ jQuery(function ($) {
   });
   // Single-product Tabs End
 
-  
   // WC Quantity Input
   if (!String.prototype.getDecimals) {
     String.prototype.getDecimals = function () {
@@ -80,10 +79,4 @@ jQuery(function ($) {
   $('.quantity [max="1"]').attr('type', 'number');
   // WC Quantity Input End 
   
-  
 }); // jQuery End
-
-
-
-
-

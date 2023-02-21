@@ -2,6 +2,14 @@
 WooCommerce Quantity Input
 --------------------------------------------------------------*/
 
+.quantity {
+  @extend .input-group;
+}
+
+.qty {
+  @extend .form-control;
+}
+
 .woocommerce .quantity input {
   // Hide browser arrows in quantity input
   &::-webkit-outer-spin-button,
@@ -31,13 +39,4 @@ WooCommerce Quantity Input
 // Hide quantity input if product is sold individually
 .sold-individually .quantity {
   display: none;
-}
-
-
-.quantity {
-  @extend .input-group;
-}
-
-.qty {
-  @extend .form-control;
 }
