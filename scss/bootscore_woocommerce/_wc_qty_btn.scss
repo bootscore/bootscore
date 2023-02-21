@@ -32,3 +32,12 @@ WooCommerce Quantity Input
 .sold-individually .quantity {
   display: none;
 }
+
+
+.quantity {
+  @extend .input-group;
+}
+
+.qty {
+  @extend .form-control;
+}
