@@ -281,17 +281,19 @@ function bootscore_redirect_after_registration() {
 add_action( 'woocommerce_after_quantity_input_field', 'ts_quantity_plus_sign' );
  
 function ts_quantity_plus_sign() {
-   echo '<button type="button" class="input-group-text plus" >+</button>';
+   echo '<button type="button" class="plus input-group-text" >+</button>';
 }
  
 add_action( 'woocommerce_before_quantity_input_field', 'ts_quantity_minus_sign' );
 
 function ts_quantity_minus_sign() {
-   echo '<button type="button" class="input-group-text minus" >-</button>';
+   echo '<button type="button" class="minus input-group-text" >-</button>';
 }
  
-add_action( 'wp_footer', 'ts_quantity_plus_minus' );
+add_action( 'wp_header', 'ts_quantity_plus_minus' );
  
+
+/*
 function ts_quantity_plus_minus() {
    // To run this on the single product page
    if ( ! is_product() ) return;
@@ -334,3 +336,4 @@ function ts_quantity_plus_minus() {
    </script>
    <?php
 }
+*/
