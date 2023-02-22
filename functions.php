@@ -352,7 +352,7 @@ if (!function_exists('bootscore_pagination')) :
     if (1 != $pages) {
       echo '<nav aria-label="Page navigation" role="navigation">';
       echo '<span class="sr-only">Page navigation</span>';
-      echo '<ul class="pagination justify-content-center ft-wpbs mb-4">';
+      echo '<ul class="pagination justify-content-center mb-4">';
 
 
       if ($paged > 2 && $paged > $range + 1 && $showitems < $pages)
