@@ -46,6 +46,10 @@ function wc_scripts() {
 
   // WooCommerce JS
   wp_enqueue_script('woocommerce-script', get_template_directory_uri() . '/woocommerce/js/woocommerce.js', array(), $modificated_WooCommerceJS, true);
+  wp_localize_script('woocommerce-script', 'bootscore_wc', array(
+    'add_to_cart_success_msg' => sprintf( _n( '%s has been added to your cart.', '%s have been added to your cart.', 1, 'woocommerce' ), '“{{product_title}}”' ),
+    'add_to_cart_error_msg' => sprintf( __( 'You cannot add another "%s" to your cart.', 'woocommerce' ), '“{{product_title}}”' ),
+  ));
 
   if (is_singular() && comments_open() && get_option('thread_comments')) {
     wp_enqueue_script('comment-reply');
