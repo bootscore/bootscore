@@ -137,11 +137,11 @@ function bootscore_product_page_ajax_add_to_cart_js() {
               let notice = '';
               if (response.error == true) {
                 //notice = `<div class='woocommerce-error'><?php //_e('You cannot add another', 'bootscore'); ?>// “${prod_title}” <?php //_e('to your cart.', 'bootscore'); ?>//</div>`;
-                let message = bootscore_wc.add_to_cart_error_msg;
+                let message = `<?= sprintf( __( 'You cannot add another "%s" to your cart.', 'woocommerce' ), '“{{product_title}}”' ) ?>`;
                 notice = `<div class="woocommerce-message">${message.replace('{{product_title}}', prod_title)}</div>`;
               } else {
                 //notice = `<div class="woocommerce-message">“${prod_title}” <?php //_e('has been added to your cart.', 'bootscore'); ?>//</div>`;
-                let message = bootscore_wc.add_to_cart_success_msg;
+                let message = `<?= sprintf( _n( '%s has been added to your cart.', '%s have been added to your cart.', 1, 'woocommerce' ), '“{{product_title}}”' ) ?>`;
                 notice = `<div class="woocommerce-message">${message.replace('{{product_title}}', prod_title)}</div>`;
               }
 
