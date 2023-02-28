@@ -2,13 +2,8 @@
 Alerts
 --------------------------------------------------------------*/
 
-.alert {
-  &.alert-danger-icon,
-  &.alert-warning-icon,
-  &.alert-info-icon,
-  &.alert-success-icon {
-    padding-left: 3.25rem;
-  }
+.alert-icon {
+  padding-left: 3.25rem;
 
   &::before {
     position: absolute;
