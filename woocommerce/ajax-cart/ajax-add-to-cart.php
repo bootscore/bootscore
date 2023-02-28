@@ -136,7 +136,7 @@ function bootscore_product_page_ajax_add_to_cart_js() {
 
               let notice = '';
               if (response.error == true) {
-                let message = `<?= sprintf( __( 'You cannot add another "%s" to your cart.', 'woocommerce' ), '“{{product_title}}”' ) ?>`;
+                let message = `<?= sprintf( __( 'You cannot add another "%s" to your cart.', 'woocommerce' ), '{{product_title}}' ) ?>`;
                 notice = `<div class="woocommerce-error">${message.replace('{{product_title}}', prod_title)}</div>`;
               } else {
                 let message = `<?= sprintf( _n( '%s has been added to your cart.', '%s have been added to your cart.', 1, 'woocommerce' ), '“{{product_title}}”' ) ?>`;
