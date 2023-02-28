@@ -34,7 +34,7 @@ WooCommerce Alerts
   @extend .alert;
   @extend .alert-danger;
   @extend .alert-danger-icon;
-  @extend .mt-3;
+  margin-top: $spacer;
 }
 
 // Hide all buttons inside WC alerts
