@@ -14,22 +14,26 @@ WooCommerce Alerts
 .woocommerce-error {
   @extend .alert;
   @extend .alert-danger;
+  @extend .alert-danger-icon;
 }
 
 .woocommerce-info {
   @extend .alert;
   @extend .alert-info;
+  @extend .alert-info-icon;
 }
 
 .woocommerce-message {
   @extend .alert;
   @extend .alert-success;
+  @extend .alert-success-icon;
 }
 
 // Add alert to stripe notice
 .wc-stripe-error {
   @extend .alert;
   @extend .alert-danger;
+  @extend .alert-danger-icon;
   @extend .mt-3;
 }
 
