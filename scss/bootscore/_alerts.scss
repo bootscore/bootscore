@@ -61,5 +61,5 @@ Alerts
 .must-log-in {
   @extend .alert;
   @extend .alert-info;
-  @extend .mt-3;
+  margin-top: $spacer;
 }
