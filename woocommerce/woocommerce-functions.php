@@ -272,3 +272,20 @@ function bootscore_redirect_after_registration() {
   }
 }
 // Redirect to my-account after (un)sucessful registration End
+
+
+// Add -/+ buttons to quantity-input.php
+add_action( 'woocommerce_before_quantity_input_field', 'bs_quantity_minus_button' );
+
+function bs_quantity_minus_button() {
+  echo '<button type="button" class="minus input-group-text" >-</button>';
+}
+
+add_action( 'woocommerce_after_quantity_input_field', 'bs_quantity_plus_button' );
+ 
+function bs_quantity_plus_button() {
+  echo '<button type="button" class="plus input-group-text" >+</button>';
+}
+ 
+add_action( 'wp_header', 'bs_quantity_plus_minus' );
+// Add -/+ buttons to quantity-input.php End
