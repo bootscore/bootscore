@@ -18,9 +18,11 @@ jQuery(function ($) {
     $('.top-nav-search input:first-of-type').trigger('focus');
   });
 
-  // Close collapse if searchform loses focus
-  $('.top-nav-search input:first-of-type').on('focusout', function () {
-    $('#collapse-search').collapse('hide');
+  // Close collapse if click outside searchform
+  $(document).on('click', function (event) {
+    if ($(event.target).closest('#collapse-search').length === 0) {
+      $('#collapse-search').collapse('hide');
+    }
   });
 
   // Scroll to top Button
