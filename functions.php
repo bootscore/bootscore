@@ -497,3 +497,8 @@ add_filter('gutenberg_use_widgets_block_editor', '__return_false');
 // Disables the block editor from managing widgets.
 add_filter('use_widgets_block_editor', '__return_false');
 // Disable Gutenberg blocks in widgets (WordPress 5.8) END
+
+// let WordPress automatically created a 'thumbnail' 600x600
+// if a picture is uploaded to the media library
+// Make that size accessible under the name 'bsTeaser'
+add_image_size( 'bsTeaser', 600, 600, true );
