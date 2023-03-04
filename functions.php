@@ -497,3 +497,19 @@ add_filter('gutenberg_use_widgets_block_editor', '__return_false');
 // Disables the block editor from managing widgets.
 add_filter('use_widgets_block_editor', '__return_false');
 // Disable Gutenberg blocks in widgets (WordPress 5.8) END
+//
+
+
+/*
+ * Simple short code for inserting font awesome icons on Gutenberg leveli
+ * (instead of heaving to insert HTML code into a block on HTML editing mode)
+ */
+function bsfaCode($atts){
+  $atts = (array) $atts;
+  $vstr = "";
+  foreach ( $atts as $value ) {
+    $vstr = $vstr . " $value";
+  }
+  return '<i class="' . $vstr . '"></i>';
+};
+add_shortcode('bsfa', 'bsfaCode');
