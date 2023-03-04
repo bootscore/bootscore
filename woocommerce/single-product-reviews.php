@@ -139,7 +139,7 @@ if (!comments_open()) {
       </div>
     </div>
   <?php else : ?>
-    <p class="woocommerce-verification-required alert alert-info"><?php esc_html_e('Only logged in customers who have purchased this product may leave a review.', 'woocommerce'); ?></p>
+    <p class="woocommerce-verification-required woocommerce-info"><?php esc_html_e('Only logged in customers who have purchased this product may leave a review.', 'woocommerce'); ?></p>
   <?php endif; ?>
 
   <div class="clear"></div>
