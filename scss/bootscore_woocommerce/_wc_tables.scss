@@ -36,3 +36,8 @@ WooCommerce Tables
     border-bottom-left-radius: $border-radius;
   }
 }
+
+
+.woocommerce table.shop_table {
+  border-radius: $border-radius-2xl;
+}
