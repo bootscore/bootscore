@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: _s 1.0.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/tags/_s\n"
-"POT-Creation-Date: 2022-12-19 12:05+0000\n"
+"POT-Creation-Date: 2023-03-05 09:38+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -145,6 +145,10 @@ msgid ""
 "our use of cookies."
 msgstr ""
 
+#: functions.php:365
+msgid "Current Page"
+msgstr ""
+
 #: woocommerce/checkout/form-shipping.php:36
 msgid "Delivery details"
 msgstr ""
@@ -156,6 +160,10 @@ msgstr ""
 
 #: comments.php:129 woocommerce/single-product-reviews.php:96
 msgid "Email* (will not be published)"
+msgstr ""
+
+#: functions.php:358
+msgid "First Page"
 msgstr ""
 
 #: functions.php:172
@@ -182,7 +190,7 @@ msgstr ""
 msgid "Full width image"
 msgstr ""
 
-#: woocommerce/ajax-cart/ajax-add-to-cart.php:138
+#: woocommerce/ajax-cart/ajax-add-to-cart.php:141
 msgid "has been added to your cart."
 msgstr ""
 
@@ -212,6 +220,10 @@ msgstr ""
 msgid ""
 "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
 "searching can help."
+msgstr ""
+
+#: functions.php:372
+msgid "Last Page"
 msgstr ""
 
 #. %s: post title
@@ -252,6 +264,10 @@ msgstr ""
 msgid "Newer Comments"
 msgstr ""
 
+#: functions.php:369
+msgid "Next Page"
+msgstr ""
+
 #. Name of the template
 msgid "No Sidebar"
 msgstr ""
@@ -272,18 +288,23 @@ msgstr ""
 msgid "or"
 msgstr ""
 
+#: functions.php:365
+msgid "Page"
+msgstr ""
+
+#: functions.php:354
+msgid "Page navigation"
+msgstr ""
+
 #: 404.php:23
 msgid "Page not found."
 msgstr ""
 
-#: page.php:44 page-templates/page-blank-with-container.php:25
-#: page-templates/page-sidebar-none.php:34 page-templates/page-blank.php:25
 #: page-templates/page-blank-without-container.php:25
-#: page-templates/page-sidebar-left.php:39
 msgid "Pages:"
 msgstr ""
 
-#: functions.php:448
+#: functions.php:446
 msgid "Password"
 msgstr ""
 
@@ -303,6 +324,10 @@ msgstr ""
 
 #: comments.php:105
 msgid "Post Comment"
+msgstr ""
+
+#: functions.php:361
+msgid "Previous Page"
 msgstr ""
 
 #: archive.php:64 index.php:82 index.php:139
@@ -354,7 +379,7 @@ msgstr ""
 msgid "Start typing..."
 msgstr ""
 
-#: functions.php:449
+#: functions.php:447
 msgid "Submit"
 msgstr ""
 
@@ -376,7 +401,7 @@ msgstr ""
 msgid "To find out your shipping cost, please proceed to checkout."
 msgstr ""
 
-#: woocommerce/ajax-cart/ajax-add-to-cart.php:136
+#: woocommerce/ajax-cart/ajax-add-to-cart.php:139
 msgid "to your cart."
 msgstr ""
 
@@ -396,7 +421,7 @@ msgstr ""
 msgid "Website"
 msgstr ""
 
-#: woocommerce/ajax-cart/ajax-add-to-cart.php:136
+#: woocommerce/ajax-cart/ajax-add-to-cart.php:139
 msgid "You cannot add another"
 msgstr ""
 
