@@ -5,6 +5,7 @@ WooCommerce Buttons
 
 // Widget buttons
 .woocommerce {
+
   #respond input#submit,
   a.button,
   button.button,
@@ -16,7 +17,8 @@ WooCommerce Buttons
 }
 
 // Table buttons
-.woocommerce .shop_table a.button {
+.woocommerce .shop_table a.button,
+.woocommerce .shop_table a.woocommerce-MyAccount-downloads-file.button.alt {
   @extend .btn-sm;
 }
 
@@ -27,5 +29,3 @@ WooCommerce Buttons
   @extend .btn;
   @extend .btn-primary;
 }
-
-

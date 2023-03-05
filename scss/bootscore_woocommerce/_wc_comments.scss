@@ -13,7 +13,7 @@ WooCommerce Comments
   padding-left: 65px;
 }
 
-// Last child bottom margin
-#woo-comments p:last-child {
+// Last p bottom margin in comment card
+#woo-comments .comment-content p:last-child {
   margin-bottom: 0;
 }

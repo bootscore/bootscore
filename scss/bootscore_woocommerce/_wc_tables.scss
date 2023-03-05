@@ -28,6 +28,11 @@ WooCommerce Tables
   border-top: 1px solid;
 }
 
+// Woo table border-radius
+.woocommerce table.shop_table {
+  border-radius: $border-radius;
+}
+
 // Border radius cart actions
 // WooCommerce breakpoints are at 769px
 @media (max-width: 768px) {
