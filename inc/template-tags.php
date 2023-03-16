@@ -19,7 +19,7 @@ if (!function_exists('bootscore_category_badge')) :
       $i = 0;
       foreach (get_the_category() as $category) {
         if (0 < $i) $thelist .= ' ';
-        $thelist .= '<a href="' . esc_url(get_category_link($category->term_id)) . '" class="badge text-bg-secondary text-decoration-none">' . $category->name . '</a>';
+        $thelist .= '<a href="' . esc_url(get_category_link($category->term_id)) . '" class="badge text-bg-danger text-decoration-none">' . $category->name . '</a>';
         $i++;
       }
       echo $thelist;
@@ -185,18 +185,26 @@ if (!function_exists('bootscore_tags')) :
 
 
       /* translators: used between list items, there is a space after the comma */
+      //echo esc_html__( 'Post Tags:', 'kadence' );
+      //echo '<div class="tag-heading">' . esc_html__('Tagged %1$s', 'bootscore') . '</div>';
+      echo '<p class="tag-heading mb-1">' . esc_html__('Tagged', 'bootscore') . '</p>';
+      //printf('<p class="tag-heading mb-1">' . esc_html__('Tagged %1$s', 'bootscore') . '</p>');
       $tags_list = get_the_tag_list('', ' ');
       if ($tags_list) {
         /* translators: 1: list of tags. */
-        printf('<div class="tags-links mt-2">' . esc_html__('Tagged %1$s', 'bootscore') . '</div>', $tags_list); // WPCS: XSS OK.
+        //printf('<div class="tags-links">' . esc_html__('Tagged %1$s', 'bootscore') . '</div>', $tags_list); // WPCS: XSS OK.
+        echo get_the_tag_list();
+        //echo '<li><a href="' . get_tag_link( $post_tag ) . '">' . $post_tag->name . '</a></li>';
+
       }
     }
   }
   add_filter("term_links-post_tag", 'add_tag_class');
 
   function add_tag_class($links) {
-    return str_replace('<a href="', '<a class="badge text-bg-secondary text-decoration-none" href="', $links);
+    return str_replace('<a href="', '<a class="badge text-bg-danger text-decoration-none me-1" href="', $links);
   }
+  
 endif;
 // Tags End
 
