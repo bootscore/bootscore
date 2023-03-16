@@ -26,3 +26,8 @@ p:empty:before {
 .grecaptcha-badge {
   display: none !important;
 }
+
+// Dark mode text-body in loop (remove in Bootstrap 5.3.0)
+.dark-theme .text-body {
+  color: var(--#{$prefix}light) !important;
+}
