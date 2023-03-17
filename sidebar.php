@@ -14,7 +14,7 @@ if (!is_active_sidebar('sidebar-1')) {
   return;
 }
 ?>
-<div class="col-md-4 col-xxl-3 order-first order-md-last">
+<div class="col-md-4 col-lg-3 order-first order-md-last">
   <aside id="secondary" class="widget-area">
 
     <button class="btn btn-outline-primary w-100 mb-4 d-flex d-md-none justify-content-between align-items-center" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebar" aria-controls="sidebar">

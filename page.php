@@ -23,7 +23,7 @@ get_header();
     <?php bs_after_primary(); ?>
 
     <div class="row">
-      <div class="col-md-8 col-xxl-9">
+      <div class="col-md-8 col-lg-9">
 
         <main id="main" class="site-main">
 
