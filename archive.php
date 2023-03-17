@@ -37,7 +37,7 @@ get_header();
                 <div class="row g-0">
                   <!-- Featured Image-->
                   <?php if (has_post_thumbnail())
-                    echo '<div class="card-img-left-md col-lg-6 col-xl-5 col-xxl-4">' . get_the_post_thumbnail(null, 'medium') . '</div>';
+                    echo '<div class="card-img-left-md col-lg-6 col-xl-5 col-xxl-4"><a href="' . get_the_permalink() . '">' . get_the_post_thumbnail(null, 'medium') . '</a></div>';             
                   ?>
                   <div class="col">
                     <div class="card-body">
@@ -45,7 +45,7 @@ get_header();
                       <?php bootscore_category_badge(); ?>
 
                       <!-- Title -->
-                      <h2 class="blog-post-title h4">
+                      <h2 class="blog-post-title h5">
                         <a class="text-body text-decoration-none" href="<?php the_permalink(); ?>">
                           <?php the_title(); ?>
                         </a>
