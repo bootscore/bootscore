@@ -21,9 +21,9 @@ get_header();
 
         <main id="main" class="site-main">
 
-          <header class="page-header">
+          <header class="page-header mb-4">
             <h1><?php the_archive_title(); ?></h1>
-            <div class="archive-description lead">
+            <div class="archive-description">
               <?php the_archive_description(); ?>
             </div>
           </header>
