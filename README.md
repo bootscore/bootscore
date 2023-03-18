@@ -46,8 +46,8 @@ Check the [documentation](https://bootscore.me/category/documentation/). If you 
 ### Issues
 If you find a bug or have a feature idea, you're welcome to open an [issue](https://github.com/bootscore/bootscore/issues). Please check [closed issues](https://github.com/bootscore/bootscore/issues?q=is%3Aissue+is%3Aclosed) first to avoid duplicates.
 
-### Newsletter
-For important updates read the [blog](https://bootscore.me/category/blog/) and subscribe to the [newsletter](https://bootscore.me/category/blog/#newsletter). You will be informed if there is something new you should know.
+### Blog & Twitter
+For important updates read the [blog](https://bootscore.me/category/blog/) and follow us on [Twitter](https://twitter.com/_bootscore). You will be informed if there is something new you should know.
 
 ### Pull requests
 
