@@ -6,31 +6,26 @@ Loop
 
 // category.php, archive.php, author.php and search results
 @include media-breakpoint-down(lg) {
-  .card-img-left-md img {
+  .card-img-lg-start {
     border-top-left-radius: var(--#{$prefix}card-inner-border-radius);
     border-top-right-radius: var(--#{$prefix}card-inner-border-radius);
-    width: 100%;
-    height: auto;
   }
 }
 
 @include media-breakpoint-up(lg) {
-  .card-img-left-md img {
+  .card-img-lg-start {
     border-top-left-radius: var(--#{$prefix}card-inner-border-radius);
     border-bottom-left-radius: var(--#{$prefix}card-inner-border-radius);
     object-fit: cover;
-    width: 100%;
     height: 100%;
   }
 }
 
-// Sticky post in index.php
+// Somewhere in additional loop templates? If so, delete or improve template. 
 @include media-breakpoint-down(md) {
   .card-img-left img {
     border-top-left-radius: var(--#{$prefix}card-inner-border-radius);
     border-top-right-radius: var(--#{$prefix}card-inner-border-radius);
-    width: 100%;
-    height: auto;
   }
 }
 
@@ -39,7 +34,6 @@ Loop
     border-top-left-radius: var(--#{$prefix}card-inner-border-radius);
     border-bottom-left-radius: var(--#{$prefix}card-inner-border-radius);
     object-fit: cover;
-    width: 100%;
     height: 100%;
   }
 }
