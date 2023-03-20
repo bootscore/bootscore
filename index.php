@@ -82,14 +82,18 @@ get_header();
                             </p>
                           <?php endif; ?>
 
-                          <div class="card-text">
+                          <p class="card-text">
                             <a class="text-body text-decoration-none" href="<?php the_permalink(); ?>">
-                              <?php the_excerpt(); ?> 
+                              <?php echo strip_tags(get_the_excerpt()); ?>
                             </a>
-                          </div>
+                          </p>
 
-                          <p class="card-text"><a class="read-more" href="<?php the_permalink(); ?>"><?php _e('Read more »', 'bootscore'); ?></a></p>
-
+                          <p class="card-text">
+                            <a class="read-more" href="<?php the_permalink(); ?>">
+                              <?php _e('Read more »', 'bootscore'); ?>
+                            </a>
+                          </p>
+                          
                           <?php bootscore_tags(); ?>
 
                         </div>
@@ -97,7 +101,6 @@ get_header();
                     </div>
                   </div>
                              
-
                 </article>
             <?php
               endwhile;
@@ -150,14 +153,18 @@ get_header();
                         </p>
                       <?php endif; ?>
 
-                      <div class="card-text">
+                      <p class="card-text">
                         <a class="text-body text-decoration-none" href="<?php the_permalink(); ?>">
-                          <?php the_excerpt(); ?> 
+                          <?php echo strip_tags(get_the_excerpt()); ?>
                         </a>
-                      </div>
+                      </p>
                       
-                      <p class="card-text"><a class="read-more" href="<?php the_permalink(); ?>"><?php _e('Read more »', 'bootscore'); ?></a></p>
-
+                      <p class="card-text">
+                        <a class="read-more" href="<?php the_permalink(); ?>">
+                          <?php _e('Read more »', 'bootscore'); ?>
+                        </a>
+                      </p>
+                      
                       <?php bootscore_tags(); ?>
 
                     </div>
