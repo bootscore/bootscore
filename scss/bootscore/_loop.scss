@@ -21,23 +21,6 @@ Loop
   }
 }
 
-// Somewhere in additional loop templates? If so, delete or improve template. 
-@include media-breakpoint-down(md) {
-  .card-img-left img {
-    border-top-left-radius: var(--#{$prefix}card-inner-border-radius);
-    border-top-right-radius: var(--#{$prefix}card-inner-border-radius);
-  }
-}
-
-@include media-breakpoint-up(md) {
-  .card-img-left img {
-    border-top-left-radius: var(--#{$prefix}card-inner-border-radius);
-    border-bottom-left-radius: var(--#{$prefix}card-inner-border-radius);
-    object-fit: cover;
-    height: 100%;
-  }
-}
-
 // Hide "Tagged" in loop
 .card .tags-heading {
   display: none;
