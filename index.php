@@ -175,10 +175,9 @@ get_header();
             <?php endwhile; ?>
           <?php endif; ?>
 
-          <!-- Pagination -->
-          <div>
+          <footer class="entry-footer">
             <?php bootscore_pagination(); ?>
-          </div>
+          </footer>
 
         </div>
         <!-- col -->
