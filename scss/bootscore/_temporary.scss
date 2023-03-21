@@ -2,20 +2,6 @@
 Temporary
 --------------------------------------------------------------*/
 
-// Prefix webkit browsers checks, select and form-range
-.form-check-input,
-.form-select {
-  -webkit-appearance: none;
-}
-
-.form-range {
-  -webkit-appearance: none;
-
-  &::-webkit-slider-thumb {
-    -webkit-appearance: none;
-  }
-}
-
 // Remove autop (WP 5.7 bug near shortcode)
 // https://wordpress.org/support/topic/how-to-stop-wp-from-adding-p-tag-automatically/
 p:empty:before {
