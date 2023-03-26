@@ -41,15 +41,15 @@ if (!function_exists('bootscore_comment')) :
             <div class="card">
               <div class="card-body">
 
-                <div class="mt-0"><?php printf(__('%s <span class="says d-none">says:</span>', 'bootscore'), sprintf('<h3 class="">%s</h3>', get_comment_author_link())); ?>
+                <div class="mt-0"><?php printf(__('%s <span class="says d-none">says:</span>', 'bootscore'), sprintf('<h3 class="h5">%s</h3>', get_comment_author_link())); ?>
                 </div>
 
-                <div class="small comment-meta text-muted mb-2">
+                <p class="small comment-meta text-muted">
                   <time datetime="<?php comment_time('c'); ?>">
                     <?php printf(_x('%1$s at %2$s', '1: date, 2: time', 'bootscore'), get_comment_date(), get_comment_time()); ?>
                   </time>
                   <?php edit_comment_link(__('Edit', 'bootscore'), '<span class="edit-link">', '</span>'); ?>
-                </div>
+                </p>
 
 
                 <?php if ('0' == $comment->comment_approved) : ?>

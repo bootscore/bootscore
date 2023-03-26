@@ -8,7 +8,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2023-03-05 09:44+0000\n"
+"PO-Revision-Date: 2023-03-16 10:36+0000\n"
 "Last-Translator: \n"
 "Language-Team: Deutsch\n"
 "X-Generator: Loco https://localise.biz/\n"
@@ -338,7 +338,7 @@ msgstr "Kommentar senden"
 msgid "Previous Page"
 msgstr "Vorherige Seite"
 
-#: archive.php:64 index.php:82 index.php:139
+#: archive.php:70 archive-01.php:66 index.php:82 index.php:139
 #: template-parts/content-search.php:43
 msgid "Read more »"
 msgstr "Weiterlesen »"
@@ -397,8 +397,12 @@ msgstr "Kommentar"
 msgid "Submit"
 msgstr "Senden"
 
+#: inc/template-tags.php:190
+msgid "Tagged"
+msgstr "Schlagworte"
+
 #. 1: list of tags.
-#: inc/template-tags.php:191
+#: inc/template-tags.php:194
 #, php-format
 msgid "Tagged %1$s"
 msgstr "Schlagworte %1$s"

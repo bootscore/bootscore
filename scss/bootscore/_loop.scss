@@ -1,0 +1,27 @@
+/*--------------------------------------------------------------
+Loop
+--------------------------------------------------------------*/
+
+// Horizontal card images
+
+// category.php, archive.php, author.php and search results
+@include media-breakpoint-down(lg) {
+  .card-img-lg-start {
+    border-top-left-radius: var(--#{$prefix}card-inner-border-radius);
+    border-top-right-radius: var(--#{$prefix}card-inner-border-radius);
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  .card-img-lg-start {
+    border-top-left-radius: var(--#{$prefix}card-inner-border-radius);
+    border-bottom-left-radius: var(--#{$prefix}card-inner-border-radius);
+    object-fit: cover;
+    height: 100%;
+  }
+}
+
+// Hide "Tagged" in loop
+.card .tags-heading {
+  display: none;
+}

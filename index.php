@@ -43,50 +43,64 @@ get_header();
             if ($the_query->have_posts()) :
               while ($the_query->have_posts()) : $the_query->the_post(); ?>
                 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+                  
                   <div class="card horizontal mb-4">
-                    <div class="row">
-                      <!-- Featured Image-->
-                      <?php if (has_post_thumbnail())
-                        echo '<div class="card-img-left col-md-6 col-lg-4">' . get_the_post_thumbnail(null, 'medium') . '</div>';
-                      ?>
+                    <div class="row g-0">
+                      
+                      <?php if ( has_post_thumbnail() ) : ?>
+                        <div class="col-lg-6 col-xl-5 col-xxl-4">
+                          <a href="<?php the_permalink(); ?>">
+                            <?php the_post_thumbnail('medium', array('class' => 'card-img-lg-start')); ?>
+                          </a>
+                        </div>
+                      <?php endif; ?>
+
                       <div class="col">
                         <div class="card-body">
-                          <div class="row mb-2">
+
+                          <div class="row">
                             <div class="col-10">
                               <?php bootscore_category_badge(); ?>
                             </div>
                             <div class="col-2 text-end">
-                              <!-- Featured -->
-                              <div class="badge bg-danger"><span class=""><i class="fa-solid fa-star"></i></span></div>
+                              <span class="badge text-bg-danger"><i class="fa-solid fa-star"></i></span>
                             </div>
                           </div>
-                          <!-- Title -->
-                          <h2 class="blog-post-title">
-                            <a href="<?php the_permalink(); ?>">
-                              <?php the_title(); ?>
-                            </a>
-                          </h2>
-                          <!-- Meta -->
+
+                          <a class="text-body text-decoration-none" href="<?php the_permalink(); ?>">
+                            <?php the_title('<h2 class="blog-post-title h5">', '</h2>'); ?>
+                          </a>
+
                           <?php if ('post' === get_post_type()) : ?>
-                            <small class="text-muted mb-2">
+                            <p class="meta small mb-2 text-muted">
                               <?php
-                              bootscore_date();
-                              bootscore_author();
-                              bootscore_comments();
-                              bootscore_edit();
+                                bootscore_date();
+                                bootscore_author();
+                                bootscore_comments();
+                                bootscore_edit();
                               ?>
-                            </small>
+                            </p>
                           <?php endif; ?>
-                          <!-- Excerpt & Read more -->
-                          <div class="card-text mt-auto">
-                            <?php the_excerpt(); ?> <a class="read-more" href="<?php the_permalink(); ?>"><?php _e('Read more »', 'bootscore'); ?></a>
-                          </div>
-                          <!-- Tags -->
+
+                          <p class="card-text">
+                            <a class="text-body text-decoration-none" href="<?php the_permalink(); ?>">
+                              <?php echo strip_tags(get_the_excerpt()); ?>
+                            </a>
+                          </p>
+
+                          <p class="card-text">
+                            <a class="read-more" href="<?php the_permalink(); ?>">
+                              <?php _e('Read more »', 'bootscore'); ?>
+                            </a>
+                          </p>
+                          
                           <?php bootscore_tags(); ?>
+
                         </div>
                       </div>
                     </div>
-
+                  </div>
+                             
                 </article>
             <?php
               endwhile;
@@ -94,63 +108,76 @@ get_header();
             wp_reset_postdata();
             ?>
           </div>
+
           <!-- col -->
         </div>
         <!-- row -->
       <?php endif; ?>
       <!-- Post List -->
       <div class="row">
-        <div class="col col-md-8 col-xxl-9">
+        <div class="col col-md-8 col-lg-9">
           <!-- Grid Layout -->
           <?php if (have_posts()) : ?>
             <?php while (have_posts()) : the_post(); ?>
               <?php if (is_sticky()) continue; //ignore sticky posts
               ?>
+              
               <div class="card horizontal mb-4">
-                <div class="row">
-                  <!-- Featured Image-->
-                  <?php if (has_post_thumbnail())
-                    echo '<div class="card-img-left-md col-lg-5">' . get_the_post_thumbnail(null, 'medium') . '</div>';
-                  ?>
+                <div class="row g-0">
+
+                  <?php if ( has_post_thumbnail() ) : ?>
+                    <div class="col-lg-6 col-xl-5 col-xxl-4">
+                      <a href="<?php the_permalink(); ?>">
+                        <?php the_post_thumbnail('medium', array('class' => 'card-img-lg-start')); ?>
+                      </a>
+                    </div>
+                  <?php endif; ?>
+                  
                   <div class="col">
                     <div class="card-body">
-                      <div class="mb-2">
-                        <?php bootscore_category_badge(); ?>
-                      </div>
-                      <!-- Title -->
-                      <h2 class="blog-post-title">
-                        <a href="<?php the_permalink(); ?>">
-                          <?php the_title(); ?>
-                        </a>
-                      </h2>
-                      <!-- Meta -->
+
+                      <?php bootscore_category_badge(); ?>
+
+                      <a class="text-body text-decoration-none" href="<?php the_permalink(); ?>">
+                        <?php the_title('<h2 class="blog-post-title h5">', '</h2>'); ?>
+                      </a>
+
                       <?php if ('post' === get_post_type()) : ?>
-                        <small class="text-muted mb-2">
+                        <p class="meta small mb-2 text-muted">
                           <?php
-                          bootscore_date();
-                          bootscore_author();
-                          bootscore_comments();
-                          bootscore_edit();
+                            bootscore_date();
+                            bootscore_author();
+                            bootscore_comments();
+                            bootscore_edit();
                           ?>
-                        </small>
+                        </p>
                       <?php endif; ?>
-                      <!-- Excerpt & Read more -->
-                      <div class="card-text mt-auto">
-                        <?php the_excerpt(); ?> <a class="read-more" href="<?php the_permalink(); ?>"><?php _e('Read more »', 'bootscore'); ?></a>
-                      </div>
-                      <!-- Tags -->
+
+                      <p class="card-text">
+                        <a class="text-body text-decoration-none" href="<?php the_permalink(); ?>">
+                          <?php echo strip_tags(get_the_excerpt()); ?>
+                        </a>
+                      </p>
+                      
+                      <p class="card-text">
+                        <a class="read-more" href="<?php the_permalink(); ?>">
+                          <?php _e('Read more »', 'bootscore'); ?>
+                        </a>
+                      </p>
+                      
                       <?php bootscore_tags(); ?>
+
                     </div>
                   </div>
                 </div>
               </div>
+          
             <?php endwhile; ?>
           <?php endif; ?>
 
-          <!-- Pagination -->
-          <div>
+          <footer class="entry-footer">
             <?php bootscore_pagination(); ?>
-          </div>
+          </footer>
 
         </div>
         <!-- col -->

@@ -14,16 +14,16 @@ if (!function_exists('bootscore_category_badge')) :
   function bootscore_category_badge() {
     // Hide category and tag text for pages.
     if ('post' === get_post_type()) {
-      echo '<div class="category-badge mb-2">';
+      echo '<p class="category-badge">';
       $thelist = '';
       $i = 0;
       foreach (get_the_category() as $category) {
         if (0 < $i) $thelist .= ' ';
-        $thelist .= '<a href="' . esc_url(get_category_link($category->term_id)) . '" class="badge text-bg-secondary text-decoration-none">' . $category->name . '</a>';
+        $thelist .= '<a href="' . esc_url(get_category_link($category->term_id)) . '" class="badge text-bg-light text-decoration-none">' . $category->name . '</a>';
         $i++;
       }
       echo $thelist;
-      echo '</div>';
+      echo '</p>';
     }
   }
 endif;
@@ -188,14 +188,17 @@ if (!function_exists('bootscore_tags')) :
       $tags_list = get_the_tag_list('', ' ');
       if ($tags_list) {
         /* translators: 1: list of tags. */
-        printf('<div class="tags-links mt-2">' . esc_html__('Tagged %1$s', 'bootscore') . '</div>', $tags_list); // WPCS: XSS OK.
+        echo '<div class="tags-links">';
+          echo '<p class="tags-heading mb-2">' . esc_html__('Tagged', 'bootscore') . '</p>';
+          echo get_the_tag_list();
+        echo '</div>';
       }
     }
   }
   add_filter("term_links-post_tag", 'add_tag_class');
 
   function add_tag_class($links) {
-    return str_replace('<a href="', '<a class="badge text-bg-secondary text-decoration-none" href="', $links);
+    return str_replace('<a href="', '<a class="badge text-bg-light text-decoration-none me-1" href="', $links);
   }
 endif;
 // Tags End
