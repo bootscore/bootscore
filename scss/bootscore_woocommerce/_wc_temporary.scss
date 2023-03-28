@@ -1,0 +1,10 @@
+/*--------------------------------------------------------------
+WooCommerce Temporary
+--------------------------------------------------------------*/
+
+// Hide duplicate empty mini-cart message in cart page
+// Came with one of the last WooCommerce updates
+// https://user-images.githubusercontent.com/51531217/227728763-6bef0130-f68a-4148-9c4e-6061b49feaea.png
+.woocommerce-notices-wrapper .woocommerce-mini-cart__empty-message {
+  display: none;
+}
