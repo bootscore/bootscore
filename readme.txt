@@ -9,7 +9,7 @@ Tags: featured-images, threaded-comments, translation-ready
 Requires at least: 4.5
 Tested up to: 6.1.1
 Requires PHP: 5.6
-Stable tag: 5.2.3.2
+Stable tag: 5.2.3.3
 License: MIT License
 License URI: https://github.com/bootscore/bootscore/blob/main/LICENSE
 
@@ -58,6 +58,22 @@ bootScore includes support for WooCommerce and Infinite Scroll in Jetpack.
 
 
 == Changelog ==
+
+    = 5.2.3.3 - March 31 2023 =
+    
+        * [IMPROVEMENT] Make icons in alerts optional and use masks instead of FA font #403
+        * [IMPROVEMENT] Use WC strings instead of bootScore in mini cart #410
+        * [IMPROVEMENT] Refactor quantity input #405
+        * [IMPROVEMENT] Make pagination translation-ready #404
+        * [IMPROVEMENT] Horizontal loop cards #428
+        * [IMPROVEMENT] Add card-header to sidebar widget-cards #431
+        * [REMOVED] WooCommerce table templates #420
+        * [REMOVED] Temporary prefix webkit browsers checks, select and form-range defe598
+        * [FEATURE] Add a shortcode for inserting Fontawesome icons #413
+        * [BUGFIX] Searchform collapse behaviour #411
+        * [BUGFIX] Hide duplicate empty mini-cart message in cart page #434
+        * [UPDATE] Translation template #422
+        * [UPDATE] Font Awesome 6.4.0 #435
 
     = 5.2.3.2 - February 17 2023 =
     
