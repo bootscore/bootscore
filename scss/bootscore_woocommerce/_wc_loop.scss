@@ -40,3 +40,8 @@ a.woocommerce-LoopProduct-link.woocommerce-loop-product__link {
 .product-category .card img {
   @extend .card-img-top;
 }
+
+// Category loop title
+.card .woocommerce-loop-product__title {
+  @extend .h5;
+}
