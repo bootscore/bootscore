@@ -1,0 +1,22 @@
+name: Feature request
+description: Suggest an idea for bootScore
+title: '[Feature Request] Description'
+labels:
+  - feature
+body:
+  - type: textarea
+    attributes:
+      label: Describe the feature that you'd like
+      description: A clear and concise description of what you want to happen.
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Why is this feature needed? What problem does it solve?
+      description: A clear explanation justifying why this feature should be added.
+  - type: checkboxes
+    attributes:
+      label: Checklist
+      options:
+        - label: I have searched the issues and this feature has not been requested.
+          required: true
