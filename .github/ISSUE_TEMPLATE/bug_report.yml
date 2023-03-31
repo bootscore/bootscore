@@ -1,0 +1,36 @@
+name: Bug report
+description: Template for bug reports
+title: '[BUG] Description'
+labels: bug
+body:
+  - type: textarea
+    id: desc
+    attributes:
+      label: Describe the bug
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+      1. Go to ...
+      2. Click on ...
+      3. Scroll to ...
+      4. See error ...
+  - type: textarea
+    attributes:
+      label: Screenshots and Additional Info
+  - type: input
+    id: url
+    attributes:
+      label: Website link
+      description: >-
+        When submitting a bug, we often need to look at it to debug it. If a URL
+        is not added there is a high chance we will ask for one, resulting in a
+        longer time before the bug can be fixed and we can properly help you.
+  - type: markdown
+    attributes:
+      value: >-
+        This template was generated with [Issue Forms
+        Creator](https://issue-forms-creator.netlify.app)
