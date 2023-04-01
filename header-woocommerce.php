@@ -8,7 +8,7 @@
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
  * @package Bootscore
- * 
+ *
  * @version 5.2.3.1
  */
 
@@ -43,7 +43,7 @@
 
         <nav id="nav-main" class="navbar navbar-expand-lg">
 
-          <div class="container">
+          <div class="<?php echo bootscore_container_class(); ?>">
 
             <!-- Navbar Brand -->
             <a class="navbar-brand xs d-md-none" href="<?php echo esc_url(home_url()); ?>"><img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/img/logo/logo-sm.svg" alt="logo" class="logo xs"></a>
@@ -115,12 +115,12 @@
 
             </div><!-- .header-actions -->
 
-          </div><!-- .container -->
+          </div><!-- .<?php echo bootscore_container_class(); ?> -->
 
         </nav><!-- .navbar -->
 
         <!-- Top Nav Search Collapse -->
-        <div class="collapse container" id="collapse-search">
+        <div class="collapse <?php echo bootscore_container_class(); ?>" id="collapse-search">
           <?php if (is_active_sidebar('top-nav-search')) : ?>
             <div class="mb-2">
               <?php dynamic_sidebar('top-nav-search'); ?>

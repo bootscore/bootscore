@@ -36,3 +36,14 @@ function bootscore_pingback_header() {
   }
 }
 add_action('wp_head', 'bootscore_pingback_header');
+
+
+/**
+ * Create fluid containers if BOOTSCORE_CONTAINER_FLUID constant is set to true;
+ * @return string
+ */
+function bootscore_container_class()
+{
+    $is_fluid = (defined('BOOTSCORE_CONTAINER_FLUID') && BOOTSCORE_CONTAINER_FLUID);
+    return $is_fluid ? "container-fluid" : "container";
+}

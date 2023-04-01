@@ -11,7 +11,7 @@
 get_header();
 ?>
 
-<div id="content" class="site-content container py-5 mt-5">
+<div id="content" class="site-content <?php echo bootscore_container_class(); ?> py-5 mt-5">
   <div id="primary" class="content-area">
 
     <?php bs_after_primary(); ?>
@@ -28,7 +28,7 @@ get_header();
 
           <?php if (have_posts()) : ?>
             <?php while (have_posts()) : the_post(); ?>
-              
+
               <div class="card horizontal mb-4">
                 <div class="row g-0">
 
@@ -39,7 +39,7 @@ get_header();
                       </a>
                     </div>
                   <?php endif; ?>
-                  
+
                   <div class="col">
                     <div class="card-body">
 
@@ -59,13 +59,13 @@ get_header();
                           ?>
                         </p>
                       <?php endif; ?>
-                      
+
                       <p class="card-text">
                         <a class="text-body text-decoration-none" href="<?php the_permalink(); ?>">
                           <?php echo strip_tags(get_the_excerpt()); ?>
                         </a>
                       </p>
-                      
+
                       <p class="card-text">
                         <a class="read-more" href="<?php the_permalink(); ?>">
                           <?php _e('Read more »', 'bootscore'); ?>
@@ -78,7 +78,7 @@ get_header();
                   </div>
                 </div>
               </div>
-          
+
             <?php endwhile; ?>
           <?php endif; ?>
 
