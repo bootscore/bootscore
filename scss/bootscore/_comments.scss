@@ -44,7 +44,7 @@ ul.comment-list {
 }
 
 #cancel-comment-reply-link {
-  margin-left: 1rem;
+  margin-left: $spacer * .5;
 }
 
 // Adding width to comment. When using <pre> in comment, comment-content will not crashed
