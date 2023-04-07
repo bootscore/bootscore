@@ -53,7 +53,7 @@ if (!function_exists('bootscore_comment')) :
 
 
                 <?php if ('0' == $comment->comment_approved) : ?>
-                  <p class="comment-awaiting-moderation"><?php _e('Your comment is awaiting moderation.', 'bootscore'); ?></p>
+                  <p class="comment-awaiting-moderation alert alert-info"><?php _e('Your comment is awaiting moderation.', 'bootscore'); ?></p>
                 <?php endif; ?>
 
                 <?php comment_text(); ?>
