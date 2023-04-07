@@ -59,3 +59,11 @@ ul.comment-list {
 .bypostauthor {
   display: block;
 }
+
+.comment-content .card p:last-child {
+  margin-bottom: 0;
+}
+
+.comment-respond {
+  margin-bottom: $spacer * 1.5;
+}
