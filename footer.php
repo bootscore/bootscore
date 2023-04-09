@@ -17,7 +17,7 @@
 <footer>
 
   <div class="bootscore-footer bg-light pt-5 pb-3">
-    <div class="container">
+    <div class="<?php echo bootscore_container_class(); ?>">
 
       <!-- Top Footer Widget -->
       <?php if (is_active_sidebar('top-footer')) : ?>
@@ -85,7 +85,7 @@
   </div>
 
   <div class="bootscore-info bg-light text-muted border-top py-2 text-center">
-    <div class="container">
+    <div class="<?php echo bootscore_container_class(); ?>">
       <small>&copy;&nbsp;<?php echo Date('Y'); ?> - <?php bloginfo('name'); ?></small>
     </div>
   </div>

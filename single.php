@@ -3,10 +3,10 @@
  * Template Post Type: post
  */
 
-get_header();  
+get_header();
 ?>
 
-<div id="content" class="site-content container py-5 mt-4">
+<div id="content" class="site-content <?php echo bootscore_container_class(); ?> py-5 mt-4">
   <div id="primary" class="content-area">
 
     <!-- Hook to add something nice -->

@@ -15,7 +15,7 @@
 
 get_header();
 ?>
-<div id="content" class="site-content container py-5 mt-4">
+<div id="content" class="site-content <?php echo bootscore_container_class(); ?> py-5 mt-4">
   <div id="primary" class="content-area">
 
     <!-- Hook to add something nice -->
@@ -43,10 +43,10 @@ get_header();
             if ($the_query->have_posts()) :
               while ($the_query->have_posts()) : $the_query->the_post(); ?>
                 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-                  
+
                   <div class="card horizontal mb-4">
                     <div class="row g-0">
-                      
+
                       <?php if ( has_post_thumbnail() ) : ?>
                         <div class="col-lg-6 col-xl-5 col-xxl-4">
                           <a href="<?php the_permalink(); ?>">
@@ -93,14 +93,14 @@ get_header();
                               <?php _e('Read more »', 'bootscore'); ?>
                             </a>
                           </p>
-                          
+
                           <?php bootscore_tags(); ?>
 
                         </div>
                       </div>
                     </div>
                   </div>
-                             
+
                 </article>
             <?php
               endwhile;
@@ -121,7 +121,7 @@ get_header();
             <?php while (have_posts()) : the_post(); ?>
               <?php if (is_sticky()) continue; //ignore sticky posts
               ?>
-              
+
               <div class="card horizontal mb-4">
                 <div class="row g-0">
 
@@ -132,7 +132,7 @@ get_header();
                       </a>
                     </div>
                   <?php endif; ?>
-                  
+
                   <div class="col">
                     <div class="card-body">
 
@@ -158,20 +158,20 @@ get_header();
                           <?php echo strip_tags(get_the_excerpt()); ?>
                         </a>
                       </p>
-                      
+
                       <p class="card-text">
                         <a class="read-more" href="<?php the_permalink(); ?>">
                           <?php _e('Read more »', 'bootscore'); ?>
                         </a>
                       </p>
-                      
+
                       <?php bootscore_tags(); ?>
 
                     </div>
                   </div>
                 </div>
               </div>
-          
+
             <?php endwhile; ?>
           <?php endif; ?>
 

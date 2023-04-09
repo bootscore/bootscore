@@ -11,7 +11,7 @@
 get_header();
 ?>
 
-<div id="content" class="site-content container">
+<div id="content" class="site-content <?php echo bootscore_container_class(); ?>">
   <div id="primary" class="content-area">
 
     <!-- Hook to add something nice -->
