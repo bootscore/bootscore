@@ -18,7 +18,8 @@ WooCommerce Alerts
   @extend .alert-danger-icon;
 }
 
-.woocommerce-info {
+.woocommerce-info,
+.woocommerce-noreviews {
   @extend .alert;
   @extend .alert-info;
   @extend .alert-icon;

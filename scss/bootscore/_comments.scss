@@ -44,7 +44,7 @@ ul.comment-list {
 }
 
 #cancel-comment-reply-link {
-  margin-left: 1rem;
+  margin-left: $spacer * .5;
 }
 
 // Adding width to comment. When using <pre> in comment, comment-content will not crashed
@@ -58,4 +58,13 @@ ul.comment-list {
 
 .bypostauthor {
   display: block;
+}
+
+// Last p bottom margin in comment card
+.comment-content .card p:last-child {
+  margin-bottom: 0;
+}
+
+.comment-respond {
+  margin-bottom: $spacer * 1.5;
 }
