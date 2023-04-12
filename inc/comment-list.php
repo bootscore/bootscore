@@ -22,7 +22,7 @@ if (!function_exists('bootscore_comment')) :
 
     if ('pingback' == $comment->comment_type || 'trackback' == $comment->comment_type) : ?>
 
-      <li class="bg-danger" id="comment-<?php comment_ID(); ?>" <?php comment_class('media'); ?>>
+      <li class="alert alert-info" id="comment-<?php comment_ID(); ?>" <?php comment_class('media'); ?>>
         <div class="comment-body">
           <?php _e('Pingback:', 'bootscore'); ?> <?php comment_author_link(); ?> <?php edit_comment_link(__('Edit', 'bootscore'), '<span class="edit-link">', '</span>'); ?>
         </div>
@@ -31,7 +31,7 @@ if (!function_exists('bootscore_comment')) :
 
       <li id="comment-<?php comment_ID(); ?>" <?php comment_class(empty($args['has_children']) ? '' : 'parent'); ?>>
 
-        <article id="div-comment-<?php comment_ID(); ?>" class="comment-body mt-4 d-flex">
+        <article id="div-comment-<?php comment_ID(); ?>" class="comment-body mb-4 d-flex">
 
           <div class="flex-shrink-0 me-3">
             <?php if (0 != $args['avatar_size']) echo get_avatar($comment, $args['avatar_size'], '', '', array('class' => 'img-thumbnail rounded-circle')); ?>
@@ -44,7 +44,7 @@ if (!function_exists('bootscore_comment')) :
                 <div class="mt-0"><?php printf(__('%s <span class="says d-none">says:</span>', 'bootscore'), sprintf('<h3 class="h5">%s</h3>', get_comment_author_link())); ?>
                 </div>
 
-                <p class="small comment-meta text-muted">
+                <p class="small comment-meta text-secondary">
                   <time datetime="<?php comment_time('c'); ?>">
                     <?php printf(_x('%1$s at %2$s', '1: date, 2: time', 'bootscore'), get_comment_date(), get_comment_time()); ?>
                   </time>
@@ -53,12 +53,10 @@ if (!function_exists('bootscore_comment')) :
 
 
                 <?php if ('0' == $comment->comment_approved) : ?>
-                  <p class="comment-awaiting-moderation"><?php _e('Your comment is awaiting moderation.', 'bootscore'); ?></p>
+                  <p class="comment-awaiting-moderation alert alert-info"><?php _e('Your comment is awaiting moderation.', 'bootscore'); ?></p>
                 <?php endif; ?>
 
-                <div class="card-block">
-                  <?php comment_text(); ?>
-                </div><!-- .comment-content -->
+                <?php comment_text(); ?>
 
                 <?php comment_reply_link(
                   array_merge(
@@ -67,8 +65,8 @@ if (!function_exists('bootscore_comment')) :
                       'add_below' => 'div-comment',
                       'depth'     => $depth,
                       'max_depth' => $args['max_depth'],
-                      'before'     => '<footer class="reply comment-reply">',
-                      'after'     => '</footer><!-- .reply -->'
+                      'before'     => '<p class="reply comment-reply">',
+                      'after'     => '</p>'
                     )
                   )
                 ); ?>
@@ -89,7 +87,7 @@ endif; // ends check for bootscore_comment()
 // h2 Reply Title
 add_filter('comment_form_defaults', 'custom_reply_title');
 function custom_reply_title($defaults) {
-  $defaults['title_reply_before'] = '<h2 id="reply-title" class="mt-4">';
+  $defaults['title_reply_before'] = '<h2 id="reply-title" class="h4">';
   $defaults['title_reply_after'] = '</h2>';
   return $defaults;
 }
