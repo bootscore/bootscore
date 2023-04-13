@@ -124,12 +124,24 @@ if (!function_exists('bootscore_widgets_init')) :
       'name'          => esc_html__('Top Nav', 'bootscore'),
       'id'            => 'top-nav',
       'description'   => esc_html__('Add widgets here.', 'bootscore'),
-      'before_widget' => '<div class="ms-3">',
+      'before_widget' => '<div class="ms-2">',
       'after_widget'  => '</div>',
       'before_title'  => '<div class="widget-title d-none">',
       'after_title'   => '</div>'
     ));
     // Top Nav End
+    
+    // Top Nav 2
+    register_sidebar(array(
+      'name'          => esc_html__('Top Nav 2', 'bootscore'),
+      'id'            => 'top-nav-2',
+      'description'   => esc_html__('Add widgets here.', 'bootscore'),
+      'before_widget' => '<div class="mt-2 mt-lg-0 ms-lg-2">',
+      'after_widget'  => '</div>',
+      'before_title'  => '<div class="widget-title d-none">',
+      'after_title'   => '</div>'
+    ));
+    // Top Nav 2 End  
 
     // Top Nav Search
     register_sidebar(array(
@@ -174,7 +186,7 @@ if (!function_exists('bootscore_widgets_init')) :
       'description'   => esc_html__('Add widgets here.', 'bootscore'),
       'before_widget' => '<div class="footer_widget mb-4">',
       'after_widget'  => '</div>',
-      'before_title'  => '<h2 class="widget-title h4">',
+      'before_title'  => '<h2 class="widget-title h5">',
       'after_title'   => '</h2>'
     ));
     // Footer 1 End
@@ -186,7 +198,7 @@ if (!function_exists('bootscore_widgets_init')) :
       'description'   => esc_html__('Add widgets here.', 'bootscore'),
       'before_widget' => '<div class="footer_widget mb-4">',
       'after_widget'  => '</div>',
-      'before_title'  => '<h2 class="widget-title h4">',
+      'before_title'  => '<h2 class="widget-title h5">',
       'after_title'   => '</h2>'
     ));
     // Footer 2 End
@@ -198,7 +210,7 @@ if (!function_exists('bootscore_widgets_init')) :
       'description'   => esc_html__('Add widgets here.', 'bootscore'),
       'before_widget' => '<div class="footer_widget mb-4">',
       'after_widget'  => '</div>',
-      'before_title'  => '<h2 class="widget-title h4">',
+      'before_title'  => '<h2 class="widget-title h5">',
       'after_title'   => '</h2>'
     ));
     // Footer 3 End
@@ -210,7 +222,7 @@ if (!function_exists('bootscore_widgets_init')) :
       'description'   => esc_html__('Add widgets here.', 'bootscore'),
       'before_widget' => '<div class="footer_widget mb-4">',
       'after_widget'  => '</div>',
-      'before_title'  => '<h2 class="widget-title h4">',
+      'before_title'  => '<h2 class="widget-title h5">',
       'after_title'   => '</h2>'
     ));
     // Footer 4 End

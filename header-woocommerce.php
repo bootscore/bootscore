@@ -51,11 +51,12 @@
 
             <!-- Offcanvas Navbar -->
             <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvas-navbar">
-              <div class="offcanvas-header bg-light">
-                <span class="h5 mb-0"><?php esc_html_e('Menu', 'bootscore'); ?></span>
+              <div class="offcanvas-header">
+                <span class="h5 offcanvas-title"><?php esc_html_e('Menu', 'bootscore'); ?></span>
                 <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
               </div>
               <div class="offcanvas-body">
+                
                 <!-- Bootstrap 5 Nav Walker Main Menu -->
                 <?php
                 wp_nav_menu(array(
@@ -68,7 +69,16 @@
                   'walker' => new bootstrap_5_wp_nav_menu_walker()
                 ));
                 ?>
-                <!-- Bootstrap 5 Nav Walker Main Menu End -->
+                
+                <!-- Top Nav 2 Widget -->
+                <div class="top-nav-widget-2 d-lg-flex align-items-lg-center">
+                  <?php if (is_active_sidebar('top-nav-2')) : ?>
+                    <div>
+                      <?php dynamic_sidebar('top-nav-2'); ?>
+                    </div>
+                  <?php endif; ?>
+                </div>                
+                
               </div>
             </div>
 
@@ -132,8 +142,8 @@
 
       <!-- offcanvas user -->
       <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvas-user">
-        <div class="offcanvas-header bg-light">
-          <span class="h5 mb-0"><?php esc_html_e('Account', 'bootscore'); ?></span>
+        <div class="offcanvas-header">
+          <span class="h5 offcanvas-title"><?php esc_html_e('Account', 'bootscore'); ?></span>
           <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <div class="offcanvas-body">
@@ -145,8 +155,8 @@
 
       <!-- offcanvas cart -->
       <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvas-cart">
-        <div class="offcanvas-header bg-light">
-          <span class="h5 mb-0"><?php esc_html_e('Cart', 'bootscore'); ?></span>
+        <div class="offcanvas-header">
+          <span class="h5 offcanvas-title"><?php esc_html_e('Cart', 'bootscore'); ?></span>
           <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <div class="offcanvas-body p-0">
