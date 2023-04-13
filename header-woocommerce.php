@@ -72,10 +72,8 @@
                 
                 <!-- Top Nav 2 Widget -->
                 <?php if (is_active_sidebar('top-nav-2')) : ?>
-                  <div class="top-nav-widget-2 d-lg-flex align-items-lg-center">
-                    <?php dynamic_sidebar('top-nav-2'); ?>
-                  </div>
-                <?php endif; ?>             
+                  <?php dynamic_sidebar('top-nav-2'); ?>
+                <?php endif; ?>           
                 
               </div>
             </div>
@@ -84,9 +82,7 @@
 
               <!-- Top Nav Widget -->
               <?php if (is_active_sidebar('top-nav')) : ?>
-                <div class="top-nav-widget">
-                  <?php dynamic_sidebar('top-nav'); ?>
-                </div>
+                <?php dynamic_sidebar('top-nav'); ?>
               <?php endif; ?>
 
               <!-- Search Toggler -->
