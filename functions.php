@@ -129,7 +129,6 @@ if (!function_exists('bootscore_widgets_init')) :
       'before_title'  => '<div class="widget-title d-none">',
       'after_title'   => '</div>'
     ));
-    // Top Nav End
     
     // Top Nav 2
     register_sidebar(array(
@@ -140,8 +139,7 @@ if (!function_exists('bootscore_widgets_init')) :
       'after_widget'  => '</div>',
       'before_title'  => '<div class="widget-title d-none">',
       'after_title'   => '</div>'
-    ));
-    // Top Nav 2 End  
+    )); 
 
     // Top Nav Search
     register_sidebar(array(
@@ -153,7 +151,6 @@ if (!function_exists('bootscore_widgets_init')) :
       'before_title'  => '<div class="widget-title d-none">',
       'after_title'   => '</div>'
     ));
-    // Top Nav Search End
 
     // Sidebar
     register_sidebar(array(
@@ -165,7 +162,6 @@ if (!function_exists('bootscore_widgets_init')) :
       'before_title'  => '<h2 class="widget-title card-header h5">',
       'after_title'   => '</h2><div class="card-body">',
     ));
-    // Sidebar End
 
     // Top Footer
     register_sidebar(array(
@@ -177,7 +173,6 @@ if (!function_exists('bootscore_widgets_init')) :
       'before_title'  => '<h2 class="widget-title">',
       'after_title'   => '</h2>'
     ));
-    // Top Footer End
 
     // Footer 1
     register_sidebar(array(
@@ -189,7 +184,6 @@ if (!function_exists('bootscore_widgets_init')) :
       'before_title'  => '<h2 class="widget-title h5">',
       'after_title'   => '</h2>'
     ));
-    // Footer 1 End
 
     // Footer 2
     register_sidebar(array(
@@ -201,7 +195,6 @@ if (!function_exists('bootscore_widgets_init')) :
       'before_title'  => '<h2 class="widget-title h5">',
       'after_title'   => '</h2>'
     ));
-    // Footer 2 End
 
     // Footer 3
     register_sidebar(array(
@@ -213,7 +206,6 @@ if (!function_exists('bootscore_widgets_init')) :
       'before_title'  => '<h2 class="widget-title h5">',
       'after_title'   => '</h2>'
     ));
-    // Footer 3 End
 
     // Footer 4
     register_sidebar(array(
@@ -225,7 +217,17 @@ if (!function_exists('bootscore_widgets_init')) :
       'before_title'  => '<h2 class="widget-title h5">',
       'after_title'   => '</h2>'
     ));
-    // Footer 4 End
+    
+    // Footer Info
+    register_sidebar(array(
+      'name'          => esc_html__('Footer Info', 'bootscore'),
+      'id'            => 'footer-info',
+      'description'   => esc_html__('Add widgets here.', 'bootscore'),
+      'before_widget' => '<div class="footer_widget">',
+      'after_widget'  => '</div>',
+      'before_title'  => '<div class="widget-title d-none">',
+      'after_title'   => '</div>'
+    ));  
 
     // 404 Page
     register_sidebar(array(
@@ -237,11 +239,9 @@ if (!function_exists('bootscore_widgets_init')) :
       'before_title'  => '<h1 class="widget-title">',
       'after_title'   => '</h1>'
     ));
-    // 404 Page End
 
   }
   add_action('widgets_init', 'bootscore_widgets_init');
-
 
 endif;
 // Widgets END
