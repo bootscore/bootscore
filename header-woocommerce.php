@@ -71,13 +71,11 @@
                 ?>
                 
                 <!-- Top Nav 2 Widget -->
-                <div class="top-nav-widget-2 d-lg-flex align-items-lg-center">
-                  <?php if (is_active_sidebar('top-nav-2')) : ?>
-                    <div>
-                      <?php dynamic_sidebar('top-nav-2'); ?>
-                    </div>
-                  <?php endif; ?>
-                </div>                
+                <?php if (is_active_sidebar('top-nav-2')) : ?>
+                  <div class="top-nav-widget-2 d-lg-flex align-items-lg-center">
+                    <?php dynamic_sidebar('top-nav-2'); ?>
+                  </div>
+                <?php endif; ?>             
                 
               </div>
             </div>
@@ -85,13 +83,11 @@
             <div class="header-actions d-flex align-items-center">
 
               <!-- Top Nav Widget -->
-              <div class="top-nav-widget">
-                <?php if (is_active_sidebar('top-nav')) : ?>
-                  <div>
-                    <?php dynamic_sidebar('top-nav'); ?>
-                  </div>
-                <?php endif; ?>
-              </div>
+              <?php if (is_active_sidebar('top-nav')) : ?>
+                <div class="top-nav-widget">
+                  <?php dynamic_sidebar('top-nav'); ?>
+                </div>
+              <?php endif; ?>
 
               <!-- Search Toggler -->
               <button class="btn btn-outline-secondary ms-1 ms-md-2 top-nav-search-md" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-search" aria-expanded="false" aria-controls="collapse-search">
@@ -125,18 +121,16 @@
 
             </div><!-- .header-actions -->
 
-          </div><!-- .<?php echo bootscore_container_class(); ?> -->
+          </div><!-- bootscore_container_class(); -->
 
         </nav><!-- .navbar -->
 
-        <!-- Top Nav Search Collapse -->
-        <div class="collapse <?php echo bootscore_container_class(); ?>" id="collapse-search">
-          <?php if (is_active_sidebar('top-nav-search')) : ?>
-            <div class="mb-2">
-              <?php dynamic_sidebar('top-nav-search'); ?>
-            </div>
-          <?php endif; ?>
-        </div>
+        <!-- Top Nav Search Collapse -->        
+        <?php if (is_active_sidebar('top-nav-search')) : ?>
+          <div class="collapse <?php echo bootscore_container_class(); ?> mb-2" id="collapse-search">
+            <?php dynamic_sidebar('top-nav-search'); ?>
+          </div>
+        <?php endif; ?>
 
       </div><!-- .fixed-top .bg-light -->
 
