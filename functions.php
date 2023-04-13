@@ -161,7 +161,7 @@ if (!function_exists('bootscore_widgets_init')) :
       'id'            => 'sidebar-1',
       'description'   => esc_html__('Add widgets here.', 'bootscore'),
       'before_widget' => '<section id="%1$s" class="widget %2$s card mb-4">',
-      'after_widget'  => '<div></section>',
+      'after_widget'  => '</div></section>',
       'before_title'  => '<h2 class="widget-title card-header h5">',
       'after_title'   => '</h2><div class="card-body">',
     ));
