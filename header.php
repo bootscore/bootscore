@@ -93,9 +93,11 @@
               <?php endif; ?>
 
               <!-- Search Toggler Mobile -->
-              <button class="btn btn-outline-secondary d-lg-none ms-1 ms-md-2 top-nav-search-md" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-search" aria-expanded="false" aria-controls="collapse-search">
-                <i class="fa-solid fa-magnifying-glass"></i><span class="visually-hidden-focusable">Search</span>
-              </button>
+              <?php if (is_active_sidebar('top-nav-search')) : ?>
+                <button class="btn btn-outline-secondary d-lg-none ms-1 ms-md-2 top-nav-search-md" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-search" aria-expanded="false" aria-controls="collapse-search">
+                  <i class="fa-solid fa-magnifying-glass"></i><span class="visually-hidden-focusable">Search</span>
+                </button>
+              <?php endif; ?>
 
               <!-- Navbar Toggler -->
               <button class="btn btn-outline-secondary d-lg-none ms-1 ms-md-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas-navbar" aria-controls="offcanvas-navbar">
