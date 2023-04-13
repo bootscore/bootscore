@@ -53,7 +53,6 @@
             <?php dynamic_sidebar('footer-4'); ?>
           <?php endif; ?>
         </div>
-        <!-- Footer Widgets End -->
 
       </div>
 
@@ -78,7 +77,7 @@
       <?php if (is_active_sidebar('footer-info')) : ?>
         <?php dynamic_sidebar('footer-info'); ?>
       <?php endif; ?>
-      <small>&copy;&nbsp;<?php echo Date('Y'); ?> - <?php bloginfo('name'); ?></small>
+      <small class="bootscore-copyright">&copy;&nbsp;<?php echo Date('Y'); ?> - <?php bloginfo('name'); ?></small>
     </div>
   </div>
 
