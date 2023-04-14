@@ -2,6 +2,15 @@
 Widgets
 --------------------------------------------------------------*/
 
+// Use negative margins for card-header which is inside the card-body in sidebar-widgets
+// See https://github.com/bootscore/bootscore/issues/444
+#secondary .card-header {
+  margin-top: calc(-1 * var(--#{$prefix}card-spacer-y));
+  margin-right: calc(-1 * var(--#{$prefix}card-spacer-x));
+  margin-bottom: var(--#{$prefix}card-spacer-x);
+  margin-left: calc(-1 * var(--#{$prefix}card-spacer-x));
+}
+
 // Reset ul in sidebar and footer widgets
 .widget-area ul,
 .bootscore-footer ul {
