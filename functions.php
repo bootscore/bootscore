@@ -131,6 +131,7 @@ if (!function_exists('bootscore_widgets_init')) :
     ));
     
     // Top Nav 2
+    // Adds a widget next to the Top Nav position but moves to offcanvas on <lg breakpoint
     register_sidebar(array(
       'name'          => esc_html__('Top Nav 2', 'bootscore'),
       'id'            => 'top-nav-2',
