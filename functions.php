@@ -124,12 +124,23 @@ if (!function_exists('bootscore_widgets_init')) :
       'name'          => esc_html__('Top Nav', 'bootscore'),
       'id'            => 'top-nav',
       'description'   => esc_html__('Add widgets here.', 'bootscore'),
-      'before_widget' => '<div class="ms-3">',
+      'before_widget' => '<div class="top-nav-widget ms-2">',
       'after_widget'  => '</div>',
       'before_title'  => '<div class="widget-title d-none">',
       'after_title'   => '</div>'
     ));
-    // Top Nav End
+    
+    // Top Nav 2
+    // Adds a widget next to the Top Nav position but moves to offcanvas on <lg breakpoint
+    register_sidebar(array(
+      'name'          => esc_html__('Top Nav 2', 'bootscore'),
+      'id'            => 'top-nav-2',
+      'description'   => esc_html__('Add widgets here.', 'bootscore'),
+      'before_widget' => '<div class="top-nav-widget-2 d-lg-flex align-items-lg-center mt-2 mt-lg-0 ms-lg-2">',
+      'after_widget'  => '</div>',
+      'before_title'  => '<div class="widget-title d-none">',
+      'after_title'   => '</div>'
+    )); 
 
     // Top Nav Search
     register_sidebar(array(
@@ -141,19 +152,17 @@ if (!function_exists('bootscore_widgets_init')) :
       'before_title'  => '<div class="widget-title d-none">',
       'after_title'   => '</div>'
     ));
-    // Top Nav Search End
 
     // Sidebar
     register_sidebar(array(
       'name'          => esc_html__('Sidebar', 'bootscore'),
       'id'            => 'sidebar-1',
       'description'   => esc_html__('Add widgets here.', 'bootscore'),
-      'before_widget' => '<section id="%1$s" class="widget %2$s card mb-4">',
-      'after_widget'  => '<div></section>',
+      'before_widget' => '<section id="%1$s" class="widget %2$s card card-body mb-4">',
+      'after_widget'  => '</section>',
       'before_title'  => '<h2 class="widget-title card-header h5">',
-      'after_title'   => '</h2><div class="card-body">',
+      'after_title'   => '</h2>',
     ));
-    // Sidebar End
 
     // Top Footer
     register_sidebar(array(
@@ -165,7 +174,6 @@ if (!function_exists('bootscore_widgets_init')) :
       'before_title'  => '<h2 class="widget-title">',
       'after_title'   => '</h2>'
     ));
-    // Top Footer End
 
     // Footer 1
     register_sidebar(array(
@@ -174,10 +182,9 @@ if (!function_exists('bootscore_widgets_init')) :
       'description'   => esc_html__('Add widgets here.', 'bootscore'),
       'before_widget' => '<div class="footer_widget mb-4">',
       'after_widget'  => '</div>',
-      'before_title'  => '<h2 class="widget-title h4">',
+      'before_title'  => '<h2 class="widget-title h5">',
       'after_title'   => '</h2>'
     ));
-    // Footer 1 End
 
     // Footer 2
     register_sidebar(array(
@@ -186,10 +193,9 @@ if (!function_exists('bootscore_widgets_init')) :
       'description'   => esc_html__('Add widgets here.', 'bootscore'),
       'before_widget' => '<div class="footer_widget mb-4">',
       'after_widget'  => '</div>',
-      'before_title'  => '<h2 class="widget-title h4">',
+      'before_title'  => '<h2 class="widget-title h5">',
       'after_title'   => '</h2>'
     ));
-    // Footer 2 End
 
     // Footer 3
     register_sidebar(array(
@@ -198,10 +204,9 @@ if (!function_exists('bootscore_widgets_init')) :
       'description'   => esc_html__('Add widgets here.', 'bootscore'),
       'before_widget' => '<div class="footer_widget mb-4">',
       'after_widget'  => '</div>',
-      'before_title'  => '<h2 class="widget-title h4">',
+      'before_title'  => '<h2 class="widget-title h5">',
       'after_title'   => '</h2>'
     ));
-    // Footer 3 End
 
     // Footer 4
     register_sidebar(array(
@@ -210,10 +215,20 @@ if (!function_exists('bootscore_widgets_init')) :
       'description'   => esc_html__('Add widgets here.', 'bootscore'),
       'before_widget' => '<div class="footer_widget mb-4">',
       'after_widget'  => '</div>',
-      'before_title'  => '<h2 class="widget-title h4">',
+      'before_title'  => '<h2 class="widget-title h5">',
       'after_title'   => '</h2>'
     ));
-    // Footer 4 End
+    
+    // Footer Info
+    register_sidebar(array(
+      'name'          => esc_html__('Footer Info', 'bootscore'),
+      'id'            => 'footer-info',
+      'description'   => esc_html__('Add widgets here.', 'bootscore'),
+      'before_widget' => '<div class="footer_widget">',
+      'after_widget'  => '</div>',
+      'before_title'  => '<div class="widget-title d-none">',
+      'after_title'   => '</div>'
+    ));  
 
     // 404 Page
     register_sidebar(array(
@@ -225,11 +240,9 @@ if (!function_exists('bootscore_widgets_init')) :
       'before_title'  => '<h1 class="widget-title">',
       'after_title'   => '</h1>'
     ));
-    // 404 Page End
 
   }
   add_action('widgets_init', 'bootscore_widgets_init');
-
 
 endif;
 // Widgets END

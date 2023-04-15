@@ -21,9 +21,7 @@
 
       <!-- Top Footer Widget -->
       <?php if (is_active_sidebar('top-footer')) : ?>
-        <div>
-          <?php dynamic_sidebar('top footer'); ?>
-        </div>
+        <?php dynamic_sidebar('top footer'); ?>
       <?php endif; ?>
 
       <div class="row">
@@ -31,39 +29,30 @@
         <!-- Footer 1 Widget -->
         <div class="col-md-6 col-lg-3">
           <?php if (is_active_sidebar('footer-1')) : ?>
-            <div>
-              <?php dynamic_sidebar('footer-1'); ?>
-            </div>
+            <?php dynamic_sidebar('footer-1'); ?>
           <?php endif; ?>
         </div>
 
         <!-- Footer 2 Widget -->
         <div class="col-md-6 col-lg-3">
           <?php if (is_active_sidebar('footer-2')) : ?>
-            <div>
-              <?php dynamic_sidebar('footer-2'); ?>
-            </div>
+            <?php dynamic_sidebar('footer-2'); ?>
           <?php endif; ?>
         </div>
 
         <!-- Footer 3 Widget -->
         <div class="col-md-6 col-lg-3">
           <?php if (is_active_sidebar('footer-3')) : ?>
-            <div>
-              <?php dynamic_sidebar('footer-3'); ?>
-            </div>
+            <?php dynamic_sidebar('footer-3'); ?>
           <?php endif; ?>
         </div>
 
         <!-- Footer 4 Widget -->
         <div class="col-md-6 col-lg-3">
           <?php if (is_active_sidebar('footer-4')) : ?>
-            <div>
-              <?php dynamic_sidebar('footer-4'); ?>
-            </div>
+            <?php dynamic_sidebar('footer-4'); ?>
           <?php endif; ?>
         </div>
-        <!-- Footer Widgets End -->
 
       </div>
 
@@ -79,14 +68,16 @@
         'walker' => new bootstrap_5_wp_nav_menu_walker()
       ));
       ?>
-      <!-- Bootstrap 5 Nav Walker Footer Menu End -->
 
     </div>
   </div>
 
-  <div class="bootscore-info bg-light text-muted border-top py-2 text-center">
+  <div class="bootscore-info bg-light text-secondary border-top py-2 text-center">
     <div class="<?php echo bootscore_container_class(); ?>">
-      <small>&copy;&nbsp;<?php echo Date('Y'); ?> - <?php bloginfo('name'); ?></small>
+      <?php if (is_active_sidebar('footer-info')) : ?>
+        <?php dynamic_sidebar('footer-info'); ?>
+      <?php endif; ?>
+      <small class="bootscore-copyright">&copy;&nbsp;<?php echo Date('Y'); ?> - <?php bloginfo('name'); ?></small>
     </div>
   </div>
 
