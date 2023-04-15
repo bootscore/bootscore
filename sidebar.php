@@ -22,7 +22,7 @@ if (!is_active_sidebar('sidebar-1')) {
     </button>
 
     <div class="offcanvas-md offcanvas-end" tabindex="-1" id="sidebar" aria-labelledby="sidebarLabel">
-      <div class="offcanvas-header bg-light">
+      <div class="offcanvas-header">
         <span class="h5 offcanvas-title" id="sidebarLabel"><?php esc_html_e('Sidebar', 'bootscore'); ?></span>
         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#sidebar" aria-label="Close"></button>
       </div>
