@@ -7,7 +7,7 @@
  *
  * @package Bootscore
  *
- * @version 5.2.0.0-beta1
+ * @version 5.2.3.4
  */
 
 if (!is_active_sidebar('sidebar-1')) {

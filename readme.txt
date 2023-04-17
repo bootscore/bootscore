@@ -2,14 +2,14 @@
 
 Contributors: Bastian Kreiter, Justin Kruit, Martin Holzer, Tim Groeneveld, Laurent Binder, Patrick, Gustavo Silva, TershiXia, 
 electronicsandprogramming, charly, Alexandros Kourmoulakis, Sven Geiß, ucalegonte, Benhaim Ido, Sean Emerson, Androidacy, Tamás Dohány,
-David Vanderhaeghe, Karsten Reincke, Patrick Champoux
+David Vanderhaeghe, Karsten Reincke, Patrick Champoux, sweetappleuk
 
 Tags: featured-images, threaded-comments, translation-ready
 
 Requires at least: 4.5
-Tested up to: 6.1.1
+Tested up to: 6.2
 Requires PHP: 5.6
-Stable tag: 5.2.3.3
+Stable tag: 5.2.3.4
 License: MIT License
 License URI: https://github.com/bootscore/bootscore/blob/main/LICENSE
 
@@ -58,6 +58,13 @@ bootScore includes support for WooCommerce and Infinite Scroll in Jetpack.
 
 
 == Changelog ==
+
+    = 5.2.3.4 - April 17 2023 =
+    
+        * [FEATURE] New bootscore_container_class() function #439
+        * [FEATURE] 2 more widget areas and improve existing ones #449
+        * [IMPROVEMENT] Comments section #446
+        * [BUGFIX] Add missing fallback for previous horizontal loop card images #450
 
     = 5.2.3.3 - March 31 2023 =
     
