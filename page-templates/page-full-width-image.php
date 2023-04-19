@@ -28,14 +28,20 @@ get_header();
         <!-- Hook to add something nice -->
         <?php bs_after_primary(); ?>
 
-        <div class="entry-content">
-          <?php the_content(); ?>
+        <div class="row">
+          <div class="<?php echo bootscore_main_col_class(); ?>">
+        
+            <div class="entry-content">
+              <?php the_content(); ?>
+            </div>
+
+            <footer class="entry-footer">
+              <?php comments_template(); ?>
+            </footer>
+
+          </div>
+          <?php get_sidebar(); ?>
         </div>
-
-        <footer class="entry-footer">
-          <?php comments_template(); ?>
-        </footer>
-
       </div>
 
     </main>
