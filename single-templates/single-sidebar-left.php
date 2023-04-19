@@ -17,7 +17,7 @@ get_header();
 
     <div class="row">
       <?php get_sidebar(); ?>
-      <div class="col-md-8 col-lg-9 order-first order-md-last">
+      <div class="<?php echo bootscore_main_col_class(); ?> order-first order-md-last">
 
         <main id="main" class="site-main">
 
