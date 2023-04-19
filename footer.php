@@ -77,7 +77,7 @@
       <?php if (is_active_sidebar('footer-info')) : ?>
         <?php dynamic_sidebar('footer-info'); ?>
       <?php endif; ?>
-      <small class="bootscore-copyright">&copy;&nbsp;<?php echo Date('Y'); ?> - <?php bloginfo('name'); ?></small>
+      <small class="bootscore-copyright"><span class="cr-symbol">&copy;</span>&nbsp;<?php echo Date('Y'); ?> <?php bloginfo('name'); ?></small>
     </div>
   </div>
 
