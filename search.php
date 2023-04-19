@@ -17,7 +17,7 @@ get_header();
     <?php bs_after_primary(); ?>
 
     <div class="row">
-      <div class="col">
+      <div class="<?php echo bootscore_main_col_class(); ?>">
 
         <main id="main" class="site-main">
 
