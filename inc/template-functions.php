@@ -55,7 +55,7 @@ if ( !function_exists( 'bootscore_container_class' ) ) {
  * @return string
  */
 if ( !function_exists( 'bootscore_main_col_class' ) ) {
-  function bootscore_col_main_class() {
+  function bootscore_main_col_class() {
     if (!is_active_sidebar('sidebar-1')) {
       // Sidebar is empty
       return "col";
