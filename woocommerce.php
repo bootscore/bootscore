@@ -27,7 +27,7 @@ get_header();
       <!-- Breadcrumb -->
       <?php woocommerce_breadcrumb(); ?>
       <div class="row">
-        <div class="col">
+        <div class="<?php echo bootscore_main_col_class(); ?>">
           <?php woocommerce_content(); ?>
         </div>
         <!-- sidebar -->

@@ -23,7 +23,7 @@ get_header();
     <?php bs_after_primary(); ?>
 
     <div class="row">
-      <div class="col-md-8 col-lg-9">
+      <div class="<?php echo bootscore_main_col_class(); ?>">
 
         <main id="main" class="site-main">
 
