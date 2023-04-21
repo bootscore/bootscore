@@ -10,7 +10,7 @@
 
 get_header();
 ?>
-<div id="content" class="site-content <?php echo bootscore_container_class(); ?> py-5 mt-5">
+<div id="content" class="site-content <?= bootscore_container_class(); ?> py-5 mt-5">
   <div id="primary" class="content-area">
 
     <main id="main" class="site-main">
@@ -25,7 +25,7 @@ get_header();
           <?php if (is_active_sidebar('404-page')) : ?>
             <div><?php dynamic_sidebar('404-page'); ?></div>
           <?php endif; ?>
-          <a class="btn btn-outline-primary" href="<?php echo esc_url(home_url()); ?>" role="button"><?php esc_html_e('Back Home &raquo;', 'bootscore'); ?></a>
+          <a class="btn btn-outline-primary" href="<?= esc_url(home_url()); ?>" role="button"><?php esc_html_e('Back Home &raquo;', 'bootscore'); ?></a>
         </div>
       </section><!-- .error-404 -->
 

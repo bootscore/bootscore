@@ -17,7 +17,7 @@
 <footer>
 
   <div class="bootscore-footer bg-light pt-5 pb-3">
-    <div class="<?php echo bootscore_container_class(); ?>">
+    <div class="<?= bootscore_container_class(); ?>">
 
       <!-- Top Footer Widget -->
       <?php if (is_active_sidebar('top-footer')) : ?>
@@ -73,11 +73,11 @@
   </div>
 
   <div class="bootscore-info bg-light text-secondary border-top py-2 text-center">
-    <div class="<?php echo bootscore_container_class(); ?>">
+    <div class="<?= bootscore_container_class(); ?>">
       <?php if (is_active_sidebar('footer-info')) : ?>
         <?php dynamic_sidebar('footer-info'); ?>
       <?php endif; ?>
-      <small class="bootscore-copyright"><span class="cr-symbol">&copy;</span>&nbsp;<?php echo Date('Y'); ?> <?php bloginfo('name'); ?></small>
+      <small class="bootscore-copyright"><span class="cr-symbol">&copy;</span>&nbsp;<?= date('Y'); ?> <?php bloginfo('name'); ?></small>
     </div>
   </div>
 
