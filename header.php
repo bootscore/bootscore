@@ -85,19 +85,15 @@
                 <?php dynamic_sidebar('top-nav'); ?>
               <?php endif; ?>
 
-              <!-- Searchform Large -->
-              <?php if (is_active_sidebar('top-nav-search')) : ?>
-               <div class="d-none d-lg-block ms-1 ms-md-2 top-nav-search-lg">
-                  <?php dynamic_sidebar('top-nav-search'); ?>
-                </div>
-              <?php endif; ?>
-
-              <!-- Search Toggler Mobile -->
-              <?php if (is_active_sidebar('top-nav-search')) : ?>
-                <button class="btn btn-outline-secondary d-lg-none ms-1 ms-md-2 top-nav-search-md" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-search" aria-expanded="false" aria-controls="collapse-search">
-                  <i class="fa-solid fa-magnifying-glass"></i><span class="visually-hidden-focusable">Search</span>
-                </button>
-              <?php endif; ?>
+              <?php
+                if ( class_exists( 'WooCommerce' ) ) :
+                  // if WooCommerce is installed
+                  get_template_part('template-parts/header-actions-woocommerce');
+                else :
+                  // if WooCommerce is NOT installed
+                  get_template_part('template-parts/header-actions');
+                endif;
+              ?>
 
               <!-- Navbar Toggler -->
               <button class="btn btn-outline-secondary d-lg-none ms-1 ms-md-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas-navbar" aria-controls="offcanvas-navbar">
@@ -110,13 +106,24 @@
 
         </nav><!-- .navbar -->
 
-        <!-- Top Nav Search Mobile Collapse -->
-        <?php if (is_active_sidebar('top-nav-search')) : ?>
-          <div class="collapse <?= bootscore_container_class(); ?> d-lg-none mb-2" id="collapse-search">
-            <?php dynamic_sidebar('top-nav-search'); ?>
-          </div>
-        <?php endif; ?>
+        <?php
+          if ( class_exists( 'WooCommerce' ) ) :
+            // if WooCommerce is installed
+            get_template_part('template-parts/header-top-nav-search-collapse-woocommerce');
+          else :
+            // if WooCommerce is NOT installed
+            get_template_part('template-parts/header-top-nav-search-collapse');
+          endif;
+        ?>
 
       </div><!-- .fixed-top .bg-light -->
+      
+      <!-- Offcanvas User and Cart -->
+      <?php
+        if ( class_exists( 'WooCommerce' ) ) :
+          // if WooCommerce is installed
+          get_template_part('template-parts/header-offcanvas-woocommerce');
+        endif;
+      ?>
 
     </header><!-- #masthead -->
