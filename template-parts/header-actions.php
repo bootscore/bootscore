@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Template part for displaying header-actions
+ * Template part for displaying the header-actions
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *

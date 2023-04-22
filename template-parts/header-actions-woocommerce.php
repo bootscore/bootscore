@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Template part for displaying header-actions-woocommerce
+ * Template part for displaying the header-actions if WooCommerce if installed
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *

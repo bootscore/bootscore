@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Template part for displaying top-nav-search collapse widget
+ * Template part for displaying the top-nav searchform collapse widget
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *

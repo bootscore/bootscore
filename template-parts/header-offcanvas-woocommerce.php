@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Template part for displaying user and cart offcanvas if WooCommerce is installed
+ * Template part for displaying the offcanvas user and cart if WooCommerce is installed
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
