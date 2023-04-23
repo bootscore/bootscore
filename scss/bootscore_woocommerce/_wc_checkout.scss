@@ -4,6 +4,7 @@ WooCommerce Checkout
 
 // Reset coupon collapse
 .woocommerce form {
+
   &.checkout_coupon,
   &.login,
   &.register {
@@ -13,22 +14,27 @@ WooCommerce Checkout
   }
 }
 
+
 // Hide Paypal img and link
 #payment .payment_method_paypal img,
 .woocommerce-checkout #payment .payment_method_paypal .about_paypal {
   display: none;
 }
 
+
 // Override WC border-radius: 5px; in #payment card
-#add_payment_method #payment, .woocommerce-cart #payment,
+#add_payment_method #payment,
+.woocommerce-cart #payment,
 .woocommerce-checkout #payment {
   border-radius: $border-radius;
 }
+
 
 // Set shipping table to top
 .woocommerce-shipping-totals th {
   vertical-align: top;
 }
+
 
 // Terms & conditions collapse box
 .woocommerce .woocommerce-terms-and-conditions,
@@ -36,21 +42,88 @@ WooCommerce Checkout
   border: none;
   box-shadow: none;
   border-radius: $border-radius;
-  margin-bottom: 1rem;
-  padding: 1rem;
+  margin-bottom: $spacer;
+  padding: $spacer;
 }
+
+
+// Payment box
+.woocommerce-checkout #payment div.payment_box {
+  border-radius: $border-radius;
+  font-size: $font-size-base;
+}
+
+
+// Payment saved cards radios
+.woocommerce-SavedPaymentMethods.wc-saved-payment-methods {
+  padding-left: 0;
+
+  li {
+    @extend .form-check;
+    padding-left: 0;
+
+    input {
+      @extend .form-check-input;
+      width: $form-check-input-width !important; // Override inline-style
+      margin-top: ($line-height-base - $form-check-input-width) * .5 !important;
+      margin-right: $form-check-input-width * .5 !important;
+      margin-bottom: 0 !important;
+      margin-left: 0 !important;
+    }
+
+    label {
+      @extend .form-check-label;
+    }
+  }
+}
+
+
+// Stripe credit card input
+.wc-stripe-elements-field,
+.wc-stripe-iban-element-field {
+  @extend .form-control;
+  margin-top: 0 !important;
+  margin-right: 0 !important;
+  margin-bottom: $spacer !important;
+  margin-left: 0 !important;
+  padding-top: $input-padding-y !important;
+  padding-right: $input-padding-x !important;
+  padding-bottom: $input-padding-y !important;
+  padding-left: $input-padding-x !important;
+}
+
+
+// Save payment inrormation check
+.form-row.woocommerce-SavedPaymentMethods-saveNew.woocommerce-validated {
+  @extend .form-check;
+
+  input {
+    @extend .form-check-input;
+    width: $form-check-input-width !important; // Override inline-style
+  }
+
+  label {
+    @extend .form-check-label;
+    cursor: pointer;
+  }
+
+}
+
 
 // Adjust terms checkboxes
 .woocommerce form .form-row .input-checkbox {
-  margin: 0.25em 0 0 -1.5rem;
-  vertical-align: top;
+  margin-top: ($line-height-base - $form-check-input-width) * .5 !important;
+  margin-right: $form-check-input-width * .5 !important;
+  margin-bottom: 0 !important;
+  margin-left: -$spacer * 1.5 !important;
 }
+
 
 // Place order button
 .woocommerce #payment #place_order,
 .woocommerce-page #payment #place_order {
   width: 100%;
-  margin-top: 1rem;
+  margin-top: $spacer;
   margin-bottom: 0;
   float: none;
 }

@@ -26,37 +26,44 @@ get_header();
         <?php bs_after_primary(); ?>
 
         <?php the_breadcrumb(); ?>
+        
+        <div class="row">
+          <div class="<?php echo bootscore_main_col_class(); ?>">
 
-        <div class="entry-content">
-          <?php bootscore_category_badge(); ?>
-          <p class="entry-meta">
-            <small class="text-muted">
-              <?php
-                bootscore_date();
-                bootscore_author();
-                bootscore_comment_count();
-              ?>
-            </small>
-          </p>
-          <?php the_content(); ?>
-        </div>
+            <div class="entry-content">
+              <?php bootscore_category_badge(); ?>
+              <p class="entry-meta">
+                <small class="text-muted">
+                  <?php
+                    bootscore_date();
+                    bootscore_author();
+                    bootscore_comment_count();
+                  ?>
+                </small>
+              </p>
+              <?php the_content(); ?>
+            </div>
 
-        <footer class="entry-footer clear-both">
-          <div class="mb-4">
-            <?php bootscore_tags(); ?>
+            <footer class="entry-footer clear-both">
+              <div class="mb-4">
+                <?php bootscore_tags(); ?>
+              </div>
+              <nav aria-label="bS page navigation">
+                <ul class="pagination justify-content-center">
+                  <li class="page-item">
+                    <?php previous_post_link('%link'); ?>
+                  </li>
+                  <li class="page-item">
+                    <?php next_post_link('%link'); ?>
+                  </li>
+                </ul>
+              </nav>
+              <?php comments_template(); ?>
+            </footer>
+            
           </div>
-          <nav aria-label="bS page navigation">
-            <ul class="pagination justify-content-center">
-              <li class="page-item">
-                <?php previous_post_link('%link'); ?>
-              </li>
-              <li class="page-item">
-                <?php next_post_link('%link'); ?>
-              </li>
-            </ul>
-          </nav>
-          <?php comments_template(); ?>
-        </footer>
+          <?php get_sidebar(); ?>
+        </div>
 
       </div>
 

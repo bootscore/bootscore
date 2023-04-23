@@ -16,7 +16,7 @@
 get_header();
 ?>
 
-<div id="content" class="site-content <?php echo bootscore_container_class(); ?> py-5 mt-4">
+<div id="content" class="site-content <?= bootscore_container_class(); ?> py-5 mt-4">
   <div id="primary" class="content-area">
 
     <!-- Hook to add something nice -->
@@ -27,7 +27,7 @@ get_header();
       <!-- Breadcrumb -->
       <?php woocommerce_breadcrumb(); ?>
       <div class="row">
-        <div class="col">
+        <div class="<?= bootscore_main_col_class(); ?>">
           <?php woocommerce_content(); ?>
         </div>
         <!-- sidebar -->
