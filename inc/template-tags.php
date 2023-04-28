@@ -39,7 +39,7 @@ if (!function_exists('bootscore_category')) :
       $categories_list = get_the_category_list(esc_html__(', ', 'bootscore'));
       if ($categories_list) {
         /* translators: 1: list of categories. */
-        printf('<span class="cat-links"></span>', $categories_list); // WPCS: XSS OK.	
+        printf('<span class="cat-links">%s</span>', $categories_list); // WPCS: XSS OK.	
       }
     }
   }
