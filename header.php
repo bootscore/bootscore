@@ -87,10 +87,8 @@
 
               <?php
                 if ( class_exists( 'WooCommerce' ) ) :
-                  // if WooCommerce is installed
                   get_template_part('template-parts/header/actions', 'woocommerce');
                 else :
-                  // if WooCommerce is NOT installed
                   get_template_part('template-parts/header/actions');
                 endif;
               ?>
@@ -108,10 +106,8 @@
 
         <?php
           if ( class_exists( 'WooCommerce' ) ) :
-            // if WooCommerce is installed
             get_template_part('template-parts/header/top-nav-search-collapse', 'woocommerce');
           else :
-            // if WooCommerce is NOT installed
             get_template_part('template-parts/header/top-nav-search-collapse');
           endif;
         ?>
@@ -121,7 +117,6 @@
       <!-- Offcanvas User and Cart -->
       <?php
         if ( class_exists( 'WooCommerce' ) ) :
-          // if WooCommerce is installed
           get_template_part('template-parts/header/offcanvas', 'woocommerce');
         endif;
       ?>
