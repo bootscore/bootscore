@@ -8,7 +8,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2023-03-16 11:53+0000\n"
+"PO-Revision-Date: 2023-05-03 08:31+0000\n"
 "Last-Translator: \n"
 "Language-Team: Deutsch (Sie)\n"
 "X-Generator: Loco https://localise.biz/\n"
@@ -16,13 +16,13 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Loco-Version: 2.6.3; wp-6.1.1"
 
-#: functions.php:278
+#: functions.php:291
 msgid ""
 " <a href=\"https://www.microsoft.com/edge\" target=\"_blank\">Microsoft "
 "Edge</a> "
 msgstr ""
 
-#: functions.php:276
+#: functions.php:289
 msgid ""
 " <a href=\"https://www.mozilla.org/firefox/\" target=\"_blank\">Mozilla "
 "Firefox</a>, <a href=\"https://www.google.com/chrome/\" target=\"_blank\">"
@@ -50,7 +50,7 @@ msgctxt "1: date, 2: time"
 msgid "%1$s at %2$s"
 msgstr "%1$s um %2$s"
 
-#: functions.php:220
+#: functions.php:235
 msgid "404 Page"
 msgstr "404 Seite"
 
@@ -70,19 +70,23 @@ msgstr ""
 msgid "Accept"
 msgstr "Verstanden"
 
-#: header-woocommerce.php:136
+#: header-woocommerce.php:138
 msgid "Account"
 msgstr "Konto"
 
-#: functions.php:126 functions.php:138 functions.php:150 functions.php:162
-#: functions.php:174 functions.php:186 functions.php:198 functions.php:210
-#: functions.php:222
+#: functions.php:126 functions.php:138 functions.php:149 functions.php:160
+#: functions.php:171 functions.php:182 functions.php:193 functions.php:204
+#: functions.php:215 functions.php:226 functions.php:237
 msgid "Add widgets here."
 msgstr "Widgets hier einfügen"
 
 #: languages/plugin-translations.php:2
 msgid "All"
 msgstr "Alle"
+
+#: languages/plugin-translations.php:11
+msgid "Auto"
+msgstr "Automatisch"
 
 #: 404.php:28
 msgid "Back Home &raquo;"
@@ -112,7 +116,7 @@ msgstr "bootScore"
 msgid "Cancel"
 msgstr "Abbrechen"
 
-#: header-woocommerce.php:149
+#: header-woocommerce.php:151
 msgid "Cart"
 msgstr "Warenkorb"
 
@@ -149,9 +153,13 @@ msgstr ""
 "unserer Dienste erklären Sie sich damit einverstanden, dass wir Cookies "
 "verwenden."
 
-#: functions.php:365
+#: functions.php:378
 msgid "Current Page"
 msgstr ""
+
+#: languages/plugin-translations.php:10
+msgid "Dark"
+msgstr "Dunkel"
 
 #: woocommerce/checkout/form-shipping.php:36
 msgid "Delivery details"
@@ -166,25 +174,29 @@ msgstr "Bearbeiten"
 msgid "Email* (will not be published)"
 msgstr "Email* (wird nicht veröffentlicht)"
 
-#: functions.php:358
+#: functions.php:371
 msgid "First Page"
 msgstr ""
 
-#: functions.php:172
+#: functions.php:180
 msgid "Footer 1"
 msgstr "Footer 1"
 
-#: functions.php:184
+#: functions.php:191
 msgid "Footer 2"
 msgstr "Footer 2"
 
-#: functions.php:196
+#: functions.php:202
 msgid "Footer 3"
 msgstr "Footer 3"
 
-#: functions.php:208
+#: functions.php:213
 msgid "Footer 4"
 msgstr "Footer 4"
+
+#: functions.php:224
+msgid "Footer Info"
+msgstr ""
 
 #. Name of the template
 msgid "Full Width Image"
@@ -193,10 +205,6 @@ msgstr "Bild in voller Breite"
 #. Name of the template
 msgid "Full width image"
 msgstr "Bild in voller Breite"
-
-#: woocommerce/ajax-cart/ajax-add-to-cart.php:141
-msgid "has been added to your cart."
-msgstr "wurde Ihrem Warenkorb hinzugefügt."
 
 #: woocommerce/myaccount/my-account-offcanvas.php:17
 msgid "Hello"
@@ -218,7 +226,7 @@ msgstr ""
 msgid "https://bootscore.me/"
 msgstr "https://bootscore.me/"
 
-#: functions.php:273
+#: functions.php:286
 msgid "Internet Explorer detected"
 msgstr "Internet Explorer erkannt"
 
@@ -230,7 +238,7 @@ msgstr ""
 "Anscheinend können wir nicht finden, wonach Sie suchen. Suchen Sie bitte mit "
 "anderen Schlagwörtern."
 
-#: functions.php:372
+#: functions.php:385
 msgid "Last Page"
 msgstr ""
 
@@ -252,11 +260,15 @@ msgstr "Schreibe Kommentar für %s"
 msgid "Left Sidebar"
 msgstr "Linke Sidebar"
 
+#: languages/plugin-translations.php:9
+msgid "Light"
+msgstr "Hell"
+
 #: languages/plugin-translations.php:3
 msgid "Look what I found: "
 msgstr "Schauen Sie mal was ich gefunden habe: "
 
-#: header.php:55 header-woocommerce.php:55
+#: header-woocommerce.php:55 header.php:55
 msgid "Menu"
 msgstr "Menü"
 
@@ -272,7 +284,7 @@ msgstr "Name*"
 msgid "Newer Comments"
 msgstr "Neueste Kommentare"
 
-#: functions.php:369
+#: functions.php:382
 msgid "Next Page"
 msgstr ""
 
@@ -292,15 +304,15 @@ msgstr "Ältere Kommentare"
 msgid "Open side menu"
 msgstr "Seitenmenü öffnen"
 
-#: functions.php:277
+#: functions.php:290
 msgid "or"
 msgstr "oder"
 
-#: functions.php:365
+#: functions.php:378
 msgid "Page"
 msgstr ""
 
-#: functions.php:354
+#: functions.php:367
 msgid "Page navigation"
 msgstr ""
 
@@ -312,7 +324,7 @@ msgstr "Seite nicht gefunden"
 msgid "Pages:"
 msgstr "Seiten:"
 
-#: functions.php:446
+#: functions.php:459
 msgid "Password"
 msgstr "Passwort"
 
@@ -320,7 +332,7 @@ msgstr "Passwort"
 msgid "Pingback:"
 msgstr "Oingback:"
 
-#: functions.php:275
+#: functions.php:288
 msgid "Please use a modern and secure web browser like"
 msgstr "Bitte verwenden Sie einen modernen und sicheren Webbrowser wie z.B."
 
@@ -334,12 +346,12 @@ msgstr "von %s"
 msgid "Post Comment"
 msgstr "Kommentar posten"
 
-#: functions.php:361
+#: functions.php:374
 msgid "Previous Page"
 msgstr ""
 
-#: archive.php:70 archive-01.php:66 index.php:82 index.php:139
-#: template-parts/content-search.php:43
+#: index.php:93 index.php:164 archive.php:71
+#: template-parts/content-search.php:53
 msgid "Read more »"
 msgstr "Weiterlesen »"
 
@@ -352,7 +364,7 @@ msgstr ""
 "Bereit Ihren ersten Post zu veröffentlichen? <a href=\"%1$s\">Starten Sie "
 "hier</a>."
 
-#: inc/comment-list.php:105
+#: inc/comment-list.php:103
 msgid ""
 "Save my name, email, and website in this browser for the next time I comment."
 msgstr ""
@@ -373,7 +385,7 @@ msgstr "Suchergebnisse für: %s"
 msgid "Shop order"
 msgstr "Shop Bestellung"
 
-#: functions.php:148 sidebar.php:26
+#: functions.php:158 sidebar.php:26
 msgid "Sidebar"
 msgstr "Seitenmenü"
 
@@ -393,25 +405,20 @@ msgstr ""
 msgid "Start typing..."
 msgstr "Schreiben Sie Ihren Kommentar..."
 
-#: functions.php:447
+#: functions.php:460
 msgid "Submit"
 msgstr "Senden"
 
-#: inc/template-tags.php:190
+#. 1: list of tags.
+#: inc/template-tags.php:192
 msgid "Tagged"
 msgstr "Schlagworte"
 
-#. 1: list of tags.
-#: inc/template-tags.php:194
-#, php-format
-msgid "Tagged %1$s"
-msgstr "Schlagworte %1$s"
-
-#: functions.php:274
+#: functions.php:287
 msgid "This website will offer limited functionality in this browser."
 msgstr "Diese Website bietet eingeschränkte Funktionen in diesem Browser."
 
-#: functions.php:279
+#: functions.php:292
 msgid "to display this site correctly."
 msgstr "um diese Webseite korrekt darzustellen."
 
@@ -420,11 +427,11 @@ msgstr "um diese Webseite korrekt darzustellen."
 msgid "To find out your shipping cost, please proceed to checkout."
 msgstr "Um Ihre Versandkosten zu berechnen, gehen Sie bitte zur Kasse."
 
-#: woocommerce/ajax-cart/ajax-add-to-cart.php:139
-msgid "to your cart."
-msgstr "zu Ihrem Warenkorb hinzufügen."
+#: languages/plugin-translations.php:8
+msgid "Toggle theme"
+msgstr "Farbschema ändern"
 
-#: functions.php:160
+#: functions.php:169
 msgid "Top Footer"
 msgstr "Top Footer"
 
@@ -433,16 +440,16 @@ msgid "Top Nav"
 msgstr "Top Navigation"
 
 #: functions.php:136
+msgid "Top Nav 2"
+msgstr ""
+
+#: functions.php:147
 msgid "Top Nav Search"
 msgstr "Top Nav Suche"
 
 #: comments.php:134
 msgid "Website"
 msgstr "Webseite"
-
-#: woocommerce/ajax-cart/ajax-add-to-cart.php:139
-msgid "You cannot add another"
-msgstr "Sie können keinen weiteren"
 
 #: inc/comment-list.php:56
 msgid "Your comment is awaiting moderation."
