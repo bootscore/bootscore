@@ -9,9 +9,10 @@
  */
 
 
-// WooCommerce
-//require get_template_directory() . '/woocommerce/woocommerce-functions.php';
-// WooCommerce END
+// Enable WooCommerce scripts if plugin is installed
+if ( class_exists( 'WooCommerce' ) ) {
+  require get_template_directory() . '/woocommerce/wc-functions.php';
+}
 
 
 // Register Bootstrap 5 Nav Walker
