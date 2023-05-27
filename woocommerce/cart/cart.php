@@ -13,7 +13,7 @@
  *
  * @see     https://docs.woocommerce.com/document/template-structure/
  * @package WooCommerce\Templates
- * @version 7.4.0
+ * @version 7.8.0
  */
 
 defined('ABSPATH') || exit;
@@ -41,7 +41,14 @@ do_action('woocommerce_before_cart'); ?>
       foreach (WC()->cart->get_cart() as $cart_item_key => $cart_item) {
         $_product   = apply_filters('woocommerce_cart_item_product', $cart_item['data'], $cart_item, $cart_item_key);
         $product_id = apply_filters('woocommerce_cart_item_product_id', $cart_item['product_id'], $cart_item, $cart_item_key);
-
+        /**
+         * Filter the product name.
+         *
+         * @since 7.8.0
+         * @param string $product_name Name of the product in the cart.
+         */
+        $product_name = apply_filters( 'woocommerce_cart_item_name', $_product->get_name(), $cart_item, $cart_item_key );
+ 
         if ($_product && $_product->exists() && $cart_item['quantity'] > 0 && apply_filters('woocommerce_cart_item_visible', true, $cart_item, $cart_item_key)) {
           $product_permalink = apply_filters('woocommerce_cart_item_permalink', $_product->is_visible() ? $_product->get_permalink($cart_item) : '', $cart_item, $cart_item_key);
       ?>
@@ -54,7 +61,8 @@ do_action('woocommerce_before_cart'); ?>
                 sprintf(
                   '<a href="%s" class="text-danger" aria-label="%s" data-product_id="%s" data-product_sku="%s"><i class="fa-regular fa-trash-can"></i></a>',
                   esc_url(wc_get_cart_remove_url($cart_item_key)),
-                  esc_html__('Remove this item', 'woocommerce'),
+                  /* translators: %s is the product name */
+		          esc_attr( sprintf( __( 'Remove %s from cart', 'woocommerce' ), $product_name ) ),
                   esc_attr($product_id),
                   esc_attr($_product->get_sku())
                 ),
@@ -78,9 +86,23 @@ do_action('woocommerce_before_cart'); ?>
             <td class="product-name" data-title="<?php esc_attr_e('Product', 'woocommerce'); ?>">
               <?php
               if (!$product_permalink) {
-                echo wp_kses_post(apply_filters('woocommerce_cart_item_name', esc_html($_product->get_name()), $cart_item, $cart_item_key) . '&nbsp;');
+                /**
+                 * Filter the product name.
+                 *
+                 * @since 7.8.0
+                 * @param string $product_name Name of the product in the cart.
+                 * @param array $cart_item The product in the cart.
+                 * @param string $cart_item_key Key for the product in the cart.
+                 */
+                echo wp_kses_post( apply_filters( 'woocommerce_cart_item_name', $product_name, $cart_item, $cart_item_key ) . '&nbsp;' );
               } else {
-                echo wp_kses_post(apply_filters('woocommerce_cart_item_name', sprintf('<a href="%s">%s</a>', esc_url($product_permalink), esc_html($_product->get_name())), $cart_item, $cart_item_key));
+                /**
+                 * Filter the product name.
+                 *
+                 * @since 7.8.0
+                 * @param string $product_url URL the product in the cart.
+                 */
+                echo wp_kses_post( apply_filters( 'woocommerce_cart_item_name', sprintf( '<a href="%s">%s</a>', esc_url( $product_permalink ), $product_name ), $cart_item, $cart_item_key ) );
               }
 
               do_action('woocommerce_after_cart_item_name', $cart_item, $cart_item_key);
@@ -112,7 +134,7 @@ do_action('woocommerce_before_cart'); ?>
                     'input_value'  => $cart_item['quantity'],
                     'max_value'    => $_product->get_max_purchase_quantity(),
                     'min_value'    => '0',
-                    'product_name' => $_product->get_name(),
+                    'product_name' => $product_name,
                   ),
                   $_product,
                   false
@@ -142,9 +164,9 @@ do_action('woocommerce_before_cart'); ?>
           <?php if (wc_coupons_enabled()) { ?>
             <div class="coupon">
               <div class="input-group">
-                <input type="text" name="coupon_code" class="form-control" id="coupon_code" value="" placeholder="<?php esc_attr_e('Coupon code', 'woocommerce'); ?>" />
+                <input type="text" name="coupon_code" class="form-control" id="coupon_code" value="" placeholder="<?php esc_attr_e( 'Coupon code', 'woocommerce' ); ?>" /> 
                 <label for="coupon_code" class="screen-reader-text"><?php esc_html_e( 'Coupon:', 'woocommerce' ); ?></label> 
-                <button type="submit" class="input-group-text btn btn-outline-primary<?php echo esc_attr( wc_wp_theme_get_element_class_name( 'button' ) ? ' ' . wc_wp_theme_get_element_class_name( 'button' ) : '' ); ?>" name="apply_coupon" value="<?php esc_attr_e( 'Apply coupon', 'woocommerce' ); ?>"><?php esc_attr_e( 'Apply coupon', 'woocommerce' ); ?></button>
+                <button type="submit" class="button<?php echo esc_attr( wc_wp_theme_get_element_class_name( 'button' ) ? ' ' . wc_wp_theme_get_element_class_name( 'button' ) : '' ); ?>" name="apply_coupon" value="<?php esc_attr_e( 'Apply coupon', 'woocommerce' ); ?>"><?php esc_html_e( 'Apply coupon', 'woocommerce' ); ?></button>
                 <?php do_action('woocommerce_cart_coupon'); ?>
               </div>
             </div>
