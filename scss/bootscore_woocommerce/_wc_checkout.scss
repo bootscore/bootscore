@@ -24,8 +24,7 @@ WooCommerce Checkout
 
 // Override WC border-radius: 5px; in #payment card
 #add_payment_method #payment,
-.woocommerce-cart #payment,
-.woocommerce-checkout #payment {
+.woocommerce-cart #payment {
   border-radius: $border-radius;
 }
 
@@ -123,7 +122,50 @@ WooCommerce Checkout
 .woocommerce #payment #place_order,
 .woocommerce-page #payment #place_order {
   width: 100%;
-  margin-top: $spacer;
+  //margin-top: $spacer;
   margin-bottom: 0;
-  float: none;
+  //float: none;
+}
+
+
+
+
+
+
+
+// Create card
+.woocommerce-checkout #payment {
+  background: $card-bg;
+  //border-width: $card-border-width;
+  //border-color: $card-border-color;
+  //border-radius: $card-border-radius;
+  border: $card-border-width solid $card-border-color;
+  border-radius: $card-border-radius;
+  padding: $card-spacer-y $card-spacer-x;
+  
+}
+
+
+.woocommerce-checkout #payment ul.payment_methods {
+  border-bottom: var(--bs-border-width) var(--bs-border-style) var(--bs-border-color);
+  padding: 0;
+  margin-bottom: $spacer;
+}
+
+.woocommerce-checkout #payment div.form-row {
+  padding: 0;
+  margin: 0;
+}
+
+.woocommerce-checkout #payment ul.payment_methods li {
+  line-height: inherit;
+}
+
+
+// Adjust payment checkboxes
+.woocommerce-checkout #payment ul.payment_methods li input {
+  margin-top: ($line-height-base - $form-check-input-width) * .5;
+  margin-right: $form-check-input-width * .5;
+  margin-bottom: 0;
+  margin-left: -$spacer * 1.5;
 }
