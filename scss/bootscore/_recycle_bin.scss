@@ -18,6 +18,12 @@ p:empty:before {
   color: var(--#{$prefix}light) !important;
 }
 
+// Hotfix password protected input-group button
+.pw_form .btn {
+  border-top-right-radius: $btn-border-radius !important;
+  border-bottom-right-radius: $btn-border-radius !important;
+}
+
 
 // Fallback for previous horizontal card images
 // See https://github.com/bootscore/bootscore/issues/447
