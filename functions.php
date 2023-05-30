@@ -456,7 +456,7 @@ endif;
 if (!function_exists('bootscore_pw_form')) :
   function bootscore_pw_form() {
     $output = '
-        <form action="' . get_option('siteurl') . '/wp-login.php?action=postpass" method="post" class="input-group">' . "\n"
+        <form action="' . get_option('siteurl') . '/wp-login.php?action=postpass" method="post" class="input-group pw_form">' . "\n"
       . '<input name="post_password" type="password" size="" class="form-control" placeholder="' . __('Password', 'bootscore') . '"/>' . "\n"
       . '<input type="submit" class="btn btn-outline-primary input-group-text" name="Submit" value="' . __('Submit', 'bootscore') . '" />' . "\n"
       . '</form>' . "\n";
