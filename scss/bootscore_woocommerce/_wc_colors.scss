@@ -54,7 +54,7 @@ ins {
 
   .woocommerce table.shop_table_responsive tr:nth-child(2n) td,
   .woocommerce-page table.shop_table_responsive tr:nth-child(2n) td {
-    background-color: var(--bscore-shop-table-responsive, var(--#{$prefix}light));
+    background-color: var(--bscore-shop-table-responsive, var(--#{$prefix}tertiary-bg));
   }
 }
 
@@ -96,7 +96,7 @@ small.includes_tax {
 }
 
 .woocommerce-terms-and-conditions {
-  background: var(--bscore-terms, var(--#{$prefix}light));
+  background: var(--bscore-terms, var(--#{$prefix}tertiary-bg));
 }
 
 .woocommerce div.product .stock {
