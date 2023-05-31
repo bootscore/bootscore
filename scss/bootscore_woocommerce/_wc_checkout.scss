@@ -81,15 +81,13 @@ WooCommerce Checkout
 // Stripe credit card input
 .wc-stripe-elements-field,
 .wc-stripe-iban-element-field {
-  @extend .form-control;
-  margin-top: 0 !important;
-  margin-right: 0 !important;
-  margin-bottom: $spacer !important;
-  margin-left: 0 !important;
   padding-top: $input-padding-y !important;
   padding-right: $input-padding-x !important;
   padding-bottom: $input-padding-y !important;
   padding-left: $input-padding-x !important;
+  background-color: $input-bg !important;
+  border-color: $input-border-color !important;
+  border-radius: $border-radius;
 }
 
 
