@@ -19,7 +19,7 @@ if (!function_exists('bootscore_category_badge')) :
       $i = 0;
       foreach (get_the_category() as $category) {
         if (0 < $i) $thelist .= ' ';
-        $thelist .= '<a href="' . esc_url(get_category_link($category->term_id)) . '" class="badge text-bg-light text-decoration-none">' . $category->name . '</a>';
+        $thelist .= '<a href="' . esc_url(get_category_link($category->term_id)) . '" class="badge bg-primary-subtle text-primary-emphasis text-decoration-none">' . $category->name . '</a>';
         $i++;
       }
       echo $thelist;
@@ -198,7 +198,7 @@ if (!function_exists('bootscore_tags')) :
   add_filter("term_links-post_tag", 'add_tag_class');
 
   function add_tag_class($links) {
-    return str_replace('<a href="', '<a class="badge text-bg-light text-decoration-none me-1" href="', $links);
+    return str_replace('<a href="', '<a class="badge bg-primary-subtle text-primary-emphasis text-decoration-none me-1" href="', $links);
   }
 endif;
 // Tags End

@@ -9,7 +9,7 @@
  *
  * @package Bootscore
  *
- * @version 5.2.3.4
+ * @version 5.3.0
  */
 
 ?>
@@ -39,7 +39,7 @@
 
     <header id="masthead" class="site-header">
 
-      <div class="fixed-top bg-light">
+      <div class="fixed-top bg-body-tertiary">
 
         <nav id="nav-main" class="navbar navbar-expand-lg">
 
