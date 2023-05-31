@@ -106,7 +106,7 @@ do_action('woocommerce_before_mini_cart'); ?>
     ?>
   </div>
 
-  <div class="cart-footer bg-light text-center p-3">
+  <div class="cart-footer bg-body-tertiary text-center p-3">
 
     <p class="woocommerce-mini-cart__total total">
       <?php
