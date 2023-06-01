@@ -23,7 +23,7 @@ if (!function_exists('bootscore_comment')) :
 
     if ('pingback' == $comment->comment_type || 'trackback' == $comment->comment_type) : ?>
 
-      <li class="alert alert-info" id="comment-<?php comment_ID(); ?>" <?php comment_class('media'); ?>>
+      <li id="comment-<?php comment_ID(); ?>" <?php comment_class('media alert alert-info'); ?>>
       <div class="comment-body">
         <?php _e('Pingback:', 'bootscore'); ?><?php comment_author_link(); ?><?php edit_comment_link(__('Edit', 'bootscore'), '<span class="edit-link">', '</span>'); ?>
       </div>
