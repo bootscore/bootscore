@@ -7,6 +7,7 @@ function bootscore_reply() {
     wp_enqueue_script('comment-reply');
   }
 }
+
 add_action('wp_enqueue_scripts', 'bootscore_reply');
 
 
@@ -23,11 +24,11 @@ if (!function_exists('bootscore_comment')) :
     if ('pingback' == $comment->comment_type || 'trackback' == $comment->comment_type) : ?>
 
       <li class="alert alert-info" id="comment-<?php comment_ID(); ?>" <?php comment_class('media'); ?>>
-        <div class="comment-body">
-          <?php _e('Pingback:', 'bootscore'); ?> <?php comment_author_link(); ?> <?php edit_comment_link(__('Edit', 'bootscore'), '<span class="edit-link">', '</span>'); ?>
-        </div>
+      <div class="comment-body">
+        <?php _e('Pingback:', 'bootscore'); ?><?php comment_author_link(); ?><?php edit_comment_link(__('Edit', 'bootscore'), '<span class="edit-link">', '</span>'); ?>
+      </div>
 
-      <?php else : ?>
+    <?php else : ?>
 
       <li id="comment-<?php comment_ID(); ?>" <?php comment_class(empty($args['has_children']) ? '' : 'parent'); ?>>
 
@@ -65,7 +66,7 @@ if (!function_exists('bootscore_comment')) :
                       'add_below' => 'div-comment',
                       'depth'     => $depth,
                       'max_depth' => $args['max_depth'],
-                      'before'     => '<p class="reply comment-reply">',
+                      'before'    => '<p class="reply comment-reply">',
                       'after'     => '</p>'
                     )
                   )
@@ -77,36 +78,37 @@ if (!function_exists('bootscore_comment')) :
         </article><!-- .comment-body -->
       </li><!-- #comment -->
 
-<?php
+    <?php
     endif;
   }
 endif; // ends check for bootscore_comment()
-
 
 
 // h2 Reply Title
 add_filter('comment_form_defaults', 'custom_reply_title');
 function custom_reply_title($defaults) {
   $defaults['title_reply_before'] = '<h2 id="reply-title" class="h4">';
-  $defaults['title_reply_after'] = '</h2>';
+  $defaults['title_reply_after']  = '</h2>';
+
   return $defaults;
 }
-// h2 Reply Title End
 
+// h2 Reply Title End
 
 
 // Comment Cookie Checkbox
 function wp44138_change_comment_form_cookies_consent($fields) {
-  $consent  = empty($commenter['comment_author_email']) ? '' : ' checked="checked"';
+  $consent           = empty($commenter['comment_author_email']) ? '' : ' checked="checked"';
   $fields['cookies'] = '<p class="comment-form-cookies-consent custom-control form-check mb-3">' .
-    '<input id="wp-comment-cookies-consent" name="wp-comment-cookies-consent" type="checkbox" value="yes" class="form-check-input"' . $consent . ' />' .
-    '<label for="wp-comment-cookies-consent" class="form-check-label">' . __('Save my name, email, and website in this browser for the next time I comment.', 'bootscore') . '</label>' .
-    '</p>';
+                       '<input id="wp-comment-cookies-consent" name="wp-comment-cookies-consent" type="checkbox" value="yes" class="form-check-input"' . $consent . ' />' .
+                       '<label for="wp-comment-cookies-consent" class="form-check-label">' . __('Save my name, email, and website in this browser for the next time I comment.', 'bootscore') . '</label>' .
+                       '</p>';
+
   return $fields;
 }
+
 add_filter('comment_form_default_fields', 'wp44138_change_comment_form_cookies_consent');
 // Comment Cookie Checkbox End
-
 
 
 // Open comment author link in new tab
