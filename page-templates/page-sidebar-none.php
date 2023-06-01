@@ -11,11 +11,11 @@
 get_header();
 ?>
 
-<div id="content" class="site-content <?= bootscore_container_class(); ?> py-5 mt-5">
-  <div id="primary" class="content-area">
+  <div id="content" class="site-content <?= bootscore_container_class(); ?> py-5 mt-5">
+    <div id="primary" class="content-area">
 
-    <!-- Hook to add something nice -->
-    <?php bs_after_primary(); ?>
+      <!-- Hook to add something nice -->
+      <?php bs_after_primary(); ?>
 
       <main id="main" class="site-main">
 
@@ -35,8 +35,8 @@ get_header();
 
       </main>
 
+    </div>
   </div>
-</div>
 
 <?php
 get_footer();
