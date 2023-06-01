@@ -10,11 +10,11 @@
 
 ?>
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
- 
+
   <div class="card horizontal mb-4">
     <div class="row g-0">
 
-      <?php if ( has_post_thumbnail() ) : ?>
+      <?php if (has_post_thumbnail()) : ?>
         <div class="col-lg-6 col-xl-5 col-xxl-4">
           <a href="<?php the_permalink(); ?>">
             <?php the_post_thumbnail('medium', array('class' => 'card-img-lg-start')); ?>
@@ -34,10 +34,10 @@
           <?php if ('post' === get_post_type()) : ?>
             <p class="meta small mb-2 text-body-tertiary">
               <?php
-                bootscore_date();
-                bootscore_author();
-                bootscore_comments();
-                bootscore_edit();
+              bootscore_date();
+              bootscore_author();
+              bootscore_comments();
+              bootscore_edit();
               ?>
             </p>
           <?php endif; ?>
@@ -60,6 +60,6 @@
       </div>
     </div>
   </div>
-  
+
 </article>
 <!-- #post-<?php the_ID(); ?> -->

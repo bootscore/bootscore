@@ -22,7 +22,7 @@
 
       printf(
         '<p>' . wp_kses(
-          /* translators: 1: link to WP admin new post page. */
+        /* translators: 1: link to WP admin new post page. */
           __('Ready to publish your first post? <a href="%1$s">Get started here</a>.', 'bootscore'),
           array(
             'a' => array(
@@ -34,15 +34,15 @@
       );
 
     elseif (is_search()) :
-    ?>
+      ?>
       <p class="alert alert-info mb-4"><?php esc_html_e('Sorry, but nothing matched your search terms. Please try again with some different keywords.', 'bootscore'); ?></p>
-    <?php
+      <?php
       get_search_form();
 
     else :
-    ?>
+      ?>
       <p><?php esc_html_e('It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help.', 'bootscore'); ?></p>
-    <?php
+      <?php
       get_search_form();
 
     endif;
