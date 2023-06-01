@@ -25,7 +25,8 @@ WooCommerce Buttons
 // Add to cart buttons
 .woocommerce .card a.button,
 .woocommerce div.product form.cart button.button,
-.woocommerce-cart .wc-proceed-to-checkout a.checkout-button {
+.woocommerce-cart .wc-proceed-to-checkout a.checkout-button,
+#place_order {
   @extend .btn;
   @extend .btn-primary;
 }

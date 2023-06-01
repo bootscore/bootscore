@@ -15,7 +15,7 @@
  *
  * @see     https://docs.woocommerce.com/document/template-structure/
  * @package WooCommerce\Templates
- * @version 5.2.0
+ * @version 7.8.0
  */
 
 defined('ABSPATH') || exit;
@@ -33,6 +33,11 @@ do_action('woocommerce_before_mini_cart'); ?>
       $product_id = apply_filters('woocommerce_cart_item_product_id', $cart_item['product_id'], $cart_item, $cart_item_key);
 
       if ($_product && $_product->exists() && $cart_item['quantity'] > 0 && apply_filters('woocommerce_widget_cart_item_visible', true, $cart_item, $cart_item_key)) {
+        /**
+         * Filter the product name.
+         *
+         * @param string $product_name Name of the product in the cart.
+         */      
         $product_name      = apply_filters('woocommerce_cart_item_name', $_product->get_name(), $cart_item, $cart_item_key);
         $thumbnail         = apply_filters('woocommerce_cart_item_thumbnail', $_product->get_image(), $cart_item, $cart_item_key);
         $product_price     = apply_filters('woocommerce_cart_item_price', WC()->cart->get_product_price($_product), $cart_item, $cart_item_key);
@@ -72,15 +77,14 @@ do_action('woocommerce_before_mini_cart'); ?>
               </div>
             </div>
 
-
-
             <div class="remove col-2 text-end">
               <?php echo apply_filters( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
                 'woocommerce_cart_item_remove_link',
                 sprintf(
                   '<a href="%s" class="remove_from_cart_button text-danger" aria-label="%s" data-product_id="%s" data-cart_item_key="%s" data-product_sku="%s"><i class="fa-regular fa-trash-can"></i></a>',
                   esc_url(wc_get_cart_remove_url($cart_item_key)),
-                  esc_attr__('Remove this item', 'woocommerce'),
+                  /* translators: %s is the product name */
+		          esc_attr( sprintf( __( 'Remove %s from cart', 'woocommerce' ), $product_name ) ),
                   esc_attr($product_id),
                   esc_attr($cart_item_key),
                   esc_attr($_product->get_sku())
@@ -102,7 +106,7 @@ do_action('woocommerce_before_mini_cart'); ?>
     ?>
   </div>
 
-  <div class="cart-footer bg-light text-center p-3">
+  <div class="cart-footer bg-body-tertiary text-center p-3">
 
     <p class="woocommerce-mini-cart__total total">
       <?php

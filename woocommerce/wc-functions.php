@@ -7,6 +7,11 @@
  */
 
 
+// Enable fragments script (disabled in WooCommerce 7.8.0 if mini-cart widget is not in a widget position)
+// See https://developer.woocommerce.com/2023/05/24/woocommerce-7-8-beta-1-released/
+wp_enqueue_script( 'wc-cart-fragments' );
+
+
 // Woocommerce Templates
 function mytheme_add_woocommerce_support() {
   add_theme_support('woocommerce');
