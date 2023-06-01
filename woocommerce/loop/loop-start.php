@@ -21,5 +21,5 @@ if (!defined('ABSPATH')) {
 }
 ?>
 
-<div class="row">
+<div class="row products">
   <!-- End in loop-end.php -->
