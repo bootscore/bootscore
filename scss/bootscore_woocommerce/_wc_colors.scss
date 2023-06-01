@@ -51,9 +51,10 @@ ins {
 // Tables
 
 @include media-breakpoint-down(md) {
+
   .woocommerce table.shop_table_responsive tr:nth-child(2n) td,
   .woocommerce-page table.shop_table_responsive tr:nth-child(2n) td {
-    background-color: var(--bscore-shop-table-responsive, var(--#{$prefix}light));
+    background-color: var(--bscore-shop-table-responsive, var(--#{$prefix}tertiary-bg));
   }
 }
 
@@ -71,28 +72,31 @@ ins {
 .woocommerce table.shop_attributes td,
 .woocommerce table.shop_attributes th,
 .woocommerce table.shop_attributes {
-  border-color: var(--bscore-wc-shop-table-border, var(--#{$prefix}gray-300));
+  border-color: var(--bscore-wc-shop-table-border, var(--#{$prefix}border-color));
+}
+
+#add_payment_method .cart-collaterals .cart_totals table small,
+.woocommerce-cart .cart-collaterals .cart_totals table small,
+.woocommerce-checkout .cart-collaterals .cart_totals table small,
+small.includes_tax {
+  color: var(--bscore-wc-shop-table-small, var(--#{$prefix}tertiary-color));
 }
 
 #add_payment_method #payment div.payment_box,
 .woocommerce-cart #payment div.payment_box,
 .woocommerce-checkout #payment div.payment_box {
-  background-color: var(--bscore-wc-payment-box, var(--#{$prefix}light));
+  background-color: var(--bscore-wc-payment-box, var(--#{$prefix}tertiary-bg));
   color: currentColor;
 }
 
 #add_payment_method #payment div.payment_box::before,
 .woocommerce-cart #payment div.payment_box::before,
 .woocommerce-checkout #payment div.payment_box::before {
-  border-bottom-color: var(--bscore-wc-payment-box, var(--#{$prefix}light));
+  border-bottom-color: var(--bscore-wc-payment-box, var(--#{$prefix}tertiary-bg));
 }
 
 .woocommerce-terms-and-conditions {
-  background: var(--bscore-terms, var(--#{$prefix}light));
-}
-
-.woocommerce-checkout .shop_table {
-  background-color: var(--bscore-wc-shop-table-bg, var(--#{$prefix}white));
+  background: var(--bscore-terms, var(--#{$prefix}tertiary-bg));
 }
 
 .woocommerce div.product .stock {
@@ -127,7 +131,7 @@ ins {
 // Product attributes
 .woocommerce table.shop_attributes tr:nth-child(even) td,
 .woocommerce table.shop_attributes tr:nth-child(even) th {
-  background: var(--bscore-wc-attributes-tr, var(--#{$prefix}light));
+  background: var(--bscore-wc-attributes-tr, var(--#{$prefix}tertiary-bg));
 }
 
 // Product attributes End

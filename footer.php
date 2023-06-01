@@ -9,14 +9,14 @@
  *
  * @package Bootscore
  *
- * @version 5.2.3.4
+ * @version 5.3.0
  */
 
 ?>
 
 <footer>
 
-  <div class="bootscore-footer bg-light pt-5 pb-3">
+  <div class="bootscore-footer bg-body-tertiary pt-5 pb-3">
     <div class="<?= bootscore_container_class(); ?>">
 
       <!-- Top Footer Widget -->
@@ -72,7 +72,7 @@
     </div>
   </div>
 
-  <div class="bootscore-info bg-light text-secondary border-top py-2 text-center">
+  <div class="bootscore-info bg-body-tertiary text-body-tertiary border-top py-2 text-center">
     <div class="<?= bootscore_container_class(); ?>">
       <?php if (is_active_sidebar('footer-info')) : ?>
         <?php dynamic_sidebar('footer-info'); ?>

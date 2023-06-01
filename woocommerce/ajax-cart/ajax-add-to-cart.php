@@ -16,7 +16,7 @@ function filter_wc_loop_add_to_cart_args($args, $product) {
 // JS for AJAX Add to Cart handling https://aceplugins.com/ajax-add-to-cart-button-on-the-product-page-woocommerce/
 function bootscore_product_page_ajax_add_to_cart_js() {
 ?>
-  <script type="text/javascript" charset="UTF-8">
+  <script>
     jQuery(function($) {
 
       $('form.cart:not(.product-type-external form.cart)').on('submit', function(e) {

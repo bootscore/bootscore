@@ -417,7 +417,7 @@ if (!function_exists('the_breadcrumb')) :
 function the_breadcrumb() {
 
   if (!is_home()) {
-    echo '<nav aria-label="breadcrumb" class="breadcrumb-scroller mb-4 mt-2 py-2 px-3 bg-light rounded">';
+    echo '<nav aria-label="breadcrumb" class="breadcrumb-scroller mb-4 mt-2 py-2 px-3 bg-body-tertiary rounded">';
     echo '<ol class="breadcrumb mb-0">';
     echo '<li class="breadcrumb-item"><a href="' . home_url() . '">' . '<i class="fa-solid fa-house"></i>' . '</a></li>';
     // display parent category names with links

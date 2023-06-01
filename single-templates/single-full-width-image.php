@@ -33,7 +33,7 @@ get_header();
             <div class="entry-content">
               <?php bootscore_category_badge(); ?>
               <p class="entry-meta">
-                <small class="text-muted">
+                <small class="text-body-tertiary">
                   <?php
                     bootscore_date();
                     bootscore_author();

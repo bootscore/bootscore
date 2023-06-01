@@ -13,12 +13,23 @@ p:empty:before {
   display: none !important;
 }
 
-// Dark mode text-body in loop (remove in Bootstrap 5.3.0)
-.dark-theme .text-body {
-  color: var(--#{$prefix}light) !important;
+// Dark mode (remove when themes and plugins are updated to new dark-mode)
+[data-bs-theme="dark"] {
+
+  // Fallback for existing bg-light classes
+  .bg-light {
+    background-color: var(--#{$prefix}tertiary-bg) !important;
+  }
+
+  // Cookie settings plugin
+  .desc.b-acc,
+  #s-bl tr {
+    border-color: var(--#{$prefix}modal-bg) !important;
+  }
 }
 
 // Hotfix password protected input-group button
+// Function creates <br> tags?
 .pw_form .btn {
   border-top-right-radius: $btn-border-radius !important;
   border-bottom-right-radius: $btn-border-radius !important;
