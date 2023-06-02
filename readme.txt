@@ -67,10 +67,12 @@ bootScore includes support for WooCommerce and Infinite Scroll in Jetpack.
         * [IMPROVEMENT] Refactor header.php and enable Woo parts if WooCommerce is installed #461
         * [IMPROVEMENT] Enqueue scripts if WooCommerce is installed #473
         * [IMPROVEMENT] Password protected post form as input-group #476
+        * [IMPROVEMENT] Formatting the php files #495
         * [BUGFIX] WooCommerce searchform language string #464
         * [BUGFIX] bootscore_category() failing to output categories #465
         * [BUGFIX] Duplicate class property in product-searchform.php 4c9daef
         * [BUGFIX] JavaScript block HTML validation fail in ajax-add-to-cart.php c29635d
+        * [BUGFIX] Minor fixes 494
         * [UPDATE] WooCommerce 7.8.0 templates #483
         * [UPDATE] Translation template #469
         * [UPDATE] Bootstrap 5.3.0 #487
