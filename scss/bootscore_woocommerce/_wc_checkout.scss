@@ -32,7 +32,7 @@ WooCommerce Checkout
   padding: $card-spacer-y $card-spacer-x;
 
   ul.payment_methods {
-    border-bottom: var(--bs-border-width) var(--bs-border-style) var(--bs-border-color);
+    border-bottom: var(--#{$prefix}border-width) var(--#{$prefix}border-style) var(--#{$prefix}border-color);
     padding: 0;
     margin-bottom: $spacer;
 
@@ -98,6 +98,7 @@ WooCommerce Checkout
   padding: $spacer;
 }
 
+
 // Payment saved cards radios
 .woocommerce-SavedPaymentMethods.wc-saved-payment-methods {
   padding-left: 0;
@@ -121,19 +122,15 @@ WooCommerce Checkout
   }
 }
 
+
 // Stripe
 // Stripe credit card input
 .wc-stripe-elements-field,
 .wc-stripe-iban-element-field {
-  @extend .form-control;
-  margin-top: 0 !important;
-  margin-right: 0 !important;
-  margin-bottom: $spacer !important;
-  margin-left: 0 !important;
-  padding-top: $input-padding-y !important;
-  padding-right: $input-padding-x !important;
-  padding-bottom: $input-padding-y !important;
-  padding-left: $input-padding-x !important;
+  padding: $input-padding-y $input-padding-x !important;
+  background-color: $input-bg !important;
+  border-radius: $border-radius;
+  border: var(--#{$prefix}border-width) var(--#{$prefix}border-style) var(--#{$prefix}border-color) !important;
 }
 
 
@@ -150,5 +147,4 @@ WooCommerce Checkout
     @extend .form-check-label;
     cursor: pointer;
   }
-
 }
