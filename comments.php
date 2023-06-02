@@ -35,7 +35,7 @@ if (post_password_required()) {
         printf(_x('One Comment &ldquo;%s&rdquo;', 'comments title', 'bootscore'), get_the_title());
       } else {
         printf(
-          /* translators: 1: number of comments, 2: post title */
+        /* translators: 1: number of comments, 2: post title */
           _nx(
             '%1$s Comment on &ldquo;%2$s&rdquo;',
             '%1$s Comments on &ldquo;%2$s&rdquo;',
@@ -52,7 +52,7 @@ if (post_password_required()) {
 
 
     <?php if (get_comment_pages_count() > 1 && get_option('page_comments')) : // Are there comments to navigate through? 
-    ?>
+      ?>
       <nav id="comment-nav-above" class="navigation comment-navigation" role="navigation">
         <h2 class="screen-reader-text"><?php esc_html_e('Comment navigation', 'bootscore'); ?></h2>
         <div class="nav-links">
@@ -72,7 +72,7 @@ if (post_password_required()) {
     </ul><!-- .comment-list -->
 
     <?php if (get_comment_pages_count() > 1 && get_option('page_comments')) : // Are there comments to navigate through? 
-    ?>
+      ?>
       <nav id="comment-nav-below" class="navigation comment-navigation" role="navigation">
         <h2 class="screen-reader-text"><?php esc_html_e('Comment navigation', 'bootscore'); ?></h2>
         <div class="nav-links pagination justify-content-center">
@@ -86,7 +86,6 @@ if (post_password_required()) {
     endif; // Check for comment navigation.
 
   endif; // Check for have_comments().
-
 
 
   // If comments are closed and there are comments, let's leave a little note, shall we?
@@ -104,7 +103,7 @@ if (post_password_required()) {
     'cancel_reply_link' => __('Cancel', 'bootscore'),  // that's the wordpress default value! delete it or edit it ;)
     'label_submit'      => __('Post Comment', 'bootscore'),  // that's the wordpress default value! delete it or edit it ;)
 
-    'comment_field' =>  '<p><textarea placeholder="' . __('Start typing...', 'bootscore') . '" id="comment" class="form-control" name="comment" cols="45" rows="8" aria-required="true"></textarea></p>',
+    'comment_field' => '<p><textarea placeholder="' . __('Start typing...', 'bootscore') . '" id="comment" class="form-control" name="comment" cols="45" rows="8" aria-required="true"></textarea></p>',
 
     /*'comment_notes_after' => '<p class="form-allowed-tags">' .
             __( 'You may use these <abbr title="HyperText Markup Language">HTML</abbr> tags and attributes:', 'bootscore' ) .
@@ -117,23 +116,21 @@ if (post_password_required()) {
     // Another note: some classes are added in the bootstrap-wp.js - ckeck from line 1
 
 
-
-
     // Custom Bootstrap Formfields
-    'fields' => apply_filters(
+    'fields'        => apply_filters(
       'comment_form_default_fields',
       array(
         'author' => '<p class="comment-form-author">' . '<input id="author" class="form-control" placeholder="' . __('Name*', 'bootscore') . '" name="author" type="text" value="' .
-          esc_attr($commenter['comment_author']) . '" size="30"' . $aria_req = '' . ' />' .
-          '</p>',
+                    esc_attr($commenter['comment_author']) . '" size="30"' . $aria_req = '' . ' />' .
+                                                                                         '</p>',
         'email'  => '<p class="comment-form-email">' . '<input class="form-control "id="email" placeholder="' . __('Email* (will not be published)', 'bootscore') . '" name="email" type="text" value="' . esc_attr($commenter['comment_author_email']) .
-          '" size="30"' . $aria_req = '' . ' />'  .
+                    '" size="30"' . $aria_req = '' . ' />' .
 
-          '</p>',
+                                                '</p>',
         'url'    => '<p class="comment-form-url">' .
-          '<input class="form-control" id="url" name="url" placeholder="' . __('Website', 'bootscore') . '" type="text" value="' . esc_attr($commenter['comment_author_url']) . '" size="30" /> ' .
+                    '<input class="form-control" id="url" name="url" placeholder="' . __('Website', 'bootscore') . '" type="text" value="' . esc_attr($commenter['comment_author_url']) . '" size="30" /> ' .
 
-          '</p>'
+                    '</p>'
       )
 
     ),

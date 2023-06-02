@@ -10,7 +10,7 @@
 
 
 // Enable WooCommerce scripts if plugin is installed
-if ( class_exists( 'WooCommerce' ) ) {
+if (class_exists('WooCommerce')) {
   require get_template_directory() . '/woocommerce/wc-functions.php';
 }
 
@@ -104,10 +104,8 @@ function bootscore_content_width() {
   // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
   $GLOBALS['content_width'] = apply_filters('bootscore_content_width', 640);
 }
+
 add_action('after_setup_theme', 'bootscore_content_width', 0);
-
-
-
 
 
 /**
@@ -130,7 +128,7 @@ if (!function_exists('bootscore_widgets_init')) :
       'before_title'  => '<div class="widget-title d-none">',
       'after_title'   => '</div>'
     ));
-    
+
     // Top Nav 2
     // Adds a widget next to the Top Nav position but moves to offcanvas on <lg breakpoint
     register_sidebar(array(
@@ -141,7 +139,7 @@ if (!function_exists('bootscore_widgets_init')) :
       'after_widget'  => '</div>',
       'before_title'  => '<div class="widget-title d-none">',
       'after_title'   => '</div>'
-    )); 
+    ));
 
     // Top Nav Search
     register_sidebar(array(
@@ -219,7 +217,7 @@ if (!function_exists('bootscore_widgets_init')) :
       'before_title'  => '<h2 class="widget-title h5">',
       'after_title'   => '</h2>'
     ));
-    
+
     // Footer Info
     register_sidebar(array(
       'name'          => esc_html__('Footer Info', 'bootscore'),
@@ -229,7 +227,7 @@ if (!function_exists('bootscore_widgets_init')) :
       'after_widget'  => '</div>',
       'before_title'  => '<div class="widget-title d-none">',
       'after_title'   => '</div>'
-    ));  
+    ));
 
     // 404 Page
     register_sidebar(array(
@@ -243,6 +241,7 @@ if (!function_exists('bootscore_widgets_init')) :
     ));
 
   }
+
   add_action('widgets_init', 'bootscore_widgets_init');
 
 endif;
@@ -254,16 +253,15 @@ add_filter('widget_text', 'do_shortcode');
 // Shortcode in HTML-Widget End
 
 
-
 //Enqueue scripts and styles
 function bootscore_scripts() {
 
   // Get modification time. Enqueue files with modification date to prevent browser from loading cached scripts and styles when file content changes.
-  $modificated_bootscoreCss = (file_exists(get_template_directory() . '/css/main.css')) ? date('YmdHi', filemtime(get_template_directory() . '/css/main.css')) : 1;
-  $modificated_styleCss = date('YmdHi', filemtime(get_stylesheet_directory() . '/style.css'));
+  $modificated_bootscoreCss   = (file_exists(get_template_directory() . '/css/main.css')) ? date('YmdHi', filemtime(get_template_directory() . '/css/main.css')) : 1;
+  $modificated_styleCss       = date('YmdHi', filemtime(get_stylesheet_directory() . '/style.css'));
   $modificated_fontawesomeCss = date('YmdHi', filemtime(get_template_directory() . '/fontawesome/css/all.min.css'));
-  $modificated_bootstrapJs = date('YmdHi', filemtime(get_template_directory() . '/js/lib/bootstrap.bundle.min.js'));
-  $modificated_themeJs = date('YmdHi', filemtime(get_template_directory() . '/js/theme.js'));
+  $modificated_bootstrapJs    = date('YmdHi', filemtime(get_template_directory() . '/js/lib/bootstrap.bundle.min.js'));
+  $modificated_themeJs        = date('YmdHi', filemtime(get_template_directory() . '/js/theme.js'));
 
   // bootScore
   require_once 'inc/scss-compiler.php';
@@ -298,6 +296,7 @@ function bootscore_scripts() {
     wp_enqueue_script('comment-reply');
   }
 }
+
 add_action('wp_enqueue_scripts', 'bootscore_scripts');
 //Enqueue scripts and styles END
 
@@ -311,6 +310,7 @@ function bootscore_fa_preload($tag) {
 
   return $tag;
 }
+
 // Preload Font Awesome END
 
 
@@ -341,6 +341,7 @@ if (!function_exists('wpsites_query')) :
       $query->set('posts_per_page', 24);
     }
   }
+
   add_action('pre_get_posts', 'wpsites_query');
 
 endif;
@@ -354,13 +355,14 @@ if (!function_exists('bootscore_pagination')) :
     $showitems = ($range * 2) + 1;
     global $paged;
     // default page to one if not provided
-    if(empty($paged)) $paged = 1;
+    if (empty($paged)) $paged = 1;
     if ($pages == '') {
       global $wp_query;
       $pages = $wp_query->max_num_pages;
 
-      if (!$pages)
+      if (!$pages) {
         $pages = 1;
+      }
     }
 
     if (1 != $pages) {
@@ -368,22 +370,27 @@ if (!function_exists('bootscore_pagination')) :
       echo '<span class="sr-only">' . esc_html__('Page navigation', 'bootscore') . '</span>';
       echo '<ul class="pagination justify-content-center mb-4">';
 
-      if ($paged > 2 && $paged > $range + 1 && $showitems < $pages)
+      if ($paged > 2 && $paged > $range + 1 && $showitems < $pages) {
         echo '<li class="page-item"><a class="page-link" href="' . get_pagenum_link(1) . '" aria-label="' . esc_html__('First Page', 'bootscore') . '">&laquo;</a></li>';
-
-      if ($paged > 1 && $showitems < $pages)
-        echo '<li class="page-item"><a class="page-link" href="' . get_pagenum_link($paged - 1) . '" aria-label="' . esc_html__('Previous Page', 'bootscore') . '">&lsaquo;</a></li>';
-
-      for ($i = 1; $i <= $pages; $i++) {
-        if (1 != $pages && (!($i >= $paged + $range + 1 || $i <= $paged - $range - 1) || $pages <= $showitems))
-          echo ($paged == $i) ? '<li class="page-item active"><span class="page-link"><span class="sr-only">' . __('Current Page', 'bootscore') . ' </span>' . $i . '</span></li>' : '<li class="page-item"><a class="page-link" href="' . get_pagenum_link($i) . '"><span class="sr-only">' . __('Page', 'bootscore') . ' </span>' . $i . '</a></li>';
       }
 
-      if ($paged < $pages && $showitems < $pages)
-        echo '<li class="page-item"><a class="page-link" href="' . get_pagenum_link(($paged === 0 ? 1 : $paged) + 1) . '" aria-label="' . esc_html__('Next Page', 'bootscore') . '">&rsaquo;</a></li>';
+      if ($paged > 1 && $showitems < $pages) {
+        echo '<li class="page-item"><a class="page-link" href="' . get_pagenum_link($paged - 1) . '" aria-label="' . esc_html__('Previous Page', 'bootscore') . '">&lsaquo;</a></li>';
+      }
 
-      if ($paged < $pages - 1 &&  $paged + $range - 1 < $pages && $showitems < $pages)
+      for ($i = 1; $i <= $pages; $i ++) {
+        if (1 != $pages && (!($i >= $paged + $range + 1 || $i <= $paged - $range - 1) || $pages <= $showitems)) {
+          echo ($paged == $i) ? '<li class="page-item active"><span class="page-link"><span class="sr-only">' . __('Current Page', 'bootscore') . ' </span>' . $i . '</span></li>' : '<li class="page-item"><a class="page-link" href="' . get_pagenum_link($i) . '"><span class="sr-only">' . __('Page', 'bootscore') . ' </span>' . $i . '</a></li>';
+        }
+      }
+
+      if ($paged < $pages && $showitems < $pages) {
+        echo '<li class="page-item"><a class="page-link" href="' . get_pagenum_link(($paged === 0 ? 1 : $paged) + 1) . '" aria-label="' . esc_html__('Next Page', 'bootscore') . '">&rsaquo;</a></li>';
+      }
+
+      if ($paged < $pages - 1 && $paged + $range - 1 < $pages && $showitems < $pages) {
         echo '<li class="page-item"><a class="page-link" href="' . get_pagenum_link($pages) . '" aria-label="' . esc_html__('Last Page', 'bootscore') . '">&raquo;</a></li>';
+      }
 
       echo '</ul>';
       echo '</nav>';
@@ -402,8 +409,10 @@ add_filter('previous_post_link', 'post_link_attributes');
 
 function post_link_attributes($output) {
   $code = 'class="page-link"';
+
   return str_replace('<a href=', '<a ' . $code . ' href=', $output);
 }
+
 // Pagination Buttons Single Posts END
 
 
@@ -414,29 +423,30 @@ add_post_type_support('page', 'excerpt');
 
 // Breadcrumb
 if (!function_exists('the_breadcrumb')) :
-function the_breadcrumb() {
+  function the_breadcrumb() {
 
-  if (!is_home()) {
-    echo '<nav aria-label="breadcrumb" class="breadcrumb-scroller mb-4 mt-2 py-2 px-3 bg-body-tertiary rounded">';
-    echo '<ol class="breadcrumb mb-0">';
-    echo '<li class="breadcrumb-item"><a href="' . home_url() . '">' . '<i class="fa-solid fa-house"></i>' . '</a></li>';
-    // display parent category names with links
-    if (is_category() || is_single()) {
-      $cat_IDs = wp_get_post_categories(get_the_ID());
-      foreach ($cat_IDs as $cat_ID) {
-        $cat = get_category($cat_ID);
-        echo '<li class="breadcrumb-item"><a href="' . get_term_link($cat->term_id) . '">' . $cat->name . '</a></li>';
+    if (!is_home()) {
+      echo '<nav aria-label="breadcrumb" class="breadcrumb-scroller mb-4 mt-2 py-2 px-3 bg-body-tertiary rounded">';
+      echo '<ol class="breadcrumb mb-0">';
+      echo '<li class="breadcrumb-item"><a href="' . home_url() . '">' . '<i class="fa-solid fa-house"></i>' . '</a></li>';
+      // display parent category names with links
+      if (is_category() || is_single()) {
+        $cat_IDs = wp_get_post_categories(get_the_ID());
+        foreach ($cat_IDs as $cat_ID) {
+          $cat = get_category($cat_ID);
+          echo '<li class="breadcrumb-item"><a href="' . get_term_link($cat->term_id) . '">' . $cat->name . '</a></li>';
+        }
       }
+      // display current page name
+      if (is_page() || is_single()) {
+        echo '<li class="breadcrumb-item active" aria-current="page">' . get_the_title() . '</li>';
+      }
+      echo '</ol>';
+      echo '</nav>';
     }
-    // display current page name
-    if (is_page() || is_single()) {
-      echo '<li class="breadcrumb-item active" aria-current="page">' . get_the_title() . '</li>';
-    }
-    echo '</ol>';
-    echo '</nav>';
   }
-}
-add_filter('breadcrumbs', 'breadcrumbs');
+
+  add_filter('breadcrumbs', 'breadcrumbs');
 endif;
 // Breadcrumb END
 
@@ -445,8 +455,10 @@ endif;
 if (!function_exists('bootscore_comment_button')) :
   function bootscore_comment_button($args) {
     $args['class_submit'] = 'btn btn-outline-primary'; // since WP 4.1
+
     return $args;
   }
+
   add_filter('comment_form_defaults', 'bootscore_comment_button');
 endif;
 // Comment Button END
@@ -457,11 +469,13 @@ if (!function_exists('bootscore_pw_form')) :
   function bootscore_pw_form() {
     $output = '
         <form action="' . get_option('siteurl') . '/wp-login.php?action=postpass" method="post" class="input-group pw_form">' . "\n"
-      . '<input name="post_password" type="password" size="" class="form-control" placeholder="' . __('Password', 'bootscore') . '"/>' . "\n"
-      . '<input type="submit" class="btn btn-outline-primary input-group-text" name="Submit" value="' . __('Submit', 'bootscore') . '" />' . "\n"
-      . '</form>' . "\n";
+              . '<input name="post_password" type="password" size="" class="form-control" placeholder="' . __('Password', 'bootscore') . '"/>' . "\n"
+              . '<input type="submit" class="btn btn-outline-primary input-group-text" name="Submit" value="' . __('Submit', 'bootscore') . '" />' . "\n"
+              . '</form>' . "\n";
+
     return $output;
   }
+
   add_filter("the_password_form", "bootscore_pw_form");
 endif;
 // Password protected form END
@@ -491,6 +505,7 @@ add_filter('pre_user_description', 'wp_filter_post_kses');
 function bs_after_primary() {
   do_action('bs_after_primary');
 }
+
 // Hook after #primary END
 
 
@@ -499,6 +514,7 @@ if (!function_exists('bs_comment_links_in_new_tab')) :
   function bs_comment_links_in_new_tab($text) {
     return str_replace('<a', '<a target="_blank" rel=”nofollow”', $text);
   }
+
   add_filter('comment_text', 'bs_comment_links_in_new_tab');
 endif;
 // Open links in comments in new tab END
@@ -517,12 +533,15 @@ add_filter('use_widgets_block_editor', '__return_false');
  * Simple short code for inserting font awesome icons on Gutenberg leveli
  * (instead of heaving to insert HTML code into a block on HTML editing mode)
  */
-function bsfaCode($atts){
+function bsfaCode($atts) {
   $atts = (array) $atts;
   $vstr = "";
-  foreach ( $atts as $value ) {
+  foreach ($atts as $value) {
     $vstr = $vstr . " $value";
   }
+
   return '<i class="' . $vstr . '"></i>';
-};
+}
+
+;
 add_shortcode('bsfa', 'bsfaCode');

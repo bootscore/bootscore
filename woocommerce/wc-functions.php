@@ -9,13 +9,14 @@
 
 // Enable fragments script (disabled in WooCommerce 7.8.0 if mini-cart widget is not in a widget position)
 // See https://developer.woocommerce.com/2023/05/24/woocommerce-7-8-beta-1-released/
-wp_enqueue_script( 'wc-cart-fragments' );
+wp_enqueue_script('wc-cart-fragments');
 
 
 // Woocommerce Templates
 function mytheme_add_woocommerce_support() {
   add_theme_support('woocommerce');
 }
+
 add_action('after_setup_theme', 'mytheme_add_woocommerce_support');
 // Woocommerce Templates END
 
@@ -28,6 +29,7 @@ function bootscore() {
   add_theme_support('wc-product-gallery-lightbox');
   add_theme_support('wc-product-gallery-slider');
 }
+
 // Woocommerce Lightbox End
 
 
@@ -37,6 +39,7 @@ if (!function_exists('register_ajax_cart')) :
   function register_ajax_cart() {
     require_once('ajax-cart/ajax-add-to-cart.php');
   }
+
   add_action('after_setup_theme', 'register_ajax_cart');
 
 endif;
@@ -56,6 +59,7 @@ function wc_scripts() {
     wp_enqueue_script('comment-reply');
   }
 }
+
 add_action('wp_enqueue_scripts', 'wc_scripts');
 //Scripts and styles End
 
@@ -72,11 +76,12 @@ if (!function_exists('bs_mini_cart')) :
       <?php } ?>
     </span>
 
-  <?php
+    <?php
     $fragments['span.cart-content'] = ob_get_clean();
 
     return $fragments;
   }
+
   add_filter('woocommerce_add_to_cart_fragments', 'bs_mini_cart');
 
 endif;
@@ -106,8 +111,10 @@ endif;
 function iap_wc_bootstrap_form_field_args($args, $key, $value) {
 
   $args['input_class'][] = 'form-control';
+
   return $args;
 }
+
 add_filter('woocommerce_form_field_args', 'iap_wc_bootstrap_form_field_args', 10, 3);
 // Bootstrap Billing forms End
 
@@ -134,6 +141,7 @@ function wsis_dequeue_stylesandscripts_select2() {
     wp_deregister_script('selectWoo');
   }
 }
+
 // Remove CSS and/or JS for Select2 END
 
 
@@ -144,9 +152,11 @@ remove_action('woocommerce_widget_shopping_cart_buttons', 'woocommerce_widget_sh
 function my_woocommerce_widget_shopping_cart_button_view_cart() {
   echo '<a href="' . esc_url(wc_get_cart_url()) . '" class="btn btn-outline-primary d-block mb-2">' . esc_html__('View cart', 'woocommerce') . '</a>';
 }
+
 function my_woocommerce_widget_shopping_cart_proceed_to_checkout() {
   echo '<a href="' . esc_url(wc_get_checkout_url()) . '" class="btn btn-primary d-block">' . esc_html__('Checkout', 'woocommerce') . '</a>';
 }
+
 add_action('woocommerce_widget_shopping_cart_buttons', 'my_woocommerce_widget_shopping_cart_button_view_cart', 10);
 add_action('woocommerce_widget_shopping_cart_buttons', 'my_woocommerce_widget_shopping_cart_proceed_to_checkout', 20);
 // Mini cart widget buttons End
@@ -164,22 +174,24 @@ function custom_loop_product_thumbnail() {
 
   echo $product ? $product->get_image($image_size, $code) : '';
 }
+
 // Add card-img-top class to product loop End
 
 
 // Category loop button and badge
 if (!function_exists('woocommerce_template_loop_category_title')) :
   function woocommerce_template_loop_category_title($category) {
-  ?>
+    ?>
     <h2 class="woocommerce-loop-category__title btn btn-primary w-100 mb-0">
       <?php
       echo $category->name;
 
-      if ($category->count > 0)
+      if ($category->count > 0) {
         echo apply_filters('woocommerce_subcategory_count_html', ' <mark class="count badge bg-white text-dark">' . $category->count . '</mark>', $category);
+      }
       ?>
     </h2>
-<?php
+    <?php
   }
 endif;
 // Category loop button and badge End
@@ -189,13 +201,14 @@ endif;
 /**
  * Get the corrected terms for Woocommerce.
  *
- * @param  string $html The original terms.
+ * @param string $html The original terms.
+ *
  * @return string The corrected terms.
  */
 function bootscore_wc_get_corrected_terms($html) {
   $doc = new DOMDocument();
   if (!empty($html) && $doc->loadHtml($html)) {
-    $documentElement = $doc->documentElement; // Won't find the right child-notes without that line. ads html and body tag as a wrapper
+    $documentElement       = $doc->documentElement; // Won't find the right child-notes without that line. ads html and body tag as a wrapper
     $somethingWasCorrected = false;
     foreach ($documentElement->childNodes[0]->childNodes as $mainNode) {
       if ($mainNode->childNodes->length && strpos($mainNode->getAttribute("class"), "form-row") !== false) {
@@ -228,7 +241,8 @@ function bootscore_wc_get_corrected_terms($html) {
 /**
  * Capture the output of a hook.
  *
- * @param  string $hookName The name of the hook to capture.
+ * @param string $hookName The name of the hook to capture.
+ *
  * @return string The output of the hook.
  */
 function bootscore_wc_capture_hook_output($hookName) {
@@ -236,8 +250,10 @@ function bootscore_wc_capture_hook_output($hookName) {
   do_action($hookName);
   $hookContent = ob_get_contents();
   ob_end_clean();
+
   return $hookContent;
 }
+
 // Correct hooked checkboxes in checkout End
 
 
@@ -251,6 +267,7 @@ function bootscore_redirect_on_login_failed() {
   wp_redirect(wp_validate_redirect(wc_get_page_permalink('myaccount')));
   exit;
 }
+
 // Redirect to my-account if offcanvas login failed End
 
 
@@ -260,6 +277,7 @@ function bootscore_redirect_after_logout() {
   wp_redirect(home_url());
   exit();
 }
+
 // Redirect to home on logout End
 
 
@@ -276,21 +294,22 @@ function bootscore_redirect_after_registration() {
     exit;
   }
 }
+
 // Redirect to my-account after (un)sucessful registration End
 
 
 // Add -/+ buttons to quantity-input.php
-add_action( 'woocommerce_before_quantity_input_field', 'bs_quantity_minus_button' );
+add_action('woocommerce_before_quantity_input_field', 'bs_quantity_minus_button');
 
 function bs_quantity_minus_button() {
   echo '<button type="button" class="minus input-group-text" >-</button>';
 }
 
-add_action( 'woocommerce_after_quantity_input_field', 'bs_quantity_plus_button' );
- 
+add_action('woocommerce_after_quantity_input_field', 'bs_quantity_plus_button');
+
 function bs_quantity_plus_button() {
   echo '<button type="button" class="plus input-group-text" >+</button>';
 }
- 
-add_action( 'wp_header', 'bs_quantity_plus_minus' );
+
+add_action('wp_header', 'bs_quantity_plus_minus');
 // Add -/+ buttons to quantity-input.php End
