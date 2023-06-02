@@ -28,7 +28,7 @@ Read [here](https://bootscore.me/documentation/installation/) how to install boo
 
 ## Child-theme
 
-Edit theme in an upgrade-safe way using the provided [bootScore Child](https://bootscore.me/shop/products/child-themes/bootscore-child-theme/).
+Edit theme in an upgrade-safe way using the provided [bootScore Child](https://github.com/bootscore/bootscore-child).
 
 ## Plugins
 
