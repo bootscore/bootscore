@@ -20,7 +20,7 @@ if (!defined('ABSPATH')) {
   exit;
 }
 ?>
-<div <?php wc_product_cat_class('col-md-6 col-lg-4 col-xxl-3 mb-4', $category); ?>>
+<div <?php wc_product_cat_class('col-md-6 col-lg-4 col-xxl-3', $category); ?>>
 
   <div class="card h-100">
 
