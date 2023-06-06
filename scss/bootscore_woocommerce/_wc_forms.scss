@@ -2,22 +2,21 @@
 WooCommerce Forms
 --------------------------------------------------------------*/
 
-// Reset form-row
-.woocommerce form .form-row {
-  input.input-text,
-  textarea {
-    line-height: inherit;
-  }
-}
-
+// Forms
 .woocommerce form .form-row {
   padding: 0;
-  margin: 0 0 1rem;
+  margin: 0 0 $spacer;
+
+  input.input-text,
+  .form-row textarea {
+    @extend .form-control;
+  }
 
   label {
     line-height: 1.5;
   }
 }
+
 
 // Account password
 #account_password {

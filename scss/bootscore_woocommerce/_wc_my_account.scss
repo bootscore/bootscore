@@ -40,10 +40,3 @@ WooCommerce My Account
     margin-left: ($spacer * .25);
   }
 }
-
-
-// Lost password
-.woocommerce form .form-row input.input-text,
-.woocommerce form .form-row textarea {
-  @extend .form-control;
-}
