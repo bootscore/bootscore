@@ -40,3 +40,13 @@ WooCommerce My Account
     margin-left: ($spacer * .25);
   }
 }
+
+
+// View order - billing adress
+.woocommerce .woocommerce-customer-details address {
+  // Create card
+  background: $card-bg;
+  border: $card-border-width solid $card-border-color;
+  border-radius: $card-border-radius;
+  padding: $card-spacer-y $card-spacer-x;
+}
