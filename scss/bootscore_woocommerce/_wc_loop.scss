@@ -3,7 +3,6 @@ WooCommerce Loop
 --------------------------------------------------------------*/
 
 // Products
-
 .woocommerce .card {
 
   // Product link
@@ -35,8 +34,8 @@ WooCommerce Loop
     display: block;
     margin-bottom: $spacer;
   }
-
 }
+
 
 // Buttons
 .product .card-body a.button,
@@ -46,7 +45,6 @@ WooCommerce Loop
 
 
 // Categories
-
 // Category loop image
 .product-category .card img {
   @extend .card-img-top;
