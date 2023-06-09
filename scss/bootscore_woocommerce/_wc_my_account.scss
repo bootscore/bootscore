@@ -3,9 +3,10 @@ WooCommerce My Account
 --------------------------------------------------------------*/
 
 .woocommerce-account {
+
   // Navigation
   .woocommerce-MyAccount-navigation,
-    // Content
+  // Content
   .woocommerce-MyAccount-content {
     float: none;
     width: 100%;
@@ -38,4 +39,14 @@ WooCommerce My Account
   .woocommerce .shop_table a.button.invoice {
     margin-left: ($spacer * .25);
   }
+}
+
+
+// View order - billing adress
+.woocommerce .woocommerce-customer-details address {
+  // Create card
+  background: $card-bg;
+  border: $card-border-width solid $card-border-color;
+  border-radius: $card-border-radius;
+  padding: $card-spacer-y $card-spacer-x;
 }

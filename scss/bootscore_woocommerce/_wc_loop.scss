@@ -3,46 +3,49 @@ WooCommerce Loop
 --------------------------------------------------------------*/
 
 // Products
+.woocommerce .card {
 
-// Price font-size
-.card .price .woocommerce-Price-amount.amount {
-  font-size: 1.25rem;
-}
-
-// Star ratings
-.card .star-rating,
-.woocommerce .card .star-rating {
-  float: none;
-  margin: 1rem auto;
-}
-
-.card .star-rating span::before {
-  text-align: left;
-}
-
-// Loop link
-a.woocommerce-LoopProduct-link.woocommerce-loop-product__link {
-  text-decoration: none;
-
-  &:hover {
+  // Product link
+  a.woocommerce-LoopProduct-link.woocommerce-loop-product__link {
     text-decoration: none;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  // Product title
+  .woocommerce-loop-product__title {
+    @extend .h5;
+  }
+
+  // Star ratings
+  .star-rating {
+    float: none;
+    margin: $spacer auto;
+
+    span::before {
+      text-align: left;
+    }
+  }
+
+  // Price
+  .price {
+    display: block;
+    margin-bottom: $spacer;
   }
 }
 
-// Categories
 
-// If loop item is WC subcategory, set btn to bottom
+// Buttons
 .product .card-body a.button,
 .product-category .card-body a {
   margin-top: auto;
 }
 
+
+// Categories
 // Category loop image
 .product-category .card img {
   @extend .card-img-top;
-}
-
-// Category loop title
-.card .woocommerce-loop-product__title {
-  @extend .h5;
 }

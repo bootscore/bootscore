@@ -15,6 +15,12 @@ WooCommerce Checkout
 }
 
 
+// Create account password icon
+#account_password {
+  background-position: right $spacer * 2.25 center;
+}
+
+
 // #order_review
 // Set shipping table to top
 .woocommerce-shipping-totals th {

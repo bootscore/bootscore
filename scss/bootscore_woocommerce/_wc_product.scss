@@ -3,9 +3,8 @@ WooCommerce Product Page
 --------------------------------------------------------------*/
 
 // Product page price font-size
-.woocommerce div.product p.price,
-.woocommerce div.product span.price {
-  font-size: 2rem;
+.woocommerce div.product p.price {
+  font-size: $font-size-base * 2;
 }
 
 // Line break in meta

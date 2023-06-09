@@ -2,28 +2,25 @@
 WooCommerce Forms
 --------------------------------------------------------------*/
 
-// Reset form-row
-.woocommerce form .form-row {
-  input.input-text,
-  textarea {
-    line-height: inherit;
-  }
-}
-
+// Forms
 .woocommerce form .form-row {
   padding: 0;
-  margin: 0 0 1rem;
+  margin: 0 0 $spacer;
+
+  input.input-text,
+  .form-row textarea {
+    @extend .form-control;
+  }
 
   label {
     line-height: 1.5;
+    // Default Bootstrap label margin-bottom
+    //margin-bottom: $form-label-margin-bottom;
   }
 }
 
-// Account password
-#account_password {
-  background-position: right 2.25rem center;
-}
 
+// Show password icon
 .woocommerce form .show-password-input,
 .woocommerce-page form .show-password-input {
   top: 0.5em;
