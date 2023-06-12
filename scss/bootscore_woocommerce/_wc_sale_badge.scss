@@ -1,11 +1,21 @@
 /*--------------------------------------------------------------
 WooCommerce Sale Badge
 --------------------------------------------------------------*/
-
+/*
 .badge.sale {
   position: absolute;
   top: 1rem;
   left: 1rem;
   font-size: 1.25rem;
   z-index: 1;
+}
+*/
+
+.woocommerce span.onsale {
+  @extend .badge;
+  background-color: var(--bscore-wc-price, var(--#{$prefix}danger));
+  min-height: inherit;
+  min-width: inherit;
+  top: $spacer;
+  left: $spacer;
 }
