@@ -4,7 +4,7 @@ WooCommerce Sale Badge
 
 .woocommerce span.onsale {
   @extend .badge;
-  background-color: var(--bscore-wc-price, var(--#{$prefix}danger));
+  background-color: var(--bscore-wc-sale, var(--#{$prefix}danger));
   min-height: inherit;
   min-width: inherit;
   top: $spacer;
