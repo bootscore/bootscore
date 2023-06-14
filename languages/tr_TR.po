@@ -2,21 +2,21 @@
 # This file is distributed under the GNU General Public License v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Bootscore theme TR translation, 1.1\n"
+"Project-Id-Version: Bootscore theme TR translation, 2.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/tags/_s\n"
-"POT-Creation-Date: 2022-06-20 07:52+0000\n"
+"POT-Creation-Date: 2023-05-03 08:27+0000\n"
+"PO-Revision-Date: 2023-06-13 21:20+0300\n"
+"Last-Translator: Murat Esgin <info@lavinya.net>\n"
+"Language-Team: info@lavinya.net\n"
+"Language: tr_TR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2022-11-06 23:27+0300\n"
-"Language-Team: info@lavinya.net\n"
-"X-Generator: Poedit 2.3\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"Last-Translator: Murat Esgin <info@lavinya.net>\n"
-"Language: tr_TR\n"
+"X-Generator: Poedit 3.3.1\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
-#: functions.php:282
+#: functions.php:291
 msgid ""
 " <a href=\"https://www.microsoft.com/edge\" target=\"_blank\">Microsoft "
 "Edge</a> "
@@ -24,23 +24,17 @@ msgstr ""
 " <a href=\"https://www.microsoft.com/edge\" target=\"_blank\">Microsoft "
 "Edge</a> "
 
-#: functions.php:280
+#: functions.php:289
 msgid ""
 " <a href=\"https://www.mozilla.org/firefox/\" target=\"_blank\">Mozilla "
-"Firefox</a>, <a href=\"https://www.google.com/chrome/\" target=\"_blank"
-"\">Google Chrome</a>, <a href=\"https://www.opera.com/\" target=\"_blank"
-"\">Opera</a> "
+"Firefox</a>, <a href=\"https://www.google.com/chrome/\" "
+"target=\"_blank\">Google Chrome</a>, <a href=\"https://www.opera.com/\" "
+"target=\"_blank\">Opera</a> "
 msgstr ""
 " <a href=\"https://www.mozilla.org/firefox/\" target=\"_blank\">Mozilla "
-"Firefox</a>, <a href=\"https://www.google.com/chrome/\" target=\"_blank"
-"\">Google Chrome</a>, <a href=\"https://www.opera.com/\" target=\"_blank"
-"\">Opera</a> "
-
-#: single.php:29 single-templates/single-sidebar-none.php:28
-#: single-templates/single-sidebar-left.php:31
-#: single-templates/single-full-width-image.php:37
-msgid " by "
-msgstr " tarafından "
+"Firefox</a>, <a href=\"https://www.google.com/chrome/\" "
+"target=\"_blank\">Google Chrome</a>, <a href=\"https://www.opera.com/\" "
+"target=\"_blank\">Opera</a> "
 
 #: inc/comment-list.php:44
 #, php-format
@@ -62,7 +56,7 @@ msgctxt "1: date, 2: time"
 msgid "%1$s at %2$s"
 msgstr "%1$s de %2$s"
 
-#: functions.php:220
+#: functions.php:235
 msgid "404 Page"
 msgstr "404 Sayfası"
 
@@ -90,19 +84,23 @@ msgstr ""
 msgid "Accept"
 msgstr "Kabul"
 
-#: header-woocommerce.php:136
+#: header-woocommerce.php:138
 msgid "Account"
 msgstr "Hesap"
 
-#: functions.php:126 functions.php:138 functions.php:150 functions.php:162
-#: functions.php:174 functions.php:186 functions.php:198 functions.php:210
-#: functions.php:222
+#: functions.php:126 functions.php:138 functions.php:149 functions.php:160
+#: functions.php:171 functions.php:182 functions.php:193 functions.php:204
+#: functions.php:215 functions.php:226 functions.php:237
 msgid "Add widgets here."
 msgstr "Widget'ları buraya ekleyin."
 
 #: languages/plugin-translations.php:2
 msgid "All"
 msgstr "Tümü"
+
+#: languages/plugin-translations.php:11
+msgid "Auto"
+msgstr "Oto"
 
 #: 404.php:28
 msgid "Back Home &raquo;"
@@ -133,7 +131,7 @@ msgstr "bootScore"
 msgid "Cancel"
 msgstr "İptal"
 
-#: header-woocommerce.php:149
+#: header-woocommerce.php:151
 msgid "Cart"
 msgstr "Sepet"
 
@@ -169,6 +167,14 @@ msgstr ""
 "Çerezler, hizmetlerimizi sunmamıza yardımcı olur. Hizmetlerimizi kullanarak, "
 "çerez kullanımımızı kabul etmiş olursunuz."
 
+#: functions.php:378
+msgid "Current Page"
+msgstr "Geçerli Sayfa"
+
+#: languages/plugin-translations.php:10
+msgid "Dark"
+msgstr "Karanlık"
+
 #: woocommerce/checkout/form-shipping.php:36
 msgid "Delivery details"
 msgstr "Teslimat detayları"
@@ -182,21 +188,29 @@ msgstr "Düzenle"
 msgid "Email* (will not be published)"
 msgstr "E-posta* (yayınlanmayacak)"
 
-#: functions.php:172
+#: functions.php:371
+msgid "First Page"
+msgstr "İlk Sayfa"
+
+#: functions.php:180
 msgid "Footer 1"
 msgstr "Altbilgi 1"
 
-#: functions.php:184
+#: functions.php:191
 msgid "Footer 2"
 msgstr "Altbilgi 2"
 
-#: functions.php:196
+#: functions.php:202
 msgid "Footer 3"
 msgstr "Altbilgi 3"
 
-#: functions.php:208
+#: functions.php:213
 msgid "Footer 4"
 msgstr "Altbilgi 4"
+
+#: functions.php:224
+msgid "Footer Info"
+msgstr "Alt Bilgi"
 
 #. Name of the template
 msgid "Full Width Image"
@@ -226,7 +240,7 @@ msgstr "https://bootscore.me"
 msgid "https://bootscore.me/"
 msgstr "https://bootscore.me/"
 
-#: functions.php:277
+#: functions.php:286
 msgid "Internet Explorer detected"
 msgstr "Internet Explorer algılandı"
 
@@ -237,6 +251,10 @@ msgid ""
 msgstr ""
 "Aradığınız sayfa bulunamadı. Belki arama kutusu aradığınızı bulma konusunda "
 "yardımcı olabilir."
+
+#: functions.php:385
+msgid "Last Page"
+msgstr "Son Sayfa"
 
 #. %s: post title
 #: comments.php:102 inc/template-tags.php:111
@@ -255,6 +273,10 @@ msgstr "%s için cevap bırakın"
 #. Name of the template
 msgid "Left Sidebar"
 msgstr "Birincil yan sütun"
+
+#: languages/plugin-translations.php:9
+msgid "Light"
+msgstr "Aydınlık"
 
 #: languages/plugin-translations.php:3
 msgid "Look what I found: "
@@ -276,6 +298,10 @@ msgstr "İsim*"
 msgid "Newer Comments"
 msgstr "Yeni yorumlar"
 
+#: functions.php:382
+msgid "Next Page"
+msgstr "Sonraki Sayfa"
+
 #. Name of the template
 msgid "No Sidebar"
 msgstr "Kenar Çubuğu Yok"
@@ -292,22 +318,27 @@ msgstr "Eski yorumlar"
 msgid "Open side menu"
 msgstr "Yan menüyü aç"
 
-#: functions.php:281
+#: functions.php:290
 msgid "or"
 msgstr "veya"
+
+#: functions.php:378
+msgid "Page"
+msgstr "Sayfa"
+
+#: functions.php:367
+msgid "Page navigation"
+msgstr "Sayfa gezintisi"
 
 #: 404.php:23
 msgid "Page not found."
 msgstr "Sayfa bulunamadı."
 
-#: page.php:44 page-templates/page-blank-with-container.php:25
-#: page-templates/page-sidebar-left.php:39 page-templates/page-blank.php:25
-#: page-templates/page-sidebar-none.php:34
 #: page-templates/page-blank-without-container.php:25
 msgid "Pages:"
 msgstr "Sayfalar:"
 
-#: functions.php:442
+#: functions.php:459
 msgid "Password"
 msgstr "Şifre"
 
@@ -315,7 +346,7 @@ msgstr "Şifre"
 msgid "Pingback:"
 msgstr "Geri izleme:"
 
-#: functions.php:279
+#: functions.php:288
 msgid "Please use a modern and secure web browser like"
 msgstr "Please use a modern and secure web browser like"
 
@@ -329,17 +360,12 @@ msgstr "%s tarafından"
 msgid "Post Comment"
 msgstr "Yorum Gönder"
 
-#: author.php:69
-msgid "Read more"
-msgstr "Daha fazla"
+#: functions.php:374
+msgid "Previous Page"
+msgstr "Önceki Sayfa"
 
-#: archive-sidebar-left.php:66 archive-equal-height.php:64 archive.php:64
-#: archive-equal-height-sidebar-right.php:63 category-equal-height.php:64
-#: category-sidebar-left.php:64 category.php:62 author-sidebar-left.php:72
-#: category-masonry.php:64 author-equal-height.php:70
-#: category-equal-height-sidebar-right.php:64
-#: author-equal-height-sidebar-right.php:69 author-masonry.php:70 index.php:82
-#: index.php:139 archive-masonry.php:64 template-parts/content-search.php:43
+#: index.php:93 index.php:164 archive.php:71
+#: template-parts/content-search.php:53
 msgid "Read more »"
 msgstr "Daha fazla »"
 
@@ -351,7 +377,7 @@ msgid ""
 msgstr ""
 "İlk yazınızı yayınlamaya hazır mısınız? <a href=\"%s\">Buradan başlayın</a>."
 
-#: inc/comment-list.php:105
+#: inc/comment-list.php:103
 msgid ""
 "Save my name, email, and website in this browser for the next time I comment."
 msgstr ""
@@ -371,7 +397,7 @@ msgstr "Arama sonuçları: %s"
 msgid "Shop order"
 msgstr "Sipariş verin"
 
-#: functions.php:148 sidebar.php:26
+#: functions.php:158 sidebar.php:26
 msgid "Sidebar"
 msgstr "Kenar çubuğu"
 
@@ -391,29 +417,32 @@ msgstr ""
 msgid "Start typing..."
 msgstr "Yazmaya başla..."
 
-#: functions.php:443
+#: functions.php:460
 msgid "Submit"
 msgstr "Gönder"
 
 #. 1: list of tags.
-#: inc/template-tags.php:191
-#, php-format
-msgid "Tagged %1$s"
-msgstr "%1$s etiketleriyle gönderilmiştir."
+#: inc/template-tags.php:192
+msgid "Tagged"
+msgstr "Etiketlendi"
 
-#: functions.php:278
+#: functions.php:287
 msgid "This website will offer limited functionality in this browser."
 msgstr "Bu web sitesi bu tarayıcıda sınırlı işlevsellik sunacaktır."
 
-#: functions.php:283
+#: functions.php:292
 msgid "to display this site correctly."
 msgstr "bu siteyi doğru görüntülemek için."
 
-#: woocommerce/cart/mini-cart.php:120
+#: woocommerce/cart/mini-cart.php:118
 msgid "To find out your shipping cost, please proceed to checkout."
 msgstr "Gönderim maliyetinizi öğrenmek için lütfen ödeme işlemine geçin."
 
-#: functions.php:160
+#: languages/plugin-translations.php:8
+msgid "Toggle theme"
+msgstr "Temayı değiştir"
+
+#: functions.php:169
 msgid "Top Footer"
 msgstr "Üst Altbilgi"
 
@@ -422,6 +451,10 @@ msgid "Top Nav"
 msgstr "Üst Nav"
 
 #: functions.php:136
+msgid "Top Nav 2"
+msgstr "Top Nav 2"
+
+#: functions.php:147
 msgid "Top Nav Search"
 msgstr "Üst Nav Arama"
 
@@ -436,3 +469,9 @@ msgstr "Yorumunuz denetlenmeyi bekliyor."
 #: woocommerce/single-product-reviews.php:135
 msgid "Your review...*"
 msgstr "Yorumunuz...*"
+
+#~ msgid " by "
+#~ msgstr " tarafından "
+
+#~ msgid "Read more"
+#~ msgstr "Daha fazla"
