@@ -7,29 +7,23 @@
  */
 
 
-// Enable fragments script (disabled in WooCommerce 7.8.0 if mini-cart widget is not in a widget position)
-// See https://developer.woocommerce.com/2023/05/24/woocommerce-7-8-beta-1-released/
-wp_enqueue_script('wc-cart-fragments');
-
-
 // Woocommerce Templates
-function mytheme_add_woocommerce_support() {
+function bootscore_add_woocommerce_support() {
   add_theme_support('woocommerce');
 }
 
-add_action('after_setup_theme', 'mytheme_add_woocommerce_support');
+add_action('after_setup_theme', 'bootscore_add_woocommerce_support');
 // Woocommerce Templates END
 
 
 // Woocommerce Lightbox
-add_action('after_setup_theme', 'bootscore');
+add_action('after_setup_theme', 'bootscore_wc_lightbox');
 
-function bootscore() {
+function bootscore_wc_lightbox() {
   add_theme_support('wc-product-gallery-zoom');
   add_theme_support('wc-product-gallery-lightbox');
   add_theme_support('wc-product-gallery-slider');
 }
-
 // Woocommerce Lightbox End
 
 
@@ -48,6 +42,10 @@ endif;
 
 //Scripts and Styles
 function wc_scripts() {
+  
+  // Enable fragments script (disabled in WooCommerce 7.8.0 if mini-cart widget is not in a widget position)
+  // See https://developer.woocommerce.com/2023/05/24/woocommerce-7-8-beta-1-released/
+  wp_enqueue_script('wc-cart-fragments');
 
   // Get modification time. Enqueue files with modification date to prevent browser from loading cached scripts and styles when file content changes. 
   $modificated_WooCommerceJS = date('YmdHi', filemtime(get_template_directory() . '/woocommerce/js/woocommerce.js'));
