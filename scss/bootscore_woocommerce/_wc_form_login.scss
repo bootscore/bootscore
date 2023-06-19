@@ -1,0 +1,50 @@
+/*--------------------------------------------------------------
+WooCommerce Form Login
+--------------------------------------------------------------*/
+
+.woocommerce {
+  /*
+  // Create card 
+  form.login,
+  form.register {
+    background: $card-bg;
+    border: $card-border-width solid $card-border-color;
+    border-radius: $card-border-radius;
+    padding-top: $card-spacer-y;
+    padding-right: $card-spacer-x;
+    padding-left: $card-spacer-x;
+    margin-bottom: $spacer;
+  }
+  */
+
+  // Remember me checkbox
+  .woocommerce-form-login .woocommerce-form-login__rememberme {
+    @extend .form-check;
+    display: block;
+    margin-bottom: $spacer;
+
+    #rememberme {
+      @extend .form-check-input;
+    }
+  }
+}
+
+
+// Remove form-login padding on mobile devices
+// WooCommerce breakpoint is at 769px
+@media (max-width: 769px) {
+  .woocommerce {
+
+    form.checkout_coupon,
+    form.login,
+    form.register {
+      .form-row-first {
+        padding-right: 0;
+      }
+
+      .form-row-last {
+        padding-left: 0;
+      }
+    }
+  }
+}

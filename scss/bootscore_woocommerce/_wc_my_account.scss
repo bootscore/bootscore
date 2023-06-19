@@ -50,3 +50,29 @@ WooCommerce My Account
   border-radius: $card-border-radius;
   padding: $card-spacer-y $card-spacer-x;
 }
+
+
+// form-login.php
+.woocommerce {
+
+  // Make row
+  .col2-set,
+  .woocommerce-page .col2-set {
+    @include make-row();
+    width: auto;
+  }
+
+  // Make col
+  .col2-set .col-1,
+  .woocommerce-page .col2-set .col-1,
+  .col2-set .col-2,
+  .woocommerce-page .col2-set .col-2 {
+    @include make-col-ready();
+
+    @include media-breakpoint-up(md) {
+      @include make-col(6);
+      float: none;
+    }
+
+  }
+}
