@@ -19,10 +19,26 @@ WooCommerce Shipping
   }
 }
 
+
 // Shipping radios
-.woocommerce ul#shipping_method li {
-  padding-left: 0;
+.woocommerce {
+
+  ul#shipping_method {
+
+    li {
+      @extend .form-check;
+
+      input {
+        @extend .form-check-input;
+      }
+
+      label {
+        @extend .form-check-label;
+      }
+    }
+  }
 }
+
 
 // Update button
 .shipping-calculator-form button {
