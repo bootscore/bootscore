@@ -17,6 +17,11 @@ WooCommerce Shipping
       label {
         @extend .form-check-label;
       }
+
+      // Remove padding if radio is hidden
+      &:has(input[type="hidden"]) {
+        padding-left: 0;
+      }
     }
   }
 }
