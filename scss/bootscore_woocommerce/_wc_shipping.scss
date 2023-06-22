@@ -2,24 +2,6 @@
 WooCommerce Shipping
 --------------------------------------------------------------*/
 
-// WooCommerce breakpoints are at 769px
-@media (max-width: 768px) {
-  .woocommerce ul#shipping_method {
-    clear: both;
-    text-align: left;
-    margin: 2rem 0 0 0 !important;
-  }
-
-  .woocommerce-shipping-destination {
-    text-align: left;
-  }
-
-  .woocommerce-shipping-calculator {
-    text-align: left;
-  }
-}
-
-
 // Shipping radios
 .woocommerce {
 

@@ -2,14 +2,6 @@
 WooCommerce Cart
 --------------------------------------------------------------*/
 
-// Right align quantity input in mobile
-// Woocommerce breakpoint is at 769px
-@media (max-width: 768px) {
-  .woocommerce-cart-form .product-quantity .quantity {
-    margin-left: auto;
-  }
-}
-
 // Cart totals
 .woocommerce .cart-collaterals .cart_totals,
 .woocommerce-page .cart-collaterals .cart_totals {
@@ -17,12 +9,13 @@ WooCommerce Cart
   width: 100%;
 }
 
+
 // WooCommerce breakpoints are at 769px
 @media (max-width: 768px) {
 
-  // Update cart button
-  .shop_table_responsive .actions button:not(.input-group button) {
-    width: 100%;
+  // Right align quantity input in mobile
+  .woocommerce-cart-form .product-quantity .quantity {
+    margin-left: auto;
   }
 
   // Coupon input in cart page
@@ -31,7 +24,32 @@ WooCommerce Cart
   .woocommerce-page table.cart td.actions .coupon input {
     width: 1%;
   }
+
+  // Update cart button
+  .shop_table_responsive .actions button:not(.input-group button) {
+    width: 100%;
+  }
+
+  // Shipping
+  .woocommerce .cart-collaterals {
+
+    ul#shipping_method {
+      clear: both;
+      text-align: left;
+      //margin: 2rem 0 0 0 !important;
+      margin-top: $spacer *2;
+    }
+
+    .woocommerce-shipping-destination {
+      text-align: left;
+    }
+
+    .woocommerce-shipping-calculator {
+      text-align: left;
+    }
+  }
 }
+
 
 // Proceed to checkout btn
 .woocommerce-cart .wc-proceed-to-checkout a.checkout-button {
