@@ -2,27 +2,30 @@
 WooCommerce Shipping
 --------------------------------------------------------------*/
 
-// WooCommerce breakpoints are at 769px
-@media (max-width: 768px) {
-  .woocommerce ul#shipping_method {
-    clear: both;
-    text-align: left;
-    margin: 2rem 0 0 0 !important;
-  }
-
-  .woocommerce-shipping-destination {
-    text-align: left;
-  }
-
-  .woocommerce-shipping-calculator {
-    text-align: left;
-  }
-}
-
 // Shipping radios
-.woocommerce ul#shipping_method li {
-  padding-left: 0;
+.woocommerce {
+
+  ul#shipping_method {
+
+    li {
+      @extend .form-check;
+
+      input {
+        @extend .form-check-input;
+      }
+
+      label {
+        @extend .form-check-label;
+      }
+
+      // Remove padding if radio is hidden
+      &:has(input[type="hidden"]) {
+        padding-left: 0;
+      }
+    }
+  }
 }
+
 
 // Update button
 .shipping-calculator-form button {

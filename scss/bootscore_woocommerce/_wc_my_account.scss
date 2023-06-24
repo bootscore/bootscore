@@ -52,7 +52,7 @@ WooCommerce My Account
 }
 
 
-// form-login.php
+// form-login.php & order-details-customer.php
 .woocommerce {
 
   // Make row
@@ -68,11 +68,11 @@ WooCommerce My Account
   .col2-set .col-2,
   .woocommerce-page .col2-set .col-2 {
     @include make-col-ready();
+    margin-bottom: $spacer;
 
-    @include media-breakpoint-up(md) {
+    @include media-breakpoint-up(lg) {
       @include make-col(6);
       float: none;
     }
-
   }
 }

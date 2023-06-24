@@ -80,7 +80,7 @@ WooCommerce Checkout
   #place_order {
     @extend .btn-lg;
     width: 100%;
-    margin-bottom: 0;
+    margin-bottom: 0 !important; // In case aggregated CSS (Autoptimize)
   }
 }
 
