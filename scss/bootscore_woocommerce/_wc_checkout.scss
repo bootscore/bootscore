@@ -153,3 +153,24 @@ WooCommerce Checkout
     cursor: pointer;
   }
 }
+
+
+
+
+
+// /checkout/form-shipping.php
+#ship-to-different-address {
+  @extend .form-check;
+  font-size: var(--#{$prefix}body-font-size);
+  font-weight: normal;
+  line-height: $line-height-base;
+  margin-bottom: $spacer;
+
+  label {
+    @extend .form-check-label;
+  }
+
+  input {
+    @extend .form-check-input;
+  }
+}
