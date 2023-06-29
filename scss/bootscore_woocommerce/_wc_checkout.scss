@@ -174,3 +174,13 @@ WooCommerce Checkout
     @extend .form-check-input;
   }
 }
+
+
+// Order notes
+#order_comments:focus {
+  box-shadow: $input-focus-box-shadow;
+}
+
+.woocommerce form .form-row textarea {
+  height: $spacer *7;
+}
