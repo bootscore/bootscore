@@ -105,18 +105,6 @@ endif;
 // WooCommerce Breadcrumb End
 
 
-// Bootstrap Billing forms
-function iap_wc_bootstrap_form_field_args($args, $key, $value) {
-
-  $args['input_class'][] = 'form-control';
-
-  return $args;
-}
-
-add_filter('woocommerce_form_field_args', 'iap_wc_bootstrap_form_field_args', 10, 3);
-// Bootstrap Billing forms End
-
-
 // Ship to a different address closed by default
 add_filter('woocommerce_ship_to_different_address_checked', '__return_false');
 // Ship to a different address closed by default End

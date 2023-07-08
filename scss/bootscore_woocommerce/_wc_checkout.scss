@@ -15,9 +15,44 @@ WooCommerce Checkout
 }
 
 
+// Create account
+p.create-account {
+  @extend .form-check;
+    margin-left: $form-check-input-width * 1.5 !important;
+}
+
+#createaccount {
+  @extend .form-check-input; 
+}
+
 // Create account password icon
 #account_password {
   background-position: right $spacer * 2.25 center;
+}
+
+
+// /checkout/form-shipping.php
+#ship-to-different-address {
+  @extend .form-check;
+  font-size: var(--#{$prefix}body-font-size);
+  font-weight: normal;
+  line-height: $line-height-base;
+  margin-bottom: $spacer;
+
+  label {
+    @extend .form-check-label;
+  }
+
+  input {
+    @extend .form-check-input;
+  }
+}
+
+
+// Order notes
+.woocommerce form .form-row textarea {
+  height: $spacer *7;
+  @extend .form-control;
 }
 
 
