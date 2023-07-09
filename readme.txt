@@ -61,9 +61,27 @@ bootScore includes support for WooCommerce and Infinite Scroll in Jetpack.
 
     = 5.3.1 - July 10 2023 =
     
-        *
-        *
-        *
+        * [DELETED] price.php ad1eba5
+        * [DELETED] form-lost-password.php 3c2f6c6
+        * [DELETED] form-edit-account.php fd863e2
+        * [DELETED] form-reset-password.php 617d663
+        * [DELETED] my-adress.php e78a5a3
+        * [DELETED] loop/sale-flash.php 6106302
+        * [DELETED] single-product/sale-flash.php 9246c3d
+        * [DELETED] my-account/form-login.php bd82f53
+        * [DELETED] global/form-login.php 8a2f1db
+        * [DELETED] order/order-details-customer.php 400631a
+        * [DELETED] cart/shipping-calculator.php f5449f1
+        * [DELETED] cart-shipping.php 15a4462
+        * [DELETED] form-shipping.php 9a9cc73
+        * [DELETED] form-billing.php 1dd17b5
+        * [FEATURE] Added a hook to all single-*.php's for related posts 367724b
+        * [UPDATE] WooCommerce 7.9 templates #525
+        * [UPDATE] Turkish translation #507
+        * [BUGFIX] Enqueue cart fragments script #508
+        * [IMPROVEMENT] Changing ms-2 to ms-1 ms-md-2 in top-nav-widget #512
+        * [IMPROVEMENT] Replace PHP echo with shorthand 4f5e9b7
+        * [IMPROVEMENT] Wrap *-full-width-image.php h1 in div cdb8a60
 
     = 5.3.0 - June 2 2023 =
     
