@@ -1,6 +1,8 @@
 <?php
 /**
  * Template Post Type: post
+ *
+ * @version 5.3.1
  */
 
 get_header();
@@ -43,6 +45,8 @@ get_header();
               <div class="mb-4">
                 <?php bootscore_tags(); ?>
               </div>
+              <!-- Related posts using bS Swiper plugin -->
+              <?php if (function_exists('bootscore_related_posts')) bootscore_related_posts(); ?>
               <nav aria-label="bS page navigation">
                 <ul class="pagination justify-content-center">
                   <li class="page-item">
