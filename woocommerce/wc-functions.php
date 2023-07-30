@@ -111,7 +111,7 @@ add_filter('woocommerce_ship_to_different_address_checked', '__return_false');
 
 
 // Remove cross-sells at cart
-//remove_action('woocommerce_cart_collaterals', 'woocommerce_cross_sell_display');
+remove_action('woocommerce_cart_collaterals', 'woocommerce_cross_sell_display');
 // Remove cross-sells at cart End
 
 

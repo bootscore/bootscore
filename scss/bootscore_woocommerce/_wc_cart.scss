@@ -140,6 +140,18 @@ WooCommerce Cart
   button {
     @extend .input-group-text;
     //background: green;
+
   }
 
+}
+
+
+// Update cart button
+//button[name="update_cart"]
+
+:where(body:not(.woocommerce-block-theme-has-button-styles)) .woocommerce button.button:disabled,
+:where(body:not(.woocommerce-block-theme-has-button-styles)) .woocommerce button.button:disabled[disabled] {
+  padding: #{$btn-padding-y} #{$btn-padding-x};
+  //color: var(--#{$prefix}-primary) !important;
+  color: var(--#{$prefix}primary);
 }
