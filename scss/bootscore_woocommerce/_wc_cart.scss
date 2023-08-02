@@ -40,9 +40,15 @@ WooCommerce Cart
 // WooCommerce breakpoints are at 769px
 @media (max-width: 768px) {
 
-  // Right align quantity input in mobile
-  .woocommerce-cart-form .product-quantity .quantity {
-    margin-left: auto;
+  // Fixed height for quantity cell in mobile cart if input is hidden
+  // See _wc_qty_btn.scss
+  .woocommerce-cart-form .product-quantity {
+    height: 57px;
+
+    // Right align quantity input in mobile
+    .quantity {
+      margin-left: auto;
+    }
   }
 
   // Coupon input in cart page
@@ -109,7 +115,7 @@ WooCommerce Cart
       width: 400px;
     }
   }
-  
+
   // Proceed to checkout btn
   .wc-proceed-to-checkout a.checkout-button {
     @extend .btn-lg;
