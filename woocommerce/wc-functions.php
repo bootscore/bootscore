@@ -107,20 +107,15 @@ endif;
 // WooCommerce Breadcrumb End
 
 
-// Ship to a different address closed by default
-add_filter('woocommerce_ship_to_different_address_checked', '__return_false');
-// Ship to a different address closed by default End
-
-
 // Remove cross-sells at cart
 remove_action('woocommerce_cart_collaterals', 'woocommerce_cross_sell_display');
 // Remove cross-sells at cart End
 
 
 // Remove CSS and/or JS for Select2 used by WooCommerce, see https://gist.github.com/Willem-Siebe/c6d798ccba249d5bf080.
-add_action('wp_enqueue_scripts', 'wsis_dequeue_stylesandscripts_select2', 100);
+add_action('wp_enqueue_scripts', 'bootscore_dequeue_stylesandscripts_select2', 100);
 
-function wsis_dequeue_stylesandscripts_select2() {
+function bootscore_dequeue_stylesandscripts_select2() {
   if (class_exists('woocommerce')) {
     wp_dequeue_style('selectWoo');
     wp_deregister_style('selectWoo');
@@ -129,7 +124,6 @@ function wsis_dequeue_stylesandscripts_select2() {
     wp_deregister_script('selectWoo');
   }
 }
-
 // Remove CSS and/or JS for Select2 END
 
 
