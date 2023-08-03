@@ -18,7 +18,7 @@ WooCommerce Quantity Input
   }
 
   // Hide quantity if product is sold individually or only 1 in stock left
-  .quantity:has(input[type="hidden"]) {
+  .quantity:has(.qty[type="hidden"]) {
     display: none;
   }
 
