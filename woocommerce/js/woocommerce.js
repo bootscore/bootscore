@@ -74,9 +74,4 @@ jQuery(function ($) {
     $qty.trigger('change');
   });
 
-  // Make quantity input visible in product page if only 1 product is in stock
-  // WooCommerce 7.4.0 https://github.com/woocommerce/woocommerce/blob/2bf9f577952d7a225365fe7728b3187b5be7b701/plugins/woocommerce/templates/global/quantity-input.php
-  $('.quantity [max="1"]').attr('type', 'number');
-  // WC Quantity Input End 
-
 }); // jQuery End

@@ -2,41 +2,39 @@
 WooCommerce Quantity Input
 --------------------------------------------------------------*/
 
-.quantity {
-  @extend .input-group;
-}
+.woocommerce {
 
-.qty {
-  @extend .form-control;
-}
+  .quantity {
+    @extend .input-group;
+    
+    // Fixed width for quantity
+    width: 140px;
 
-.woocommerce .quantity input {
-  // Hide browser arrows in quantity input
-  &::-webkit-outer-spin-button,
-  &::-webkit-inner-spin-button {
-    display: none;
-    margin: 0;
+    // Disable input if product is 1 in stock or limit purchases to 1 item per order in cart page
+    // https://github.com/woocommerce/woocommerce/pull/35767
+    [max="1"] {
+      @extend :disabled;
+    }
   }
 
-  &.qty {
+  // Hide quantity if product is sold individually or only 1 in stock left
+  .quantity:has(.qty[type="hidden"]) {
+    display: none;
+  }
+
+  // Input
+  .qty {
+    @extend .form-control;
+
+    // Hide browser arrows in quantity input
     appearance: textfield;
     -webkit-appearance: none;
     -moz-appearance: textfield;
+
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      display: none;
+      margin: 0;
+    }
   }
-}
-
-// Fixed width for quantity input
-.quantity {
-  width: 140px;
-
-  // Disable input if product is 1 in stock or limit purchases to 1 item per order
-  // https://github.com/woocommerce/woocommerce/pull/35767
-  [max="1"] {
-    @extend :disabled;
-  }
-}
-
-// Hide quantity input if product is sold individually
-.sold-individually .quantity {
-  display: none;
 }
