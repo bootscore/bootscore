@@ -302,6 +302,7 @@ add_action('wp_header', 'bs_quantity_plus_minus');
  * the input value cannot be changed (which is when the product is set to be sold
  * individually, or when the min and max values are identical).
  * See https://github.com/woocommerce/woocommerce/pull/36460
+ * See https://github.com/bootscore/bootscore/pull/543/commits/57574c1fdd4ad10d296df70e51cf08b801fccb27
  */
 add_filter('woocommerce_quantity_input_args', function (array $args) {
 
