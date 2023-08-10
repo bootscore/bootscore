@@ -59,7 +59,7 @@ bootScore includes support for WooCommerce and Infinite Scroll in Jetpack.
 
 == Changelog ==
 
-    = 5.3.1 - August 09 2023 =
+    = 5.3.1 - August 10 2023 =
     
         * [DELETED] woocommerce/cart/cart.php f9ba9a8 18c656a 1a51736 ff1be80
         * [DELETED] woocommerce/global/breadcrumb.php 7eb3892 74766e7
