@@ -295,3 +295,25 @@ function bs_quantity_plus_button() {
 
 add_action('wp_header', 'bs_quantity_plus_minus');
 // Add -/+ buttons to quantity-input.php End
+
+
+/**
+ * This snippet can be used to force the quantity input to display in cases where
+ * the input value cannot be changed (which is when the product is set to be sold
+ * individually, or when the min and max values are identical).
+ * See https://github.com/woocommerce/woocommerce/pull/36460
+ */
+add_filter('woocommerce_quantity_input_args', function (array $args) {
+
+  if ($args['max_value'] < 1 || $args['min_value'] !== $args['max_value']) {
+    remove_filter('woocommerce_quantity_input_type', 'change_quantity_input_type');
+    return $args;
+  }
+  add_filter('woocommerce_quantity_input_type', 'change_quantity_input_type');
+  $args['readonly'] = true;
+  return $args;
+});
+
+function change_quantity_input_type() {
+  return 'number';
+}
