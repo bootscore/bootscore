@@ -17,11 +17,6 @@ WooCommerce Quantity Input
     }
   }
 
-  // Hide quantity if product is sold individually or only 1 in stock left
-  .quantity:has(.qty[type="hidden"]) {
-    display: none;
-  }
-
   // Input
   .qty {
     @extend .form-control;

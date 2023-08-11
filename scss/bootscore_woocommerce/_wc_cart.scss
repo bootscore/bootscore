@@ -43,7 +43,6 @@ WooCommerce Cart
   // Fixed height for quantity cell in mobile cart if input is hidden
   // See _wc_qty_btn.scss
   .woocommerce-cart-form .product-quantity {
-    height: 57px;
 
     // Right align quantity input in mobile
     .quantity {
@@ -51,11 +50,11 @@ WooCommerce Cart
     }
   }
 
-  // Coupon input in cart page
-  .woocommerce table.cart td.actions .coupon input,
-  .woocommerce-page #content table.cart td.actions .coupon input,
-  .woocommerce-page table.cart td.actions .coupon input {
-    width: 1%;
+  // Coupon button in cart page
+  .cart td.actions .coupon .button {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
   // Update cart button
