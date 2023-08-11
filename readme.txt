@@ -7,9 +7,9 @@ David Vanderhaeghe, Karsten Reincke, Patrick Champoux, sweetappleuk, exlexv
 Tags: featured-images, threaded-comments, translation-ready
 
 Requires at least: 4.5
-Tested up to: 6.2.2
+Tested up to: 6.3
 Requires PHP: 5.6
-Stable tag: 5.3.1
+Stable tag: 5.3.2
 License: MIT License
 License URI: https://github.com/bootscore/bootscore/blob/main/LICENSE
 
@@ -58,6 +58,15 @@ bootScore includes support for WooCommerce and Infinite Scroll in Jetpack.
 
 
 == Changelog ==
+
+    = 5.3.1 - August 11 2023 =
+    
+        * [DELETED] woocommerce/cart/cart.php f9ba9a8 18c656a 1a51736 ff1be80
+        * [DELETED] woocommerce/global/breadcrumb.php 7eb3892 74766e7
+        * [DELETED] Closed default ship different adress filter (can be changed in Woo settings) 90da697
+        * [BUGFIX] Quantity input if product is sold individually or only 1 in stock left e44e81e
+        * [UPDATE] Translation template #529
+        * [UPDATE] Bootstrap 5.3.1 #534
 
     = 5.3.1 - July 10 2023 =
     
