@@ -145,3 +145,7 @@ if (!function_exists('bootscore_widgets_init')) :
   add_action('widgets_init', 'bootscore_widgets_init');
 
 endif;
+
+
+// Allow shortcodes in HTML-Widget
+add_filter('widget_text', 'do_shortcode');
