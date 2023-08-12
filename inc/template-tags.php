@@ -6,7 +6,12 @@
  * Eventually, some of the functionality here could be replaced by core features.
  *
  * @package Bootscore
+ * @version 5.3.3
  */
+
+
+// Exit if accessed directly.
+defined( 'ABSPATH' ) || exit;
 
 
 // Category Badge
@@ -27,7 +32,6 @@ if (!function_exists('bootscore_category_badge')) :
     }
   }
 endif;
-// Category Badge End
 
 
 // Category
@@ -44,7 +48,6 @@ if (!function_exists('bootscore_category')) :
     }
   }
 endif;
-// Category End
 
 
 // Date
@@ -76,7 +79,6 @@ if (!function_exists('bootscore_date')) :
 
   }
 endif;
-// Date End
 
 
 // Author
@@ -92,7 +94,6 @@ if (!function_exists('bootscore_author')) :
 
   }
 endif;
-// Author End
 
 
 // Comments
@@ -122,7 +123,6 @@ if (!function_exists('bootscore_comments')) :
     }
   }
 endif;
-// Comments End
 
 
 // Edit Link
@@ -150,7 +150,6 @@ if (!function_exists('bootscore_edit')) :
     );
   }
 endif;
-// Edit Link End
 
 
 // Single Comments Count
@@ -171,7 +170,6 @@ if (!function_exists('bootscore_comment_count')) :
     }
   }
 endif;
-// Single Comments Count End
 
 
 // Tags
@@ -202,7 +200,6 @@ if (!function_exists('bootscore_tags')) :
     return str_replace('<a href="', '<a class="badge bg-primary-subtle text-primary-emphasis text-decoration-none me-1" href="', $links);
   }
 endif;
-// Tags End
 
 
 // Featured Image
@@ -241,21 +238,3 @@ if (!function_exists('bootscore_post_thumbnail')) :
     endif; // End is_singular().
   }
 endif;
-// Featured Image End
-
-
-// Remove in v6
-// Internet Explorer Warning Alert
-if (!function_exists('bootscore_ie_alert')) :
-  /**
-   * Deprecated - functionality is removed already - Code will be removed in a future release.
-   * Replaced with a js solution to prevent page caching
-   *
-   * (Displays an alert if page is browsed by Internet Explorer)
-   *
-   * function stays to not break child themes with the function bootscore_ie_alert() immediately
-   */
-  function bootscore_ie_alert() {
-  }
-endif;
-// Internet Explorer Warning Alert End

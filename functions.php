@@ -19,6 +19,7 @@ require_once('inc/theme-setup.php');
 require_once('inc/breadcrumb.php');
 require_once('inc/pagination.php');
 require_once('inc/widgets.php');
+require_once('inc/deprecated.php');
 
 
 
