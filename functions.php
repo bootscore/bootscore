@@ -25,6 +25,7 @@ require_once('inc/loop.php');
 require_once('inc/theme-setup.php');
 require_once('inc/breadcrumb.php');
 require_once('inc/pagination.php');
+require_once('inc/password-protected-form.php');
 require_once('inc/widgets.php');
 require_once('inc/deprecated.php');
 require_once('inc/template-tags.php');
@@ -89,22 +90,6 @@ if (defined('JETPACK__VERSION')) {
 
 
 
-
-// Password protected form
-if (!function_exists('bootscore_pw_form')) :
-  function bootscore_pw_form() {
-    $output = '
-        <form action="' . get_option('siteurl') . '/wp-login.php?action=postpass" method="post" class="input-group pw_form">' . "\n"
-              . '<input name="post_password" type="password" size="" class="form-control" placeholder="' . __('Password', 'bootscore') . '"/>' . "\n"
-              . '<input type="submit" class="btn btn-outline-primary input-group-text" name="Submit" value="' . __('Submit', 'bootscore') . '" />' . "\n"
-              . '</form>' . "\n";
-
-    return $output;
-  }
-
-  add_filter("the_password_form", "bootscore_pw_form");
-endif;
-// Password protected form END
 
 
 
