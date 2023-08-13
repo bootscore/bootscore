@@ -25,3 +25,22 @@ if (!function_exists('bootscore_ie_alert')) :
   function bootscore_ie_alert() {
   }
 endif;
+
+
+// If we want to publish in WordPress theme repository, we have to delete this
+/*
+ * Simple short code for inserting font awesome icons on Gutenberg leveli
+ * (instead of heaving to insert HTML code into a block on HTML editing mode)
+ */
+function bsfaCode($atts) {
+  $atts = (array) $atts;
+  $vstr = "";
+  foreach ($atts as $value) {
+    $vstr = $vstr . " $value";
+  }
+
+  return '<i class="' . $vstr . '"></i>';
+}
+
+;
+add_shortcode('bsfa', 'bsfaCode');

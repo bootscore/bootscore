@@ -9,17 +9,18 @@
  */
 
 
-// Exit if accessed directly.
+// Exit if accessed directly
 defined( 'ABSPATH' ) || exit;
 
 
-
+require_once('inc/container.php');
 require_once('inc/loop.php');
 require_once('inc/theme-setup.php');
 require_once('inc/breadcrumb.php');
 require_once('inc/pagination.php');
 require_once('inc/widgets.php');
 require_once('inc/deprecated.php');
+
 
 
 
@@ -212,23 +213,3 @@ function bs_after_primary() {
 // Hook after #primary END
 
 
-
-
-
-
-/*
- * Simple short code for inserting font awesome icons on Gutenberg leveli
- * (instead of heaving to insert HTML code into a block on HTML editing mode)
- */
-function bsfaCode($atts) {
-  $atts = (array) $atts;
-  $vstr = "";
-  foreach ($atts as $value) {
-    $vstr = $vstr . " $value";
-  }
-
-  return '<i class="' . $vstr . '"></i>';
-}
-
-;
-add_shortcode('bsfa', 'bsfaCode');
