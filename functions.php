@@ -28,7 +28,7 @@ require_once('inc/pagination.php');              // Pagination for loop and sing
 require_once('inc/password-protected-form.php'); // Form if post or page is protected by password
 require_once('inc/template-tags.php');           // Meta information like author, date, comments, category and tags badges
 require_once('inc/template-functions.php');      // Functions which enhance the theme by hooking into WordPress
-require_once('inc/widgets.php');                 // Register widget area
+require_once('inc/widgets.php');                 // Register widget area and disables Gutenberg in widgets
 require_once('inc/deprecated.php');              // Fallback functions that will be deleted in v6
 
 

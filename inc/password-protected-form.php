@@ -3,6 +3,7 @@
 /**
  * Password protected form
  *
+ * @package Bootscore
  * @version 5.3.3
  */
 

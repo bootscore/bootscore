@@ -3,6 +3,7 @@
 /**
  * Enable HTML
  *
+ * @package Bootscore 
  * @version 5.3.3
  */
 
@@ -11,7 +12,7 @@
 defined( 'ABSPATH' ) || exit;
 
 
-// Allow HTML in terms (category, tag) descriptions
+// Enable HTML in terms (category, tag) descriptions
 foreach (array('pre_term_description') as $filter) {
   remove_filter($filter, 'wp_filter_kses');
   if (!current_user_can('unfiltered_html')) {
@@ -24,6 +25,6 @@ foreach (array('term_description') as $filter) {
 }
 
 
-// Allow HTML in author bio
+// Enable HTML in author bio
 remove_filter('pre_user_description', 'wp_filter_kses');
 add_filter('pre_user_description', 'wp_filter_post_kses');
