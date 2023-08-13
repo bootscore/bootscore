@@ -7,7 +7,7 @@
  */
 
 
-// Exit if accessed directly.
+// Exit if accessed directly
 defined( 'ABSPATH' ) || exit;
 
 
