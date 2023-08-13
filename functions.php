@@ -14,7 +14,7 @@ defined( 'ABSPATH' ) || exit;
 
 
 
-
+require_once('inc/loop.php');
 require_once('inc/theme-setup.php');
 require_once('inc/breadcrumb.php');
 require_once('inc/pagination.php');
@@ -151,19 +151,7 @@ if (defined('JETPACK__VERSION')) {
 }
 
 
-// Amount of posts/products in category
-if (!function_exists('wpsites_query')) :
 
-  function wpsites_query($query) {
-    if ($query->is_archive() && $query->is_main_query() && !is_admin()) {
-      $query->set('posts_per_page', 24);
-    }
-  }
-
-  add_action('pre_get_posts', 'wpsites_query');
-
-endif;
-// Amount of posts/products in category END
 
 
 
