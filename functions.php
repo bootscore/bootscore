@@ -13,6 +13,7 @@
 defined( 'ABSPATH' ) || exit;
 
 
+require_once('inc/excerpt.php');
 require_once('inc/container.php');
 require_once('inc/hooks.php');
 require_once('inc/loop.php');
@@ -158,9 +159,7 @@ if (defined('JETPACK__VERSION')) {
 
 
 
-// Excerpt to pages
-add_post_type_support('page', 'excerpt');
-// Excerpt to pages END
+
 
 
 
