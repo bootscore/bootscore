@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Coolumns
+ * Columns
  *
  * @version 5.3.3
  */
