@@ -42,9 +42,6 @@ function bootscore_pingback_header() {
 add_action('wp_head', 'bootscore_pingback_header');
 
 
-
-
-
 /**
  * Make main content col dynamic if sidebar widgets exists
  * @return string

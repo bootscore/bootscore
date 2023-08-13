@@ -14,6 +14,7 @@ defined( 'ABSPATH' ) || exit;
 
 
 require_once('inc/container.php');
+require_once('inc/hooks.php');
 require_once('inc/loop.php');
 require_once('inc/theme-setup.php');
 require_once('inc/breadcrumb.php');
@@ -205,11 +206,6 @@ add_filter('pre_user_description', 'wp_filter_post_kses');
 // Allow HTML in author bio END
 
 
-// Hook after #primary
-function bs_after_primary() {
-  do_action('bs_after_primary');
-}
 
-// Hook after #primary END
 
 
