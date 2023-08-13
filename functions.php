@@ -6,6 +6,7 @@
  * @link https://developer.wordpress.org/themes/basics/theme-functions/
  *
  * @package Bootscore
+ * @version 5.3.3
  */
 
 
@@ -13,6 +14,7 @@
 defined( 'ABSPATH' ) || exit;
 
 
+require_once('inc/columns.php');
 require_once('inc/enqueue.php');
 require_once('inc/excerpt.php');
 require_once('inc/container.php');
@@ -23,6 +25,7 @@ require_once('inc/breadcrumb.php');
 require_once('inc/pagination.php');
 require_once('inc/widgets.php');
 require_once('inc/deprecated.php');
+
 
 
 

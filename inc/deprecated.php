@@ -27,7 +27,7 @@ if (!function_exists('bootscore_ie_alert')) :
 endif;
 
 
-// If we want to publish in WordPress theme repository, we have to delete this
+// If we want to publish in WordPress theme repository, we have to delete this because shortcode is plugin area
 /*
  * Simple short code for inserting font awesome icons on Gutenberg leveli
  * (instead of heaving to insert HTML code into a block on HTML editing mode)
