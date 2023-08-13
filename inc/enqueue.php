@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Enqueue
+ * Enqueue styles & scripts
  *
  * @package Bootscore 
  * @version 5.3.3
@@ -12,7 +12,9 @@
 defined( 'ABSPATH' ) || exit;
 
 
-//Enqueue scripts and styles
+/**
+ * Enqueue scripts and styles
+ */
 function bootscore_scripts() {
 
   // Get modification time. Enqueue files with modification date to prevent browser from loading cached scripts and styles when file content changes.
@@ -58,7 +60,9 @@ function bootscore_scripts() {
 add_action('wp_enqueue_scripts', 'bootscore_scripts');
 
 
-// Preload Font Awesome
+/**
+ * Preload Font Awesome
+ */
 add_filter('style_loader_tag', 'bootscore_fa_preload');
 
 function bootscore_fa_preload($tag) {

@@ -14,6 +14,9 @@
 defined( 'ABSPATH' ) || exit;
 
 
+/**
+ * Load required files
+ */
 require_once('inc/theme-setup.php');             // Theme setup and custom theme supports
 require_once('inc/breadcrumb.php');              // Breadcrumb
 require_once('inc/columns.php');                 // Main column width
@@ -32,13 +35,17 @@ require_once('inc/widgets.php');                 // Register widget area and dis
 require_once('inc/deprecated.php');              // Fallback functions that will be deleted in v6
 
 
-// Enable WooCommerce scripts if plugin is activated
+/**
+ * Load WooCommerce scripts if plugin is activated
+ */
 if (class_exists('WooCommerce')) {
   require get_template_directory() . '/woocommerce/wc-functions.php';
 }
 
 
-// Register Bootstrap 5 Nav Walker
+/**
+ * Load Bootstrap 5 Nav Walker and registers menus 
+ */
 if (!function_exists('register_navwalker')) :
   function register_navwalker() {
     require_once('inc/class-bootstrap-5-navwalker.php');
@@ -50,7 +57,9 @@ endif;
 add_action('after_setup_theme', 'register_navwalker');
 
 
-// Load Jetpack compatibility file
+/**
+ * Load Jetpack compatibility file
+ */
 if (defined('JETPACK__VERSION')) {
   require get_template_directory() . '/inc/jetpack.php';
 }

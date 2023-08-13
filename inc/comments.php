@@ -12,7 +12,9 @@
 defined( 'ABSPATH' ) || exit;
 
 
-// Comments
+/**
+ * Comment reply
+ */
 function bootscore_reply() {
 
   if (is_singular() && comments_open() && get_option('thread_comments')) {
@@ -23,7 +25,9 @@ function bootscore_reply() {
 add_action('wp_enqueue_scripts', 'bootscore_reply');
 
 
-// Comments
+/**
+ * Comments
+ */
 if (!function_exists('bootscore_comment')) :
   /**
    * Template for comments and pingbacks.
@@ -96,7 +100,9 @@ if (!function_exists('bootscore_comment')) :
 endif;
 
 
-// h2 Reply Title
+/**
+ * h2 Reply Title
+ */
 add_filter('comment_form_defaults', 'custom_reply_title');
 function custom_reply_title($defaults) {
   $defaults['title_reply_before'] = '<h2 id="reply-title" class="h4">';
@@ -106,7 +112,9 @@ function custom_reply_title($defaults) {
 }
 
 
-// Comment Cookie Checkbox
+/**
+ * Comment Cookie Checkbox
+ */
 function wp44138_change_comment_form_cookies_consent($fields) {
   $consent           = empty($commenter['comment_author_email']) ? '' : ' checked="checked"';
   $fields['cookies'] = '<p class="comment-form-cookies-consent custom-control form-check mb-3">' .
@@ -120,14 +128,18 @@ function wp44138_change_comment_form_cookies_consent($fields) {
 add_filter('comment_form_default_fields', 'wp44138_change_comment_form_cookies_consent');
 
 
-// Open comment author link in new tab
+/**
+ * Open comment author link in new tab
+ */
 add_filter('get_comment_author_link', 'open_comment_author_link_in_new_window');
 function open_comment_author_link_in_new_window($author_link) {
   return str_replace("<a", "<a target='_blank'", $author_link);
 }
 
 
-// Open links in comments in new tab
+/**
+ * Open links in comments in new tab
+ */
 if (!function_exists('bs_comment_links_in_new_tab')) :
   function bs_comment_links_in_new_tab($text) {
     return str_replace('<a', '<a target="_blank" rel=”nofollow”', $text);
@@ -137,7 +149,9 @@ if (!function_exists('bs_comment_links_in_new_tab')) :
 endif;
 
 
-// Comment Button
+/**
+ * Comment Button
+ */
 if (!function_exists('bootscore_comment_button')) :
   function bootscore_comment_button($args) {
     $args['class_submit'] = 'btn btn-outline-primary'; // since WP 4.1

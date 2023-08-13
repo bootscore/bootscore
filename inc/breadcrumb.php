@@ -12,7 +12,9 @@
 defined( 'ABSPATH' ) || exit;
 
 
-// Breadcrumb
+/**
+ * Breadcrumb
+ */
 if (!function_exists('the_breadcrumb')) :
   function the_breadcrumb() {
 
