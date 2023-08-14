@@ -12,7 +12,9 @@
 defined( 'ABSPATH' ) || exit;
 
 
-// Pagination Categories
+/**
+ * Pagination Categories
+ */
 if (!function_exists('bootscore_pagination')) :
 
   function bootscore_pagination($pages = '', $range = 2) {
@@ -66,7 +68,9 @@ if (!function_exists('bootscore_pagination')) :
 endif;
 
 
-// Pagination Single Posts
+/**
+ * Pagination Single Posts
+ */
 add_filter('next_post_link', 'post_link_attributes');
 add_filter('previous_post_link', 'post_link_attributes');
 

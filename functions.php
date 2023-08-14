@@ -45,6 +45,8 @@ if (class_exists('WooCommerce')) {
 
 /**
  * Load Bootstrap 5 Nav Walker and registers menus 
+ * Remove this snippet in v6 and add nav-walker to the enqueue list
+ * https://github.com/orgs/bootscore/discussions/347
  */
 if (!function_exists('register_navwalker')) :
   function register_navwalker() {

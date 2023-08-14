@@ -13,7 +13,7 @@ defined( 'ABSPATH' ) || exit;
 
 
 /**
- * // Hook after #primary
+ * Hook after #primary
  */
 function bs_after_primary() {
   do_action('bs_after_primary');

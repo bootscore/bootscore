@@ -12,7 +12,9 @@
 defined( 'ABSPATH' ) || exit;
 
 
-// Amount of posts/products in category
+/**
+ * Amount of posts/products in category
+ */
 if (!function_exists('wpsites_query')) :
 
   function wpsites_query($query) {

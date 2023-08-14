@@ -12,7 +12,9 @@
 defined( 'ABSPATH' ) || exit;
 
 
-// Password protected form
+/**
+ * Input group to password protected form
+ */
 if (!function_exists('bootscore_pw_form')) :
   function bootscore_pw_form() {
     $output = '

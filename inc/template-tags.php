@@ -14,7 +14,9 @@
 defined( 'ABSPATH' ) || exit;
 
 
-// Category Badge
+/**
+ * Category Badge
+ */
 if (!function_exists('bootscore_category_badge')) :
   function bootscore_category_badge() {
     // Hide category and tag text for pages.
@@ -34,7 +36,9 @@ if (!function_exists('bootscore_category_badge')) :
 endif;
 
 
-// Category
+/**
+ * Category
+ */
 if (!function_exists('bootscore_category')) :
   function bootscore_category() {
     // Hide category and tag text for pages.
@@ -50,7 +54,9 @@ if (!function_exists('bootscore_category')) :
 endif;
 
 
-// Date
+/**
+ * Date
+ */
 if (!function_exists('bootscore_date')) :
   /**
    * Prints HTML with meta information for the current post-date/time.
@@ -81,7 +87,9 @@ if (!function_exists('bootscore_date')) :
 endif;
 
 
-// Author
+/**
+ * Author
+ */
 if (!function_exists('bootscore_author')) :
 
   function bootscore_author() {
@@ -96,7 +104,9 @@ if (!function_exists('bootscore_author')) :
 endif;
 
 
-// Comments
+/**
+ * Comments
+ */
 if (!function_exists('bootscore_comments')) :
   /**
    * Prints HTML with meta information for the categories, tags and comments.
@@ -125,7 +135,9 @@ if (!function_exists('bootscore_comments')) :
 endif;
 
 
-// Edit Link
+/**
+ * Edit link
+ */
 if (!function_exists('bootscore_edit')) :
   /**
    * Prints HTML with the edit link for the current post.
@@ -152,7 +164,9 @@ if (!function_exists('bootscore_edit')) :
 endif;
 
 
-// Single Comments Count
+/**
+ * Single comments count
+ */
 if (!function_exists('bootscore_comment_count')) :
   /**
    * Prints HTML with the comment count for the current post.
@@ -172,7 +186,9 @@ if (!function_exists('bootscore_comment_count')) :
 endif;
 
 
-// Tags
+/**
+ * Tags
+ */
 if (!function_exists('bootscore_tags')) :
   /**
    * Prints HTML with meta information for the categories, tags and comments.
@@ -202,7 +218,9 @@ if (!function_exists('bootscore_tags')) :
 endif;
 
 
-// Featured Image
+/**
+ * Featured image
+ */
 if (!function_exists('bootscore_post_thumbnail')) :
   /**
    * Displays an optional post thumbnail.
