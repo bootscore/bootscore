@@ -8,7 +8,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2023-07-17 08:33+0000\n"
+"PO-Revision-Date: 2023-08-17 15:42+0000\n"
 "Last-Translator: \n"
 "Language-Team: Deutsch\n"
 "X-Generator: Loco https://localise.biz/\n"
@@ -40,7 +40,7 @@ msgstr "%s <span class=\"sagt d-none\">says:</span>"
 msgid ", "
 msgstr ", "
 
-#: languages/plugin-translations.php:10
+#: languages/plugin-translations.php:11
 msgid "/privacy-policy"
 msgstr "/datenschutzerklaerung"
 
@@ -66,7 +66,7 @@ msgid ""
 "required to customize it."
 msgstr ""
 
-#: languages/plugin-translations.php:12
+#: languages/plugin-translations.php:13
 msgid "Accept"
 msgstr "Verstanden"
 
@@ -84,7 +84,7 @@ msgstr "Widgets hier hinzufügen"
 msgid "All"
 msgstr "Alle"
 
-#: languages/plugin-translations.php:18
+#: languages/plugin-translations.php:19
 msgid "Auto"
 msgstr "Automatisch"
 
@@ -144,7 +144,7 @@ msgctxt "comments title"
 msgid "One Comment &ldquo;%s&rdquo;"
 msgstr "Ein Kommentar &ldquo;%s&rdquo;"
 
-#: languages/plugin-translations.php:9
+#: languages/plugin-translations.php:10
 msgid ""
 "Cookies help us deliver our services. By using our services, you agree to "
 "our use of cookies."
@@ -157,7 +157,7 @@ msgstr ""
 msgid "Current Page"
 msgstr "Aktuelle Seite"
 
-#: languages/plugin-translations.php:17
+#: languages/plugin-translations.php:18
 msgid "Dark"
 msgstr "Dunkel"
 
@@ -256,11 +256,11 @@ msgstr "Kommentar schreiben %s"
 msgid "Left Sidebar"
 msgstr "Linke Sidebar"
 
-#: languages/plugin-translations.php:16
+#: languages/plugin-translations.php:17
 msgid "Light"
 msgstr "Hell"
 
-#: languages/plugin-translations.php:6
+#: languages/plugin-translations.php:7
 msgid "Look what I found: "
 msgstr "Schau mal was ich gefunden habe: "
 
@@ -268,7 +268,7 @@ msgstr "Schau mal was ich gefunden habe: "
 msgid "Menu"
 msgstr "Menü"
 
-#: languages/plugin-translations.php:11
+#: languages/plugin-translations.php:12
 msgid "More Information"
 msgstr "Weitere Informationen"
 
@@ -287,6 +287,10 @@ msgstr "Nächste Seite"
 #. Name of the template
 msgid "No Sidebar"
 msgstr "Keine Sidebar"
+
+#: languages/plugin-translations.php:4
+msgid "Nothing found"
+msgstr "Nichts gefunden"
 
 #: template-parts/content-none.php:15
 msgid "Nothing Found for"
@@ -423,7 +427,7 @@ msgstr "um diese Webseite korrekt darzustellen."
 msgid "To find out your shipping cost, please proceed to checkout."
 msgstr "Um deine Versandkosten zu berechnen, gehe bitte zur Kasse."
 
-#: languages/plugin-translations.php:15
+#: languages/plugin-translations.php:16
 msgid "Toggle theme"
 msgstr "Farbschema wählen"
 
@@ -447,7 +451,7 @@ msgstr "Top Navigation Suche"
 msgid "Website"
 msgstr "Webseite"
 
-#: languages/plugin-translations.php:21
+#: languages/plugin-translations.php:22
 msgid "You might also like"
 msgstr "Das könnte dich auch interessieren"
 
