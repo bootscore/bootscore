@@ -3,8 +3,14 @@
 /**
  * Functions to compile scss in the theme itself
  *
- * @package Bootscore
+ * @package Bootscore 
+ * @version 5.3.3
  */
+
+
+// Exit if accessed directly
+defined( 'ABSPATH' ) || exit;
+
 
 require_once "scssphp/scss.inc.php";
 
