@@ -1,6 +1,7 @@
 
 <!-- bS Isotope -->
 <?php _e('All','bootscore'); ?>
+<?php _e('Nothing found','bootscore'); ?>
 
 <!-- bS Share Buttons -->
 <?php _e('Look what I found: ','bootscore'); ?>
