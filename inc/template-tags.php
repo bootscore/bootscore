@@ -6,10 +6,17 @@
  * Eventually, some of the functionality here could be replaced by core features.
  *
  * @package Bootscore
+ * @version 5.3.3
  */
 
 
-// Category Badge
+// Exit if accessed directly.
+defined( 'ABSPATH' ) || exit;
+
+
+/**
+ * Category Badge
+ */
 if (!function_exists('bootscore_category_badge')) :
   function bootscore_category_badge() {
     // Hide category and tag text for pages.
@@ -27,10 +34,11 @@ if (!function_exists('bootscore_category_badge')) :
     }
   }
 endif;
-// Category Badge End
 
 
-// Category
+/**
+ * Category
+ */
 if (!function_exists('bootscore_category')) :
   function bootscore_category() {
     // Hide category and tag text for pages.
@@ -44,10 +52,11 @@ if (!function_exists('bootscore_category')) :
     }
   }
 endif;
-// Category End
 
 
-// Date
+/**
+ * Date
+ */
 if (!function_exists('bootscore_date')) :
   /**
    * Prints HTML with meta information for the current post-date/time.
@@ -76,10 +85,11 @@ if (!function_exists('bootscore_date')) :
 
   }
 endif;
-// Date End
 
 
-// Author
+/**
+ * Author
+ */
 if (!function_exists('bootscore_author')) :
 
   function bootscore_author() {
@@ -92,10 +102,11 @@ if (!function_exists('bootscore_author')) :
 
   }
 endif;
-// Author End
 
 
-// Comments
+/**
+ * Comments
+ */
 if (!function_exists('bootscore_comments')) :
   /**
    * Prints HTML with meta information for the categories, tags and comments.
@@ -122,10 +133,11 @@ if (!function_exists('bootscore_comments')) :
     }
   }
 endif;
-// Comments End
 
 
-// Edit Link
+/**
+ * Edit link
+ */
 if (!function_exists('bootscore_edit')) :
   /**
    * Prints HTML with the edit link for the current post.
@@ -150,10 +162,11 @@ if (!function_exists('bootscore_edit')) :
     );
   }
 endif;
-// Edit Link End
 
 
-// Single Comments Count
+/**
+ * Single comments count
+ */
 if (!function_exists('bootscore_comment_count')) :
   /**
    * Prints HTML with the comment count for the current post.
@@ -171,10 +184,11 @@ if (!function_exists('bootscore_comment_count')) :
     }
   }
 endif;
-// Single Comments Count End
 
 
-// Tags
+/**
+ * Tags
+ */
 if (!function_exists('bootscore_tags')) :
   /**
    * Prints HTML with meta information for the categories, tags and comments.
@@ -202,10 +216,11 @@ if (!function_exists('bootscore_tags')) :
     return str_replace('<a href="', '<a class="badge bg-primary-subtle text-primary-emphasis text-decoration-none me-1" href="', $links);
   }
 endif;
-// Tags End
 
 
-// Featured Image
+/**
+ * Featured image
+ */
 if (!function_exists('bootscore_post_thumbnail')) :
   /**
    * Displays an optional post thumbnail.
@@ -241,21 +256,3 @@ if (!function_exists('bootscore_post_thumbnail')) :
     endif; // End is_singular().
   }
 endif;
-// Featured Image End
-
-
-// Remove in v6
-// Internet Explorer Warning Alert
-if (!function_exists('bootscore_ie_alert')) :
-  /**
-   * Deprecated - functionality is removed already - Code will be removed in a future release.
-   * Replaced with a js solution to prevent page caching
-   *
-   * (Displays an alert if page is browsed by Internet Explorer)
-   *
-   * function stays to not break child themes with the function bootscore_ie_alert() immediately
-   */
-  function bootscore_ie_alert() {
-  }
-endif;
-// Internet Explorer Warning Alert End
