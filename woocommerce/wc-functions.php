@@ -15,6 +15,7 @@ defined( 'ABSPATH' ) || exit;
 /**
  * Load required files
  */
+require_once('inc/wc-loop.php');
 require_once('inc/wc-qty-btn.php'); 
 require_once('inc/wc-redirects.php'); 
 
@@ -168,39 +169,7 @@ add_action('woocommerce_widget_shopping_cart_buttons', 'my_woocommerce_widget_sh
 // Mini cart widget buttons End
 
 
-// Add card-img-top class to product loop
-remove_action('woocommerce_before_shop_loop_item_title', 'woocommerce_template_loop_product_thumbnail', 10);
-add_action('woocommerce_before_shop_loop_item_title', 'custom_loop_product_thumbnail', 10);
-function custom_loop_product_thumbnail() {
-  global $product;
-  $size = 'woocommerce_thumbnail';
-  $code = 'class=card-img-top';
 
-  $image_size = apply_filters('single_product_archive_thumbnail_size', $size);
-
-  echo $product ? $product->get_image($image_size, $code) : '';
-}
-
-// Add card-img-top class to product loop End
-
-
-// Category loop button and badge
-if (!function_exists('woocommerce_template_loop_category_title')) :
-  function woocommerce_template_loop_category_title($category) {
-    ?>
-    <h2 class="woocommerce-loop-category__title btn btn-primary w-100 mb-0">
-      <?php
-      echo $category->name;
-
-      if ($category->count > 0) {
-        echo apply_filters('woocommerce_subcategory_count_html', ' <mark class="count badge bg-white text-dark">' . $category->count . '</mark>', $category);
-      }
-      ?>
-    </h2>
-    <?php
-  }
-endif;
-// Category loop button and badge End
 
 
 // Correct hooked checkboxes in checkout
