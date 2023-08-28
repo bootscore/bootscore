@@ -15,6 +15,7 @@ defined( 'ABSPATH' ) || exit;
 /**
  * Load required files
  */
+require_once('inc/wc-breadcrumb.php');
 require_once('inc/wc-loop.php');
 require_once('inc/wc-mini-cart.php');
 require_once('inc/wc-qty-btn.php'); 
@@ -91,25 +92,7 @@ add_action('wp_enqueue_scripts', 'wc_scripts');
 
 
 
-// WooCommerce Breadcrumb
-if (!function_exists('bs_woocommerce_breadcrumbs')) :
-  add_filter('woocommerce_breadcrumb_defaults', 'bs_woocommerce_breadcrumbs');
-  function bs_woocommerce_breadcrumbs() {
-    return array(
-      'delimiter'   => '',
-      'wrap_before' => "<nav aria-label='breadcrumb' class='wc-breadcrumb breadcrumb-scroller mb-4 mt-2 py-2 px-3 bg-body-tertiary rounded'>
-      <ol class='breadcrumb mb-0'>",
-      'wrap_after'  => '</ol>
-      </nav>',
-      'before'      => '<li class="breadcrumb-item">',
-      'after'       => '</li>',
-      // Remove "Home" and add Fontawesome house icon (_wc_breadcrumb.scss)
-      //'home'        => _x('Home', 'breadcrumb', 'woocommerce'),
-      'home'        => ' ',
-    );
-  }
-endif;
-// WooCommerce Breadcrumb End
+
 
 
 // Remove cross-sells at cart
