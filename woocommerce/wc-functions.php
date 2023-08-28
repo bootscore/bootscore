@@ -16,6 +16,7 @@ defined( 'ABSPATH' ) || exit;
  * Load required files
  */
 require_once('inc/wc-loop.php');
+require_once('inc/wc-mini-cart.php');
 require_once('inc/wc-qty-btn.php'); 
 require_once('inc/wc-redirects.php'); 
 
@@ -87,28 +88,7 @@ add_action('wp_enqueue_scripts', 'wc_scripts');
 //Scripts and styles End
 
 
-// Minicart Header
-if (!function_exists('bs_mini_cart')) :
-  function bs_mini_cart($fragments) {
 
-    ob_start();
-    $count = WC()->cart->cart_contents_count; ?>
-    <span class="cart-content">
-      <?php if ($count > 0) { ?>
-        <span class="cart-content-count position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"><?= esc_html($count); ?></span><span class="cart-total ms-1 d-none d-md-inline"><?= WC()->cart->get_cart_subtotal(); ?></span>
-      <?php } ?>
-    </span>
-
-    <?php
-    $fragments['span.cart-content'] = ob_get_clean();
-
-    return $fragments;
-  }
-
-  add_filter('woocommerce_add_to_cart_fragments', 'bs_mini_cart');
-
-endif;
-// Minicart Header End
 
 
 // WooCommerce Breadcrumb
@@ -152,21 +132,7 @@ function bootscore_dequeue_stylesandscripts_select2() {
 // Remove CSS and/or JS for Select2 END
 
 
-// Mini cart widget buttons
-remove_action('woocommerce_widget_shopping_cart_buttons', 'woocommerce_widget_shopping_cart_button_view_cart', 10);
-remove_action('woocommerce_widget_shopping_cart_buttons', 'woocommerce_widget_shopping_cart_proceed_to_checkout', 20);
 
-function my_woocommerce_widget_shopping_cart_button_view_cart() {
-  echo '<a href="' . esc_url(wc_get_cart_url()) . '" class="btn btn-outline-primary d-block mb-2">' . esc_html__('View cart', 'woocommerce') . '</a>';
-}
-
-function my_woocommerce_widget_shopping_cart_proceed_to_checkout() {
-  echo '<a href="' . esc_url(wc_get_checkout_url()) . '" class="btn btn-primary d-block">' . esc_html__('Checkout', 'woocommerce') . '</a>';
-}
-
-add_action('woocommerce_widget_shopping_cart_buttons', 'my_woocommerce_widget_shopping_cart_button_view_cart', 10);
-add_action('woocommerce_widget_shopping_cart_buttons', 'my_woocommerce_widget_shopping_cart_proceed_to_checkout', 20);
-// Mini cart widget buttons End
 
 
 
