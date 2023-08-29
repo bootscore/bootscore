@@ -1,8 +1,22 @@
 <?php
 
-// Add the product name as data argument to Ajax add to cart buttons
-// We can add and use a title="" in /loop/add-to-cart.php as well instead using this filter 
-// https://github.com/bootscore/bootscore/commit/598d1f1b4454f8826985a7c2210568bd5a814fe1
+/**
+ * WooCommerce AJAX cart
+ *
+ * @package Bootscore
+ * @version 5.3.3
+ */
+
+
+// Exit if accessed directly
+defined( 'ABSPATH' ) || exit;
+
+
+/**
+ * Add the product name as data argument to Ajax add to cart buttons
+ * We can add and use a title="" in /loop/add-to-cart.php as well instead using this filter 
+ * https://github.com/bootscore/bootscore/commit/598d1f1b4454f8826985a7c2210568bd5a814fe1
+ */
 add_filter("woocommerce_loop_add_to_cart_args", "filter_wc_loop_add_to_cart_args", 20, 2);
 function filter_wc_loop_add_to_cart_args($args, $product) {
   if ($product->supports('ajax_add_to_cart') && $product->is_purchasable() && $product->is_in_stock()) {
@@ -13,7 +27,10 @@ function filter_wc_loop_add_to_cart_args($args, $product) {
 }
 
 
-// JS for AJAX Add to Cart handling https://aceplugins.com/ajax-add-to-cart-button-on-the-product-page-woocommerce/
+/**
+ * JS for AJAX Add to Cart handling 
+ * https://aceplugins.com/ajax-add-to-cart-button-on-the-product-page-woocommerce/
+ */
 function bootscore_product_page_ajax_add_to_cart_js() {
   ?>
   <script>
@@ -188,10 +205,11 @@ function bootscore_product_page_ajax_add_to_cart_js() {
 }
 
 add_action('wp_footer', 'bootscore_product_page_ajax_add_to_cart_js');
-// JS for AJAX Add to Cart handling End
 
 
-// Add to cart handler
+/**
+ * Add to cart handler
+ */
 function bootscore_ajax_add_to_cart_handler() {
   WC_Form_Handler::add_to_cart_action();
   WC_AJAX::get_refreshed_fragments();
@@ -202,10 +220,11 @@ add_action('wc_ajax_nopriv_ace_add_to_cart', 'bootscore_ajax_add_to_cart_handler
 
 // Remove WC Core add to cart handler to prevent double-add
 remove_action('wp_loaded', array('WC_Form_Handler', 'add_to_cart_action'), 20);
-// Add to cart handler End
 
 
-// Add fragments for notices
+/**
+ * Add fragments for notices
+ */
 function bootscore_ajax_add_to_cart_add_fragments($fragments) {
   $all_notices  = WC()->session->get('wc_notices', array());
   $notice_types = apply_filters('woocommerce_notice_types', array('error', 'success', 'notice'));
@@ -230,5 +249,7 @@ function bootscore_ajax_add_to_cart_add_fragments($fragments) {
 add_filter('woocommerce_add_to_cart_fragments', 'bootscore_ajax_add_to_cart_add_fragments');
 
 
-// Stop redirecting after stock error
+/**
+ * Stop redirecting after stock error
+ */
 add_filter('woocommerce_cart_redirect_after_error', '__return_false');
