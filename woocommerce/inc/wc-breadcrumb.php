@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Breadcrumb
+ * WooCommerce Breadcrumb
  *
  * @package Bootscore 
  * @version 5.3.3

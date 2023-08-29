@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Quantity buttons
+ * WooCommerce Quantity Buttons
  *
  * @package Bootscore 
  * @version 5.3.3

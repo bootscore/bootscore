@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Mini cart
+ * WooCommerce Mini Cart
  *
  * @package Bootscore 
  * @version 5.3.3

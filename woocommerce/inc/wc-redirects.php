@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Redirects
+ * WooCommerce Redirects
  *
  * @package Bootscore 
  * @version 5.3.3

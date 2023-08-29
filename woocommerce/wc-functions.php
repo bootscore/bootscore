@@ -20,6 +20,7 @@ require_once('inc/wc-loop.php');
 require_once('inc/wc-mini-cart.php');
 require_once('inc/wc-qty-btn.php'); 
 require_once('inc/wc-redirects.php'); 
+require_once('inc/wc-support.php'); 
 
 
 
@@ -34,24 +35,8 @@ require_once('inc/wc-redirects.php');
 
 
 
-// Woocommerce Templates
-function bootscore_add_woocommerce_support() {
-  add_theme_support('woocommerce');
-}
-
-add_action('after_setup_theme', 'bootscore_add_woocommerce_support');
-// Woocommerce Templates END
 
 
-// Woocommerce Lightbox
-add_action('after_setup_theme', 'bootscore_wc_lightbox');
-
-function bootscore_wc_lightbox() {
-  add_theme_support('wc-product-gallery-zoom');
-  add_theme_support('wc-product-gallery-lightbox');
-  add_theme_support('wc-product-gallery-slider');
-}
-// Woocommerce Lightbox End
 
 
 // Register Ajax Cart
