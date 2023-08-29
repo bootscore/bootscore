@@ -16,6 +16,7 @@ defined( 'ABSPATH' ) || exit;
  * Load required files
  */
 require_once('inc/wc-breadcrumb.php');
+require_once('inc/wc-forms.php');
 require_once('inc/wc-loop.php');
 require_once('inc/wc-mini-cart.php');
 require_once('inc/wc-qty-btn.php'); 
@@ -84,19 +85,7 @@ add_action('wp_enqueue_scripts', 'wc_scripts');
 
 
 
-// Remove CSS and/or JS for Select2 used by WooCommerce, see https://gist.github.com/Willem-Siebe/c6d798ccba249d5bf080.
-add_action('wp_enqueue_scripts', 'bootscore_dequeue_stylesandscripts_select2', 100);
 
-function bootscore_dequeue_stylesandscripts_select2() {
-  if (class_exists('woocommerce')) {
-    wp_dequeue_style('selectWoo');
-    wp_deregister_style('selectWoo');
-
-    wp_dequeue_script('selectWoo');
-    wp_deregister_script('selectWoo');
-  }
-}
-// Remove CSS and/or JS for Select2 END
 
 
 

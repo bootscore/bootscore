@@ -18,8 +18,6 @@ defined( 'ABSPATH' ) || exit;
 remove_action('woocommerce_cart_collaterals', 'woocommerce_cross_sell_display');
 
 
-
-
 /**
  * Remove this when deleting terms.php
  * Correct hooked checkboxes in checkout
@@ -64,6 +62,7 @@ function bootscore_wc_get_corrected_terms($html) {
 
 
 /**
+ * Remove this when deleting terms.php
  * Capture the output of a hook.
  *
  * @param string $hookName The name of the hook to capture.
