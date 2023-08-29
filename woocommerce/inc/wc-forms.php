@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Woocommerce Forms
+ * WooCommerce Forms
  *
  * @package Bootscore
  * @version 5.3.3

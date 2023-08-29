@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Woocommerce deprecated scripts
+ * WooCommerce deprecated scripts
  *
  * @package Bootscore
  * @version 5.3.3
