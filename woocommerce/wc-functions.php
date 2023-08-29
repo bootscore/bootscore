@@ -21,6 +21,7 @@ require_once('inc/wc-mini-cart.php');
 require_once('inc/wc-qty-btn.php'); 
 require_once('inc/wc-redirects.php'); 
 require_once('inc/wc-support.php'); 
+require_once('inc/wc-deprecated.php'); 
 
 
 
@@ -80,9 +81,7 @@ add_action('wp_enqueue_scripts', 'wc_scripts');
 
 
 
-// Remove cross-sells at cart
-remove_action('woocommerce_cart_collaterals', 'woocommerce_cross_sell_display');
-// Remove cross-sells at cart End
+
 
 
 // Remove CSS and/or JS for Select2 used by WooCommerce, see https://gist.github.com/Willem-Siebe/c6d798ccba249d5bf080.
