@@ -201,25 +201,48 @@ p.create-account {
   .input-checkbox {
     @extend .form-check-input;
   }
+}
 
-  // Validation
-  &.woocommerce-invalid {
-    label {
-      color: var(--#{$prefix}form-invalid-color);
-    }
 
-    input {
-      @extend .is-invalid;
-    }
-  }
-
+// Form Validation
+.woocommerce form .form-row {
   &.woocommerce-validated {
+
+    /*
+    .form-control,
+    .form-check-input 
+    */
+    .select2-container,
+    input.input-text,
+    select {
+      @extend .form-control;
+      @extend .is-valid;
+    }
+
+    .form-check-input[type=checkbox] {
+      @extend .is-valid;
+    }
+
     label {
       color: var(--#{$prefix}form-valid-color);
     }
+  }
 
-    input {
-      @extend .is-valid;
+  &.woocommerce-invalid {
+
+    .select2-container,
+    input.input-text,
+    select {
+      @extend .form-control;
+      @extend .is-invalid;
+    }
+
+    .form-check-input[type=checkbox] {
+      @extend .is-invalid;
+    }
+
+    label {
+      color: var(--#{$prefix}form-invalid-color);
     }
   }
 }
