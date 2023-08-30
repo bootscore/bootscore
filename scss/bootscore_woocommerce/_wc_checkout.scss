@@ -18,11 +18,11 @@ WooCommerce Checkout
 // Create account
 p.create-account {
   @extend .form-check;
-    margin-left: $form-check-input-width * 1.5 !important;
+  margin-left: $form-check-input-width * 1.5 !important;
 }
 
 #createaccount {
-  @extend .form-check-input; 
+  @extend .form-check-input;
 }
 
 // Create account password icon
@@ -186,5 +186,40 @@ p.create-account {
 
   label {
     cursor: pointer;
+  }
+}
+
+
+// Terms Checkbox
+.woocommerce form .form-row {
+
+  label.checkbox {
+    @extend .form-check;
+    display: inline-block;
+  }
+
+  .input-checkbox {
+    @extend .form-check-input;
+  }
+
+  // Validation
+  &.woocommerce-invalid {
+    label {
+      color: var(--#{$prefix}form-invalid-color);
+    }
+
+    input {
+      @extend .is-invalid;
+    }
+  }
+
+  &.woocommerce-validated {
+    label {
+      color: var(--#{$prefix}form-valid-color);
+    }
+
+    input {
+      @extend .is-valid;
+    }
   }
 }
