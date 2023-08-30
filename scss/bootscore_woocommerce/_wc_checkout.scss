@@ -208,13 +208,10 @@ p.create-account {
 .woocommerce form .form-row {
   &.woocommerce-validated {
 
-    /*
-    .form-control,
-    .form-check-input 
-    */
     .select2-container,
     input.input-text,
-    select {
+    select,
+    textarea {
       @extend .form-control;
       @extend .is-valid;
     }
