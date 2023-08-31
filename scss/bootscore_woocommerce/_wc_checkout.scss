@@ -77,15 +77,24 @@ p.create-account {
     padding: 0;
     margin-bottom: $spacer;
 
+    &::after {
+      margin-top: $spacer;
+    }
+
     li {
       line-height: inherit;
+      padding-left: 0;
+      @extend .form-check;
 
       // Adjust payment method checkboxes
       input {
-        margin-top: ($line-height-base - $form-check-input-width) * .5;
+        @extend .form-check-input;
         margin-right: $form-check-input-width * .5;
+        margin-left: 0;
+      }
+
+      &:last-child div.payment_box {
         margin-bottom: 0;
-        margin-left: -$spacer * 1.5;
       }
     }
 
@@ -103,7 +112,13 @@ p.create-account {
         display: none;
       }
     }
+
+    // If no payment method is available
+    .woocommerce-info {
+      margin-bottom: 0;
+    }
   }
+
 
   // Policy & place-order wrapper
   div.form-row {
@@ -111,7 +126,7 @@ p.create-account {
     margin: 0;
   }
 
-  // Place ordere button
+  // Place order button
   #place_order {
     @extend .btn-lg;
     width: 100%;
@@ -119,7 +134,7 @@ p.create-account {
   }
 }
 
-
+/*
 // Adjust terms checkboxes
 .woocommerce form .form-row .input-checkbox {
   margin-top: ($line-height-base - $form-check-input-width) * .5 !important;
@@ -127,6 +142,7 @@ p.create-account {
   margin-bottom: 0 !important;
   margin-left: -$spacer * 1.5 !important;
 }
+*/
 
 
 // Terms & conditions collapse box
@@ -185,8 +201,7 @@ p.create-account {
   }
 
   label {
-    cursor: pointer;
-    color: var(--bs-body-color) !important;
+    color: var(--#{$prefix}body-color) !important;
   }
 }
 
@@ -207,6 +222,7 @@ p.create-account {
 
 // Form Validation
 .woocommerce form .form-row {
+
   &.woocommerce-validated {
 
     .select2-container,
