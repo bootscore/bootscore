@@ -135,6 +135,12 @@ p.create-account {
 }
 
 
+// Adjust checkboxes
+.woocommerce form .form-row .input-checkbox {
+  margin-left: -$spacer * 1.5 !important;
+}
+
+
 // Terms & conditions collapse box
 .woocommerce .woocommerce-terms-and-conditions,
 .woocommerce-page .woocommerce-terms-and-conditions {
