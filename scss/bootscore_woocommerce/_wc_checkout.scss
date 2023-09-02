@@ -16,8 +16,9 @@ WooCommerce Checkout
 
 
 // Create account
-p.create-account {
+.createaccount label.checkbox {
   @extend .form-check;
+  //margin-left: $form-check-input-width * 1.5 !important;
 }
 
 #createaccount {
@@ -220,11 +221,15 @@ p.create-account {
 
   &.woocommerce-validated {
 
-    .select2-container,
+
     input.input-text,
-    select,
     textarea {
       @extend .form-control;
+      @extend .is-valid;
+    }
+
+    select {
+      @extend .form-select;
       @extend .is-valid;
     }
 
@@ -239,10 +244,13 @@ p.create-account {
 
   &.woocommerce-invalid {
 
-    .select2-container,
-    input.input-text,
-    select {
+    input.input-text {
       @extend .form-control;
+      @extend .is-invalid;
+    }
+    
+    select {
+      @extend .form-select;
       @extend .is-invalid;
     }
 
