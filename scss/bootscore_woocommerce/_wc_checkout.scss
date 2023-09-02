@@ -18,7 +18,6 @@ WooCommerce Checkout
 // Create account
 p.create-account {
   @extend .form-check;
-  margin-left: $form-check-input-width * 1.5 !important;
 }
 
 #createaccount {
