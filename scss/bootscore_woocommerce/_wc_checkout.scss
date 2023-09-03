@@ -215,7 +215,7 @@ WooCommerce Checkout
   }
 }
 
-
+/*
 // Form Validation
 .woocommerce form .form-row {
 
@@ -256,6 +256,64 @@ WooCommerce Checkout
 
     .form-check-input[type=checkbox] {
       @extend .is-invalid;
+    }
+
+    label {
+      color: var(--#{$prefix}form-invalid-color);
+    }
+  }
+}
+*/
+
+
+// Form Validation
+.woocommerce form .form-row {
+
+  &.woocommerce-validated {
+
+
+    input.input-text,
+    textarea,
+    select {
+      border-color: var(--#{$prefix}form-valid-border-color);
+
+      &:focus {
+        box-shadow: 0 0 $input-btn-focus-blur $input-focus-width rgba(var(--#{$prefix}success-rgb), $input-btn-focus-color-opacity);
+      }
+    }
+
+    .form-check-input[type=checkbox] {
+      background-color: var(--#{$prefix}success);
+      border-color: var(--#{$prefix}success);
+
+      &:focus {
+        box-shadow: 0 0 $input-btn-focus-blur $input-focus-width rgba(var(--#{$prefix}success-rgb), $input-btn-focus-color-opacity);
+      }
+    }
+
+    label {
+      color: var(--#{$prefix}form-valid-color);
+    }
+  }
+
+  &.woocommerce-invalid {
+
+    input.input-text,
+    textarea,
+    select {
+      border-color: var(--#{$prefix}form-invalid-border-color);
+
+      &:focus {
+        box-shadow: 0 0 $input-btn-focus-blur $input-focus-width rgba(var(--#{$prefix}danger-rgb), $input-btn-focus-color-opacity);
+      }
+    }
+
+    .form-check-input[type=checkbox] {
+      border-color: var(--#{$prefix}danger);
+
+      &:focus {
+        box-shadow: 0 0 $input-btn-focus-blur $input-focus-width rgba(var(--#{$prefix}danger-rgb), $input-btn-focus-color-opacity);
+      }
     }
 
     label {
