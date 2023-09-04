@@ -15,7 +15,7 @@ defined( 'ABSPATH' ) || exit;
 /**
  * Enqueue scripts
  */
-function wc_scripts() {
+function bootscore_wc_scripts() {
   
   // Enable fragments script (disabled in WooCommerce 7.8.0 if mini-cart widget is not in a widget position)
   // See https://developer.woocommerce.com/2023/05/24/woocommerce-7-8-beta-1-released/
@@ -32,4 +32,4 @@ function wc_scripts() {
   }
 }
 
-add_action('wp_enqueue_scripts', 'wc_scripts');
+add_action('wp_enqueue_scripts', 'bootscore_wc_scripts');
