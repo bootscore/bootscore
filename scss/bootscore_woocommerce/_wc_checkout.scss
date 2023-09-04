@@ -326,7 +326,7 @@ WooCommerce Checkout
     }
 
 
-    .form-check-input[type=checkbox] {
+    .form-check-input[type=checkbox]:not(.create-account [type=checkbox]) {
       background-color: var(--#{$prefix}form-valid-color);
       border-color: var(--#{$prefix}form-valid-color);
 
@@ -335,7 +335,7 @@ WooCommerce Checkout
       }
     }
 
-    label {
+    label:not(.create-account label) {
       color: var(--#{$prefix}form-valid-color);
     }
   }
