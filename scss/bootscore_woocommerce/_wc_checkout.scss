@@ -209,23 +209,30 @@ WooCommerce Checkout
 
 
 // Form Validation
-
-.woocommerce-input-wrapper {
-  position: relative;
-  display: block;
-}
-
 .woocommerce form .form-row {
 
-  &.woocommerce-validated {
+  .woocommerce-input-wrapper {
+    position: relative;
+    display: block;
+  }
 
-    input.input-text,
-    textarea,
-    select {
-      border-color: var(--#{$prefix}form-valid-border-color);
+  &.woocommerce-validated,
+  &.woocommerce-invalid {
 
-      &:focus {
-        box-shadow: 0 0 $input-btn-focus-blur $input-focus-width rgba(var(--#{$prefix}success-rgb), $input-btn-focus-color-opacity);
+    .woocommerce-input-wrapper {
+
+      // Icons
+      &::after {
+        content: ' ';
+        position: absolute;
+        top: .64rem;
+        right: $input-height-inner-quarter;
+        width: $input-height-inner-half;
+        height: $input-height-inner-half;
+        mask-position: center;
+        mask-repeat: no-repeat;
+        -webkit-mask-position: center;
+        -webkit-mask-repeat: no-repeat;
       }
     }
 
@@ -238,33 +245,33 @@ WooCommerce Checkout
       padding-right: $form-select-feedback-icon-padding-end;
     }
 
-
-    // Icons
-    .woocommerce-input-wrapper {
-
-      &::after {
-        content: ' ';
-        position: absolute;
-        top: .64rem;
-        right: $input-height-inner-quarter;
-        width: $input-height-inner-half;
-        height: $input-height-inner-half;
-        background-color: var(--#{$prefix}form-valid-color);
-        mask-position: center;
-        mask-repeat: no-repeat;
-        mask-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23198754' d='M2.3 6.73.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/%3e%3c/svg%3e");
-        -webkit-mask-position: center;
-        -webkit-mask-repeat: no-repeat;
-        -webkit-mask-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23198754' d='M2.3 6.73.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/%3e%3c/svg%3e");
-      }
-    }
-
     .woocommerce-input-wrapper:has(select, [type="password"]) {
       &::after {
         right: $spacer * 2.25;
       }
     }
+  }
 
+
+  &.woocommerce-validated {
+
+    .woocommerce-input-wrapper {
+      &::after {
+        background-color: var(--#{$prefix}form-valid-color);
+        mask-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23198754' d='M2.3 6.73.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/%3e%3c/svg%3e");
+        -webkit-mask-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23198754' d='M2.3 6.73.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/%3e%3c/svg%3e");
+      }
+    }
+
+    input.input-text,
+    textarea,
+    select {
+      border-color: var(--#{$prefix}form-valid-border-color);
+
+      &:focus {
+        box-shadow: 0 0 $input-btn-focus-blur $input-focus-width rgba(var(--#{$prefix}success-rgb), $input-btn-focus-color-opacity);
+      }
+    }
 
     .form-check-input[type=checkbox]:not(.create-account [type=checkbox], .mc4wp-checkbox [type=checkbox]) {
       background-color: var(--#{$prefix}form-valid-color);
@@ -280,7 +287,16 @@ WooCommerce Checkout
     }
   }
 
+  
   &.woocommerce-invalid {
+
+    .woocommerce-input-wrapper {
+      &::after {
+        background-color: var(--#{$prefix}form-invalid-color);
+        mask-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23198754' d='M2.3 6.73.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/%3e%3c/svg%3e");
+        -webkit-mask-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' fill='none' stroke='%23dc3545'%3e%3ccircle cx='6' cy='6' r='4.5'/%3e%3cpath stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/%3e%3ccircle cx='6' cy='8.2' r='.6' fill='%23dc3545' stroke='none'/%3e%3c/svg%3e");
+      }
+    }
 
     input.input-text,
     textarea,
@@ -291,43 +307,6 @@ WooCommerce Checkout
         box-shadow: 0 0 $input-btn-focus-blur $input-focus-width rgba(var(--#{$prefix}danger-rgb), $input-btn-focus-color-opacity);
       }
     }
-
-    input.input-text,
-    textarea {
-      padding-right: $input-height-inner;
-    }
-
-    select {
-      padding-right: $form-select-feedback-icon-padding-end;
-    }
-
-
-    // Icons
-    .woocommerce-input-wrapper {
-
-      &::after {
-        content: ' ';
-        position: absolute;
-        top: .64rem;
-        right: $input-height-inner-quarter;
-        width: calc(0.75em + 0.375rem);
-        height: calc(0.75em + 0.375rem);
-        background-color: var(--#{$prefix}form-invalid-color);
-        mask-position: center;
-        mask-repeat: no-repeat;
-        mask-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23198754' d='M2.3 6.73.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/%3e%3c/svg%3e");
-        -webkit-mask-position: center;
-        -webkit-mask-repeat: no-repeat;
-        -webkit-mask-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' fill='none' stroke='%23dc3545'%3e%3ccircle cx='6' cy='6' r='4.5'/%3e%3cpath stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/%3e%3ccircle cx='6' cy='8.2' r='.6' fill='%23dc3545' stroke='none'/%3e%3c/svg%3e");
-      }
-    }
-
-    .woocommerce-input-wrapper:has(select, [type="password"]) {
-      &::after {
-        right: $spacer * 2.25;
-      }
-    }
-
 
     .form-check-input[type=checkbox] {
       border-color: var(--#{$prefix}form-invalid-color);
