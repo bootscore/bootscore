@@ -16,11 +16,6 @@ WooCommerce Checkout
 
 
 // Create account
-.createaccount label.checkbox {
-  @extend .form-check;
-  //margin-left: $form-check-input-width * 1.5 !important;
-}
-
 #createaccount {
   @extend .form-check-input;
 }
@@ -137,7 +132,8 @@ WooCommerce Checkout
 
 // Adjust checkboxes
 .woocommerce form .form-row .input-checkbox {
-  margin-left: -$spacer * 1.5 !important;
+  // Check if this has any impact
+  //margin-left: -$spacer * 1.5 !important;
 }
 
 
@@ -195,10 +191,6 @@ WooCommerce Checkout
     @extend .form-check-input;
     width: $form-check-input-width !important; // Override inline-style
   }
-
-  label {
-    //color: var(--#{$prefix}body-color) !important;
-  }
 }
 
 
@@ -214,56 +206,6 @@ WooCommerce Checkout
     @extend .form-check-input;
   }
 }
-
-/*
-// Form Validation
-.woocommerce form .form-row {
-
-  &.woocommerce-validated {
-
-
-    input.input-text,
-    textarea {
-      @extend .form-control;
-      @extend .is-valid;
-    }
-
-    select {
-      @extend .form-select;
-      @extend .is-valid;
-    }
-
-    .form-check-input[type=checkbox] {
-      @extend .is-valid;
-    }
-
-    label {
-      color: var(--#{$prefix}form-valid-color);
-    }
-  }
-
-  &.woocommerce-invalid {
-
-    input.input-text {
-      @extend .form-control;
-      @extend .is-invalid;
-    }
-    
-    select {
-      @extend .form-select;
-      @extend .is-invalid;
-    }
-
-    .form-check-input[type=checkbox] {
-      @extend .is-invalid;
-    }
-
-    label {
-      color: var(--#{$prefix}form-invalid-color);
-    }
-  }
-}
-*/
 
 
 // Form Validation
@@ -302,9 +244,7 @@ WooCommerce Checkout
 
       &::after {
         content: ' ';
-        //display: inline-block;
         position: absolute;
-        //top: $input-height-inner-quarter;
         top: .64rem;
         right: $input-height-inner-quarter;
         width: $input-height-inner-half;
@@ -367,9 +307,7 @@ WooCommerce Checkout
 
       &::after {
         content: ' ';
-        //display: inline-block;
         position: absolute;
-        //top: $input-height-inner-quarter;
         top: .64rem;
         right: $input-height-inner-quarter;
         width: calc(0.75em + 0.375rem);
