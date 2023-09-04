@@ -132,8 +132,7 @@ WooCommerce Checkout
 
 // Adjust checkboxes
 .woocommerce form .form-row .input-checkbox {
-  // Check if this has any impact
-  //margin-left: -$spacer * 1.5 !important;
+  margin-left: -$spacer * 1.5 !important;
 }
 
 
