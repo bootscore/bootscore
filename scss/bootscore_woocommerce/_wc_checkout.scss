@@ -197,7 +197,7 @@ WooCommerce Checkout
   }
 
   label {
-    color: var(--#{$prefix}body-color) !important;
+    //color: var(--#{$prefix}body-color) !important;
   }
 }
 
@@ -326,7 +326,7 @@ WooCommerce Checkout
     }
 
 
-    .form-check-input[type=checkbox]:not(.create-account [type=checkbox]) {
+    .form-check-input[type=checkbox]:not(.create-account [type=checkbox], .mc4wp-checkbox [type=checkbox]) {
       background-color: var(--#{$prefix}form-valid-color);
       border-color: var(--#{$prefix}form-valid-color);
 
@@ -335,7 +335,7 @@ WooCommerce Checkout
       }
     }
 
-    label:not(.create-account label) {
+    label:not(.create-account label, .mc4wp-checkbox label, .woocommerce-SavedPaymentMethods-saveNew label) {
       color: var(--#{$prefix}form-valid-color);
     }
   }
