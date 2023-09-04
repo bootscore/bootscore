@@ -22,21 +22,8 @@ ins {
   color: var(--bscore-wc-price-sale, var(--#{$prefix}danger));
 }
 
-.woocommerce form .form-row .required,
-.woocommerce form .form-row.woocommerce-invalid label {
+.woocommerce form .form-row .required {
   color: var(--bscore-wc-form-invalid, var(--#{$prefix}danger));
-}
-
-.woocommerce form .form-row.woocommerce-invalid .select2-container,
-.woocommerce form .form-row.woocommerce-invalid input.input-text,
-.woocommerce form .form-row.woocommerce-invalid select {
-  border-color: var(--bscore-wc-form-invalid, var(--#{$prefix}danger));
-}
-
-.woocommerce form .form-row.woocommerce-validated .select2-container,
-.woocommerce form .form-row.woocommerce-validated input.input-text,
-.woocommerce form .form-row.woocommerce-validated select {
-  border-color: var(--bscore-wc-form-valid, var(--#{$prefix}success));
 }
 
 .woocommerce div.product p.price del,

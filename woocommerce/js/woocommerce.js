@@ -5,12 +5,6 @@ jQuery(function ($) {
   $('#wp-comment-cookies-consent').addClass('form-check-input');
   $('.comment-form-cookies-consent label').addClass('form-check-label');
 
-  // Checkout Form Validation
-  $('body').on('blur change', '.form-row input', function () {
-    $('.woocommerce form .form-row.woocommerce-validated .select2-container, .woocommerce form .form-row.woocommerce-validated input.input-text, .woocommerce form .form-row.woocommerce-validated select, .woocommerce form .form-row.woocommerce-validated .form-check-input[type=checkbox]').removeClass('is-invalid').addClass('is-valid');
-    $('.woocommerce form .form-row.woocommerce-invalid .select2-container, .woocommerce form .form-row.woocommerce-invalid input.input-text, .woocommerce form .form-row.woocommerce-invalid select, .woocommerce form .form-row.woocommerce-invalid .form-check-input[type=checkbox]').removeClass('is-valid').addClass('is-invalid');
-  });
-
   // Single-product Tabs
   // First item active
   $('.wc-tabs .nav-item:first-child a').addClass('active');

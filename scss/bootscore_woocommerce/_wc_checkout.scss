@@ -16,13 +16,8 @@ WooCommerce Checkout
 
 
 // Create account
-p.create-account {
-  @extend .form-check;
-    margin-left: $form-check-input-width * 1.5 !important;
-}
-
 #createaccount {
-  @extend .form-check-input; 
+  @extend .form-check-input;
 }
 
 // Create account password icon
@@ -77,15 +72,24 @@ p.create-account {
     padding: 0;
     margin-bottom: $spacer;
 
+    &::after {
+      margin-top: $spacer;
+    }
+
     li {
       line-height: inherit;
+      padding-left: 0;
+      @extend .form-check;
 
       // Adjust payment method checkboxes
       input {
-        margin-top: ($line-height-base - $form-check-input-width) * .5;
+        @extend .form-check-input;
         margin-right: $form-check-input-width * .5;
+        margin-left: 0;
+      }
+
+      &:last-child div.payment_box {
         margin-bottom: 0;
-        margin-left: -$spacer * 1.5;
       }
     }
 
@@ -103,7 +107,13 @@ p.create-account {
         display: none;
       }
     }
+
+    // If no payment method is available
+    .woocommerce-info {
+      margin-bottom: 0;
+    }
   }
+
 
   // Policy & place-order wrapper
   div.form-row {
@@ -111,7 +121,7 @@ p.create-account {
     margin: 0;
   }
 
-  // Place ordere button
+  // Place order button
   #place_order {
     @extend .btn-lg;
     width: 100%;
@@ -120,11 +130,8 @@ p.create-account {
 }
 
 
-// Adjust terms checkboxes
+// Adjust checkboxes
 .woocommerce form .form-row .input-checkbox {
-  margin-top: ($line-height-base - $form-check-input-width) * .5 !important;
-  margin-right: $form-check-input-width * .5 !important;
-  margin-bottom: 0 !important;
   margin-left: -$spacer * 1.5 !important;
 }
 
@@ -183,8 +190,133 @@ p.create-account {
     @extend .form-check-input;
     width: $form-check-input-width !important; // Override inline-style
   }
+}
 
-  label {
-    cursor: pointer;
+
+// Terms Checkbox
+.woocommerce form .form-row {
+
+  label.checkbox {
+    @extend .form-check;
+    display: inline-block;
+  }
+
+  .input-checkbox {
+    @extend .form-check-input;
+  }
+}
+
+
+// Form Validation
+.woocommerce form .form-row {
+
+  .woocommerce-input-wrapper {
+    position: relative;
+    display: block;
+  }
+
+  &.woocommerce-validated,
+  &.woocommerce-invalid {
+
+    .woocommerce-input-wrapper {
+
+      // Icons
+      &::after {
+        content: ' ';
+        position: absolute;
+        top: .64rem;
+        right: $input-height-inner-quarter;
+        width: $input-height-inner-half;
+        height: $input-height-inner-half;
+        mask-position: center;
+        mask-repeat: no-repeat;
+        -webkit-mask-position: center;
+        -webkit-mask-repeat: no-repeat;
+      }
+    }
+
+    input.input-text,
+    textarea {
+      padding-right: $input-height-inner;
+    }
+
+    select {
+      padding-right: $form-select-feedback-icon-padding-end;
+    }
+
+    .woocommerce-input-wrapper:has(select, [type="password"]) {
+      &::after {
+        right: $spacer * 2.25;
+      }
+    }
+  }
+
+
+  &.woocommerce-validated {
+
+    .woocommerce-input-wrapper {
+      &::after {
+        background-color: var(--#{$prefix}form-valid-color);
+        mask-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23198754' d='M2.3 6.73.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/%3e%3c/svg%3e");
+        -webkit-mask-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23198754' d='M2.3 6.73.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/%3e%3c/svg%3e");
+      }
+    }
+
+    input.input-text,
+    textarea,
+    select {
+      border-color: var(--#{$prefix}form-valid-border-color);
+
+      &:focus {
+        box-shadow: 0 0 $input-btn-focus-blur $input-focus-width rgba(var(--#{$prefix}success-rgb), $input-btn-focus-color-opacity);
+      }
+    }
+
+    .form-check-input[type=checkbox]:not(.create-account [type=checkbox], .mc4wp-checkbox [type=checkbox]) {
+      background-color: var(--#{$prefix}form-valid-color);
+      border-color: var(--#{$prefix}form-valid-color);
+
+      &:focus {
+        box-shadow: 0 0 $input-btn-focus-blur $input-focus-width rgba(var(--#{$prefix}success-rgb), $input-btn-focus-color-opacity);
+      }
+    }
+
+    label:not(.create-account label, .mc4wp-checkbox label, .woocommerce-SavedPaymentMethods-saveNew label) {
+      color: var(--#{$prefix}form-valid-color);
+    }
+  }
+
+  
+  &.woocommerce-invalid {
+
+    .woocommerce-input-wrapper {
+      &::after {
+        background-color: var(--#{$prefix}form-invalid-color);
+        mask-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23198754' d='M2.3 6.73.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/%3e%3c/svg%3e");
+        -webkit-mask-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' fill='none' stroke='%23dc3545'%3e%3ccircle cx='6' cy='6' r='4.5'/%3e%3cpath stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/%3e%3ccircle cx='6' cy='8.2' r='.6' fill='%23dc3545' stroke='none'/%3e%3c/svg%3e");
+      }
+    }
+
+    input.input-text,
+    textarea,
+    select {
+      border-color: var(--#{$prefix}form-invalid-border-color);
+
+      &:focus {
+        box-shadow: 0 0 $input-btn-focus-blur $input-focus-width rgba(var(--#{$prefix}danger-rgb), $input-btn-focus-color-opacity);
+      }
+    }
+
+    .form-check-input[type=checkbox] {
+      border-color: var(--#{$prefix}form-invalid-color);
+
+      &:focus {
+        box-shadow: 0 0 $input-btn-focus-blur $input-focus-width rgba(var(--#{$prefix}danger-rgb), $input-btn-focus-color-opacity);
+      }
+    }
+
+    label {
+      color: var(--#{$prefix}form-invalid-color);
+    }
   }
 }

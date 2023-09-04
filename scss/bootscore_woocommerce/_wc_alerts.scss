@@ -26,7 +26,8 @@ WooCommerce Alerts
   @extend .alert-info-icon;
 }
 
-.woocommerce-message {
+.woocommerce-message,
+.woocommerce-thankyou-order-details {
   @extend .alert;
   @extend .alert-success;
   @extend .alert-icon;
