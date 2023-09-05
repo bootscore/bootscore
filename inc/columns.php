@@ -46,13 +46,13 @@ if (!function_exists('bootscore_sidebar_col_class')) {
  */
 if (!function_exists('bootscore_sidebar_toggler_class')) {
   function bootscore_sidebar_toggler_class() {
-    return "btn btn-outline-primary w-100 mb-4 d-flex d-md-none justify-content-between align-items-center";
+    return "d-md-none btn btn-outline-primary w-100 mb-4 d-flex justify-content-between align-items-center";
   }
 }
 
 
 /**
- * Sidebar responsive offcanvas breakpoints
+ * Sidebar responsive offcanvas breakpoint and placement
  * @return string
  */
 if (!function_exists('bootscore_sidebar_offcanvas_class')) {
