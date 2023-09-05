@@ -207,59 +207,70 @@ WooCommerce Checkout
 }
 
 
+// Valid Icon
+@function valid-icon-color($colour) {
+  @return '%23' + str-slice('#{$colour}', 2, -1)
+}
+
+$valid-icon-color: $form-feedback-valid-color;
+
+// Invalid Icon
+@function invalid-icon-color($colour) {
+  @return '%23' + str-slice('#{$colour}', 2, -1)
+}
+
+$invalid-icon-color: $form-feedback-invalid-color;
+
+
+:root {
+  --valid-icon: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'><path fill='#{valid-icon-color($valid-icon-color)}' d='M2.3 6.73.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/></svg>");
+  --invalid-icon: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' width='12' height='12' fill='none' stroke='#{invalid-icon-color($invalid-icon-color)}'><circle cx='6' cy='6' r='4.5'/><path stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/><circle cx='6' cy='8.2' r='.6' fill='#{invalid-icon-color($invalid-icon-color)}' stroke='none'/></svg>");
+}
+
+
 // Form Validation
 .woocommerce form .form-row {
-
-  .woocommerce-input-wrapper {
-    position: relative;
-    display: block;
-  }
 
   &.woocommerce-validated,
   &.woocommerce-invalid {
 
-    .woocommerce-input-wrapper {
-
-      // Icons
-      &::after {
-        content: ' ';
-        position: absolute;
-        top: .64rem;
-        right: $input-height-inner-quarter;
-        width: $input-height-inner-half;
-        height: $input-height-inner-half;
-        mask-position: center;
-        mask-repeat: no-repeat;
-        -webkit-mask-position: center;
-        -webkit-mask-repeat: no-repeat;
-      }
+    input.input-text,
+    select,
+    textarea {
+      background-repeat: no-repeat;
     }
 
     input.input-text,
     textarea {
       padding-right: $input-height-inner;
+      background-size: $input-height-inner-half $input-height-inner-half;
+    }
+
+    input.input-text {
+      background-position: right $input-height-inner-quarter center;
     }
 
     select {
+
       padding-right: $form-select-feedback-icon-padding-end;
+      background-position: $form-select-bg-position, $form-select-feedback-icon-position;
+      background-size: $form-select-bg-size, $form-select-feedback-icon-size;
     }
 
-    .woocommerce-input-wrapper:has(select, [type="password"]) {
-      &::after {
-        right: $spacer * 2.25;
-      }
+    textarea {
+      background-position: top $input-height-inner-quarter right $input-height-inner-quarter;
     }
   }
 
-
   &.woocommerce-validated {
 
-    .woocommerce-input-wrapper {
-      &::after {
-        background-color: var(--#{$prefix}form-valid-color);
-        mask-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23198754' d='M2.3 6.73.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/%3e%3c/svg%3e");
-        -webkit-mask-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23198754' d='M2.3 6.73.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/%3e%3c/svg%3e");
-      }
+    input.input-text,
+    textarea {
+      background-image: var(--valid-icon);
+    }
+
+    select {
+      --bs-form-select-bg-icon: var(--valid-icon);
     }
 
     input.input-text,
@@ -272,29 +283,33 @@ WooCommerce Checkout
       }
     }
 
-    .form-check-input[type=checkbox]:not(.create-account [type=checkbox], .mc4wp-checkbox [type=checkbox]) {
-      background-color: var(--#{$prefix}form-valid-color);
-      border-color: var(--#{$prefix}form-valid-color);
+    // Terms & Conditions checkbox
+    .woocommerce-form__label-for-checkbox {
 
-      &:focus {
-        box-shadow: 0 0 $input-btn-focus-blur $input-focus-width rgba(var(--#{$prefix}success-rgb), $input-btn-focus-color-opacity);
+      .woocommerce-terms-and-conditions-checkbox-text {
+        color: var(--#{$prefix}form-valid-color);
       }
-    }
 
-    label:not(.create-account label, .mc4wp-checkbox label, .woocommerce-SavedPaymentMethods-saveNew label) {
-      color: var(--#{$prefix}form-valid-color);
+      input {
+        border-color: var(--#{$prefix}form-valid-color);
+        background-color: var(--#{$prefix}form-valid-color);
+
+        &:focus {
+          box-shadow: 0 0 $input-btn-focus-blur $input-focus-width rgba(var(--#{$prefix}success-rgb), $input-btn-focus-color-opacity);
+        }
+      }
     }
   }
 
-  
   &.woocommerce-invalid {
 
-    .woocommerce-input-wrapper {
-      &::after {
-        background-color: var(--#{$prefix}form-invalid-color);
-        mask-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23198754' d='M2.3 6.73.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/%3e%3c/svg%3e");
-        -webkit-mask-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' fill='none' stroke='%23dc3545'%3e%3ccircle cx='6' cy='6' r='4.5'/%3e%3cpath stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/%3e%3ccircle cx='6' cy='8.2' r='.6' fill='%23dc3545' stroke='none'/%3e%3c/svg%3e");
-      }
+    input.input-text,
+    textarea {
+      background-image: var(--invalid-icon);
+    }
+
+    select {
+      --bs-form-select-bg-icon: var(--invalid-icon);
     }
 
     input.input-text,
@@ -307,16 +322,24 @@ WooCommerce Checkout
       }
     }
 
-    .form-check-input[type=checkbox] {
-      border-color: var(--#{$prefix}form-invalid-color);
-
-      &:focus {
-        box-shadow: 0 0 $input-btn-focus-blur $input-focus-width rgba(var(--#{$prefix}danger-rgb), $input-btn-focus-color-opacity);
-      }
+    label {
+      color: var(--#{$prefix}body-color);
     }
 
-    label {
-      color: var(--#{$prefix}form-invalid-color);
+    // Terms & Conditions checkbox
+    .woocommerce-form__label-for-checkbox {
+
+      .woocommerce-terms-and-conditions-checkbox-text {
+        color: var(--#{$prefix}form-invalid-color);
+      }
+
+      input {
+        border-color: var(--#{$prefix}form-invalid-color);
+
+        &:focus {
+          box-shadow: 0 0 $input-btn-focus-blur $input-focus-width rgba(var(--#{$prefix}danger-rgb), $input-btn-focus-color-opacity);
+        }
+      }
     }
   }
 }
