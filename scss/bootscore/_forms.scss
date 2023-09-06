@@ -6,3 +6,25 @@ Forms
 select {
   @extend .form-select;
 }
+
+
+// Form validation icons
+// Allows validation with CSS variables instead using JS.
+// Used in _wc_checkout.scss and bS Contact Form 7 plugin.
+
+// Valid Icon
+@function valid-icon-color($color) {
+  @return '%23' + str-slice('#{$color}', 2, -1)
+}
+$valid-icon-color: $form-feedback-valid-color;
+
+// Invalid Icon
+@function invalid-icon-color($color) {
+  @return '%23' + str-slice('#{$color}', 2, -1)
+}
+$invalid-icon-color: $form-feedback-invalid-color;
+
+:root {
+  --valid-icon: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'><path fill='#{valid-icon-color($valid-icon-color)}' d='M2.3 6.73.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/></svg>");
+  --invalid-icon: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' width='12' height='12' fill='none' stroke='#{invalid-icon-color($invalid-icon-color)}'><circle cx='6' cy='6' r='4.5'/><path stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/><circle cx='6' cy='8.2' r='.6' fill='#{invalid-icon-color($invalid-icon-color)}' stroke='none'/></svg>");
+}
