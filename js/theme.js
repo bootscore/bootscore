@@ -2,55 +2,67 @@
 Theme JS
 --------------------------------------------------------------*/
 
-jQuery(function ($) {
-  // Close offcanvas on click a, keep .dropdown-menu open (see https://github.com/bootscore/bootscore/discussions/347)
-  $('.offcanvas a:not(.dropdown-toggle, .remove_from_cart_button)').on('click', function () {
-    $('.offcanvas').offcanvas('hide');
-  });
+// Handle offcanvas links click event.
+const offcanvasLinks = document.querySelectorAll( '.offcanvas a:not(.dropdown-toggle):not(.remove_from_cart_button)' );
+offcanvasLinks.forEach( element => {
+    element.addEventListener( 'click', () => {
+        const offcanvasElement = document.querySelector( '.offcanvas' );
+        const offcanvasEvent = new Event( 'hide.bs.offcanvas' );
+        offcanvasElement.dispatchEvent( offcanvasEvent );
+    });
+});
 
-  // Search collapse button hide if empty
-  // Deprecated v5.2.3.4, done by php if (is_active_sidebar('top-nav-search')) in header.php
-  // Remove in v6
-  if ($('#collapse-search').children().length == 0) {
-    $('.top-nav-search-md, .top-nav-search-lg').remove();
-  }
+// Remove top navigation search if no children in collapse-search.
+const collapseSearch = document.getElementById( 'collapse-search' );
+if ( collapseSearch && collapseSearch.children.length === 0 ) {
+    const topNavSearch = document.querySelectorAll( '.top-nav-search-md, .top-nav-search-lg' );
+    topNavSearch.forEach( element => element.remove() );
+}
 
-  // Searchform focus
-  $('#collapse-search').on('shown.bs.collapse', function () {
-    $('.top-nav-search input:first-of-type').trigger('focus');
-  });
+// Focus on the first input field when collapse-search is shown.
+if ( collapseSearch ) {
+    collapseSearch.addEventListener( 'shown.bs.collapse', () => {
+        const inputElement = document.querySelector( '.top-nav-search input:first-of-type' );
+        if ( inputElement ) {
+            inputElement.focus();
+        }
+    });
+}
 
-  // Close collapse if click outside searchform
-  $(document).on('click', function (event) {
-    if ($(event.target).closest('#collapse-search').length === 0) {
-      $('#collapse-search').collapse('hide');
+// Hide collapse-search when clicking outside of it.
+document.addEventListener( 'click', event => {
+    if ( ! event.target.closest( '#collapse-search' ) ) {
+        const collapseEvent = new Event( 'hide.bs.collapse' );
+        collapseSearch.dispatchEvent( collapseEvent );
     }
-  });
+});
 
-  // Scroll to top Button
-  $(window).on('scroll', function () {
-    var scroll = $(window).scrollTop();
-
-    if (scroll >= 500) {
-      $('.top-button').addClass('visible');
-    } else {
-      $('.top-button').removeClass('visible');
+// Show or hide the back-to-top button based on scroll position.
+window.addEventListener( 'scroll', () => {
+    const scroll = window.scrollY;
+    const topButton = document.querySelector( '.top-button' );
+    if ( topButton ) {
+        scroll >= 500 ? topButton.classList.add( 'visible' ) : topButton.classList.remove( 'visible' );
     }
-  });
+});
 
-  // div height, add class to your content
-  $('.height-50').css('height', 0.5 * $(window).height());
-  $('.height-75').css('height', 0.75 * $(window).height());
-  $('.height-85').css('height', 0.85 * $(window).height());
-  $('.height-100').css('height', 1.0 * $(window).height());
+// Set height for elements with height-* classes.
+[ '50', '75', '85', '100' ].forEach( percentage => {
+    const heightElements = document.querySelectorAll( `.height-${percentage}` );
+    heightElements.forEach( element => {
+        element.style.height = `${( percentage / 100 ) * window.innerHeight}px`;
+    });
+});
 
-  // IE Warning
-  if (window.document.documentMode) {
-    let IEWarningDiv = document.createElement('div');
-    IEWarningDiv.setAttribute('class', 'position-fixed top-0 end-0 bottom-0 start-0 d-flex justify-content-center align-items-center');
-    IEWarningDiv.setAttribute('style', 'background:white;z-index:1999');
-    IEWarningDiv.innerHTML = '<div style="max-width: 90vw;">' + '<h1>' + bootscore.ie_title + '</h1>' + '<p className="lead">' + bootscore.ie_limited_functionality + '</p>' + '<p className="lead">' + bootscore.ie_modern_browsers_1 + bootscore.ie_modern_browsers_2 + bootscore.ie_modern_browsers_3 + bootscore.ie_modern_browsers_4 + bootscore.ie_modern_browsers_5 + '</p>' + '</div>';
-    document.body.appendChild(IEWarningDiv);
-  }
-  // IE Warning End
-}); // jQuery End
+// Display warning for Internet Explorer users.
+if ( 'documentMode' in document ) {
+    const IEWarningDiv = document.createElement( 'div' );
+    IEWarningDiv.className = 'position-fixed top-0 end-0 bottom-0 start-0 d-flex justify-content-center align-items-center';
+    IEWarningDiv.style = 'background:white;z-index:1999';
+    IEWarningDiv.innerHTML = `<div style="max-width: 90vw;">
+        <h1>${bootscore.ie_title}</h1>
+        <p class="lead">${bootscore.ie_limited_functionality}</p>
+        <p class="lead">${bootscore.ie_modern_browsers_1}${bootscore.ie_modern_browsers_2}${bootscore.ie_modern_browsers_3}${bootscore.ie_modern_browsers_4}${bootscore.ie_modern_browsers_5}</p>
+    </div>`;
+    document.body.appendChild( IEWarningDiv );
+}
