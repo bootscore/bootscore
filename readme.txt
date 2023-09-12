@@ -8,7 +8,7 @@ Tags: featured-images, threaded-comments, translation-ready
 
 Requires at least: 4.5
 Tested up to: 6.3.1
-Requires PHP: 7.5
+Requires PHP: 7.4
 Stable tag: 5.3.3
 License: MIT License
 License URI: https://github.com/bootscore/bootscore/blob/main/LICENSE
