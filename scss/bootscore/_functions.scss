@@ -1,0 +1,20 @@
+/*--------------------------------------------------------------
+Functions
+--------------------------------------------------------------*/
+
+// Form validation icons
+// Allows validation with CSS variables instead using JS.
+// Used in _wc_checkout.scss and bS Contact Form 7 plugin.
+// See _forms.scss
+
+// Valid icon
+@function valid-icon-color($color) {
+  @return '%23' + str-slice('#{$color}', 2, -1)
+}
+$valid-icon-color: $form-feedback-valid-color;
+
+// Invalid icon
+@function invalid-icon-color($color) {
+  @return '%23' + str-slice('#{$color}', 2, -1)
+}
+$invalid-icon-color: $form-feedback-invalid-color;
