@@ -24,6 +24,7 @@ require_once('inc/wc-qty-btn.php');
 require_once('inc/wc-redirects.php'); 
 require_once('inc/wc-setup.php'); 
 require_once('inc/wc-deprecated.php'); 
+require_once('inc/blocks/wc-blocks.php'); 
 
 
 /**
