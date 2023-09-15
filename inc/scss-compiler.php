@@ -60,6 +60,8 @@ function bootscore_compile_scss() {
     $compiler->setOutputStyle(\ScssPhp\ScssPhp\OutputStyle::COMPRESSED);
   }
 
+  $compiler = apply_filters('bootscore_scss_compiler', $compiler);
+
   try {
     if ($last_modified > $stored_modified || !file_exists($css_file) || $is_environment_dev && !$skip_environment_check) {
       $compiled = $compiler->compileString(file_get_contents($scss_file));
