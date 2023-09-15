@@ -183,7 +183,7 @@ function bootscore_product_page_ajax_add_to_cart_js() {
 
       // Hide alert in offcanvas-cart when offcanvas is closed
       $('#offcanvas-cart').on('hidden.bs.offcanvas', function () {
-        $('#offcanvas-cart .woocommerce-message, #offcanvas-cart .woocommerce-error').remove();
+        $('#offcanvas-cart .woocommerce-message, #offcanvas-cart .woocommerce-error, #offcanvas-cart .woocommerce-info').remove();
       });
 
       // Refresh ajax mini-cart on browser back button
