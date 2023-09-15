@@ -43,8 +43,7 @@
 
       <nav id="nav-main" class="navbar navbar-expand-lg">
 
-        <div class="<?= bootscore_container_class(); ?>">
-
+        <div class=" <?= apply_filters('bootscore_container_class', 'container', 'header'); ?>">
           <!-- Navbar Brand -->
           <a class="navbar-brand xs d-md-none" href="<?= esc_url(home_url()); ?>"><img src="<?= esc_url(get_stylesheet_directory_uri()); ?>/img/logo/logo-sm.svg" alt="logo" class="logo xs"></a>
           <a class="navbar-brand md d-none d-md-block" href="<?= esc_url(home_url()); ?>"><img src="<?= esc_url(get_stylesheet_directory_uri()); ?>/img/logo/logo.svg" alt="logo" class="logo md"></a>

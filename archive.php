@@ -11,7 +11,7 @@
 get_header();
 ?>
 
-  <div id="content" class="site-content <?= bootscore_container_class(); ?> py-5 mt-5">
+  <div id="content" class="site-content <?= apply_filters('bootscore_container_class', 'container', 'archive'); ?> py-5 mt-5">
     <div id="primary" class="content-area">
 
       <?php bs_after_primary(); ?>

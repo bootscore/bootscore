@@ -17,7 +17,7 @@
 <footer>
 
   <div class="bootscore-footer bg-body-tertiary pt-5 pb-3">
-    <div class="<?= bootscore_container_class(); ?>">
+    <div class="<?= apply_filters('bootscore_container_class', 'container', 'footer'); ?>">
 
       <!-- Top Footer Widget -->
       <?php if (is_active_sidebar('top-footer')) : ?>
@@ -73,7 +73,7 @@
   </div>
 
   <div class="bootscore-info bg-body-tertiary text-body-tertiary border-top py-2 text-center">
-    <div class="<?= bootscore_container_class(); ?>">
+    <div class="<?= apply_filters('bootscore_container_class', 'container', 'footer-copyright'); ?>">
       <?php if (is_active_sidebar('footer-info')) : ?>
         <?php dynamic_sidebar('footer-info'); ?>
       <?php endif; ?>
