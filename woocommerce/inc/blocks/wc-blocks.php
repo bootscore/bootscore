@@ -14,7 +14,9 @@ defined( 'ABSPATH' ) || exit;
 
 /**
  * Disable WooCommerce block styles
+ * https://wordpress.stackexchange.com/questions/391126/remove-woocommerce-block-styles
  */
+/*
 function disable_wp_blocks() {
     $wstyles = array(
         //'wp-block-library',
@@ -73,3 +75,10 @@ function disable_wp_blocks() {
 }
 
 add_action( 'init', 'disable_wp_blocks', 100 );
+*/
+
+function ca_deregister_woocommerce_block_styles() {
+    wp_deregister_style( 'wc-all-blocks-style' );
+    wp_dequeue_style( 'wc-all-blocks-style' );
+}
+add_action( 'enqueue_block_assets', 'ca_deregister_woocommerce_block_styles' );
