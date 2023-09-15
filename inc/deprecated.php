@@ -45,3 +45,27 @@ function bsfaCode($atts) {
 
 ;
 add_shortcode('bsfa', 'bsfaCode');
+
+/*
+ * Check if the old functions which were used for simple classes are used in the child theme
+ * If so, we transform them to use the new filter hooks
+ */
+if (function_exists('bootscore_main_col_class')) {
+  add_filter('bootscore_main_col_class', 'bootscore_main_col_class', 100);
+}
+
+if (function_exists('bootscore_sidebar_col_class')) {
+  add_filter('bootscore_sidebar_col_class', 'bootscore_sidebar_col_class', 100);
+}
+
+if (function_exists('bootscore_sidebar_toggler_class')) {
+  add_filter('bootscore_sidebar_toggler_class', 'bootscore_sidebar_toggler_class', 100);
+}
+
+if (function_exists('bootscore_sidebar_offcanvas_class')) {
+  add_filter('bootscore_sidebar_offcanvas_class', 'bootscore_sidebar_offcanvas_class', 100);
+}
+
+if (function_exists('bootscore_container_class')) {
+  add_filter('bootscore_container_class', 'bootscore_container_class', 100);
+}
