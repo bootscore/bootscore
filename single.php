@@ -17,7 +17,7 @@ get_header();
       <?php the_breadcrumb(); ?>
 
       <div class="row">
-        <div class="<?= bootscore_main_col_class(); ?>">
+        <div class="<?= apply_filters('bootscore_main_col_class', 'col'); ?>">
 
           <main id="main" class="site-main">
 

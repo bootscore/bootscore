@@ -115,7 +115,7 @@ get_header();
         <?php endif; ?>
         <!-- Post List -->
         <div class="row">
-          <div class="<?= bootscore_main_col_class(); ?>">
+          <div class="<?= apply_filters('bootscore_main_col_class', 'col'); ?>">
             <!-- Grid Layout -->
             <?php if (have_posts()) : ?>
               <?php while (have_posts()) : the_post(); ?>

@@ -19,7 +19,7 @@ get_header();
 
       <div class="row">
         <?php get_sidebar(); ?>
-        <div class="<?= bootscore_main_col_class(); ?> order-first order-md-last">
+        <div class="<?= apply_filters('bootscore_main_col_class', 'col'); ?> order-first order-md-last">
 
           <main id="main" class="site-main">
 

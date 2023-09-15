@@ -31,7 +31,7 @@ get_header();
           <?php bs_after_primary(); ?>
 
           <div class="row">
-            <div class="<?= bootscore_main_col_class(); ?>">
+            <div class="<?= apply_filters('bootscore_main_col_class', 'col'); ?>">
 
               <div class="entry-content">
                 <?php the_content(); ?>

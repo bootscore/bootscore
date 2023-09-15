@@ -27,7 +27,7 @@ get_header();
         <!-- Breadcrumb -->
         <?php woocommerce_breadcrumb(); ?>
         <div class="row">
-          <div class="<?= bootscore_main_col_class(); ?>">
+          <div class="<?= apply_filters('bootscore_main_col_class', 'col'); ?>">
             <?php woocommerce_content(); ?>
           </div>
           <!-- sidebar -->
