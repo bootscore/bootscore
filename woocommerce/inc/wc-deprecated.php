@@ -13,12 +13,6 @@ defined( 'ABSPATH' ) || exit;
 
 
 /**
- * Remove cross-sells at cart
- */
-remove_action('woocommerce_cart_collaterals', 'woocommerce_cross_sell_display');
-
-
-/**
  * Remove this when deleting terms.php
  * Correct hooked checkboxes in checkout
  * Get the corrected terms for Woocommerce.

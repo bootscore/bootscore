@@ -129,3 +129,13 @@ WooCommerce Cart
   padding: #{$btn-padding-y} #{$btn-padding-x};
   color: var(--#{$prefix}primary);
 }
+
+
+// Cross sell products
+.cross-sells {
+  margin-bottom: $spacer;
+
+  .col-md-6.col-lg-4.col-xxl-3 {
+    width: 50%
+  }
+}
