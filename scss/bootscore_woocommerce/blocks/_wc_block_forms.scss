@@ -21,19 +21,42 @@ WooCommerce Forms Block
 
 
 // Radios
-.wc-block-components-radio-control__option {
-  display: block;
-  @extend .form-check;
+.wc-block-components-radio-control {
 
-  input {
-    @extend .form-check-input;
+  &__option {
+    display: block;
+    @extend .form-check;
+
+    input {
+      @extend .form-check-input;
+    }
+
+    img {
+      height: $font-size-base; // Paypal
+    }
+  }
+
+  &-accordion-content {
+    img {
+      height: $font-size-base; // Credit cards
+    }
   }
 }
 
 
+
 // Form control
 .wc-block-components-text-input {
-  //@extend .form-floating; 
+  //@extend .form-floating;
+  display: flex; // label
+  flex-direction: column; // label
+  margin-bottom: $spacer;
+
+
+  label {
+    order: -1;
+    margin-bottom: $form-label-margin-bottom;
+  }
 
   input {
     @extend .form-control;
