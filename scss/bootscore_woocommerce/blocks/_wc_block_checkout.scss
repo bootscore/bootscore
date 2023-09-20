@@ -18,11 +18,11 @@ WooCommerce Checkout Block
 }
 
 .wc-block-components-sidebar.wc-block-checkout__sidebar.wp-block-woocommerce-checkout-totals-block {
-  
+
   //order: -1;
   @include make-col-ready();
-  
-    @include media-breakpoint-down(lg) {
+
+  @include media-breakpoint-down(lg) {
     order: -1;
   }
 
@@ -32,3 +32,44 @@ WooCommerce Checkout Block
   }
 }
 
+
+
+// Counter steps
+.wp-block-woocommerce-checkout-fields-block {
+  counter-reset: checkout-steps;
+
+  h2::before {
+    counter-increment: checkout-steps;
+    content: ''counter(checkout-steps) '. ';
+  }
+}
+
+
+.wc-block-components-checkout-step {
+
+  &__container {
+    position: relative;
+    padding-left: 1rem;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      height: 100%;
+      border-left: 1px solid var(--#{$prefix}border-color);
+    }
+  }
+}
+
+/*
+.wc-block-components-checkout-step::before {
+  content: "";
+  height: 100%;
+  background: red;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 10px;
+}
+*/
