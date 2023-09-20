@@ -51,7 +51,8 @@ WooCommerce Forms Block
   display: flex; // label
   flex-direction: column; // label
   margin-bottom: $spacer;
-
+  width: 100%;
+  
 
   label {
     order: -1;

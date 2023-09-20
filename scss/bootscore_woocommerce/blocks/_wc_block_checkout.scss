@@ -49,27 +49,57 @@ WooCommerce Checkout Block
 
   &__container {
     position: relative;
-    padding-left: 1rem;
+    padding-left: $spacer;
 
     &::before {
       content: '';
       position: absolute;
       left: 0;
       height: 100%;
-      border-left: 1px solid var(--#{$prefix}border-color);
+      border-left: var(--#{$prefix}border-width) var(--#{$prefix}border-style) var(--#{$prefix}border-color);
     }
   }
 }
 
+
+
+
+.wc-block-components-address-form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  @include media-breakpoint-up(md) {
+
+    &__first_name,
+    &__last_name,
+    &__postcode,
+    &__city {
+      //width: 50%;
+      //flex: 0 0 calc(50% - 17px);
+      //flex: calc(-.5 * var(--bs-gutter-x));
+      //flex: 0 0 calc(-.5 * var(--bs-gutter-x));
+      //flex: 0 0 calc(50% - var(--bs-gutter-x));
+      flex: 0 0 calc(50% - .75rem);
+
+    }
+  }
+}
+
+
 /*
-.wc-block-components-checkout-step::before {
-  content: "";
-  height: 100%;
-  background: red;
-  position: absolute;
-  top: 0;
-  left: 0;
-  display: block;
-  width: 10px;
+.wc-block-components-text-input.wc-block-components-address-form {
+
+  &__first_name,
+  &__last_name {
+    //width: 50%;
+    //flex: 0 0 calc(50% - 17px);
+    //flex: calc(-.5 * var(--bs-gutter-x));
+     //flex: 0 0 calc(-.5 * var(--bs-gutter-x));
+    //flex: 0 0 calc(50% - var(--bs-gutter-x));
+    flex: 0 0 calc(50% - .75rem);
+
+
+  }
 }
 */
