@@ -87,19 +87,32 @@ WooCommerce Checkout Block
 }
 
 
-/*
-.wc-block-components-text-input.wc-block-components-address-form {
-
-  &__first_name,
-  &__last_name {
-    //width: 50%;
-    //flex: 0 0 calc(50% - 17px);
-    //flex: calc(-.5 * var(--bs-gutter-x));
-     //flex: 0 0 calc(-.5 * var(--bs-gutter-x));
-    //flex: 0 0 calc(50% - var(--bs-gutter-x));
-    flex: 0 0 calc(50% - .75rem);
 
 
+
+
+
+
+
+// Sidebar
+
+.wp-block-woocommerce-checkout-order-summary-cart-items-block {
+  // Create card
+  border: $card-border-width solid $card-border-color;
+  border-radius: $card-border-radius;
+}
+
+.wc-block-components-order-summary {
+  &-item {
+    display: flex;
+    font-size: .875em;
+    padding-bottom: 1px;
+    padding-top: 16px;
+    position: relative;
+    width: 100%;
+  }
+  
+  &-item:not(:last-child) {
+    border-bottom: $card-border-width solid $card-border-color;
   }
 }
-*/
