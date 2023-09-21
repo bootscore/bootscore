@@ -54,7 +54,7 @@ button.components-button.wc-block-components-button.wp-element-button.wc-block-c
   padding-right: $spacer;
 
   img {
-    border-radius: $border-radius;
+    border-radius: var(--#{$prefix}border-radius);
   }
 }
 

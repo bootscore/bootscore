@@ -95,7 +95,7 @@ WooCommerce Checkout Block
 
 
 // Sidebar
-/*
+
 .wp-block-woocommerce-checkout-order-summary-cart-items-block {
   // Create card
   border: $card-border-width solid $card-border-color;
@@ -173,97 +173,5 @@ WooCommerce Checkout Block
       margin-left: auto;
       font-weight: 700;
     }
-  }
-}
-*/
-
-
-button.wc-block-components-panel__button {
-  @extend .btn;
-  @extend .btn-outline-primary;
-  margin-bottom: 1rem;
-  width: 100%;
-}
-
-.wc-block-components-order-summary {
-
-  &__content {
-    @extend .list-group;
-  }
-
-  &-item {
-    @extend .list-group-item;
-    display: flex;
-
-    // Summary cart image
-    &__image {
-      position: relative;
-      margin-right: $spacer;
-      width: 25%;
-      //padding-top: $card-spacer-y;
-      //padding-right: $card-spacer-x;
-      //padding-bottom: $card-spacer-y;
-      //padding-left: $card-spacer-x;
-
-      img {
-        border-radius: var(--#{$prefix}border-radius);
-        //width: 48px;
-        //max-width: 48px;
-      }
-    }
-
-    // Summary cart badge
-    &__quantity {
-      /*
-      padding-top: $badge-padding-y;
-      padding-right: $badge-padding-x;
-      padding-bottom: $badge-padding-y;
-      padding-left: $badge-padding-x;
-      font-size: $badge-font-size;
-      font-weight: $badge-font-weight;
-      color: $badge-color;
-      border-radius: var(--#{$prefix}border-radius-pill);
-      background-color: var(--#{$prefix}danger);
-      width: max-content;
-      */
-
-      @extend .badge;
-       border-radius: var(--#{$prefix}border-radius-pill);
-      background-color: var(--#{$prefix}danger);
-
-      position: absolute;
-      top: 0;
-      left: 100%;
-      transform: translate(-50%, -50%);
-
-    }
-
-    &__description {
-      //padding-top: $card-spacer-y;
-      //padding-bottom: $card-spacer-y;
-      padding-right: $card-spacer-x;
-      width: 50%;
-
-      .wc-block-components-product-name {
-        font-weight: 700;
-      }
-
-      p {
-        margin-bottom: 0;
-        font-size: $small-font-size;
-      }
-    }
-
-    &__individual-price {
-      display: block;
-    }
-
-    &__total-price {
-      text-align: right;
-      //margin-left: auto;
-      font-weight: 700;
-      width: 25%;
-    }
-
   }
 }
