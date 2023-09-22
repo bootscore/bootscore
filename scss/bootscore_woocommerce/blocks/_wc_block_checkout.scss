@@ -189,6 +189,7 @@ button.wc-block-components-panel__button {
 
   &__content {
     @extend .list-group;
+    margin-bottom: $spacer;
   }
 
   &-item {
@@ -228,7 +229,7 @@ button.wc-block-components-panel__button {
       */
 
       @extend .badge;
-       border-radius: var(--#{$prefix}border-radius-pill);
+      border-radius: var(--#{$prefix}border-radius-pill);
       background-color: var(--#{$prefix}danger);
 
       position: absolute;
@@ -265,5 +266,71 @@ button.wc-block-components-panel__button {
       width: 25%;
     }
 
+  }
+}
+
+
+
+
+
+
+
+// Coupon
+.wp-block-woocommerce-checkout-order-summary-coupon-form-block.wc-block-components-totals-wrapper {
+  border: 1px solid red;
+  margin-bottom: 1rem;
+}
+
+
+
+
+
+
+// Totals
+// Subtotal
+.wc-block-components-totals-item {
+  border-bottom: var(--#{$prefix}border-width) var(--#{$prefix}border-style) var(--#{$prefix}border-color);
+  margin-bottom: $spacer;
+  padding-bottom: $spacer;
+  display: flex;
+  flex-wrap: wrap;
+  //width: 100%;
+
+  &__label {
+    flex-grow: 1;
+  }
+
+  &__value {
+    font-weight: 700;
+  }
+
+
+  // Total
+  &.wc-block-components-totals-footer-item {
+
+
+    //border: 1px solid green;
+    //font-weight: 700;
+    //font-size: 1.25rem;
+    .wc-block-components-totals-item {
+
+      &__label,
+      &__value {
+        font-size: $font-size-base * 1.25;
+        font-weight: 700;
+      }
+
+      // Tax
+      &__description {
+        width: 100%;
+        text-align: right;
+        font-size: $small-font-size;
+        color: var(--#{$prefix}gray-600);
+
+        p {
+          margin-bottom: 0;
+        }
+      }
+    }
   }
 }
