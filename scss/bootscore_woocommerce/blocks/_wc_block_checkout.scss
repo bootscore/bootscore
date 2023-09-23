@@ -69,12 +69,19 @@ WooCommerce Checkout Block
   flex-wrap: wrap;
   justify-content: space-between;
 
+  &__country,
+  &__state {
+    width: 100%;
+  }
+
   @include media-breakpoint-up(md) {
 
     &__first_name,
     &__last_name,
     &__postcode,
-    &__city {
+    &__city,
+    &__country,
+    &__state {
       //width: 50%;
       //flex: 0 0 calc(50% - 17px);
       //flex: calc(-.5 * var(--bs-gutter-x));

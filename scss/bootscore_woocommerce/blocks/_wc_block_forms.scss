@@ -46,7 +46,9 @@ WooCommerce Forms Block
 
 
 // Form control
-.wc-block-components-text-input {
+
+.components-combobox-control, // Checkout fields
+.wc-block-components-text-input { // Country/ Region, State/County
   //@extend .form-floating;
   display: flex; // label
   flex-direction: column; // label
@@ -57,6 +59,7 @@ WooCommerce Forms Block
   label {
     order: -1;
     margin-bottom: $form-label-margin-bottom;
+    font-size: $font-size-base;
   }
 
   input {
@@ -85,7 +88,7 @@ WooCommerce Forms Block
   }
 }
 
-.components-combobox-control input,
+//.components-combobox-control input,
 textarea.wc-block-components-textarea {
     display: block;
     width: 100%;
