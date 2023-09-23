@@ -82,13 +82,7 @@ WooCommerce Checkout Block
     &__city,
     &__country,
     &__state {
-      //width: 50%;
-      //flex: 0 0 calc(50% - 17px);
-      //flex: calc(-.5 * var(--bs-gutter-x));
-      //flex: 0 0 calc(-.5 * var(--bs-gutter-x));
-      //flex: 0 0 calc(50% - var(--bs-gutter-x));
       flex: 0 0 calc(50% - .75rem);
-
     }
   }
 }
@@ -222,21 +216,18 @@ button.wc-block-components-panel__button {
 
     // Summary cart badge
     &__quantity {
-      /*
-      padding-top: $badge-padding-y;
-      padding-right: $badge-padding-x;
-      padding-bottom: $badge-padding-y;
-      padding-left: $badge-padding-x;
+
+      border-radius: var(--#{$prefix}border-radius-pill);
+      display: inline-block;
+
+      padding: $badge-padding-y $badge-padding-x;
       font-size: $badge-font-size;
       font-weight: $badge-font-weight;
+      line-height: 1;
       color: $badge-color;
-      border-radius: var(--#{$prefix}border-radius-pill);
-      background-color: var(--#{$prefix}danger);
-      width: max-content;
-      */
-
-      @extend .badge;
-      border-radius: var(--#{$prefix}border-radius-pill);
+      text-align: center;
+      white-space: nowrap;
+      vertical-align: baseline;
       background-color: var(--#{$prefix}danger);
 
       position: absolute;
