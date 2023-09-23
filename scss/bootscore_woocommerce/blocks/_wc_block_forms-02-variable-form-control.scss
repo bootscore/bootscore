@@ -3,64 +3,13 @@ WooCommerce Forms Block
 --------------------------------------------------------------*/
 
 
-// Move icon functions to _functions.scss
-// Check icon
-@function check-icon-color($color) {
-  @return '%23' + str-slice('#{$color}', 2, -1)
-}
-
-$check-icon-color: $form-check-input-checked-color;
-
-
-
-
-:root {
-  --checkbox-icon: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='#{check-icon-color($form-check-input-checked-color)}' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='m6 10 3 3 6-6'/%3e%3c/svg%3e");
-
-}
-
-
-
-
-
 // Checks
 .wc-block-components-checkbox {
   display: block;
-  min-height: $form-check-min-height;
-  padding-left: $form-check-padding-start;
-  margin-bottom: $form-check-margin-bottom;
+  @extend .form-check;
 
   input {
-
-    float: left;
-    margin-left: $form-check-padding-start * -1;
-
-    flex-shrink: 0;
-    width: $form-check-input-width;
-    height: $form-check-input-width;
-    margin-top: ($line-height-base - $form-check-input-width) * .5; // line-height minus check height
-    vertical-align: top;
-    appearance: none;
-    background-color: var(--#{$prefix}form-check-bg);
-    background-image: var(--checkbox-icon);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
-    border: $form-check-input-border;
-    print-color-adjust: exact; // Keep themed appearance for print
-    @include transition($form-check-transition);
-    @include border-radius($form-check-input-border-radius);
-
-    &:checked {
-      background-color: $form-check-input-checked-bg-color;
-      border-color: $form-check-input-checked-border-color;
-    }
-
-    &:focus {
-      border-color: $form-check-input-focus-border;
-      outline: 0;
-      box-shadow: $form-check-input-focus-box-shadow;
-    }
+    @extend .form-check-input;
   }
 
   // Hide svg in checkout
@@ -80,7 +29,6 @@ $check-icon-color: $form-check-input-checked-color;
 
     input {
       @extend .form-check-input;
-
     }
 
     img {
@@ -99,10 +47,8 @@ $check-icon-color: $form-check-input-checked-color;
 
 // Form control
 
-.components-combobox-control,
-// Checkout fields
-.wc-block-components-text-input {
-  // Country/ Region, State/County
+.components-combobox-control, // Checkout fields
+.wc-block-components-text-input { // Country/ Region, State/County
   //@extend .form-floating;
   display: flex; // label
   flex-direction: column; // label
@@ -144,27 +90,27 @@ $check-icon-color: $form-check-input-checked-color;
 
 //.components-combobox-control input,
 textarea.wc-block-components-textarea {
-  display: block;
-  width: 100%;
-  padding: $input-padding-y $input-padding-x;
-  font-size: $input-font-size;
-  font-weight: $input-font-weight;
-  line-height: $input-line-height;
-  color: $input-color;
-  appearance: none;
-  background-color: $input-bg;
-  background-clip: padding-box;
-  border: $input-border-width solid $input-border-color;
-  border-radius: $input-border-radius;
-  transition: $input-transition;
+    display: block;
+    width: 100%;
+    padding: $input-padding-y $input-padding-x;
+    font-size: $input-font-size;
+    font-weight: $input-font-weight;
+    line-height: $input-line-height;
+    color: $input-color;
+    appearance: none;
+    background-color: $input-bg;
+    background-clip: padding-box;
+    border: $input-border-width solid $input-border-color;
+    border-radius: $input-border-radius;
+    transition: $input-transition;
 
-  &:focus {
-    color: $input-focus-color;
-    background-color: $input-focus-bg;
-    border-color: $input-focus-border-color;
-    outline: 0;
-    box-shadow: $input-focus-box-shadow;
-  }
+    &:focus {
+      color: $input-focus-color;
+      background-color: $input-focus-bg;
+      border-color: $input-focus-border-color;
+      outline: 0;
+      box-shadow: $input-focus-box-shadow;
+    }
 }
 
 
