@@ -11,11 +11,20 @@ WooCommerce Forms Block
 
 $check-icon-color: $form-check-input-checked-color;
 
+// Radio icon
+@function radio-icon-color($color) {
+  @return '%23' + str-slice('#{$color}', 2, -1)
+}
+
+$radio-icon-color: $form-check-input-checked-color;
+
 
 
 
 :root {
   --checkbox-icon: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='#{check-icon-color($form-check-input-checked-color)}' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='m6 10 3 3 6-6'/%3e%3c/svg%3e");
+ //--radio-icon: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='2' fill='%23fff'/%3e%3c/svg%3e");
+ --radio-icon: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='2' fill='#{radio-icon-color($form-check-input-checked-color)}'/%3e%3c/svg%3e");
 
 }
 
@@ -42,7 +51,6 @@ $check-icon-color: $form-check-input-checked-color;
     vertical-align: top;
     appearance: none;
     background-color: var(--#{$prefix}form-check-bg);
-    background-image: var(--checkbox-icon);
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
@@ -50,6 +58,7 @@ $check-icon-color: $form-check-input-checked-color;
     print-color-adjust: exact; // Keep themed appearance for print
     @include transition($form-check-transition);
     @include border-radius($form-check-input-border-radius);
+    background-image: var(--checkbox-icon);
 
     &:checked {
       background-color: $form-check-input-checked-bg-color;
@@ -75,11 +84,44 @@ $check-icon-color: $form-check-input-checked-color;
 .wc-block-components-radio-control {
 
   &__option {
+    //display: block;
+    //@extend .form-check;
     display: block;
-    @extend .form-check;
+    min-height: $form-check-min-height;
+    padding-left: $form-check-padding-start;
+    margin-bottom: $form-check-margin-bottom;
 
     input {
-      @extend .form-check-input;
+      //@extend .form-check-input;
+
+      float: left;
+      margin-left: $form-check-padding-start * -1;
+
+      flex-shrink: 0;
+      width: $form-check-input-width;
+      height: $form-check-input-width;
+      margin-top: ($line-height-base - $form-check-input-width) * .5; // line-height minus check height
+      vertical-align: top;
+      appearance: none;
+      background-color: var(--#{$prefix}form-check-bg);
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
+      border: $form-check-input-border;
+      print-color-adjust: exact; // Keep themed appearance for print
+      @include transition($form-check-transition);
+      border-radius: $form-check-radio-border-radius;
+      background-image: var(--radio-icon);
+      &:checked {
+        background-color: $form-check-input-checked-bg-color;
+        border-color: $form-check-input-checked-border-color;
+      }
+
+      &:focus {
+        border-color: $form-check-input-focus-border;
+        outline: 0;
+        box-shadow: $form-check-input-focus-box-shadow;
+      }
 
     }
 
