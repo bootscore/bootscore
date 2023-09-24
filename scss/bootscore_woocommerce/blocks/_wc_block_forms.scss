@@ -23,8 +23,8 @@ $radio-icon-color: $form-check-input-checked-color;
 
 :root {
   --checkbox-icon: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='#{check-icon-color($form-check-input-checked-color)}' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='m6 10 3 3 6-6'/%3e%3c/svg%3e");
- //--radio-icon: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='2' fill='%23fff'/%3e%3c/svg%3e");
- --radio-icon: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='2' fill='#{radio-icon-color($form-check-input-checked-color)}'/%3e%3c/svg%3e");
+  //--radio-icon: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='2' fill='%23fff'/%3e%3c/svg%3e");
+  --radio-icon: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='2' fill='#{radio-icon-color($form-check-input-checked-color)}'/%3e%3c/svg%3e");
 
 }
 
@@ -112,6 +112,7 @@ $radio-icon-color: $form-check-input-checked-color;
       @include transition($form-check-transition);
       border-radius: $form-check-radio-border-radius;
       background-image: var(--radio-icon);
+
       &:checked {
         background-color: $form-check-input-checked-bg-color;
         border-color: $form-check-input-checked-border-color;
@@ -140,6 +141,10 @@ $radio-icon-color: $form-check-input-checked-color;
 
 
 // Form control
+
+.components-base-control__field {
+  margin-bottom: 0 !important;
+}
 
 .components-combobox-control,
 // Checkout fields
@@ -255,3 +260,39 @@ textarea.wc-block-components-textarea {
   order: -1;
 }
 */
+
+
+
+
+
+
+
+
+// Dropdowns
+
+.components-combobox-control__suggestions-container {
+  .components-form-token-field__suggestions-list {
+    border: $dropdown-border-width solid $dropdown-border-color;
+    position: absolute;
+    z-index: $zindex-dropdown;
+    background-color: $dropdown-bg;
+    border-radius: $dropdown-border-radius;
+    list-style: none;
+    font-size: $font-size-base;
+    padding-left: 0;
+    //padding: $dropdown-item-padding-y $dropdown-item-padding-x;
+    max-height: 200px;
+    overflow-y: auto;
+    margin-top: $spacer * .5;
+
+    li {
+      padding: $dropdown-item-padding-y $dropdown-item-padding-x;
+
+      &:hover {
+        cursor: pointer;
+        color: $dropdown-link-hover-color;
+        background-color: $dropdown-link-hover-bg;
+      }
+    }
+  }
+}
