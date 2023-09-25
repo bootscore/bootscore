@@ -63,6 +63,11 @@ WooCommerce Checkout Block
   }
 }
 
+// Payment
+.wc-block-checkout__payment-method {
+  margin-bottom: $spacer;
+}
+
  
 // Exclude order-notes
 .wc-block-checkout__order-notes .wc-block-components-checkout-step__content {
@@ -72,6 +77,20 @@ WooCommerce Checkout Block
     content: none;
   }
 }
+
+// Order notes
+.wc-block-checkout__add-note textarea {
+  margin-bottom: $spacer;
+}
+
+// Terms
+.wc-block-checkout__terms.wp-block-woocommerce-checkout-terms-block {
+    margin-bottom: $spacer;
+}
+
+
+
+
 
 
 .wc-block-components-address-form {
