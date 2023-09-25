@@ -45,9 +45,11 @@ WooCommerce Checkout Block
 }
 
 
+
 .wc-block-components-checkout-step {
 
-  &__container {
+  //&__container {
+  &__content {
     position: relative;
     padding-left: $spacer;
 
@@ -61,7 +63,15 @@ WooCommerce Checkout Block
   }
 }
 
-
+ 
+// Exclude order-notes
+.wc-block-checkout__order-notes .wc-block-components-checkout-step__content {
+  padding-left: 0;
+  
+  &::before {
+    content: none;
+  }
+}
 
 
 .wc-block-components-address-form {
