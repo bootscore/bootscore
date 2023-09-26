@@ -1,0 +1,39 @@
+.wc-block-components-order-summary {
+
+  &__content { // .list-group
+    --#{$prefix}list-group-color: #{$list-group-color};
+    --#{$prefix}list-group-bg: #{$list-group-bg};
+    --#{$prefix}list-group-border-color: #{$list-group-border-color};
+    --#{$prefix}list-group-border-width: #{$list-group-border-width};
+    --#{$prefix}list-group-border-radius: #{$list-group-border-radius};
+    --#{$prefix}list-group-item-padding-x: #{$list-group-item-padding-x};
+    --#{$prefix}list-group-item-padding-y: #{$list-group-item-padding-y};
+
+    display: flex;
+    flex-direction: column;
+
+    @include border-radius(var(--#{$prefix}list-group-border-radius));
+  }
+
+  &-item { // .list-group-item
+    position: relative;
+    display: block;
+    padding: var(--#{$prefix}list-group-item-padding-y) var(--#{$prefix}list-group-item-padding-x);
+    color: var(--#{$prefix}list-group-color);
+    text-decoration: if($link-decoration==none, null, none);
+    background-color: var(--#{$prefix}list-group-bg);
+    border: var(--#{$prefix}list-group-border-width) solid var(--#{$prefix}list-group-border-color);
+
+    &:not(:first-child) {
+      border-top-width: 0;
+    }
+
+    &:first-child {
+      @include border-top-radius(inherit);
+    }
+
+    &:last-child {
+      @include border-bottom-radius(inherit);
+    }
+  }
+}

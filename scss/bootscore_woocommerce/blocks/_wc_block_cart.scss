@@ -39,9 +39,9 @@ table.wc-block-cart-items.wp-block-woocommerce-cart-line-items-block,
 
 a.components-button.wc-block-components-button.wp-element-button.wc-block-cart__submit-button.contained,
 button.components-button.wc-block-components-button.wp-element-button.wc-block-cart__submit-button.contained{
-  @extend .btn;
-  @extend .btn-primary;
-  @extend .btn-lg;
+  //@extend .btn;
+  //@extend .btn-primary;
+  //@extend .btn-lg;
   width: 100%;
 }
 

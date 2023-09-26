@@ -1,0 +1,15 @@
+// Primary button
+
+.wp-element-button.wc-block-cart__submit-button {
+  //--#{$prefix}btn-font-weight: 600;
+  color: var(--#{$prefix}white);
+  background-color: var(--#{$prefix}primary);
+  border-color: var(--#{$prefix}primary);
+  --#{$prefix}btn-hover-color: var(--#{$prefix}white);
+  --#{$prefix}btn-hover-bg: #{shade-color($primary, 10%)};
+  --#{$prefix}btn-hover-border-color: #{shade-color($primary, 10%)};
+  --#{$prefix}btn-focus-shadow-rgb: var(--$primary-rgb);
+  --#{$prefix}btn-active-color: var(--bs-btn-hover-color);
+  --#{$prefix}btn-active-bg: #{shade-color($primary, 20%)};
+  --#{$prefix}btn-active-border-color: #{shade-color($primary, 20%)};
+}

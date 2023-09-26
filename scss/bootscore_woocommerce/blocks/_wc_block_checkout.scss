@@ -209,8 +209,8 @@ WooCommerce Checkout Block
 
 
 button.wc-block-components-panel__button {
-  @extend .btn;
-  @extend .btn-outline-primary;
+  //@extend .btn;
+  //@extend .btn-outline-primary;
   margin-bottom: 1rem;
   width: 100%;
 }
@@ -218,13 +218,14 @@ button.wc-block-components-panel__button {
 .wc-block-components-order-summary {
 
   &__content {
-    @extend .list-group;
+    //@extend .list-group;
     margin-bottom: $spacer;
   }
 
   &-item {
-    @extend .list-group-item;
+    //@extend .list-group-item;
     display: flex;
+    padding: $spacer;
 
     // Summary cart image
     &__image {
