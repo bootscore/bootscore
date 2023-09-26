@@ -1,15 +1,71 @@
 // Primary button
 
-.wp-element-button.wc-block-cart__submit-button {
-  //--#{$prefix}btn-font-weight: 600;
+.wp-element-button.wc-block-cart__submit-button,
+//button.wc-block-components-panel__button,
+button.components-button.wc-block-components-button.wp-element-button.wc-block-components-checkout-place-order-button.contained {
+
+  // .btn
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  user-select: none;
+  text-decoration: none;
+  font-size: $btn-font-size;
+  font-weight: $btn-font-weight;
+  font-family: $btn-font-family;
+  line-height: $btn-line-height;
+  padding: $input-btn-padding-y $input-btn-padding-x;
+  border: $btn-border-width solid;
+  border-radius: $btn-border-radius;
+  transition: $btn-transition;
+
+  // .btn-primary
   color: var(--#{$prefix}white);
   background-color: var(--#{$prefix}primary);
   border-color: var(--#{$prefix}primary);
-  --#{$prefix}btn-hover-color: var(--#{$prefix}white);
-  --#{$prefix}btn-hover-bg: #{shade-color($primary, 10%)};
-  --#{$prefix}btn-hover-border-color: #{shade-color($primary, 10%)};
-  --#{$prefix}btn-focus-shadow-rgb: var(--$primary-rgb);
-  --#{$prefix}btn-active-color: var(--bs-btn-hover-color);
-  --#{$prefix}btn-active-bg: #{shade-color($primary, 20%)};
-  --#{$prefix}btn-active-border-color: #{shade-color($primary, 20%)};
+
+  &:hover {
+    color: var(--#{$prefix}white);
+    background-color: #{shade-color($primary, 10%)};
+    border-color: #{shade-color($primary, 10%)};
+  }
+  
+  //@include button-variant(#EF4444, #EF4444);
+}
+
+// Outline
+
+.wc-block-components-panel__button,
+a.wc-block-components-checkout-return-to-cart-button,
+button.components-button.wc-block-components-button.wp-element-button.wc-block-components-totals-coupon__button.contained,
+a.wc-block-components-totals-coupon-link {
+    // .btn
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  user-select: none;
+  text-decoration: none;
+  font-size: $btn-font-size;
+  font-weight: $btn-font-weight;
+  font-family: $btn-font-family;
+  line-height: $btn-line-height;
+  padding: $input-btn-padding-y $input-btn-padding-x;
+  border: $btn-border-width solid;
+  border-radius: $btn-border-radius;
+  transition: $btn-transition;
+
+  // .btn-outline-primary
+  color: var(--#{$prefix}primary);
+  background-color: transparent;
+  border-color: var(--#{$prefix}primary);
+
+  &:hover {
+    color: var(--#{$prefix}white);
+    background-color: var(--#{$prefix}primary);
+    //border-color: #{shade-color($primary, 10%)};
+  }
+  
+  //@include button-variant(#EF4444, #EF4444);
 }
