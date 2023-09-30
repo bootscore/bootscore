@@ -57,8 +57,11 @@ if (!function_exists('bootscore_setup')) :
     add_theme_support('html5', array(
       'comment-form',
       'comment-list',
+      'search-form',
       'gallery',
       'caption',
+      'script',
+      'style',
     ));
 
     // Add theme support for selective refresh for widgets.
