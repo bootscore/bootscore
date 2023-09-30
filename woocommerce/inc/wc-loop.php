@@ -47,7 +47,7 @@ if (!function_exists('woocommerce_template_loop_category_title')) :
   }
 endif;
 
-add_filter('bootscore_product_col_class', 'bootscore_wc_product_col_class', 10, 1);
+add_filter('bootscore_product_col_class', 'bootscore_wc_product_col_class');
 function bootscore_wc_product_col_class($class) {
   if (is_cart()) {
     $class = 'col-6';
