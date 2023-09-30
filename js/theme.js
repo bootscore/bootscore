@@ -44,6 +44,44 @@ jQuery(function ($) {
   $('.height-85').css('height', 0.85 * $(window).height());
   $('.height-100').css('height', 1.0 * $(window).height());
 
+  // smooth scroll to anchors, prevent click action, hide hash in url
+  jQuery('a[href^="#"]').not('[data-toggle="collapse"]').on('click', function (event) {
+    // On-page links
+    if (
+      location.pathname.replace(/^\//, '') === this.pathname.replace(/^\//, '') &&
+      location.hostname === this.hostname
+    ) {
+      // Figure out element to scroll to
+      var $target = jQuery(this.hash);
+      $target = $target.length ? $target : $('[name=' + this.hash.slice(1) + ']');
+
+      // Does a scroll target exist?
+      if ($target.length) {
+        // Only prevent default if animation is actually gonna happen
+        event.preventDefault();
+        jQuery('html, body').animate({
+          scrollTop: $target.offset().top - 20
+        }, 500, 'swing', function () {
+          // Callback after animation
+          // Must change focus!
+          var $target = jQuery($target);
+          $target.focus();
+
+          // Checking if the $target was focused
+          if ($target.is(':focus')) {
+            return false;
+          } else {
+            // Adding tabindex for elements (not focusable)
+            $target.attr('tabindex', '-1');
+
+            // Set focus again
+            $target.focus();
+          }
+        });
+      }
+    }
+  });
+  
   // IE Warning
   if (window.document.documentMode) {
     let IEWarningDiv = document.createElement('div');
@@ -54,3 +92,5 @@ jQuery(function ($) {
   }
   // IE Warning End
 }); // jQuery End
+
+
