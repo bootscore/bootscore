@@ -7,11 +7,10 @@ To top button
   bottom: 30px;
   opacity: 0;
   visibility: hidden;
-  transition: visibility 0s linear 300ms, opacity 300ms;
+  transition: visibility 0s linear .3s, opacity .3s;
 
   &.visible {
     opacity: 1;
-    visibility: visible;
-    transition: visibility 0s linear 0s, opacity 300ms;
+    transition: visibility 0s linear 0s, opacity .3s;
   }
 }
