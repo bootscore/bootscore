@@ -19,7 +19,7 @@ WooCommerce Quantity Input
 
   // Input
   .qty {
-    @extend .form-control;
+    //@extend .form-control;
 
     // Hide browser arrows in quantity input
     appearance: textfield;

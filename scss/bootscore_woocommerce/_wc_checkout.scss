@@ -47,7 +47,7 @@ WooCommerce Checkout
 // Order notes
 .woocommerce form .form-row textarea {
   height: $spacer *7;
-  @extend .form-control;
+  //@extend .form-control;
 }
 
 
