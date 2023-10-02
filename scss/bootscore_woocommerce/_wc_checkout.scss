@@ -47,7 +47,10 @@ WooCommerce Checkout
 // Order notes
 .woocommerce form .form-row textarea {
   height: $spacer *7;
-  //@extend .form-control;
+  
+  &:focus {
+    box-shadow: $input-focus-box-shadow; // Override WC box-shadow: none
+  }
 }
 
 

@@ -63,7 +63,7 @@ switch ( $args['type'] ) {
         //$args['class'][] = 'form-group'; // Add class to the field's html element wrapper 
         $args['input_class'] = array('form-control', 'input-lg'); // add class to the form input itself
         //$args['custom_attributes']['data-plugin'] = 'select2';
-        $args['label_class'] = array('control-label');
+        $args['label_class'] = array('form-label');
         $args['custom_attributes'] = array( 'data-plugin' => 'select2', 'data-allow-clear' => 'true', 'aria-hidden' => 'true',  );
     break;
 
@@ -99,7 +99,6 @@ switch ( $args['type'] ) {
 
     return $args;
 }
-
 */
 
 

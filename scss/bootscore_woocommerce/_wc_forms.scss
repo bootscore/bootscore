@@ -3,38 +3,30 @@ WooCommerce Forms
 --------------------------------------------------------------*/
 
 // Forms
-.woocommerce form .form-row {
-  padding: 0;
-  margin: 0 0 $spacer;
+.woocommerce form {
+  .form-row {
+    padding: 0;
+    margin: 0 0 $spacer;
 
-  input.input-text,
-  .form-row textarea {
-    //@extend .form-control;
+    label {
+      line-height: initial;
+    }
   }
 
-  label {
-    line-height: 1.5;
-    // Default Bootstrap label margin-bottom
-    //margin-bottom: $form-label-margin-bottom;
+  // Reduce gap in horizontal forms
+  .form-row-first {
+    width: 50%;
+    padding-right: $spacer *.5;
+  }
+
+  .form-row-last {
+    width: 50%;
+    padding-left: $spacer *.5;
   }
 }
-
 
 // Show password icon
 .woocommerce form .show-password-input,
 .woocommerce-page form .show-password-input {
   top: 0.5em;
-}
-
-
-// Reduce gap in horizontal forms
-.woocommerce form {
-  .form-row-first {
-    width: 50%;
-    padding-right: $spacer *.5;
-  }
-  .form-row-last {
-    width: 50%;
-    padding-left: $spacer *.5;
-  }
 }
