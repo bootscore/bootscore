@@ -20,7 +20,7 @@ defined( 'ABSPATH' ) || exit;
 function disable_wp_blocks() {
     $wstyles = array(
         //'wp-block-library',
-        //'wc-blocks-style',
+        'wc-blocks-style',
         'wc-blocks-style-active-filters',
         'wc-blocks-style-add-to-cart-form',
         'wc-blocks-packages-style',

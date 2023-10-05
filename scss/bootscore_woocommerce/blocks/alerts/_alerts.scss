@@ -1,0 +1,92 @@
+.wc-block-components-notice-banner {
+
+  a.wc-forward {
+    display: none; // Hide View cart button
+  }
+
+  svg {
+    display: none; // Hide icon
+  }
+
+  &__dismiss {
+    display: none; // Hide close icon
+  }
+
+
+  // Create alert
+  position: relative;
+  padding: $alert-padding-y $alert-padding-x;
+
+  margin-bottom: $alert-margin-bottom;
+  border: var(--#{$prefix}border-width) solid;
+  border-color: transparent;
+  border-radius: $alert-border-radius;
+
+  padding-left: $spacer * 3.25;
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 1.25rem;
+    top: 50%;
+    transform: translate(0, -50%);
+
+    mask-position: center;
+    mask-repeat: no-repeat;
+    mask-size: 16px;
+    mask-image: var(--alert-icon);
+    -webkit-mask-position: center;
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-size: 16px;
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath d='M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM216 336h24V272H216c-13.3 0-24-10.7-24-24s10.7-24 24-24h48c13.3 0 24 10.7 24 24v88h8c13.3 0 24 10.7 24 24s-10.7 24-24 24H216c-13.3 0-24-10.7-24-24s10.7-24 24-24zm40-208a32 32 0 1 1 0 64 32 32 0 1 1 0-64z'/%3E%3C/svg%3E");
+    width: 16px;
+    height: 16px;
+    background-color: var(--#{$prefix}infodanger-text-emphasis);
+  }
+
+
+  // Create variations
+  &.is-success {
+    color: var(--#{$prefix}success-text-emphasis);
+    background-color: var(--#{$prefix}success-bg-subtle);
+    border-color: var(--#{$prefix}success-border-subtle);
+  }
+
+  &.is-error {
+    color: var(--#{$prefix}danger-text-emphasis);
+    background-color: var(--#{$prefix}danger-bg-subtle);
+    border-color: var(--#{$prefix}danger-border-subtle);
+  }
+
+  &.is-info {
+    color: var(--#{$prefix}info-text-emphasis);
+    background-color: var(--#{$prefix}info-bg-subtle);
+    border-color: var(--#{$prefix}info-border-subtle);
+/*
+    &::before {
+      -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath d='M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM216 336h24V272H216c-13.3 0-24-10.7-24-24s10.7-24 24-24h48c13.3 0 24 10.7 24 24v88h8c13.3 0 24 10.7 24 24s-10.7 24-24 24H216c-13.3 0-24-10.7-24-24s10.7-24 24-24zm40-208a32 32 0 1 1 0 64 32 32 0 1 1 0-64z'/%3E%3C/svg%3E");
+      background-color: var(--#{$prefix}info-text-emphasis);
+    }
+      */
+  }
+
+}
+
+// Coupon in cart page
+.wc-block-components-validation-error p {
+  // Create alert
+  position: relative;
+  padding: $alert-padding-y $alert-padding-x;
+  margin-bottom: $alert-margin-bottom;
+  color: var(--#{$prefix}danger-text-emphasis);
+  background-color: var(--#{$prefix}danger-bg-subtle);
+  border-color: var(--#{$prefix}danger-border-subtle);
+  border-radius: $alert-border-radius;
+}
+
+
+/*
+button.components-button.wc-block-components-button.wp-element-button.wc-block-components-notice-banner__dismiss.contained.has-text.has-icon {
+  display: none;
+}
+*/
