@@ -1,3 +1,12 @@
+:root {
+  // Create icons
+  --info-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath d='M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM216 336h24V272H216c-13.3 0-24-10.7-24-24s10.7-24 24-24h48c13.3 0 24 10.7 24 24v88h8c13.3 0 24 10.7 24 24s-10.7 24-24 24H216c-13.3 0-24-10.7-24-24s10.7-24 24-24zm40-208a32 32 0 1 1 0 64 32 32 0 1 1 0-64z'/%3E%3C/svg%3E");
+  --danger-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath d='M256 32c14.2 0 27.3 7.5 34.5 19.8l216 368c7.3 12.4 7.3 27.7 .2 40.1S486.3 480 472 480H40c-14.3 0-27.6-7.7-34.7-20.1s-7-27.8 .2-40.1l216-368C228.7 39.5 241.8 32 256 32zm0 128c-13.3 0-24 10.7-24 24V296c0 13.3 10.7 24 24 24s24-10.7 24-24V184c0-13.3-10.7-24-24-24zm32 224a32 32 0 1 0 -64 0 32 32 0 1 0 64 0z'/%3E%3C/svg%3E");
+  --warning-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath d='M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zm0-384c13.3 0 24 10.7 24 24V264c0 13.3-10.7 24-24 24s-24-10.7-24-24V152c0-13.3 10.7-24 24-24zM224 352a32 32 0 1 1 64 0 32 32 0 1 1 -64 0z'/%3E%3C/svg%3E");
+  --success-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath d='M256 512c141.4 0 256-114.6 256-256S397.4 0 256 0S0 114.6 0 256S114.6 512 256 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z'/%3E%3C/svg%3E");
+}
+
+
 .wc-block-components-notice-banner {
 
   a.wc-forward {
@@ -27,21 +36,20 @@
   &::before {
     content: '';
     position: absolute;
-    left: 1.25rem;
+    left: $spacer * 1.25;
     top: 50%;
     transform: translate(0, -50%);
 
     mask-position: center;
     mask-repeat: no-repeat;
-    mask-size: 16px;
-    mask-image: var(--alert-icon);
+    mask-size: $font-size-base;
+
     -webkit-mask-position: center;
     -webkit-mask-repeat: no-repeat;
     -webkit-mask-size: 16px;
-    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath d='M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM216 336h24V272H216c-13.3 0-24-10.7-24-24s10.7-24 24-24h48c13.3 0 24 10.7 24 24v88h8c13.3 0 24 10.7 24 24s-10.7 24-24 24H216c-13.3 0-24-10.7-24-24s10.7-24 24-24zm40-208a32 32 0 1 1 0 64 32 32 0 1 1 0-64z'/%3E%3C/svg%3E");
-    width: 16px;
-    height: 16px;
-    background-color: var(--#{$prefix}infodanger-text-emphasis);
+
+    width: $font-size-base;
+    height: $font-size-base;
   }
 
 
@@ -50,27 +58,53 @@
     color: var(--#{$prefix}success-text-emphasis);
     background-color: var(--#{$prefix}success-bg-subtle);
     border-color: var(--#{$prefix}success-border-subtle);
+
+    &::before {
+      -webkit-mask-image: var(--success-icon);
+      mask-image: var(--success-icon);
+      background-color: var(--#{$prefix}success-text-emphasis);
+    }
   }
 
   &.is-error {
     color: var(--#{$prefix}danger-text-emphasis);
     background-color: var(--#{$prefix}danger-bg-subtle);
     border-color: var(--#{$prefix}danger-border-subtle);
+
+    &::before {
+      -webkit-mask-image: var(--danger-icon);
+      mask-image: var(--danger-icon);
+      background-color: var(--#{$prefix}danger-text-emphasis);
+    }
   }
 
   &.is-info {
     color: var(--#{$prefix}info-text-emphasis);
     background-color: var(--#{$prefix}info-bg-subtle);
     border-color: var(--#{$prefix}info-border-subtle);
-/*
+
     &::before {
-      -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath d='M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM216 336h24V272H216c-13.3 0-24-10.7-24-24s10.7-24 24-24h48c13.3 0 24 10.7 24 24v88h8c13.3 0 24 10.7 24 24s-10.7 24-24 24H216c-13.3 0-24-10.7-24-24s10.7-24 24-24zm40-208a32 32 0 1 1 0 64 32 32 0 1 1 0-64z'/%3E%3C/svg%3E");
+      -webkit-mask-image: var(--info-icon);
+      mask-image: var(--info-icon);
       background-color: var(--#{$prefix}info-text-emphasis);
     }
-      */
   }
-
 }
+
+
+
+
+// Alerts in offcanvas cart
+.cart-list {
+  .wc-block-components-notice-banner {
+    margin-right: $offcanvas-padding-x;
+    margin-left: $offcanvas-padding-x;
+  }
+}
+
+
+
+
 
 // Coupon in cart page
 .wc-block-components-validation-error p {
@@ -85,8 +119,3 @@
 }
 
 
-/*
-button.components-button.wc-block-components-button.wp-element-button.wc-block-components-notice-banner__dismiss.contained.has-text.has-icon {
-  display: none;
-}
-*/
