@@ -26,7 +26,6 @@ WooCommerce Cart Block
 }
 
 
-/*
 table.wc-block-cart-items.wp-block-woocommerce-cart-line-items-block,
 .wp-block-woocommerce-cart-order-summary-block {
   @extend .card;
@@ -74,61 +73,6 @@ table.wc-block-cart-items.wp-block-woocommerce-cart-line-items-block,
 .wc-block-cart-item__quantity {
   display: flex;
 }
-*/
-
-
-// Cart items 
-
-.wc-block-cart-items {
-
-  // Create card
-  border: $card-border-width solid $card-border-color;
-  border-radius: $card-border-radius;
-  background-color: $card-bg;
-  border-collapse: inherit;
-  border-spacing: 0;
-  margin-bottom: $spacer;
-  
-  // Hide thead on small devices
-  @include media-breakpoint-down(sm) {
-    thead {
-      display: none;
-    }
-  }
-
-
-  &__header {
-    // Create card-header
-    margin-bottom: 0;
-    color: $card-cap-color;
-    background-color: $card-cap-bg;
-
-    th {
-      padding-top: $card-cap-padding-y;
-      padding-bottom: $card-cap-padding-y;
-      border-bottom: $card-border-width solid $card-border-color;
-
-      &:first-child {
-        padding-left: $card-cap-padding-x;
-      }
-
-      &:last-child {
-        padding-right: $card-cap-padding-x;
-      }
-    }
-  }
-}
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -150,7 +94,7 @@ a.components-button.wc-block-components-button.wp-element-button.wc-block-cart__
 .wc-block-components-payment-method-icons {
   display: flex;
   gap: $grid-gutter-width * .25;
-
+  
   img {
 
     height: $font-size-base * 1.25;
