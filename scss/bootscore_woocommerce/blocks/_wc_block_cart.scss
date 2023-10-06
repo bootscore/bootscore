@@ -37,13 +37,7 @@ table.wc-block-cart-items.wp-block-woocommerce-cart-line-items-block,
 }
 
 
-a.components-button.wc-block-components-button.wp-element-button.wc-block-cart__submit-button.contained,
-button.components-button.wc-block-components-button.wp-element-button.wc-block-cart__submit-button.contained{
-  //@extend .btn;
-  //@extend .btn-primary;
-  //@extend .btn-lg;
-  width: 100%;
-}
+
 
 
 .wc-block-cart-item__image {
@@ -78,4 +72,31 @@ button.components-button.wc-block-components-button.wp-element-button.wc-block-c
 
 .wc-block-cart-item__quantity {
   display: flex;
+}
+
+
+
+// Proceed to checkout btn lg
+a.components-button.wc-block-components-button.wp-element-button.wc-block-cart__submit-button.contained {
+  //@extend .btn;
+  //@extend .btn-primary;
+  //@extend .btn-lg;
+  width: 100%;
+  padding: $btn-padding-y-lg $btn-padding-x-lg;
+  font-size: $btn-font-size-lg;
+  border-radius: $btn-border-radius-lg;
+  margin-bottom: $spacer;
+}
+
+
+
+// Payment icons
+.wc-block-components-payment-method-icons {
+  display: flex;
+  gap: $grid-gutter-width * .25;
+  
+  img {
+
+    height: $font-size-base * 1.25;
+  }
 }
