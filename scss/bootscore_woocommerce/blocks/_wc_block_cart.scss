@@ -88,7 +88,7 @@ table.wc-block-cart-items.wp-block-woocommerce-cart-line-items-block,
   border-collapse: inherit;
   border-spacing: 0;
   margin-bottom: $spacer;
-  
+
   // Hide thead on small devices
   @include media-breakpoint-down(sm) {
     thead {
@@ -117,13 +117,30 @@ table.wc-block-cart-items.wp-block-woocommerce-cart-line-items-block,
       }
     }
   }
+
+  &__row td {
+    position: relative;
+    vertical-align: top;
+  }
+
+  &__row:not(:last-child) td {
+    border-bottom: $card-border-width solid $card-border-color;
+  }
 }
 
 
 
+// Items
+.wc-block-cart-item {
 
+  &__image {
+    padding: $card-spacer-y 0 $card-spacer-y $card-spacer-x;
 
-
+    img {
+      border-radius: $border-radius;
+    }
+  }
+}
 
 
 
