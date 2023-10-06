@@ -88,6 +88,7 @@ table.wc-block-cart-items.wp-block-woocommerce-cart-line-items-block,
   border-collapse: inherit;
   border-spacing: 0;
   margin-bottom: $spacer;
+  width: 100%;
 
   // Hide thead on small devices
   @include media-breakpoint-down(sm) {
