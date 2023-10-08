@@ -1,4 +1,4 @@
-
+/*
 // Coupon
 .wp-block-woocommerce-checkout-order-summary-coupon-form-block.wc-block-components-totals-wrapper {
   //border: 4px solid red;
@@ -78,4 +78,59 @@ button.components-button.wc-block-components-button.wp-element-button.wc-block-c
   button.components-button.wc-block-components-button.wp-element-button.wc-block-components-checkout-place-order-button.contained {
     flex-grow: 1;
   }
+}
+*/
+
+
+
+
+
+// Create fake card for totals
+.wc-block-components-totals-coupon,
+.wc-block-components-totals-item,
+//.wp-block-woocommerce-checkout-order-summary-fee-block,
+//.wp-block-woocommerce-checkout-order-summary-discount-block,
+.wc-block-components-totals-shipping .wc-block-components-shipping-rates-control,
+.wc-block-components-shipping-calculator-address {
+  border-top: $card-border-width var(--#{$prefix}border-style) $card-border-color;
+  border-right: $card-border-width var(--#{$prefix}border-style) $card-border-color;
+  border-left: $card-border-width var(--#{$prefix}border-style) $card-border-color;
+    
+  padding: $card-spacer-y $card-spacer-x;
+}
+
+
+.wc-block-components-totals-footer-item {
+  border-bottom: $card-border-width var(--#{$prefix}border-style) $card-border-color;
+  border-bottom-right-radius: $card-border-radius;
+  border-bottom-left-radius: $card-border-radius;
+  margin-bottom: $spacer;
+}
+
+.wc-block-components-totals-footer-item-tax {
+  margin-bottom: 0;
+}
+
+
+// Cart
+.wp-block-woocommerce-cart-order-summary-heading-block.wc-block-cart__totals-title {
+  display: block;
+  border-top: $card-border-width var(--#{$prefix}border-style) $card-border-color;
+  border-right: $card-border-width var(--#{$prefix}border-style) $card-border-color;
+  border-left: $card-border-width var(--#{$prefix}border-style) $card-border-color;
+
+  border-top-right-radius: $card-border-radius;
+  border-top-left-radius: $card-border-radius;
+
+  color: $card-cap-color;
+  background-color: $card-cap-bg;
+
+  padding: $card-cap-padding-y $card-cap-padding-x;
+  font-weight: 700;
+}
+
+// Checkout
+.wp-block-woocommerce-checkout-order-summary-coupon-form-block .wc-block-components-totals-coupon {
+  border-top-right-radius: $card-border-radius;
+  border-top-left-radius: $card-border-radius;
 }

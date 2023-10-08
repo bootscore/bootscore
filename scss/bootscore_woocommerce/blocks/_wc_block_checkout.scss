@@ -68,11 +68,11 @@ WooCommerce Checkout Block
   margin-bottom: $spacer;
 }
 
- 
+
 // Exclude order-notes
 .wc-block-checkout__order-notes .wc-block-components-checkout-step__content {
   padding-left: 0;
-  
+
   &::before {
     content: none;
   }
@@ -85,7 +85,7 @@ WooCommerce Checkout Block
 
 // Terms
 .wc-block-checkout__terms.wp-block-woocommerce-checkout-terms-block {
-    margin-bottom: $spacer;
+  margin-bottom: $spacer;
 }
 
 
@@ -209,4 +209,18 @@ button.wc-block-components-panel__button {
 }
 
 
+.wc-block-checkout__actions_row {
+  display: flex;
 
+  .wc-block-components-checkout-return-to-cart-button {
+    margin-right: $spacer * .5;
+
+    svg {
+      display: none; // hide arrow
+    }
+  }
+
+  button.components-button.wc-block-components-button.wp-element-button.wc-block-components-checkout-place-order-button.contained {
+    flex-grow: 1;
+  }
+}
