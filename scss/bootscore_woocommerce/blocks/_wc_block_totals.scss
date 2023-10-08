@@ -112,6 +112,65 @@ button.components-button.wc-block-components-button.wp-element-button.wc-block-c
 }
 
 
+// Totals
+// Subtotal
+.wc-block-components-totals-item {
+  //border-bottom: var(--#{$prefix}border-width) var(--#{$prefix}border-style) var(--#{$prefix}border-color);
+  //margin-bottom: $spacer;
+  //padding-bottom: $spacer;
+  display: flex;
+  flex-wrap: wrap;
+  //width: 100%;
+
+  &__label {
+    flex-grow: 1;
+  }
+
+  &__value {
+    font-weight: 700;
+  }
+
+
+  // Total
+  &.wc-block-components-totals-footer-item {
+
+
+    //border: 1px solid green;
+    //font-weight: 700;
+    //font-size: 1.25rem;
+    .wc-block-components-totals-item {
+
+      &__label,
+      &__value {
+        font-size: $font-size-base * 1.25;
+        font-weight: 700;
+      }
+
+      // Tax
+      &__description {
+        width: 100%;
+        text-align: right;
+        font-size: $small-font-size;
+        color: var(--#{$prefix}gray-600);
+
+        p {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
 // Cart
 .wp-block-woocommerce-cart-order-summary-heading-block.wc-block-cart__totals-title {
   display: block;
