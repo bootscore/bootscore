@@ -118,103 +118,6 @@ WooCommerce Checkout Block
 
 
 
-
-
-
-
-
-
-// Sidebar
-/*
-.wp-block-woocommerce-checkout-order-summary-cart-items-block {
-  // Create card
-  border: $card-border-width solid $card-border-color;
-  border-radius: $card-border-radius;
-}
-
-// Summary cart item
-.wc-block-components-order-summary {
-  &-item {
-    display: flex;
-    font-size: .875em;
-    //padding-bottom: 1px;
-    //padding-top: 16px;
-    position: relative;
-    width: 100%;
-  }
-
-  &-item:not(:last-child) {
-    border-bottom: $card-border-width solid $card-border-color;
-  }
-
-  &-item {
-    padding-top: $card-spacer-y;
-    padding-right: $card-spacer-x;
-    //padding-bottom: $card-spacer-y;
-    padding-left: $card-spacer-x;
-
-    // Summary cart image
-    &__image {
-      position: relative;
-      //padding-top: $card-spacer-y;
-      //padding-right: $card-spacer-x;
-      //padding-bottom: $card-spacer-y;
-      //padding-left: $card-spacer-x;
-
-      img {
-        border-radius: var(--#{$prefix}border-radius);
-        width: 48px;
-        max-width: 48px;
-      }
-    }
-
-    // Summary cart badge
-    &__quantity {
-      padding: $badge-padding-y $badge-padding-x;
-      font-size: $badge-font-size;
-      font-weight: $badge-font-weight;
-      color: $badge-color;
-      border-radius: var(--#{$prefix}border-radius-pill);
-      background-color: var(--#{$prefix}danger);
-      width: max-content;
-
-      position: absolute;
-      top: 0;
-      left: 100%;
-      transform: translate(-50%, -50%);
-
-    }
-
-    &__description {
-      //padding-top: $card-spacer-y;
-      //padding-bottom: $card-spacer-y;
-      padding-right: $card-spacer-x;
-      padding-left: $card-spacer-x;
-      width: 150px;
-      font-size: $small-font-size;
-    }
-
-    &__individual-price {
-      display: block;
-    }
-
-    &__total-price {
-      text-align: right;
-      margin-left: auto;
-      font-weight: 700;
-    }
-  }
-}
-*/
-
-
-button.wc-block-components-panel__button {
-  //@extend .btn;
-  //@extend .btn-outline-primary;
-  margin-bottom: 1rem;
-  width: 100%;
-}
-
 .wc-block-components-order-summary {
 
   &__content {
@@ -298,88 +201,12 @@ button.wc-block-components-panel__button {
 }
 
 
-
-
-
-
-
-// Coupon
-.wp-block-woocommerce-checkout-order-summary-coupon-form-block.wc-block-components-totals-wrapper {
-  //border: 4px solid red;
-  margin-bottom: $spacer;
-}
-
-a.wc-block-components-totals-coupon-link,
-button.components-button.wc-block-components-button.wp-element-button.wc-block-components-totals-coupon__button.contained {
+button.wc-block-components-panel__button {
+  //@extend .btn;
+  //@extend .btn-outline-primary;
+  margin-bottom: 1rem;
   width: 100%;
 }
 
 
 
-
-
-
-// Totals
-// Subtotal
-.wc-block-components-totals-item {
-  border-bottom: var(--#{$prefix}border-width) var(--#{$prefix}border-style) var(--#{$prefix}border-color);
-  margin-bottom: $spacer;
-  padding-bottom: $spacer;
-  display: flex;
-  flex-wrap: wrap;
-  //width: 100%;
-
-  &__label {
-    flex-grow: 1;
-  }
-
-  &__value {
-    font-weight: 700;
-  }
-
-
-  // Total
-  &.wc-block-components-totals-footer-item {
-
-
-    //border: 1px solid green;
-    //font-weight: 700;
-    //font-size: 1.25rem;
-    .wc-block-components-totals-item {
-
-      &__label,
-      &__value {
-        font-size: $font-size-base * 1.25;
-        font-weight: 700;
-      }
-
-      // Tax
-      &__description {
-        width: 100%;
-        text-align: right;
-        font-size: $small-font-size;
-        color: var(--#{$prefix}gray-600);
-
-        p {
-          margin-bottom: 0;
-        }
-      }
-    }
-  }
-}
-
-
-.wc-block-checkout__actions_row {
-  display: flex;
-  .wc-block-components-checkout-return-to-cart-button {
-    margin-right: $spacer * .5;
-    
-    svg {
-      display: none; // hide arrow
-    }
-  }
-  
-  button.components-button.wc-block-components-button.wp-element-button.wc-block-components-checkout-place-order-button.contained {
-    flex-grow: 1;
-  }
-}
