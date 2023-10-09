@@ -12,6 +12,11 @@
   a.wc-forward {
     display: none; // Hide View cart button
   }
+  
+  a {
+    color: inherit;
+    font-weight: $alert-link-font-weight;
+  }
 
   svg {
     display: none; // Hide icon
