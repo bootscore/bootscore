@@ -48,7 +48,8 @@
   &__description {
     width: 100%;
     //font-size: $small-font-size;
-    font-size: small;
+    //font-size: small;
+    font-size: $font-size-base * .875; // $small-font-size has issues with shipping name
     color: var(--#{$prefix}gray-600);
   }
 
