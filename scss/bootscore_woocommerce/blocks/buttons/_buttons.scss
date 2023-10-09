@@ -30,7 +30,7 @@ button.components-button.wc-block-components-button.wp-element-button.wc-block-c
     background-color: #{shade-color($primary, 10%)};
     border-color: #{shade-color($primary, 10%)};
   }
-  
+
   //@include button-variant(#EF4444, #EF4444);
 }
 
@@ -38,9 +38,9 @@ button.components-button.wc-block-components-button.wp-element-button.wc-block-c
 
 .wc-block-components-panel__button,
 a.wc-block-components-checkout-return-to-cart-button,
-button.components-button.wc-block-components-button.wp-element-button.wc-block-components-totals-coupon__button.contained,
-a.wc-block-components-totals-coupon-link {
-    // .btn
+// a.wc-block-components-totals-coupon-link, // Coupon
+button.components-button.wc-block-components-button.wp-element-button.wc-block-components-totals-coupon__button.contained {
+  // .btn
   display: inline-block;
   text-align: center;
   vertical-align: middle;
@@ -66,6 +66,6 @@ a.wc-block-components-totals-coupon-link {
     background-color: var(--#{$prefix}primary);
     //border-color: #{shade-color($primary, 10%)};
   }
-  
+
   //@include button-variant(#EF4444, #EF4444);
 }

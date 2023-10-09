@@ -1,90 +1,3 @@
-/*
-// Coupon
-.wp-block-woocommerce-checkout-order-summary-coupon-form-block.wc-block-components-totals-wrapper {
-  //border: 4px solid red;
-  margin-bottom: $spacer;
-}
-
-a.wc-block-components-totals-coupon-link,
-button.components-button.wc-block-components-button.wp-element-button.wc-block-components-totals-coupon__button.contained {
-  width: 100%;
-}
-
-
-
-
-
-
-// Totals
-// Subtotal
-.wc-block-components-totals-item {
-  border-bottom: var(--#{$prefix}border-width) var(--#{$prefix}border-style) var(--#{$prefix}border-color);
-  margin-bottom: $spacer;
-  padding-bottom: $spacer;
-  display: flex;
-  flex-wrap: wrap;
-  //width: 100%;
-
-  &__label {
-    flex-grow: 1;
-  }
-
-  &__value {
-    font-weight: 700;
-  }
-
-
-  // Total
-  &.wc-block-components-totals-footer-item {
-
-
-    //border: 1px solid green;
-    //font-weight: 700;
-    //font-size: 1.25rem;
-    .wc-block-components-totals-item {
-
-      &__label,
-      &__value {
-        font-size: $font-size-base * 1.25;
-        font-weight: 700;
-      }
-
-      // Tax
-      &__description {
-        width: 100%;
-        text-align: right;
-        font-size: $small-font-size;
-        color: var(--#{$prefix}gray-600);
-
-        p {
-          margin-bottom: 0;
-        }
-      }
-    }
-  }
-}
-
-
-.wc-block-checkout__actions_row {
-  display: flex;
-  .wc-block-components-checkout-return-to-cart-button {
-    margin-right: $spacer * .5;
-    
-    svg {
-      display: none; // hide arrow
-    }
-  }
-  
-  button.components-button.wc-block-components-button.wp-element-button.wc-block-components-checkout-place-order-button.contained {
-    flex-grow: 1;
-  }
-}
-*/
-
-
-
-
-
 // Create fake card for totals
 .wc-block-components-totals-coupon,
 .wc-block-components-totals-item,
@@ -95,8 +8,8 @@ button.components-button.wc-block-components-button.wp-element-button.wc-block-c
   border-top: $card-border-width var(--#{$prefix}border-style) $card-border-color;
   border-right: $card-border-width var(--#{$prefix}border-style) $card-border-color;
   border-left: $card-border-width var(--#{$prefix}border-style) $card-border-color;
-    
-  padding: $card-spacer-y $card-spacer-x;
+
+  padding: $list-group-item-padding-y $card-spacer-x;
 }
 
 
@@ -107,9 +20,7 @@ button.components-button.wc-block-components-button.wp-element-button.wc-block-c
   margin-bottom: $spacer;
 }
 
-.wc-block-components-totals-footer-item-tax {
-  margin-bottom: 0;
-}
+
 
 
 // Totals
@@ -120,15 +31,26 @@ button.components-button.wc-block-components-button.wp-element-button.wc-block-c
   //padding-bottom: $spacer;
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-between;
   //width: 100%;
 
   &__label {
-    flex-grow: 1;
+    //flex-grow: 1;
   }
 
   &__value {
     font-weight: 700;
   }
+
+  &__description {
+    width: 100%;
+    //font-size: $small-font-size;
+    font-size: small;
+    color: var(--#{$prefix}gray-600);
+  }
+
+
+
 
 
   // Total
@@ -148,10 +70,10 @@ button.components-button.wc-block-components-button.wp-element-button.wc-block-c
 
       // Tax
       &__description {
-        width: 100%;
-        text-align: right;
-        font-size: $small-font-size;
-        color: var(--#{$prefix}gray-600);
+        // width: 100%;
+        //text-align: right;
+        //font-size: $small-font-size;
+        //color: var(--#{$prefix}gray-600);
 
         p {
           margin-bottom: 0;
@@ -159,6 +81,27 @@ button.components-button.wc-block-components-button.wp-element-button.wc-block-c
       }
     }
   }
+}
+
+
+// Shipping
+.wc-block-components-radio-control {
+  &__option-layout {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  &__description {
+    font-weight: 700;
+  }
+}
+
+.wc-block-components-totals-shipping__change-address__link {
+  //width: 100%;
+  display: block;
+  margin-top: $spacer * .25;
+  font-size: $font-size-base;
 }
 
 
@@ -185,7 +128,7 @@ button.components-button.wc-block-components-button.wp-element-button.wc-block-c
   background-color: $card-cap-bg;
 
   padding: $card-cap-padding-y $card-cap-padding-x;
-  font-weight: 700;
+  font-weight: $headings-font-weight;
 }
 
 // Checkout

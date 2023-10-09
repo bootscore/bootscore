@@ -108,6 +108,7 @@ table.wc-block-cart-items.wp-block-woocommerce-cart-line-items-block,
       padding-top: $card-cap-padding-y;
       padding-bottom: $card-cap-padding-y;
       border-bottom: $card-border-width solid $card-border-color;
+      font-weight: $headings-font-weight;
 
       &:first-child {
         padding-left: $card-cap-padding-x;
