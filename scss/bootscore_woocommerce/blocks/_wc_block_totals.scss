@@ -18,7 +18,10 @@
   border-bottom-right-radius: $card-border-radius;
   border-bottom-left-radius: $card-border-radius;
   margin-bottom: $spacer;
+  color: $card-cap-color;
+  background-color: $card-cap-bg;
 }
+
 
 
 
@@ -64,7 +67,7 @@
 
       &__label,
       &__value {
-        font-size: $font-size-base * 1.25;
+        //font-size: $font-size-base * 1.25;
         font-weight: 700;
       }
 
