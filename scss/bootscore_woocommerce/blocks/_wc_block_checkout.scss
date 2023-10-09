@@ -149,7 +149,7 @@ WooCommerce Checkout Block
 
     // Summary cart badge
     &__quantity {
-border-radius: var(--#{$prefix}border-radius-pill);
+      border-radius: var(--#{$prefix}border-radius-pill);
       /*
   
   // Badge moves to badge.scss

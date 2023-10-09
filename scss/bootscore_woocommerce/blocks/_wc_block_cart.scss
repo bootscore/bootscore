@@ -82,7 +82,7 @@ table.wc-block-cart-items.wp-block-woocommerce-cart-line-items-block,
 .wc-block-cart-items {
 
   // Create card
-  border: $card-border-width solid $card-border-color;
+  border: $card-border-width var(--#{$prefix}border-style) $card-border-color;
   border-radius: $card-border-radius;
   background-color: $card-bg;
   border-collapse: inherit;
@@ -107,15 +107,17 @@ table.wc-block-cart-items.wp-block-woocommerce-cart-line-items-block,
     th {
       padding-top: $card-cap-padding-y;
       padding-bottom: $card-cap-padding-y;
-      border-bottom: $card-border-width solid $card-border-color;
+      padding-left: $card-cap-padding-x;
+      border-bottom: $card-border-width var(--#{$prefix}border-style) $card-border-color;
       font-weight: $headings-font-weight;
 
       &:first-child {
-        padding-left: $card-cap-padding-x;
+        //padding-left: $card-cap-padding-x;
       }
 
       &:last-child {
         padding-right: $card-cap-padding-x;
+        text-align: right;
       }
     }
   }
@@ -123,29 +125,62 @@ table.wc-block-cart-items.wp-block-woocommerce-cart-line-items-block,
   &__row td {
     position: relative;
     vertical-align: top;
+    //padding: $list-group-item-padding-y 0 $list-group-item-padding-y $list-group-item-padding-x;
+
   }
 
   &__row:not(:last-child) td {
-    border-bottom: $card-border-width solid $card-border-color;
+    border-bottom: $card-border-width var(--#{$prefix}border-style) $card-border-color;
   }
 }
 
 
 
 // Items
+
 .wc-block-cart-item {
 
+  &__image,
+  &__product,
+  &__total {
+    padding-top: $list-group-item-padding-y;
+    padding-bottom: $list-group-item-padding-y;
+    padding-left: $list-group-item-padding-x;
+  }
+
+  &__total {
+    padding-right: $list-group-item-padding-x;
+    text-align: right;
+  }
+
+
   &__image {
-    padding: $card-spacer-y 0 $card-spacer-y $card-spacer-x;
 
     img {
       border-radius: $border-radius;
     }
   }
+
+  &__total {
+
+    .price {
+      font-weight: 700;
+    }
+  }
+
 }
 
 
+.wc-block-components-product-metadata__description {
+  font-size: $small-font-size;
+  color: var(--#{$prefix}gray-600);
 
+  p {
+    //margin-bottom: 0;
+  }
+
+
+}
 
 
 
