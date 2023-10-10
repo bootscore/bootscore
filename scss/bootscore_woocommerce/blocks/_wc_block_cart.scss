@@ -143,18 +143,24 @@ table.wc-block-cart-items.wp-block-woocommerce-cart-line-items-block,
   &__image,
   &__product,
   &__total {
-    padding-top: $list-group-item-padding-y;
-    padding-bottom: $list-group-item-padding-y;
-    padding-left: $list-group-item-padding-x;
+    padding-top: $card-spacer-y;
+    padding-bottom: $card-spacer-y;
+    padding-left: $card-spacer-x;
   }
 
   &__total {
-    padding-right: $list-group-item-padding-x;
+    padding-right: $card-spacer-x;
     text-align: right;
   }
 
 
   &__image {
+    //display: table-cell;
+    width: 60px;
+
+    @include media-breakpoint-up(md) {
+      width: 140px;
+    }
 
     img {
       border-radius: $border-radius;
@@ -165,7 +171,20 @@ table.wc-block-cart-items.wp-block-woocommerce-cart-line-items-block,
 
     .price {
       font-weight: 700;
+      display: block;
     }
+  }
+
+  &__image {
+    //background: burlywood;
+  }
+
+  &__product {
+    //background: antiquewhite;
+  }
+
+  &__total {
+    //background: beige;
   }
 
 }
