@@ -90,15 +90,23 @@ table.wc-block-cart-items.wp-block-woocommerce-cart-line-items-block,
   margin-bottom: $spacer;
   width: 100%;
 
+  /*
   // Hide thead on small devices
   @include media-breakpoint-down(sm) {
     thead {
       display: none;
     }
   }
+    */
 
 
   &__header {
+
+    // Hide thead on small devices
+    @include media-breakpoint-down(sm) {
+      display: none;
+    }
+
     // Create card-header
     margin-bottom: 0;
     color: $card-cap-color;
@@ -111,14 +119,37 @@ table.wc-block-cart-items.wp-block-woocommerce-cart-line-items-block,
       border-bottom: $card-border-width var(--#{$prefix}border-style) $card-border-color;
       font-weight: $headings-font-weight;
 
+      /*
       &:first-child {
         //padding-left: $card-cap-padding-x;
+        width: 100px;
       }
+*/
 
+      /*
       &:last-child {
         padding-right: $card-cap-padding-x;
         text-align: right;
+        width: 100px;
       }
+        */
+
+    }
+
+    // first-child
+    &-image {
+      width: 100px;
+
+      @include media-breakpoint-up(md) {
+        width: 150px;
+      }
+    }
+
+    // last-child
+    &-total {
+      width: 100px;
+      padding-right: $card-cap-padding-x;
+      text-align: right;
     }
   }
 
@@ -156,11 +187,13 @@ table.wc-block-cart-items.wp-block-woocommerce-cart-line-items-block,
 
   &__image {
     //display: table-cell;
-    width: 60px;
+    //width: 60px;
 
+    /*
     @include media-breakpoint-up(md) {
       width: 140px;
     }
+    */
 
     img {
       border-radius: $border-radius;
