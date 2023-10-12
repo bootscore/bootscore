@@ -1,35 +1,6 @@
 /*--------------------------------------------------------------
-WooCommerce Forms Block
+WooCommerce Block Components
 --------------------------------------------------------------*/
-
-
-/*
-// Move icon functions to _functions.scss
-// Check icon
-@function check-icon-color($color) {
-  @return '%23' + str-slice('#{$color}', 2, -1)
-}
-
-$check-icon-color: $form-check-input-checked-color;
-
-// Radio icon
-@function radio-icon-color($color) {
-  @return '%23' + str-slice('#{$color}', 2, -1)
-}
-
-$radio-icon-color: $form-check-input-checked-color;
-
-
-
-
-:root {
-  --checkbox-icon: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='#{check-icon-color($form-check-input-checked-color)}' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='m6 10 3 3 6-6'/%3e%3c/svg%3e");
-  //--radio-icon: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='2' fill='%23fff'/%3e%3c/svg%3e");
-  --radio-icon: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='2' fill='#{radio-icon-color($form-check-input-checked-color)}'/%3e%3c/svg%3e");
-
-}
-*/
-
 
 @import "forms/form_check";
 @import "forms/form_control";
@@ -38,18 +9,3 @@ $radio-icon-color: $form-check-input-checked-color;
 @import "buttons/buttons";
 @import "alerts/alerts";
 @import "badges/badges";
-
-@import "list_group/list_group";
-
-
-
-
-
-
-
-
-
-
-
-
-
