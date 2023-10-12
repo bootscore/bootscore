@@ -47,6 +47,8 @@ WooCommerce Checkout Block
 
 
 .wc-block-components-checkout-step {
+  
+  //margin-bottom: $spacer;
 
   //&__container {
   &__content {
@@ -65,7 +67,7 @@ WooCommerce Checkout Block
 
 // Payment
 .wc-block-checkout__payment-method {
-  margin-bottom: $spacer;
+  //margin-bottom: $spacer;
 }
 
 
@@ -202,17 +204,18 @@ WooCommerce Checkout Block
       width: 50%;
 
       .wc-block-components-product-name {
+        display: block;
         font-weight: 700;
       }
 
       p {
         margin-bottom: 0;
-        font-size: $small-font-size;
+        //font-size: $small-font-size;
       }
     }
 
     &__individual-price {
-      display: block;
+      //display: block;
     }
 
     &__total-price {
