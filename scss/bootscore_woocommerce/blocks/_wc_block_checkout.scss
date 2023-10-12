@@ -120,15 +120,36 @@ WooCommerce Checkout Block
 
 .wc-block-components-order-summary {
 
-  &__content {
-    //@extend .list-group;
+
+  &.wc-block-components-panel {
+    // card
+    border: $card-border-width $border-style $card-border-color;
+    border-radius: $card-border-radius;
     margin-bottom: $spacer;
   }
 
+  // Summary toggler button
+  .wc-block-components-panel {
+
+    &__button {
+      //background: red !important;
+      border-top-left-radius: $card-inner-border-radius;
+      border-top-right-radius: $card-inner-border-radius;
+
+      &[aria-expanded="false"] {
+        border-bottom-right-radius: $card-inner-border-radius;
+        border-bottom-left-radius: $card-inner-border-radius;
+
+      }
+    }
+  }
+
+
   &-item {
     //@extend .list-group-item;
+    border-top: $card-border-width $border-style $card-border-color;
     display: flex;
-    padding: $spacer;
+    padding: $card-spacer-y $card-spacer-x;
 
     // Summary cart image
     &__image {
@@ -205,11 +226,17 @@ WooCommerce Checkout Block
 }
 
 
+
+
+
+
+
+
 button.wc-block-components-panel__button {
   //@extend .btn;
   //@extend .btn-outline-primary;
-  margin-bottom: 1rem;
-  width: 100%;
+  //margin-bottom: 1rem;
+  //width: 100%;
 }
 
 

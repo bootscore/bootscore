@@ -36,7 +36,7 @@ button.components-button.wc-block-components-button.wp-element-button.wc-block-c
 
 // Outline
 
-.wc-block-components-panel__button,
+//.wc-block-components-panel__button,
 a.wc-block-components-checkout-return-to-cart-button,
 // a.wc-block-components-totals-coupon-link, // Coupon
 button.components-button.wc-block-components-button.wp-element-button.wc-block-components-totals-coupon__button.contained {
@@ -68,4 +68,27 @@ button.components-button.wc-block-components-button.wp-element-button.wc-block-c
   }
 
   //@include button-variant(#EF4444, #EF4444);
+}
+
+
+
+
+
+// Panel buttons
+.wc-block-components-panel__button {
+  display: flex;
+  justify-content: space-between;
+  border: none;
+  width: 100%;
+  padding: $card-cap-padding-y $card-cap-padding-x;
+  font-weight: $headings-font-weight;
+  color: $card-cap-color;
+  background-color: $card-cap-bg;
+
+  svg {
+    order: 2;
+    fill: var(--#{$prefix}body-color);
+    //background-color: blue;
+    margin-right: -6px;
+  }
 }

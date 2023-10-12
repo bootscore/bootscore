@@ -1,6 +1,8 @@
+/*
 .wc-block-components-order-summary {
 
-  &__content { // .list-group
+  &__content {
+    // .list-group
     --#{$prefix}list-group-color: #{$list-group-color};
     --#{$prefix}list-group-bg: #{$list-group-bg};
     --#{$prefix}list-group-border-color: #{$list-group-border-color};
@@ -15,7 +17,8 @@
     @include border-radius(var(--#{$prefix}list-group-border-radius));
   }
 
-  &-item { // .list-group-item
+  &-item {
+    // .list-group-item
     position: relative;
     display: block;
     padding: var(--#{$prefix}list-group-item-padding-y) var(--#{$prefix}list-group-item-padding-x);
@@ -37,3 +40,21 @@
     }
   }
 }
+*/
+
+
+/*
+.wc-block-components-order-summary {
+
+  &.wc-block-components-panel {
+    // card
+    border: $card-border-width $border-style $card-border-color;
+    border-radius: $card-border-radius;
+    margin-bottom: $spacer;
+  }
+
+  &-item {
+    padding: $card-spacer-y $card-spacer-x;
+  }
+}
+*/
