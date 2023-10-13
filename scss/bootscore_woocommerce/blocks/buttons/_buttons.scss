@@ -76,19 +76,31 @@ button.components-button.wc-block-components-button.wp-element-button.wc-block-c
 
 // Panel buttons
 .wc-block-components-panel__button {
-  display: flex;
-  justify-content: space-between;
+  //display: flex;
+  //justify-content: space-between;
   border: none;
   width: 100%;
   padding: $card-cap-padding-y $card-cap-padding-x;
   font-weight: $headings-font-weight;
   color: $card-cap-color;
   background-color: $card-cap-bg;
+  text-align: left;
 
   svg {
-    order: 2;
+    //order: 2;
     fill: var(--#{$prefix}body-color);
     //background-color: blue;
     margin-right: -6px;
+      float: right;
+  }
+  
+  // ul in Totals
+  .wc-block-components-shipping-rates-control__package-items {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 0;
+    font-weight: normal;
+    font-size: $font-size-base * .875;
+    color: var(--#{$prefix}gray-600);
   }
 }

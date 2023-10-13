@@ -3,7 +3,10 @@
 .wc-block-components-totals-item,
 //.wp-block-woocommerce-checkout-order-summary-fee-block,
 //.wp-block-woocommerce-checkout-order-summary-discount-block,
-.wc-block-components-totals-shipping .wc-block-components-shipping-rates-control,
+//.wc-block-components-totals-shipping .wc-block-components-shipping-rates-control,
+//.wp-block-woocommerce-cart-order-summary-block .wc-block-components-shipping-rates-control__package .wc-block-components-radio-control,
+.wc-block-components-shipping-rates-control .wc-block-components-panel__content,
+//.wc-block-components-totals-shipping .wc-block-components-totals-shipping__fieldset,
 .wc-block-components-shipping-calculator-address {
   border-top: $card-border-width var(--#{$prefix}border-style) $card-border-color;
   border-right: $card-border-width var(--#{$prefix}border-style) $card-border-color;
@@ -13,6 +16,14 @@
 }
 
 
+// Shipping options subscriptions
+.wc-block-components-shipping-rates-control__package.wc-block-components-panel button {
+  border-top: $card-border-width var(--#{$prefix}border-style) $card-border-color;
+  border-right: $card-border-width var(--#{$prefix}border-style) $card-border-color;
+  border-left: $card-border-width var(--#{$prefix}border-style) $card-border-color;
+}
+
+// Total footer
 .wc-block-components-totals-footer-item {
   border-bottom: $card-border-width var(--#{$prefix}border-style) $card-border-color;
   border-bottom-right-radius: $card-border-radius;
