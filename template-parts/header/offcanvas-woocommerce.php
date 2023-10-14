@@ -16,7 +16,11 @@ defined( 'ABSPATH' ) || exit;
 ?>
 
 
-<!-- offcanvas user -->
+<!-- Offcanvas user -->
+<?php
+if ( is_account_page() ) {
+ // Do nothing
+} else { ?>
 <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvas-user">
   <div class="offcanvas-header">
     <span class="h5 offcanvas-title"><?php esc_html_e('Account', 'bootscore'); ?></span>
@@ -28,8 +32,9 @@ defined( 'ABSPATH' ) || exit;
     </div>
   </div>
 </div>
+<?php } ?>
 
-<!-- offcanvas cart -->
+<!-- Offcanvas cart -->
 <?php
 if ( is_checkout() || is_cart() ) {
  // Do nothing

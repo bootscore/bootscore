@@ -16,14 +16,14 @@ defined( 'ABSPATH' ) || exit;
 ?>
 
 
-<!-- Search Toggler -->
+<!-- Search toggler -->
 <?php if (is_active_sidebar('top-nav-search')) : ?>
   <button class="btn btn-outline-secondary ms-1 ms-md-2 top-nav-search-md" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-search" aria-expanded="false" aria-controls="collapse-search">
     <i class="fa-solid fa-magnifying-glass"></i><span class="visually-hidden-focusable">Search</span>
   </button>
 <?php endif; ?>
 
-<!-- User Toggler -->
+<!-- User toggler -->
 <?php
 if ( is_account_page() ) {
  // Do nothing
@@ -34,7 +34,7 @@ if ( is_account_page() ) {
 <?php } ?>
 
 
-<!-- Mini Cart Toggler -->
+<!-- Mini cart toggler -->
 <?php
 if ( is_cart() ) {
  // Do nothing
