@@ -5,10 +5,7 @@
 }
 */
 
-.wc-block-components-radio-control:not(:has(input))__option-layout {
-//.wc-block-components-radio-control__option-layout {
-  //background: red;
-}
+
 
 // Create fake card for totals
  .wc-block-components-totals-coupon,
@@ -22,7 +19,7 @@
 // Multiple Shipping ottions
 //.wc-block-components-totals-shipping__options .wc-block-components-shipping-rates-control:not(.wc-block-components-totals-shipping__options), 
 .wc-block-components-totals-wrapper .wc-block-components-radio-control,
-
+//.wc-block-components-totals-shipping__options,
 
  .wc-block-components-shipping-calculator-address {
   border-top: $card-border-width var(--#{$prefix}border-style) $card-border-color;
