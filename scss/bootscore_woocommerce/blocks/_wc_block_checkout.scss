@@ -135,6 +135,9 @@ WooCommerce Checkout Block
 
     &__button {
       //background: red !important;
+            padding: $card-cap-padding-y $card-cap-padding-x;
+      font-weight: $headings-font-weight;
+      background-color: $card-cap-bg;
       border-top-left-radius: $card-inner-border-radius;
       border-top-right-radius: $card-inner-border-radius;
 
