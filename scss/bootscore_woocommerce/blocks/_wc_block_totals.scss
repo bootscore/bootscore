@@ -40,7 +40,7 @@
   //padding: $card-cap-padding-y $card-cap-padding-x;
   padding: 0;
   font-size: $font-size-base;
-  font-weight: $headings-font-weight;
+  //font-weight: $headings-font-weight;
   color: var(--#{$prefix}body-color);
   background-color: $card-bg;
   text-align: left;
@@ -50,9 +50,9 @@
     fill: var(--#{$prefix}body-color);
     //background-color: blue;
     margin-right: -6px;
-      float: right;
+    float: right;
   }
-  
+
   // ul in Totals
   .wc-block-components-shipping-rates-control__package-items {
     list-style: none;
@@ -66,13 +66,13 @@
 
 
 // Create fake card for totals
- .wc-block-components-totals-coupon,
- .wc-block-components-totals-item,
+.wc-block-components-totals-coupon,
+.wc-block-components-totals-item,
 
 //Shipping
 .wc-block-components-totals-shipping__fieldset,
 
- .wc-block-components-shipping-calculator-address {
+.wc-block-components-shipping-calculator-address {
   border-top: $card-border-width var(--#{$prefix}border-style) $card-border-color;
   border-right: $card-border-width var(--#{$prefix}border-style) $card-border-color;
   border-left: $card-border-width var(--#{$prefix}border-style) $card-border-color;
@@ -90,7 +90,7 @@
 
 // Subscription plugin
 .wcs-recurring-totals-panel .wc-block-components-panel .wc-block-components-totals-item {
-   padding: $list-group-item-padding-y $card-spacer-x;
+  padding: $list-group-item-padding-y $card-spacer-x;
 }
 
 /*
@@ -200,6 +200,59 @@
 
 
 
+
+// Monthly recurring total (Subscription plugin) 
+.wcs-recurring-totals-panel {
+  padding: 0;
+  margin-bottom: $spacer;
+
+  &::after {
+    content: none;
+  }
+
+  &__title {
+    border-top-left-radius: $card-border-radius;
+    border-top-right-radius: $card-border-radius;
+    background-color: $card-cap-bg;
+  }
+
+  /*
+  &__details.wc-block-components-panel {
+      border-top: $card-border-width var(--#{$prefix}border-style) $card-border-color;
+  border-right: $card-border-width var(--#{$prefix}border-style) $card-border-color;
+  border-left: $card-border-width var(--#{$prefix}border-style) $card-border-color;
+  }
+  */
+
+  .wc-block-components-panel__button {
+    border-top: $card-border-width var(--#{$prefix}border-style) $card-border-color;
+    border-right: $card-border-width var(--#{$prefix}border-style) $card-border-color;
+    border-left: $card-border-width var(--#{$prefix}border-style) $card-border-color;
+
+    font-size: $font-size-base;
+    padding: $list-group-item-padding-y $card-spacer-x;
+
+    &:hover,
+    &:focus {
+      // Reset plugins CSS
+      font-size: $font-size-base;
+    }
+
+    &[aria-expanded="false"] {
+      border-bottom: $card-border-width var(--#{$prefix}border-style) $card-border-color;
+      border-bottom-left-radius: $card-border-radius;
+      border-bottom-right-radius: $card-border-radius;
+
+    }
+  }
+
+  &__details-total {
+    border-bottom: $card-border-width var(--#{$prefix}border-style) $card-border-color;
+    border-bottom-left-radius: $card-border-radius;
+    border-bottom-right-radius: $card-border-radius;
+    background-color: $card-cap-bg;
+  }
+}
 
 
 
