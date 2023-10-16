@@ -258,6 +258,11 @@ a.components-button.wc-block-components-button.wp-element-button.wc-block-cart__
   margin-bottom: $spacer;
 }
 
+// Hide sticky proceed to checkout button
+.wc-block-cart__submit-container--sticky {
+  display: none;
+}
+
 
 
 // Payment icons
@@ -270,3 +275,5 @@ a.components-button.wc-block-components-button.wp-element-button.wc-block-cart__
     height: $font-size-base * 1.25;
   }
 }
+
+
