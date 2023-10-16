@@ -13,6 +13,10 @@ WooCommerce Checkout Block
 
 
   @include media-breakpoint-up(lg) {
+    @include make-col(7);
+  }
+  
+    @include media-breakpoint-up(xl) {
     @include make-col(8);
   }
 }
@@ -27,7 +31,10 @@ WooCommerce Checkout Block
   }
 
   @include media-breakpoint-up(lg) {
-    //order: 6;
+    @include make-col(5);
+  }
+  
+    @include media-breakpoint-up(xl) {
     @include make-col(4);
   }
 }
