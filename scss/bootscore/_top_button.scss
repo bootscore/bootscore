@@ -6,9 +6,11 @@ To top button
   right: 5%;
   bottom: 30px;
   opacity: 0;
-  transition: opacity 1s;
+  visibility: hidden;
+  transition: visibility 0s linear .3s, opacity .3s;
 
   &.visible {
     opacity: 1;
+    transition: visibility 0s linear 0s, opacity .3s;
   }
 }

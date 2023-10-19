@@ -7,9 +7,9 @@ David Vanderhaeghe, Karsten Reincke, Patrick Champoux, sweetappleuk, exlexv
 Tags: featured-images, threaded-comments, translation-ready
 
 Requires at least: 4.5
-Tested up to: 6.3
-Requires PHP: 5.6
-Stable tag: 5.3.2
+Tested up to: 6.3.1
+Requires PHP: 7.4
+Stable tag: 5.3.3
 License: MIT License
 License URI: https://github.com/bootscore/bootscore/blob/main/LICENSE
 
@@ -59,7 +59,19 @@ bootScore includes support for WooCommerce and Infinite Scroll in Jetpack.
 
 == Changelog ==
 
-    = 5.3.1 - August 11 2023 =
+    = 5.3.3 - September 12 2023 =
+
+        * [IMPROVEMENT] Split functions.php into smaller files #545
+        * [IMPROVEMENT] Split wc-functions.php into smaller files #555
+        * [IMPROVEMENT] Refactor checkout form validation #563
+        * [IMPROVEMENT] Use function for sidebar col width and responsive offcanvas #560
+        * [DELETED] thankyou.php 25d5d62
+        * [DELETED] terms.php 49eaf4e
+        * [DELETED] payment-method.php 8cc4d88
+        * [UPDATE] Fontawesome 6.4.2 fc953d3
+        * [UPDATE] Update translation template 962bf8f
+
+    = 5.3.2 - August 11 2023 =
     
         * [DELETED] woocommerce/cart/cart.php f9ba9a8 18c656a 1a51736 ff1be80
         * [DELETED] woocommerce/global/breadcrumb.php 7eb3892 74766e7
