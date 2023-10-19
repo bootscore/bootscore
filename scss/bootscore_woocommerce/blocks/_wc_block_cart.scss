@@ -243,6 +243,23 @@ table.wc-block-cart-items.wp-block-woocommerce-cart-line-items-block,
 }
 
 
+// Panel button
+.wp-block-woocommerce-cart-order-summary-heading-block.wc-block-cart__totals-title {
+  display: block;
+  border-top: $card-border-width var(--#{$prefix}border-style) $card-border-color;
+  border-right: $card-border-width var(--#{$prefix}border-style) $card-border-color;
+  border-left: $card-border-width var(--#{$prefix}border-style) $card-border-color;
+
+  border-top-right-radius: $card-border-radius;
+  border-top-left-radius: $card-border-radius;
+
+  color: $card-cap-color;
+  background-color: $card-cap-bg;
+
+  padding: $card-cap-padding-y $card-cap-padding-x;
+  font-weight: $headings-font-weight;
+}
+
 
 
 

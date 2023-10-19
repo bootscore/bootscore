@@ -1,173 +1,79 @@
-/*
-// Panel buttons
-.wc-block-components-panel__button {
-  //display: flex;
-  //justify-content: space-between;
-  border: none;
-  width: 100%;
-  padding: $card-cap-padding-y $card-cap-padding-x;
-  font-weight: $headings-font-weight;
-  color: var(--#{$prefix}body-color);
-  background-color: $card-cap-bg;
-  text-align: left;
-
-  svg {
-    //order: 2;
-    fill: var(--#{$prefix}body-color);
-    //background-color: blue;
-    margin-right: -6px;
-      float: right;
-  }
-  
-  // ul in Totals
-  .wc-block-components-shipping-rates-control__package-items {
-    list-style: none;
-    padding-left: 0;
-    margin-bottom: 0;
-    font-weight: normal;
-    font-size: $font-size-base * .875;
-    color: var(--#{$prefix}gray-600);
-  }
-}
-*/
-
-// Panel buttons
-.wc-block-components-panel__button {
-  //display: flex;
-  //justify-content: space-between;
-  border: none;
-  width: 100%;
-  //padding: $card-cap-padding-y $card-cap-padding-x;
-  padding: 0;
-  font-size: $font-size-base;
-  //font-weight: $headings-font-weight;
-  color: var(--#{$prefix}body-color);
-  background-color: $card-bg;
-  text-align: left;
-
-  svg {
-    //order: 2;
-    fill: var(--#{$prefix}body-color);
-    //background-color: blue;
-    margin-right: -6px;
-    float: right;
-  }
-
-  // ul in Totals
-  .wc-block-components-shipping-rates-control__package-items {
-    list-style: none;
-    padding-left: 0;
-    margin-bottom: 0;
-    font-weight: normal;
-    font-size: $font-size-base * .875;
-    color: var(--#{$prefix}gray-600);
-  }
-}
-
+/*--------------------------------------------------------------
+WooCommerce Totals Block, used in cart and checkout
+--------------------------------------------------------------*/
 
 // Create fake card for totals
-.wc-block-components-totals-coupon,
-.wc-block-components-totals-item,
+.wc-block-components {
 
-//Shipping
-.wc-block-components-totals-shipping__fieldset,
-
-.wc-block-components-shipping-calculator-address {
-  border-top: $card-border-width var(--#{$prefix}border-style) $card-border-color;
-  border-right: $card-border-width var(--#{$prefix}border-style) $card-border-color;
-  border-left: $card-border-width var(--#{$prefix}border-style) $card-border-color;
-
-  padding: $list-group-item-padding-y $card-spacer-x;
-}
-
-
-/*
-.wc-block-components-shipping-rates-control.wc-block-components-totals-shipping__options .wc-block-components-radio-control{
-  border: 1px solid red;
-}
-*/
-
-
-// Subscription plugin
-.wcs-recurring-totals-panel .wc-block-components-panel .wc-block-components-totals-item {
-  padding: $list-group-item-padding-y $card-spacer-x;
-}
-
-/*
-// Shipping options subscriptions
-.wc-block-components-shipping-rates-control__package.wc-block-components-panel button {
-  border-top: $card-border-width var(--#{$prefix}border-style) $card-border-color;
-  border-right: $card-border-width var(--#{$prefix}border-style) $card-border-color;
-  border-left: $card-border-width var(--#{$prefix}border-style) $card-border-color;
-}
-*/
-
-// Total footer
-.wc-block-components-totals-footer-item {
-  border-bottom: $card-border-width var(--#{$prefix}border-style) $card-border-color;
-  border-bottom-right-radius: $card-border-radius;
-  border-bottom-left-radius: $card-border-radius;
-  margin-bottom: $spacer;
-  color: $card-cap-color;
-  background-color: $card-cap-bg;
-}
-
-
-
-
-
-// Totals
-// Subtotal
-.wc-block-components-totals-item {
-  //border-bottom: var(--#{$prefix}border-width) var(--#{$prefix}border-style) var(--#{$prefix}border-color);
-  //margin-bottom: $spacer;
-  //padding-bottom: $spacer;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  //width: 100%;
-
-  &__label {
-    //flex-grow: 1;
+  &-totals-coupon,
+  &-totals-item,
+  // Shipping
+  &-totals-shipping__fieldset,
+  &-shipping-calculator-address {
+    border-top: $card-border-width var(--#{$prefix}border-style) $card-border-color;
+    border-right: $card-border-width var(--#{$prefix}border-style) $card-border-color;
+    border-left: $card-border-width var(--#{$prefix}border-style) $card-border-color;
+    padding: $list-group-item-padding-y $card-spacer-x;
   }
 
-  &__value {
-    font-weight: 700;
-  }
+  &-totals-item {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
 
-  &__description {
-    width: 100%;
-    //font-size: $small-font-size;
-    //font-size: small;
-    font-size: $font-size-base * .875; // $small-font-size has issues with shipping name
-    color: var(--#{$prefix}gray-600);
+    &__value {
+      font-weight: 700;
+    }
+
+    &__description {
+      width: 100%;
+      //font-size: $small-font-size;
+      //font-size: small;
+      font-size: $font-size-base * .875; // $small-font-size has issues with shipping name
+      color: var(--#{$prefix}gray-600);
+    }
   }
 
 
+  // Shipping
+  &-radio-control {
+    &__option-layout {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+
+    &__description {
+      font-weight: 700;
+    }
+  }
+
+  &-totals-shipping__change-address__link {
+    display: block;
+    margin-top: $spacer * .25;
+    font-size: $font-size-base;
+  }
 
 
+  // Total footer
+  &-totals-footer-item {
+    border-bottom: $card-border-width var(--#{$prefix}border-style) $card-border-color;
+    border-bottom-right-radius: $card-border-radius;
+    border-bottom-left-radius: $card-border-radius;
+    margin-bottom: $spacer;
+    color: $card-cap-color;
+    background-color: $card-cap-bg;
 
-  // Total
-  &.wc-block-components-totals-footer-item {
 
-
-    //border: 1px solid green;
-    //font-weight: 700;
-    //font-size: 1.25rem;
     .wc-block-components-totals-item {
 
       &__label,
       &__value {
-        //font-size: $font-size-base * 1.25;
         font-weight: 700;
       }
 
       // Tax
       &__description {
-        // width: 100%;
-        //text-align: right;
-        //font-size: $small-font-size;
-        //color: var(--#{$prefix}gray-600);
 
         p {
           margin-bottom: 0;
@@ -176,29 +82,6 @@
     }
   }
 }
-
-
-// Shipping
-.wc-block-components-radio-control {
-  &__option-layout {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-  }
-
-  &__description {
-    font-weight: 700;
-  }
-}
-
-.wc-block-components-totals-shipping__change-address__link {
-  //width: 100%;
-  display: block;
-  margin-top: $spacer * .25;
-  font-size: $font-size-base;
-}
-
-
 
 
 // Monthly recurring total (Subscription plugin) 
@@ -216,33 +99,31 @@
     background-color: $card-cap-bg;
   }
 
-  /*
-  &__details.wc-block-components-panel {
+  .wc-block-components-panel {
+    &__button {
       border-top: $card-border-width var(--#{$prefix}border-style) $card-border-color;
-  border-right: $card-border-width var(--#{$prefix}border-style) $card-border-color;
-  border-left: $card-border-width var(--#{$prefix}border-style) $card-border-color;
-  }
-  */
+      border-right: $card-border-width var(--#{$prefix}border-style) $card-border-color;
+      border-left: $card-border-width var(--#{$prefix}border-style) $card-border-color;
 
-  .wc-block-components-panel__button {
-    border-top: $card-border-width var(--#{$prefix}border-style) $card-border-color;
-    border-right: $card-border-width var(--#{$prefix}border-style) $card-border-color;
-    border-left: $card-border-width var(--#{$prefix}border-style) $card-border-color;
-
-    font-size: $font-size-base;
-    padding: $list-group-item-padding-y $card-spacer-x;
-
-    &:hover,
-    &:focus {
-      // Reset plugins CSS
       font-size: $font-size-base;
+      padding: $list-group-item-padding-y $card-spacer-x;
+
+      &:hover,
+      &:focus {
+        // Reset plugins CSS
+        font-size: $font-size-base;
+      }
+
+      &[aria-expanded="false"] {
+        border-bottom: $card-border-width var(--#{$prefix}border-style) $card-border-color;
+        border-bottom-left-radius: $card-border-radius;
+        border-bottom-right-radius: $card-border-radius;
+
+      }
     }
 
-    &[aria-expanded="false"] {
-      border-bottom: $card-border-width var(--#{$prefix}border-style) $card-border-color;
-      border-bottom-left-radius: $card-border-radius;
-      border-bottom-right-radius: $card-border-radius;
-
+    .wc-block-components-totals-item {
+      padding: $list-group-item-padding-y $card-spacer-x;
     }
   }
 
@@ -252,34 +133,4 @@
     border-bottom-right-radius: $card-border-radius;
     background-color: $card-cap-bg;
   }
-}
-
-
-
-
-
-
-
-
-// Cart
-.wp-block-woocommerce-cart-order-summary-heading-block.wc-block-cart__totals-title {
-  display: block;
-  border-top: $card-border-width var(--#{$prefix}border-style) $card-border-color;
-  border-right: $card-border-width var(--#{$prefix}border-style) $card-border-color;
-  border-left: $card-border-width var(--#{$prefix}border-style) $card-border-color;
-
-  border-top-right-radius: $card-border-radius;
-  border-top-left-radius: $card-border-radius;
-
-  color: $card-cap-color;
-  background-color: $card-cap-bg;
-
-  padding: $card-cap-padding-y $card-cap-padding-x;
-  font-weight: $headings-font-weight;
-}
-
-// Checkout
-.wp-block-woocommerce-checkout-order-summary-coupon-form-block .wc-block-components-totals-coupon {
-  border-top-right-radius: $card-border-radius;
-  border-top-left-radius: $card-border-radius;
 }

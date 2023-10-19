@@ -241,6 +241,11 @@ WooCommerce Checkout Block
 
 
 
+// coupon
+.wp-block-woocommerce-checkout-order-summary-coupon-form-block .wc-block-components-totals-coupon {
+  border-top-right-radius: $card-border-radius;
+  border-top-left-radius: $card-border-radius;
+}
 
 
 
