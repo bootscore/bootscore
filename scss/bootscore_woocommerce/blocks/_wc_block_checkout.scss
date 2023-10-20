@@ -15,8 +15,8 @@ WooCommerce Checkout Block
   @include media-breakpoint-up(lg) {
     @include make-col(7);
   }
-  
-    @include media-breakpoint-up(xl) {
+
+  @include media-breakpoint-up(xl) {
     @include make-col(8);
   }
 }
@@ -33,8 +33,8 @@ WooCommerce Checkout Block
   @include media-breakpoint-up(lg) {
     @include make-col(5);
   }
-  
-    @include media-breakpoint-up(xl) {
+
+  @include media-breakpoint-up(xl) {
     @include make-col(4);
   }
 }
@@ -54,7 +54,7 @@ WooCommerce Checkout Block
 
 
 .wc-block-components-checkout-step {
-  
+
   //margin-bottom: $spacer;
 
   //&__container {
@@ -142,7 +142,7 @@ WooCommerce Checkout Block
 
     &__button {
       //background: red !important;
-            padding: $card-cap-padding-y $card-cap-padding-x;
+      padding: $card-cap-padding-y $card-cap-padding-x;
       font-weight: $headings-font-weight;
       background-color: $card-cap-bg;
       border-top-left-radius: $card-inner-border-radius;
@@ -156,7 +156,96 @@ WooCommerce Checkout Block
     }
   }
 
+  &-item {
+    //@include make-row();
+    display: flex;
+    column-gap: $spacer * .75;
+    border-top: $card-border-width $border-style $card-border-color;
+    padding: $card-spacer-y $card-spacer-x;
 
+    &__image,
+    &__description,
+    &__total-price {
+      //@include make-col-ready();
+    }
+
+    &__image {
+      //@include make-col(3);
+      width: 25%;
+      //background: aqua;
+    }
+
+    &__description {
+      //@include make-col(5);
+      width: 41.66666667%;
+      //width: 50%;
+      //background: aquamarine;
+    }
+
+    &__total-price {
+      //@include make-col(4);
+      width: 33.33333333%;
+      //width: 25%;
+      //background: blanchedalmond;
+    }
+
+
+
+
+    &__image {
+      position: relative;
+
+      img {
+        border-radius: var(--#{$prefix}border-radius);
+      }
+    }
+
+    // Summary cart badge
+    &__quantity {
+      border-radius: var(--#{$prefix}border-radius-pill);
+
+      position: absolute;
+      top: 0;
+      left: 100%;
+      transform: translate(-50%, -50%);
+    }
+
+
+    &__description {
+
+      .wc-block-components-product-name {
+        display: block;
+        font-weight: 700;
+      }
+
+      p {
+        margin-bottom: 0;
+        //font-size: $small-font-size;
+      }
+      
+      ul {
+        list-style: none;
+        font-size: $small-font-size;
+        margin-bottom: 0;
+        padding-left: 0;
+        color: var(--#{$prefix}gray-600);
+      }
+    }
+
+
+
+    &__total-price {
+      text-align: right;
+      font-weight: 700;
+
+      .wc-block-components-product-price__value {
+        display: block;
+      }
+    }
+  }
+
+
+  /*
   &-item {
     //@extend .list-group-item;
     border-top: $card-border-width $border-style $card-border-color;
@@ -183,22 +272,7 @@ WooCommerce Checkout Block
     // Summary cart badge
     &__quantity {
       border-radius: var(--#{$prefix}border-radius-pill);
-      /*
-  
-  // Badge moves to badge.scss
-      border-radius: var(--#{$prefix}border-radius-pill);
-      display: inline-block;
 
-      padding: $badge-padding-y $badge-padding-x;
-      font-size: $badge-font-size;
-      font-weight: $badge-font-weight;
-      line-height: 1;
-      color: $badge-color;
-      text-align: center;
-      white-space: nowrap;
-      vertical-align: baseline;
-      background-color: var(--#{$prefix}danger);
-      */
 
       position: absolute;
       top: 0;
@@ -236,6 +310,9 @@ WooCommerce Checkout Block
     }
 
   }
+  */
+
+
 }
 
 
