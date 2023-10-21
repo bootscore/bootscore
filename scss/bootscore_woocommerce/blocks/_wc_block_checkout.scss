@@ -61,6 +61,7 @@ WooCommerce Checkout Block
   &__content {
     position: relative;
     padding-left: $spacer;
+    margin-bottom: $spacer * 1.25;
 
     &::before {
       content: '';
