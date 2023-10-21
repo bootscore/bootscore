@@ -13,22 +13,6 @@ defined( 'ABSPATH' ) || exit;
 
 
 /**
- * Add card-img-top class to product loop
- */
-remove_action('woocommerce_before_shop_loop_item_title', 'woocommerce_template_loop_product_thumbnail', 10);
-add_action('woocommerce_before_shop_loop_item_title', 'custom_loop_product_thumbnail', 10);
-function custom_loop_product_thumbnail() {
-  global $product;
-  $size = 'woocommerce_thumbnail';
-  $code = 'class=card-img-top';
-
-  $image_size = apply_filters('single_product_archive_thumbnail_size', $size);
-
-  echo $product ? $product->get_image($image_size, $code) : '';
-}
-
-
-/**
  * Category loop button and badge
  */
 if (!function_exists('woocommerce_template_loop_category_title')) :
