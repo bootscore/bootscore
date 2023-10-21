@@ -3,7 +3,8 @@
 .wc-block-components {
 
   &-sale-badge,
-  &-order-summary-item__quantity {
+  &-order-summary-item__quantity,
+  &-product-sale-badge {
     display: inline-block;
 
     padding: $badge-padding-y $badge-padding-x;
@@ -19,3 +20,5 @@
     background-color: var(--#{$prefix}danger);
   }
 }
+
+
