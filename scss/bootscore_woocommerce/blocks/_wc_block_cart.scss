@@ -263,22 +263,31 @@ table.wc-block-cart-items.wp-block-woocommerce-cart-line-items-block,
 
 
 
-// Proceed to checkout btn lg
-a.components-button.wc-block-components-button.wp-element-button.wc-block-cart__submit-button.contained {
-  //@extend .btn;
-  //@extend .btn-primary;
-  //@extend .btn-lg;
-  width: 100%;
-  padding: $btn-padding-y-lg $btn-padding-x-lg;
-  font-size: $btn-font-size-lg;
-  border-radius: $btn-border-radius-lg;
-  margin-bottom: $spacer;
+
+
+.wc-block-cart {
+
+  // Proceed to checkout btn lg
+  &__submit-button {
+
+    width: 100%;
+    padding: $btn-padding-y-lg $btn-padding-x-lg;
+    font-size: $btn-font-size-lg;
+    border-radius: $btn-border-radius-lg;
+    margin-bottom: $spacer;
+
+    // Loading
+    &:disabled {
+      background-color: red;
+    }
+  }
+
+  // Hide sticky proceed to checkout button
+  &__submit-container--sticky {
+    display: none;
+  }
 }
 
-// Hide sticky proceed to checkout button
-.wc-block-cart__submit-container--sticky {
-  display: none;
-}
 
 
 
@@ -352,12 +361,12 @@ a.components-button.wc-block-components-button.wp-element-button.wc-block-cart__
   }
 
   // Title
-  
+
   h3 {
     padding: $card-spacer-y $card-spacer-x 0 $card-spacer-x;
     //background: green;
   }
-  
+
   a {
     text-decoration: none;
     color: var(--#{$prefix}body-color);
