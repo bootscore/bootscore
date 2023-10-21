@@ -221,6 +221,19 @@ WooCommerce Block Cart
   // Proceed to checkout btn lg
   &__submit-button {
 
+    /*
+    // Create an loading spinner
+    &::before {
+      content: 'test';
+      display: none;
+      //width: $spinner-width;
+      //height: $spinner-height;
+      //vertical-align: $spinner-vertical-align;
+      //border-width: $spinner-border-width;
+      //animation: spinner-border;
+    }
+    */
+
     width: 100%;
     padding: $btn-padding-y-lg $btn-padding-x-lg;
     font-size: $btn-font-size-lg;
@@ -229,6 +242,7 @@ WooCommerce Block Cart
 
     // Loading
     &:disabled {
+      //display: block; // ::before
       background-color: red;
     }
   }

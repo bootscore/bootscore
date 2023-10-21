@@ -223,7 +223,7 @@ WooCommerce Block Checkout
         margin-bottom: 0;
         //font-size: $small-font-size;
       }
-      
+
       ul {
         list-style: none;
         font-size: $small-font-size;
@@ -328,12 +328,7 @@ WooCommerce Block Checkout
 
 
 
-button.wc-block-components-panel__button {
-  //@extend .btn;
-  //@extend .btn-outline-primary;
-  //margin-bottom: 1rem;
-  //width: 100%;
-}
+
 
 
 .wc-block-checkout__actions_row {
@@ -347,7 +342,15 @@ button.wc-block-components-panel__button {
     }
   }
 
-  button.components-button.wc-block-components-button.wp-element-button.wc-block-components-checkout-place-order-button.contained {
+  .wc-block-components-checkout-return-to-cart-button {
+    display: none;
+  }
+
+  .wc-block-components-checkout-place-order-button {
     flex-grow: 1;
+    padding: $btn-padding-y-lg $btn-padding-x-lg;
+    font-size: $btn-font-size-lg;
+    border-radius: $btn-border-radius-lg;
+    margin-bottom: $spacer;
   }
 }

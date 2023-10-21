@@ -6,7 +6,8 @@ WooCommerce Block Buttons
 // .btn
 .wc-block-cart__submit-button,
 .wc-block-components-checkout-place-order-button,
-.wc-block-components-product-button__button, // Add to cart button
+.wc-block-components-product-button__button,
+// Add to cart button
 .wc-block-components-checkout-return-to-cart-button,
 .wc-block-cart-item__remove-link,
 .wc-block-components-totals-coupon__button,
@@ -88,15 +89,15 @@ WooCommerce Block Buttons
       margin-right: -6px;
       float: right;
     }
+  }
 
-    // ul in totals
-    &-shipping-rates-control__package-items {
-      list-style: none;
-      padding-left: 0;
-      margin-bottom: 0;
-      font-weight: normal;
-      font-size: $font-size-base * .875;
-      color: var(--#{$prefix}gray-600);
-    }
+  // ul in Totals
+  &-shipping-rates-control__package-items {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 0;
+    font-weight: normal;
+    font-size: $font-size-base * .875;
+    color: var(--#{$prefix}gray-600);
   }
 }
