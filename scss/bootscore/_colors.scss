@@ -17,16 +17,3 @@ Colors
 pre {
   background-color: var(--#{$prefix}tertiary-bg);
 }
-
-// Reset focus
-:focus {
-  outline: none !important;
-  outline: -webkit-focus-ring-color none !important;
-  outline-color: -webkit-focus-ring-color none !important;
-  outline-style: none !important;
-  outline-width: 0 !important;
-}
-
-.nav-link:focus-visible {
-  box-shadow: none;
-}
