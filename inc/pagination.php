@@ -33,7 +33,7 @@ if (!function_exists('bootscore_pagination')) :
 
     if (1 != $pages) {
       echo '<nav aria-label="Page navigation" role="navigation">';
-      echo '<span class="sr-only">' . esc_html__('Page navigation', 'bootscore') . '</span>';
+      echo '<span class="visually-hidden">' . esc_html__('Page navigation', 'bootscore') . '</span>';
       echo '<ul class="pagination justify-content-center mb-4">';
 
       if ($paged > 2 && $paged > $range + 1 && $showitems < $pages) {
@@ -46,7 +46,7 @@ if (!function_exists('bootscore_pagination')) :
 
       for ($i = 1; $i <= $pages; $i ++) {
         if (1 != $pages && (!($i >= $paged + $range + 1 || $i <= $paged - $range - 1) || $pages <= $showitems)) {
-          echo ($paged == $i) ? '<li class="page-item active"><span class="page-link"><span class="sr-only">' . __('Current Page', 'bootscore') . ' </span>' . $i . '</span></li>' : '<li class="page-item"><a class="page-link" href="' . get_pagenum_link($i) . '"><span class="sr-only">' . __('Page', 'bootscore') . ' </span>' . $i . '</a></li>';
+          echo ($paged == $i) ? '<li class="page-item active"><span class="page-link"><span class="visually-hidden">' . __('Current Page', 'bootscore') . ' </span>' . $i . '</span></li>' : '<li class="page-item"><a class="page-link" href="' . get_pagenum_link($i) . '"><span class="visually-hidden">' . __('Page', 'bootscore') . ' </span>' . $i . '</a></li>';
         }
       }
 
