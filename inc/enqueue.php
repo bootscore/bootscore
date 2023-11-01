@@ -39,7 +39,7 @@ function bootscore_scripts() {
   wp_enqueue_script('bootstrap', get_template_directory_uri() . '/js/lib/bootstrap.bundle.min.js', array(), $modificated_bootstrapJs, true);
 
   // Theme JS
-  wp_enqueue_script('bootscore-script', get_template_directory_uri() . '/js/theme.js', array('jquery'), $modificated_themeJs, true);
+  wp_enqueue_script('bootscore-script', get_template_directory_uri() . '/js/theme.js', array(), $modificated_themeJs, true);
 
   // IE Warning
   wp_localize_script('bootscore-script', 'bootscore', array(
