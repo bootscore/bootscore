@@ -27,6 +27,8 @@ bootScore combines the [Underscores](https://underscores.me) theme boiler templa
 
 Moreover, bootScore seamlessly integrates with Bootstrap and offers complete [WooCommerce](https://woo.com/) support, featuring an integrated AJAX offcanvas cart.
 
+bootScore is a time-saving tool designed to swiftly create clean, mobile-first projects. If you are familiar with Bootstrap classes and HTML, you'll feel right at home and be able to build whatever you want.
+
 [![Packagist Prerelease](https://img.shields.io/packagist/vpre/bootscore/bootscore?logo=packagist&logoColor=fff)](https://packagist.org/packages/bootscore/bootscore)
 [![Backers on Open Collective](https://img.shields.io/opencollective/backers/bootscore?logo=opencollective&logoColor=fff)](https://opencollective.com/bootscore)
 [![GitHub Sponsors](https://img.shields.io/github/sponsors/bootscore?logo=github)](https://github.com/sponsors/bootscore)
@@ -36,6 +38,7 @@ Moreover, bootScore seamlessly integrates with Bootstrap and offers complete [Wo
 - [Installation](#installation)
   - [Composer](#composer)
 - [Child-theme](#child-theme)
+- [Plugins](#plugins)
 
 ## Installation
 
@@ -89,10 +92,6 @@ Edit theme in an upgrade-safe way using the provided [bootScore Child](https://g
 ## Plugins
 
 Extend bootScore with tiny but usefull [plugins](https://bootscore.me/plugins/). Each plugin uses Bootstrap or adds it to 3rd party plugins.
-
-## Workflow
-
-bootScore is a time-saver and designed to quickly create clean mobile-first projects. If you are familiar with Bootstrap classes and HTML, you will feel like home and be able to build whatever you want.
 
 ## Support & Contribute
 
