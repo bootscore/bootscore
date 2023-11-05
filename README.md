@@ -77,7 +77,7 @@ If you find a bug or have a feature idea, please feel welcome to open an [issue]
 We’re delighted if you'd like to contribute. Simply fork the repository, make your changes, and create a pull request. Every PR will be reviewed, and if everything looks good, we’ll merge your changes into the `main` branch.
 
 ### Blog & Twitter
-For important updates read the [blog](https://bootscore.me/category/blog/) and follow us on [Twitter](https://twitter.com/_bootscore). You will be informed if there is something new you should know.
+For important updates, please read our [blog](https://bootscore.me/category/blog/) and follow us on [Twitter](https://twitter.com/_bootscore). This way, you'll stay informed about anything new that you should know.
 
 ## Sponsor this project
 Like what you see? You can support us by [sponsoring](https://github.com/sponsors/bootscore) this project. Every contribution is highly appreciated, as it helps us maintain high motivation and continually develop the project.
