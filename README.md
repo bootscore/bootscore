@@ -12,9 +12,10 @@
 
   [Theme](https://bootscore.me/theme/) • [Plugins](https://bootscore.me/plugins/) • [Shop](https://bootscore.me/shop/) • [Docs](https://bootscore.me/documentation/) • [Blog](https://bootscore.me/blog/) • [Community](https://github.com/orgs/bootscore/discussions)
 
+<h1>Test</h1>
 </div>
 
-<hr style="border:1px solid gray">
+
 
 
 
