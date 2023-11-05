@@ -22,7 +22,7 @@
 <br>
 
 # bootScore
-[bootScore](https://bootscore.me) combines the [Underscores](https://underscores.me) theme boiler template with [Bootstrap](https://getbootstrap.com) to create a compact starter theme for excellent WordPress projects. It does not contain customizer settings, logo upload functionality, or drag-and-drop features. bootScore is entirely customizable through its .php, .scss, and .js files, necessitating basic coding skills for editing.
+[bootScore](https://bootscore.me) combines the [Underscores](https://underscores.me) theme boiler template with [Bootstrap](https://getbootstrap.com) to create a compact starter theme for excellent WordPress projects. It does not contain customizer settings, logo upload functionality, or drag-and-drop features. bootScore is entirely customizable through its .php, .scss, and .js files, necessitating basic coding skills for editing. Bootstrap source is included and scssphp compiler
 
 Moreover, bootScore seamlessly integrates with Bootstrap and offers complete [WooCommerce](https://woo.com/) support, featuring an integrated AJAX offcanvas cart.
 
