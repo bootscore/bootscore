@@ -46,8 +46,8 @@ bootScore is a time-saving tool designed to swiftly create clean, mobile-first p
 
 ## Installation
 1. Download latest release [bootscore-main.zip](https://github.com/bootscore/bootscore/releases/latest/download/bootscore-main.zip).
-2. In your admin panel, go to *Appearance* > *Themes* and click the *Add New* button.
-3. Click Upload Theme and Choose File, then select bootscore-main.zip file. Click Install Now.
+2. In your admin panel, go to **Appearance** > **Themes** and click the **Add New** button.
+3. Click **Upload Theme** and Choose File, then select bootscore-main.zip file. Click Install Now.
 4. Click Upload Theme and Choose File again, then select child-theme’s .zip file. Click Install Now.
 5. Click Activate to use your new theme right away.
 
