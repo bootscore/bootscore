@@ -14,7 +14,7 @@
 
 </div>
 
-<hr style="border:2px solid gray">
+<hr style="border:1px solid gray">
 
 
 
