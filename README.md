@@ -49,7 +49,7 @@ Here are two methods of installing theme with composer:
 
 Add the following to your projects composer.json file (remove comments)
 
-```
+```json
 "require": {
   "composer/installers": "^2.1",
   // other existing dependencies if any here
