@@ -107,7 +107,7 @@ We’re happy if you want to contribute. Just fork the repository, do your chang
 For important updates read the [blog](https://bootscore.me/category/blog/) and follow us on [Twitter](https://twitter.com/_bootscore). You will be informed if there is something new you should know.
 
 ## Sponsor this project
-
+Like what you see? You can support us by [sponsoring](https://github.com/sponsors/bootscore) this project. Every contribution is highly appreciated, as it helps us maintain high motivation and continually develop the project.
 
 ## License & Credits
 - bootScore, [MIT License](https://github.com/bootscore/bootscore/blob/main/LICENSE)
