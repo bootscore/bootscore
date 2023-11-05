@@ -47,9 +47,8 @@ bootScore is a time-saving tool designed to swiftly create clean, mobile-first p
 ## Installation
 1. Download latest release [bootscore-main.zip](https://github.com/bootscore/bootscore/releases/latest/download/bootscore-main.zip).
 2. In your admin panel, go to **Appearance** > **Themes** and click the **Add New** button.
-3. Click **Upload Theme** and Choose File, then select bootscore-main.zip file. Click Install Now.
-4. Click Upload Theme and Choose File again, then select child-theme’s .zip file. Click Install Now.
-5. Click Activate to use your new theme right away.
+3. Click **Upload Theme** and **Choose File**, then select `bootscore-main.zip` file. Click **Install Now**.
+4. Click Activate to use your new theme right away.
 
 ### Composer
 To install using Composer, you will need to have Composer installed on your system. Ideally, it should also be available on your server with command-line access, although this is not mandatory. For detailed instructions on installing with Composer, please read the [documentation](https://bootscore.me/documentation/installation/#Composer).
@@ -59,7 +58,9 @@ Edit the theme in an upgrade-safe manner by using the provided [bootScore Child]
 
 ### Installation
 1. Download latest release [bootscore-child-main.zip](https://github.com/bootscore/bootscore-child/releases/latest/download/bootscore-child-main.zip).
-2. Upload theme via the WordPress theme-uploader and activate it.
+2. In your admin panel, go to **Appearance** > **Themes** and click the **Add New** button.
+3. Click **Upload Theme** and **Choose File**, then select `bootscore-child-main.zip` file. Click **Install Now**.
+4. Click Activate to use your new child-theme right away.
 
 ## Plugins
 Extend bootScore with tiny but usefull [plugins](https://bootscore.me/plugins/). Each plugin uses Bootstrap or adds it to 3rd party plugins.
