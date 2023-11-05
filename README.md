@@ -11,10 +11,11 @@
  <h1>Flexible Bootstrap starter theme for WordPress</h1>
 </div>
 
+<br>
 <div align="center">
   <a href="https://vshymanskyy.github.io/StandWithUkraine"><img src="https://raw.githubusercontent.com/vshymanskyy/StandWithUkraine/main/banner2-direct.svg" width="500"></a>
 </div>
-
+<br>
 
 Site: https://bootscore.me/
 
