@@ -22,13 +22,7 @@
 <br>
 
 # bootScore
-[bootScore](https://bootscore.me) combines the [Underscores](https://underscores.me) theme boiler template with [Bootstrap](https://getbootstrap.com) to create a compact starter theme for excellent WordPress projects. It does not contain customizer settings, logo upload functionality, or drag-and-drop features. bootScore is entirely customizable through its .php, .scss, and .js files, necessitating basic coding skills for editing. Bootstrap source code is included in the theme and can be edited on the fly without using Gulp, Node, commands or any other technical stuff. Just add your styles, save and the built-in scssphp compiler will do the trick.
-
-Moreover, bootScore offers complete [WooCommerce](https://woo.com/) support, featuring an integrated AJAX offcanvas cart.
-
-bootScore is a time-saving tool designed to swiftly create clean, mobile-first projects. If you are familiar with Bootstrap and it's HTML classes, you'll feel right at home and be able to build whatever you want.
-
-bootScore combines the Underscores theme boiler template with Bootstrap to create a compact starter theme for outstanding WordPress projects. It does not include customizer settings, logo upload functionality, or drag-and-drop features. Customization in bootScore is entirely achievable through its .php, .scss, and .js files, requiring basic coding skills for editing. The Bootstrap source code is integrated into the theme, allowing easy on-the-fly editing without the need for Gulp, Node, or other technical commands. Simply add your styles, save, and let the built-in scssphp compiler do the rest.
+bootScore combines the [Underscores](https://underscores.me) theme boiler template with [Bootstrap](https://getbootstrap.com) to create a compact starter theme for outstanding [WordPress](https://wordpress.org/) projects. It does not include customizer settings, logo upload functionality, or drag-and-drop features. Customization in bootScore is entirely achievable through its `.php`, `.scss`, and `.js` files, requiring basic coding skills for editing. The Bootstrap source code is integrated into the theme, allowing easy on-the-fly editing without the need for Gulp, Node, or other technical commands. Simply add your styles, save, and let the built-in scssphp compiler do the rest.
 
 Additionally, bootScore provides comprehensive WooCommerce support, featuring an integrated AJAX offcanvas cart.
 
@@ -54,7 +48,7 @@ This time-saving tool is designed to swiftly create clean, mobile-first projects
 1. Download latest release [bootscore-main.zip](https://github.com/bootscore/bootscore/releases/latest/download/bootscore-main.zip).
 2. In your admin panel, go to **Appearance** > **Themes** and click the **Add New** button.
 3. Click **Upload Theme** and **Choose File**, then select `bootscore-main.zip` file. Click **Install Now**.
-4. Click Activate to use your new theme right away.
+4. Click **Activate** to use your new theme right away.
 
 ### Composer
 To install using Composer, you will need to have Composer installed on your system. Ideally, it should also be available on your server with command-line access, although this is not mandatory. For detailed instructions on installing with Composer, please read the [documentation](https://bootscore.me/documentation/installation/#Composer).
@@ -66,7 +60,7 @@ Edit the theme in an upgrade-safe manner by using the provided [bootScore Child]
 1. Download latest release [bootscore-child-main.zip](https://github.com/bootscore/bootscore-child/releases/latest/download/bootscore-child-main.zip).
 2. In your admin panel, go to **Appearance** > **Themes** and click the **Add New** button.
 3. Click **Upload Theme** and **Choose File**, then select `bootscore-child-main.zip` file. Click **Install Now**.
-4. Click Activate to use your new child-theme right away.
+4. Click **Activate** to use your new child-theme right away.
 
 ## Plugins
 Extend bootScore with small yet useful [plugins](https://bootscore.me/plugins/). Each plugin either utilizes Bootstrap or integrates it into third-party plugins
