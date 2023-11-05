@@ -23,11 +23,13 @@
 
 ## bootScore
 
-bootScore combines the Underscores theme boiler template with Bootstrap 5 in a small starter theme for great WordPress projects. There are no settings in the customizer, no logo-uploader and no drag'n'drop. bootScore is 100% customizable by using the .php, .scss and .js files. Basic coding skills for editing are required.
+bootScore combines the Underscores theme boiler template with Bootstrap in a small starter theme for great WordPress projects. There are no settings in the customizer, no logo-uploader and no drag'n'drop. bootScore is 100% customizable by using the .php, .scss and .js files. Basic coding skills for editing are required.
 
 bootScore comes with seamless Bootstrap integration and full WooCommerce support with an integrated ajax offcanvas cart.
 
 [![Packagist Prerelease](https://img.shields.io/packagist/vpre/bootscore/bootscore?logo=packagist&logoColor=fff)](https://packagist.org/packages/bootscore/bootscore)
+[![Backers on Open Collective](https://img.shields.io/opencollective/backers/bootscore?logo=opencollective&logoColor=fff)](https://opencollective.com/bootscore)
+[![Sponsors on Open Collective](https://img.shields.io/opencollective/sponsors/bootscore?logo=opencollective&logoColor=fff)](https://github.com/sponsors/bootscore)
 
 
 ## Installation
