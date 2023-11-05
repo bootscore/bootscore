@@ -34,7 +34,6 @@ bootScore is a time-saving tool designed to swiftly create clean, mobile-first p
 
 ## Table of contents
 - [Installation](#installation)
-  - [Composer](#composer)
 - [Child-theme](#child-theme)
 - [Plugins](#plugins)
 - [Support & contribute](#support--contribute)
@@ -51,40 +50,6 @@ bootScore is a time-saving tool designed to swiftly create clean, mobile-first p
 
 ### Composer
 To install with composer you will need to have composer installed on your system, and ideally on your server also with command line access, but that’s not required.
-
-Here are two methods of installing theme with composer:
-
-#### Method 1 – composer/installers
-Add the following to your projects composer.json file (remove comments)
-
-```json
-"require": {
-  "composer/installers": "^2.1",
-  // other existing dependencies if any here
-},
-"repositories":[ // add the wpackagist repo, packagist is included by default
-        {
-            "type":"composer",
-            "url":"https://wpackagist.org",
-            "only": [
-                "wpackagist-plugin/*",
-                "wpackagist-theme/*"
-            ]
-        }
-    ],
-"extra": { //configuration for composer/installers:
-  "installer-paths": {
-    "wordpress/wp-content/plugins/mu-plugins/{$name}/": ["type:wordpress-muplugin"],
-    "wordpress/wp-content/plugins/{$name}/": ["type:wordpress-plugin"],
-    "wordpress/wp-content/themes/{$name}/": ["type:wordpress-theme"]
-  }
-}
-```
-
-#### Method 2 – Bedrock
-1. Create a new bedrock project with `$ composer create-project roots/bedrock`
-2. Configure the .env file – see bedrock docs page @ https://docs.roots.io/bedrock/
-3. You can now install themes and packages, in an alternate project structure
 
 ## Child-theme
 Edit theme in an upgrade-safe way using the provided [bootScore Child](https://github.com/bootscore/bootscore-child).
