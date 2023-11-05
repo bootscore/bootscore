@@ -39,6 +39,11 @@ bootScore is a time-saving tool designed to swiftly create clean, mobile-first p
 - [Plugins](#plugins)
 - [Support & contribute](#support--contribute)
   - [Discussions](#discussions)
+  - [Issues](#issues)
+  - [Pull requests](#pull-requests)
+  - [Blog & Twitter](#blog--twitter)
+- [Sponsor this project](#sponsor-this-project)
+- [License & credits](#license--credits)
 
 ## Installation
 1. Download latest release [bootscore-main.zip](https://github.com/bootscore/bootscore/releases/latest/download/bootscore-main.zip)
@@ -95,11 +100,11 @@ Check the [documentation](https://bootscore.me/category/documentation/). If you 
 ### Issues
 If you find a bug or have a feature idea, you're welcome to open an [issue](https://github.com/bootscore/bootscore/issues). Please check [closed issues](https://github.com/bootscore/bootscore/issues?q=is%3Aissue+is%3Aclosed) first to avoid duplicates.
 
-### Blog & Twitter
-For important updates read the [blog](https://bootscore.me/category/blog/) and follow us on [Twitter](https://twitter.com/_bootscore). You will be informed if there is something new you should know.
-
 ### Pull requests
 We’re happy if you want to contribute. Just fork the repository, do your changes and create a pull request. Every PR will be reviewed. If everything is fine we’ll merge your changes to the `main` branch.
+
+### Blog & Twitter
+For important updates read the [blog](https://bootscore.me/category/blog/) and follow us on [Twitter](https://twitter.com/_bootscore). You will be informed if there is something new you should know.
 
 ## Sponsor this project
 
