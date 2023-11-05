@@ -39,8 +39,6 @@ Moreover, bootScore seamlessly integrates with Bootstrap and offers complete [Wo
 
 ### Composer
 
-Read [here](https://bootscore.me/documentation/installation/) how to install bootScore via Composer.
-
 To install with composer you will need to have composer installed on your system, and ideally on your server also with command line access, but that’s not required.
 
 Here are two methods of installing theme with composer:
@@ -73,7 +71,7 @@ Add the following to your projects composer.json file (remove comments)
 }
 ```
 
-### Method 2 – Bedrock
+#### Method 2 – Bedrock
 
 1. Create a new bedrock project with `$ composer create-project roots/bedrock`
 2. Configure the .env file – see bedrock docs page @ https://docs.roots.io/bedrock/
@@ -91,10 +89,10 @@ Extend bootScore with tiny but usefull [plugins](https://bootscore.me/plugins/).
 
 bootScore is a time-saver and designed to quickly create clean mobile-first projects. If you are familiar with Bootstrap classes and HTML, you will feel like home and be able to build whatever you want.
 
-## Help
+## Support & Contribute
 
 ### Discussions
-Check the [documentation](https://bootscore.me/category/documentation/). If you have a general question or need help with your project, feel free to open a new [discussion](https://github.com/bootscore/bootscore/discussions). Maybe your question is in [help wanted](https://github.com/bootscore/bootscore/issues?q=is%3Aissue+label%3A%22help+wanted%22+) labeled issues already solved.
+Check the [documentation](https://bootscore.me/category/documentation/). If you have a general question or need help with your project, feel free to open a new [discussion](https://github.com/orgs/bootscore/discussions). Maybe your question is in [help wanted](https://github.com/bootscore/bootscore/issues?q=is%3Aissue+label%3A%22help+wanted%22+) labeled issues already solved.
 
 ### Issues
 If you find a bug or have a feature idea, you're welcome to open an [issue](https://github.com/bootscore/bootscore/issues). Please check [closed issues](https://github.com/bootscore/bootscore/issues?q=is%3Aissue+is%3Aclosed) first to avoid duplicates.
@@ -105,6 +103,9 @@ For important updates read the [blog](https://bootscore.me/category/blog/) and f
 ### Pull requests
 
 We’re happy if you want to contribute. Just fork the repository, do your changes and create a pull request. Every PR will be reviewed. If everything is fine we’ll merge your changes to the `main` branch.
+
+## Sponsor this project
+
 
 ## License & Credits
 
