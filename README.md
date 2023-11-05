@@ -1,5 +1,5 @@
 <br>
-<div align="center" style="border-bottom: 1px solid;">
+<div align="center">
 <p>
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="https://github-production-user-asset-6210df.s3.amazonaws.com/51531217/279796754-be3e5050-8bcc-478c-aac8-d3522b9af351.svg">
@@ -14,7 +14,7 @@
 
 </div>
 
-
+<hr style="border:2px solid gray">
 
 
 
