@@ -45,14 +45,18 @@ bootScore is a time-saving tool designed to swiftly create clean, mobile-first p
 - [License & credits](#license--credits)
 
 ## Installation
-1. Download latest release [bootscore-main.zip](https://github.com/bootscore/bootscore/releases/latest/download/bootscore-main.zip)
-2. Upload theme via the WordPress theme-uploader and activate it
+1. Download latest release [bootscore-main.zip](https://github.com/bootscore/bootscore/releases/latest/download/bootscore-main.zip).
+2. Upload theme via the WordPress theme-uploader and activate it.
 
 ### Composer
 To install with composer you will need to have composer installed on your system, and ideally on your server also with command line access, but that’s not required.
 
 ## Child-theme
-Edit theme in an upgrade-safe way using the provided [bootScore Child](https://github.com/bootscore/bootscore-child). The child-theme is not a stand-alone theme, bootScore must be installed.
+Edit the theme in an upgrade-safe manner by using the provided [bootScore Child](https://github.com/bootscore/bootscore-child). Please note that the child theme is not a stand-alone theme, bootScore must be installed for it to function.
+
+### Installation
+1. Download latest release [bootscore-child-main.zip](https://github.com/bootscore/bootscore-child/releases/latest/download/bootscore-child-main.zip).
+2. Upload theme via the WordPress theme-uploader and activate it.
 
 ## Plugins
 Extend bootScore with tiny but usefull [plugins](https://bootscore.me/plugins/). Each plugin uses Bootstrap or adds it to 3rd party plugins.
