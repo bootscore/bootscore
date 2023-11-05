@@ -27,8 +27,8 @@ bootScore combines the Underscores theme boiler template with Bootstrap 5 in a s
 
 bootScore comes with seamless Bootstrap integration and full WooCommerce support with an integrated ajax offcanvas cart.
 
-[![Packagist Prerelease](https://img.shields.io/packagist/vpre/twbs/bootstrap?logo=packagist&logoColor=fff)](https://packagist.org/packages/twbs/bootstrap)
-[![NuGet](https://img.shields.io/nuget/vpre/bootstrap?logo=nuget&logoColor=fff)](https://www.nuget.org/packages/bootstrap/absoluteLatest)
+[![Packagist Prerelease](https://img.shields.io/packagist/vpre/twbs/bootstrap?logo=packagist&logoColor=fff)](https://packagist.org/packages/bootscore/bootscore)
+
 
 ## Installation
 
