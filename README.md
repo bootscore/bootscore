@@ -28,6 +28,12 @@ Moreover, bootScore offers complete [WooCommerce](https://woo.com/) support, fea
 
 bootScore is a time-saving tool designed to swiftly create clean, mobile-first projects. If you are familiar with Bootstrap and it's HTML classes, you'll feel right at home and be able to build whatever you want.
 
+bootScore combines the Underscores theme boiler template with Bootstrap to create a compact starter theme for outstanding WordPress projects. It does not include customizer settings, logo upload functionality, or drag-and-drop features. Customization in bootScore is entirely achievable through its .php, .scss, and .js files, requiring basic coding skills for editing. The Bootstrap source code is integrated into the theme, allowing easy on-the-fly editing without the need for Gulp, Node, or other technical commands. Simply add your styles, save, and let the built-in scssphp compiler do the rest.
+
+Additionally, bootScore provides comprehensive WooCommerce support, featuring an integrated AJAX offcanvas cart.
+
+This time-saving tool is designed to swiftly create clean, mobile-first projects. If you are familiar with Bootstrap and its HTML classes, you'll feel right at home and be able to build whatever you desire.
+
 [![Packagist Prerelease](https://img.shields.io/packagist/vpre/bootscore/bootscore?logo=packagist&logoColor=fff)](https://packagist.org/packages/bootscore/bootscore)
 [![Backers on Open Collective](https://img.shields.io/opencollective/backers/bootscore?logo=opencollective&logoColor=fff)](https://opencollective.com/bootscore)
 [![GitHub Sponsors](https://img.shields.io/github/sponsors/bootscore?logo=github)](https://github.com/sponsors/bootscore)
