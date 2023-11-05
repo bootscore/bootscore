@@ -7,12 +7,12 @@
 </div>
 
 <div align="center">
- <h1>Bootstrap + WordPress starter theme</h1>
+ <h1>Flexible Bootstrap starter theme for WordPress</h1>
 </div>
 
-
+<div align="center">
   [![SWUbanner](https://raw.githubusercontent.com/vshymanskyy/StandWithUkraine/main/banner2-direct.svg)](https://vshymanskyy.github.io/StandWithUkraine)
-
+</div>
 
 
 Site: https://bootscore.me/
