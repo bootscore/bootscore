@@ -21,7 +21,7 @@
 </div>
 <br>
 
-## bootScore
+# bootScore
 
 bootScore combines the [Underscores](https://underscores.me) theme boiler template with [Bootstrap](https://getbootstrap.com) to create a compact starter theme for excellent WordPress projects. It does not contain customizer settings, logo upload functionality, or drag-and-drop features. bootScore is entirely customizable through its .php, .scss, and .js files, necessitating basic coding skills for editing.
 
@@ -31,6 +31,11 @@ Moreover, bootScore seamlessly integrates with Bootstrap and offers complete [Wo
 [![Backers on Open Collective](https://img.shields.io/opencollective/backers/bootscore?logo=opencollective&logoColor=fff)](https://opencollective.com/bootscore)
 [![GitHub Sponsors](https://img.shields.io/github/sponsors/bootscore?logo=github)](https://github.com/sponsors/bootscore)
 
+## Table of contents
+
+- [Installation](#installation)
+-- [Composer](#composer)
+- [Child-theme](#child-theme)
 
 ## Installation
 
