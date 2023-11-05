@@ -1,5 +1,4 @@
 <br>
-<br>
 <div align="center">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="https://github-production-user-asset-6210df.s3.amazonaws.com/51531217/279796754-be3e5050-8bcc-478c-aac8-d3522b9af351.svg">
@@ -14,6 +13,8 @@
 
 <div align="center">
   [![SWUbanner](https://raw.githubusercontent.com/vshymanskyy/StandWithUkraine/main/banner2-direct.svg)](https://vshymanskyy.github.io/StandWithUkraine)
+  
+  <a href="https://vshymanskyy.github.io/StandWithUkraine"><img src="https://raw.githubusercontent.com/vshymanskyy/StandWithUkraine/main/banner2-direct.svg" width="400"></a>
 </div>
 
 
