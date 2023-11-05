@@ -29,8 +29,7 @@ bootScore comes with seamless Bootstrap integration and full WooCommerce support
 
 [![Packagist Prerelease](https://img.shields.io/packagist/vpre/bootscore/bootscore?logo=packagist&logoColor=fff)](https://packagist.org/packages/bootscore/bootscore)
 [![Backers on Open Collective](https://img.shields.io/opencollective/backers/bootscore?logo=opencollective&logoColor=fff)](https://opencollective.com/bootscore)
-[![Sponsors on Open Collective](https://img.shields.io/opencollective/sponsors/bootscore?logo=opencollective&logoColor=fff)](https://github.com/sponsors/bootscore)
-![GitHub Sponsors](https://img.shields.io/github/sponsors/bootscore?logo=github&link=https%3A%2F%2Fgithub.com%2Fsponsors%2Fbootscore)
+[![GitHub Sponsors](https://img.shields.io/github/sponsors/bootscore?logo=github)](https://github.com/sponsors/bootscore)
 
 
 ## Installation
