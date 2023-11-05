@@ -63,12 +63,14 @@ Edit the theme in an upgrade-safe manner by using the provided [bootScore Child]
 4. Click Activate to use your new child-theme right away.
 
 ## Plugins
-Extend bootScore with tiny but usefull [plugins](https://bootscore.me/plugins/). Each plugin uses Bootstrap or adds it to 3rd party plugins.
+Extend bootScore with small yet useful [plugins](https://bootscore.me/plugins/). Each plugin either utilizes Bootstrap or integrates it into third-party plugins
 
 ## Support & contribute
 
 ### Discussions
 Check the [documentation](https://bootscore.me/category/documentation/). If you have a general question or need help with your project, feel free to open a new [discussion](https://github.com/orgs/bootscore/discussions). Maybe your question is in [help wanted](https://github.com/bootscore/bootscore/issues?q=is%3Aissue+label%3A%22help+wanted%22+) labeled issues already solved.
+
+If you have a general question which is not answered in the docmentation or need help with your project, feel free to open a new discussion. Your question might already be addressed in issues labeled 'help wanted' that have been resolved.
 
 ### Issues
 If you find a bug or have a feature idea, you're welcome to open an [issue](https://github.com/bootscore/bootscore/issues). Please check [closed issues](https://github.com/bootscore/bootscore/issues?q=is%3Aissue+is%3Aclosed) first to avoid duplicates.
