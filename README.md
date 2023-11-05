@@ -24,7 +24,7 @@
 # bootScore
 bootScore combines the [Underscores](https://underscores.me) theme boiler template with [Bootstrap](https://getbootstrap.com) to create a compact starter theme for outstanding [WordPress](https://wordpress.org/) projects. It does not include customizer settings, logo upload functionality, or drag-and-drop features. Customization in bootScore is entirely achievable through its `.php`, `.scss`, and `.js` files, requiring basic coding skills for editing. 
 
-The Bootstrap source code is included, allowing easy on-the-fly editing Bootstrap without the need for Gulp, Node, or other technical commands. Simply add your styles, save, and let the built-in scssphp compiler do the rest.
+The Bootstrap source code is included, allowing easy on-the-fly editing Bootstrap without the need for Gulp, Node, or other technical commands. Simply add your styles, save, and let the built-in [scssphp](https://github.com/scssphp/scssphp) compiler do the rest.
 
 Additionally, bootScore provides comprehensive WooCommerce support, featuring an integrated AJAX offcanvas cart.
 
