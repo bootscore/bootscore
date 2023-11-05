@@ -15,20 +15,13 @@
 <h1></h1>
 </div>
 
-
-
-
-
-
 <br>
 <div align="center">
   <a href="https://vshymanskyy.github.io/StandWithUkraine"><img src="https://raw.githubusercontent.com/vshymanskyy/StandWithUkraine/main/banner2-direct.svg" width="500"></a>
 </div>
 <br>
 
-Site: https://bootscore.me/
-
-Docs: https://bootscore.me/category/documentation/
+## bootScore
 
 bootScore combines the Underscores theme boiler template with Bootstrap 5 in a small starter theme for great WordPress projects. There are no settings in the customizer, no logo-uploader and no drag'n'drop. bootScore is 100% customizable by using the .php, .scss and .js files. Basic coding skills for editing are required.
 
