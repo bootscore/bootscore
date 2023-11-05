@@ -1,5 +1,3 @@
-[![SWUbanner](https://raw.githubusercontent.com/vshymanskyy/StandWithUkraine/main/banner2-direct.svg)](https://vshymanskyy.github.io/StandWithUkraine)
-
 <div align="center">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="https://github-production-user-asset-6210df.s3.amazonaws.com/51531217/279796754-be3e5050-8bcc-478c-aac8-d3522b9af351.svg">
@@ -9,8 +7,12 @@
 </div>
 
 <div align="center">
- <h1>Bootstrap 5 + WordPress starter theme</h1>
- </div>
+ <h1>Bootstrap + WordPress starter theme</h1>
+</div>
+
+<div align="center">
+  [![SWUbanner](https://raw.githubusercontent.com/vshymanskyy/StandWithUkraine/main/banner2-direct.svg)](https://vshymanskyy.github.io/StandWithUkraine)
+</div>
 
 
 Site: https://bootscore.me/
