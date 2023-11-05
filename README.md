@@ -29,7 +29,7 @@ bootScore comes with seamless Bootstrap integration and full WooCommerce support
 
 ## Installation
 
-1. Download latest release [bootscore-main.zip](https://github.com/bootscore/bootscore/releases) or get bootScore through the official [site](https://bootscore.me/#download).
+1. Download latest release [bootscore-main.zip](https://github.com/bootscore/bootscore/releases/latest/download/bootscore-main.zip) or get bootScore through the official [site](https://bootscore.me/#download).
 2. Upload theme via the WordPress theme-uploader and activate it.
 
 ### Composer
