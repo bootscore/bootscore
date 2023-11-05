@@ -1,6 +1,5 @@
 <br>
 <div align="center">
-<br>
 <p>
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="https://github-production-user-asset-6210df.s3.amazonaws.com/51531217/279796754-be3e5050-8bcc-478c-aac8-d3522b9af351.svg">
@@ -12,6 +11,8 @@
   Intuitive Bootstrap WordPress starter-theme and time-saving plugins
 
   [Theme](https://bootscore.me/theme/) • [Plugins](https://bootscore.me/plugins/) • [Shop](https://bootscore.me/shop/) • [Docs](https://bootscore.me/documentation/) • [Blog](https://bootscore.me/blog/) • [Community](https://github.com/orgs/bootscore/discussions)
+
+ <h1>Flexible Bootstrap starter theme for WordPress</h1>
 </div>
 
 
