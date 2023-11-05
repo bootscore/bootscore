@@ -65,7 +65,7 @@ Edit the theme in an upgrade-safe manner by using the provided [bootScore Child]
 4. Click **Activate** to use your new child-theme right away.
 
 ## Plugins
-Extend bootScore with small yet useful [plugins](https://bootscore.me/plugins/). Each plugin either utilizes Bootstrap or integrates it into third-party plugins
+Extend bootScore with small yet useful [plugins](https://bootscore.me/plugins/). Each plugin either utilizes Bootstrap or integrates it into third-party plugins.
 
 ## Support & contribute
 
