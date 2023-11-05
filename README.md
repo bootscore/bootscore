@@ -34,7 +34,7 @@ Moreover, bootScore seamlessly integrates with Bootstrap and offers complete [Wo
 ## Table of contents
 
 - [Installation](#installation)
--- [Composer](#composer)
+  - [Composer](#composer)
 - [Child-theme](#child-theme)
 
 ## Installation
