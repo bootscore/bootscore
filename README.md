@@ -52,7 +52,7 @@ bootScore is a time-saving tool designed to swiftly create clean, mobile-first p
 To install with composer you will need to have composer installed on your system, and ideally on your server also with command line access, but that’s not required.
 
 ## Child-theme
-Edit theme in an upgrade-safe way using the provided [bootScore Child](https://github.com/bootscore/bootscore-child).
+Edit theme in an upgrade-safe way using the provided [bootScore Child](https://github.com/bootscore/bootscore-child). The child-theme is not a stand-alone theme, bootScore must be installed.
 
 ## Plugins
 Extend bootScore with tiny but usefull [plugins](https://bootscore.me/plugins/). Each plugin uses Bootstrap or adds it to 3rd party plugins.
