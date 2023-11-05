@@ -71,10 +71,10 @@ Extend bootScore with small yet useful [plugins](https://bootscore.me/plugins/).
 If you have a general question that is not answered in the [documentation](https://bootscore.me/category/documentation/) or need help with your project, feel free to open a new [discussion](https://github.com/orgs/bootscore/discussions). Your question might already have been resolved in issues labeled [help wanted](https://github.com/bootscore/bootscore/issues?q=is%3Aissue+label%3A%22help+wanted%22+).
 
 ### Issues
-If you find a bug or have a feature idea, you're welcome to open an [issue](https://github.com/bootscore/bootscore/issues). Please check [closed issues](https://github.com/bootscore/bootscore/issues?q=is%3Aissue+is%3Aclosed) first to avoid duplicates.
+If you find a bug or have a feature idea, please feel welcome to open an [issue](https://github.com/bootscore/bootscore/issues). Before submitting, kindly check [closed issues](https://github.com/bootscore/bootscore/issues?q=is%3Aissue+is%3Aclosed) to avoid duplicates. Please note that bug reports must include a link to a reduced test case.
 
 ### Pull requests
-We’re happy if you want to contribute. Just fork the repository, do your changes and create a pull request. Every PR will be reviewed. If everything is fine we’ll merge your changes to the `main` branch.
+We’re delighted if you'd like to contribute. Simply fork the repository, make your changes, and create a pull request. Every PR will be reviewed, and if everything looks good, we’ll merge your changes into the `main` branch.
 
 ### Blog & Twitter
 For important updates read the [blog](https://bootscore.me/category/blog/) and follow us on [Twitter](https://twitter.com/_bootscore). You will be informed if there is something new you should know.
