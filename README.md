@@ -73,6 +73,12 @@ Add the following to your projects composer.json file (remove comments)
 }
 ```
 
+### Method 2 – Bedrock
+
+1. Create a new bedrock project with `$ composer create-project roots/bedrock`
+2. Configure the .env file – see bedrock docs page @ https://docs.roots.io/bedrock/
+3. You can now install themes and packages, in an alternate project structure
+
 ## Child-theme
 
 Edit theme in an upgrade-safe way using the provided [bootScore Child](https://github.com/bootscore/bootscore-child).
