@@ -37,6 +37,8 @@ bootScore is a time-saving tool designed to swiftly create clean, mobile-first p
   - [Composer](#composer)
 - [Child-theme](#child-theme)
 - [Plugins](#plugins)
+- [Support & contribute](#support--contribute)
+  - [Discussions](#discussions)
 
 ## Installation
 1. Download latest release [bootscore-main.zip](https://github.com/bootscore/bootscore/releases/latest/download/bootscore-main.zip)
@@ -85,7 +87,7 @@ Edit theme in an upgrade-safe way using the provided [bootScore Child](https://g
 ## Plugins
 Extend bootScore with tiny but usefull [plugins](https://bootscore.me/plugins/). Each plugin uses Bootstrap or adds it to 3rd party plugins.
 
-## Support & Contribute
+## Support & contribute
 
 ### Discussions
 Check the [documentation](https://bootscore.me/category/documentation/). If you have a general question or need help with your project, feel free to open a new [discussion](https://github.com/orgs/bootscore/discussions). Maybe your question is in [help wanted](https://github.com/bootscore/bootscore/issues?q=is%3Aissue+label%3A%22help+wanted%22+) labeled issues already solved.
