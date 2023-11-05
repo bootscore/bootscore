@@ -1,7 +1,11 @@
 [![SWUbanner](https://raw.githubusercontent.com/vshymanskyy/StandWithUkraine/main/banner2-direct.svg)](https://vshymanskyy.github.io/StandWithUkraine)
 
 <div align="center">
- <img src="https://raw.githubusercontent.com/craftwerkberlin/bootscore-5/main/img/logo/logo.svg" height="50">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://github-production-user-asset-6210df.s3.amazonaws.com/51531217/279796754-be3e5050-8bcc-478c-aac8-d3522b9af351.svg">
+    <source media="(prefers-color-scheme: light)" srcset="https://user-images.githubusercontent.com/51531217/279796586-11ab7ee1-aff5-4960-99eb-c21c0ccbdec5.svg">
+    <img alt="bootScore logo light/dark mode" src="https://user-images.githubusercontent.com/51531217/279796586-11ab7ee1-aff5-4960-99eb-c21c0ccbdec5.svg" height="50">
+  </picture>
 </div>
 
 <div align="center">
