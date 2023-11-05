@@ -70,8 +70,8 @@ We’re happy if you want to contribute. Just fork the repository, do your chang
 
 ## License & Credits
 
-- bootScore, MIT License https://github.com/bootscore/bootscore/blob/main/LICENSE
-- Bootstrap, MIT License https://github.com/twbs/bootstrap/blob/main/LICENSE
+- bootScore, [MIT License](https://github.com/bootscore/bootscore/blob/main/LICENSE)
+- Bootstrap, [MIT License](https://github.com/twbs/bootstrap/blob/main/LICENSE)
 - Bootstrap 5 WordPress Navbar Walker by AlexWebLab, MIT License https://github.com/AlexWebLab/bootstrap-5-wordpress-navbar-walker/blob/main/LICENSE
 - Font Awesome Free License https://fontawesome.com/license/free
 - scssphp by Leaf Corcoran, MIT License https://github.com/scssphp/scssphp/blob/master/LICENSE.md
