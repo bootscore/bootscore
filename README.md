@@ -25,7 +25,7 @@
 
 bootScore combines the [Underscores](https://underscores.me) theme boiler template with [Bootstrap](https://getbootstrap.com) to create a compact starter theme for excellent WordPress projects. It does not contain customizer settings, logo upload functionality, or drag-and-drop features. bootScore is entirely customizable through its .php, .scss, and .js files, necessitating basic coding skills for editing.
 
-Moreover, bootScore seamlessly integrates with Bootstrap and offers complete WooCommerce support, featuring an integrated AJAX offcanvas cart.
+Moreover, bootScore seamlessly integrates with Bootstrap and offers complete [WooCommerce](https://woo.com/) support, featuring an integrated AJAX offcanvas cart.
 
 [![Packagist Prerelease](https://img.shields.io/packagist/vpre/bootscore/bootscore?logo=packagist&logoColor=fff)](https://packagist.org/packages/bootscore/bootscore)
 [![Backers on Open Collective](https://img.shields.io/opencollective/backers/bootscore?logo=opencollective&logoColor=fff)](https://opencollective.com/bootscore)
@@ -34,12 +34,44 @@ Moreover, bootScore seamlessly integrates with Bootstrap and offers complete Woo
 
 ## Installation
 
-1. Download latest release [bootscore-main.zip](https://github.com/bootscore/bootscore/releases/latest/download/bootscore-main.zip) or get bootScore through the official [site](https://bootscore.me/#download).
-2. Upload theme via the WordPress theme-uploader and activate it.
+1. Download latest release [bootscore-main.zip](https://github.com/bootscore/bootscore/releases/latest/download/bootscore-main.zip)
+2. Upload theme via the WordPress theme-uploader and activate it
 
 ### Composer
 
 Read [here](https://bootscore.me/documentation/installation/) how to install bootScore via Composer.
+
+To install with composer you will need to have composer installed on your system, and ideally on your server also with command line access, but that’s not required.
+
+Here are two methods of installing theme with composer:
+
+#### Method 1 – composer/installers
+
+Add the following to your projects composer.json file (remove comments)
+
+```
+"require": {
+  "composer/installers": "^2.1",
+  // other existing dependencies if any here
+},
+"repositories":[ // add the wpackagist repo, packagist is included by default
+        {
+            "type":"composer",
+            "url":"https://wpackagist.org",
+            "only": [
+                "wpackagist-plugin/*",
+                "wpackagist-theme/*"
+            ]
+        }
+    ],
+"extra": { //configuration for composer/installers:
+  "installer-paths": {
+    "wordpress/wp-content/plugins/mu-plugins/{$name}/": ["type:wordpress-muplugin"],
+    "wordpress/wp-content/plugins/{$name}/": ["type:wordpress-plugin"],
+    "wordpress/wp-content/themes/{$name}/": ["type:wordpress-theme"]
+  }
+}
+```
 
 ## Child-theme
 
