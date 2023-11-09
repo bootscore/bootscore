@@ -56,7 +56,7 @@ This time-saving tool is designed to swiftly create clean, mobile-first projects
 To install using Composer, you will need to have Composer installed on your system. Ideally, it should also be available on your server with command-line access, although this is not mandatory. For detailed instructions on installing with Composer, please read the [documentation](https://bootscore.me/documentation/installation/#Composer).
 
 ## Child-theme
-Edit the theme in an upgrade-safe manner by using the provided [bootScore Child](https://github.com/bootscore/bootscore-child). Please note that the child theme is not a stand-alone theme, bootScore must be installed for it to function.
+Edit the theme in an upgrade-safe manner by using the provided [bootScore Child](https://github.com/bootscore/bootscore-child). Note that the child theme is not a stand-alone theme, bootScore must be installed for it to function.
 
 ### Installation
 1. Download latest release [bootscore-child-main.zip](https://github.com/bootscore/bootscore-child/releases/latest/download/bootscore-child-main.zip).
@@ -73,13 +73,13 @@ Extend bootScore with small yet useful [plugins](https://bootscore.me/plugins/).
 If you have a general question that is not answered in the [documentation](https://bootscore.me/category/documentation/) or need help with your project, feel free to open a new [discussion](https://github.com/orgs/bootscore/discussions). Your question might already have been resolved in issues labeled [help wanted](https://github.com/bootscore/bootscore/issues?q=is%3Aissue+label%3A%22help+wanted%22+).
 
 ### Issues
-If you find a bug or have a feature idea, please feel welcome to open an [issue](https://github.com/bootscore/bootscore/issues). Before submitting, kindly check [closed issues](https://github.com/bootscore/bootscore/issues?q=is%3Aissue+is%3Aclosed) to avoid duplicates. Please note that bug reports **must include a link to a reduced test case**.
+If you find a bug or have a feature idea, feel welcome to open an [issue](https://github.com/bootscore/bootscore/issues). Before submitting, kindly check [closed issues](https://github.com/bootscore/bootscore/issues?q=is%3Aissue+is%3Aclosed) to avoid duplicates. Note that bug reports **must include a link to a reduced test case**.
 
 ### Pull requests
 We’re delighted if you'd like to contribute. Simply fork the repository, make your changes, and create a pull request. Every PR will be reviewed, and if everything looks good, we’ll merge your changes into the `main` branch.
 
 ### Blog & Twitter
-For important updates, please read our [blog](https://bootscore.me/category/blog/) and follow us on [Twitter](https://twitter.com/_bootscore). This way, you'll stay informed about anything new that you should know.
+For important updates, read our [blog](https://bootscore.me/category/blog/) and follow us on [Twitter](https://twitter.com/_bootscore). This way, you'll stay informed about anything new that you should know.
 
 ## Sponsor this project
 Like what you see? You can support us by [sponsoring](https://github.com/sponsors/bootscore) this project. Every contribution is highly appreciated, as it helps us maintain high motivation and continually develop the project.
