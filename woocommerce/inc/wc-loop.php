@@ -30,3 +30,11 @@ if (!function_exists('woocommerce_template_loop_category_title')) :
     <?php
   }
 endif;
+
+add_filter('bootscore_product_col_class', 'bootscore_wc_product_col_class');
+function bootscore_wc_product_col_class($class) {
+  if (is_cart()) {
+    $class = 'col-6';
+  }
+  return $class;
+}
