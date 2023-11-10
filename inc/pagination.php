@@ -32,7 +32,7 @@ if (!function_exists('bootscore_pagination')) :
     }
 
     if (1 != $pages) {
-      echo '<nav aria-label="Page navigation" role="navigation">';
+      echo '<nav aria-label="Page navigation">';
       echo '<span class="visually-hidden">' . esc_html__('Page navigation', 'bootscore') . '</span>';
       echo '<ul class="pagination justify-content-center mb-4">';
 
