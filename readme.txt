@@ -2,14 +2,14 @@
 
 Contributors: Bastian Kreiter, Justin Kruit, Martin Holzer, Tim Groeneveld, Laurent Binder, Patrick, Gustavo Silva, TershiXia, 
 electronicsandprogramming, charly, Alexandros Kourmoulakis, Sven Geiß, ucalegonte, Benhaim Ido, Sean Emerson, Androidacy, Tamás Dohány,
-David Vanderhaeghe, Karsten Reincke, Patrick Champoux, sweetappleuk, exlexv
+David Vanderhaeghe, Karsten Reincke, Patrick Champoux, sweetappleuk, exlexv, Beda Schmid, JWestarp, sir-lexonarkz, xoneill007
 
 Tags: featured-images, threaded-comments, translation-ready
 
 Requires at least: 4.5
-Tested up to: 6.3.1
+Tested up to: 6.4.1
 Requires PHP: 7.4
-Stable tag: 5.3.3
+Stable tag: 5.3.4
 License: MIT License
 License URI: https://github.com/bootscore/bootscore/blob/main/LICENSE
 
@@ -58,6 +58,25 @@ bootScore includes support for WooCommerce and Infinite Scroll in Jetpack.
 
 
 == Changelog ==
+
+    = 5.3.4 - November 14 2023 =
+    
+        * [FEATURE] Enable cross sell products #577
+        * [IMPROVEMENT] Add HTML5 support for styles, scripts and searchform #586
+        * [IMPROVEMENT] Add .tags-heading-none selector to hide tags heading in loop heroes 3ccb2c1 #574
+        * [IMPROVEMENT] Hide user-toggler in dashboard, mini-cart-toggler in cart and checkout page #602
+        * [IMPROVEMENT] Replace card-im-top function in WC loop with Sass variables #609
+        * [IMPROVEMENT] Added CODE_OF_CONDUCT.md #611
+        * [IMPROVEMENT] Rewrite README.md #618
+        * [IMPROVEMENT] Update Pagination for HTML5 compliance 4f89354
+        * [BUGFIX] Add missing offcanvas cart .woocommerce-info selector 07ec79f #574
+        * [REMOVED] Internet Explorer warning alert 5808169 a3ca6aa
+        * [BUGFIX] Exclude empty cart message from remove if offcanvas cart gets closed #580
+        * [BUGFIX] .top-button is clickable when not visible #590
+        * [BUGFIX] Accessibility behavior #605
+        * [BUGFIX] Replace sr-only with visually-hidden #616
+        * [UPDATE] scssphp 1.11.1 #581
+        * [UPDATE] Bootstrap 5.3.2 5c4c2a4 #574
 
     = 5.3.3 - September 12 2023 =
 
