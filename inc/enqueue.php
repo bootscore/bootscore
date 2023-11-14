@@ -4,7 +4,7 @@
  * Enqueue styles & scripts
  *
  * @package Bootscore 
- * @version 5.3.3
+ * @version 5.3.4
  */
 
 
