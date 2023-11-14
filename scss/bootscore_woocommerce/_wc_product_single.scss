@@ -6,6 +6,7 @@ WooCommerce Single Product
 .woocommerce {
   div.product form.cart {
     display: flex;
+    flex-wrap: wrap;
 
     div.quantity {
       float: none;
@@ -28,7 +29,6 @@ WooCommerce Single Product
 // WooCommerce breakpoint is at 769px
 @media (min-width: 769px) and (max-width: 991px) {
   .woocommerce div.product form.cart {
-    flex-wrap: wrap;
 
     div.quantity {
       margin-right: auto;
@@ -37,5 +37,3 @@ WooCommerce Single Product
     }
   }
 }
-
-// Quantity and add to cart button END
