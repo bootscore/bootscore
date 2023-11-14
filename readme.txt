@@ -73,6 +73,7 @@ bootScore includes support for WooCommerce and Infinite Scroll in Jetpack.
         * [REMOVED] Internet Explorer warning alert 5808169 a3ca6aa
         * [BUGFIX] Exclude empty cart message from remove if offcanvas cart gets closed #580
         * [BUGFIX] .top-button is clickable when not visible #590
+        * [BUGFIX] Plugin displayed incorrectly if hooked in form.cart product pages 2264033
         * [BUGFIX] Accessibility behavior #605
         * [BUGFIX] Replace sr-only with visually-hidden #616
         * [UPDATE] scssphp 1.11.1 #581
