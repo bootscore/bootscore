@@ -3,7 +3,7 @@ WooCommerce Block Cart
 --------------------------------------------------------------*/
 
 
-// Cart block
+// Create cols
 .wc-block-components-sidebar-layout.wc-block-cart.wp-block-woocommerce-filled-cart-block {
   @include make-row();
 }
@@ -37,7 +37,7 @@ WooCommerce Block Cart
 
 
 
-// Cart items 
+// Cart table
 .wc-block-cart-items {
 
   // Create card
@@ -56,24 +56,25 @@ WooCommerce Block Cart
       display: none;
     }
 
-    &-image {
-      //width: 100px;
-      //width: 140px;
-      width: 25%;
-    }
-
     // Create card-header
     margin-bottom: 0;
     color: $card-cap-color;
     background-color: $card-cap-bg;
 
-    th {
+    &-image,
+    &-product,
+    &-total {
       padding-top: $card-cap-padding-y;
       padding-bottom: $card-cap-padding-y;
       padding-left: $card-cap-padding-x;
       border-bottom: $card-border-width var(--#{$prefix}border-style) $card-border-color;
       font-weight: $headings-font-weight;
+    }
 
+    &-image {
+      //width: 100px;
+      //width: 140px;
+      width: 25%;
     }
 
     &-total {
@@ -82,15 +83,9 @@ WooCommerce Block Cart
     }
   }
 
-
-
-
-
-
-
   &__row td {
-    position: relative;
-    vertical-align: top;
+    //position: relative;
+    //vertical-align: top;
     //padding: $list-group-item-padding-y 0 $list-group-item-padding-y $list-group-item-padding-x;
 
   }
@@ -104,7 +99,7 @@ WooCommerce Block Cart
 
 
 
-
+// Cart items
 .wc-block-cart-item {
 
   &__image,
@@ -113,37 +108,21 @@ WooCommerce Block Cart
     padding-top: $card-spacer-y;
     padding-bottom: $card-spacer-y;
     padding-left: $card-spacer-x;
+    position: relative;
+    vertical-align: top;
   }
-
-  /*
-  &__image,
-  &__product {
-    padding-left: $card-spacer-x;
-  }
-  */
-
-  &__total {
-    padding-right: $card-spacer-x;
-    text-align: right;
-  }
-
 
   &__image {
-    //display: table-cell;
-    //width: 60px;
-
-    /*
-    @include media-breakpoint-up(md) {
-      width: 140px;
-    }
-    */
 
     img {
       border-radius: $border-radius;
     }
   }
 
+
   &__total {
+    padding-right: $card-spacer-x;
+    text-align: right;
 
     // price width
     white-space: nowrap;
@@ -180,20 +159,17 @@ WooCommerce Block Cart
 
 
 
-.is-mobile table.wc-block-cart-items:not(.wc-block-mini-cart-items) .wc-block-cart-items__row {
-  position: relative;
-}
 
+/*
+// .is-mobile breakpoint 400
 .is-mobile table.wc-block-cart-items .wc-block-cart-items__row {
   display: grid;
   grid-template-columns: 80px 132px;
-  //padding: 16px 0;
 }
 
 .is-mobile table.wc-block-cart-items .wc-block-cart-items__row .wc-block-cart-item__image {
   grid-column-start: 1;
   grid-row-start: 1;
-  //padding-right: 16px;
 }
 
 
@@ -202,12 +178,39 @@ WooCommerce Block Cart
   grid-column-start: 2;
   grid-row-start: 1;
   justify-self: stretch;
-  //padding: 0 16px 16px 0;
 }
 
 .is-mobile table.wc-block-cart-items .wc-block-cart-items__row .wc-block-cart-item__total {
   grid-row-start: 1;
 }
+*/
+
+@media (max-width: 399px) {
+  .wc-block-cart-items__row {
+    display: grid;
+    grid-template-columns: 80px 132px;
+  }
+
+  .wc-block-cart-item__image {
+    grid-column-start: 1;
+    grid-row-start: 1;
+  }
+
+
+  .wc-block-cart-item__product {
+    grid-column-end: 4;
+    grid-column-start: 2;
+    grid-row-start: 1;
+    justify-self: stretch;
+  }
+
+  .wc-block-cart-item__total {
+    grid-row-start: 1;
+  }
+}
+
+
+
 
 
 
