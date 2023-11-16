@@ -36,8 +36,8 @@ WooCommerce Block Cart
 
 
 
-
 // Cart items 
+
 .wc-block-cart-items {
 
   // Create card
@@ -49,17 +49,21 @@ WooCommerce Block Cart
   margin-bottom: $spacer;
   width: 100%;
 
+  /*
+  // Hide thead on small devices
+  @include media-breakpoint-down(sm) {
+    thead {
+      display: none;
+    }
+  }
+    */
+
+
   &__header {
 
     // Hide thead on small devices
     @include media-breakpoint-down(sm) {
       display: none;
-    }
-
-    &-image {
-      //width: 100px;
-      //width: 140px;
-      width: 25%;
     }
 
     // Create card-header
@@ -74,19 +78,39 @@ WooCommerce Block Cart
       border-bottom: $card-border-width var(--#{$prefix}border-style) $card-border-color;
       font-weight: $headings-font-weight;
 
+      /*
+      &:first-child {
+        //padding-left: $card-cap-padding-x;
+        width: 100px;
+      }
+*/
+
+      /*
+      &:last-child {
+        padding-right: $card-cap-padding-x;
+        text-align: right;
+        width: 100px;
+      }
+        */
+
     }
 
+    // first-child
+    &-image {
+      width: 100px;
+
+      @include media-breakpoint-up(md) {
+        width: 150px;
+      }
+    }
+
+    // last-child
     &-total {
-      padding-right: 1rem;
+      width: 100px;
+      padding-right: $card-cap-padding-x;
       text-align: right;
     }
   }
-
-
-
-
-
-
 
   &__row td {
     position: relative;
@@ -102,8 +126,7 @@ WooCommerce Block Cart
 
 
 
-
-
+// Items
 
 .wc-block-cart-item {
 
@@ -114,13 +137,6 @@ WooCommerce Block Cart
     padding-bottom: $card-spacer-y;
     padding-left: $card-spacer-x;
   }
-
-  /*
-  &__image,
-  &__product {
-    padding-left: $card-spacer-x;
-  }
-  */
 
   &__total {
     padding-right: $card-spacer-x;
@@ -145,23 +161,9 @@ WooCommerce Block Cart
 
   &__total {
 
-    // price width
-    white-space: nowrap;
-
     .price {
       font-weight: 700;
-      //display: block;
-
-      // Total amount width
-      span {
-        display: block;
-      }
-    }
-
-    @include media-breakpoint-down(md) {
-      .wc-block-components-sale-badge {
-        display: none;
-      }
+      display: block;
     }
   }
 
@@ -176,40 +178,20 @@ WooCommerce Block Cart
   &__total {
     //background: beige;
   }
+
 }
 
 
+.wc-block-components-product-metadata__description {
+  font-size: $small-font-size;
+  color: var(--#{$prefix}gray-600);
 
-.is-mobile table.wc-block-cart-items:not(.wc-block-mini-cart-items) .wc-block-cart-items__row {
-  position: relative;
+  p {
+    //margin-bottom: 0;
+  }
+
+
 }
-
-.is-mobile table.wc-block-cart-items .wc-block-cart-items__row {
-  display: grid;
-  grid-template-columns: 80px 132px;
-  //padding: 16px 0;
-}
-
-.is-mobile table.wc-block-cart-items .wc-block-cart-items__row .wc-block-cart-item__image {
-  grid-column-start: 1;
-  grid-row-start: 1;
-  //padding-right: 16px;
-}
-
-
-.is-mobile table.wc-block-cart-items .wc-block-cart-items__row .wc-block-cart-item__product {
-  grid-column-end: 4;
-  grid-column-start: 2;
-  grid-row-start: 1;
-  justify-self: stretch;
-  //padding: 0 16px 16px 0;
-}
-
-.is-mobile table.wc-block-cart-items .wc-block-cart-items__row .wc-block-cart-item__total {
-  grid-row-start: 1;
-}
-
-
 
 
 // Panel button
