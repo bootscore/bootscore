@@ -9,7 +9,7 @@ WooCommerce Block Buttons
 .wc-block-components-product-button__button,
 // Add to cart button
 .wc-block-components-checkout-return-to-cart-button,
-.wc-block-cart-item__remove-link,
+//.wc-block-cart-item__remove-link,
 .wc-block-components-totals-coupon__button,
 .wc-block-components-shipping-calculator-address__button {
   display: inline-block;
@@ -61,6 +61,7 @@ WooCommerce Block Buttons
 
 
 //.btn-outline-danger
+/*
 .wc-block-cart-item__remove-link {
   color: var(--#{$prefix}danger);
   background-color: transparent;
@@ -71,6 +72,7 @@ WooCommerce Block Buttons
     background-color: var(--#{$prefix}danger);
   }
 }
+*/
 
 
 // Panel buttons, used in totals
