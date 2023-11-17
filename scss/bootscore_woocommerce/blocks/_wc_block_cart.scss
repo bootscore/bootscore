@@ -87,11 +87,18 @@ WooCommerce Block Cart
     //position: relative;
     //vertical-align: top;
     //padding: $list-group-item-padding-y 0 $list-group-item-padding-y $list-group-item-padding-x;
-
   }
 
   &__row:not(:last-child) td {
     border-bottom: $card-border-width var(--#{$prefix}border-style) $card-border-color;
+  }
+
+  // WooCommerce breakpoint is 400px
+  @media (max-width: 399px) {
+    &__row {
+      display: grid;
+      grid-template-columns: 80px 132px;
+    }
   }
 }
 
@@ -155,6 +162,25 @@ WooCommerce Block Cart
   &__total {
     //background: beige;
   }
+
+  // WooCommerce breakpoint is 400px
+  @media (max-width: 399px) {
+    &__image {
+      grid-column-start: 1;
+      grid-row-start: 1;
+    }
+
+    &__product {
+      grid-column-end: 4;
+      grid-column-start: 2;
+      grid-row-start: 1;
+      justify-self: stretch;
+    }
+
+    &__total {
+      grid-row-start: 1;
+    }
+  }
 }
 
 
@@ -185,12 +211,14 @@ WooCommerce Block Cart
 }
 */
 
+/*
 @media (max-width: 399px) {
+  
   .wc-block-cart-items__row {
     display: grid;
     grid-template-columns: 80px 132px;
   }
-
+  
   .wc-block-cart-item__image {
     grid-column-start: 1;
     grid-row-start: 1;
@@ -208,7 +236,7 @@ WooCommerce Block Cart
     grid-row-start: 1;
   }
 }
-
+*/
 
 
 
