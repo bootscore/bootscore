@@ -34,9 +34,6 @@ WooCommerce Block Cart
 }
 
 
-
-
-
 // Cart table
 .wc-block-cart-items {
 
@@ -83,12 +80,6 @@ WooCommerce Block Cart
     }
   }
 
-  &__row td {
-    //position: relative;
-    //vertical-align: top;
-    //padding: $list-group-item-padding-y 0 $list-group-item-padding-y $list-group-item-padding-x;
-  }
-
   &__row:not(:last-child) td {
     border-bottom: $card-border-width var(--#{$prefix}border-style) $card-border-color;
   }
@@ -101,9 +92,6 @@ WooCommerce Block Cart
     }
   }
 }
-
-
-
 
 
 // Cart items
@@ -126,7 +114,6 @@ WooCommerce Block Cart
     }
   }
 
-
   &__total {
     padding-right: $card-spacer-x;
     text-align: right;
@@ -136,7 +123,6 @@ WooCommerce Block Cart
 
     .price {
       font-weight: 700;
-      //display: block;
 
       // Total amount width
       span {
@@ -149,18 +135,6 @@ WooCommerce Block Cart
         display: none;
       }
     }
-  }
-
-  &__image {
-    //background: burlywood;
-  }
-
-  &__product {
-    //background: antiquewhite;
-  }
-
-  &__total {
-    //background: beige;
   }
 
   // WooCommerce breakpoint is 400px
@@ -186,57 +160,6 @@ WooCommerce Block Cart
 
 
 
-/*
-// .is-mobile breakpoint 400
-.is-mobile table.wc-block-cart-items .wc-block-cart-items__row {
-  display: grid;
-  grid-template-columns: 80px 132px;
-}
-
-.is-mobile table.wc-block-cart-items .wc-block-cart-items__row .wc-block-cart-item__image {
-  grid-column-start: 1;
-  grid-row-start: 1;
-}
-
-
-.is-mobile table.wc-block-cart-items .wc-block-cart-items__row .wc-block-cart-item__product {
-  grid-column-end: 4;
-  grid-column-start: 2;
-  grid-row-start: 1;
-  justify-self: stretch;
-}
-
-.is-mobile table.wc-block-cart-items .wc-block-cart-items__row .wc-block-cart-item__total {
-  grid-row-start: 1;
-}
-*/
-
-/*
-@media (max-width: 399px) {
-  
-  .wc-block-cart-items__row {
-    display: grid;
-    grid-template-columns: 80px 132px;
-  }
-  
-  .wc-block-cart-item__image {
-    grid-column-start: 1;
-    grid-row-start: 1;
-  }
-
-
-  .wc-block-cart-item__product {
-    grid-column-end: 4;
-    grid-column-start: 2;
-    grid-row-start: 1;
-    justify-self: stretch;
-  }
-
-  .wc-block-cart-item__total {
-    grid-row-start: 1;
-  }
-}
-*/
 
 
 

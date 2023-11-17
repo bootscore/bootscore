@@ -32,7 +32,6 @@ function disable_wp_blocks() {
         'wc-blocks-style-customer-account',
         'wc-blocks-style-featured-category',
         'wc-blocks-style-featured-product',
-        'wc-blocks-style-mini-cart',
         'wc-blocks-style-price-filter',
         'wc-blocks-style-product-add-to-cart',
         'wc-blocks-style-product-button',
@@ -56,7 +55,8 @@ function disable_wp_blocks() {
         'wc-blocks-style-stock-filter',
         'wc-blocks-style-cart',
         'wc-blocks-style-checkout',
-        'wc-blocks-style-mini-cart-contents',
+        //'wc-blocks-style-mini-cart',
+        //'wc-blocks-style-mini-cart-contents',
         'classic-theme-styles-inline'
     );
 

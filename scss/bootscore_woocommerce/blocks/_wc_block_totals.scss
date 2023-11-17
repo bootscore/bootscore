@@ -6,7 +6,7 @@ WooCommerce Block Totals, used in cart and checkout
 .wc-block-components {
 
   &-totals-coupon,
-  &-totals-item,
+  &-totals-item:not(.wc-block-mini-cart__drawer .wc-block-components-totals-item),
   // Shipping
   &-totals-shipping__fieldset,
   &-shipping-calculator-address {
@@ -27,8 +27,6 @@ WooCommerce Block Totals, used in cart and checkout
 
     &__description {
       width: 100%;
-      //font-size: $small-font-size;
-      //font-size: small;
       font-size: $font-size-base * .875; // $small-font-size has issues with shipping name
       color: var(--#{$prefix}gray-600);
     }
