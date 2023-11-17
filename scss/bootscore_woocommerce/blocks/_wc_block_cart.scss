@@ -115,8 +115,18 @@ WooCommerce Block Cart
   }
 
   &__product {
+    
+    /*
     .wc-block-components-quantity-selector {
       margin-bottom: $spacer;
+    }
+    */
+
+    .wc-block-components-product-details {
+      list-style: none;
+      padding-left: 0;
+      font-size: $font-size-base * .825;
+      color: var(--#{$prefix}gray-600);
     }
   }
 
@@ -130,8 +140,8 @@ WooCommerce Block Cart
       // Trash icon
       content: ' ';
       position: absolute;
-      top: 0;
       left: 0;
+      bottom: 0;
       width: $font-size-base;
       height: $font-size-base;
       background-color: var(--#{$prefix}danger);
@@ -166,6 +176,8 @@ WooCommerce Block Cart
       }
     }
   }
+
+
 
   // WooCommerce breakpoint is 400px
   @media (max-width: 399px) {
