@@ -103,3 +103,43 @@ WooCommerce Block Buttons
     color: var(--#{$prefix}gray-600);
   }
 }
+
+
+
+// Cart proceed to checkout & checkout submit btn
+
+.wc-block-cart__submit-button,
+.wc-block-components-checkout-place-order-button {
+
+  // .btn-lg
+  padding: $btn-padding-y-lg $btn-padding-x-lg;
+  font-size: $btn-font-size-lg;
+  border-radius: $btn-border-radius-lg;
+
+  width: 100%;
+  margin-bottom: $spacer;
+
+  // Loading
+  &:disabled {
+
+    
+    .wc-block-components-button__text {
+      display: none;
+    }
+
+    &::before {
+      content: '';
+
+      // Spinner
+      display: inline-block;
+      width: $spinner-width-sm;
+      height: $spinner-width-sm;
+      //vertical-align: $spinner-vertical-align;
+      border: $spinner-border-width-sm solid currentColor;
+      border-right-color: transparent;
+      border-radius: 50%;
+      -webkit-animation: $spinner-animation-speed linear infinite spinner-border;
+      animation: $spinner-animation-speed linear infinite spinner-border;
+    }
+  }
+}

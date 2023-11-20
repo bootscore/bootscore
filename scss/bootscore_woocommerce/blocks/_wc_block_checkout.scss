@@ -81,6 +81,12 @@ WooCommerce Block Checkout
     &-formatted-money-amount {
       font-weight: 700;
     }
+    
+    &-shipping-rates-control__package:not(:last-child) {
+      padding-bottom: $spacer;
+      margin-bottom: $spacer;
+      border-bottom: var(--#{$prefix}border-width) var(--#{$prefix}border-style) var(--#{$prefix}border-color);
+    }
   }
 }
 
@@ -282,13 +288,13 @@ WooCommerce Block Checkout
 
 
 .wc-block-checkout__actions_row {
-  display: flex;
+  //display: flex;
 
   .wc-block-components-checkout-return-to-cart-button {
-    margin-right: $spacer * .5;
+    //margin-right: $spacer * .5;
 
     svg {
-      display: none; // hide arrow
+      //display: none; // hide arrow
     }
   }
 
@@ -296,6 +302,7 @@ WooCommerce Block Checkout
     display: none;
   }
 
+  /*
   .wc-block-components-checkout-place-order-button {
     flex-grow: 1;
     padding: $btn-padding-y-lg $btn-padding-x-lg;
@@ -309,4 +316,5 @@ WooCommerce Block Checkout
       background-color: red;
     }
   }
+  */
 }

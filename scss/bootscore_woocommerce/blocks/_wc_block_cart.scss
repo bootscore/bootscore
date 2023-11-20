@@ -232,21 +232,9 @@ WooCommerce Block Cart
 
 .wc-block-cart {
 
+  /*
   // Proceed to checkout btn lg
   &__submit-button {
-
-    /*
-    // Create an loading spinner
-    &::before {
-      content: 'test';
-      display: none;
-      //width: $spinner-width;
-      //height: $spinner-height;
-      //vertical-align: $spinner-vertical-align;
-      //border-width: $spinner-border-width;
-      //animation: spinner-border;
-    }
-    */
 
     width: 100%;
     padding: $btn-padding-y-lg $btn-padding-x-lg;
@@ -260,6 +248,7 @@ WooCommerce Block Cart
       background-color: red;
     }
   }
+  */
 
   // Hide sticky proceed to checkout button
   &__submit-container--sticky {
