@@ -55,9 +55,6 @@ WooCommerce Block Checkout
 
 .wc-block-components-checkout-step {
 
-  //margin-bottom: $spacer;
-
-  //&__container {
   &__content {
     position: relative;
     padding-left: $spacer;
@@ -71,7 +68,28 @@ WooCommerce Block Checkout
       border-left: var(--#{$prefix}border-width) var(--#{$prefix}border-style) var(--#{$prefix}border-color);
     }
   }
+
+  // Shipping
+  .wc-block-components {
+
+    &-radio-control__label-group {
+      display: flex;
+      justify-content: space-between;
+      flex-grow: 1;
+    }
+
+    &-formatted-money-amount {
+      font-weight: 700;
+    }
+  }
 }
+
+
+// Hide shipping address field (link does not work)
+.wc-block-components-address-card-wrapper {
+  display: none;
+}
+
 
 // Payment
 .wc-block-checkout__payment-method {
@@ -244,77 +262,9 @@ WooCommerce Block Checkout
       }
     }
   }
-
-
-  /*
-  &-item {
-    //@extend .list-group-item;
-    border-top: $card-border-width $border-style $card-border-color;
-    display: flex;
-    padding: $card-spacer-y $card-spacer-x;
-
-    // Summary cart image
-    &__image {
-      position: relative;
-      margin-right: $spacer;
-      width: 25%;
-      //padding-top: $card-spacer-y;
-      //padding-right: $card-spacer-x;
-      //padding-bottom: $card-spacer-y;
-      //padding-left: $card-spacer-x;
-
-      img {
-        border-radius: var(--#{$prefix}border-radius);
-        //width: 48px;
-        //max-width: 48px;
-      }
-    }
-
-    // Summary cart badge
-    &__quantity {
-      border-radius: var(--#{$prefix}border-radius-pill);
-
-
-      position: absolute;
-      top: 0;
-      left: 100%;
-      transform: translate(-50%, -50%);
-
-    }
-
-    &__description {
-      //padding-top: $card-spacer-y;
-      //padding-bottom: $card-spacer-y;
-      padding-right: $card-spacer-x;
-      width: 50%;
-
-      .wc-block-components-product-name {
-        display: block;
-        font-weight: 700;
-      }
-
-      p {
-        margin-bottom: 0;
-        //font-size: $small-font-size;
-      }
-    }
-
-    &__individual-price {
-      //display: block;
-    }
-
-    &__total-price {
-      text-align: right;
-      //margin-left: auto;
-      font-weight: 700;
-      width: 25%;
-    }
-
-  }
-  */
-
-
 }
+
+
 
 
 
@@ -352,5 +302,11 @@ WooCommerce Block Checkout
     font-size: $btn-font-size-lg;
     border-radius: $btn-border-radius-lg;
     margin-bottom: $spacer;
+
+    // Loading
+    &:disabled {
+      //display: block; // ::before
+      background-color: red;
+    }
   }
 }
