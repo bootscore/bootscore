@@ -115,7 +115,7 @@ WooCommerce Block Cart
   }
 
   &__product {
-    
+
     /*
     .wc-block-components-quantity-selector {
       margin-bottom: $spacer;
@@ -341,7 +341,7 @@ WooCommerce Block Cart
     font-size: $font-size-base * 1.25;
 
     // .stretched-link
-      &:not(.add_to_cart_button):after {
+    &:not(.add_to_cart_button):after {
       content: '';
       position: absolute;
       top: 0;
@@ -350,7 +350,7 @@ WooCommerce Block Cart
       left: 0;
       z-index: 1;
     }
-      
+
   }
 }
 

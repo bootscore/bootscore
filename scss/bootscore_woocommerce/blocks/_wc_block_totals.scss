@@ -33,7 +33,11 @@ WooCommerce Block Totals, used in cart and checkout
   }
 
 
-  // Shipping
+  // Shipping  
+  &-panel:not(:last-child) {
+    margin-bottom: $list-group-item-padding-y;
+  }
+
   &-radio-control {
     &__option-layout {
       display: flex;
