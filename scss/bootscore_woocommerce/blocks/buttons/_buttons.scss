@@ -7,9 +7,7 @@ WooCommerce Block Buttons
 .wc-block-cart__submit-button,
 .wc-block-components-checkout-place-order-button,
 .wc-block-components-product-button__button,
-// Add to cart button
 .wc-block-components-checkout-return-to-cart-button,
-//.wc-block-cart-item__remove-link,
 .wc-block-components-totals-coupon__button,
 .wc-block-components-shipping-calculator-address__button {
   display: inline-block;
@@ -41,6 +39,7 @@ WooCommerce Block Buttons
     color: var(--#{$prefix}white);
     background-color: #{shade-color($primary, 10%)};
     border-color: #{shade-color($primary, 10%)};
+    text-decoration: none; // Cart proceed to checkout a.btn
   }
 }
 
@@ -122,7 +121,7 @@ WooCommerce Block Buttons
   // Loading
   &:disabled {
 
-    
+
     .wc-block-components-button__text {
       display: none;
     }

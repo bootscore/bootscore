@@ -340,9 +340,8 @@ WooCommerce Block Cart
     color: var(--#{$prefix}body-color);
     font-size: $font-size-base * 1.25;
 
-
     // .stretched-link
-    &::after {
+      &:not(.add_to_cart_button):after {
       content: '';
       position: absolute;
       top: 0;
@@ -351,6 +350,7 @@ WooCommerce Block Cart
       left: 0;
       z-index: 1;
     }
+      
   }
 }
 
