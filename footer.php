@@ -31,28 +31,28 @@ defined( 'ABSPATH' ) || exit;
       <div class="row">
 
         <!-- Footer 1 Widget -->
-        <div class="col-md-6 col-lg-3">
+        <div class="col-6 col-lg-3">
           <?php if (is_active_sidebar('footer-1')) : ?>
             <?php dynamic_sidebar('footer-1'); ?>
           <?php endif; ?>
         </div>
 
         <!-- Footer 2 Widget -->
-        <div class="col-md-6 col-lg-3">
+        <div class="col-6 col-lg-3">
           <?php if (is_active_sidebar('footer-2')) : ?>
             <?php dynamic_sidebar('footer-2'); ?>
           <?php endif; ?>
         </div>
 
         <!-- Footer 3 Widget -->
-        <div class="col-md-6 col-lg-3">
+        <div class="col-6 col-lg-3">
           <?php if (is_active_sidebar('footer-3')) : ?>
             <?php dynamic_sidebar('footer-3'); ?>
           <?php endif; ?>
         </div>
 
         <!-- Footer 4 Widget -->
-        <div class="col-md-6 col-lg-3">
+        <div class="col-6 col-lg-3">
           <?php if (is_active_sidebar('footer-4')) : ?>
             <?php dynamic_sidebar('footer-4'); ?>
           <?php endif; ?>
