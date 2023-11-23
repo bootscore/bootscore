@@ -25,3 +25,16 @@ WooCommerce My Account Offcanvas
   }
 }
 */
+
+// form-login
+#offcanvas-user {
+  .woocommerce {
+    .col2-set {
+
+      .col-1,
+      .col-2 {
+        width: 100%;
+      }
+    }
+  }
+}
