@@ -2,6 +2,10 @@
 
 /**
  * Offcanvas Login / Registration and User Dashboard
+ *
+ * Deprecated, replaced by [woocommerce_my_account].
+ * File will be deleted in v6. File remains in place if user uses an old
+ * header.php or have edited offcanvas-woocommerce.php
  */
 
 if (!defined('ABSPATH')) {
