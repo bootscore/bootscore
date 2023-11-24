@@ -1,0 +1,19 @@
+/*--------------------------------------------------------------
+Tables
+--------------------------------------------------------------*/
+
+// Theme uses word-break: break-word; on body as recommended by WordPress to handle edge cases.
+// See https://dev.bootscore.me/2009/10/05/title-should-not-overflow-the-content-area/
+// As result, words break in tables and responsive tables aren't responsive.
+// Adding white-space: nowrap; to tables to each breakpoint solves this.
+@each $breakpoint in map-keys($grid-breakpoints) {
+  $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+
+  @include media-breakpoint-down($breakpoint) {
+    .table-responsive#{$infix} {
+      .table {
+        white-space: nowrap;
+      }
+    }
+  }
+}
