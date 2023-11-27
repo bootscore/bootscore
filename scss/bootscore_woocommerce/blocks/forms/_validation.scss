@@ -1,0 +1,43 @@
+/*--------------------------------------------------------------
+Form Validation
+--------------------------------------------------------------*/
+
+
+// temporary, make tooltips
+.wc-block-components-validation-error {
+  display: none;
+}
+
+
+.wc-block-components-text-input.has-error input {
+  border-color: var(--#{$prefix}form-invalid-border-color);
+  background-image: var(--invalid-icon);
+  background-repeat: no-repeat;
+  padding-right: $input-height-inner;
+  background-size: $input-height-inner-half $input-height-inner-half;
+  background-position: right $input-height-inner-quarter center;
+
+  &:focus {
+    box-shadow: 0 0 $input-btn-focus-blur $input-focus-width rgba(var(--#{$prefix}danger-rgb), $input-btn-focus-color-opacity);
+  }
+}
+
+
+/*
+.wc-block-components-text-input.is-active input {
+  border-color: var(--#{$prefix}form-valid-border-color);
+    background-image: var(--valid-icon);
+    background-repeat: no-repeat;
+          padding-right: $input-height-inner;
+      background-size: $input-height-inner-half $input-height-inner-half;
+    background-position: right $input-height-inner-quarter center;
+
+  &:focus {
+    box-shadow: 0 0 $input-btn-focus-blur $input-focus-width rgba(var(--#{$prefix}success-rgb), $input-btn-focus-color-opacity);
+  }
+}
+*/
+
+
+
+//border-color: var(--#{$prefix}form-valid-border-color)
