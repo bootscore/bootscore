@@ -36,7 +36,7 @@ WooCommerce Block Buttons
   border-color: var(--#{$prefix}primary);
 
   &:hover {
-    color: var(--#{$prefix}white);
+    color: color-contrast($primary);
     background-color: #{shade-color($primary, 10%)};
     border-color: #{shade-color($primary, 10%)};
     text-decoration: none; // Cart proceed to checkout a.btn
