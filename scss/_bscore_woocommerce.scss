@@ -34,6 +34,8 @@
 
 // Blocks
 @import "bootscore_woocommerce/blocks/wc_block_components";
-@import "bootscore_woocommerce/blocks/wc_block_totals";
-@import "bootscore_woocommerce/blocks/wc_block_cart";
+@import "bootscore_woocommerce/blocks/totals/wc_block_totals";
+@import "bootscore_woocommerce/blocks/totals/wc_block_totals_coupon";
+@import "bootscore_woocommerce/blocks/cart/wc_block_cart";
+@import "bootscore_woocommerce/blocks/cart/wc_block_cart_cross_sells";
 @import "bootscore_woocommerce/blocks/wc_block_checkout";

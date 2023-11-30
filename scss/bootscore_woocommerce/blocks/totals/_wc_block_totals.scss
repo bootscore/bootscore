@@ -16,42 +16,6 @@ WooCommerce Block Totals, used in cart and checkout
     padding: $list-group-item-padding-y $card-spacer-x;
   }
 
-
-  // Coupon
-  // create an input-group
-  &-totals-coupon {
-
-    &__form {
-      display: flex;
-      align-items: end;
-      margin-bottom: $spacer * .5;
-    }
-
-    &__input {
-      margin-bottom: 0;
-      width: auto;
-      flex-grow: 1;
-
-      input {
-        border-top-right-radius: 0;
-        border-bottom-right-radius: 0;
-      }
-    }
-
-    &__button {
-      border-top-left-radius: 0;
-      border-bottom-left-radius: 0;
-      margin-left: calc(#{$input-border-width} * -1);
-      //flex-grow: 1;
-    }
-  }
-
-  // Coupon btn loading 
-  &-button--loading {
-    //background-color: red !important;
-  }
-
-
   &-totals-item {
     display: flex;
     flex-wrap: wrap;
