@@ -2,9 +2,9 @@
 WooCommerce Block Totals, used in cart and checkout
 --------------------------------------------------------------*/
 
-// Create fake card for totals
 .wc-block-components {
 
+  // Create fake card for totals
   &-totals-coupon,
   &-totals-item:not(.wc-block-mini-cart__drawer .wc-block-components-totals-item),
   // Shipping
@@ -15,6 +15,35 @@ WooCommerce Block Totals, used in cart and checkout
     border-left: $card-border-width var(--#{$prefix}border-style) $card-border-color;
     padding: $list-group-item-padding-y $card-spacer-x;
   }
+
+
+  // Coupon
+  &-totals-coupon {
+
+    // create an input-group
+    &__form {
+      display: flex;
+      align-items: end;
+      margin-bottom: $spacer * .5;
+    }
+
+    &__input {
+      margin-bottom: 0;
+      width: auto;
+      flex-grow: 1;
+
+      input {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+      }
+    }
+
+    &__button {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+  }
+
 
   &-totals-item {
     display: flex;
