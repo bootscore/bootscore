@@ -91,11 +91,20 @@ WooCommerce Block Checkout
 }
 
 
+
+
 // Hide shipping address field (link does not work)
 .wc-block-components-address-card-wrapper {
   display: none;
 }
 
+
+// Margin bottom phone in billing
+.wc-block-checkout__billing-fields {
+  .wc-block-components-address-form__phone {
+    margin-bottom: 0;
+  }
+}
 
 // Payment
 .wc-block-checkout__payment-method {
