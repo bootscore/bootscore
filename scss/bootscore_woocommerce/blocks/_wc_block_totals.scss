@@ -18,9 +18,9 @@ WooCommerce Block Totals, used in cart and checkout
 
 
   // Coupon
+  // create an input-group
   &-totals-coupon {
 
-    // create an input-group
     &__form {
       display: flex;
       align-items: end;
@@ -41,7 +41,14 @@ WooCommerce Block Totals, used in cart and checkout
     &__button {
       border-top-left-radius: 0;
       border-bottom-left-radius: 0;
+      margin-left: calc(#{$input-border-width} * -1);
+      //flex-grow: 1;
     }
+  }
+
+  // Coupon btn loading 
+  &-button--loading {
+    //background-color: red !important;
   }
 
 

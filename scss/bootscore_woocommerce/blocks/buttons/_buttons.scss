@@ -142,3 +142,38 @@ WooCommerce Block Buttons
     }
   }
 }
+
+
+
+
+
+
+
+// Coupon btn
+.wc-block-components-button--loading {
+
+  // Loading
+  &:disabled {
+
+
+    .wc-block-components-button__text {
+      display: none;
+      //visibility: hidden;
+    }
+
+    &::before {
+      content: '';
+
+      // Spinner
+      display: inline-block;
+      width: $spinner-width-sm;
+      height: $spinner-width-sm;
+      vertical-align: $spinner-vertical-align;
+      border: $spinner-border-width-sm solid currentColor;
+      border-right-color: transparent;
+      border-radius: 50%;
+      -webkit-animation: $spinner-animation-speed linear infinite spinner-border;
+      animation: $spinner-animation-speed linear infinite spinner-border;
+    }
+  }
+}
