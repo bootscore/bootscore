@@ -118,7 +118,8 @@ WooCommerce Cart
   // Proceed to checkout btn
   .wc-proceed-to-checkout a.checkout-button {
     //@extend .btn-lg;
-    display: block;
+    //display: block;
+    width: 100%
   }
 }
 
