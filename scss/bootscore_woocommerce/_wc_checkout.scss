@@ -17,7 +17,7 @@ WooCommerce Checkout
 
 // Create account
 #createaccount {
-  @extend .form-check-input;
+  //@extend .form-check-input;
 }
 
 // Create account password icon
@@ -35,11 +35,11 @@ WooCommerce Checkout
   margin-bottom: $spacer;
 
   label {
-    @extend .form-check-label;
+    //@extend .form-check-label;
   }
 
   input {
-    @extend .form-check-input;
+    //@extend .form-check-input;
   }
 }
 
@@ -47,7 +47,7 @@ WooCommerce Checkout
 // Order notes
 .woocommerce form .form-row textarea {
   height: $spacer *7;
-  @extend .form-control;
+  //@extend .form-control;
 }
 
 
@@ -79,11 +79,11 @@ WooCommerce Checkout
     li {
       line-height: inherit;
       padding-left: 0;
-      @extend .form-check;
+      //@extend .form-check;
 
       // Adjust payment method checkboxes
       input {
-        @extend .form-check-input;
+        //@extend .form-check-input;
         margin-right: $form-check-input-width * .5;
         margin-left: 0;
       }
@@ -123,7 +123,7 @@ WooCommerce Checkout
 
   // Place order button
   #place_order {
-    @extend .btn-lg;
+    //@extend .btn-lg;
     width: 100%;
     margin-bottom: 0 !important; // In case aggregated CSS (Autoptimize)
   }
@@ -152,7 +152,7 @@ WooCommerce Checkout
   padding-left: 0;
 
   li {
-    @extend .form-check;
+    //@extend .form-check;
     padding-left: 0;
 
     input {
@@ -165,7 +165,7 @@ WooCommerce Checkout
     }
 
     label {
-      @extend .form-check-label;
+      //@extend .form-check-label;
     }
   }
 }
@@ -184,10 +184,10 @@ WooCommerce Checkout
 
 // Save payment information check
 .form-row.woocommerce-SavedPaymentMethods-saveNew.woocommerce-validated {
-  @extend .form-check;
+  //@extend .form-check;
 
   input {
-    @extend .form-check-input;
+    //@extend .form-check-input;
     width: $form-check-input-width !important; // Override inline-style
   }
 }
@@ -197,12 +197,12 @@ WooCommerce Checkout
 .woocommerce form .form-row {
 
   label.checkbox {
-    @extend .form-check;
+    //@extend .form-check;
     display: inline-block;
   }
 
   .input-checkbox {
-    @extend .form-check-input;
+    //@extend .form-check-input;
   }
 }
 

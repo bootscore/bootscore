@@ -97,14 +97,14 @@ WooCommerce Cart
   }
 
   .coupon {
-    @extend .input-group;
+    //@extend .input-group;
 
     input {
-      @extend .form-control;
+      //@extend .form-control;
     }
 
     button {
-      @extend .input-group-text;
+      //@extend .input-group-text;
     }
   }
 
@@ -117,7 +117,7 @@ WooCommerce Cart
 
   // Proceed to checkout btn
   .wc-proceed-to-checkout a.checkout-button {
-    @extend .btn-lg;
+    //@extend .btn-lg;
     display: block;
   }
 }

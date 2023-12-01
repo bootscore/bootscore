@@ -19,12 +19,12 @@ WooCommerce Form Login
 
   // Remember me checkbox
   .woocommerce-form-login .woocommerce-form-login__rememberme {
-    @extend .form-check;
+    //@extend .form-check;
     display: block;
     margin-bottom: $spacer;
 
     #rememberme {
-      @extend .form-check-input;
+      //@extend .form-check-input;
     }
   }
 }

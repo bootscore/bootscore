@@ -11,15 +11,15 @@ WooCommerce Buttons
   button.button,
   input.button,
   a.button.alt:not(a.checkout-button) {
-    @extend .btn;
-    @extend .btn-outline-primary;
+    //@extend .btn;
+    //@extend .btn-outline-primary;
   }
 }
 
 // Table buttons
 .woocommerce .shop_table a.button,
 .woocommerce .shop_table a.woocommerce-MyAccount-downloads-file.button.alt {
-  @extend .btn-sm;
+  //@extend .btn-sm;
 }
 
 // Add to cart buttons
@@ -27,6 +27,6 @@ WooCommerce Buttons
 .woocommerce div.product form.cart button.button,
 .woocommerce-cart .wc-proceed-to-checkout a.checkout-button,
 #place_order {
-  @extend .btn;
-  @extend .btn-primary;
+  //@extend .btn;
+  //@extend .btn-primary;
 }
