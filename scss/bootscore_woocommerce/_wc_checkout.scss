@@ -86,6 +86,7 @@ WooCommerce Checkout
         //@extend .form-check-input;
         margin-right: $form-check-input-width * .5;
         margin-left: 0;
+        margin-top: $form-check-input-width * .25;
       }
 
       &:last-child div.payment_box {
