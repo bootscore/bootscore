@@ -7,18 +7,11 @@ WooCommerce Forms
   padding: 0;
   margin: 0 0 $spacer;
 
-  input.input-text,
-  .form-row textarea {
-    //@extend .form-control;
-  }
-
   label {
     line-height: 1.5;
-    // Default Bootstrap label margin-bottom
-    //margin-bottom: $form-label-margin-bottom;
+    margin-bottom: $form-label-margin-bottom;
   }
 }
-
 
 
 // Show password icon
@@ -98,7 +91,8 @@ WooCommerce Forms
 }
 
 .checkbox,
-.woocommerce-form-login__rememberme {
+.woocommerce-form-login__rememberme,
+.woocommerce-SavedPaymentMethods-saveNew {
   display: block;
   min-height: $form-check-min-height;
   padding-left: $form-check-padding-start;

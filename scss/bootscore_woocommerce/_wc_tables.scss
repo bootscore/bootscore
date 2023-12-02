@@ -20,7 +20,7 @@ WooCommerce Tables
 
   &.shop_attributes td,
   &.shop_attributes th {
-    border-bottom: 1px solid green !important;
+    border-bottom: $table-border-width solid $table-border-color;
   }
 }
 

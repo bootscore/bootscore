@@ -16,7 +16,7 @@ WooCommerce Loop
 
   // Product title
   .woocommerce-loop-product__title {
-    //@extend .h5;
+    font-size: $font-size-base * 1.25;
   }
 
   // Star ratings

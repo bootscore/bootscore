@@ -15,11 +15,6 @@ WooCommerce Checkout
 }
 
 
-// Create account
-#createaccount {
-  //@extend .form-check-input;
-}
-
 // Create account password icon
 #account_password {
   background-position: right $spacer * 2.25 center;
@@ -28,26 +23,16 @@ WooCommerce Checkout
 
 // /checkout/form-shipping.php
 #ship-to-different-address {
-  //@extend .form-check;
   font-size: var(--#{$prefix}body-font-size);
   font-weight: normal;
   line-height: $line-height-base;
   margin-bottom: $spacer;
-
-  label {
-    //@extend .form-check-label;
-  }
-
-  input {
-    //@extend .form-check-input;
-  }
 }
 
 
 // Order notes
 .woocommerce form .form-row textarea {
   height: $spacer *7;
-  //@extend .form-control;
 }
 
 
@@ -79,11 +64,9 @@ WooCommerce Checkout
     li {
       line-height: inherit;
       padding-left: 0;
-      //@extend .form-check;
 
       // Adjust payment method checkboxes
       input {
-        //@extend .form-check-input;
         margin-right: $form-check-input-width * .5;
         margin-left: 0;
         margin-top: $form-check-input-width * .25;
@@ -124,7 +107,6 @@ WooCommerce Checkout
 
   // Place order button
   #place_order {
-    //@extend .btn-lg;
     width: 100%;
     margin-bottom: 0 !important; // In case aggregated CSS (Autoptimize)
   }
@@ -133,7 +115,7 @@ WooCommerce Checkout
 
 // Adjust checkboxes
 .woocommerce form .form-row .input-checkbox {
-  margin-left: -$spacer * 1.5 !important;
+  margin-left: $form-check-padding-start * -1 !important;
 }
 
 
@@ -153,20 +135,14 @@ WooCommerce Checkout
   padding-left: 0;
 
   li {
-    //@extend .form-check;
     padding-left: 0;
 
     input {
-      @extend .form-check-input;
       width: $form-check-input-width !important; // Override inline-style
       margin-top: ($line-height-base - $form-check-input-width) * .5 !important;
       margin-right: $form-check-input-width * .5 !important;
       margin-bottom: 0 !important;
       margin-left: 0 !important;
-    }
-
-    label {
-      //@extend .form-check-label;
     }
   }
 }
@@ -185,11 +161,17 @@ WooCommerce Checkout
 
 // Save payment information check
 .form-row.woocommerce-SavedPaymentMethods-saveNew.woocommerce-validated {
-  //@extend .form-check;
 
   input {
-    //@extend .form-check-input;
     width: $form-check-input-width !important; // Override inline-style
+  }
+}
+
+// Stripe saved credit cards
+.woocommerce-SavedPaymentMethods-saveNew {
+  label{
+    padding-left: $form-check-padding-start;
+    display: block !important; // Override inline-style
   }
 }
 
@@ -198,12 +180,7 @@ WooCommerce Checkout
 .woocommerce form .form-row {
 
   label.checkbox {
-    //@extend .form-check;
     display: inline-block;
-  }
-
-  .input-checkbox {
-    //@extend .form-check-input;
   }
 }
 
