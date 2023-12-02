@@ -152,8 +152,11 @@ WooCommerce Forms
 
 
 // Radios
-ul.wc_payment_methods.payment_methods.methods li {
+ul.wc_payment_methods.payment_methods.methods li,
+.woocommerce-shipping-methods li,
+.shipping.recurring-total ul {
 
+  font-weight: normal;
   display: block;
   min-height: $form-check-min-height;
   padding-left: $form-check-padding-start;
@@ -210,5 +213,24 @@ ul.wc_payment_methods.payment_methods.methods li {
         }
       }
     }
+  }
+}
+
+
+// Reset WC shipping CSS
+.woocommerce ul#shipping_method li {
+  margin: 0;
+  line-height: inherit;
+  padding-left: 0;
+}
+
+// Reset subscription shipping CSS
+.shipping.recurring-total ul {
+  padding-left: 0;
+
+  li {
+    margin: 0;
+    padding: 0;
+    text-indent: 0;
   }
 }
