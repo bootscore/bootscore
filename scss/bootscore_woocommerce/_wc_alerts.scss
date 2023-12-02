@@ -12,34 +12,34 @@ WooCommerce Alerts
 
 // Add alert styles to WooCommerce notices
 .woocommerce-error {
-  //@extend .alert;
-  //@extend .alert-danger;
-  //@extend .alert-icon;
-  //@extend .alert-danger-icon;
+  @extend .alert;
+  @extend .alert-danger;
+  @extend .alert-icon;
+  @extend .alert-danger-icon;
 }
 
 .woocommerce-info,
 .woocommerce-noreviews {
-  //@extend .alert;
-  //@extend .alert-info;
-  //@extend .alert-icon;
-  //@extend .alert-info-icon;
+  @extend .alert;
+  @extend .alert-info;
+  @extend .alert-icon;
+  @extend .alert-info-icon;
 }
 
 .woocommerce-message,
 .woocommerce-thankyou-order-details {
-  //@extend .alert;
-  //@extend .alert-success;
-  //@extend .alert-icon;
-  //@extend .alert-success-icon;
+  @extend .alert;
+  @extend .alert-success;
+  @extend .alert-icon;
+  @extend .alert-success-icon;
 }
 
 // Add alert to stripe notice
 .wc-stripe-error {
-  //@extend .alert;
-  //@extend .alert-danger;
-  //@extend .alert-icon;
-  //@extend .alert-danger-icon;
+  @extend .alert;
+  @extend .alert-danger;
+  @extend .alert-icon;
+  @extend .alert-danger-icon;
   margin-top: $spacer;
 }
 
