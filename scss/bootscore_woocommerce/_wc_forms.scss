@@ -82,6 +82,12 @@ WooCommerce Forms
 }
 
 
+// Fix textarea focus
+.woocommerce form .form-row textarea {
+  &:focus {
+    box-shadow: $input-focus-box-shadow;
+  }
+}
 
 
 // Checks

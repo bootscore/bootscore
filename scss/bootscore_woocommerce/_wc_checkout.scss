@@ -263,20 +263,17 @@ WooCommerce Checkout
     }
 
     // Terms & Conditions checkbox
-    .woocommerce-form__label-for-checkbox {
+    input#terms {
+      border-color: var(--#{$prefix}form-valid-color);
+      background-color: var(--#{$prefix}form-valid-color);
 
-      .woocommerce-terms-and-conditions-checkbox-text {
-        color: var(--#{$prefix}form-valid-color);
+      &:focus {
+        box-shadow: 0 0 $input-btn-focus-blur $input-focus-width rgba(var(--#{$prefix}success-rgb), $input-btn-focus-color-opacity);
       }
+    }
 
-      input {
-        border-color: var(--#{$prefix}form-valid-color);
-        background-color: var(--#{$prefix}form-valid-color);
-
-        &:focus {
-          box-shadow: 0 0 $input-btn-focus-blur $input-focus-width rgba(var(--#{$prefix}success-rgb), $input-btn-focus-color-opacity);
-        }
-      }
+    .woocommerce-terms-and-conditions-checkbox-text {
+      color: var(--#{$prefix}form-valid-color);
     }
   }
 
