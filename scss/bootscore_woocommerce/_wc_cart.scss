@@ -87,6 +87,7 @@ WooCommerce Cart
   table.cart td.actions .coupon .input-text {
 
     // Override WooCommerce form CSS
+    float: none;
     margin: 0;
     padding: $input-padding-y $input-padding-x;
     border: $input-border-width solid $input-border-color;
@@ -97,14 +98,39 @@ WooCommerce Cart
   }
 
   .coupon {
-    //@extend .input-group;
+    // create .input-group
+    position: relative;
+    display: flex;
+    flex-wrap: wrap; // For form validation feedback
+    align-items: stretch;
+    width: 100%;
 
     input {
-      //@extend .form-control;
+      position: relative; // For focus state's z-index
+      flex: 1 1 auto;
+      width: 1%;
+      min-width: 0;
+
+      &:focus {
+        z-index: 5;
+      }
     }
 
     button {
-      //@extend .input-group-text;
+      // Create .input-group-text
+      display: flex;
+      align-items: center;
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    > :not(:last-child) {
+      @include border-end-radius(0);
+    }
+
+    > :not(:first-child) {
+      margin-left: calc(#{$input-border-width} * -1);
+      @include border-start-radius(0);
     }
   }
 
@@ -115,6 +141,7 @@ WooCommerce Cart
     }
   }
 
+  
   // Proceed to checkout btn
   .wc-proceed-to-checkout a.checkout-button {
     width: 100%
