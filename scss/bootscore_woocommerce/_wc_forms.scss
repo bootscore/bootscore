@@ -20,13 +20,13 @@ WooCommerce Forms
 }
 
 
-/*
+
 // Show password icon
 .woocommerce form .show-password-input,
 .woocommerce-page form .show-password-input {
-  top: 0.5em;
+  top: 0.4em;
 }
-*/
+
 
 
 // Reduce gap in horizontal forms
@@ -35,6 +35,7 @@ WooCommerce Forms
     width: 50%;
     padding-right: $spacer *.5;
   }
+
   .form-row-last {
     width: 50%;
     padding-left: $spacer *.5;
@@ -43,7 +44,6 @@ WooCommerce Forms
 
 
 // Add missing .form-control
-
 .input-text {
   display: block;
   width: 100%;
@@ -70,11 +70,93 @@ WooCommerce Forms
     background-color: $input-focus-bg;
     border-color: $input-focus-border-color;
     outline: 0;
+
     @if $enable-shadows {
       @include box-shadow($input-box-shadow, $input-focus-box-shadow);
-    } @else {
-      // Avoid using mixin so we can pass custom focus shadow properly
+    }
+
+    @else {
       box-shadow: $input-focus-box-shadow;
+    }
+  }
+}
+
+
+
+
+// Checks
+
+.woocommerce form .form-row .input-checkbox {
+  // Reset WC CSS
+  margin: .25em 0 0 0;
+}
+
+.checkbox {
+  display: block;
+  min-height: $form-check-min-height;
+  padding-left: $form-check-padding-start;
+  margin-bottom: $form-check-margin-bottom;
+
+  input {
+    float: left;
+    margin-left: $form-check-padding-start * -1;
+    
+    --#{$prefix}form-check-bg: #{$form-check-input-bg};
+
+    flex-shrink: 0;
+    width: $form-check-input-width;
+    height: $form-check-input-width;
+    margin-top: ($line-height-base - $form-check-input-width) * .5; // line-height minus check height
+    vertical-align: top;
+    appearance: none;
+    background-color: var(--#{$prefix}form-check-bg);
+    background-image: var(--#{$prefix}form-check-bg-image);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    border: $form-check-input-border;
+    print-color-adjust: exact; // Keep themed appearance for print
+    @include transition($form-check-transition);
+
+    &[type="checkbox"] {
+      @include border-radius($form-check-input-border-radius);
+    }
+
+    &:active {
+      filter: $form-check-input-active-filter;
+    }
+
+    &:focus {
+      border-color: $form-check-input-focus-border;
+      outline: 0;
+      box-shadow: $form-check-input-focus-box-shadow;
+    }
+
+    &:checked {
+      background-color: $form-check-input-checked-bg-color;
+      border-color: $form-check-input-checked-border-color;
+
+      &[type="checkbox"] {
+        @if $enable-gradients {
+          --#{$prefix}form-check-bg-image: #{escape-svg($form-check-input-checked-bg-image)},
+          var(--#{$prefix}gradient);
+        }
+
+        @else {
+          --#{$prefix}form-check-bg-image: #{escape-svg($form-check-input-checked-bg-image)};
+        }
+      }
+
+      &[type="radio"] {
+        @if $enable-gradients {
+          --#{$prefix}form-check-bg-image: #{escape-svg($form-check-radio-checked-bg-image)},
+          var(--#{$prefix}gradient);
+        }
+
+        @else {
+          --#{$prefix}form-check-bg-image: #{escape-svg($form-check-radio-checked-bg-image)};
+        }
+      }
     }
   }
 }

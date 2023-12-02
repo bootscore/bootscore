@@ -28,7 +28,7 @@ WooCommerce Checkout
 
 // /checkout/form-shipping.php
 #ship-to-different-address {
-  @extend .form-check;
+  //@extend .form-check;
   font-size: var(--#{$prefix}body-font-size);
   font-weight: normal;
   line-height: $line-height-base;
