@@ -91,7 +91,8 @@ WooCommerce Forms
   margin: .25em 0 0 0;
 }
 
-.checkbox {
+.checkbox,
+.woocommerce-form-login__rememberme {
   display: block;
   min-height: $form-check-min-height;
   padding-left: $form-check-padding-start;
