@@ -95,6 +95,10 @@ WooCommerce Cart
     // Add border-radius to form because first hidden item inside the input-group is the label
     border-top-left-radius: $input-border-radius !important;
     border-bottom-left-radius: $input-border-radius !important;
+    
+    &:focus {
+      box-shadow: $input-focus-box-shadow;
+    }
   }
 
   .coupon {
