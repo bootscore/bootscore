@@ -37,7 +37,8 @@ WooCommerce Forms
 
 
 // Add missing .form-control
-.input-text {
+.woocommerce form .form-row input.input-text, 
+.woocommerce form .form-row textarea {
   display: block;
   width: 100%;
   padding: $input-padding-y $input-padding-x;
