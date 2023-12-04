@@ -11,7 +11,8 @@ WooCommerce Buttons
 .woocommerce button.button.alt,
 .woocommerce a.button,
 .woocommerce a.button-alt,
-.woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) #respond input#submit {
+.woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) #respond input#submit,
+:where(body:not(.woocommerce-block-theme-has-button-styles)) .woocommerce a.button {
   display: inline-block;
   text-align: center;
   vertical-align: middle;
@@ -50,7 +51,8 @@ WooCommerce Buttons
 // .btn-primary
 .woocommerce div.product form.cart .button,
 .woocommerce-cart .wc-proceed-to-checkout a.checkout-button,
-.woocommerce button.button.alt {
+.woocommerce button.button.alt,
+:where(body:not(.woocommerce-block-theme-has-button-styles)) .woocommerce a.button {
   color: color-contrast($primary);
   background-color: var(--#{$prefix}primary);
   border-color: var(--#{$prefix}primary);
