@@ -10,7 +10,8 @@ WooCommerce Buttons
 .woocommerce-cart .wc-proceed-to-checkout a.checkout-button,
 .woocommerce button.button.alt,
 .woocommerce a.button,
-.woocommerce a.button-alt {
+.woocommerce a.button-alt,
+.woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) #respond input#submit {
   display: inline-block;
   text-align: center;
   vertical-align: middle;
@@ -65,7 +66,8 @@ WooCommerce Buttons
 //.btn-outline-primary
 .woocommerce button.button,
 .woocommerce .shop_table a.button,
-.woocommerce .shop_table a.woocommerce-MyAccount-downloads-file.button.alt {
+.woocommerce .shop_table a.woocommerce-MyAccount-downloads-file.button.alt,
+.woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) #respond input#submit {
   color: var(--#{$prefix}primary);
   background-color: transparent;
   border-color: var(--#{$prefix}primary);

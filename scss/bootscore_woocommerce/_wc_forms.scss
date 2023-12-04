@@ -37,7 +37,7 @@ WooCommerce Forms
 
 
 // Add missing .form-control
-.woocommerce form .form-row input.input-text, 
+.woocommerce form .form-row input.input-text,
 .woocommerce form .form-row textarea {
   display: block;
   width: 100%;
@@ -76,10 +76,20 @@ WooCommerce Forms
 }
 
 
-// Fix textarea focus
-.woocommerce form .form-row textarea {
-  &:focus {
-    box-shadow: $input-focus-box-shadow;
+// Textarea
+.woocommerce {
+
+  // Fix checkout textarea focus
+  form .form-row textarea {
+    &:focus {
+      box-shadow: $input-focus-box-shadow;
+    }
+  }
+  
+  // Height
+  form .form-row textarea,
+  #reviews #comment {
+     height: $spacer *7; 
   }
 }
 
