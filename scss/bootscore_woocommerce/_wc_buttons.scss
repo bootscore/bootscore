@@ -79,3 +79,9 @@ WooCommerce Buttons
     background-color: var(--#{$prefix}primary);
   }
 }
+
+// Override WC styles for disabled update cart button
+.woocommerce button.button:disabled[disabled]:hover {
+  color: var(--#{$prefix}primary);
+  background: transparent;
+}
