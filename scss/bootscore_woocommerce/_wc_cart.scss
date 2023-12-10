@@ -95,9 +95,21 @@ WooCommerce Cart
     // Add border-radius to form because first hidden item inside the input-group is the label
     border-top-left-radius: $input-border-radius !important;
     border-bottom-left-radius: $input-border-radius !important;
-    
+
+    @include box-shadow($input-box-shadow);
+    @include transition($input-transition);
+
     &:focus {
+      color: $input-focus-color;
+      background-color: $input-focus-bg;
+      border-color: $input-focus-border-color;
+      outline: 0;
       box-shadow: $input-focus-box-shadow;
+    }
+
+    &::placeholder {
+      color: $input-placeholder-color;
+      opacity: 1;
     }
   }
 
@@ -145,7 +157,7 @@ WooCommerce Cart
     }
   }
 
-  
+
   // Proceed to checkout btn
   .wc-proceed-to-checkout a.checkout-button {
     width: 100%
