@@ -91,6 +91,7 @@ WooCommerce Cart
     margin: 0;
     padding: $input-padding-y $input-padding-x;
     border: $input-border-width solid $input-border-color;
+    background-color: $input-bg;
 
     // Add border-radius to form because first hidden item inside the input-group is the label
     border-top-left-radius: $input-border-radius !important;
