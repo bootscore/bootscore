@@ -44,8 +44,12 @@ WooCommerce Loop
 }
 
 
-// Categories
-// Category loop image
-.product-category .card img {
-  @extend .card-img-top;
+// Add .card-img-top to loop cards
+.product-category .card,
+.product.card {
+  img {
+    border-top-left-radius: $card-inner-border-radius;
+    border-top-right-radius: $card-inner-border-radius;
+    width: 100%;
+  }
 }
