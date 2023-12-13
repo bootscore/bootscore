@@ -26,7 +26,6 @@ require_once('inc/enable-html.php');             // Enable HTML in category and 
 require_once('inc/enqueue.php');                 // Enqueue scripts and styles
 require_once('inc/excerpt.php');                 // Adds excerpt to pages
 require_once('inc/hooks.php');                   // Custom hooks
-require_once('inc/loop.php');                    // Amount of items in the loop before page gets paginated (set to 24)
 require_once('inc/pagination.php');              // Pagination for loop and single posts
 require_once('inc/password-protected-form.php'); // Form if post or page is protected by password
 require_once('inc/template-tags.php');           // Meta information like author, date, comments, category and tags badges
