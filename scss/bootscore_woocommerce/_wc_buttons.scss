@@ -2,31 +2,86 @@
 WooCommerce Buttons
 --------------------------------------------------------------*/
 
+// Create buttons & sizes
 
-// Widget buttons
-.woocommerce {
+// .btn
+.woocommerce div.product form.cart .button,
+.woocommerce button.button,
+.woocommerce-cart .wc-proceed-to-checkout a.checkout-button,
+.woocommerce button.button.alt,
+.woocommerce a.button,
+.woocommerce a.button-alt,
+.woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) #respond input#submit,
+:where(body:not(.woocommerce-block-theme-has-button-styles)) .woocommerce a.button {
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  user-select: none;
+  text-decoration: none;
+  font-size: $btn-font-size;
+  font-weight: $btn-font-weight;
+  font-family: $btn-font-family;
+  line-height: $btn-line-height;
+  padding: $input-btn-padding-y $input-btn-padding-x;
+  border: $btn-border-width solid;
+  border-radius: $btn-border-radius;
+  transition: $btn-transition;
+}
 
-  #respond input#submit,
-  a.button,
-  button.button,
-  input.button,
-  a.button.alt:not(a.checkout-button) {
-    @extend .btn;
-    @extend .btn-outline-primary;
+//.btn-lg
+.woocommerce-cart .wc-proceed-to-checkout a.checkout-button,
+.woocommerce button.button.alt{
+    padding: $btn-padding-y-lg $btn-padding-x-lg;
+    font-size: $btn-font-size-lg;
+    border-radius: $btn-border-radius-lg;
+  }
+
+//.btn-sm
+.woocommerce .shop_table a.button,
+.woocommerce .shop_table a.woocommerce-MyAccount-downloads-file.button.alt {
+    padding: $btn-padding-y-sm $btn-padding-x-sm;
+    font-size: $btn-font-size-sm;
+    border-radius: $btn-border-radius-sm;
+  }
+
+
+// Create btn variants
+
+// .btn-primary
+.woocommerce div.product form.cart .button,
+.woocommerce-cart .wc-proceed-to-checkout a.checkout-button,
+.woocommerce button.button.alt,
+:where(body:not(.woocommerce-block-theme-has-button-styles)) .woocommerce a.button {
+  color: color-contrast($primary);
+  background-color: var(--#{$prefix}primary);
+  border-color: var(--#{$prefix}primary);
+
+  &:hover {
+    color: color-contrast($primary);
+    background-color: #{shade-color($primary, 10%)};
+    border-color: #{shade-color($primary, 10%)};
+    text-decoration: none;
   }
 }
 
-// Table buttons
+//.btn-outline-primary
+.woocommerce button.button,
 .woocommerce .shop_table a.button,
-.woocommerce .shop_table a.woocommerce-MyAccount-downloads-file.button.alt {
-  @extend .btn-sm;
+.woocommerce .shop_table a.woocommerce-MyAccount-downloads-file.button.alt,
+.woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) #respond input#submit {
+  color: var(--#{$prefix}primary);
+  background-color: transparent;
+  border-color: var(--#{$prefix}primary);
+
+  &:hover {
+    color: color-contrast($primary);
+    background-color: var(--#{$prefix}primary);
+  }
 }
 
-// Add to cart buttons
-.woocommerce .card a.button,
-.woocommerce div.product form.cart button.button,
-.woocommerce-cart .wc-proceed-to-checkout a.checkout-button,
-#place_order {
-  @extend .btn;
-  @extend .btn-primary;
+// Override WC styles for disabled update cart button
+.woocommerce button.button:disabled[disabled]:hover {
+  color: var(--#{$prefix}primary);
+  background: transparent;
 }

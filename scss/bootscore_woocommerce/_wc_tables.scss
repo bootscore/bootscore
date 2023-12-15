@@ -3,30 +3,38 @@ WooCommerce Tables
 --------------------------------------------------------------*/
 
 // Borders
-#add_payment_method .cart-collaterals .cart_totals tr td,
-#add_payment_method .cart-collaterals .cart_totals tr th,
-.woocommerce-cart .cart-collaterals .cart_totals tr td,
-.woocommerce-cart .cart-collaterals .cart_totals tr th,
-.woocommerce-checkout .cart-collaterals .cart_totals tr td,
-.woocommerce-checkout .cart-collaterals .cart_totals tr th {
-  border-top: 1px solid;
+.woocommerce table {
+  vertical-align: top;
+
+  &.shop_table {
+    border: $table-border-width solid $table-border-color;
+  }
+
+  &.shop_attributes,
+  &.shop_table td,
+  &.shop_table tfoot th,
+  &.shop_table tfoot td {
+    border-top: $table-border-width solid $table-border-color;
+  }
+
+
+  &.shop_attributes td,
+  &.shop_attributes th {
+    border-bottom: $table-border-width solid $table-border-color;
+  }
 }
 
-.woocommerce table.shop_attributes td {
-  border-bottom: 1px solid;
+
+.woocommerce-cart {
+  .cart-collaterals .cart_totals {
+
+    tr td,
+    tr th {
+      border-top: $table-border-width solid $table-border-color;
+    }
+  }
 }
 
-.woocommerce table.shop_attributes th {
-  border-bottom: 1px solid;
-}
-
-.woocommerce table.shop_attributes {
-  border-top: 1px solid;
-}
-
-.woocommerce table.shop_table td {
-  border-top: 1px solid;
-}
 
 // Woo table border-radius
 .woocommerce table.shop_table {

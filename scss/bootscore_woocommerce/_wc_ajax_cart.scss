@@ -62,8 +62,8 @@ a.added_to_cart {
     display: none;
     justify-content: center;
     align-items: center;
-    background-color: var(--#{$prefix}btn-bg);
-    border-radius: var(--#{$prefix}btn-border-radius);
+    background-color: var(--#{$prefix}primary);
+    border-radius: $btn-border-radius;
   }
 
   &.loading {

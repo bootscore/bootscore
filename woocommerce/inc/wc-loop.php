@@ -4,7 +4,7 @@
  * WooCommerce Loop
  *
  * @package Bootscore 
- * @version 5.3.4
+ * @version 5.4.0
  */
 
 
@@ -38,3 +38,45 @@ function bootscore_wc_product_col_class($class) {
   }
   return $class;
 }
+
+
+/**
+ * Wrap add to cart link in container.
+ *
+ * @param string $html Add to cart link HTML.
+ * @return string Add to cart link HTML.
+ */
+function bootscore_loop_add_to_cart_link( $html ) {
+  return '<div class="add-to-cart-container mt-auto">' . $html . '</div>';
+}
+add_filter( 'woocommerce_loop_add_to_cart_link', 'bootscore_loop_add_to_cart_link' );
+
+
+
+/**
+ * Add Bootstrap button classes to add to cart link.
+ *
+ * @param array<string,mixed> $args Array of add to cart link arguments.
+ * @return array<string,mixed> Array of add to cart link arguments.
+ */
+function bootscore_loop_add_to_cart_args( $args ) {
+  if ( isset( $args['class'] ) && ! empty( $args['class'] ) ) {
+    if ( ! is_string( $args['class'] ) ) {
+      return $args;
+    }
+
+    // Remove the `button` class if it exists.
+    if ( false !== strpos( $args['class'], 'button' ) ) {
+      $args['class'] = explode( ' ', $args['class'] );
+      $args['class'] = array_diff( $args['class'], array( 'button' ) );
+      $args['class'] = implode( ' ', $args['class'] );
+    }
+
+      $args['class'] .= ' btn btn-primary w-100 mt-auto';
+    } else {
+      $args['class'] = 'btn btn-primary w-100 mt-auto';
+    }
+
+    return $args;
+}
+add_filter( 'woocommerce_loop_add_to_cart_args', 'bootscore_loop_add_to_cart_args' );

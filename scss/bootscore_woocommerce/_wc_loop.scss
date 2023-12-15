@@ -16,7 +16,7 @@ WooCommerce Loop
 
   // Product title
   .woocommerce-loop-product__title {
-    @extend .h5;
+    font-size: $font-size-base * 1.25;
   }
 
   // Star ratings
@@ -37,12 +37,10 @@ WooCommerce Loop
 }
 
 
-// Buttons
-.product .card-body a.button,
+// Category buttons
 .product-category .card-body a {
   margin-top: auto;
 }
-
 
 // Add .card-img-top to loop cards
 .product-category .card,
