@@ -15,7 +15,7 @@ defined('ABSPATH') || exit;
 /**
  * Categories Block
  */
-if (!function_exists('bootscore_block_categories_classes')) {
+if (!function_exists('bootscore_block_widget_categories_classes')) {
   /**
    * Adds Bootstrap classes to search block widget.
    *
@@ -23,7 +23,7 @@ if (!function_exists('bootscore_block_categories_classes')) {
    * @param array  $block         The full block, including name and attributes.
    * @return string The filtered block content.
    */
-  function bootscore_block_categories_classes($block_content, $block) {
+  function bootscore_block_widget_categories_classes($block_content, $block) {
     // Check if the block contains the 'wp-block-categories-list' class.
     if (strpos($block_content, 'wp-block-categories-list') !== false) {
       $search  = array(
@@ -49,4 +49,4 @@ if (!function_exists('bootscore_block_categories_classes')) {
     return $block_content;
   }
 }
-add_filter('render_block_core/categories', 'bootscore_block_categories_classes', 10, 2);
+add_filter('render_block_core/categories', 'bootscore_block_widget_categories_classes', 10, 2);

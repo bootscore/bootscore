@@ -15,7 +15,7 @@ defined('ABSPATH') || exit;
 /**
  * Search Block
  */
-if (!function_exists('bootscore_block_search_classes')) {
+if (!function_exists('bootscore_block_widget_search_classes')) {
   /**
    * Adds Bootstrap classes to search block widget.
    *
@@ -23,7 +23,7 @@ if (!function_exists('bootscore_block_search_classes')) {
    * @param array  $block         The full block, including name and attributes.
    * @return string The filtered block content.
    */
-  function bootscore_block_search_classes($block_content, $block) {
+  function bootscore_block_widget_search_classes($block_content, $block) {
 
     $search  = array(
       'wp-block-search__input ',
@@ -48,4 +48,4 @@ if (!function_exists('bootscore_block_search_classes')) {
     return str_replace($search, $replace, $block_content);
   }
 }
-add_filter('render_block_core/search', 'bootscore_block_search_classes', 10, 2);
+add_filter('render_block_core/search', 'bootscore_block_widget_search_classes', 10, 2);
