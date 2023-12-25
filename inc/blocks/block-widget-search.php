@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Search Block
+ * Search Block Widget
  *
  * @package Bootscore
  * @version 5.4.0

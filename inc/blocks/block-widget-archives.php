@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Categories Block Widget
+ * Archives Block Widget
  *
  * @package Bootscore
  * @version 5.4.0
@@ -15,7 +15,7 @@ defined('ABSPATH') || exit;
 /**
  * Categories Block
  */
-if (!function_exists('bootscore_block_widget_categories_classes')) {
+if (!function_exists('bootscore_block_widget_archives_classes')) {
   /**
    * Adds Bootstrap classes to search block widget.
    *
@@ -23,21 +23,19 @@ if (!function_exists('bootscore_block_widget_categories_classes')) {
    * @param array  $block         The full block, including name and attributes.
    * @return string The filtered block content.
    */
-  function bootscore_block_widget_categories_classes($block_content, $block) {
+  function bootscore_block_widget_archives_classes($block_content, $block) {
     // Check if the block contains the 'wp-block-categories-list' class.
-    if (strpos($block_content, 'wp-block-categories-list') !== false) {
+    if (strpos($block_content, 'wp-block-archives-list') !== false) {
       $search  = array(
-        'wp-block-categories-list',
-        'cat-item',
-        'current-cat',
+        'wp-block-archives-list',
+        '<li',
         '<a',
         '(',
         ')'
       );
       $replace = array(
-        'wp-block-categories-list bs-list-group list-group',
-        'cat-item list-group-item list-group-item-action d-flex justify-content-between align-items-center',
-        'current-cat active',
+        'wp-block-archives-list bs-list-group list-group',
+        '<li class="list-group-item list-group-item-action d-flex justify-content-between align-items-center"',
         '<a class="stretched-link text-decoration-none"',
         '<span class="badge bg-primary-subtle text-primary-emphasis">',
         '</span>'
@@ -49,4 +47,4 @@ if (!function_exists('bootscore_block_widget_categories_classes')) {
     return $block_content;
   }
 }
-add_filter('render_block_core/categories', 'bootscore_block_widget_categories_classes', 10, 2);
+add_filter('render_block_core/archives', 'bootscore_block_widget_archives_classes', 10, 2);

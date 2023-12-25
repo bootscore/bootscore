@@ -33,7 +33,8 @@ require_once('inc/template-functions.php');      // Functions which enhance the 
 require_once('inc/widgets.php');                 // Register widget area and disables Gutenberg in widgets
 require_once('inc/deprecated.php');              // Fallback functions being dropped in v6
 
-require_once('inc/blocks/block-widget-categories.php');    // Archive block
+require_once('inc/blocks/block-widget-categories.php');    // Categories block
+require_once('inc/blocks/block-widget-archives.php');      // Archive block
 require_once('inc/blocks/block-widget-search.php');        // Searchform block
 
 
