@@ -1,0 +1,25 @@
+/*--------------------------------------------------------------
+Block Widgets
+--------------------------------------------------------------*/
+
+
+.bs-list-group {
+  .list-group-item-action {
+    a {
+      color: $list-group-action-color;
+    }
+    
+    &:hover {
+      a {
+        color: $list-group-action-hover-color;
+      }
+    }
+    
+    &.active {
+      a {
+        color: $list-group-active-color;
+      }
+    }
+    
+  }
+}
