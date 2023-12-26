@@ -29,6 +29,7 @@ if (!function_exists('bootscore_block_widget_latest_posts_classes')) {
       $search  = array(
         'wp-block-latest-posts__list',
         '<li',
+        'wp-post-image',
         '<a',
         'wp-block-latest-posts__post-author',
         'wp-block-latest-posts__post-date',
@@ -36,6 +37,7 @@ if (!function_exists('bootscore_block_widget_latest_posts_classes')) {
       $replace = array(
         'wp-block-latest-posts__list bs-list-group list-group',
         '<li class="list-group-item list-group-item-action"',
+        'wp-post-image rounded',
         '<a class="stretched-link text-decoration-none"',
         'small text-body-secondary',
         'small text-body-secondary d-block',
