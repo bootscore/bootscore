@@ -34,9 +34,10 @@ require_once('inc/widgets.php');                 // Register widget area and dis
 require_once('inc/deprecated.php');              // Fallback functions being dropped in v6
 
 // Blocks
-require_once('inc/blocks/block-widget-archives.php');   // Archive block
-require_once('inc/blocks/block-widget-categories.php'); // Categories block
-require_once('inc/blocks/block-widget-search.php');     // Searchform block
+require_once('inc/blocks/block-widget-archives.php');     // Archive block
+require_once('inc/blocks/block-widget-categories.php');   // Categories block
+require_once('inc/blocks/block-widget-latest-posts.php'); // Latest posts block
+require_once('inc/blocks/block-widget-search.php');       // Searchform block
 
 
 /**
