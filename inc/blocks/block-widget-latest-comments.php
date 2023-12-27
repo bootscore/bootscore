@@ -13,11 +13,11 @@ defined('ABSPATH') || exit;
 
 
 /**
- * Latest Posts Block
+ * Latest Comments Block
  */
 if (!function_exists('bootscore_block_widget_latest_commentss_classes')) {
   /**
-   * Adds Bootstrap classes to latest post block widget.
+   * Adds Bootstrap classes to latest comments block widget.
    *
    * @param string $block_content The block content.
    * @param array  $block         The full block, including name and attributes.
@@ -28,27 +28,21 @@ if (!function_exists('bootscore_block_widget_latest_commentss_classes')) {
     if (strpos($block_content, 'wp-block-latest-comments') !== false) {
       $search  = array(
         'wp-block-latest-comments',
-        //'<li class="',
         '<li class="wp-block-latest-comments bs-list-group list-group__comment">',
+        'avatar avatar-48 photo wp-block-latest-comments bs-list-group list-group__comment-avatar',
         '<a class="wp-block-latest-comments bs-list-group list-group__comment-author',
         '<a class="wp-block-latest-comments bs-list-group list-group__comment-link',
-        //'<footer class="',
-        //'wp-post-image',
-        //'<a',
-        //'wp-block-latest-posts__post-author',
-        //'wp-block-latest-posts__post-date',
+        'wp-block-latest-comments bs-list-group list-group__comment-date',
+        '<p',
       );
       $replace = array(
         'wp-block-latest-comments bs-list-group list-group',
-        //'<li class="list-group-item list-group-item-action',
-        '<li class="list-group-item list-group-item-action text-body-secondary">',
+        '<li class="list-group-item list-group-item-action text-body-secondary d-flex align-items-start">',
+        'rounded-pill border p-1 me-2',
         '<a class="text-decoration-none text-body-secondary',
         '<a class="stretched-link text-decoration-none d-block',
-        //'<footer class="test',
-        //'wp-post-image rounded',
-        //'<a class="stretched-link text-decoration-none"',
-        //'small text-body-secondary',
-        //'small text-body-secondary d-block',
+        'small',
+        '<p class="text-body mb-0"',
       );
 
       $block_content = str_replace($search, $replace, $block_content);
