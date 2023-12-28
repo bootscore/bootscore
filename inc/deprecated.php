@@ -28,8 +28,9 @@ if (!function_exists('bootscore_ie_alert')) :
 endif;
 
 
-// If we want to publish in WordPress theme repository, we have to delete this because shortcode is plugin area
 /*
+ * If we want to publish in WordPress theme repository, we have to delete this because shortcode is plugin area
+ *
  * Simple short code for inserting font awesome icons on Gutenberg leveli
  * (instead of heaving to insert HTML code into a block on HTML editing mode)
  */
@@ -45,3 +46,10 @@ function bsfaCode($atts) {
 
 ;
 add_shortcode('bsfa', 'bsfaCode');
+
+
+/**
+ * Enable shortcodes in HTML-Widget
+ * Not needed for Gutenberg widgets https://github.com/bootscore/bootscore/pull/660
+ */
+add_filter('widget_text', 'do_shortcode');
