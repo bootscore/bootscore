@@ -13,11 +13,11 @@ defined('ABSPATH') || exit;
 
 
 /**
- * Categories Block
+ * Archive Block
  */
 if (!function_exists('bootscore_block_widget_archives_classes')) {
   /**
-   * Adds Bootstrap classes to search block widget.
+   * Adds Bootstrap classes to archive block widget.
    *
    * @param string $block_content The block content.
    * @param array  $block         The full block, including name and attributes.

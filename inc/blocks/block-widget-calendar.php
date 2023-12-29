@@ -13,7 +13,7 @@ defined('ABSPATH') || exit;
 
 
 /**
- * Categories Block
+ * Calendar Block
  */
 if (!function_exists('bootscore_block_widget_calendar_classes')) {
   /**

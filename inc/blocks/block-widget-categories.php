@@ -17,7 +17,7 @@ defined('ABSPATH') || exit;
  */
 if (!function_exists('bootscore_block_widget_categories_classes')) {
   /**
-   * Adds Bootstrap classes to search block widget.
+   * Adds Bootstrap classes to categories block widget.
    *
    * @param string $block_content The block content.
    * @param array  $block         The full block, including name and attributes.
