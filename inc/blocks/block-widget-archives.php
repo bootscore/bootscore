@@ -24,7 +24,8 @@ if (!function_exists('bootscore_block_widget_archives_classes')) {
    * @return string The filtered block content.
    */
   function bootscore_block_widget_archives_classes($block_content, $block) {
-    // Check if the block contains the 'wp-block-archives-list' class.
+    
+    // Check if the block contains the 'wp-block-archives-list' class, exclude the dropdown.
     if (strpos($block_content, 'wp-block-archives-list') !== false) {
       $search  = array(
         'wp-block-archives-list',
