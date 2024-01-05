@@ -1,0 +1,19 @@
+/*--------------------------------------------------------------
+ WooCommerce Block Totals
+ --------------------------------------------------------------*/
+
+.wp-block-woocommerce-cart-order-summary-block {
+  border: var(--#{$prefix}border-width) var(--#{$prefix}border-style) var(--#{$prefix}border-color);
+  border-radius: $border-radius;
+  margin-bottom: $spacer;
+}
+
+.wp-block-woocommerce-cart-order-summary-block .wc-block-components-totals-wrapper {
+  border-top: var(--#{$prefix}border-width) var(--#{$prefix}border-style) var(--#{$prefix}border-color);
+  padding: $spacer 0;
+}
+
+.wp-block-woocommerce-cart-order-summary-block .wc-block-components-totals-wrapper.slot-wrapper > * > * {
+  border-bottom: none;
+  padding: $spacer 0;
+}

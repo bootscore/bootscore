@@ -2,6 +2,7 @@
  * bootScore WooCommerce 5.3.4 (https://bootscore.me/)
  */
 
+// Classic
 @import "bootscore_woocommerce/wc_ajax_cart";
 @import "bootscore_woocommerce/wc_alerts";
 @import "bootscore_woocommerce/wc_breadcrumb";
@@ -21,7 +22,7 @@
 @import "bootscore_woocommerce/wc_product_grouped";
 @import "bootscore_woocommerce/wc_product_single";
 @import "bootscore_woocommerce/wc_product_variable";
-@import "bootscore_woocommerce/wc_recycle_bin";
+@import "bootscore_woocommerce/wc_deprecated";
 @import "bootscore_woocommerce/wc_sale_badge";
 @import "bootscore_woocommerce/wc_shipping";
 @import "bootscore_woocommerce/wc_shop_page";
@@ -30,3 +31,8 @@
 @import "bootscore_woocommerce/wc_thank_you";
 @import "bootscore_woocommerce/wc_widgets";
 @import "bootscore_woocommerce/wc_colors";
+
+// Blocks
+@import "bootscore_woocommerce/blocks/wc_block_cart";
+@import "bootscore_woocommerce/blocks/wc_block_checkout";
+@import "bootscore_woocommerce/blocks/wc_block_totals";

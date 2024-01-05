@@ -1,0 +1,105 @@
+/*--------------------------------------------------------------
+ WooCommerce Block Cart
+ --------------------------------------------------------------*/
+
+.wc-block-cart .wc-block-components-sidebar-layout .wc-block-components-main {
+  padding-right: calc(var(--#{$prefix}gutter-x) * .5);
+}
+
+.wc-block-cart .wc-block-components-sidebar {
+  padding-left: calc(var(--#{$prefix}gutter-x) * .5);
+}
+
+.wc-block-cart .wp-block-woocommerce-cart-line-items-block {
+  border: var(--#{$prefix}border-width) var(--#{$prefix}border-style) var(--#{$prefix}border-color);
+  border-collapse: inherit;
+  border-spacing: 0;
+  border-radius: $card-border-radius;
+  margin-bottom: $spacer * 1.5 !important;
+}
+
+.wc-block-cart table.wc-block-cart-items .wc-block-cart-items__header .wc-block-cart-items__header-product {
+  visibility: visible;
+}
+
+.wc-block-cart table.wc-block-cart-items .wc-block-cart-items__header {
+  font-size: $font-size-base;
+  text-transform: none;
+  color: $card-cap-color;
+  background-color: $card-cap-bg;
+}
+
+.wc-block-cart .is-large.wc-block-cart .wc-block-cart-items th {
+  padding: $card-cap-padding-y $card-cap-padding-x;
+}
+
+.wc-block-cart .is-large.wc-block-cart .wc-block-cart-items th:first-child {
+  border-top-left-radius: $card-inner-border-radius;
+}
+
+.wc-block-cart .is-large.wc-block-cart .wc-block-cart-items th:last-child {
+  padding-right: $spacer;
+  border-top-right-radius: $card-inner-border-radius;
+}
+
+.wc-block-cart table.wc-block-cart-items .wc-block-cart-items__header th {
+  font-weight: $headings-font-weight;
+}
+
+.wc-block-cart .is-large.wc-block-cart .wc-block-cart-items {
+  border-bottom: var(--#{$prefix}border-width) var(--#{$prefix}border-style) var(--#{$prefix}border-color);
+}
+
+.wc-block-cart .wc-block-cart-item__image img {
+  border-radius: var(--#{$prefix}border-radius);
+}
+
+.wc-block-cart .is-large.wc-block-cart .wc-block-cart-items td {
+  border-top: var(--#{$prefix}border-width) var(--#{$prefix}border-style) var(--#{$prefix}border-color);
+  padding: $spacer 0 $spacer $spacer;
+}
+
+.wc-block-cart .wc-block-components-product-metadata {
+  font-size: $font-size-base * 0.875;
+  color: var(--#{$prefix}secondary-color);
+}
+
+.wc-block-cart .is-medium table.wc-block-cart-items .wc-block-cart-items__row,
+.wc-block-cart .is-small table.wc-block-cart-items .wc-block-cart-items__row,
+.wc-block-cart .is-mobile table.wc-block-cart-items .wc-block-cart-items__row {
+  border-top: var(--#{$prefix}border-width) var(--#{$prefix}border-style) var(--#{$prefix}border-color);
+  padding: $spacer;
+}
+
+.wc-block-cart .is-medium table.wc-block-cart-items:not(.wc-block-mini-cart-items):not(:last-child) .wc-block-cart-items__row,
+.wc-block-cart .is-small table.wc-block-cart-items:not(.wc-block-mini-cart-items):not(:last-child) .wc-block-cart-items__row,
+.wc-block-cart .is-mobile table.wc-block-cart-items:not(.wc-block-mini-cart-items):not(:last-child) .wc-block-cart-items__row {
+  border-bottom: none;
+}
+
+.wc-block-cart .is-medium table.wc-block-cart-items .wc-block-cart-items__row:first-child,
+.wc-block-cart .is-small table.wc-block-cart-items .wc-block-cart-items__row:first-child,
+.wc-block-cart .is-mobile table.wc-block-cart-items .wc-block-cart-items__row:first-child {
+  border-top: none;
+}
+
+.wc-block-cart table.wc-block-cart-items th,
+.wc-block-cart table.wc-block-cart-items td {
+  margin: 0 !important;
+}
+
+.wc-block-cart .is-medium table.wc-block-cart-items .wc-block-cart-items__row .wc-block-cart-item__product,
+.wc-block-cart .is-small table.wc-block-cart-items .wc-block-cart-items__row .wc-block-cart-item__product,
+.wc-block-cart .is-mobile table.wc-block-cart-items .wc-block-cart-items__row .wc-block-cart-item__product {
+  padding: 0 $card-cap-padding-x 0 0;
+}
+
+.wc-block-cart .is-medium table.wc-block-cart-items .wc-block-cart-items__row .wc-block-cart-item__quantity,
+.wc-block-cart .is-small table.wc-block-cart-items .wc-block-cart-items__row .wc-block-cart-item__quantity,
+.wc-block-cart .is-mobile table.wc-block-cart-items .wc-block-cart-items__row .wc-block-cart-item__quantity {
+  padding-top: 0;
+}
+
+.wc-block-cart__submit-container.wc-block-cart__submit-container--sticky {
+  display: none;
+}
