@@ -4,3 +4,4 @@ package-lock.json
 .prettierrc
 css/main.css
 css/main.map
+dist

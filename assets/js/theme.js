@@ -1,6 +1,9 @@
 /*--------------------------------------------------------------
 Theme JS
 --------------------------------------------------------------*/
+import "../scss/main.scss";
+import "./lib/bootstrap.bundle.min.js";
+import '@fortawesome/fontawesome-free/js/all.js';
 
 jQuery(function ($) {
   // Close offcanvas on click a, keep .dropdown-menu open (see https://github.com/bootscore/bootscore/discussions/347)
@@ -19,6 +22,7 @@ jQuery(function ($) {
   $('#collapse-search').on('shown.bs.collapse', function () {
     $('.top-nav-search input:first-of-type').trigger('focus');
   });
+
 
   // Close collapse if click outside searchform
   $(document).on('click', function (event) {
