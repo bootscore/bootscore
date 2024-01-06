@@ -1,0 +1,85 @@
+/*--------------------------------------------------------------
+ WooCommerce Block Quantity Input
+ --------------------------------------------------------------*/
+
+// Reset WC styles
+/*
+.wc-block-cart-item__quantity .wc-block-components-quantity-selector {
+  border-radius: none;
+  box-sizing: content-box;
+  display: flex;
+  margin: 0 0 0.25em 0;
+  position: relative;
+  width: 107px;
+}
+*/
+
+.wc-block-cart-item__quantity .wc-block-components-quantity-selector::after {
+  content: none;
+}
+
+.wc-block-cart-item__quantity .wc-block-components-quantity-selector input.wc-block-components-quantity-selector__input {
+  margin-left: calc(#{$input-border-width} * -1);
+  margin-right: calc(#{$input-border-width} * -1);
+  font-size: $input-font-size;
+  background-color: $input-bg;
+  border: $input-border-width solid;
+  border-color: $input-border-color;
+  color: $input-color;
+  font-weight: $input-font-weight;
+  line-height: $input-line-height;
+  padding: $input-padding-y $input-padding-x;
+  border-radius: 0;
+  transition: $input-transition;
+  z-index: 1;
+
+
+  &:focus {
+    border-color: $input-focus-border-color;
+    box-shadow: $input-focus-box-shadow;
+  }
+
+  &[max="1"] {
+    color: $input-disabled-color;
+    background-color: $input-disabled-bg;
+    border-color: $input-disabled-border-color;
+    pointer-events: none;
+
+    &:focus {
+      box-shadow: none;
+      border-color: $input-disabled-border-color !important;
+    }
+  }
+}
+
+
+
+.wc-block-cart-item__quantity .wc-block-components-quantity-selector > .wc-block-components-quantity-selector__button--minus {
+  border-radius: $input-border-radius 0 0 $input-border-radius;
+}
+
+.wc-block-cart-item__quantity .wc-block-components-quantity-selector .wc-block-components-quantity-selector__button {
+  border: $input-border-width solid $input-group-addon-border-color;
+  padding: $input-group-addon-padding-y $input-group-addon-padding-x;
+  background-color: $input-group-addon-bg;
+  font-size: $input-font-size;
+  color: $input-color;
+  font-weight: $input-group-addon-font-weight;
+  min-width: auto;
+  opacity: 1;
+}
+
+
+.wc-block-cart-item__quantity .wc-block-components-quantity-selector > .wc-block-components-quantity-selector__button--plus {
+  border-radius: 0 $input-border-radius $input-border-radius 0;
+}
+
+
+.wc-block-cart-item__quantity .wc-block-components-quantity-selector .wc-block-components-quantity-selector__button:disabled {
+  opacity: 1;
+}
+
+
+.wc-block-cart-item__quantity .wc-block-components-quantity-selector .wc-block-components-quantity-selector__button:focus {
+  box-shadow: none;
+}
