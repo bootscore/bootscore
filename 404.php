@@ -10,7 +10,7 @@
 
 get_header();
 ?>
-  <div id="content" class="site-content <?= apply_filters('bootscore/container_class', 'container', '404'); ?> py-5 mt-5">
+  <div id="content" class="site-content <?= apply_filters('bootscore/container_class', 'container', '404'); ?> <?= apply_filters('bootscore/content/spacer_class', 'py-5 mt-5', '404'); ?>">
     <div id="primary" class="content-area">
 
       <main id="main" class="site-main">
