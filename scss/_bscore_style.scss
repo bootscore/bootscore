@@ -14,9 +14,10 @@
 @import "bootscore/header";
 @import "bootscore/loop";
 @import "bootscore/markups";
-@import "bootscore/recycle_bin";
+@import "bootscore/deprecated";
 @import "bootscore/single";
 @import "bootscore/tables";
 @import "bootscore/top_button";
 @import "bootscore/utilities";
-@import "bootscore/widgets";
+
+@import "bootscore/blocks/block_widgets";
