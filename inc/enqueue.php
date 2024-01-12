@@ -33,7 +33,7 @@ function bootscore_scripts() {
   wp_enqueue_style('bootscore-style', get_stylesheet_uri(), array(), $modificated_styleCss);
 
   // Fontawesome
-  if (apply_filters('bootscore_load_fontawesome', true)) {
+  if (apply_filters('bootscore/load_fontawesome', true)) {
     wp_enqueue_style('fontawesome', get_template_directory_uri() . '/fontawesome/css/all.min.css', array(), $modificated_fontawesomeCss);
   }
 

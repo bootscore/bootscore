@@ -20,7 +20,7 @@ use ScssPhp\ScssPhp\Compiler;
  * Compiles the scss to a css file to be read by the browser.
  */
 function bootscore_compile_scss() {
-  $disable_compiler = apply_filters('bootscore_scss_disable_compiler', (defined('BOOTSCORE_SCSS_DISABLE_COMPILER') && BOOTSCORE_SCSS_DISABLE_COMPILER));
+  $disable_compiler = apply_filters('bootscore/scss/disable_compiler', (defined('BOOTSCORE_SCSS_DISABLE_COMPILER') && BOOTSCORE_SCSS_DISABLE_COMPILER));
 
   if ($disable_compiler) {
     return;
@@ -46,7 +46,7 @@ function bootscore_compile_scss() {
   $stored_modified = get_theme_mod('bootscore_scss_modified_timestamp', 0);
 
   $is_environment_dev     = in_array(wp_get_environment_type(), array('development', 'local'), true);
-  $skip_environment_check = apply_filters('bootscore_scss_skip_environment_check', (defined('BOOTSCORE_SCSS_SKIP_ENVIRONMENT_CHECK') && BOOTSCORE_SCSS_SKIP_ENVIRONMENT_CHECK));
+  $skip_environment_check = apply_filters('bootscore/scss/skip_environment_check', (defined('BOOTSCORE_SCSS_SKIP_ENVIRONMENT_CHECK') && BOOTSCORE_SCSS_SKIP_ENVIRONMENT_CHECK));
 
   if ($is_environment_dev) {
     $compiler->setSourceMap(Compiler::SOURCE_MAP_FILE);
@@ -60,7 +60,7 @@ function bootscore_compile_scss() {
     $compiler->setOutputStyle(\ScssPhp\ScssPhp\OutputStyle::COMPRESSED);
   }
 
-  $compiler = apply_filters('bootscore_scss_compiler', $compiler);
+  $compiler = apply_filters('bootscore/scss/compiler', $compiler);
 
   try {
     if ($last_modified > $stored_modified || !file_exists($css_file) || $is_environment_dev && !$skip_environment_check) {

@@ -68,7 +68,7 @@ if (function_exists('bootscore_sidebar_col_class')) {
 }
 
 if (function_exists('bootscore_sidebar_toggler_class')) {
-  add_filter('bootscore_sidebar_toggler_class', 'bootscore_sidebar_toggler_class', 100);
+  add_filter('bootscore/sidebar/toggler_class', 'bootscore_sidebar_toggler_class', 100);
 }
 
 if (function_exists('bootscore_sidebar_offcanvas_class')) {
