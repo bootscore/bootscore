@@ -76,5 +76,5 @@ if (function_exists('bootscore_sidebar_offcanvas_class')) {
 }
 
 if (function_exists('bootscore_container_class')) {
-  add_filter('bootscore_container_class', 'bootscore_container_class', 100);
+  add_filter('bootscore/container_class', 'bootscore_container_class', 100);
 }

@@ -11,7 +11,7 @@
 get_header();
 ?>
 
-  <div id="content" class="site-content <?= apply_filters('bootscore_container_class', 'container', 'page-blank-with-container'); ?>">
+  <div id="content" class="site-content <?= apply_filters('bootscore/container_class', 'container', 'page-blank-with-container'); ?>">
     <div id="primary" class="content-area">
 
       <!-- Hook to add something nice -->

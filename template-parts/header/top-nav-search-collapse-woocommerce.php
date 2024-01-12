@@ -12,7 +12,7 @@
 
 <!-- Top Nav Search Collapse -->
 <?php if (is_active_sidebar('top-nav-search')) : ?>
-  <div class="collapse <?= apply_filters('bootscore_container_class', 'container', 'top-nav-search-collapse-woocommerce'); ?> mb-2" id="collapse-search">
+  <div class="collapse <?= apply_filters('bootscore/container_class', 'container', 'top-nav-search-collapse-woocommerce'); ?> mb-2" id="collapse-search">
     <?php dynamic_sidebar('top-nav-search'); ?>
   </div>
 <?php endif; ?>
