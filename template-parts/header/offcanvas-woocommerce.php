@@ -23,7 +23,7 @@ if ( is_account_page() ) {
 } else { ?>
 <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvas-user">
   <div class="offcanvas-header">
-    <span class="h5 offcanvas-title"><?php esc_html_e('Account', 'bootscore'); ?></span>
+    <span class="h5 offcanvas-title"><?= apply_filters('bootscore/offcanvas/user/title', __('Account', 'bootscore')); ?></span>
     <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
   </div>
   <div class="offcanvas-body">
@@ -41,7 +41,7 @@ if ( is_checkout() || is_cart() ) {
 } else { ?>
   <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvas-cart">
     <div class="offcanvas-header">
-      <span class="h5 offcanvas-title"><?php esc_html_e('Cart', 'bootscore'); ?></span>
+      <span class="h5 offcanvas-title"><?= apply_filters('bootscore/offcanvas/cart/title', __('Cart', 'bootscore')); ?></span>
       <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
     <div class="offcanvas-body p-0">

@@ -46,7 +46,7 @@
           <!-- Offcanvas Navbar -->
           <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvas-navbar">
             <div class="offcanvas-header">
-              <span class="h5 offcanvas-title"><?= apply_filters('bootscore_offcanvas_menu_title', __('Menu', 'bootscore')); ?></span>
+              <span class="h5 offcanvas-title"><?= apply_filters('bootscore/offcanvas/navbar/title', __('Menu', 'bootscore')); ?></span>
               <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
             <div class="offcanvas-body">
