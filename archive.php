@@ -17,7 +17,7 @@ get_header();
       <?php bs_after_primary(); ?>
 
       <div class="row">
-        <div class="<?= apply_filters('bootscore_main_col_class', 'col') ?>">
+        <div class="<?= apply_filters('bootscore/main/col_class', 'col') ?>">
 
           <main id="main" class="site-main">
 

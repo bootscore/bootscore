@@ -32,7 +32,7 @@ get_header();
           <?php the_breadcrumb(); ?>
 
           <div class="row">
-            <div class="<?= apply_filters('bootscore_main_col_class', 'col'); ?>">
+            <div class="<?= apply_filters('bootscore/main/col_class', 'col'); ?>">
 
               <div class="entry-content">
                 <?php bootscore_category_badge(); ?>
