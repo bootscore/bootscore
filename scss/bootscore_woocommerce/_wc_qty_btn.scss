@@ -4,32 +4,57 @@ WooCommerce Quantity Input
 
 .woocommerce {
 
+  // input-group
   .quantity {
-    @extend .input-group;
-    
+    position: relative;
+    display: flex;
+    flex-wrap: wrap; // For form validation feedback
+    align-items: stretch;
     // Fixed width for quantity
     width: 140px;
 
-    // Disable input if product is 1 in stock or limit purchases to 1 item per order in cart page
-    // https://github.com/woocommerce/woocommerce/pull/35767
-    [max="1"] {
-      @extend :disabled;
+    > .form-control {
+      position: relative; // For focus state's z-index
+      flex: 1 1 auto;
+      width: 1%;
+      min-width: 0;
+
+      // Hide browser arrows in quantity input
+      appearance: textfield;
+      -webkit-appearance: none;
+      -moz-appearance: textfield;
+
+      &::-webkit-outer-spin-button,
+      &::-webkit-inner-spin-button {
+        display: none;
+        margin: 0;
+      }
+
+      &:focus {
+        z-index: 5;
+      }
+
+      &[max="1"] {
+        background-color: $input-disabled-bg;
+      }
     }
-  }
 
-  // Input
-  .qty {
-    @extend .form-control;
+    .btn {
+      position: relative;
+      z-index: 2;
 
-    // Hide browser arrows in quantity input
-    appearance: textfield;
-    -webkit-appearance: none;
-    -moz-appearance: textfield;
+      &:focus {
+        z-index: 5;
+      }
+    }
 
-    &::-webkit-outer-spin-button,
-    &::-webkit-inner-spin-button {
-      display: none;
-      margin: 0;
+    > :not(:last-child) {
+      @include border-end-radius(0);
+    }
+
+    > :not(:first-child) {
+      margin-left: calc(#{$input-border-width} * -1);
+      @include border-start-radius(0);
     }
   }
 }

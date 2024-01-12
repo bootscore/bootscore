@@ -1,0 +1,34 @@
+/*--------------------------------------------------------------
+Block Widgets
+--------------------------------------------------------------*/
+
+// List groups
+.bs-list-group {
+  .list-group-item-action {
+    a {
+      color: $list-group-color;
+    }
+
+    &:hover {
+      a {
+        color: $list-group-action-hover-color;
+      }
+    }
+
+    &.active {
+      a {
+        color: $list-group-active-color;
+      }
+    }
+
+  }
+}
+
+.card {
+  .bs-list-group.list-group-flush {
+    .list-group-item:last-child {
+      border-bottom-left-radius: $card-inner-border-radius;
+      border-bottom-right-radius: $card-inner-border-radius;
+    }
+  }
+}
