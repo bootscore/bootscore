@@ -24,3 +24,11 @@ WooCommerce Block Widgets
 .wc-cat-img img {
   max-width: 28px;
 }
+
+// Categories dropdown widget
+.wc-block-product-categories select {
+  margin-right: 0 !important;
+  
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}

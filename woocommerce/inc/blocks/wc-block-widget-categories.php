@@ -18,7 +18,7 @@ defined('ABSPATH') || exit;
 if (!function_exists('bootscore_wc_block_widget_categories_classes')) {
 
   function bootscore_wc_block_widget_categories_classes($block_content, $block) {
-    // Check if the block contains the 'wc-block-product-categories is-list' class.
+    // Check if the block contains the 'wc-block-product-categories-list' class.
     if (strpos($block_content, 'wc-block-product-categories-list') !== false) {
       $search  = array(
         'is-list',
@@ -56,3 +56,37 @@ if (!function_exists('bootscore_wc_block_widget_categories_classes')) {
   }
 }
 add_filter('render_block_woocommerce/product-categories', 'bootscore_wc_block_widget_categories_classes', 10, 2);
+
+
+/**
+ * Categories Select Block
+ */
+if (!function_exists('bootscore_wc_block_widget_categories_select_classes')) {
+
+  function bootscore_wc_block_widget_categories_select_classes($block_content, $block) {
+    // Check if the block contains the 'wc-block-product-categories is-dropdown' class.
+    if (strpos($block_content, 'is-dropdown') !== false) {
+      $search  = array(
+        'is-dropdown', 
+        'wc-block-product-categories__dropdown',
+        '<select',
+        // Button
+        'wc-block-product-categories__button',
+
+      );
+      $replace = array(
+        'is-dropdown input-group mb-0',
+        'wc-block-product-categories__dropdown flex-grow-1',
+        '<select class="form-select" ',
+        // Button
+        'wc-block-product-categories__button input-group-text',
+
+      );
+
+      $block_content = str_replace($search, $replace, $block_content);
+    }
+
+    return $block_content;
+  }
+}
+add_filter('render_block_woocommerce/product-categories', 'bootscore_wc_block_widget_categories_select_classes', 10, 2);
