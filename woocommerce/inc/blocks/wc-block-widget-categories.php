@@ -25,14 +25,26 @@ if (!function_exists('bootscore_wc_block_widget_categories_classes')) {
         '<ul class="wc-block-product-categories-list',
         '<li class="',
         '<a',
-        'wc-block-product-categories-list-item-count'
+        'wc-block-product-categories-list-item-count',
+        // Has image
+        'wc-block-product-categories-list--has-images',
+        'wc-block-product-categories-list-item__image--placeholder',
+        'wc-block-product-categories-list-item__image',
+        'wp-post-image',
+        //'attachment-woocommerce_thumbnail'
       );
       $replace = array(
         'is-list mb-0',
         '<ul class="wc-block-product-categories-list bs-list-group list-group',
         '<li class="list-group-item list-group-item-action d-flex justify-content-between align-items-center ',
         '<a class="stretched-link text-decoration-none"',
-        'badge bg-primary-subtle text-primary-emphasis'
+        'badge bg-primary-subtle text-primary-emphasis',
+        // Has image
+        'has-image',
+        '',
+        'wc-cat-img d-inline-block align-middle me-2',
+        'wp-post-image border rounded',
+        'attachment-woocommerce_thumbnail rounded'
       );
 
       $block_content = str_replace($search, $replace, $block_content);
