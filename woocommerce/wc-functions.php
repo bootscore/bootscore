@@ -4,7 +4,7 @@
  * WooCommerce functions and definitions
  *
  * @package Bootscore
- * @version 5.3.3
+ * @version 5.4.0
  */
 
 
@@ -24,6 +24,9 @@ require_once('inc/wc-qty-btn.php');
 require_once('inc/wc-redirects.php'); 
 require_once('inc/wc-setup.php'); 
 require_once('inc/wc-deprecated.php'); 
+
+// Blocks
+require_once('inc/blocks/wc-block-widget-categories.php'); 
 
 
 /**
