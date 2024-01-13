@@ -73,10 +73,11 @@ if (!function_exists('bootscore_wc_block_widget_categories_select_classes')) {
         // Button
         'wc-block-product-categories__button',
 
+
       );
       $replace = array(
         'is-dropdown input-group mb-0',
-        'wc-block-product-categories__dropdown flex-grow-1',
+        'wc-block-product-categories__dropdown flex-grow-1 z-1',
         '<select class="form-select" ',
         // Button
         'wc-block-product-categories__button input-group-text',
