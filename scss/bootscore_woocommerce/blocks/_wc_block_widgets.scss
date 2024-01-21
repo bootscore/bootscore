@@ -5,7 +5,7 @@ WooCommerce Block Widgets
 // Categories list widget
 // If list-group-flush is added to the block advanced settings
 .list-group-flush {
-  
+
   .bs-list-group {
     border-radius: 0;
 
@@ -27,8 +27,14 @@ WooCommerce Block Widgets
 
 
 // Categories dropdown widget
-.wc-block-product-categories select {
-  margin-right: 0 !important;
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
+.wc-block-product-categories {
+  .form-select {
+    margin-right: 0;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  &__dropdown:has(.form-select:focus) {
+    z-index: 5;
+  }
 }
