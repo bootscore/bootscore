@@ -1,0 +1,370 @@
+/*--------------------------------------------------------------
+WooCommerce Block Checkout
+--------------------------------------------------------------*/
+
+
+// Checkout block
+.wc-block-components-sidebar-layout.wc-block-checkout {
+  @include make-row();
+}
+
+.wc-block-components-main.wc-block-checkout__main.wp-block-woocommerce-checkout-fields-block {
+  @include make-col-ready();
+
+
+  @include media-breakpoint-up(lg) {
+    @include make-col(7);
+  }
+
+  @include media-breakpoint-up(xl) {
+    @include make-col(8);
+  }
+}
+
+.wc-block-components-sidebar.wc-block-checkout__sidebar.wp-block-woocommerce-checkout-totals-block {
+
+  //order: -1;
+  @include make-col-ready();
+
+  @include media-breakpoint-down(lg) {
+    order: -1;
+  }
+
+  @include media-breakpoint-up(lg) {
+    @include make-col(5);
+  }
+
+  @include media-breakpoint-up(xl) {
+    @include make-col(4);
+  }
+}
+
+
+
+// Counter steps
+.wp-block-woocommerce-checkout-fields-block {
+  counter-reset: checkout-steps;
+
+  h2::before {
+    counter-increment: checkout-steps;
+    content: ''counter(checkout-steps) '. ';
+  }
+}
+
+
+
+.wc-block-components-checkout-step {
+
+  &__content {
+    position: relative;
+    padding-left: $spacer;
+    margin-bottom: $spacer * 1.25;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      height: 100%;
+      border-left: var(--#{$prefix}border-width) var(--#{$prefix}border-style) var(--#{$prefix}border-color);
+    }
+  }
+
+  // Shipping
+  .wc-block-components {
+
+    &-radio-control__label-group {
+      display: flex;
+      justify-content: space-between;
+      flex-grow: 1;
+    }
+
+    &-formatted-money-amount {
+      font-weight: 700;
+    }
+    
+    &-shipping-rates-control__package:not(:last-child) {
+      padding-bottom: $spacer;
+      margin-bottom: $spacer;
+      border-bottom: var(--#{$prefix}border-width) var(--#{$prefix}border-style) var(--#{$prefix}border-color);
+    }
+  }
+}
+
+
+
+
+// Hide shipping address field (link does not work)
+.wc-block-components-address-card-wrapper {
+  //display: none;
+}
+
+// Saved shipping adress
+
+// Create card
+.wc-block-components-address-card {
+  //align-items: flex-start;
+  border: $card-border-width solid $card-border-color;
+  border-radius: $card-border-radius;
+  padding: $card-spacer-y $card-spacer-x;
+  display: flex;
+  //font-size: 1em;
+  justify-content: space-between;
+  margin-bottom: $spacer;
+  color: $card-color;
+  background-color: $card-bg;
+  
+  address {
+    margin-bottom: 0;
+  }
+}
+
+.wc-block-components-address-address-wrapper:not(.is-editing) .wc-block-components-address-form-wrapper {
+  height: 0;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.wc-block-components-address-address-wrapper.is-editing .wc-block-components-address-card-wrapper {
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  visibility: hidden;
+}
+
+
+
+
+
+
+
+
+
+
+// Margin bottom phone in billing
+.wc-block-checkout__billing-fields {
+  .wc-block-components-address-form__phone {
+    margin-bottom: 0;
+  }
+}
+
+// Payment
+.wc-block-checkout__payment-method {
+  //margin-bottom: $spacer;
+}
+
+
+// Exclude order-notes
+.wc-block-checkout__order-notes .wc-block-components-checkout-step__content {
+  padding-left: 0;
+
+  &::before {
+    content: none;
+  }
+}
+
+// Order notes
+.wc-block-checkout__add-note textarea {
+  margin-bottom: $spacer;
+}
+
+// Terms
+.wc-block-checkout__terms.wp-block-woocommerce-checkout-terms-block {
+  margin-bottom: $spacer;
+}
+
+
+
+
+
+
+.wc-block-components-address-form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  &__country,
+  &__state {
+    width: 100%;
+  }
+
+  @include media-breakpoint-up(md) {
+
+    &__first_name,
+    &__last_name,
+    &__postcode,
+    &__city,
+    &__country,
+    &__state {
+      flex: 0 0 calc(50% - .75rem);
+    }
+  }
+}
+
+
+
+.wc-block-components-order-summary {
+
+
+  &.wc-block-components-panel {
+    // card
+    border: $card-border-width $border-style $card-border-color;
+    border-radius: $card-border-radius;
+    margin-bottom: $spacer;
+  }
+
+  // Summary toggler button
+  .wc-block-components-panel {
+
+    &__button {
+      //background: red !important;
+      padding: $card-cap-padding-y $card-cap-padding-x;
+      font-weight: $headings-font-weight;
+      background-color: $card-cap-bg;
+      border-top-left-radius: $card-inner-border-radius;
+      border-top-right-radius: $card-inner-border-radius;
+
+      &[aria-expanded="false"] {
+        border-bottom-right-radius: $card-inner-border-radius;
+        border-bottom-left-radius: $card-inner-border-radius;
+
+      }
+    }
+  }
+
+  &-item {
+    //@include make-row();
+    display: flex;
+    column-gap: $spacer * .75;
+    border-top: $card-border-width $border-style $card-border-color;
+    padding: $card-spacer-y $card-spacer-x;
+
+    &__image,
+    &__description,
+    &__total-price {
+      //@include make-col-ready();
+    }
+
+    &__image {
+      //@include make-col(3);
+      width: 25%;
+      //background: aqua;
+    }
+
+    &__description {
+      //@include make-col(5);
+      width: 41.66666667%;
+      //width: 50%;
+      //background: aquamarine;
+    }
+
+    &__total-price {
+      //@include make-col(4);
+      width: 33.33333333%;
+      //width: 25%;
+      //background: blanchedalmond;
+    }
+
+
+
+
+    &__image {
+      position: relative;
+
+      img {
+        border-radius: var(--#{$prefix}border-radius);
+      }
+    }
+
+    // Summary cart badge
+    &__quantity {
+      border-radius: var(--#{$prefix}border-radius-pill);
+
+      position: absolute;
+      top: 0;
+      left: 100%;
+      transform: translate(-50%, -50%);
+    }
+
+
+    &__description {
+
+      .wc-block-components-product-name {
+        display: block;
+        font-weight: 700;
+      }
+
+      p {
+        margin-bottom: 0;
+        //font-size: $small-font-size;
+      }
+
+      ul {
+        list-style: none;
+        font-size: $small-font-size;
+        margin-bottom: 0;
+        padding-left: 0;
+        color: var(--#{$prefix}gray-600);
+      }
+    }
+
+
+
+    &__total-price {
+      text-align: right;
+      font-weight: 700;
+
+      .wc-block-components-product-price__value {
+        display: block;
+      }
+    }
+  }
+}
+
+
+
+
+
+
+// coupon
+.wp-block-woocommerce-checkout-order-summary-coupon-form-block .wc-block-components-totals-coupon {
+  border-top-right-radius: $card-border-radius;
+  border-top-left-radius: $card-border-radius;
+}
+
+
+
+
+
+
+
+.wc-block-checkout__actions_row {
+  //display: flex;
+
+  .wc-block-components-checkout-return-to-cart-button {
+    //margin-right: $spacer * .5;
+
+    svg {
+      //display: none; // hide arrow
+    }
+  }
+
+  .wc-block-components-checkout-return-to-cart-button {
+    display: none;
+  }
+
+  /*
+  .wc-block-components-checkout-place-order-button {
+    flex-grow: 1;
+    padding: $btn-padding-y-lg $btn-padding-x-lg;
+    font-size: $btn-font-size-lg;
+    border-radius: $btn-border-radius-lg;
+    margin-bottom: $spacer;
+
+    // Loading
+    &:disabled {
+      //display: block; // ::before
+      background-color: red;
+    }
+  }
+  */
+}

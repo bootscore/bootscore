@@ -1,0 +1,149 @@
+
+
+
+
+// Create .input-group
+.wc-block-components-quantity-selector {
+  position: relative;
+  display: flex;
+  //flex-wrap: wrap; 
+  align-items: stretch;
+  //width: 100%;
+  width: 140px;
+
+  // create .form-control
+  &__input {
+
+    display: block;
+    //width: 100%;
+    padding: $input-padding-y $input-padding-x;
+    font-size: $input-font-size;
+    font-weight: $input-font-weight;
+    line-height: $input-line-height;
+    color: $input-color;
+    appearance: none;
+    background-color: $input-bg;
+    background-clip: padding-box;
+    border: $input-border-width solid $input-border-color;
+    //border-radius: $input-border-radius;
+    border-radius: 0;
+    transition: $input-transition;
+    text-align: center;
+
+
+    // Hide browser arrows in quantity input
+    appearance: textfield;
+    -webkit-appearance: none;
+    -moz-appearance: textfield;
+
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      display: none;
+      margin: 0;
+    }
+
+    // input in input-group
+    position: relative; // For focus state's z-index
+    flex: 1 1 auto;
+    width: 1%;
+    min-width: 0;
+    margin-left: calc(var(--#{$prefix}border-width) * -1);
+
+    &:focus {
+      color: $input-focus-color;
+      background-color: $input-focus-bg;
+      border-color: $input-focus-border-color;
+      outline: 0;
+      box-shadow: $input-focus-box-shadow;
+    }
+
+    &[max="1"] {
+      color: $input-disabled-color;
+      background-color: $input-disabled-bg;
+      border-color: $input-disabled-border-color;
+      pointer-events: none;
+      
+
+      &:focus {
+        //box-shadow: none;
+      //border-color: $input-disabled-border-color;
+      //border-color: green;
+      }
+    }
+  }
+
+
+  // create .input-group-text
+  &__button {
+    display: flex;
+    align-items: center;
+    padding: $input-group-addon-padding-y $input-group-addon-padding-x;
+    @include font-size($input-font-size); // Match inputs
+    font-weight: $input-group-addon-font-weight;
+    line-height: $input-line-height;
+    color: $input-group-addon-color;
+    text-align: center;
+    white-space: nowrap;
+    background-color: $input-group-addon-bg;
+    border: $input-border-width solid $input-group-addon-border-color;
+    //@include border-radius($input-border-radius);
+
+    &--minus {
+      order: -1;
+      border-top-left-radius: $input-border-radius;
+      border-bottom-left-radius: $input-border-radius;
+    }
+
+    &--plus {
+      margin-left: calc(var(--#{$prefix}border-width) * -1);
+      border-top-right-radius: $input-border-radius;
+      border-bottom-right-radius: $input-border-radius;
+    }
+
+  }
+}
+
+
+
+
+/*
+// Quantity
+.wc-block-components-quantity-selector {
+  @extend .input-group;
+  width: 140px;
+
+  // Disable input if product is 1 in stock or limit purchases to 1 item per order in cart page
+  [max="1"] {
+    @extend :disabled;
+  }
+
+  input {
+    @extend .form-control;
+    text-align: center;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+
+    // Hide browser arrows in quantity input
+    appearance: textfield;
+    -webkit-appearance: none;
+    -moz-appearance: textfield;
+
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      display: none;
+      margin: 0;
+    }
+  }
+
+  button {
+    @extend .input-group-text;
+  }
+
+  &__button--minus {
+    order: -1;
+    margin-right: -1px;
+    border-top-left-radius: #{$btn-border-radius} !important;
+    border-bottom-left-radius: #{$btn-border-radius} !important;
+  }
+}
+*/

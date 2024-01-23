@@ -1,0 +1,144 @@
+/*--------------------------------------------------------------
+WooCommerce Block Buttons
+--------------------------------------------------------------*/
+
+
+// .btn
+.wc-block-cart__submit-button,
+.wc-block-components-checkout-place-order-button,
+.wc-block-components-product-button__button,
+.wc-block-components-checkout-return-to-cart-button,
+.wc-block-components-totals-coupon__button,
+.wc-block-components-shipping-calculator-address__button {
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  user-select: none;
+  text-decoration: none;
+  font-size: $btn-font-size;
+  font-weight: $btn-font-weight;
+  font-family: $btn-font-family;
+  line-height: $btn-line-height;
+  padding: $input-btn-padding-y $input-btn-padding-x;
+  border: $btn-border-width solid;
+  border-radius: $btn-border-radius;
+  transition: $btn-transition;
+}
+
+
+// .btn-primary
+.wc-block-cart__submit-button,
+.wc-block-components-checkout-place-order-button,
+.wc-block-components-product-button__button {
+  color: color-contrast($primary);
+  background-color: var(--#{$prefix}primary);
+  border-color: var(--#{$prefix}primary);
+
+  &:hover {
+    color: color-contrast($primary);
+    background-color: #{shade-color($primary, 10%)};
+    border-color: #{shade-color($primary, 10%)};
+    text-decoration: none; // Cart proceed to checkout a.btn
+  }
+}
+
+
+//.btn-outline-primary
+.wc-block-components-checkout-return-to-cart-button,
+.wc-block-components-totals-coupon__button,
+.wc-block-components-shipping-calculator-address__button {
+  color: var(--#{$prefix}primary);
+  background-color: transparent;
+  border-color: var(--#{$prefix}primary);
+
+  &:hover {
+    color: color-contrast($primary);
+    background-color: var(--#{$prefix}primary);
+  }
+}
+
+
+//.btn-outline-danger
+/*
+.wc-block-cart-item__remove-link {
+  color: var(--#{$prefix}danger);
+  background-color: transparent;
+  border-color: var(--#{$prefix}danger);
+
+  &:hover {
+    color: color-contrast($danger);
+    background-color: var(--#{$prefix}danger);
+  }
+}
+*/
+
+
+// Panel buttons, used in totals
+.wc-block-components {
+  &-panel__button {
+    border: none;
+    width: 100%;
+    padding: 0;
+    font-size: $font-size-base;
+    color: var(--#{$prefix}body-color);
+    background-color: $card-bg;
+    text-align: left;
+
+    svg {
+      fill: var(--#{$prefix}body-color);
+      margin-right: -6px;
+      float: right;
+    }
+  }
+
+  // ul in Totals
+  &-shipping-rates-control__package-items {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 0;
+    font-weight: normal;
+    font-size: $font-size-base * .875;
+    color: var(--#{$prefix}gray-600);
+  }
+}
+
+
+
+// Cart proceed to checkout & checkout submit btn
+
+.wc-block-cart__submit-button,
+.wc-block-components-checkout-place-order-button {
+
+  // .btn-lg
+  padding: $btn-padding-y-lg $btn-padding-x-lg;
+  font-size: $btn-font-size-lg;
+  border-radius: $btn-border-radius-lg;
+
+  width: 100%;
+  margin-bottom: $spacer;
+
+  // Loading
+  &:disabled {
+
+
+    .wc-block-components-button__text {
+      display: none;
+    }
+
+    &::before {
+      content: '';
+
+      // Spinner
+      display: inline-block;
+      width: $spinner-width-sm;
+      height: $spinner-width-sm;
+      //vertical-align: $spinner-vertical-align;
+      border: $spinner-border-width-sm solid currentColor;
+      border-right-color: transparent;
+      border-radius: 50%;
+      -webkit-animation: $spinner-animation-speed linear infinite spinner-border;
+      animation: $spinner-animation-speed linear infinite spinner-border;
+    }
+  }
+}

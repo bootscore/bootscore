@@ -1,0 +1,109 @@
+/*--------------------------------------------------------------
+WooCommerce Block Cart Cross Sell Products
+--------------------------------------------------------------*/
+
+// Cross sell products
+.wp-block-woocommerce-cart-cross-sells-block {
+
+  h2.has-large-font-size {
+    // .has-large-font-size uses !important
+    font-size: calc(1.325rem + 0.9vw) !important;
+  }
+
+  //background: green;
+  margin-bottom: $spacer;
+
+  > div:first-of-type {
+    //background: blue;
+    @include make-row();
+  }
+}
+
+
+.cross-sells-product {
+  text-align: center;
+
+  @include make-col-ready();
+  @include make-col(6);
+
+  @include media-breakpoint-up(lg) {
+    @include make-col(4);
+  }
+
+  @include media-breakpoint-up(xxl) {
+    @include make-col(3);
+  }
+
+  // Create fake card
+  > div:first-of-type {
+    border-top: $card-border-width var(--#{$prefix}border-style) $card-border-color;
+    border-right: $card-border-width var(--#{$prefix}border-style) $card-border-color;
+    border-left: $card-border-width var(--#{$prefix}border-style) $card-border-color;
+    border-top-left-radius: $card-border-radius;
+    border-top-right-radius: $card-border-radius;
+    background-color: $card-bg;
+
+    position: relative;
+  }
+
+  // .card-img-top
+  img {
+    border-top-left-radius: $card-inner-border-radius;
+    border-top-right-radius: $card-inner-border-radius;
+  }
+
+  // Title
+
+  h3 {
+    padding: $card-spacer-y $card-spacer-x 0 $card-spacer-x;
+    //background: green;
+  }
+
+  a {
+    text-decoration: none;
+    color: var(--#{$prefix}body-color);
+    font-size: $font-size-base * 1.25;
+
+    // .stretched-link
+    &:not(.add_to_cart_button):after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 1;
+    }
+
+  }
+}
+
+
+.wp-block-cart-cross-sells-product {
+
+  // Sale badge
+  &__product-onsale {
+    position: absolute;
+    top: $spacer;
+    left: $spacer;
+  }
+
+  // Add to cart
+  &__product-add-to-cart {
+    border-right: $card-border-width var(--#{$prefix}border-style) $card-border-color;
+    border-bottom: $card-border-width var(--#{$prefix}border-style) $card-border-color;
+    border-left: $card-border-width var(--#{$prefix}border-style) $card-border-color;
+    border-bottom-right-radius: $card-border-radius;
+    border-bottom-left-radius: $card-border-radius;
+    background-color: $card-bg;
+    padding: 0 $card-spacer-x $card-spacer-y $card-spacer-x;
+    //padding-right: $card-spacer-x; 
+    //padding-bottom: $card-spacer-y; 
+    //padding-left: $card-spacer-x; 
+
+    button {
+      width: 100%;
+    }
+  }
+}
+

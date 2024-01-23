@@ -1,0 +1,71 @@
+/*--------------------------------------------------------------
+WooCommerce Block Totals Coupon
+--------------------------------------------------------------*/
+
+.wc-block-components {
+  
+  // create an input-group
+  &-totals-coupon {
+
+    &__form {
+      display: flex;
+      align-items: end;
+      margin-bottom: $spacer * .5;
+    }
+
+    &__input {
+      margin-bottom: 0;
+      width: auto;
+      flex-grow: 1;
+
+      input {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+      }
+    }
+
+    &__button {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+      margin-left: calc(#{$input-border-width} * -1);
+      //flex-grow: 1;
+    }
+  }
+
+  // Coupon btn loading 
+  &-button--loading {
+    //background-color: red !important;
+  }
+}
+
+
+
+
+// Coupon btn
+.wc-block-components-button--loading {
+
+  // Loading
+  &:disabled {
+
+
+    .wc-block-components-button__text {
+      display: none;
+      //visibility: hidden;
+    }
+
+    &::before {
+      content: '';
+
+      // Spinner
+      display: inline-block;
+      width: $spinner-width-sm;
+      height: $spinner-width-sm;
+      vertical-align: $spinner-vertical-align;
+      border: $spinner-border-width-sm solid currentColor;
+      border-right-color: transparent;
+      border-radius: 50%;
+      -webkit-animation: $spinner-animation-speed linear infinite spinner-border;
+      animation: $spinner-animation-speed linear infinite spinner-border;
+    }
+  }
+}

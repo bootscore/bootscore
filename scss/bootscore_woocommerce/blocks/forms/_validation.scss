@@ -1,0 +1,143 @@
+/*--------------------------------------------------------------
+Form Validation
+--------------------------------------------------------------*/
+
+.wc-block-components-text-input,
+.wc-block-components-state-input {
+
+  &.has-error {
+    input[aria-invalid="true"] {
+      border-color: var(--#{$prefix}form-invalid-border-color);
+      background-image: var(--invalid-icon);
+      background-repeat: no-repeat;
+      padding-right: $input-height-inner;
+      background-size: $input-height-inner-half $input-height-inner-half;
+      background-position: right $input-height-inner-quarter center;
+
+      &:focus {
+        box-shadow: 0 0 $input-btn-focus-blur $input-focus-width rgba(var(--#{$prefix}danger-rgb), $input-btn-focus-color-opacity);
+        border-color: var(--#{$prefix}form-invalid-border-color);
+      }
+    }
+  }
+
+  &.is-active {
+    input[aria-invalid="false"]:not(:focus) {
+      border-color: var(--#{$prefix}form-valid-border-color);
+      background-image: var(--valid-icon);
+      background-repeat: no-repeat;
+      padding-right: $input-height-inner;
+      background-size: $input-height-inner-half $input-height-inner-half;
+      background-position: right $input-height-inner-quarter center;
+
+      &:focus {
+        box-shadow: 0 0 $input-btn-focus-blur $input-focus-width rgba(var(--#{$prefix}success-rgb), $input-btn-focus-color-opacity);
+        border-color: var(--#{$prefix}form-valid-border-color);
+      }
+    }
+  }
+}
+
+
+
+// Country/State select
+.wc-block-components {
+
+  // Invalid
+  &-state-input.has-error input {
+    border-color: var(--#{$prefix}form-invalid-border-color);
+    background-image: var(--invalid-icon);
+    background-repeat: no-repeat;
+    padding-right: $input-height-inner;
+    background-size: $input-height-inner-half $input-height-inner-half;
+    background-position: right $input-height-inner-quarter center;
+
+    &:focus {
+      box-shadow: 0 0 $input-btn-focus-blur $input-focus-width rgba(var(--#{$prefix}danger-rgb), $input-btn-focus-color-opacity);
+      border-color: var(--#{$prefix}form-invalid-border-color);
+    }
+  }
+
+  // Valid
+  &-combobox.is-active input {
+    border-color: var(--#{$prefix}form-valid-border-color);
+    background-image: var(--valid-icon);
+    background-repeat: no-repeat;
+    padding-right: $input-height-inner;
+    background-size: $input-height-inner-half $input-height-inner-half;
+    background-position: right $input-height-inner-quarter center;
+
+    &:focus {
+      box-shadow: 0 0 $input-btn-focus-blur $input-focus-width rgba(var(--#{$prefix}success-rgb), $input-btn-focus-color-opacity);
+      border-color: var(--#{$prefix}form-valid-border-color);
+    }
+  }
+}
+
+
+
+
+// Tooltips
+.wc-block-components-text-input {
+  position: relative;
+}
+
+// temporary, make tooltips
+.wc-block-components-validation-error {
+  //display: none;
+
+  position: absolute;
+  top: 100%;
+  z-index: 5;
+  max-width: 100%;
+  padding: $form-feedback-tooltip-padding-y $form-feedback-tooltip-padding-x;
+  margin-top: 0.1rem;
+  font-size: $form-feedback-tooltip-font-size;
+  color: $tooltip-color;
+  background-color: var(--#{$prefix}danger);
+  border-radius: $form-feedback-tooltip-border-radius;
+
+  p {
+    margin-bottom: 0;
+  }
+
+}
+
+
+
+// Terms checkbox
+// Invalid
+.wc-block-components-checkbox.has-error {
+
+  input {
+    border-color: var(--#{$prefix}form-invalid-color);
+
+    &:focus {
+      box-shadow: 0 0 $input-btn-focus-blur $input-focus-width rgba(var(--#{$prefix}danger-rgb), $input-btn-focus-color-opacity);
+    }
+  }
+
+  label {
+    color: var(--#{$prefix}form-invalid-color);
+  }
+}
+
+
+// Valid
+.wc-block-checkout__terms {
+  .wc-block-components-checkbox {
+
+    input:checked {
+      border-color: var(--#{$prefix}form-valid-color);
+      background-color: var(--#{$prefix}form-valid-color);
+
+      &:focus {
+        box-shadow: 0 0 $input-btn-focus-blur $input-focus-width rgba(var(--#{$prefix}success-rgb), $input-btn-focus-color-opacity);
+      }
+    }
+
+    label:has(input:checked) {
+      color: var(--#{$prefix}form-valid-color);
+    }
+  }
+}

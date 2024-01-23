@@ -1,0 +1,123 @@
+
+// Form control
+
+.components-base-control__field {
+  margin-bottom: 0 !important;
+}
+
+.components-combobox-control,
+// Checkout fields
+.wc-block-components-text-input {
+  // Country/ Region, State/County
+  //@extend .form-floating;
+  display: flex; // label
+  flex-direction: column; // label
+  margin-bottom: $spacer;
+  width: 100%;
+
+
+  label {
+    order: -1;
+    margin-bottom: $form-label-margin-bottom;
+    font-size: $font-size-base;
+  }
+
+  input {
+    //@extend .form-control;
+    display: block;
+    width: 100%;
+    padding: $input-padding-y $input-padding-x;
+    font-size: $input-font-size;
+    font-weight: $input-font-weight;
+    line-height: $input-line-height;
+    color: $input-color;
+    appearance: none;
+    background-color: $input-bg;
+    background-clip: padding-box;
+    border: $input-border-width solid $input-border-color;
+    border-radius: $input-border-radius;
+    transition: $input-transition;
+
+    &:focus {
+      color: $input-focus-color;
+      background-color: $input-focus-bg;
+      border-color: $input-focus-border-color;
+      outline: 0;
+      box-shadow: $input-focus-box-shadow;
+    }
+  }
+}
+
+//.components-combobox-control input,
+textarea.wc-block-components-textarea {
+  display: block;
+  width: 100%;
+  padding: $input-padding-y $input-padding-x;
+  font-size: $input-font-size;
+  font-weight: $input-font-weight;
+  line-height: $input-line-height;
+  color: $input-color;
+  appearance: none;
+  background-color: $input-bg;
+  background-clip: padding-box;
+  border: $input-border-width solid $input-border-color;
+  border-radius: $input-border-radius;
+  transition: $input-transition;
+
+  &:focus {
+    color: $input-focus-color;
+    background-color: $input-focus-bg;
+    border-color: $input-focus-border-color;
+    outline: 0;
+    box-shadow: $input-focus-box-shadow;
+  }
+}
+
+
+
+
+
+
+
+// Dropdowns
+
+.components-combobox-control__suggestions-container {
+  .components-form-token-field__suggestions-list {
+    border: $dropdown-border-width solid $dropdown-border-color;
+    position: absolute;
+    z-index: $zindex-dropdown;
+    background-color: $dropdown-bg;
+    border-radius: $dropdown-border-radius;
+    list-style: none;
+    font-size: $font-size-base;
+    padding-left: 0;
+    //padding: $dropdown-item-padding-y $dropdown-item-padding-x;
+    max-height: 200px;
+    overflow-y: auto;
+    margin-top: $spacer * .5;
+
+    li {
+      padding: $dropdown-item-padding-y $dropdown-item-padding-x;
+
+      &:hover {
+        cursor: pointer;
+        color: $dropdown-link-hover-color;
+        background-color: $dropdown-link-hover-bg;
+      }
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

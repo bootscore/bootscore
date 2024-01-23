@@ -1,0 +1,271 @@
+/*--------------------------------------------------------------
+WooCommerce Block Cart
+--------------------------------------------------------------*/
+
+
+// Create cols
+.wc-block-components-sidebar-layout.wc-block-cart.wp-block-woocommerce-filled-cart-block {
+  @include make-row();
+}
+
+.wc-block-components-main.wc-block-cart__main.wp-block-woocommerce-cart-items-block {
+  @include make-col-ready();
+
+
+  @include media-breakpoint-up(lg) {
+    @include make-col(7);
+  }
+
+  @include media-breakpoint-up(xl) {
+    @include make-col(8);
+  }
+}
+
+.wc-block-components-sidebar.wc-block-cart__sidebar.wp-block-woocommerce-cart-totals-block {
+  @include make-col-ready();
+
+  @include media-breakpoint-up(lg) {
+    @include make-col(5);
+  }
+
+  @include media-breakpoint-up(xl) {
+    @include make-col(4);
+  }
+}
+
+
+// Cart table
+.wc-block-cart-items {
+
+  // Create card
+  border: $card-border-width var(--#{$prefix}border-style) $card-border-color;
+  border-radius: $card-border-radius;
+  background-color: $card-bg;
+  border-collapse: inherit;
+  border-spacing: 0;
+  margin-bottom: $spacer;
+  width: 100%;
+
+  &__header {
+
+    // Hide thead on small devices
+    @include media-breakpoint-down(sm) {
+      display: none;
+    }
+
+    // Create card-header
+    margin-bottom: 0;
+    color: $card-cap-color;
+    background-color: $card-cap-bg;
+
+    &-image,
+    &-product,
+    &-total {
+      padding-top: $card-cap-padding-y;
+      padding-bottom: $card-cap-padding-y;
+      padding-left: $card-cap-padding-x;
+      border-bottom: $card-border-width var(--#{$prefix}border-style) $card-border-color;
+      font-weight: $headings-font-weight;
+    }
+
+    &-image {
+      //width: 100px;
+      //width: 140px;
+      width: 25%;
+    }
+
+    &-total {
+      padding-right: 1rem;
+      text-align: right;
+    }
+  }
+
+  &__row:not(:last-child) td {
+    border-bottom: $card-border-width var(--#{$prefix}border-style) $card-border-color;
+  }
+
+  // WooCommerce breakpoint is 400px
+  @media (max-width: 399px) {
+    &__row {
+      display: grid;
+      grid-template-columns: 80px 132px;
+    }
+  }
+}
+
+
+// Cart items
+.wc-block-cart-item {
+
+  &__image,
+  &__product,
+  &__total {
+    padding-top: $card-spacer-y;
+    padding-bottom: $card-spacer-y;
+    padding-left: $card-spacer-x;
+    position: relative;
+    vertical-align: top;
+  }
+
+  &__image {
+
+    img {
+      border-radius: $border-radius;
+    }
+  }
+
+  &__product {
+
+    /*
+    .wc-block-components-quantity-selector {
+      margin-bottom: $spacer;
+    }
+    */
+
+    .wc-block-components-product-details {
+      list-style: none;
+      padding-left: 0;
+      font-size: $font-size-base * .825;
+      color: var(--#{$prefix}gray-600);
+    }
+  }
+
+  &__remove-link {
+    text-indent: -9000px;
+    position: relative;
+    border: none;
+    background: none;
+
+    &::after {
+      // Trash icon
+      content: ' ';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: $font-size-base;
+      height: $font-size-base;
+      background-color: var(--#{$prefix}danger);
+      mask-position: center;
+      mask-repeat: no-repeat;
+      mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='1em' viewBox='0 0 448 512'%3E%3C!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --%3E%3Cpath d='M170.5 51.6L151.5 80h145l-19-28.4c-1.5-2.2-4-3.6-6.7-3.6H177.1c-2.7 0-5.2 1.3-6.7 3.6zm147-26.6L354.2 80H368h48 8c13.3 0 24 10.7 24 24s-10.7 24-24 24h-8V432c0 44.2-35.8 80-80 80H112c-44.2 0-80-35.8-80-80V128H24c-13.3 0-24-10.7-24-24S10.7 80 24 80h8H80 93.8l36.7-55.1C140.9 9.4 158.4 0 177.1 0h93.7c18.7 0 36.2 9.4 46.6 24.9zM80 128V432c0 17.7 14.3 32 32 32H336c17.7 0 32-14.3 32-32V128H80zm80 64V400c0 8.8-7.2 16-16 16s-16-7.2-16-16V192c0-8.8 7.2-16 16-16s16 7.2 16 16zm80 0V400c0 8.8-7.2 16-16 16s-16-7.2-16-16V192c0-8.8 7.2-16 16-16s16 7.2 16 16zm80 0V400c0 8.8-7.2 16-16 16s-16-7.2-16-16V192c0-8.8 7.2-16 16-16s16 7.2 16 16z'/%3E%3C/svg%3E");
+      -webkit-mask-position: center;
+      -webkit-mask-repeat: no-repeat;
+      -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='1em' viewBox='0 0 448 512'%3E%3C!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --%3E%3Cpath d='M170.5 51.6L151.5 80h145l-19-28.4c-1.5-2.2-4-3.6-6.7-3.6H177.1c-2.7 0-5.2 1.3-6.7 3.6zm147-26.6L354.2 80H368h48 8c13.3 0 24 10.7 24 24s-10.7 24-24 24h-8V432c0 44.2-35.8 80-80 80H112c-44.2 0-80-35.8-80-80V128H24c-13.3 0-24-10.7-24-24S10.7 80 24 80h8H80 93.8l36.7-55.1C140.9 9.4 158.4 0 177.1 0h93.7c18.7 0 36.2 9.4 46.6 24.9zM80 128V432c0 17.7 14.3 32 32 32H336c17.7 0 32-14.3 32-32V128H80zm80 64V400c0 8.8-7.2 16-16 16s-16-7.2-16-16V192c0-8.8 7.2-16 16-16s16 7.2 16 16zm80 0V400c0 8.8-7.2 16-16 16s-16-7.2-16-16V192c0-8.8 7.2-16 16-16s16 7.2 16 16zm80 0V400c0 8.8-7.2 16-16 16s-16-7.2-16-16V192c0-8.8 7.2-16 16-16s16 7.2 16 16z'/%3E%3C/svg%3E");
+    }
+  }
+
+  &__total {
+    padding-right: $card-spacer-x;
+    text-align: right;
+
+    // price width
+    white-space: nowrap;
+
+    .price {
+      font-weight: 700;
+
+      // Total amount width
+      span {
+        display: block;
+      }
+    }
+
+    @include media-breakpoint-down(md) {
+      .wc-block-components-sale-badge {
+        display: none;
+      }
+    }
+  }
+
+
+
+  // WooCommerce breakpoint is 400px
+  @media (max-width: 399px) {
+    &__image {
+      grid-column-start: 1;
+      grid-row-start: 1;
+    }
+
+    &__product {
+      grid-column-end: 4;
+      grid-column-start: 2;
+      grid-row-start: 1;
+      justify-self: stretch;
+    }
+
+    &__total {
+      grid-row-start: 1;
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+// Panel button
+.wp-block-woocommerce-cart-order-summary-heading-block.wc-block-cart__totals-title {
+  display: block;
+  border-top: $card-border-width var(--#{$prefix}border-style) $card-border-color;
+  border-right: $card-border-width var(--#{$prefix}border-style) $card-border-color;
+  border-left: $card-border-width var(--#{$prefix}border-style) $card-border-color;
+
+  border-top-right-radius: $card-border-radius;
+  border-top-left-radius: $card-border-radius;
+
+  color: $card-cap-color;
+  background-color: $card-cap-bg;
+
+  padding: $card-cap-padding-y $card-cap-padding-x;
+  font-weight: $headings-font-weight;
+}
+
+
+
+
+
+
+.wc-block-cart {
+
+  /*
+  // Proceed to checkout btn lg
+  &__submit-button {
+
+    width: 100%;
+    padding: $btn-padding-y-lg $btn-padding-x-lg;
+    font-size: $btn-font-size-lg;
+    border-radius: $btn-border-radius-lg;
+    margin-bottom: $spacer;
+
+    // Loading
+    &:disabled {
+      //display: block; // ::before
+      background-color: red;
+    }
+  }
+  */
+
+  // Hide sticky proceed to checkout button
+  &__submit-container--sticky {
+    display: none;
+  }
+}
+
+
+
+
+// Payment icons
+.wc-block-components-payment-method-icons {
+  display: flex;
+  gap: $grid-gutter-width * .25;
+
+  img {
+
+    height: $font-size-base * 1.25;
+  }
+}
