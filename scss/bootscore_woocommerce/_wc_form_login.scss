@@ -5,20 +5,17 @@ WooCommerce Form Login
 .woocommerce {
 
   // Remember me checkbox
-  &-form-login__rememberme {
-    @extend .form-check;
-    width: 100%;
+  .woocommerce-form-login .woocommerce-form-login__rememberme {
+    display: block;
     margin-bottom: $spacer;
-
-    #rememberme {
-      @extend .form-check-input;
-    }
   }
+}
 
 
-  // Remove form-login padding on mobile devices
-  // WooCommerce breakpoint is at 769px
-  @media (max-width: 769px) {
+// Remove form-login padding on mobile devices
+// WooCommerce breakpoint is at 769px
+@media (max-width: 769px) {
+  .woocommerce {
 
     form.checkout_coupon,
     form.login,
