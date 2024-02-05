@@ -1,0 +1,65 @@
+/*--------------------------------------------------------------
+WooCommerce Deprecated
+--------------------------------------------------------------*/
+
+// Hide duplicate empty mini-cart message in cart page
+// Came with one of the last WooCommerce updates
+// https://user-images.githubusercontent.com/51531217/227728763-6bef0130-f68a-4148-9c4e-6061b49feaea.png
+.woocommerce-notices-wrapper .woocommerce-mini-cart__empty-message {
+  display: none;
+}
+
+
+// Hide extsting cart-loader in header.php, remove this in v6
+#offcanvas-cart .cart-loader {
+  display: none !important;
+}
+
+
+// Reset icon color in alerts
+.woocommerce-error::before,
+.woocommerce-info::before,
+.woocommerce-message::before,
+.wc-stripe-error::before {
+  color: inherit;
+}
+
+// Add alert styles to WooCommerce notices
+.woocommerce-error {
+  @extend .alert;
+  @extend .alert-danger;
+  @extend .alert-icon;
+  @extend .alert-danger-icon;
+}
+
+.woocommerce-info,
+.woocommerce-noreviews {
+  @extend .alert;
+  @extend .alert-info;
+  @extend .alert-icon;
+  @extend .alert-info-icon;
+}
+
+.woocommerce-message,
+.woocommerce-thankyou-order-details {
+  @extend .alert;
+  @extend .alert-success;
+  @extend .alert-icon;
+  @extend .alert-success-icon;
+}
+
+// Add alert to stripe notice
+.wc-stripe-error {
+  @extend .alert;
+  @extend .alert-danger;
+  @extend .alert-icon;
+  @extend .alert-danger-icon;
+  margin-top: $spacer;
+}
+
+// Hide all buttons inside WC alerts
+.woocommerce-error a.woocommerce-Button.button,
+.woocommerce-info a.woocommerce-Button.button,
+.woocommerce-message a.woocommerce-Button.button {
+  display: none;
+}

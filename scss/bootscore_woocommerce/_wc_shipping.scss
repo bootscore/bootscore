@@ -8,14 +8,14 @@ WooCommerce Shipping
   ul#shipping_method {
 
     li {
-      @extend .form-check;
+      //@extend .form-check;
 
       input {
-        @extend .form-check-input;
+        //@extend .form-check-input;
       }
 
       label {
-        @extend .form-check-label;
+        //@extend .form-check-label;
       }
 
       // Remove padding if radio is hidden

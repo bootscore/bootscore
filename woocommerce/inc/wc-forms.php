@@ -4,7 +4,7 @@
  * WooCommerce Forms
  *
  * @package Bootscore
- * @version 5.3.3
+ * @version 5.4.0
  */
 
 
@@ -27,3 +27,23 @@ function bootscore_dequeue_stylesandscripts_select2() {
     wp_deregister_script('selectWoo');
   }
 }
+
+
+/**
+ * Checkout form fields
+ */
+function bootscore_wc_bootstrap_form_field_args($args, $key, $value) {
+  $args['input_class'][] = 'form-control';
+  return $args;
+}
+add_filter('woocommerce_form_field_args', 'bootscore_wc_bootstrap_form_field_args', 10, 3);
+
+
+/**
+ * Quantity input
+ */
+function bootscore_quantity_input_classes( $classes ) {
+  $classes[] = 'form-control';
+  return $classes;
+}
+add_filter( 'woocommerce_quantity_input_classes', 'bootscore_quantity_input_classes' );

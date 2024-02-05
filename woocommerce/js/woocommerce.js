@@ -1,10 +1,5 @@
 jQuery(function ($) {
 
-  // Review Checkbox Products
-  $('.comment-form-cookies-consent').addClass('form-check');
-  $('#wp-comment-cookies-consent').addClass('form-check-input');
-  $('.comment-form-cookies-consent label').addClass('form-check-label');
-
   // Single-product Tabs
   // First item active
   $('.wc-tabs .nav-item:first-child a').addClass('active');

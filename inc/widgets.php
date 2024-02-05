@@ -6,21 +6,12 @@
  * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
  *
  * @package Bootscore 
- * @version 5.3.3
+ * @version 5.4.0
  */
 
 
 // Exit if accessed directly
 defined( 'ABSPATH' ) || exit;
-
-
-/**
- * Disable Gutenberg blocks in widgets (WordPress 5.8)
- */
-// Disables the block editor from managing widgets in the Gutenberg plugin.
-add_filter( 'gutenberg_use_widgets_block_editor', '__return_false' );
-// Disables the block editor from managing widgets.
-add_filter( 'use_widgets_block_editor', '__return_false' );
 
 
 /**
@@ -69,9 +60,9 @@ if (!function_exists('bootscore_widgets_init')) :
       'name'          => esc_html__('Sidebar', 'bootscore'),
       'id'            => 'sidebar-1',
       'description'   => esc_html__('Add widgets here.', 'bootscore'),
-      'before_widget' => '<section id="%1$s" class="widget %2$s card card-body mb-4">',
+      'before_widget' => '<section id="%1$s" class="widget %2$s mb-4">',
       'after_widget'  => '</section>',
-      'before_title'  => '<h2 class="widget-title card-header h5">',
+      'before_title'  => '<h2 class="widget-title h5">',
       'after_title'   => '</h2>',
     ));
 
@@ -91,7 +82,7 @@ if (!function_exists('bootscore_widgets_init')) :
       'name'          => esc_html__('Footer 1', 'bootscore'),
       'id'            => 'footer-1',
       'description'   => esc_html__('Add widgets here.', 'bootscore'),
-      'before_widget' => '<div class="footer_widget mb-4">',
+      'before_widget' => '<div class="footer_widget mb-3">',
       'after_widget'  => '</div>',
       'before_title'  => '<h2 class="widget-title h5">',
       'after_title'   => '</h2>'
@@ -102,7 +93,7 @@ if (!function_exists('bootscore_widgets_init')) :
       'name'          => esc_html__('Footer 2', 'bootscore'),
       'id'            => 'footer-2',
       'description'   => esc_html__('Add widgets here.', 'bootscore'),
-      'before_widget' => '<div class="footer_widget mb-4">',
+      'before_widget' => '<div class="footer_widget mb-3">',
       'after_widget'  => '</div>',
       'before_title'  => '<h2 class="widget-title h5">',
       'after_title'   => '</h2>'
@@ -113,7 +104,7 @@ if (!function_exists('bootscore_widgets_init')) :
       'name'          => esc_html__('Footer 3', 'bootscore'),
       'id'            => 'footer-3',
       'description'   => esc_html__('Add widgets here.', 'bootscore'),
-      'before_widget' => '<div class="footer_widget mb-4">',
+      'before_widget' => '<div class="footer_widget mb-3">',
       'after_widget'  => '</div>',
       'before_title'  => '<h2 class="widget-title h5">',
       'after_title'   => '</h2>'
@@ -124,7 +115,7 @@ if (!function_exists('bootscore_widgets_init')) :
       'name'          => esc_html__('Footer 4', 'bootscore'),
       'id'            => 'footer-4',
       'description'   => esc_html__('Add widgets here.', 'bootscore'),
-      'before_widget' => '<div class="footer_widget mb-4">',
+      'before_widget' => '<div class="footer_widget mb-3">',
       'after_widget'  => '</div>',
       'before_title'  => '<h2 class="widget-title h5">',
       'after_title'   => '</h2>'
@@ -157,9 +148,3 @@ if (!function_exists('bootscore_widgets_init')) :
   add_action('widgets_init', 'bootscore_widgets_init');
 
 endif;
-
-
-/**
- * Enable shortcodes in HTML-Widget
- */
-add_filter('widget_text', 'do_shortcode');

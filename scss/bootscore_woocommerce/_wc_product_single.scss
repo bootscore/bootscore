@@ -14,13 +14,8 @@ WooCommerce Single Product
     }
   }
 
-  // Width input field
-  .quantity .qty {
-    width: 2rem;
-  }
-
   // Add-to-cart-button
-  div.product form.cart .btn {
+  div.product form.cart .button {
     flex-grow: 1;
   }
 }
@@ -29,7 +24,6 @@ WooCommerce Single Product
 // WooCommerce breakpoint is at 769px
 @media (min-width: 769px) and (max-width: 991px) {
   .woocommerce div.product form.cart {
-
     div.quantity {
       margin-right: auto;
       width: 100%;

@@ -1,5 +1,5 @@
 /*--------------------------------------------------------------
-Recycle bin
+Deprecated
 --------------------------------------------------------------*/
 
 // Remove autop (WP 5.7 bug near shortcode)
@@ -77,4 +77,26 @@ p:empty:before {
     width: 100%;
     height: 100%;
   }
+}
+
+
+
+// Widgets
+// Not needed anymore since Gutenberg blocks
+// Reset ul in sidebar and footer widgets
+.widget-area ul,
+.bootscore-footer ul {
+  padding: 0;
+  list-style: none;
+  margin-bottom: 0;
+}
+
+// Reset nested ul in sidebar widgets
+.widget-area ul li ul li {
+  padding: 0 1rem;
+}
+
+// Reset padding-left in Footer menu
+#footer-menu li a {
+  padding-left: 0;
 }
