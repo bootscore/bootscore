@@ -21,11 +21,14 @@ Ajax Cart
 
   // Cart alert
   // Top margin to first alert only. If grouped product one is out of stock there are two alerts.
-  .alert:first-child {
+  .woocommerce-message:first-child,
+  .woocommerce-error:first-child {
     margin-top: var(--#{$prefix}offcanvas-padding-y);
   }
 
-  .alert {
+  .woocommerce-message,
+  .woocommerce-error,
+  .woocommerce-info {
     margin-right: var(--#{$prefix}offcanvas-padding-x);
     margin-left: var(--#{$prefix}offcanvas-padding-x);
   }
