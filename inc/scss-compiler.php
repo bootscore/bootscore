@@ -70,7 +70,7 @@ function bootscore_compile_scss() {
 
       file_put_contents($css_file, $compiled->getCss());
       if ($is_environment_dev) {
-        file_put_contents(substr($css_file, 0, - 3) . 'map', $compiled->getSourceMap());
+        file_put_contents($css_file . '.map', $compiled->getSourceMap());
       }
 
       set_theme_mod('bootscore_scss_modified_timestamp', $last_modified);
