@@ -51,7 +51,7 @@ function bootscore_compile_scss() {
   if ($is_environment_dev) {
     $compiler->setSourceMap(Compiler::SOURCE_MAP_FILE);
     $compiler->setSourceMapOptions([
-      'sourceMapURL'      => site_url('', 'relative') . '/' . substr(str_replace(ABSPATH, '', $css_file), 0, - 3) . 'map',
+      'sourceMapURL'      => site_url('', 'relative') . '/' . str_replace(ABSPATH, '', $css_file) . '.map',
       'sourceMapBasepath' => substr(str_replace('\\', '/', ABSPATH), 0, - 1),
       'sourceRoot'        => site_url('', 'relative') . '/',
     ]);
