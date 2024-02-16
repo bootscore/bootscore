@@ -4,7 +4,7 @@
  * Theme setup
  *
  * @package Bootscore 
- * @version 5.3.4
+ * @version 5.4.0
  */
 
 
@@ -32,7 +32,9 @@ if (!function_exists('bootscore_setup')) :
     */
     load_theme_textdomain('bootscore', get_template_directory() . '/languages');
 
-    // Add default posts and comments RSS feed links to head.
+    /*
+     * Add default posts and comments RSS feed links to head.
+    */
     add_theme_support('automatic-feed-links');
 
     /*
@@ -64,8 +66,15 @@ if (!function_exists('bootscore_setup')) :
       'style',
     ));
 
-    // Add theme support for selective refresh for widgets.
+    /*
+     * Add theme support for selective refresh for widgets.
+    */
     add_theme_support('customize-selective-refresh-widgets');
+    
+    /*
+     * Add theme support for block template-parts.
+    */
+    add_theme_support( 'block-template-parts' );    
   }
 endif;
 add_action('after_setup_theme', 'bootscore_setup');
