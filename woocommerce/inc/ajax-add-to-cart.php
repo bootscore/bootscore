@@ -4,7 +4,7 @@
  * WooCommerce AJAX cart
  *
  * @package Bootscore
- * @version 5.4.0
+ * @version 5.3.4
  */
 
 
@@ -79,7 +79,7 @@ function bootscore_product_page_ajax_add_to_cart_js() {
             $(document.body).trigger('added_to_cart', [response.fragments, response.cart_hash, $thisbutton]);
 
             // Remove existing notices
-            $('.alert-success, .alert-danger').remove();
+            $('.woocommerce-error, .woocommerce-message, .woocommerce-info').remove();
 
             // Add new notices to offcanvas
             $('.woocommerce-mini-cart').prepend(response.fragments.notices_html);
@@ -94,7 +94,7 @@ function bootscore_product_page_ajax_add_to_cart_js() {
 
         e.preventDefault();
 
-        $('.alert-success, .alert-danger').remove();
+        $('.woocommerce-error, .woocommerce-message, .woocommerce-info').remove();
 
         // Get product name from product-title=""
         let prod_title = '';
@@ -149,15 +149,15 @@ function bootscore_product_page_ajax_add_to_cart_js() {
               console.log('Error-: ' + response.error);
 
               //Remove existing notices
-              $('.alert').remove();
+              $('.woocommerce-error, .woocommerce-message, .woocommerce-info').remove();
 
               let notice = '';
               if (response.error == true) {
                 let message = `<?= sprintf(__('You cannot add another "%s" to your cart.', 'woocommerce'), '{{product_title}}') ?>`;
-                notice = `<div class="alert alert-danger alert-icon alert-danger-icon">${message.replace('{{product_title}}', prod_title)}</div>`;
+                notice = `<div class="woocommerce-error">${message.replace('{{product_title}}', prod_title)}</div>`;
               } else {
                 let message = `<?= sprintf(_n('%s has been added to your cart.', '%s have been added to your cart.', 1, 'woocommerce'), '“{{product_title}}”') ?>`;
-                notice = `<div class="alert alert-success alert-icon alert-success-icon">${message.replace('{{product_title}}', prod_title)}</div>`;
+                notice = `<div class="woocommerce-message">${message.replace('{{product_title}}', prod_title)}</div>`;
               }
 
               // Add new notices to offcanvas
@@ -183,7 +183,7 @@ function bootscore_product_page_ajax_add_to_cart_js() {
 
       // Hide alert in offcanvas-cart when offcanvas is closed
       $('#offcanvas-cart').on('hidden.bs.offcanvas', function () {
-        $('#offcanvas-cart .alert-danger, #offcanvas-cart .alert-success').remove();
+        $('#offcanvas-cart .woocommerce-message, #offcanvas-cart .woocommerce-error, #offcanvas-cart .woocommerce-info:not(.woocommerce-mini-cart__empty-message)').remove();
       });
 
       // Refresh ajax mini-cart on browser back button
