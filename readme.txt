@@ -1,4 +1,4 @@
-=== bootScore ===
+=== Bootscore ===
 
 Contributors: Bastian Kreiter, Justin Kruit, Martin Holzer, Tim Groeneveld, Laurent Binder, Patrick, Gustavo Silva, TershiXia, 
 electronicsandprogramming, charly, Alexandros Kourmoulakis, Sven Geiß, ucalegonte, Benhaim Ido, Sean Emerson, Androidacy, Tamás Dohány,
@@ -7,18 +7,18 @@ David Vanderhaeghe, Karsten Reincke, Patrick Champoux, sweetappleuk, exlexv, Bed
 Tags: featured-images, threaded-comments, translation-ready
 
 Requires at least: 4.5
-Tested up to: 6.4.1
+Tested up to: 6.4.3
 Requires PHP: 7.4
-Stable tag: 5.3.4
+Stable tag: 6.0.0-dev
 License: MIT License
 License URI: https://github.com/bootscore/bootscore/blob/main/LICENSE
 
-bootScore, Bootstrap 5 WordPress Theme, Copyright 2019 - 2023 The bootScore Contributors.
+Bootscore, Bootstrap 5 WordPress Theme, Copyright 2019 - 2024 The Bootscore Contributors.
 
 
 === Plugin Name ===
 
-A starter theme called bootScore.
+A starter theme called Bootscore.
 
 
 == Description ==
