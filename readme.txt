@@ -13,17 +13,17 @@ Stable tag: 6.0.0-dev
 License: MIT License
 License URI: https://github.com/bootscore/bootscore/blob/main/LICENSE
 
-Bootscore, Bootstrap 5 WordPress Theme, Copyright 2019 - 2024 The Bootscore Contributors.
+Copyright 2019 - 2024 The Bootscore Contributors.
 
 
 === Plugin Name ===
 
-A starter theme called Bootscore.
+A starter-theme called Bootscore.
 
 
 == Description ==
 
-A powerful free Bootstrap 5 WordPress Starter Theme
+Flexible Bootstrap WordPress starter-theme for developers with full WooCommerce support.
 
 
 == Installation ==
