@@ -904,7 +904,6 @@ Bootstrap 5.2.1
 * Add overflow-x: hidden to body to hide horizontal scrollbars on Windows Chrome and Firefox if width-100 class is used.
 * Workaround to highlight menu links when active. (theme.js, WP Bootstrap Navwalker is still v4)
 
-
 = 5.0.0.1 - February 11 2021 =
 
 #### Update
