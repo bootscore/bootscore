@@ -62,3 +62,14 @@ https://bootscore.me/documentation/width-height-classes/
   box-shadow: none !important;
   outline: 0 !important;
 }
+
+// Hide scrollbars
+.scrollbar-none {
+  -ms-overflow-style: none;
+  overflow: -moz-scrollbars-none;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
