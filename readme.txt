@@ -42,7 +42,7 @@ https://bootscore.me/category/documentation/
 
 = Does this theme support any plugins? =
 
-bootScore includes support for WooCommerce and Infinite Scroll in Jetpack.
+Bootscore includes support for WooCommerce and Infinite Scroll in Jetpack.
 
 
 == Credits ==
