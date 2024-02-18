@@ -253,3 +253,62 @@ add_filter('woocommerce_add_to_cart_fragments', 'bootscore_ajax_add_to_cart_add_
  * Stop redirecting after stock error
  */
 add_filter('woocommerce_cart_redirect_after_error', '__return_false');
+
+
+
+
+
+
+/**
+ * Add quantity input fields to offcanvas cart
+ * See https://stackoverflow.com/questions/73471584/add-quantity-select-to-woocommerce-shopping-cart-widget
+ */
+
+
+/**
+ * Add quantity input
+ */
+add_filter('woocommerce_widget_cart_item_quantity', 'add_minicart_quantity_fields', 10, 3);
+function add_minicart_quantity_fields($html, $cart_item, $cart_item_key) {
+    $product_price = apply_filters('woocommerce_cart_item_price', WC()->cart->get_product_price($cart_item['data']), $cart_item, $cart_item_key);
+
+    return woocommerce_quantity_input(array('input_value' => $cart_item['quantity']), $cart_item['data'], false) . $product_price;
+}
+
+
+/**
+ * Register JavaScript
+ */
+add_action('wp_enqueue_scripts', function () {
+    wp_register_script('custom-cart-widget', get_template_directory_uri() . '/woocommerce/js/cart-widget.js', ['jquery'], '1.0', true);
+    wp_localize_script('custom-cart-widget', 'cart_widget_qty_ajax', ['ajax_url' => admin_url('admin-ajax.php')]);
+    wp_enqueue_script('custom-cart-widget');
+});
+
+
+/**
+ * Ajax call
+ */
+function ajax_change_widget_cart_qty() {
+    // Set item key as the hash found in input.qty's name
+    $cart_item_key = $_POST['hash'];
+
+    // Get the array of values owned by the product we're updating
+    $cart_item_values = WC()->cart->get_cart_item($cart_item_key);
+
+    // Get the quantity of the item in the cart
+    $product_quantity = apply_filters('woocommerce_stock_amount_cart_item', apply_filters('woocommerce_stock_amount', preg_replace("/[^0-9\.]/", '', filter_var($_POST['quantity'], FILTER_SANITIZE_NUMBER_INT))), $cart_item_key);
+
+    // Update cart validation
+    $passed_validation = apply_filters('woocommerce_update_cart_validation', true, $cart_item_key, $cart_item_values, $product_quantity);
+
+    // Update the quantity of the item in the cart
+    if ($passed_validation) {
+        WC()->cart->set_quantity($cart_item_key, $product_quantity, true);
+    }
+
+    wp_send_json_success(['subtotal_html' => WC()->cart->get_cart_subtotal()]);
+}
+
+add_action('wp_ajax_change_widget_cart_qty', 'ajax_change_widget_cart_qty');
+add_action('wp_ajax_nopriv_change_widget_cart_qty', 'ajax_change_widget_cart_qty');
