@@ -5,7 +5,7 @@ WooCommerce Colors
 .woocommerce div.product p.price,
 .woocommerce div.product span.price,
 .card .price {
-  color: var(--bscore-wc-price, var(--#{$prefix}gray));
+  color: var(--#{$prefix}wc-price, var(--#{$prefix}gray));
 }
 
 .woocommerce div.product p.price del,
@@ -19,11 +19,11 @@ del,
 .woocommerce div.product p.price ins,
 .woocommerce div.product span.price ins,
 ins {
-  color: var(--bscore-wc-price-sale, var(--#{$prefix}danger));
+  color: var(--#{$prefix}wc-price-sale, var(--#{$prefix}danger));
 }
 
 .woocommerce form .form-row .required {
-  color: var(--bscore-wc-form-invalid, var(--#{$prefix}danger));
+  color: var(--#{$prefix}wc-form-invalid, var(--#{$prefix}danger));
 }
 
 .woocommerce div.product p.price del,
@@ -41,7 +41,7 @@ ins {
 
   .woocommerce table.shop_table_responsive tr:nth-child(2n) td,
   .woocommerce-page table.shop_table_responsive tr:nth-child(2n) td {
-    background-color: var(--bscore-shop-table-responsive, var(--#{$prefix}tertiary-bg));
+    background-color: var(--#{$prefix}shop-table-responsive, var(--#{$prefix}tertiary-bg));
   }
 }
 
@@ -49,24 +49,24 @@ ins {
 .woocommerce-cart .cart-collaterals .cart_totals table small,
 .woocommerce-checkout .cart-collaterals .cart_totals table small,
 small.includes_tax {
-  color: var(--bscore-wc-shop-table-small, var(--#{$prefix}tertiary-color));
+  color: var(--#{$prefix}wc-shop-table-small, var(--#{$prefix}tertiary-color));
 }
 
 #add_payment_method #payment div.payment_box,
 .woocommerce-cart #payment div.payment_box,
 .woocommerce-checkout #payment div.payment_box {
-  background-color: var(--bscore-wc-payment-box, var(--#{$prefix}tertiary-bg));
+  background-color: var(--#{$prefix}wc-payment-box, var(--#{$prefix}tertiary-bg));
   color: currentColor;
 }
 
 #add_payment_method #payment div.payment_box::before,
 .woocommerce-cart #payment div.payment_box::before,
 .woocommerce-checkout #payment div.payment_box::before {
-  border-bottom-color: var(--bscore-wc-payment-box, var(--#{$prefix}tertiary-bg));
+  border-bottom-color: var(--#{$prefix}wc-payment-box, var(--#{$prefix}tertiary-bg));
 }
 
 .woocommerce-terms-and-conditions {
-  background: var(--bscore-terms, var(--#{$prefix}tertiary-bg));
+  background: var(--#{$prefix}terms, var(--#{$prefix}tertiary-bg));
 }
 
 .woocommerce div.product .stock {
@@ -74,7 +74,7 @@ small.includes_tax {
 }
 
 .woocommerce div.product .out-of-stock {
-  color: var(--bscore-wc-out-of-stock, var(--#{$prefix}danger));
+  color: var(--#{$prefix}wc-out-of-stock, var(--#{$prefix}danger));
 }
 
 // Gallery Overlay
@@ -87,7 +87,7 @@ small.includes_tax {
 .woocommerce .loader,
 #offcanvas-cart .blockUI.blockOverlay,
 #offcanvas-cart .loader {
-  background-color: var(--bscore-wc-loader-bg, var(--#{$prefix}body-bg)) !important;
+  background-color: var(--#{$prefix}wc-loader-bg, var(--#{$prefix}body-bg)) !important;
   opacity: 1 !important;
 }
 
@@ -95,13 +95,13 @@ small.includes_tax {
 .woocommerce .loader:before,
 #offcanvas-cart .blockUI.blockOverlay:before,
 #offcanvas-cart .loader:before {
-  color: var(--bscore-wc-loader-color, var(--#{$prefix}primary));
+  color: var(--#{$prefix}wc-loader-color, var(--#{$prefix}primary));
 }
 
 // Product attributes
 .woocommerce table.shop_attributes tr:nth-child(even) td,
 .woocommerce table.shop_attributes tr:nth-child(even) th {
-  background: var(--bscore-wc-attributes-tr, var(--#{$prefix}tertiary-bg));
+  background: var(--#{$prefix}wc-attributes-tr, var(--#{$prefix}tertiary-bg));
 }
 
 // Product attributes End
@@ -112,12 +112,12 @@ small.includes_tax {
 }
 
 .woocommerce .widget_price_filter .price_slider_wrapper .ui-widget-content {
-  background-color: var(--bscore-wc-price-slider-bg, var(--#{$prefix}dark));
+  background-color: var(--#{$prefix}wc-price-slider-bg, var(--#{$prefix}dark));
 }
 
 .woocommerce .widget_price_filter .ui-slider .ui-slider-handle,
 .woocommerce .widget_price_filter .ui-slider .ui-slider-range {
-  background-color: var(--bscore-wc-price-slider, var(--#{$prefix}primary));
+  background-color: var(--#{$prefix}wc-price-slider, var(--#{$prefix}primary));
 }
 
 // Validation
