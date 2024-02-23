@@ -2,32 +2,18 @@
 Breadcrumb
 --------------------------------------------------------------*/
 
-// Make breadcrumb horizontally scrollable
-@include media-breakpoint-down(lg) {
-  .breadcrumb-scroller {
-    white-space: nowrap;
-    overflow-x: scroll;
-    overflow-y: hidden;
-    -ms-overflow-style: none;
-    overflow: -moz-scrollbars-none;
-    scrollbar-width: none;
+// Breadcrumb active item padding if is in a horizontal scroll wrapper
+.overflow-x-auto {
 
-    &::-webkit-scrollbar {
-      display: none;
+  scrollbar-color: rgba(var(--#{$prefix}body-color-rgb),.16) transparent;
+    
+  .breadcrumb-item {
+    &.active {
+      padding-right: $spacer;
     }
 
-    .breadcrumb {
-      flex-wrap: nowrap;
-    }
-
-    .breadcrumb-item {
-      &.active {
-        padding-right: $spacer;
-      }
-
-      + .breadcrumb-item::before {
-        float: none;
-      }
+    + .breadcrumb-item::before {
+      float: none;
     }
   }
 }
