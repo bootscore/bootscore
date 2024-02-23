@@ -1,0 +1,40 @@
+/*--------------------------------------------------------------
+WooCommerce Block Widgets
+--------------------------------------------------------------*/
+
+// Categories list widget
+// If list-group-flush is added to the block advanced settings
+.list-group-flush {
+
+  .bs-list-group {
+    border-radius: 0;
+
+    > .list-group-item {
+      border-width: 0 0 var(--#{$prefix}list-group-border-width);
+
+      &:last-child {
+        border-bottom-left-radius: calc(var(--#{$prefix}border-radius) - (var(--#{$prefix}border-width)));
+        border-bottom-right-radius: calc(var(--#{$prefix}border-radius) - (var(--#{$prefix}border-width)));
+        border-bottom-width: 0;
+      }
+    }
+  }
+}
+
+.wc-cat-img img {
+  max-width: 28px;
+}
+
+
+// Categories dropdown widget
+.wc-block-product-categories {
+  .form-select {
+    margin-right: 0;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  &__dropdown:has(.form-select:focus) {
+    z-index: 5;
+  }
+}
