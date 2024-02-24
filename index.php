@@ -22,9 +22,6 @@ get_header();
   <div id="content" class="site-content <?= apply_filters('bootscore/container_class', 'container', 'index'); ?> <?= apply_filters('bootscore/content/spacer_class', 'py-5 mt-4', 'index'); ?>">
     <div id="primary" class="content-area">
 
-      <!-- Hook to add something nice -->
-      <?php bs_after_primary(); ?>
-
       <main id="main" class="site-main">
 
         <!-- Header -->
