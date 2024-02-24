@@ -20,13 +20,13 @@ get_header();
 
         <?php the_post(); ?>
         <?php $thumb = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'full'); ?>
-        <header class="entry-header featured-full-width-img height-75 bg-dark text-light mb-3" style="background-image: url('<?= $thumb['0']; ?>')">
+        <div class="entry-header featured-full-width-img height-75 bg-dark text-light mb-3" style="background-image: url('<?= $thumb['0']; ?>')">
           <div class="<?= apply_filters('bootscore/container_class', 'container', 'single-full-width-image'); ?> entry-header h-100 d-flex align-items-end pb-3">
             <div>
               <h1 class="entry-title"><?php the_title(); ?></h1>
             </div>
           </div>
-        </header>
+        </div>
 
         <div class="<?= apply_filters('bootscore/container_class', 'container', 'single-full-width-image'); ?> pb-5">
 
@@ -49,7 +49,7 @@ get_header();
                 <?php the_content(); ?>
               </div>
 
-              <footer class="entry-footer clear-both">
+              <div class="entry-footer clear-both">
                 <div class="mb-4">
                   <?php bootscore_tags(); ?>
                 </div>
@@ -66,7 +66,7 @@ get_header();
                   </ul>
                 </nav>
                 <?php comments_template(); ?>
-              </footer>
+              </div>
 
             </div>
             <?php get_sidebar(); ?>

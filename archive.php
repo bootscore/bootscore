@@ -23,10 +23,10 @@ get_header();
 
           <main id="main" class="site-main">
 
-            <header class="page-header mb-4">
+            <div class="page-header mb-4">
               <?php the_archive_title('<h1>', '</h1>'); ?>
               <?php the_archive_description('<div class="archive-description">', '</div>'); ?>
-            </header>
+            </div>
 
             <?php if (have_posts()) : ?>
               <?php while (have_posts()) : the_post(); ?>
@@ -84,9 +84,9 @@ get_header();
               <?php endwhile; ?>
             <?php endif; ?>
 
-            <footer class="entry-footer">
+            <div class="entry-footer">
               <?php bootscore_pagination(); ?>
-            </footer>
+            </div>
 
           </main>
 
