@@ -4,7 +4,7 @@
  * Deprecated
  *
  * @package Bootscore
- * @version 5.3.3
+ * @version 6.0.0
  */
 
 

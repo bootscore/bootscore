@@ -4,7 +4,7 @@
  * Functions to compile scss in the theme itself
  *
  * @package Bootscore 
- * @version 5.3.3
+ * @version 6.0.0
  */
 
 
