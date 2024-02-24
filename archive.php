@@ -11,13 +11,13 @@
 get_header();
 ?>
 
-  <div id="content" class="site-content <?= bootscore_container_class(); ?> py-5 mt-5">
+  <div id="content" class="site-content <?= apply_filters('bootscore/container_class', 'container', 'archive'); ?> <?= apply_filters('bootscore/content/spacer_class', 'py-5 mt-5', 'archive'); ?>">
     <div id="primary" class="content-area">
 
       <?php bs_after_primary(); ?>
 
       <div class="row">
-        <div class="<?= bootscore_main_col_class(); ?>">
+        <div class="<?= apply_filters('bootscore/main/col_class', 'col') ?>">
 
           <main id="main" class="site-main">
 

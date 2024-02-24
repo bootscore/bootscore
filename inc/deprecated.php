@@ -3,7 +3,7 @@
 /**
  * Deprecated
  *
- * @package Bootscore 
+ * @package Bootscore
  * @version 5.3.3
  */
 
@@ -53,3 +53,28 @@ add_shortcode('bsfa', 'bsfaCode');
  * Not needed for Gutenberg widgets https://github.com/bootscore/bootscore/pull/660
  */
 add_filter('widget_text', 'do_shortcode');
+
+
+/*
+ * Check if the old functions which were used for simple classes are used in the child theme
+ * If so, we transform them to use the new filter hooks
+ */
+if (function_exists('bootscore_main_col_class')) {
+  add_filter('bootscore/main/col_class', 'bootscore_main_col_class', 100);
+}
+
+if (function_exists('bootscore_sidebar_col_class')) {
+  add_filter('bootscore/sidebar/col_class', 'bootscore_sidebar_col_class', 100);
+}
+
+if (function_exists('bootscore_sidebar_toggler_class')) {
+  add_filter('bootscore/sidebar/toggler_class', 'bootscore_sidebar_toggler_class', 100);
+}
+
+if (function_exists('bootscore_sidebar_offcanvas_class')) {
+  add_filter('bootscore_sidebar_offcanvas_class', 'bootscore_sidebar_offcanvas_class', 100);
+}
+
+if (function_exists('bootscore_container_class')) {
+  add_filter('bootscore/container_class', 'bootscore_container_class', 100);
+}

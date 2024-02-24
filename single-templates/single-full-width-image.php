@@ -17,14 +17,14 @@ get_header();
         <?php the_post(); ?>
         <?php $thumb = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'full'); ?>
         <header class="entry-header featured-full-width-img height-75 bg-dark text-light mb-3" style="background-image: url('<?= $thumb['0']; ?>')">
-          <div class="<?= bootscore_container_class(); ?> entry-header h-100 d-flex align-items-end pb-3">
+          <div class="<?= apply_filters('bootscore/container_class', 'container', 'single-full-width-image'); ?> entry-header h-100 d-flex align-items-end pb-3">
             <div>
               <h1 class="entry-title"><?php the_title(); ?></h1>
             </div>
           </div>
         </header>
 
-        <div class="<?= bootscore_container_class(); ?> pb-5">
+        <div class="<?= apply_filters('bootscore/container_class', 'container', 'single-full-width-image'); ?> pb-5">
 
           <!-- Hook to add something nice -->
           <?php bs_after_primary(); ?>
@@ -32,7 +32,7 @@ get_header();
           <?php the_breadcrumb(); ?>
 
           <div class="row">
-            <div class="<?= bootscore_main_col_class(); ?>">
+            <div class="<?= apply_filters('bootscore/main/col_class', 'col'); ?>">
 
               <div class="entry-content">
                 <?php bootscore_category_badge(); ?>

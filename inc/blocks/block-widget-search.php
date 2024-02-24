@@ -44,8 +44,10 @@ if (!function_exists('bootscore_block_widget_search_classes')) {
       $search[]  = 'wp-block-search__inside-wrapper';
       $replace[] = 'wp-block-search input-group';
     }
+    
+    $block_content = str_replace($search, $replace, $block_content);
 
-    return str_replace($search, $replace, $block_content);
+    return apply_filters('bootscore/block/search/content', $block_content, $block);
   }
 }
 add_filter('render_block_core/search', 'bootscore_block_widget_search_classes', 10, 2);

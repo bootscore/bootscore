@@ -44,7 +44,9 @@ if (!function_exists('bootscore_block_widget_latest_commentss_classes')) {
       '<p class="text-body mb-0"',
     );
 
-    return str_replace($search, $replace, $block_content);
+    $block_content = str_replace($search, $replace, $block_content);
+
+    return apply_filters('bootscore/block/latest-comments/content', $block_content, $block);
   }
 }
 add_filter('render_block_core/latest-comments', 'bootscore_block_widget_latest_commentss_classes', 10, 2);

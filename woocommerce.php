@@ -16,7 +16,7 @@
 get_header();
 ?>
 
-  <div id="content" class="site-content <?= bootscore_container_class(); ?> py-5 mt-4">
+  <div id="content" class="site-content <?= apply_filters('bootscore/container_class', 'container', 'woocommerce'); ?> <?= apply_filters('bootscore/content/spacer_class', 'py-5 mt-4', 'woocommerce'); ?>">
     <div id="primary" class="content-area">
 
       <!-- Hook to add something nice -->
@@ -27,7 +27,7 @@ get_header();
         <!-- Breadcrumb -->
         <?php woocommerce_breadcrumb(); ?>
         <div class="row">
-          <div class="<?= bootscore_main_col_class(); ?>">
+          <div class="<?= apply_filters('bootscore/main/col_class', 'col'); ?>">
             <?php woocommerce_content(); ?>
           </div>
           <!-- sidebar -->
