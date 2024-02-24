@@ -6,11 +6,11 @@
  * @link https://codex.wordpress.org/Creating_an_Error_404_Page
  *
  * @package Bootscore
- * @version 5.4.0
+ * @version 6.0.0
  */
 
 // Exit if accessed directly
-defined( 'ABSPATH' ) || exit;
+defined('ABSPATH') || exit;
 
 get_header();
 ?>

@@ -9,7 +9,7 @@
 
 
 // Exit if accessed directly
-defined( 'ABSPATH' ) || exit;
+defined('ABSPATH') || exit;
 
 
 // Remove in v6
