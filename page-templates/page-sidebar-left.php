@@ -15,7 +15,7 @@ defined('ABSPATH') || exit;
 get_header();
 ?>
 
-  <div id="content" class="site-content <?= apply_filters('bootscore/container_class', 'container', 'page-sidebar-left'); ?> py-5 mt-5">
+  <div id="content" class="site-content <?= apply_filters('bootscore/container_class', 'container', 'page-sidebar-left'); ?> py-3">
     <div id="primary" class="content-area">
 
       <div class="row">
