@@ -46,7 +46,7 @@ get_header();
           </div>
           <!-- Related posts using bS Swiper plugin -->
           <?php if (function_exists('bootscore_related_posts')) bootscore_related_posts(); ?>
-          <nav aria-label="bS page navigation">
+          <nav aria-label="bs page navigation">
             <ul class="pagination justify-content-center">
               <li class="page-item">
                 <?php previous_post_link('%link'); ?>
