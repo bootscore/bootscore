@@ -30,9 +30,6 @@ get_header();
 
         <div class="<?= apply_filters('bootscore/container_class', 'container', 'single-full-width-image'); ?> pb-5">
 
-          <!-- Hook to add something nice -->
-          <?php bs_after_primary(); ?>
-
           <?php the_breadcrumb(); ?>
 
           <div class="row">

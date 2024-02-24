@@ -78,3 +78,13 @@ if (function_exists('bootscore_sidebar_offcanvas_class')) {
 if (function_exists('bootscore_container_class')) {
   add_filter('bootscore/container_class', 'bootscore_container_class', 100);
 }
+
+
+
+
+/**
+ * Hook after #primary
+ */
+function bs_after_primary() {
+  do_action('bs_after_primary');
+}

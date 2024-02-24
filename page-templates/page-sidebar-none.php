@@ -18,9 +18,6 @@ get_header();
   <div id="content" class="site-content <?= apply_filters('bootscore/container_class', 'container', 'page-sidebar-none'); ?> py-5 mt-5">
     <div id="primary" class="content-area">
 
-      <!-- Hook to add something nice -->
-      <?php bs_after_primary(); ?>
-
       <main id="main" class="site-main">
 
         <header class="entry-header">
