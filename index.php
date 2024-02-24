@@ -76,7 +76,7 @@ get_header();
                             </a>
 
                             <?php if ('post' === get_post_type()) : ?>
-                              <p class="meta small mb-2 text-body-tertiary">
+                              <p class="meta small mb-2 text-body-secondary">
                                 <?php
                                 bootscore_date();
                                 bootscore_author();
@@ -147,7 +147,7 @@ get_header();
                         </a>
 
                         <?php if ('post' === get_post_type()) : ?>
-                          <p class="meta small mb-2 text-body-tertiary">
+                          <p class="meta small mb-2 text-body-secondary">
                             <?php
                             bootscore_date();
                             bootscore_author();

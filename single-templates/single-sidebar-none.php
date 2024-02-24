@@ -28,7 +28,7 @@ get_header();
           <?php bootscore_category_badge(); ?>
           <h1><?php the_title(); ?></h1>
           <p class="entry-meta">
-            <small class="text-body-tertiary">
+            <small class="text-body-secondary">
               <?php
               bootscore_date();
               bootscore_author();
