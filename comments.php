@@ -9,7 +9,7 @@
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
  * @package Bootscore
- * @version 5.4.0
+ * @version 6.0.0
  */
 
 // Exit if accessed directly

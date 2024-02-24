@@ -4,7 +4,7 @@
  * Template Post Type: post
  *
  * @package Bootscore
- * @version 5.4.0
+ * @version 6.0.0
  */
 
 // Exit if accessed directly
