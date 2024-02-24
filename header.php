@@ -38,7 +38,7 @@
 
       <nav id="nav-main" class="navbar navbar-expand-lg">
 
-        <div class=" <?= apply_filters('bootscore/container_class', 'container', 'header'); ?>">
+        <div class="<?= apply_filters('bootscore/container_class', 'container', 'header'); ?>">
           <!-- Navbar Brand -->
           <a class="navbar-brand xs d-md-none" href="<?= esc_url(home_url()); ?>"><img src="<?= esc_url(apply_filters('bootscore/logo', get_stylesheet_directory_uri() . '/assets/img/logo/logo-sm.svg', 'small')); ?>" alt="logo" class="logo xs"></a>
           <a class="navbar-brand md d-none d-md-block" href="<?= esc_url(home_url()); ?>"><img src="<?= esc_url(apply_filters('bootscore/logo', get_stylesheet_directory_uri() . '/assets/img/logo/logo.svg', 'normal')); ?>" alt="logo" class="logo md"></a>
