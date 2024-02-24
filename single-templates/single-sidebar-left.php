@@ -24,7 +24,7 @@ get_header();
 
           <main id="main" class="site-main">
 
-            <header class="entry-header">
+            <div class="entry-header">
               <?php the_post(); ?>
               <?php bootscore_category_badge(); ?>
               <h1><?php the_title(); ?></h1>
@@ -38,19 +38,19 @@ get_header();
                 </small>
               </p>
               <?php bootscore_post_thumbnail(); ?>
-            </header>
+            </div>
 
             <div class="entry-content">
               <?php the_content(); ?>
             </div>
 
-            <footer class="entry-footer clear-both">
+            <div class="entry-footer clear-both">
               <div class="mb-4">
                 <?php bootscore_tags(); ?>
               </div>
               <!-- Related posts using bS Swiper plugin -->
               <?php if (function_exists('bootscore_related_posts')) bootscore_related_posts(); ?>
-              <nav aria-label="bS page navigation">
+              <nav aria-label="bs page navigation">
                 <ul class="pagination justify-content-center">
                   <li class="page-item">
                     <?php previous_post_link('%link'); ?>
@@ -61,7 +61,7 @@ get_header();
                 </ul>
               </nav>
               <?php comments_template(); ?>
-            </footer>
+            </div>
 
           </main>
 

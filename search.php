@@ -24,14 +24,14 @@ get_header();
 
             <?php if (have_posts()) : ?>
 
-              <header class="page-header mb-4">
+              <div class="page-header mb-4">
                 <h1>
                   <?php
                   /* translators: %s: search query. */
                   printf(esc_html__('Search Results for: %s', 'bootscore'), '<span class="text-secondary">' . get_search_query() . '</span>');
                   ?>
                 </h1>
-              </header>
+              </div>
 
               <?php
               /* Start the Loop */

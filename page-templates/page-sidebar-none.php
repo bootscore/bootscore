@@ -20,19 +20,19 @@ get_header();
 
       <main id="main" class="site-main">
 
-        <header class="entry-header">
+        <div class="entry-header">
           <?php the_post(); ?>
           <h1><?php the_title(); ?></h1>
           <?php bootscore_post_thumbnail(); ?>
-        </header>
+        </div>
 
         <div class="entry-content">
           <?php the_content(); ?>
         </div>
 
-        <footer class="entry-footer">
+        <div class="entry-footer">
           <?php comments_template(); ?>
-        </footer>
+        </div>
 
       </main>
 
