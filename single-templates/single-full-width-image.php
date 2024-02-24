@@ -3,8 +3,12 @@
  * Template Name: Full width image
  * Template Post Type: post
  *
- * @version 5.3.1
+ * @package Bootscore
+ * @version 5.4.0
  */
+
+// Exit if accessed directly
+defined('ABSPATH') || exit;
 
 get_header();
 ?>

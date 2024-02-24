@@ -8,12 +8,11 @@
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
  * @package Bootscore
- *
  * @version 5.4.0
  */
 
- // Exit if accessed directly
- defined( 'ABSPATH' ) || exit;
+// Exit if accessed directly
+defined( 'ABSPATH' ) || exit;
 
 ?>
 <!doctype html>

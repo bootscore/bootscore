@@ -4,12 +4,12 @@
  * Columns
  *
  * @package Bootscore
- * @version 5.3.3
+ * @version 5.4.0
  */
-
 
 // Exit if accessed directly
 defined('ABSPATH') || exit;
+
 
 /**
  * Determines the CSS class for the main column based on the presence of a sidebar.

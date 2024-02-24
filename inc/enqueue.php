@@ -4,9 +4,8 @@
  * Enqueue styles & scripts
  *
  * @package Bootscore 
- * @version 5.3.4
+ * @version 5.4.0
  */
-
 
 // Exit if accessed directly
 defined('ABSPATH') || exit;

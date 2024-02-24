@@ -6,12 +6,11 @@
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
  * @package Bootscore
- * @version 5.3.3
+ * @version 5.4.0
  */
 
-
 // Exit if accessed directly
-defined( 'ABSPATH' ) || exit;
+defined('ABSPATH') || exit;
 
 
 if (!is_active_sidebar('sidebar-1')) {

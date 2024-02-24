@@ -10,11 +10,16 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
- * @package Bootscore
+ * @package Bootscore 
+ * @version 5.4.0
  */
+
+// Exit if accessed directly
+defined( 'ABSPATH' ) || exit;
 
 get_header();
 ?>
+
   <div id="content" class="site-content <?= apply_filters('bootscore/container_class', 'container', 'index'); ?> <?= apply_filters('bootscore/content/spacer_class', 'py-5 mt-4', 'index'); ?>">
     <div id="primary" class="content-area">
 

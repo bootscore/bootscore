@@ -7,7 +7,6 @@
  * @version 5.4.0
  */
 
-
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
 

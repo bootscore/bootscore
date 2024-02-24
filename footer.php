@@ -16,7 +16,6 @@ defined( 'ABSPATH' ) || exit;
 
 ?>
 
-
 <footer>
 
   <div class="bootscore-footer bg-body-tertiary pt-5 pb-3">

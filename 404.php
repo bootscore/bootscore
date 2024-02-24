@@ -6,10 +6,15 @@
  * @link https://codex.wordpress.org/Creating_an_Error_404_Page
  *
  * @package Bootscore
+ * @version 5.4.0
  */
+
+// Exit if accessed directly
+defined( 'ABSPATH' ) || exit;
 
 get_header();
 ?>
+
   <div id="content" class="site-content <?= apply_filters('bootscore/container_class', 'container', '404'); ?> <?= apply_filters('bootscore/content/spacer_class', 'py-5 mt-5', '404'); ?>">
     <div id="primary" class="content-area">
 
