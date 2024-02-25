@@ -18,13 +18,13 @@ defined( 'ABSPATH' ) || exit;
 add_action('woocommerce_before_quantity_input_field', 'bs_quantity_minus_button');
 
 function bs_quantity_minus_button() {
-  echo '<button type="button" class="minus input-group-text" >-</button>';
+  echo '<button type="button" class="minus input-group-text" data-type="minus">-</button>';
 }
 
 add_action('woocommerce_after_quantity_input_field', 'bs_quantity_plus_button');
 
 function bs_quantity_plus_button() {
-  echo '<button type="button" class="plus input-group-text" >+</button>';
+  echo '<button type="button" class="plus input-group-text" data-type="plus">+</button>';
 }
 
 add_action('wp_header', 'bs_quantity_plus_minus');
