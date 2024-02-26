@@ -19,7 +19,7 @@ defined('ABSPATH') || exit;
 
 get_header();
 ?>
-  <div id="content" class="site-content <?= apply_filters('bootscore/container_class', 'container', 'index'); ?> <?= apply_filters('bootscore/content/spacer_class', 'py-3', 'index'); ?>">
+  <div id="content" class="site-content <?= apply_filters('bootscore/container_class', 'container', 'index'); ?> <?= apply_filters('bootscore/content/spacer_class', 'pt-3 pb-5', 'index'); ?>">
     <div id="primary" class="content-area">
 
       <main id="main" class="site-main">
