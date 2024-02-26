@@ -20,6 +20,17 @@ defined('ABSPATH') || exit;
 if (!function_exists('bootscore_widgets_init')) :
 
   function bootscore_widgets_init() {
+    
+    // Top Bar
+    register_sidebar(array(
+      'name'          => esc_html__('Top Bar', 'bootscore'),
+      'id'            => 'top-bar',
+      'description'   => esc_html__('Add widgets here.', 'bootscore'),
+      'before_widget' => '<div class="top-bar-widget">',
+      'after_widget'  => '</div>',
+      'before_title'  => '<div class="widget-title d-none">',
+      'after_title'   => '</div>'
+    ));  
 
     // Top Nav
     register_sidebar(array(
