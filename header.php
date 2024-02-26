@@ -31,6 +31,11 @@ defined('ABSPATH') || exit;
 
 <div id="page" class="site">
 
+  <!-- Top Bar Widget -->
+  <?php if (is_active_sidebar('top-bar')) : ?>
+    <?php dynamic_sidebar('top-bar'); ?>
+  <?php endif; ?>  
+
   <header id="masthead" class="site-header sticky-top bg-body-tertiary">
 
     <nav id="nav-main" class="navbar navbar-expand-lg">
