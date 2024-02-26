@@ -20,7 +20,7 @@ get_header();
 
         <?php the_post(); ?>
         <?php $thumb = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'full'); ?>
-        <div class="entry-header featured-full-width-img height-75 bg-dark text-light mb-4" style="background-image: url('<?= $thumb['0']; ?>')">
+        <div class="entry-header featured-full-width-img height-75 bg-dark text-light" style="background-image: url('<?= $thumb['0']; ?>')">
           <div class="<?= apply_filters('bootscore/container_class', 'container', 'single-full-width-image'); ?> entry-header h-100 d-flex align-items-end pb-3">
             <div>
               <h1 class="entry-title"><?php the_title(); ?></h1>
