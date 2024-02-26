@@ -20,7 +20,7 @@ defined('ABSPATH') || exit;
 get_header();
 ?>
 
-  <div id="content" class="site-content <?= apply_filters('bootscore/container_class', 'container', 'woocommerce'); ?> <?= apply_filters('bootscore/content/spacer_class', 'py-5 mt-4', 'woocommerce'); ?>">
+  <div id="content" class="site-content <?= apply_filters('bootscore/container_class', 'container', 'woocommerce'); ?> <?= apply_filters('bootscore/content/spacer_class', 'py-3', 'woocommerce'); ?>">
     <div id="primary" class="content-area">
 
       <main id="main" class="site-main">
