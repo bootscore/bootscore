@@ -19,15 +19,15 @@ defined('ABSPATH') || exit;
 
 get_header();
 ?>
-  <div id="content" class="site-content <?= apply_filters('bootscore/container_class', 'container', 'index'); ?> <?= apply_filters('bootscore/content/spacer_class', 'pt-3 pb-5', 'index'); ?>">
+  <div id="content" class="site-content <?= apply_filters('bootscore/container_class', 'container', 'index'); ?> <?= apply_filters('bootscore/content/spacer_class', 'pt-4 pb-5', 'index'); ?>">
     <div id="primary" class="content-area">
 
       <main id="main" class="site-main">
 
         <!-- Header -->
-        <div class="py-3 py-md-5 text-center">
-          <h1 class="display-1"><?php bloginfo('name'); ?></h1>
-          <p class="lead"><?php bloginfo('description'); ?></p>
+        <div class="p-5 text-center bg-body-tertiary rounded mb-4">
+          <h1><?php bloginfo('name'); ?></h1>
+          <p class="lead mb-0"><?php bloginfo('description'); ?></p>
         </div>
 
         <!-- Sticky Post -->
