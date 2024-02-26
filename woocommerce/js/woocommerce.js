@@ -73,31 +73,15 @@ jQuery(function ($) {
 
 	// Implement the change event.
 	function bootscore_quantity_update_buttons(el, number, step, nonce) {
-		// Prevent the Plus/Minus ajax functionality for single product pages Cart form.
-		var is_single_product_page = $('body').hasClass('single single-product');
-		if ( is_single_product_page ) {
-			console.log( 'Yes block' )
-			return;
-		}
-
 		var wrap = $(el).closest(".woocommerce-mini-cart-item"),
-			key = $(wrap).data("key");
-
-			if ( key === undefined ) {
-				key = $('form.cart .woocommerce-mini-cart-item').data("key" );
-				console.log( 'key not found.', key );
-			}
-	
-			console.log( 'outside key: ', key );
-
-			var data = {
+			key = $(wrap).data("key"),
+			data = {
 			action: "bootscore_qty_update",
 			key: key,
 			number: number,
 			step: step,
 			nonce: nonce,
 		};
-
 
 		// Perform Ajax Call.
 		bootscore_perform_ajax_call( wrap, data );
@@ -181,15 +165,15 @@ jQuery(function ($) {
 			type: 'POST',
 			data: data,
 			beforeSend: function() {
-					// Loader HTML
-					let loader = `
-						<div class="blockUI blockOverlay" style="z-index: 1000; border: none; margin: 0px; padding: 0px; width: 100%; height: 100%; top: 0px; left: 0px; background-color: rgb(0, 0, 0); opacity: 0.6; cursor: wait; position: absolute;"></div>
-						<div class="blockUI blockMsg blockElement" style="z-index: 1011; display: none; position: absolute; left: 199px; top: 52px;"></div>
-						<div class="blockUI" style="display:none"></div>
-					`;
+				// Loader HTML
+				let loader = `
+					<div class="blockUI blockOverlay" style="z-index: 1000; border: none; margin: 0px; padding: 0px; width: 100%; height: 100%; top: 0px; left: 0px; background-color: rgb(0, 0, 0); opacity: 0.6; cursor: wait; position: absolute;"></div>
+					<div class="blockUI blockMsg blockElement" style="z-index: 1011; display: none; position: absolute; left: 199px; top: 52px;"></div>
+					<div class="blockUI" style="display:none"></div>
+				`;
 
-					// Append the loader inside the item you click
-					wrap.append(loader);
+				// Append the loader inside the item you click
+				wrap.append(loader);
 			},
 			success: function(res) {
 				setTimeout(function() {
@@ -213,7 +197,4 @@ jQuery(function ($) {
 			}
     });
 }
-
-
-
 }); // jQuery End

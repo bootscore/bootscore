@@ -289,39 +289,35 @@ function bootscore_item_key_insert() {
 add_action( 'wp_ajax_bootscore_qty_update', 'bootscore_qty_update' );
 add_action( 'wp_ajax_nopriv_bootscore_qty_update', 'bootscore_qty_update' );
 function bootscore_qty_update(){
-  // error_log( print_r( $_POST, true ) );
-  
   if ( isset( $_POST['number'] ) ) {
+    $key    = isset( $_POST['key'] ) ? sanitize_text_field( wp_unslash( $_POST['key'] ) ) : '';
+    $number = isset( $_POST['number'] ) ? sanitize_text_field( wp_unslash( $_POST['number'] ) ) : '';
+    $step   = isset( $_POST['step'] ) ? sanitize_text_field( wp_unslash( $_POST['step'] ) ) : '';
+    $nonce  = isset( $_POST['nonce'] ) ? sanitize_text_field( wp_unslash( $_POST['nonce'] ) ) : '';
 
-      $key    = isset( $_POST['key'] ) ? sanitize_text_field( wp_unslash( $_POST['key'] ) ) : '';
-      $number = isset( $_POST['number'] ) ? sanitize_text_field( wp_unslash( $_POST['number'] ) ) : '';
-      $step   = isset( $_POST['step'] ) ? sanitize_text_field( wp_unslash( $_POST['step'] ) ) : '';
-      $nonce  = isset( $_POST['nonce'] ) ? sanitize_text_field( wp_unslash( $_POST['nonce'] ) ) : '';
+    // Validate nonce for security.
+    if ( ! wp_verify_nonce( $nonce, 'bootscore_update_cart' ) ) {
+      wp_send_json_error(
+          array(
+              'message' => __( 'Nonce verification failed', 'bootscore' ),
+          )
+      );
+    }
 
-      // Validate nonce for security.
-      if ( ! wp_verify_nonce( $nonce, 'bootscore_update_cart' ) ) {
-          wp_send_json_error(
-              array(
-                  'message' => __( 'Nonce verification failed', 'bootscore' ),
-              )
-          );
-      }
+    if ( $key && $number > 0 ) {
+      WC()->cart->set_quantity( $key, $number );
+      $items               = WC()->cart->get_cart();
+      $cart                = [];
+      $cart['count']       = WC()->cart->cart_contents_count;
+      $cart['total_items'] = WC()->cart->get_cart_contents_count();
+      $cart['total']       = WC()->cart->get_cart_total();
+      $cart['item_price']  = wc_price( $items[ $key ]['line_total'] );
+      $cart['item_qty']    = $items[ $key ]['quantity'];
+      $cart['message']     = __( 'Quantity updated successfully', 'bootscore' );
 
-      if ( $key && $number > 0 ) {
-          WC()->cart->set_quantity( $key, $number );
-          $items               = WC()->cart->get_cart();
-          $cart                = [];
-          $cart['count']       = WC()->cart->cart_contents_count;
-          $cart['total_items'] = WC()->cart->get_cart_contents_count();
-          $cart['total']       = WC()->cart->get_cart_total();
-          $cart['item_price']  = wc_price( $items[ $key ]['line_total'] );
-          $cart['item_qty']    = $items[ $key ]['quantity'];
-          $cart['message']     = __( 'Quantity updated successfully', 'bootscore' );
-
-          wp_send_json_success( $cart );
-      } else {
-          wp_send_json_error( __('Invalid key or number', 'bootscore') );
-      }
-
+      wp_send_json_success( $cart );
+    } else {
+        wp_send_json_error( __('Invalid key or number', 'bootscore') );
+    }
   }
 }
