@@ -19,7 +19,7 @@ defined('ABSPATH') || exit;
 
 <footer>
 
-  <div class="bootscore-footer bg-body-tertiary pt-5 pb-3">
+  <div class="<?= apply_filters('bootscore/footer_class', 'bg-body-tertiary pt-5 pb-3'); ?> bootscore-footer">
     <div class="<?= apply_filters('bootscore/container_class', 'container', 'footer'); ?>">
 
       <!-- Top Footer Widget -->
@@ -75,19 +75,19 @@ defined('ABSPATH') || exit;
     </div>
   </div>
 
-  <div class="bootscore-info bg-body-tertiary text-body-secondary border-top py-2 text-center">
-    <div class="<?= apply_filters('bootscore/container_class', 'container', 'footer-copyright'); ?>">
+  <div class="<?= apply_filters('bootscore/footer_info_class', 'bg-body-tertiary text-body-secondary border-top py-2 text-center small'); ?> bootscore-info">
+    <div class="<?= apply_filters('bootscore/container_class', 'container', 'footer-info'); ?>">
       <?php if (is_active_sidebar('footer-info')) : ?>
         <?php dynamic_sidebar('footer-info'); ?>
       <?php endif; ?>
-      <small class="bootscore-copyright"><span class="cr-symbol">&copy;</span>&nbsp;<?= date('Y'); ?> <?php bloginfo('name'); ?></small>
+      <div class="bootscore-copyright"><span class="cr-symbol">&copy;</span>&nbsp;<?= date('Y'); ?> <?php bloginfo('name'); ?></div>
     </div>
   </div>
 
 </footer>
 
 <!-- To top button -->
-<a href="#" class="btn btn-primary shadow top-button position-fixed zi-1020"><i class="fa-solid fa-chevron-up"></i><span class="visually-hidden-focusable">To top</span></a>
+<a href="#" class="<?= apply_filters('bootscore/to_top_button_class', 'btn btn-primary shadow'); ?> position-fixed zi-1020 top-button"><i class="fa-solid fa-chevron-up"></i><span class="visually-hidden-focusable">To top</span></a>
 
 </div><!-- #page -->
 
