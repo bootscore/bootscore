@@ -36,7 +36,7 @@ defined('ABSPATH') || exit;
     <?php dynamic_sidebar('top-bar'); ?>
   <?php endif; ?>  
 
-  <header id="masthead" class="site-header sticky-top bg-body-tertiary">
+  <header id="masthead" class="<?= apply_filters('bootscore/header_class', 'sticky-top bg-body-tertiary'); ?> site-header">
 
     <nav id="nav-main" class="navbar navbar-expand-lg">
 
@@ -90,7 +90,7 @@ defined('ABSPATH') || exit;
           ?>
 
           <!-- Navbar Toggler -->
-          <button class="btn btn-outline-secondary d-lg-none ms-1 ms-md-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas-navbar" aria-controls="offcanvas-navbar">
+          <button class="<?= apply_filters('bootscore/header_button_class', 'btn btn-outline-secondary'); ?> d-lg-none ms-1 ms-md-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas-navbar" aria-controls="offcanvas-navbar">
             <i class="fa-solid fa-bars"></i><span class="visually-hidden-focusable">Menu</span>
           </button>
 
