@@ -14,11 +14,11 @@ defined('ABSPATH') || exit;
 
 get_header();
 ?>
-  <div id="content" class="site-content <?= apply_filters('bootscore/container_class', 'container', 'search'); ?> <?= apply_filters('bootscore/content/spacer_class', 'pt-4 pb-5', 'search'); ?>">
+  <div id="content" class="site-content <?= apply_filters('bootscore/class/container', 'container', 'search'); ?> <?= apply_filters('bootscore/content/spacer_class', 'pt-4 pb-5', 'search'); ?>">
     <div id="primary" class="content-area">
 
       <div class="row">
-        <div class="<?= apply_filters('bootscore/main/col_class', 'col'); ?>">
+        <div class="<?= apply_filters('bootscore/class/col/main', 'col'); ?>">
 
           <main id="main" class="site-main">
 

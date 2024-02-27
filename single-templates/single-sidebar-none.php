@@ -13,7 +13,7 @@ defined('ABSPATH') || exit;
 get_header();
 ?>
 
-  <div id="content" class="site-content <?= apply_filters('bootscore/container_class', 'container', 'single-sidebar-none'); ?> <?= apply_filters('bootscore/content/spacer_class', 'pt-3 pb-5', 'single-sidebar-none'); ?>">
+  <div id="content" class="site-content <?= apply_filters('bootscore/class/container', 'container', 'single-sidebar-none'); ?> <?= apply_filters('bootscore/content/spacer_class', 'pt-3 pb-5', 'single-sidebar-none'); ?>">
     <div id="primary" class="content-area">
 
       <?php the_breadcrumb(); ?>

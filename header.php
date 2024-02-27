@@ -36,11 +36,11 @@ defined('ABSPATH') || exit;
     <?php dynamic_sidebar('top-bar'); ?>
   <?php endif; ?>  
 
-  <header id="masthead" class="<?= apply_filters('bootscore/header_class', 'sticky-top bg-body-tertiary'); ?> site-header">
+  <header id="masthead" class="<?= apply_filters('bootscore/class/header', 'sticky-top bg-body-tertiary'); ?> site-header">
 
     <nav id="nav-main" class="navbar navbar-expand-lg">
 
-      <div class="<?= apply_filters('bootscore/container_class', 'container', 'header'); ?>">
+      <div class="<?= apply_filters('bootscore/class/container', 'container', 'header'); ?>">
         <!-- Navbar Brand -->
         <a class="navbar-brand xs d-md-none" href="<?= esc_url(home_url()); ?>"><img src="<?= esc_url(apply_filters('bootscore/logo', get_stylesheet_directory_uri() . '/assets/img/logo/logo-sm.svg', 'small')); ?>" alt="logo" class="logo xs"></a>
         <a class="navbar-brand md d-none d-md-block" href="<?= esc_url(home_url()); ?>"><img src="<?= esc_url(apply_filters('bootscore/logo', get_stylesheet_directory_uri() . '/assets/img/logo/logo.svg', 'normal')); ?>" alt="logo" class="logo md"></a>
@@ -90,7 +90,7 @@ defined('ABSPATH') || exit;
           ?>
 
           <!-- Navbar Toggler -->
-          <button class="<?= apply_filters('bootscore/header_button_class', 'btn btn-outline-secondary'); ?> d-lg-none ms-1 ms-md-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas-navbar" aria-controls="offcanvas-navbar">
+          <button class="<?= apply_filters('bootscore/class/header_button', 'btn btn-outline-secondary', 'menu'); ?> d-lg-none ms-1 ms-md-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas-navbar" aria-controls="offcanvas-navbar">
             <i class="fa-solid fa-bars"></i><span class="visually-hidden-focusable">Menu</span>
           </button>
 

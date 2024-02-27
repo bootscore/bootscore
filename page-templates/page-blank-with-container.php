@@ -15,7 +15,7 @@ defined('ABSPATH') || exit;
 get_header();
 ?>
 
-  <div id="content" class="site-content <?= apply_filters('bootscore/container_class', 'container', 'page-blank-with-container'); ?>">
+  <div id="content" class="site-content <?= apply_filters('bootscore/class/container', 'container', 'page-blank-with-container'); ?>">
     <div id="primary" class="content-area">
 
       <main id="main" class="site-main">
