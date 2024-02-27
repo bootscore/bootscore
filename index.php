@@ -19,7 +19,7 @@ defined('ABSPATH') || exit;
 
 get_header();
 ?>
-  <div id="content" class="site-content <?= apply_filters('bootscore/container_class', 'container', 'index'); ?> <?= apply_filters('bootscore/content/spacer_class', 'pt-4 pb-5', 'index'); ?>">
+  <div id="content" class="site-content <?= apply_filters('bootscore/class/container', 'container', 'index'); ?> <?= apply_filters('bootscore/content/spacer_class', 'pt-4 pb-5', 'index'); ?>">
     <div id="primary" class="content-area">
 
       <main id="main" class="site-main">
@@ -116,7 +116,7 @@ get_header();
         <?php endif; ?>
         <!-- Post List -->
         <div class="row">
-          <div class="<?= apply_filters('bootscore/main/col_class', 'col'); ?>">
+          <div class="<?= apply_filters('bootscore/class/col/main', 'col'); ?>">
             <!-- Grid Layout -->
             <?php if (have_posts()) : ?>
               <?php while (have_posts()) : the_post(); ?>

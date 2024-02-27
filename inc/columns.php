@@ -27,5 +27,5 @@ function bootscore_main_col_class_sidebar($string) {
   return $string;
 }
 
-add_filter('bootscore/main/col_class', 'bootscore_main_col_class_sidebar');
+add_filter('bootscore/class/col/main', 'bootscore_main_col_class_sidebar');
 

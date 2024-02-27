@@ -17,7 +17,7 @@ defined('ABSPATH') || exit;
 <!-- Top Nav Search Collapse -->
 <?php if (is_active_sidebar('top-nav-search')) : ?>
   <div class="collapse bg-body-tertiary position-absolute start-0 end-0" id="collapse-search">
-    <div class="<?= apply_filters('bootscore/container_class', 'container', 'top-nav-search-collapse'); ?> pb-2">
+    <div class="<?= apply_filters('bootscore/class/container', 'container', 'top-nav-search-collapse'); ?> pb-2">
       <?php dynamic_sidebar('top-nav-search'); ?>
     </div>
   </div>

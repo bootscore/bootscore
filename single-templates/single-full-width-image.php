@@ -21,19 +21,19 @@ get_header();
         <?php the_post(); ?>
         <?php $thumb = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'full'); ?>
         <div class="entry-header featured-full-width-img height-75 bg-dark text-light" style="background-image: url('<?= $thumb['0']; ?>')">
-          <div class="<?= apply_filters('bootscore/container_class', 'container', 'single-full-width-image'); ?> entry-header h-100 d-flex align-items-end pb-3">
+          <div class="<?= apply_filters('bootscore/class/container', 'container', 'single-full-width-image'); ?> entry-header h-100 d-flex align-items-end pb-3">
             <div>
               <h1 class="entry-title"><?php the_title(); ?></h1>
             </div>
           </div>
         </div>
 
-        <div class="<?= apply_filters('bootscore/container_class', 'container', 'single-full-width-image'); ?> <?= apply_filters('bootscore/content/spacer_class', 'pt-3 pb-5', 'single-full-width-image'); ?>">
+        <div class="<?= apply_filters('bootscore/class/container', 'container', 'single-full-width-image'); ?> <?= apply_filters('bootscore/content/spacer_class', 'pt-3 pb-5', 'single-full-width-image'); ?>">
 
           <?php the_breadcrumb(); ?>
 
           <div class="row">
-            <div class="<?= apply_filters('bootscore/main/col_class', 'col'); ?>">
+            <div class="<?= apply_filters('bootscore/class/col/main', 'col'); ?>">
 
               <div class="entry-content">
                 <?php bootscore_category_badge(); ?>
