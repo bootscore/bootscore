@@ -36,7 +36,7 @@ defined('ABSPATH') || exit;
     <?php dynamic_sidebar('top-bar'); ?>
   <?php endif; ?>  
 
-  <header id="masthead" class="site-header sticky-top bg-body-tertiary">
+  <header id="masthead" class="<?= apply_filters('bootscore/header_class', 'sticky-top bg-body-tertiary'); ?> site-header">
 
     <nav id="nav-main" class="navbar navbar-expand-lg">
 
