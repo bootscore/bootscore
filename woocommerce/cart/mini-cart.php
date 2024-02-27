@@ -43,7 +43,7 @@ do_action('woocommerce_before_mini_cart'); ?>
         $product_price     = apply_filters('woocommerce_cart_item_price', WC()->cart->get_product_price($_product), $cart_item, $cart_item_key);
         $product_permalink = apply_filters('woocommerce_cart_item_permalink', $_product->is_visible() ? $_product->get_permalink($cart_item) : '', $cart_item, $cart_item_key);
         ?>
-        <div class="woocommerce-mini-cart-item list-group-item <?php echo esc_attr(apply_filters('woocommerce_mini_cart_item_class', 'mini_cart_item', $cart_item, $cart_item_key)); ?>" data-ic_product_id="<?php echo esc_attr($product_id); ?>" data-key="<?php echo $cart_item_key; ?>">
+        <div class="woocommerce-mini-cart-item list-group-item <?php echo esc_attr(apply_filters('woocommerce_mini_cart_item_class', 'mini_cart_item', $cart_item, $cart_item_key)); ?>" data-bootscore_product_id="<?php echo esc_attr($product_id); ?>" data-key="<?php echo $cart_item_key; ?>">
 
           <div class="row">
 
@@ -73,19 +73,6 @@ do_action('woocommerce_before_mini_cart'); ?>
                 <?php echo wc_get_formatted_cart_item_data($cart_item); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped 
                 ?>
                 <?php echo apply_filters('woocommerce_widget_cart_item_quantity', '<span class="quantity">' . sprintf('<span class="qty_text">%s</span> &times; %s', $cart_item['quantity'], $product_price) . '</span>', $cart_item, $cart_item_key); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped 
-                ?>
-
-                <?php
-                $product_price = apply_filters( 'woocommerce_cart_item_price', WC()->cart->get_product_price( $cart_item['data'] ), $cart_item, $cart_item_key );
-                
-                echo woocommerce_quantity_input(
-                  array(
-                    'input_value' => $cart_item['quantity'],
-                  ),
-                  $cart_item['data'], false 
-                );
-                wp_nonce_field( 'bootscore_update_cart', 'bootscore_update_cart_nonce' );
-
                 ?>
               </div>
             </div>

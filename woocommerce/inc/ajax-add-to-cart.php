@@ -98,11 +98,8 @@ if ( 'no' !== $is_enabled_ajax_cart ) {
         });
 
         $('a.ajax_add_to_cart').on('click', function (e) {
-
           e.preventDefault();
-
           $('.woocommerce-error, .woocommerce-message, .woocommerce-info').remove();
-
           // Get product name from product-title=""
           let prod_title = '';
           prod_title = $(this).attr('product-title');
@@ -128,24 +125,15 @@ if ( 'no' !== $is_enabled_ajax_cart ) {
           $(document.body).trigger('adding_to_cart', [$thisbutton, data]);
 
           $.ajax({
-
             type: 'post',
-            url: wc_add_to_cart_params.wc_ajax_url.replace(
-              '%%endpoint%%',
-              'add_to_cart'
-            ),
+            url: wc_add_to_cart_params.wc_ajax_url.replace( '%%endpoint%%', 'add_to_cart' ),
             data: data,
-
             complete: function (response) {
               $thisbutton.addClass('added').removeClass('loading');
-
             },
-
             success: function (response) {
-
               if (response.error & response.product_url) {
                 console.log(response.error);
-
               } else {
                 $(document.body).trigger('added_to_cart', [
                   response.fragments,
@@ -211,6 +199,254 @@ if ( 'no' !== $is_enabled_ajax_cart ) {
     <?php
   }
   add_action('wp_footer', 'bootscore_product_page_ajax_add_to_cart_js');
+
+function bootscore_ajax_add_to_cart_js() {
+  ?>
+  <script>
+    jQuery(function ($) {
+      // WC Quantity Input
+      if (!String.prototype.getDecimals) {
+        String.prototype.getDecimals = function () {
+          var num = this,
+            match = ('' + num).match(/(?:\.(\d+))?(?:[eE]([+-]?\d+))?$/);
+          if (!match) {
+            return 0;
+          }
+          return Math.max(0, (match[1] ? match[1].length : 0) - (match[2] ? +match[2] : 0));
+        };
+      }
+      // $(document.body).on('click', '.item-quantity .quantity .plus, .item-quantity .quantity .minus', function () {
+      $(document.body).on('click', '.plus, .minus', function () {
+        var $qty = $(this).closest('.quantity').find('.qty'),
+          currentVal = parseInt($qty.val()),
+          max = parseInt($qty.attr('max')),
+          min = parseInt($qty.attr('min')),
+          step = $qty.attr('step'),
+          nonce = $('input[name="bootscore_update_cart_nonce"]').val(),
+          prevInputVal = jQuery(this).prev('input.qty'),
+          is_single_product_decrease_cart = $('.single form.cart .minus'),
+          product_id = $(this).closest('.list-group-item').attr('data-bootscore_product_id');
+
+          // step = (step && !isNaN(parseInt(step))) ? parseInt(step) : 1;
+
+        // Format values
+        if (!currentVal || currentVal === '' || currentVal === 'NaN')
+          currentVal = 0;
+        if (max === '' || max === 'NaN') max = '';
+        if (min === '' || min === 'NaN') min = 0;
+        if ( step === 'any' || step === '' || step === undefined || parseInt(step) === 'NaN' ){
+          step = 1;
+        }
+
+        // Change the value
+        if ($(this).is('.plus')) {
+          if ( !max || currentVal < max ) {
+            prevInputVal.val(currentVal + step).change();
+          }
+
+          if (max && currentVal >= max) {
+            $qty.val(max);
+            $(this).attr('disabled', true);
+          } else {
+            $qty.val( (currentVal + parseInt(step)));
+          }
+
+          // Perform the Quantity Update for Increment.
+          var currentValWithPlusStep = (currentVal + parseInt(step));
+
+          bootscore_quantity_update_buttons( $(this), currentValWithPlusStep, step, nonce, product_id, max );
+        } else {
+          if (min && currentVal <= min) {
+            $qty.val(min);
+          } else if (currentVal > 0) {
+            $qty.val( (currentVal - parseInt(step)) );
+          }
+          // Perform the Quantity Update for Decrement.
+          var currentValWithMinusStep = (currentVal - parseInt(step));
+
+          bootscore_quantity_update_buttons( $(this), currentValWithMinusStep, step, nonce, product_id, max );
+        }
+
+        // Trigger change event
+        $qty.trigger('change');
+      });
+
+      // Implement the change event.
+      function bootscore_quantity_update_buttons(el, number, step, nonce, product_id, max) {
+        var wrap = $(el).closest('.woocommerce-mini-cart-item'),
+          key = $(wrap).data('key'),
+          data = {
+            action: 'bootscore_qty_update',
+            key: key,
+            number: number,
+            step: step,
+            nonce: nonce,
+            product_id: product_id,
+            max: max
+          };
+
+        // Perform Ajax Call.
+        bootscore_perform_ajax_call(wrap, data);
+      }
+
+      jQuery(document).ready(function ($) {
+        // Trigger the function on page load.
+        handleQuantityChange();
+
+        // Trigger the function when the quantity input changes.
+        $(document).on('change', '.quantity input[type="number"]', function () {
+          handleQuantityChange();
+        });
+
+        // Trigger the function when the minus button is clicked.
+        $(document).on('click', '.quantity .minus', function () {
+          handleQuantityChange();
+        });
+
+        // Function to handle quantity change minus button enable/disable.
+        function handleQuantityChange() {
+          $('.mini_cart_item').each(function () {
+            var quantityInput = $(this).find('.quantity input[type="number"]'),
+              minusButton = $(this).find('.quantity .minus');
+
+            if (parseInt(quantityInput.val()) <= 1) {
+              minusButton.prop('disabled', true);
+            } else {
+              minusButton.prop('disabled', false);
+            }
+          });
+        }
+
+        // Trigger the function when the input is blurred.
+        $('body').on('blur', '.item-quantity .quantity input', function (e) {
+          e.preventDefault();
+          
+          var input = $(this),
+            max = input.attr('max'),
+            currentValue = input.val(),
+            intValue = Math.max(Math.ceil(parseInt(currentValue)), 1),
+            nonce = $('input[name="bootscore_update_cart_nonce"]').val(),
+            product_id = $(this).closest('.list-group-item').attr('data-bootscore_product_id');
+
+          input.val(intValue);
+
+          if ( currentValue === '' || parseInt(currentValue) === '0' || intValue === NaN ) {
+            input.val(1);
+            intValue = 1;
+          }
+
+          // If the new value is the same as the previous one, no need to re-render.
+          if (input.data('prevValue') === currentValue) {
+            return false;
+          }
+
+          // Update the previous value data attribute.
+          input.data('prevValue', currentValue);
+
+          // Perform the Quantity Update.
+          bootscore_quantity_update_input_blur(input, intValue, nonce, product_id, max);
+        });
+
+        // Update cart on input blur.
+        function bootscore_quantity_update_input_blur(input, number, nonce, product_id, max) {
+          var wrap = $(input).closest('.woocommerce-mini-cart-item'),
+            key = $(wrap).data('key'),
+            data = {
+              action: 'bootscore_qty_update',
+              key: key,
+              number: number,
+              nonce: nonce,
+            product_id: product_id,
+            max: max,
+            };
+
+          // Perform Ajax Call.
+          bootscore_perform_ajax_call(wrap, data);
+        }
+      });
+
+      // Handle Ajax Call.
+      function bootscore_perform_ajax_call(wrap, data) {
+        $.ajax({
+          url: '/wp-admin/admin-ajax.php',
+          type: 'POST',
+          data: data,
+          beforeSend: function () {
+            // Loader HTML
+            let loader = `
+                <div class="blockUI blockOverlay" style="z-index: 1000; border: none; margin: 0px; padding: 0px; width: 100%; height: 100%; top: 0px; left: 0px; background-color: rgb(0, 0, 0); opacity: 0.6; cursor: wait; position: absolute;"></div>
+                <div class="blockUI blockMsg blockElement" style="z-index: 1011; display: none; position: absolute; left: 199px; top: 52px;"></div>
+                <div class="blockUI" style="display:none"></div>
+              `;
+
+            // Append the loader inside the item you click
+            wrap.append(loader);
+          },
+          success: function (res) {
+            setTimeout(function () {
+              wrap.find('.blockUI').remove();
+            }, 300);
+
+            let cart_res = res.data;
+            $('.cart-content span.woocommerce-Price-amount.amount').html(
+              cart_res['total']
+            );
+            wrap.find('.bootscore-custom-render-total').html(
+              cart_res['item_price']
+            );
+            wrap.find('span.qty_text').html(cart_res['item_qty']);
+            $('.cart-content-count').html(cart_res['total_items']);
+            $('.woocommerce-mini-cart__total.total .amount').html(
+              cart_res['total']
+            );
+            $('.cart-footer .amount').html(cart_res['total']);
+            $('.cart-content .cart-total').html(cart_res['total']);
+          },
+          error: function (jqXHR, textStatus, errorThrown) {
+            setTimeout(function () {
+              wrap.find('.blockUI').remove();
+            }, 300);
+            console.error(
+              'AJAX request failed: ' + textStatus + ', ' + errorThrown
+            );
+          },
+        });
+      }
+
+      // Handle the cart plus and minus buttons enable/disable by their stop property.
+      jQuery(document).ready(function($) {
+        function toggleButtonAndInputState(input) {
+            var maxValue = parseFloat(input.attr('max'));
+            var value = parseFloat(input.val());
+            var plusBtn = input.siblings('.plus');
+
+            // Check if the value is equal to the max value
+            if (value === maxValue) {
+                plusBtn.prop('disabled', true);
+                input.prop('disabled', true);
+            } else {
+                plusBtn.prop('disabled', false);
+                input.prop('disabled', false);
+            }
+        }
+
+        // On document ready, toggle the state of the plus button and input field for each quantity input
+        $('.quantity input[type="number"]').each(function() {
+            toggleButtonAndInputState($(this));
+        });
+
+        // Event listener for input value change
+        $('.quantity input[type="number"]').on('input', function() {
+            toggleButtonAndInputState($(this));
+        });
+    });
+
+    }); // jQuery End
+  </script>
+  <?php
+}
+  add_action('wp_footer', 'bootscore_ajax_add_to_cart_js');
+
   /**
    * Add to cart handler
    */
@@ -262,29 +498,6 @@ add_filter('woocommerce_add_to_cart_fragments', 'bootscore_ajax_add_to_cart_add_
  */
 add_filter('woocommerce_cart_redirect_after_error', '__return_false');
 
-/**
- * Add a custom input field to the product page.
- */
-function bootscore_item_key_insert() { 
-  if (is_product()) {
-    global $product;
-    
-    // Get the product ID
-    $product_id = $product->get_id();
-
-    var_dump($product_id);
-    // Loop over cart items
-    foreach ( WC()->cart->get_cart() as $cart_item_key => $cart_item ) {
-      // Check if the cart item belongs to the current product
-      if ($cart_item['product_id'] == $product_id) {
-        printf( '<input type="text" class="woocommerce-mini-cart-item" data-key="%s"/>', $cart_item_key );
-      }
-    }
-  }
-  wp_nonce_field( 'bootscore_update_cart', 'bootscore_update_cart_nonce' );
-}
-// add_action( 'woocommerce_before_add_to_cart_button', 'bootscore_item_key_insert' );
-
 // Mini cart Ajax implementation.
 add_action( 'wp_ajax_bootscore_qty_update', 'bootscore_qty_update' );
 add_action( 'wp_ajax_nopriv_bootscore_qty_update', 'bootscore_qty_update' );
@@ -292,8 +505,24 @@ function bootscore_qty_update(){
   if ( isset( $_POST['number'] ) ) {
     $key    = isset( $_POST['key'] ) ? sanitize_text_field( wp_unslash( $_POST['key'] ) ) : '';
     $number = isset( $_POST['number'] ) ? sanitize_text_field( wp_unslash( $_POST['number'] ) ) : '';
+    $max    = isset( $_POST['max'] ) ? sanitize_text_field( wp_unslash( $_POST['max'] ) ) : '';
     $step   = isset( $_POST['step'] ) ? sanitize_text_field( wp_unslash( $_POST['step'] ) ) : '';
     $nonce  = isset( $_POST['nonce'] ) ? sanitize_text_field( wp_unslash( $_POST['nonce'] ) ) : '';
+
+    $product_id = isset( $_POST['product_id'] ) ? intval( wp_unslash( $_POST['product_id'] ) ) : 0;
+    $product    = wc_get_product($product_id);
+
+    // Decline the Ajax request if the product is not purchasable.
+    if ($product && $max !== 'NaN' ) {
+      $max_quantity = $product->get_max_purchase_quantity();
+      if ( $number > $max_quantity ) {
+        wp_send_json_error(
+          array(
+            'message' => __( 'Maximum quantity allowed is ' . $max_quantity . ' for this product', 'bootscore' ),
+          )
+        );
+      }
+    }
 
     // Validate nonce for security.
     if ( ! wp_verify_nonce( $nonce, 'bootscore_update_cart' ) ) {
@@ -320,4 +549,33 @@ function bootscore_qty_update(){
         wp_send_json_error( __('Invalid key or number', 'bootscore') );
     }
   }
+}
+
+// Add quantity fields in Mini Cart.
+add_filter('woocommerce_widget_cart_item_quantity', 'add_minicart_quantity_fields', 10, 3);
+function add_minicart_quantity_fields($html, $cart_item, $cart_item_key) {
+  $_product   = apply_filters( 'woocommerce_cart_item_product', $cart_item['data'], $cart_item, $cart_item_key );
+  if ( $_product->is_sold_individually() ) {
+    $min_quantity = 1;
+    $max_quantity = 1;
+  } else {
+    $min_quantity = 0;
+    $max_quantity = $_product->get_max_purchase_quantity();
+  } 
+
+  $product_price = apply_filters( 'woocommerce_cart_item_price', WC()->cart->get_product_price( $cart_item['data'] ), $cart_item, $cart_item_key );
+  wp_nonce_field('bootscore_update_cart', 'bootscore_update_cart_nonce');
+
+  $output = '<span class="quantity">' . sprintf( '<span class="qty_text">%s</span> &times; %s', $cart_item['quantity'], $product_price ) . '</span>';
+  $output .= woocommerce_quantity_input(
+    array(
+      'input_value' => $cart_item['quantity'],
+      'max_value'   => $max_quantity,
+      'min_value'   => $min_quantity,
+    ),
+    $cart_item['data'],
+    false
+  );
+
+  return $output;
 }
