@@ -365,21 +365,18 @@ function bootscore_ajax_add_to_cart_js() {
         }
       });
 
-      // Handle Ajax Call.
       function bootscore_perform_ajax_call(wrap, data) {
         $.ajax({
           url: '/wp-admin/admin-ajax.php',
           type: 'POST',
           data: data,
           beforeSend: function () {
-            // Loader HTML
             let loader = `
                 <div class="blockUI blockOverlay" style="z-index: 1000; border: none; margin: 0px; padding: 0px; width: 100%; height: 100%; top: 0px; left: 0px; background-color: rgb(0, 0, 0); opacity: 0.6; cursor: wait; position: absolute;"></div>
                 <div class="blockUI blockMsg blockElement" style="z-index: 1011; display: none; position: absolute; left: 199px; top: 52px;"></div>
                 <div class="blockUI" style="display:none"></div>
               `;
 
-            // Append the loader inside the item you click
             wrap.append(loader);
           },
           success: function (res) {
@@ -413,14 +410,12 @@ function bootscore_ajax_add_to_cart_js() {
         });
       }
 
-      // Handle the cart plus and minus buttons enable/disable by their stop property.
       jQuery(document).ready(function($) {
         function toggleButtonAndInputState(input) {
             var maxValue = parseFloat(input.attr('max'));
             var value = parseFloat(input.val());
             var plusBtn = input.siblings('.plus');
 
-            // Check if the value is equal to the max value
             if (value === maxValue) {
                 plusBtn.prop('disabled', true);
                 input.prop('disabled', true);
@@ -430,12 +425,10 @@ function bootscore_ajax_add_to_cart_js() {
             }
         }
 
-        // On document ready, toggle the state of the plus button and input field for each quantity input
         $('.quantity input[type="number"]').each(function() {
             toggleButtonAndInputState($(this));
         });
 
-        // Event listener for input value change
         $('.quantity input[type="number"]').on('input', function() {
             toggleButtonAndInputState($(this));
         });
@@ -461,9 +454,6 @@ function bootscore_ajax_add_to_cart_js() {
   // Remove WC Core add to cart handler to prevent double-add
   remove_action('wp_loaded', array('WC_Form_Handler', 'add_to_cart_action'), 20);
 
-} else {
-  // Remove WC Core add to cart handler to prevent double-add
-  // remove_action('wp_loaded', array('WC_Form_Handler', 'add_to_cart_action'), 20);
 }
 
 /**
@@ -512,7 +502,6 @@ function bootscore_qty_update(){
     $product_id = isset( $_POST['product_id'] ) ? intval( wp_unslash( $_POST['product_id'] ) ) : 0;
     $product    = wc_get_product($product_id);
 
-    // Decline the Ajax request if the product is not purchasable.
     if ($product && $max !== 'NaN' ) {
       $max_quantity = $product->get_max_purchase_quantity();
       if ( $number > $max_quantity ) {
@@ -524,7 +513,6 @@ function bootscore_qty_update(){
       }
     }
 
-    // Validate nonce for security.
     if ( ! wp_verify_nonce( $nonce, 'bootscore_update_cart' ) ) {
       wp_send_json_error(
           array(
