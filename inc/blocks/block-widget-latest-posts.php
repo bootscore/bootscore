@@ -44,7 +44,9 @@ if (!function_exists('bootscore_block_widget_latest_posts_classes')) {
       'wp-block-latest-posts__post-excerpt mb-0',
     );
 
-    return str_replace($search, $replace, $block_content);
+    $block_content = str_replace($search, $replace, $block_content);
+
+    return apply_filters('bootscore/block/latest-posts/content', $block_content, $block);
   }
 }
 add_filter('render_block_core/latest-posts', 'bootscore_block_widget_latest_posts_classes', 10, 2);

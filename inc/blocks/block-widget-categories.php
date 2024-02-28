@@ -47,7 +47,7 @@ if (!function_exists('bootscore_block_widget_categories_classes')) {
       $block_content = str_replace($search, $replace, $block_content);
     }
 
-    return $block_content;
+    return apply_filters('bootscore/block/categories/content', $block_content, $block);
   }
 }
 add_filter('render_block_core/categories', 'bootscore_block_widget_categories_classes', 10, 2);

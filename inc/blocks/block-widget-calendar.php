@@ -34,7 +34,9 @@ if (!function_exists('bootscore_block_widget_calendar_classes')) {
       'table mb-0',
     );
 
-    return str_replace($search, $replace, $block_content);
+    $block_content = str_replace($search, $replace, $block_content);
+
+    return apply_filters('bootscore/block/calendar/content', $block_content, $block);
   }
 }
 add_filter('render_block_core/calendar', 'bootscore_block_widget_calendar_classes', 10, 2);
