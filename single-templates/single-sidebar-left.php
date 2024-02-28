@@ -9,7 +9,7 @@
 get_header();
 ?>
 
-  <div id="content" class="site-content <?= bootscore_container_class(); ?> py-5 mt-4">
+  <div id="content" class="site-content <?= apply_filters('bootscore/container_class', 'container', 'single-sidebar-left'); ?> py-5 mt-4">
     <div id="primary" class="content-area">
 
       <!-- Hook to add something nice -->
@@ -19,7 +19,7 @@ get_header();
 
       <div class="row">
         <?php get_sidebar(); ?>
-        <div class="<?= bootscore_main_col_class(); ?> order-first order-md-last">
+        <div class="<?= apply_filters('bootscore/main/col_class', 'col'); ?> order-first order-md-last">
 
           <main id="main" class="site-main">
 

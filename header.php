@@ -38,16 +38,15 @@
 
       <nav id="nav-main" class="navbar navbar-expand-lg">
 
-        <div class="<?= bootscore_container_class(); ?>">
-
+        <div class=" <?= apply_filters('bootscore/container_class', 'container', 'header'); ?>">
           <!-- Navbar Brand -->
-          <a class="navbar-brand xs d-md-none" href="<?= esc_url(home_url()); ?>"><img src="<?= esc_url(get_stylesheet_directory_uri()); ?>/assets/img/logo/logo-sm.svg" alt="logo" class="logo xs"></a>
-          <a class="navbar-brand md d-none d-md-block" href="<?= esc_url(home_url()); ?>"><img src="<?= esc_url(get_stylesheet_directory_uri()); ?>/assets/img/logo/logo.svg" alt="logo" class="logo md"></a>
+          <a class="navbar-brand xs d-md-none" href="<?= esc_url(home_url()); ?>"><img src="<?= esc_url(apply_filters('bootscore/logo', get_stylesheet_directory_uri() . '/assets/img/logo/logo-sm.svg', 'small')); ?>" alt="logo" class="logo xs"></a>
+          <a class="navbar-brand md d-none d-md-block" href="<?= esc_url(home_url()); ?>"><img src="<?= esc_url(apply_filters('bootscore/logo', get_stylesheet_directory_uri() . '/assets/img/logo/logo.svg', 'normal')); ?>" alt="logo" class="logo md"></a>
 
           <!-- Offcanvas Navbar -->
           <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvas-navbar">
             <div class="offcanvas-header">
-              <span class="h5 offcanvas-title"><?php esc_html_e('Menu', 'bootscore'); ?></span>
+              <span class="h5 offcanvas-title"><?= apply_filters('bootscore/offcanvas/navbar/title', __('Menu', 'bootscore')); ?></span>
               <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
             <div class="offcanvas-body">
