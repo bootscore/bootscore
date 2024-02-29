@@ -357,7 +357,7 @@ function bootscore_ajax_add_to_cart_js() {
               number: number,
               nonce: nonce,
             product_id: product_id,
-            max: max,
+            max: NaN,
             };
 
           // Perform Ajax Call.
