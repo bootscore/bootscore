@@ -42,6 +42,7 @@ function bootscore_scripts() {
 
   // Theme JS
   wp_enqueue_script('bootscore-script', get_template_directory_uri() . '/assets/js/theme.js', array('jquery'), $modificated_themeJs, true);
+  wp_localize_script( 'bootscore-script', 'bootscoreTheme', array( 'ajaxurl' => admin_url( 'admin-ajax.php' ) ) );
 
   if (is_singular() && comments_open() && get_option('thread_comments')) {
     wp_enqueue_script('comment-reply');
