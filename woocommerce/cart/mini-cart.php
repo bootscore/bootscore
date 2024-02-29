@@ -43,7 +43,7 @@ do_action('woocommerce_before_mini_cart'); ?>
         $product_price     = apply_filters('woocommerce_cart_item_price', WC()->cart->get_product_price($_product), $cart_item, $cart_item_key);
         $product_permalink = apply_filters('woocommerce_cart_item_permalink', $_product->is_visible() ? $_product->get_permalink($cart_item) : '', $cart_item, $cart_item_key);
         ?>
-        <div class="woocommerce-mini-cart-item list-group-item <?php echo esc_attr(apply_filters('woocommerce_mini_cart_item_class', 'mini_cart_item', $cart_item, $cart_item_key)); ?>">
+        <div class="woocommerce-mini-cart-item list-group-item <?php echo esc_attr(apply_filters('woocommerce_mini_cart_item_class', 'mini_cart_item', $cart_item, $cart_item_key)); ?>" data-bootscore_product_id="<?php echo esc_attr($product_id); ?>" data-key="<?php echo $cart_item_key; ?>">
 
           <div class="row">
 
@@ -59,7 +59,7 @@ do_action('woocommerce_before_mini_cart'); ?>
               <?php endif; ?>
             </div>
 
-            <div class="item-name col-7">
+            <div class="item-name col-6">
               <?php if (empty($product_permalink)) : ?>
                 <?php echo $product_name; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped 
                 ?>
@@ -72,12 +72,12 @@ do_action('woocommerce_before_mini_cart'); ?>
               <div class="item-quantity">
                 <?php echo wc_get_formatted_cart_item_data($cart_item); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped 
                 ?>
-                <?php echo apply_filters('woocommerce_widget_cart_item_quantity', '<span class="quantity">' . sprintf('%s &times; %s', $cart_item['quantity'], $product_price) . '</span>', $cart_item, $cart_item_key); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped 
+                <?php echo apply_filters('woocommerce_widget_cart_item_quantity', '<span class="quantity">' . sprintf('<span class="qty_text">%s</span> &times; %s', $cart_item['quantity'], $product_price) . '</span>', $cart_item, $cart_item_key); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped 
                 ?>
               </div>
             </div>
 
-            <div class="remove col-2 text-end">
+            <div class="remove col-3 text-end">
               <?php echo apply_filters( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
                 'woocommerce_cart_item_remove_link',
                 sprintf(
@@ -92,6 +92,11 @@ do_action('woocommerce_before_mini_cart'); ?>
                 $cart_item_key
               );
               ?>
+
+              <div class="bootscore-custom-render-total">
+                <?php echo $cart_item['line_total'].'.00' . get_woocommerce_currency_symbol(); ?>
+              </div>
+
             </div>
 
           </div>
