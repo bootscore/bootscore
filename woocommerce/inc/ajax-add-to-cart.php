@@ -368,7 +368,7 @@ function bootscore_ajax_add_to_cart_js() {
       // Handle Ajax Call.
       function bootscore_perform_ajax_call(wrap, data) {
         $.ajax({
-          url: '/wp-admin/admin-ajax.php',
+          url: '<?php echo get_home_url(); ?>/wp-admin/admin-ajax.php',
           type: 'POST',
           data: data,
           beforeSend: function () {
