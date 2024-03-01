@@ -4,7 +4,7 @@
  * WooCommerce AJAX cart
  *
  * @package Bootscore
- * @version 5.3.4
+ * @version 6.0.0
  */
 
 
@@ -368,7 +368,7 @@ function bootscore_ajax_add_to_cart_js() {
       // Handle Ajax Call.
       function bootscore_perform_ajax_call(wrap, data) {
         $.ajax({
-          url: '/wp-admin/admin-ajax.php',
+          url: bootscoreTheme.ajaxurl,
           type: 'POST',
           data: data,
           beforeSend: function () {
