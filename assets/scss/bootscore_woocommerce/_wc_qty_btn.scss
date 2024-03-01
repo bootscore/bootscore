@@ -2,59 +2,52 @@
 WooCommerce Quantity Input
 --------------------------------------------------------------*/
 
-.woocommerce {
-
-  // input-group
-  .quantity {
-    position: relative;
-    display: flex;
-    flex-wrap: wrap; // For form validation feedback
-    align-items: stretch;
+.quantity {
+  .input-group {
     // Fixed width for quantity
     width: 140px;
+  }
 
-    > .form-control {
-      position: relative; // For focus state's z-index
-      flex: 1 1 auto;
-      width: 1%;
-      min-width: 0;
+  .form-control {
+    text-align: center;
 
-      // Hide browser arrows in quantity input
-      appearance: textfield;
-      -webkit-appearance: none;
-      -moz-appearance: textfield;
+    // Hide browser arrows in quantity input
+    appearance: textfield;
+    -webkit-appearance: none;
+    -moz-appearance: textfield;
 
-      &::-webkit-outer-spin-button,
-      &::-webkit-inner-spin-button {
-        display: none;
-        margin: 0;
-      }
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      display: none;
+      margin: 0;
+    }
+  }
 
-      &:focus {
-        z-index: 5;
-      }
+  // Disable quantity input if only 1 product in stock left or sold individually
+  &:has([max="1"]) {
 
-      &[max="1"] {
-        background-color: $input-disabled-bg;
-      }
+    .input-group-text {
+      pointer-events: none;
     }
 
-    .btn {
-      position: relative;
-      z-index: 2;
+    .form-control {
+      background-color: $input-disabled-bg;
+      pointer-events: none;
+    }
+  }
+}
 
-      &:focus {
-        z-index: 5;
-      }
+
+// Disable quantity input on variation single product page if nothing selected
+.woocommerce-variation-add-to-cart-disabled {
+  .quantity {
+    .input-group-text {
+      pointer-events: none;
     }
 
-    > :not(:last-child) {
-      @include border-end-radius(0);
-    }
-
-    > :not(:first-child) {
-      margin-left: calc(#{$input-border-width} * -1);
-      @include border-start-radius(0);
+    .form-control {
+      background-color: $input-disabled-bg;
+      pointer-events: none;
     }
   }
 }
