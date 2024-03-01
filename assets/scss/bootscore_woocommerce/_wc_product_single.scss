@@ -19,15 +19,3 @@ WooCommerce Single Product
     flex-grow: 1;
   }
 }
-
-// Stack quantity and add-to-cart-button in two lines
-// WooCommerce breakpoint is at 769px
-@media (min-width: 769px) and (max-width: 991px) {
-  .woocommerce div.product form.cart {
-    div.quantity {
-      margin-right: auto;
-      width: 100%;
-      margin-bottom: $spacer * .5;
-    }
-  }
-}
