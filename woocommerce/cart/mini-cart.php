@@ -70,7 +70,13 @@ do_action('woocommerce_before_mini_cart'); ?>
                   </a></strong>
               <?php endif; ?>
               <div class="item-quantity">
-                <?php echo wc_get_formatted_cart_item_data($cart_item); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped 
+                <?php echo wc_get_formatted_cart_item_data($cart_item); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+                <?php
+                $currency_symbol           = get_woocommerce_currency_symbol();
+                $display_currency_position = get_option( 'woocommerce_currency_pos' );
+                $quantity_text             = sprintf( '<span class="qty_text">%s</span>', $cart_item['quantity'] );
+                $formatted_price           = sprintf( '%s &times; %s', $quantity_text, $product_price);    
+                $price_with_symbol         = $display_currency_position ? $currency_symbol . ' ' . $formatted_price : $formatted_price . ' ' . $currency_symbol;
                 ?>
                 <?php echo apply_filters('woocommerce_widget_cart_item_quantity', '<span class="quantity">' . sprintf('<span class="qty_text">%s</span> &times; %s', $cart_item['quantity'], $product_price) . '</span>', $cart_item, $cart_item_key); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped 
                 ?>
