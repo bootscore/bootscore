@@ -44,4 +44,3 @@ function register_ajax_cart() {
   }
 }
 add_action('after_setup_theme', 'register_ajax_cart');
-s
