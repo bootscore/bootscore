@@ -13,7 +13,7 @@ defined('ABSPATH') || exit;
 
 
 /**
- * Navwalker
+ * Register the navwalker
  */
 if (!function_exists('bootscore_register_navwalker')) :
   function bootscore_register_navwalker() {
