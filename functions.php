@@ -25,6 +25,7 @@ require_once('inc/enable-html.php');             // Enable HTML in category and 
 require_once('inc/enqueue.php');                 // Enqueue scripts and styles
 require_once('inc/excerpt.php');                 // Adds excerpt to pages
 require_once('inc/hooks.php');                   // Custom hooks
+require_once('inc/navwalker.php');               // Bootstrap 5 navwalker
 require_once('inc/pagination.php');              // Pagination for loop and single posts
 require_once('inc/password-protected-form.php'); // Form if post or page is protected by password
 require_once('inc/template-tags.php');           // Meta information like author, date, comments, category and tags badges
@@ -54,9 +55,10 @@ if (class_exists('WooCommerce')) {
  * Remove this snippet in v6 and add nav-walker to the enqueue list
  * https://github.com/orgs/bootscore/discussions/347
  */
+
 if (!function_exists('register_navwalker')) :
   function register_navwalker() {
-    require_once('inc/class-bootstrap-5-navwalker.php');
+    //require_once('inc/class-bootstrap-5-navwalker.php');
     // Register Menus
     register_nav_menu('main-menu', 'Main menu');
     register_nav_menu('footer-menu', 'Footer menu');
