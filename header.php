@@ -41,9 +41,9 @@ defined('ABSPATH') || exit;
     <nav id="nav-main" class="navbar navbar-expand-lg">
 
       <div class="<?= apply_filters('bootscore/class/container', 'container', 'header'); ?>">
+        
         <!-- Navbar Brand -->
-        <a class="navbar-brand xs d-md-none" href="<?= esc_url(home_url()); ?>"><img src="<?= esc_url(apply_filters('bootscore/logo', get_stylesheet_directory_uri() . '/assets/img/logo/logo-sm.svg', 'small')); ?>" alt="logo" class="logo xs"></a>
-        <a class="navbar-brand md d-none d-md-block" href="<?= esc_url(home_url()); ?>"><img src="<?= esc_url(apply_filters('bootscore/logo', get_stylesheet_directory_uri() . '/assets/img/logo/logo.svg', 'normal')); ?>" alt="logo" class="logo md"></a>
+        <?php get_template_part('template-parts/header/navbar-brand'); ?>
 
         <!-- Offcanvas Navbar -->
         <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvas-navbar">
@@ -54,17 +54,7 @@ defined('ABSPATH') || exit;
           <div class="offcanvas-body">
 
             <!-- Bootstrap 5 Nav Walker Main Menu -->
-            <?php
-            wp_nav_menu(array(
-              'theme_location' => 'main-menu',
-              'container'      => false,
-              'menu_class'     => '',
-              'fallback_cb'    => '__return_false',
-              'items_wrap'     => '<ul id="bootscore-navbar" class="navbar-nav ms-auto %2$s">%3$s</ul>',
-              'depth'          => 2,
-              'walker'         => new bootstrap_5_wp_nav_menu_walker()
-            ));
-            ?>
+            <?php get_template_part('template-parts/header/main-menu'); ?>
 
             <!-- Top Nav 2 Widget -->
             <?php if (is_active_sidebar('top-nav-2')) : ?>
@@ -102,9 +92,9 @@ defined('ABSPATH') || exit;
 
     <?php
     if (class_exists('WooCommerce')) :
-      get_template_part('template-parts/header/top-nav-search-collapse', 'woocommerce');
+      get_template_part('template-parts/header/collapse-search', 'woocommerce');
     else :
-      get_template_part('template-parts/header/top-nav-search-collapse');
+      get_template_part('template-parts/header/collapse-search');
     endif;
     ?>
 
