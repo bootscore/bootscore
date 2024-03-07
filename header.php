@@ -92,9 +92,9 @@ defined('ABSPATH') || exit;
 
     <?php
     if (class_exists('WooCommerce')) :
-      get_template_part('template-parts/header/top-nav-search-collapse', 'woocommerce');
+      get_template_part('template-parts/header/collapse-search', 'woocommerce');
     else :
-      get_template_part('template-parts/header/top-nav-search-collapse');
+      get_template_part('template-parts/header/collapse-search');
     endif;
     ?>
 
