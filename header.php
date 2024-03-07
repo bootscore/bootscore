@@ -54,17 +54,7 @@ defined('ABSPATH') || exit;
           <div class="offcanvas-body">
 
             <!-- Bootstrap 5 Nav Walker Main Menu -->
-            <?php
-            wp_nav_menu(array(
-              'theme_location' => 'main-menu',
-              'container'      => false,
-              'menu_class'     => '',
-              'fallback_cb'    => '__return_false',
-              'items_wrap'     => '<ul id="bootscore-navbar" class="navbar-nav ms-auto %2$s">%3$s</ul>',
-              'depth'          => 2,
-              'walker'         => new bootstrap_5_wp_nav_menu_walker()
-            ));
-            ?>
+            <?php get_template_part('template-parts/header/main-menu'); ?>
 
             <!-- Top Nav 2 Widget -->
             <?php if (is_active_sidebar('top-nav-2')) : ?>
