@@ -9,10 +9,12 @@
  * @version 6.0.0
  */
 
+
 // Exit if accessed directly
 defined('ABSPATH') || exit;
 
 ?>
+
 
 <!-- Collapse Search Mobile -->
 <?php if (is_active_sidebar('top-nav-search')) : ?>
