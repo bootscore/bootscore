@@ -25,7 +25,7 @@ defined('ABSPATH') || exit;
 
 <!-- User toggler -->
 <?php
-if ( is_account_page() ) {
+if ( is_account_page() || is_checkout() ) {
  // Do nothing
 } else { ?>
   <button class="<?= apply_filters('bootscore/class/header_button', 'btn btn-outline-secondary', 'account'); ?> ms-1 ms-md-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas-user" aria-controls="offcanvas-user">
