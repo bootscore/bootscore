@@ -28,3 +28,7 @@ form.variations_form.cart {
   pointer-events: auto;
   cursor: inherit;
 }
+
+.woocommerce-variation-price {
+  margin-bottom: $spacer;
+}

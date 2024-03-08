@@ -8,14 +8,6 @@ WooCommerce Colors
   color: var(--#{$prefix}wc-price, var(--#{$prefix}gray));
 }
 
-.woocommerce div.product p.price del,
-.woocommerce div.product span.price del,
-del,
-.card del .woocommerce-Price-amount.amount,
-.card del .woocommerce-Price-amount.amount {
-  opacity: 0.6 !important;
-}
-
 .woocommerce div.product p.price ins,
 .woocommerce div.product span.price ins,
 ins {
@@ -67,10 +59,6 @@ small.includes_tax {
 
 .woocommerce-terms-and-conditions {
   background: var(--#{$prefix}terms, var(--#{$prefix}tertiary-bg));
-}
-
-.woocommerce div.product .stock {
-  color: currentColor;
 }
 
 .woocommerce div.product .out-of-stock {
