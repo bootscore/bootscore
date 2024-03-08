@@ -2,25 +2,34 @@
 WooCommerce My Account Offcanvas
 --------------------------------------------------------------*/
 
-// Add show-password to non Woo pages
-#offcanvas-user {
-  .offcanvas-password.show-password-input {
-    position: absolute;
-    right: 0.7em;
-    top: 2rem;
-    cursor: pointer;
 
-    &::after {
-      font-family: WooCommerce;
-      speak: never;
-      font-weight: 400;
-      font-variant: normal;
-      text-transform: none;
-      line-height: 1;
-      -webkit-font-smoothing: antialiased;
-      margin-left: 0.618em;
-      content: "\e010";
-      text-decoration: none;
+#offcanvas-user {
+  .woocommerce {
+
+    // form-login
+    .col2-set {
+
+      .col-1,
+      .col-2 {
+        width: 100%;
+      }
     }
+
+    &-MyAccount-content {
+      p:last-child {
+        // Hide introtext, links do not link to my-account.php
+        display: none;
+      }
+    }
+  }
+
+  // my-account
+  .col-md-4,
+  .col-md-8 {
+    width: 100%;
+  }
+
+  .col-md-8 {
+    order: -1;
   }
 }

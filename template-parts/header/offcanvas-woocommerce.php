@@ -18,7 +18,7 @@ defined('ABSPATH') || exit;
 
 <!-- Offcanvas user -->
 <?php
-if ( is_account_page() ) {
+if ( is_account_page() || is_checkout() ) {
  // Do nothing
 } else { ?>
 <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvas-user">
@@ -28,7 +28,7 @@ if ( is_account_page() ) {
   </div>
   <div class="offcanvas-body">
     <div class="my-offcanvas-account">
-      <?php include get_template_directory() . '/woocommerce/myaccount/my-account-offcanvas.php'; ?>
+      <?= do_shortcode('[woocommerce_my_account]'); ?>
     </div>
   </div>
 </div>
