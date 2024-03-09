@@ -32,11 +32,16 @@ Ajax Cart
     margin-right: var(--#{$prefix}offcanvas-padding-x);
     margin-left: var(--#{$prefix}offcanvas-padding-x);
   }
+  
+  span.quantity {
+    display: block;
+    margin-bottom: $spacer * .25;
+  }
 
   // Variations
   dl.variation {
     display: flex;
-    margin-bottom: 0;
+    margin-bottom: $spacer * .25;
     
     dt {
       font-weight: normal;
