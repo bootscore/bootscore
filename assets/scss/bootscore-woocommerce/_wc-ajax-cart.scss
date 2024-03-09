@@ -32,6 +32,11 @@ Ajax Cart
     margin-right: var(--#{$prefix}offcanvas-padding-x);
     margin-left: var(--#{$prefix}offcanvas-padding-x);
   }
+
+  // Reset <strong> Subtotal
+  .cart-footer strong {
+    font-weight: inherit;
+  }
 }
 
 
@@ -96,5 +101,4 @@ a.added_to_cart {
     padding-left: 0;
     padding-right: 0;
   }
-
 }

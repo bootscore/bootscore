@@ -109,9 +109,9 @@ do_action('woocommerce_before_mini_cart'); ?>
     ?>
   </div>
 
-  <div class="cart-footer bg-body-tertiary text-center p-3">
+  <div class="cart-footer bg-body-tertiary p-3">
 
-    <p class="woocommerce-mini-cart__total total">
+    <div class="woocommerce-mini-cart__total total h5 d-flex justify-content-between">
       <?php
       /**
        * Hook: woocommerce_widget_shopping_cart_total.
@@ -120,9 +120,9 @@ do_action('woocommerce_before_mini_cart'); ?>
        */
       do_action('woocommerce_widget_shopping_cart_total');
       ?>
-    </p>
+    </div>
 
-    <p class="text-body-secondary small shipping-text"><?php esc_html_e('To find out your shipping cost, please proceed to checkout.', 'bootscore'); ?></p>
+    <p class="text-body-secondary small shipping-text"><?php esc_html_e('Shipping, taxes, and discounts calculated at checkout.', 'bootscore'); ?></p>
 
     <?php do_action('woocommerce_widget_shopping_cart_before_buttons'); ?>
 
