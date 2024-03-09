@@ -32,13 +32,6 @@ Ajax Cart
     margin-right: var(--#{$prefix}offcanvas-padding-x);
     margin-left: var(--#{$prefix}offcanvas-padding-x);
   }
-  
-  // Product thumbnail
-  .attachment-woocommerce_thumbnail,
-  .woocommerce-placeholder {
-    border-radius: $border-radius;
-    border: var(--#{$prefix}border-width) var(--#{$prefix}border-style) var(--#{$prefix}border-color);
-  }
 }
 
 

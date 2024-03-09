@@ -47,19 +47,17 @@ do_action('woocommerce_before_mini_cart'); ?>
 
           <div class="row g-3">
 
-            <div class="item-image col-2">
+            <div class="item-image col-3">
               <?php if (empty($product_permalink)) : ?>
-                <?php echo $thumbnail; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped 
-                ?>
+                <?php echo str_replace( '<img', '<img class="rounded border align-text-top"', $thumbnail ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
               <?php else : ?>
                 <a href="<?php echo esc_url($product_permalink); ?>">
-                  <?php echo $thumbnail; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped 
-                  ?>
+                  <?php echo str_replace( '<img', '<img class="rounded border align-text-top"', $thumbnail ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
                 </a>
               <?php endif; ?>
             </div>
 
-            <div class="item-name col-7">
+            <div class="item-name col-6">
               <?php if (empty($product_permalink)) : ?>
                 <?php echo $product_name; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped 
                 ?>
