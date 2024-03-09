@@ -33,7 +33,23 @@ Ajax Cart
     margin-left: var(--#{$prefix}offcanvas-padding-x);
   }
 
-  // Reset <strong> Subtotal
+  // Variations
+  dl.variation {
+    display: flex;
+    margin-bottom: 0;
+    
+    dt {
+      font-weight: normal;
+      margin-right: $spacer * .25;
+    }
+    
+    dd,
+    p {
+      margin-bottom: 0;
+    }
+  }
+
+  // Reset <strong> Subtotal in cart-footer
   .cart-footer strong {
     font-weight: inherit;
   }
