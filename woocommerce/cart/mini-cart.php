@@ -69,7 +69,9 @@ do_action('woocommerce_before_mini_cart'); ?>
                 </div>
               <?php endif; ?>
               
-              <div class="small text-secondary mb-1"><?= $_product->get_short_description();?></div>
+              <small class="text-body-secondary text-truncate d-block">
+                <?php echo get_the_excerpt($product_id); ?>
+              </small>
 
               <div class="item-quantity">
                 <?php echo wc_get_formatted_cart_item_data($cart_item); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped 
@@ -102,8 +104,7 @@ do_action('woocommerce_before_mini_cart'); ?>
 
             </div>
 
-          </div>
-          <!--row-->
+          </div><!--row-->
 
         </div>
         <?php
