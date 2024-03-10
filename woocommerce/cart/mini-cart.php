@@ -69,7 +69,7 @@ do_action('woocommerce_before_mini_cart'); ?>
                 </div>
               <?php endif; ?>
               
-              <small class="text-body-secondary text-truncate d-block">
+              <small class="text-body-secondary d-block text-truncate">
                 <?php echo get_the_excerpt($product_id); ?>
               </small>
 
@@ -117,7 +117,7 @@ do_action('woocommerce_before_mini_cart'); ?>
 
   <div class="cart-footer bg-body-tertiary p-3">
 
-    <div class="woocommerce-mini-cart__total total h5 d-flex justify-content-between">
+    <div class="woocommerce-mini-cart__total total h6 d-flex justify-content-between">
       <?php
       /**
        * Hook: woocommerce_widget_shopping_cart_total.

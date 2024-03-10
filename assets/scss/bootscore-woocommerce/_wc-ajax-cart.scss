@@ -35,13 +35,16 @@ Ajax Cart
   
   span.quantity {
     display: block;
+    margin-top: $spacer * .25;
     margin-bottom: $spacer * .25;
   }
 
   // Variations
   dl.variation {
     display: flex;
-    margin-bottom: $spacer * .25;
+    color: var(--#{$prefix}secondary-color);
+    font-size: $small-font-size;
+    margin-bottom: 0;
     
     dt {
       font-weight: normal;
