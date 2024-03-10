@@ -62,11 +62,10 @@ do_action('woocommerce_before_mini_cart'); ?>
                 <?php echo $product_name; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped 
                 ?>
               <?php else : ?>
-                <div class="mb-1"><a href="<?php echo esc_url($product_permalink); ?>">
-                    <?php echo $product_name; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-                    ?>
-                  </a>
-                </div>
+                <a class="h6 text-decoration-none d-block text-truncate mb-0" href="<?php echo esc_url($product_permalink); ?>">
+                  <?php echo $product_name; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+                  ?>
+                </a>
               <?php endif; ?>
               
               <small class="text-body-secondary d-block text-truncate">
