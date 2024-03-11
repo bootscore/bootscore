@@ -6,7 +6,7 @@
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
  * @package Bootscore
- * @version 5.3.4
+ * @version 6.0.0
  */
 
 
@@ -51,7 +51,7 @@ defined('ABSPATH') || exit;
 
           <p class="card-text">
             <a class="text-body text-decoration-none" href="<?php the_permalink(); ?>">
-              <?php echo strip_tags(get_the_excerpt()); ?>
+              <?= strip_tags(get_the_excerpt()); ?>
             </a>
           </p>
 

@@ -5,7 +5,7 @@ WooCommerce Colors
 .woocommerce div.product p.price,
 .woocommerce div.product span.price,
 .card .price {
-  color: var(--#{$prefix}wc-price, var(--#{$prefix}gray));
+  color: var(--#{$prefix}wc-price, var(--#{$prefix}secondary-color));
 }
 
 .woocommerce div.product p.price ins,

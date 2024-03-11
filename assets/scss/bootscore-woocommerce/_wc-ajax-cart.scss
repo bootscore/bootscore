@@ -32,6 +32,35 @@ Ajax Cart
     margin-right: var(--#{$prefix}offcanvas-padding-x);
     margin-left: var(--#{$prefix}offcanvas-padding-x);
   }
+  
+  span.quantity {
+    display: block;
+    margin-top: $spacer * .25;
+    margin-bottom: $spacer * .25;
+  }
+
+  // Variations
+  dl.variation {
+    display: flex;
+    color: var(--#{$prefix}secondary-color);
+    font-size: $small-font-size;
+    margin-bottom: 0;
+    
+    dt {
+      font-weight: normal;
+      margin-right: $spacer * .25;
+    }
+    
+    dd,
+    p {
+      margin-bottom: 0;
+    }
+  }
+
+  // Reset <strong> Subtotal in cart-footer
+  .cart-footer strong {
+    font-weight: inherit;
+  }
 }
 
 
@@ -96,5 +125,4 @@ a.added_to_cart {
     padding-left: 0;
     padding-right: 0;
   }
-
 }
