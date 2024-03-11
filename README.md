@@ -23,6 +23,12 @@
 <br>
 
 # Bootscore
+
+[![Github All Releases](https://img.shields.io/github/downloads/bootscore/bootscore/total.svg)](https://github.com/bootscore/bootscore/releases)
+[![Packagist Prerelease](https://img.shields.io/packagist/vpre/bootscore/bootscore?logo=packagist&logoColor=fff)](https://packagist.org/packages/bootscore/bootscore)
+[![Backers on Open Collective](https://img.shields.io/opencollective/backers/bootscore?logo=opencollective&logoColor=fff)](https://opencollective.com/bootscore)
+[![GitHub Sponsors](https://img.shields.io/github/sponsors/bootscore?logo=github)](https://github.com/sponsors/bootscore)
+
 Bootscore combines [Bootstrap](https://getbootstrap.com) and the [Underscores](https://underscores.me) theme boiler template in a compact starter theme for outstanding [WordPress](https://wordpress.org/) projects. It does not include customizer settings, logo upload functionality, or drag-and-drop features. Customization in Bootscore is entirely achievable through its `.php`, `.scss`, and `.js` files, requiring basic coding skills for editing. 
 
 The Bootstrap source code is included, allowing easy on-the-fly editing Bootstrap without the need for Gulp, Node, or any other technical commands. Simply add your styles, save, and let the built-in [scssphp](https://github.com/scssphp/scssphp) compiler do the rest.
@@ -30,10 +36,6 @@ The Bootstrap source code is included, allowing easy on-the-fly editing Bootstra
 Bootscore comes with full [WooCommerce](https://woo.com/) support, featuring an integrated AJAX offcanvas cart.
 
 This time-saving tool is designed to swiftly create clean, mobile-first projects. If you are familiar with Bootstrap and its HTML classes, you'll feel right at home and be able to build whatever you desire.
-
-[![Packagist Prerelease](https://img.shields.io/packagist/vpre/bootscore/bootscore?logo=packagist&logoColor=fff)](https://packagist.org/packages/bootscore/bootscore)
-[![Backers on Open Collective](https://img.shields.io/opencollective/backers/bootscore?logo=opencollective&logoColor=fff)](https://opencollective.com/bootscore)
-[![GitHub Sponsors](https://img.shields.io/github/sponsors/bootscore?logo=github)](https://github.com/sponsors/bootscore)
 
 ## Table of contents
 - [Installation](#installation)
