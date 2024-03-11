@@ -82,6 +82,11 @@ do_action('woocommerce_before_mini_cart'); ?>
             </div>
 
             <div class="remove col-3 text-end">
+              
+              <div class="bootscore-custom-render-total h6 mb-4">
+                <?php echo wc_price( $cart_item['line_total'] ); ?>
+              </div>
+              
               <?php echo apply_filters( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
                 'woocommerce_cart_item_remove_link',
                 sprintf(
@@ -96,10 +101,6 @@ do_action('woocommerce_before_mini_cart'); ?>
                 $cart_item_key
               );
               ?>
-
-              <div class="bootscore-custom-render-total">
-              <?php echo wc_price( $cart_item['line_total'] ); ?>
-              </div>
 
             </div>
 
