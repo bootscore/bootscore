@@ -5,7 +5,7 @@
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="https://github.com/bootscore/bootscore/assets/51531217/4a6f1529-abe2-4913-b9aa-e8dcedae9fb5">
     <source media="(prefers-color-scheme: light)" srcset="https://github.com/bootscore/bootscore/assets/51531217/dc2dbf12-fd6e-4e42-9c79-08fa02bd035e">
-    <img alt="bootScore logo light/dark mode" src="https://github.com/bootscore/bootscore/assets/51531217/dc2dbf12-fd6e-4e42-9c79-08fa02bd035e" height="50">
+    <img alt="bootScore logo light/dark mode" src="https://github.com/bootscore/bootscore/assets/51531217/dc2dbf12-fd6e-4e42-9c79-08fa02bd035e" height="150">
   </picture>
 </p>
 
@@ -22,12 +22,12 @@
 </div>
 <br>
 
-# bootScore
-bootScore combines [Bootstrap](https://getbootstrap.com) and the [Underscores](https://underscores.me) theme boiler template in a compact starter theme for outstanding [WordPress](https://wordpress.org/) projects. It does not include customizer settings, logo upload functionality, or drag-and-drop features. Customization in bootScore is entirely achievable through its `.php`, `.scss`, and `.js` files, requiring basic coding skills for editing. 
+# Bootscore
+Bootscore combines [Bootstrap](https://getbootstrap.com) and the [Underscores](https://underscores.me) theme boiler template in a compact starter theme for outstanding [WordPress](https://wordpress.org/) projects. It does not include customizer settings, logo upload functionality, or drag-and-drop features. Customization in Bootscore is entirely achievable through its `.php`, `.scss`, and `.js` files, requiring basic coding skills for editing. 
 
 The Bootstrap source code is included, allowing easy on-the-fly editing Bootstrap without the need for Gulp, Node, or any other technical commands. Simply add your styles, save, and let the built-in [scssphp](https://github.com/scssphp/scssphp) compiler do the rest.
 
-bootScore comes with full [WooCommerce](https://woo.com/) support, featuring an integrated AJAX offcanvas cart.
+Bootscore comes with full [WooCommerce](https://woo.com/) support, featuring an integrated AJAX offcanvas cart.
 
 This time-saving tool is designed to swiftly create clean, mobile-first projects. If you are familiar with Bootstrap and its HTML classes, you'll feel right at home and be able to build whatever you desire.
 
@@ -48,7 +48,7 @@ This time-saving tool is designed to swiftly create clean, mobile-first projects
 - [License & credits](#license--credits)
 
 ## Installation
-1. Download latest release [bootscore-main.zip](https://github.com/bootscore/bootscore/releases/latest/download/bootscore-main.zip).
+1. Download latest release [bootscore.zip](https://github.com/bootscore/bootscore/releases/latest/download/bootscore.zip).
 2. In your admin panel, go to **Appearance** > **Themes** and click the **Add New** button.
 3. Click **Upload Theme** and **Choose File**, then select `bootscore-main.zip` file. Click **Install Now**.
 4. Click **Activate** to use your new theme right away.
@@ -57,16 +57,16 @@ This time-saving tool is designed to swiftly create clean, mobile-first projects
 To install using Composer, you will need to have Composer installed on your system. Ideally, it should also be available on your server with command-line access, although this is not mandatory. For detailed instructions on installing with Composer, please read the [documentation](https://bootscore.me/documentation/installation/#Composer).
 
 ## Child-theme
-Edit the theme in an upgrade-safe manner by using the provided [bootScore Child](https://github.com/bootscore/bootscore-child). Note that the child theme is not a stand-alone theme, bootScore must be installed for it to function.
+Edit the theme in an upgrade-safe manner by using the provided [Bootscore Child](https://github.com/bootscore/bootscore-child). Note that the child theme is not a stand-alone theme, Bootscore must be installed for it to function.
 
 ### Installation
-1. Download latest release [bootscore-child-main.zip](https://github.com/bootscore/bootscore-child/releases/latest/download/bootscore-child-main.zip).
+1. Download latest release [bootscore-child.zip](https://github.com/bootscore/bootscore-child/releases/latest/download/bootscore-child.zip).
 2. In your admin panel, go to **Appearance** > **Themes** and click the **Add New** button.
-3. Click **Upload Theme** and **Choose File**, then select `bootscore-child-main.zip` file. Click **Install Now**.
+3. Click **Upload Theme** and **Choose File**, then select `bootscore-child.zip` file. Click **Install Now**.
 4. Click **Activate** to use your new child-theme right away.
 
 ## Plugins
-Extend bootScore with small yet useful [plugins](https://bootscore.me/plugins/). Each plugin either utilizes Bootstrap or integrates it into third-party plugins.
+Extend Bootscore with small yet useful [plugins](https://bootscore.me/plugins/). Each plugin either utilizes Bootstrap or integrates it into third-party plugins.
 
 ## Support & contribute
 
@@ -86,7 +86,7 @@ For important updates, read our [blog](https://bootscore.me/category/blog/) and 
 Like what you see? You can support us by [sponsoring](https://github.com/sponsors/bootscore) this project. Every contribution is highly appreciated, as it helps us maintain high motivation and continually develop the project.
 
 ## License & Credits
-- bootScore, [MIT License](https://github.com/bootscore/bootscore/blob/main/LICENSE)
+- Bootscore, [MIT License](https://github.com/bootscore/bootscore/blob/main/LICENSE)
 - Bootstrap, [MIT License](https://github.com/twbs/bootstrap/blob/main/LICENSE)
 - Bootstrap 5 WordPress Navbar Walker by AlexWebLab, [MIT License](https://github.com/AlexWebLab/bootstrap-5-wordpress-navbar-walker/blob/main/LICENSE)
 - Font Awesome [Free License](https://fontawesome.com/license/free)
