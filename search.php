@@ -28,7 +28,7 @@ get_header();
                 <h1>
                   <?php
                   /* translators: %s: search query. */
-                  printf(esc_html__('Search Results for: %s', 'bootscore'), '<span class="text-secondary">' . get_search_query() . '</span>');
+                  printf(esc_html__('Search Results for: %s', 'bootscore'), '<span class="text-body-secondary">' . get_search_query() . '</span>');
                   ?>
                 </h1>
               </div>
@@ -43,7 +43,7 @@ get_header();
                  * If you want to overload this in a child theme then include a file
                  * called content-search.php and that will be used instead.
                  */
-                get_template_part('template-parts/content', 'search');
+                get_template_part('template-parts/search/content', 'search');
 
               endwhile;
 
@@ -51,7 +51,7 @@ get_header();
 
             else :
 
-              get_template_part('template-parts/content', 'none');
+              get_template_part('template-parts/search/content', 'none');
 
             endif;
             ?>
