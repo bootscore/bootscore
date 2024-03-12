@@ -17,5 +17,7 @@ defined('ABSPATH') || exit;
 
 
 <!-- Navbar Brand -->
-<a class="navbar-brand xs d-md-none" href="<?= esc_url(home_url()); ?>"><img src="<?= esc_url(apply_filters('bootscore/logo', get_stylesheet_directory_uri() . '/assets/img/logo/logo-sm.svg', 'small')); ?>" alt="logo" class="logo xs"></a>
-<a class="navbar-brand md d-none d-md-block" href="<?= esc_url(home_url()); ?>"><img src="<?= esc_url(apply_filters('bootscore/logo', get_stylesheet_directory_uri() . '/assets/img/logo/logo.svg', 'normal')); ?>" alt="logo" class="logo md"></a>
+<a class="navbar-brand" href="<?= esc_url(home_url()); ?>">
+  <img src="<?= esc_url(apply_filters('bootscore/logo', get_stylesheet_directory_uri() . '/assets/img/logo/logo.svg', 'normal')); ?>" alt="<?php bloginfo('name'); ?> Logo" class="d-td-none me-2">
+  <img src="<?= esc_url(apply_filters('bootscore/logo', get_stylesheet_directory_uri() . '/assets/img/logo/logo-theme-dark.svg', 'theme-dark')); ?>" alt="<?php bloginfo('name'); ?> Logo" class="d-tl-none me-2">
+</a>  
