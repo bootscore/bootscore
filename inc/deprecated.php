@@ -65,9 +65,3 @@ if (function_exists('bootscore_container_class')) {
 
 
 
-/**
- * Hook after #primary
- */
-function bs_after_primary() {
-  do_action('bs_after_primary');
-}
