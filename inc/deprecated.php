@@ -18,11 +18,7 @@ defined('ABSPATH') || exit;
 
 
 
-/**
- * Enable shortcodes in HTML-Widget
- * Not needed for Gutenberg widgets https://github.com/bootscore/bootscore/pull/660
- */
-add_filter('widget_text', 'do_shortcode');
+
 
 
 /*
