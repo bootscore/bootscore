@@ -17,3 +17,9 @@ body {
 #content {
   flex: 1;
 }
+
+
+// Reset padding-left in Footer menu
+#footer-menu li a {
+  padding-left: 0;
+}
