@@ -24,6 +24,7 @@ require_once('inc/comments.php');                // Comments
 require_once('inc/enable-html.php');             // Enable HTML in category and author description
 require_once('inc/enqueue.php');                 // Enqueue scripts and styles
 require_once('inc/excerpt.php');                 // Adds excerpt to pages
+require_once('inc/fontawesome.php');             // Adds shortcode for inserting Font Awesome icons
 require_once('inc/hooks.php');                   // Custom hooks
 require_once('inc/navwalker.php');               // Register the Bootstrap 5 navwalker
 require_once('inc/navmenu.php');                 // Register the nav menus
