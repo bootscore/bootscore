@@ -547,7 +547,7 @@ function bootscore_qty_update(){
       $cart['message']     = __( 'Quantity updated successfully', 'bootscore' );
 
       if ( $woocommerce_tax_display_cart === 'excl' ) {
-        $cart['total'] = WC()->cart->get_cart_contents_total();
+        $cart['total'] = wc_price( WC()->cart->get_cart_contents_total() );
       }
 
       wp_send_json_success( $cart );
