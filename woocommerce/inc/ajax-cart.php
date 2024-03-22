@@ -533,6 +533,8 @@ function bootscore_qty_update(){
       );
     }
 
+    $woocommerce_tax_display_cart = get_option( 'woocommerce_tax_display_cart' );
+
     if ( $key && $number > 0 ) {
       WC()->cart->set_quantity( $key, $number );
       $items               = WC()->cart->get_cart();
@@ -540,9 +542,13 @@ function bootscore_qty_update(){
       $cart['count']       = WC()->cart->cart_contents_count;
       $cart['total_items'] = WC()->cart->get_cart_contents_count();
       $cart['total']       = WC()->cart->get_cart_total();
-      $cart['item_price']  = wc_price( $items[ $key ]['line_total'] );
+      $cart['item_price']  = WC()->cart->get_product_subtotal( $items[ $key ]['data'], $items[ $key ]['quantity']);
       $cart['item_qty']    = $items[ $key ]['quantity'];
       $cart['message']     = __( 'Quantity updated successfully', 'bootscore' );
+
+      if ( $woocommerce_tax_display_cart === 'excl' ) {
+        $cart['total'] = wc_price( WC()->cart->get_cart_contents_total() );
+      }
 
       wp_send_json_success( $cart );
     } else {

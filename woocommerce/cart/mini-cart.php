@@ -84,7 +84,8 @@ do_action('woocommerce_before_mini_cart'); ?>
             <div class="remove col-3 text-end">
               
               <div class="bootscore-custom-render-total h6 mb-4">
-                <?php echo wc_price( $cart_item['line_total'] ); ?>
+                <?php echo WC()->cart->get_product_subtotal( $_product, $cart_item['quantity'] ); // PHPCS: XSS ok.
+                ?>
               </div>
               
               <?php echo apply_filters( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
