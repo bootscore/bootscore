@@ -2,6 +2,11 @@
 Ajax Cart
 --------------------------------------------------------------*/
 
+
+.cart-toggler .cart-content {
+  display: inline-block; // Fix line-break in Safari
+}
+
 #offcanvas-cart {
 
   .cart-list {

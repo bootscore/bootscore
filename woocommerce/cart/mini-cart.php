@@ -52,7 +52,7 @@ do_action('woocommerce_before_mini_cart'); ?>
                 <?php echo str_replace( '<img', '<img class="rounded border align-text-top"', $thumbnail ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
               <?php else : ?>
                 <a href="<?php echo esc_url($product_permalink); ?>">
-                  <?php echo str_replace( '<img', '<img class="rounded border align-text-top"', $thumbnail ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+                  <?php echo str_replace( '<img', '<img class="rounded align-text-top"', $thumbnail ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
                 </a>
               <?php endif; ?>
             </div>
@@ -118,7 +118,7 @@ do_action('woocommerce_before_mini_cart'); ?>
 
   <div class="cart-footer bg-body-tertiary p-3">
 
-    <div class="woocommerce-mini-cart__total total h6 d-flex justify-content-between">
+    <div class="woocommerce-mini-cart__total total h5 d-flex justify-content-between">
       <?php
       /**
        * Hook: woocommerce_widget_shopping_cart_total.
@@ -128,8 +128,6 @@ do_action('woocommerce_before_mini_cart'); ?>
       do_action('woocommerce_widget_shopping_cart_total');
       ?>
     </div>
-
-    <p class="text-body-secondary small shipping-text"><?php esc_html_e('Shipping, taxes, and discounts calculated at checkout.', 'bootscore'); ?></p>
 
     <?php do_action('woocommerce_widget_shopping_cart_before_buttons'); ?>
 
