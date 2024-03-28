@@ -49,7 +49,7 @@ do_action('woocommerce_before_mini_cart'); ?>
 
             <div class="item-image col-3">
               <?php if (empty($product_permalink)) : ?>
-                <?php echo str_replace( '<img', '<img class="rounded border align-text-top"', $thumbnail ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+                <?php echo str_replace( '<img', '<img class="rounded align-text-top"', $thumbnail ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
               <?php else : ?>
                 <a href="<?php echo esc_url($product_permalink); ?>">
                   <?php echo str_replace( '<img', '<img class="rounded align-text-top"', $thumbnail ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
@@ -71,6 +71,20 @@ do_action('woocommerce_before_mini_cart'); ?>
               <small class="text-body-secondary d-block text-truncate">
                 <?php echo get_the_excerpt($product_id); ?>
               </small>
+              
+              <?php
+                $stock_quantity = $_product->get_stock_quantity();
+                // Check if the product is sold individually
+                if ($_product->is_sold_individually()) {
+                  echo '<div class="cart-badge my-1"><span class="badge bg-danger">' . esc_html__('Sold individually', 'woocommerce') . '</span></div>';
+                }
+
+                // Check if the product has only 5 or fewer left in stock
+                elseif ($stock_quantity <= 5 && $stock_quantity > 0) {
+                  $stock_message = sprintf(esc_html__('Only %s left in stock', 'woocommerce'), $stock_quantity);
+                  echo '<div class="cart-badge my-1"><span class="badge bg-danger">' . $stock_message . '</span></div>';
+                }
+              ?>              
 
               <div class="item-quantity">
                 <?php echo wc_get_formatted_cart_item_data($cart_item); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped 
