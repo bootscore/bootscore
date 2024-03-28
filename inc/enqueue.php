@@ -24,7 +24,7 @@ function bootscore_scripts() {
   $modificated_bootstrapJs    = date('YmdHi', filemtime(get_template_directory() . '/assets/js/lib/bootstrap.bundle.min.js'));
   $modificated_themeJs        = date('YmdHi', filemtime(get_template_directory() . '/assets/js/theme.js'));
 
-  // bootScore
+  // Bootscore
   require_once 'scss-compiler.php';
   bootscore_compile_scss();
   wp_enqueue_style('main', get_template_directory_uri() . '/assets/css/main.css', array(), $modificated_bootscoreCss);

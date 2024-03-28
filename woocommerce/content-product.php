@@ -26,7 +26,7 @@ if (empty($product) || !$product->is_visible()) {
 }
 ?>
 
-<div class="<?= apply_filters('bootscore/product/col_class', 'col-md-6 col-lg-4 col-xxl-3'); ?>">
+<div class="<?= apply_filters('bootscore/class/product_col', 'col-md-6 col-lg-4 col-xxl-3'); ?>">
   <div <?php wc_product_class('card h-100 d-flex text-center', $product); ?>>
     <?php
     /**

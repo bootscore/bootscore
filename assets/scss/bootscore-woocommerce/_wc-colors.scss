@@ -5,15 +5,7 @@ WooCommerce Colors
 .woocommerce div.product p.price,
 .woocommerce div.product span.price,
 .card .price {
-  color: var(--#{$prefix}wc-price, var(--#{$prefix}gray));
-}
-
-.woocommerce div.product p.price del,
-.woocommerce div.product span.price del,
-del,
-.card del .woocommerce-Price-amount.amount,
-.card del .woocommerce-Price-amount.amount {
-  opacity: 0.6 !important;
+  color: var(--#{$prefix}wc-price, var(--#{$prefix}secondary-color));
 }
 
 .woocommerce div.product p.price ins,
@@ -49,7 +41,7 @@ ins {
 .woocommerce-cart .cart-collaterals .cart_totals table small,
 .woocommerce-checkout .cart-collaterals .cart_totals table small,
 small.includes_tax {
-  color: var(--#{$prefix}wc-shop-table-small, var(--#{$prefix}tertiary-color));
+  color: var(--#{$prefix}wc-shop-table-small, var(--#{$prefix}secondary-color));
 }
 
 #add_payment_method #payment div.payment_box,
@@ -67,10 +59,6 @@ small.includes_tax {
 
 .woocommerce-terms-and-conditions {
   background: var(--#{$prefix}terms, var(--#{$prefix}tertiary-bg));
-}
-
-.woocommerce div.product .stock {
-  color: currentColor;
 }
 
 .woocommerce div.product .out-of-stock {

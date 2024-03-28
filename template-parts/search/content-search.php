@@ -6,12 +6,12 @@
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
  * @package Bootscore
- * @version 5.3.4
+ * @version 6.0.0
  */
 
 
 // Exit if accessed directly
-defined( 'ABSPATH' ) || exit;
+defined('ABSPATH') || exit;
 
 ?>
 
@@ -39,7 +39,7 @@ defined( 'ABSPATH' ) || exit;
           </a>
 
           <?php if ('post' === get_post_type()) : ?>
-            <p class="meta small mb-2 text-body-tertiary">
+            <p class="meta small mb-2 text-body-secondary">
               <?php
               bootscore_date();
               bootscore_author();
@@ -51,7 +51,7 @@ defined( 'ABSPATH' ) || exit;
 
           <p class="card-text">
             <a class="text-body text-decoration-none" href="<?php the_permalink(); ?>">
-              <?php echo strip_tags(get_the_excerpt()); ?>
+              <?= strip_tags(get_the_excerpt()); ?>
             </a>
           </p>
 

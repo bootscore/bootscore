@@ -6,12 +6,12 @@
  * @link https://developer.wordpress.org/themes/basics/theme-functions/
  *
  * @package Bootscore
- * @version 5.4.0
+ * @version 6.0.0
  */
 
 
 // Exit if accessed directly
-defined( 'ABSPATH' ) || exit;
+defined('ABSPATH') || exit;
 
 
 /**
@@ -24,7 +24,10 @@ require_once('inc/comments.php');                // Comments
 require_once('inc/enable-html.php');             // Enable HTML in category and author description
 require_once('inc/enqueue.php');                 // Enqueue scripts and styles
 require_once('inc/excerpt.php');                 // Adds excerpt to pages
+require_once('inc/fontawesome.php');             // Adds shortcode for inserting Font Awesome icons
 require_once('inc/hooks.php');                   // Custom hooks
+require_once('inc/navwalker.php');               // Register the Bootstrap 5 navwalker
+require_once('inc/navmenu.php');                 // Register the nav menus
 require_once('inc/pagination.php');              // Pagination for loop and single posts
 require_once('inc/password-protected-form.php'); // Form if post or page is protected by password
 require_once('inc/template-tags.php');           // Meta information like author, date, comments, category and tags badges
@@ -47,22 +50,6 @@ require_once('inc/blocks/block-widget-search.php');          // Searchform block
 if (class_exists('WooCommerce')) {
   require get_template_directory() . '/woocommerce/wc-functions.php';
 }
-
-
-/**
- * Load Bootstrap 5 Nav Walker and registers menus 
- * Remove this snippet in v6 and add nav-walker to the enqueue list
- * https://github.com/orgs/bootscore/discussions/347
- */
-if (!function_exists('register_navwalker')) :
-  function register_navwalker() {
-    require_once('inc/class-bootstrap-5-navwalker.php');
-    // Register Menus
-    register_nav_menu('main-menu', 'Main menu');
-    register_nav_menu('footer-menu', 'Footer menu');
-  }
-endif;
-add_action('after_setup_theme', 'register_navwalker');
 
 
 /**

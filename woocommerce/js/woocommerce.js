@@ -44,23 +44,23 @@ jQuery(function ($) {
     if (min === '' || min === 'NaN') min = 0;
     if (step === 'any' || step === '' || step === undefined || parseFloat(step) === 'NaN') step = 1;
 
-    // Change the value
-    if ($(this).is('.plus')) {
-      if (max && currentVal >= max) {
-        $qty.val(max);
+    if (typeof wc_add_to_cart_params === 'undefined' || wc_add_to_cart_params.ajax_url === '') {
+      // Change the value
+      if ($(this).is('.plus')) {
+        if (max && currentVal >= max) {
+          $qty.val(max);
+        } else {
+          $qty.val((currentVal + parseFloat(step)).toFixed(step.getDecimals()));
+        }
       } else {
-        $qty.val((currentVal + parseFloat(step)).toFixed(step.getDecimals()));
+        if (min && currentVal <= min) {
+          $qty.val(min);
+        } else if (currentVal > 0) {
+          $qty.val((currentVal - parseFloat(step)).toFixed(step.getDecimals()));
+        }
       }
-    } else {
-      if (min && currentVal <= min) {
-        $qty.val(min);
-      } else if (currentVal > 0) {
-        $qty.val((currentVal - parseFloat(step)).toFixed(step.getDecimals()));
-      }
+      $qty.trigger('change');
     }
-
-    // Trigger change event
-    $qty.trigger('change');
   });
 
 }); // jQuery End

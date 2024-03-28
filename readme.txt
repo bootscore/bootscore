@@ -2,7 +2,8 @@
 
 Contributors: Bastian Kreiter, Justin Kruit, Martin Holzer, Tim Groeneveld, Laurent Binder, Patrick, Gustavo Silva, TershiXia, 
 electronicsandprogramming, charly, Alexandros Kourmoulakis, Sven Geiß, ucalegonte, Benhaim Ido, Sean Emerson, Androidacy, Tamás Dohány,
-David Vanderhaeghe, Karsten Reincke, Patrick Champoux, sweetappleuk, exlexv, Beda Schmid, JWestarp, sir-lexonarkz, xoneill007
+David Vanderhaeghe, Karsten Reincke, Patrick Champoux, sweetappleuk, exlexv, Beda Schmid, JWestarp, sir-lexonarkz, xoneill007, 
+Anisur Rahman
 
 Tags: featured-images, threaded-comments, translation-ready
 

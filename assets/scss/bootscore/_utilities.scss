@@ -73,3 +73,19 @@ https://bootscore.me/documentation/width-height-classes/
     display: none;
   }
 }
+
+// Hide elements based on [data-bs-theme=""]
+.d-tl-none {
+  display: none;
+}
+
+[data-bs-theme="dark"] {
+
+  .d-td-none {
+    display: none;
+  }
+
+  .d-tl-none {
+    display: block;
+  }
+}

@@ -1,0 +1,35 @@
+/*--------------------------------------------------------------
+WooCommerce My Account Offcanvas
+--------------------------------------------------------------*/
+
+
+#offcanvas-user {
+  .woocommerce {
+
+    // form-login
+    .col2-set {
+
+      .col-1,
+      .col-2 {
+        width: 100%;
+      }
+    }
+
+    &-MyAccount-content {
+      p:last-child {
+        // Hide introtext, links do not link to my-account.php
+        display: none;
+      }
+    }
+  }
+
+  // my-account
+  .col-md-4,
+  .col-md-8 {
+    width: 100%;
+  }
+
+  .col-md-8 {
+    order: -1;
+  }
+}

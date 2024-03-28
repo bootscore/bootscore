@@ -1,0 +1,10 @@
+/*--------------------------------------------------------------
+Password protected form
+--------------------------------------------------------------*/
+
+// Hotfix password protected input-group button
+// Function creates <br> tags?
+.pw_form .btn {
+  border-top-right-radius: $btn-border-radius !important;
+  border-bottom-right-radius: $btn-border-radius !important;
+}

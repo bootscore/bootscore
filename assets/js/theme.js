@@ -8,13 +8,6 @@ jQuery(function ($) {
     $('.offcanvas').offcanvas('hide');
   });
 
-  // Search collapse button hide if empty
-  // Deprecated v5.2.3.4, done by php if (is_active_sidebar('top-nav-search')) in header.php
-  // Remove in v6
-  if ($('#collapse-search').children().length == 0) {
-    $('.top-nav-search-md, .top-nav-search-lg').remove();
-  }
-
   // Searchform focus
   $('#collapse-search').on('shown.bs.collapse', function () {
     $('.top-nav-search input:first-of-type').trigger('focus');

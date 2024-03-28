@@ -8,19 +8,19 @@
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
  * @package Bootscore
- * @version 5.4.0
+ * @version 6.0.0
  */
 
 // Exit if accessed directly
-defined( 'ABSPATH' ) || exit;
+defined('ABSPATH') || exit;
 
 ?>
 
 
 <footer>
 
-  <div class="bootscore-footer bg-body-tertiary pt-5 pb-3">
-    <div class="<?= apply_filters('bootscore/container_class', 'container', 'footer'); ?>">
+  <div class="<?= apply_filters('bootscore/class/footer', 'bg-body-tertiary pt-5 pb-3'); ?> bootscore-footer">
+    <div class="<?= apply_filters('bootscore/class/container', 'container', 'footer'); ?>">
 
       <!-- Top Footer Widget -->
       <?php if (is_active_sidebar('top-footer')) : ?>
@@ -60,34 +60,24 @@ defined( 'ABSPATH' ) || exit;
       </div>
 
       <!-- Bootstrap 5 Nav Walker Footer Menu -->
-      <?php
-      wp_nav_menu(array(
-        'theme_location' => 'footer-menu',
-        'container'      => false,
-        'menu_class'     => '',
-        'fallback_cb'    => '__return_false',
-        'items_wrap'     => '<ul id="footer-menu" class="nav %2$s">%3$s</ul>',
-        'depth'          => 1,
-        'walker'         => new bootstrap_5_wp_nav_menu_walker()
-      ));
-      ?>
+      <?php get_template_part('template-parts/footer/footer-menu'); ?>
 
     </div>
   </div>
 
-  <div class="bootscore-info bg-body-tertiary text-body-tertiary border-top py-2 text-center">
-    <div class="<?= apply_filters('bootscore/container_class', 'container', 'footer-copyright'); ?>">
+  <div class="<?= apply_filters('bootscore/class/footer_info', 'bg-body-tertiary text-body-secondary border-top py-2 text-center'); ?> bootscore-info">
+    <div class="<?= apply_filters('bootscore/class/container', 'container', 'footer-info'); ?>">
       <?php if (is_active_sidebar('footer-info')) : ?>
         <?php dynamic_sidebar('footer-info'); ?>
       <?php endif; ?>
-      <small class="bootscore-copyright"><span class="cr-symbol">&copy;</span>&nbsp;<?= date('Y'); ?> <?php bloginfo('name'); ?></small>
+      <div class="small bootscore-copyright"><span class="cr-symbol">&copy;</span>&nbsp;<?= date('Y'); ?> <?php bloginfo('name'); ?></div>
     </div>
   </div>
 
 </footer>
 
 <!-- To top button -->
-<a href="#" class="btn btn-primary shadow top-button position-fixed zi-1020"><i class="fa-solid fa-chevron-up"></i><span class="visually-hidden-focusable">To top</span></a>
+<a href="#" class="<?= apply_filters('bootscore/class/to_top_button', 'btn btn-primary shadow'); ?> position-fixed zi-1010 top-button"><i class="fa-solid fa-chevron-up"></i><span class="visually-hidden-focusable">To top</span></a>
 
 </div><!-- #page -->
 

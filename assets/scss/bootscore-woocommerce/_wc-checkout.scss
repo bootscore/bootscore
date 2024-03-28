@@ -30,8 +30,8 @@ WooCommerce Checkout
 }
 
 // #order_review
-// Set shipping table to top
-.woocommerce-shipping-totals th {
+// Set table to top
+table.shop_table.woocommerce-checkout-review-order-table tr {
   vertical-align: top;
 }
 
