@@ -30,6 +30,8 @@ defined('ABSPATH') || exit;
 <?php wp_body_open(); ?>
 
 <div id="page" class="site">
+  
+  <a class="skip-link visually-hidden-focusable" href="#primary"><?php esc_html_e( 'Skip to content', 'bootscore' ); ?></a>
 
   <!-- Top Bar Widget -->
   <?php if (is_active_sidebar('top-bar')) : ?>
