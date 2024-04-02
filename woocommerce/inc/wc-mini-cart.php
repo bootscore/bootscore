@@ -46,7 +46,7 @@ add_action('woocommerce_widget_shopping_cart_buttons', 'bootscore_widget_shoppin
 add_action('woocommerce_widget_shopping_cart_buttons', 'bootscore_widget_shopping_cart_proceed_to_checkout', 20);
 
 function bootscore_widget_shopping_cart_button_view_cart() {
-  echo '<a href="' . esc_url(wc_get_cart_url()) . '" class="btn btn-outline-primary d-block mb-2">' . esc_html__('View cart', 'woocommerce') . '</a>';
+  echo '<a href="' . esc_url(wc_get_cart_url()) . '" class="btn btn-secondary d-block mb-2">' . esc_html__('View cart', 'woocommerce') . '</a>';
 }
 
 function bootscore_widget_shopping_cart_proceed_to_checkout() {
