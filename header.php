@@ -85,7 +85,7 @@ defined('ABSPATH') || exit;
           ?>
 
           <!-- Navbar Toggler -->
-          <button class="<?= apply_filters('bootscore/class/header_button', 'btn btn-outline-secondary', 'menu'); ?> d-lg-none ms-1 ms-md-2 nav-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas-navbar" aria-controls="offcanvas-navbar">
+          <button class="<?= apply_filters('bootscore/class/header/button', 'btn btn-outline-secondary', 'menu'); ?> d-lg-none ms-1 ms-md-2 nav-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas-navbar" aria-controls="offcanvas-navbar">
             <i class="fa-solid fa-bars"></i><span class="visually-hidden-focusable">Menu</span>
           </button>
 
