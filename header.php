@@ -40,7 +40,7 @@ defined('ABSPATH') || exit;
 
   <header id="masthead" class="<?= apply_filters('bootscore/class/header', 'sticky-top bg-body-tertiary'); ?> site-header">
 
-    <nav id="nav-main" class="navbar navbar-expand-lg">
+    <nav id="nav-main" class="navbar <?= apply_filters('bootscore/class/header/navbar/breakpoint', 'navbar-expand-lg'); ?>">
 
       <div class="<?= apply_filters('bootscore/class/container', 'container', 'header'); ?>">
         
@@ -85,7 +85,7 @@ defined('ABSPATH') || exit;
           ?>
 
           <!-- Navbar Toggler -->
-          <button class="<?= apply_filters('bootscore/class/header/button', 'btn btn-outline-secondary', 'menu'); ?> d-lg-none ms-1 ms-md-2 nav-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas-navbar" aria-controls="offcanvas-navbar">
+          <button class="<?= apply_filters('bootscore/class/header/button', 'btn btn-outline-secondary', 'menu'); ?> <?= apply_filters('bootscore/class/header/navbar/toggler/breakpoint', 'd-lg-none'); ?> ms-1 ms-md-2 nav-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas-navbar" aria-controls="offcanvas-navbar">
             <i class="fa-solid fa-bars"></i><span class="visually-hidden-focusable">Menu</span>
           </button>
 
