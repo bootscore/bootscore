@@ -45,7 +45,10 @@ defined('ABSPATH') || exit;
       <div class="<?= apply_filters('bootscore/class/container', 'container', 'header'); ?>">
         
         <!-- Navbar Brand -->
-        <?php get_template_part('template-parts/header/navbar-brand'); ?>
+        <a class="navbar-brand" href="<?= esc_url(home_url()); ?>">
+          <img src="<?= esc_url(apply_filters('bootscore/logo', get_stylesheet_directory_uri() . '/assets/img/logo/logo.svg', 'default')); ?>" alt="<?php bloginfo('name'); ?> Logo" class="d-td-none me-2">
+          <img src="<?= esc_url(apply_filters('bootscore/logo', get_stylesheet_directory_uri() . '/assets/img/logo/logo-theme-dark.svg', 'theme-dark')); ?>" alt="<?php bloginfo('name'); ?> Logo" class="d-tl-none me-2">
+        </a>  
 
         <!-- Offcanvas Navbar -->
         <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvas-navbar">
