@@ -25,16 +25,13 @@ get_header();
 
       <main id="main" class="site-main">
 
-        <!-- Breadcrumb -->
         <?php woocommerce_breadcrumb(); ?>
         <div class="row">
           <div class="<?= apply_filters('bootscore/class/col/main', 'col'); ?>">
             <?php woocommerce_content(); ?>
           </div>
-          <!-- sidebar -->
           <?php get_sidebar(); ?>
-          <!-- row -->
-        </div>
+        </div><!-- row -->
       </main><!-- #main -->
     </div><!-- #primary -->
   </div><!-- #content -->

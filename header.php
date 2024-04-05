@@ -91,7 +91,7 @@ defined('ABSPATH') || exit;
 
         </div><!-- .header-actions -->
 
-      </div><!-- bootscore_container_class(); -->
+      </div><!-- .container -->
 
     </nav><!-- .navbar -->
 
