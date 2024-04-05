@@ -28,12 +28,12 @@ get_header();
           </div>
         </div>
 
-        <div class="<?= apply_filters('bootscore/class/container', 'container', 'single-full-width-image'); ?> <?= apply_filters('bootscore/content/spacer_class', 'pt-3 pb-5', 'single-full-width-image'); ?>">
+        <div class="<?= apply_filters('bootscore/class/container', 'container', 'single-full-width-image'); ?> <?= apply_filters('bootscore/class/content/spacer', 'pt-3 pb-5', 'single-full-width-image'); ?>">
 
           <?php the_breadcrumb(); ?>
 
           <div class="row">
-            <div class="<?= apply_filters('bootscore/class/col/main', 'col'); ?>">
+            <div class="<?= apply_filters('bootscore/class/main/col', 'col'); ?>">
 
               <div class="entry-content">
                 <?php bootscore_category_badge(); ?>
