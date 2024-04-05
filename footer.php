@@ -17,7 +17,7 @@ defined('ABSPATH') || exit;
 ?>
 
 
-<footer>
+<footer class="bootscore-footer">
 
   <?php if (is_active_sidebar('footer-top')) : ?>
     <div class="<?= apply_filters('bootscore/class/footer/top', 'bg-body-tertiary border-bottom py-5'); ?> bootscore-footer-top">
@@ -27,10 +27,10 @@ defined('ABSPATH') || exit;
     </div>
   <?php endif; ?>
   
-  <div class="<?= apply_filters('bootscore/class/footer', 'bg-body-tertiary pt-5 pb-4'); ?> bootscore-footer">
+  <div class="<?= apply_filters('bootscore/class/footer', 'bg-body-tertiary pt-5 pb-4'); ?> bootscore-footer-cols">
     <div class="<?= apply_filters('bootscore/class/container', 'container', 'footer'); ?>">  
 
-      <div class="row g-3 mb-3">
+      <div class="row">
 
         <?php if (is_active_sidebar('footer-1')) : ?>
           <div class="<?= apply_filters('bootscore/class/footer/col', 'col-6 col-lg-3', 'footer-1'); ?>">
