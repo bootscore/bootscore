@@ -29,10 +29,10 @@ get_header();
           </div>
         </div>
 
-        <div class="<?= apply_filters('bootscore/class/container', 'container', 'page-full-width-image'); ?> <?= apply_filters('bootscore/content/spacer_class', 'pb-5', 'page-full-width-image'); ?>">
+        <div class="<?= apply_filters('bootscore/class/container', 'container', 'page-full-width-image'); ?> <?= apply_filters('bootscore/class/content/spacer', 'pb-5', 'page-full-width-image'); ?>">
 
           <div class="row">
-            <div class="<?= apply_filters('bootscore/class/col/main', 'col'); ?>">
+            <div class="<?= apply_filters('bootscore/class/main/col', 'col'); ?>">
 
               <div class="entry-content">
                 <?php the_content(); ?>

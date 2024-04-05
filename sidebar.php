@@ -18,7 +18,7 @@ if (!is_active_sidebar('sidebar-1')) {
   return;
 }
 ?>
-<div class="<?= apply_filters('bootscore/class/col/sidebar', 'col-lg-3 order-first order-lg-last'); ?>">
+<div class="<?= apply_filters('bootscore/class/sidebar/col', 'col-lg-3 order-first order-lg-2'); ?>">
   <aside id="secondary" class="widget-area">
 
     <button class="<?= apply_filters('bootscore/class/sidebar/button', 'd-lg-none btn btn-outline-primary w-100 mb-4 d-flex justify-content-between align-items-center') ?>" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebar" aria-controls="sidebar">
