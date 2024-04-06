@@ -85,9 +85,11 @@ defined('ABSPATH') || exit;
           ?>
 
           <!-- Navbar Toggler -->
-          <button class="<?= apply_filters('bootscore/class/header/button', 'btn btn-outline-secondary', 'nav-toggler'); ?> <?= apply_filters('bootscore/class/header/navbar/toggler/breakpoint', 'd-lg-none'); ?> ms-1 ms-md-2 nav-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas-navbar" aria-controls="offcanvas-navbar">
-            <i class="fa-solid fa-bars"></i><span class="visually-hidden-focusable">Menu</span>
-          </button>
+          <?php if(wp_get_nav_menu_items(get_nav_menu_locations()['main-menu'])): ?>
+            <button class="<?= apply_filters('bootscore/class/header/button', 'btn btn-outline-secondary', 'nav-toggler'); ?> <?= apply_filters('bootscore/class/header/navbar/toggler/breakpoint', 'd-lg-none'); ?> ms-1 ms-md-2 nav-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas-navbar" aria-controls="offcanvas-navbar">
+              <i class="fa-solid fa-bars"></i><span class="visually-hidden-focusable">Menu</span>
+            </button>
+          <?php endif; ?>
 
         </div><!-- .header-actions -->
 
