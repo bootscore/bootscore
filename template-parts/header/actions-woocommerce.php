@@ -47,16 +47,18 @@ if ( is_cart() ) {
 } else { ?>
   <!-- Add mini-cart toggler -->
   <button class="<?= apply_filters('bootscore/class/header/button', 'btn btn-outline-secondary', 'cart-toggler'); ?> ms-1 ms-md-2 position-relative cart-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas-cart" aria-controls="offcanvas-cart">
-    <i class="fa-solid fa-bag-shopping"></i><span class="visually-hidden-focusable">Cart</span>
-    <?php if (in_array('woocommerce/woocommerce.php', apply_filters('active_plugins', get_option('active_plugins')))) {
-      $count = WC()->cart->cart_contents_count;
-      ?>
-      <span class="cart-content">
-        <?php if ($count > 0) { ?>
-          <?= esc_html($count); ?>
-          <?php
-        }
-        ?></span>
-    <?php } ?>
+    <div class="d-inline-flex align-items-center">
+      <i class="fa-solid fa-bag-shopping"></i><span class="visually-hidden-focusable">Cart</span>
+      <?php if (in_array('woocommerce/woocommerce.php', apply_filters('active_plugins', get_option('active_plugins')))) {
+        $count = WC()->cart->cart_contents_count;
+        ?>
+        <span class="cart-content">
+          <?php if ($count > 0) { ?>
+            <?= esc_html($count); ?>
+            <?php
+          }
+          ?></span>
+      <?php } ?>
+    </div>
   </button>
 <?php } ?>
