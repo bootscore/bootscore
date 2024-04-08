@@ -26,6 +26,7 @@ if (!function_exists('bootscore_block_widget_search_classes')) {
   function bootscore_block_widget_search_classes($block_content, $block) {
 
     $search  = array(
+      '<form ',
       'wp-block-search__input ',
       'wp-block-search__input"',
       'wp-block-search__button ',
@@ -34,6 +35,7 @@ if (!function_exists('bootscore_block_widget_search_classes')) {
 				</svg>'
     );
     $replace = array(
+      '<form novalidate="novalidate" ',
       'wp-block-search__input form-control ',
       'wp-block-search__input form-control"',
       'wp-block-search__button btn btn-outline-secondary ',
