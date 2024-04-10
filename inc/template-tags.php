@@ -27,7 +27,7 @@ if (!function_exists('bootscore_category_badge')) :
       foreach (get_the_category() as $category) {
         if (0 < $i) $thelist .= ' ';
         // Apply a filter to modify the class name
-        $class = apply_filters('bootscore/class/badge', 'badge bg-primary-subtle text-primary-emphasis text-decoration-none', 'categories');
+        $class = apply_filters('bootscore/class/badge/category', 'badge bg-primary-subtle text-primary-emphasis text-decoration-none');
         $thelist .= '<a href="' . esc_url(get_category_link($category->term_id)) . '" class="' . esc_attr($class) . '">' . $category->name . '</a>';
         $i ++;
       }
@@ -199,11 +199,8 @@ if (!function_exists('bootscore_tags')) :
     // Hide category and tag text for pages.
     if ('post' === get_post_type()) {
 
-
-      /* translators: used between list items, there is a space after the comma */
       $tags_list = get_the_tag_list('', ' ');
       if ($tags_list) {
-        /* translators: 1: list of tags. */
         echo '<div class="tags-links">';
         echo '<p class="tags-heading mb-2">' . esc_html__('Tagged', 'bootscore') . '</p>';
         echo get_the_tag_list();
@@ -215,7 +212,8 @@ if (!function_exists('bootscore_tags')) :
   add_filter("term_links-post_tag", 'add_tag_class');
 
   function add_tag_class($links) {
-    return str_replace('<a href="', '<a class="badge bg-primary-subtle text-primary-emphasis text-decoration-none me-1" href="', $links);
+    $class = apply_filters('bootscore/class/badge/tag', 'badge bg-primary-subtle text-primary-emphasis text-decoration-none');
+    return str_replace('</a>', '</a> ', str_replace('<a href="', '<a class="' . $class . '" href="', $links));
   }
 endif;
 
