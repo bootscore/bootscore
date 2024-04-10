@@ -28,7 +28,7 @@ defined('ABSPATH') || exit;
   <?php endif; ?>
   
   <div class="<?= apply_filters('bootscore/class/footer/columns', 'bg-body-tertiary pt-5 pb-4'); ?> bootscore-footer-columns">
-    <div class="<?= apply_filters('bootscore/class/container', 'container', 'footer'); ?>">  
+    <div class="<?= apply_filters('bootscore/class/container', 'container', 'footer-columns'); ?>">  
 
       <div class="row">
 
