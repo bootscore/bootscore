@@ -17,41 +17,44 @@ defined('ABSPATH') || exit;
 ?>
 
 
-<footer>
+<footer class="bootscore-footer">
 
-  <div class="<?= apply_filters('bootscore/class/footer', 'bg-body-tertiary pt-5 pb-3'); ?> bootscore-footer">
-    <div class="<?= apply_filters('bootscore/class/container', 'container', 'footer'); ?>">
-
-      <!-- Top Footer Widget -->
-      <?php if (is_active_sidebar('top-footer')) : ?>
-        <?php dynamic_sidebar('top footer'); ?>
-      <?php endif; ?>
+  <?php if (is_active_sidebar('footer-top')) : ?>
+    <div class="<?= apply_filters('bootscore/class/footer/top', 'bg-body-tertiary border-bottom py-5'); ?> bootscore-footer-top">
+      <div class="<?= apply_filters('bootscore/class/container', 'container', 'footer-top'); ?>">  
+        <?php dynamic_sidebar('footer-top'); ?>
+      </div>
+    </div>
+  <?php endif; ?>
+  
+  <div class="<?= apply_filters('bootscore/class/footer/columns', 'bg-body-tertiary pt-5 pb-4'); ?> bootscore-footer-columns">
+    <div class="<?= apply_filters('bootscore/class/container', 'container', 'footer-columns'); ?>">  
 
       <div class="row">
 
-        <?php if (is_active_sidebar('footer-1')) : ?>
-          <div class="<?= apply_filters('bootscore/class/footer/col', 'col-6 col-lg-3', 'footer-1'); ?>">
+        <div class="<?= apply_filters('bootscore/class/footer/col', 'col-6 col-lg-3', 'footer-1'); ?>">
+          <?php if (is_active_sidebar('footer-1')) : ?>
             <?php dynamic_sidebar('footer-1'); ?>
-          </div>
-        <?php endif; ?>
+          <?php endif; ?>
+        </div>
 
-        <?php if (is_active_sidebar('footer-2')) : ?>
-          <div class="<?= apply_filters('bootscore/class/footer/col', 'col-6 col-lg-3', 'footer-2'); ?>">
+        <div class="<?= apply_filters('bootscore/class/footer/col', 'col-6 col-lg-3', 'footer-2'); ?>">
+          <?php if (is_active_sidebar('footer-2')) : ?>
             <?php dynamic_sidebar('footer-2'); ?>
-          </div>
-        <?php endif; ?>
-
-        <?php if (is_active_sidebar('footer-3')) : ?>
-          <div class="<?= apply_filters('bootscore/class/footer/col', 'col-6 col-lg-3', 'footer-3'); ?>">
+          <?php endif; ?>
+        </div>
+        
+        <div class="<?= apply_filters('bootscore/class/footer/col', 'col-6 col-lg-3', 'footer-3'); ?>">
+          <?php if (is_active_sidebar('footer-3')) : ?>
             <?php dynamic_sidebar('footer-3'); ?>
-          </div>
-        <?php endif; ?>
-
-        <?php if (is_active_sidebar('footer-4')) : ?>
-          <div class="<?= apply_filters('bootscore/class/footer/col', 'col-6 col-lg-3', 'footer-4'); ?>">
+          <?php endif; ?>
+        </div>
+        
+        <div class="<?= apply_filters('bootscore/class/footer/col', 'col-6 col-lg-3', 'footer-4'); ?>">
+          <?php if (is_active_sidebar('footer-4')) : ?>
             <?php dynamic_sidebar('footer-4'); ?>
-          </div>
-        <?php endif; ?>
+          <?php endif; ?>
+        </div>
 
       </div>
 
@@ -61,7 +64,7 @@ defined('ABSPATH') || exit;
     </div>
   </div>
 
-  <div class="<?= apply_filters('bootscore/class/footer/info', 'bg-body-tertiary text-body-secondary border-top py-2 text-center'); ?> bootscore-info">
+  <div class="<?= apply_filters('bootscore/class/footer/info', 'bg-body-tertiary text-body-secondary border-top py-2 text-center'); ?> bootscore-footer-info">
     <div class="<?= apply_filters('bootscore/class/container', 'container', 'footer-info'); ?>">
       <?php if (is_active_sidebar('footer-info')) : ?>
         <?php dynamic_sidebar('footer-info'); ?>
