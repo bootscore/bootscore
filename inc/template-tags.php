@@ -6,7 +6,7 @@
  * Eventually, some of the functionality here could be replaced by core features.
  *
  * @package Bootscore
- * @version 5.3.3
+ * @version 6.0.0
  */
 
 
@@ -60,13 +60,23 @@ endif;
  * Date
  */
 if (!function_exists('bootscore_date')) :
+
   /**
    * Prints HTML with meta information for the current post-date/time.
    */
   function bootscore_date() {
     $time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
+    
+    // Check if modified time is different from the published time
     if (get_the_time('U') !== get_the_modified_time('U')) {
-      $time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time> <span class="time-updated-separator">/</span> <time class="updated" datetime="%3$s">%4$s</time>';
+      $show_updated_time = apply_filters('bootscore/time/updated', true);
+      
+      // If filter returns false, don't display modified time
+      if (!$show_updated_time) {
+        $time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time>';
+      } else {
+        $time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time> <span class="time-updated-separator">/</span> <time class="updated" datetime="%3$s">%4$s</time>';
+      }
     }
 
     $time_string = sprintf(
@@ -78,7 +88,7 @@ if (!function_exists('bootscore_date')) :
     );
 
     $posted_on = sprintf(
-    /* translators: %s: post date. */
+      /* translators: %s: post date. */
       '%s',
       '<span rel="bookmark">' . $time_string . '</span>'
     );
