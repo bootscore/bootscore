@@ -219,7 +219,7 @@ if (!function_exists('bootscore_tags')) :
       $tags_list = get_the_tag_list('', ' ');
       if ($tags_list) {
         echo '<div class="tags-links">';
-        echo '<p class="tags-heading mb-2">' . esc_html__('Tagged', 'bootscore') . '</p>';
+        echo '<p class="tags-heading h6">' . esc_html__('Tagged', 'bootscore') . '</p>';
         echo get_the_tag_list();
         echo '</div>';
       }
