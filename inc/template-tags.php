@@ -69,7 +69,7 @@ if (!function_exists('bootscore_date')) :
     
     // Check if modified time is different from the published time
     if (get_the_time('U') !== get_the_modified_time('U')) {
-      $show_updated_time = apply_filters('bootscore/time/updated', true);
+      $show_updated_time = apply_filters('bootscore/meta/time/updated', true);
       
       // If filter returns false, don't display modified time
       if (!$show_updated_time) {
@@ -105,7 +105,7 @@ endif;
 if (!function_exists('bootscore_author')) {
 
   function bootscore_author() {
-    $display_author = apply_filters('bootscore/author', true);
+    $display_author = apply_filters('bootscore/meta/author', true);
 
     // Check if the filter returns false, if so, return early without displaying the author
     if (!$display_author) {
