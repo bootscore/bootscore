@@ -102,9 +102,16 @@ endif;
 /**
  * Author
  */
-if (!function_exists('bootscore_author')) :
+if (!function_exists('bootscore_author')) {
 
   function bootscore_author() {
+    $display_author = apply_filters('bootscore/author', true);
+
+    // Check if the filter returns false, if so, return early without displaying the author
+    if (!$display_author) {
+      return;
+    }
+
     $byline = sprintf(
       esc_html_x('by %s', 'post author', 'bootscore'),
       '<span class="author vcard"><a class="url fn n" href="' . esc_url(get_author_posts_url(get_the_author_meta('ID'))) . '">' . esc_html(get_the_author()) . '</a></span>'
@@ -113,7 +120,7 @@ if (!function_exists('bootscore_author')) :
     echo '<span class="byline"> ' . $byline . '</span>'; // WPCS: XSS OK.
 
   }
-endif;
+}
 
 
 /**
