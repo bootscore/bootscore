@@ -39,10 +39,10 @@ if ( is_account_page() || is_checkout() ) {
 if ( is_cart() ) {
  // Do nothing
 } elseif ( is_checkout() ) { ?>
-  <!-- Add a back-to-cart button -->
-  <a class="<?= apply_filters('bootscore/class/header/button', 'btn btn-outline-secondary', 'back-to-cart'); ?> ms-1 ms-md-2 back-to-cart" href="<?= wc_get_cart_url() ?>">
-    <i class="fa-solid fa-arrow-left d-none d-md-inline me-2"></i><i class="fa-solid fa-bag-shopping"></i><span class="visually-hidden-focusable">Return to Cart</span>
-  </a>
+  <!-- Add a return button -->
+  <button class="<?= apply_filters('bootscore/class/header/button', 'btn btn-outline-secondary', 'return-to-previous-page'); ?> ms-1 ms-md-2 back-to-cart" onclick="history.back()">
+    <i class="fa-solid fa-arrow-left d-none d-md-inline"></i><span class="visually-hidden-focusable">Return to previous page</span>
+  </button>
   <?php 
 } else { ?>
   <!-- Add mini-cart toggler -->
