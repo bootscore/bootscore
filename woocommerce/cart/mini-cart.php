@@ -76,13 +76,13 @@ do_action('woocommerce_before_mini_cart'); ?>
                 $stock_quantity = $_product->get_stock_quantity();
                 // Check if the product is sold individually
                 if ($_product->is_sold_individually()) {
-                  echo '<div class="cart-badge my-1"><span class="badge bg-danger">' . esc_html__('Sold individually', 'woocommerce') . '</span></div>';
+                  echo '<div class="cart-badge mb-2"><span class="badge bg-danger">' . esc_html__('Sold individually', 'woocommerce') . '</span></div>';
                 }
 
                 // Check if the product has only 5 or fewer left in stock
                 elseif ($stock_quantity <= 5 && $stock_quantity > 0) {
                   $stock_message = sprintf(esc_html__('Only %s left in stock', 'woocommerce'), $stock_quantity);
-                  echo '<div class="cart-badge my-1"><span class="badge bg-danger">' . $stock_message . '</span></div>';
+                  echo '<div class="cart-badge mb-2"><span class="badge bg-danger">' . $stock_message . '</span></div>';
                 }
               ?>              
 
