@@ -94,6 +94,19 @@ function bootscore_product_page_ajax_add_to_cart_js() {
 
         e.preventDefault();
 
+        // Add a new 'should_send_ajax_request.adding_to_cart' event to prevent standard WooCommerce AJAX request
+        $(document.body).on('should_send_ajax_request.adding_to_cart', function(event, $button) {
+          return false;
+        });
+
+        // Function to add the 'loading' class to the purchase button
+        function addLoadingClass(e, fragments, cart_hash, button) {
+          button.addClass('loading');
+        }
+
+        // Add a new 'ajax_request_not_sent.adding_to_cart' event to trigger addLoadingClass function
+        $(document.body).on('ajax_request_not_sent.adding_to_cart', addLoadingClass);
+
         $('.woocommerce-error, .woocommerce-message, .woocommerce-info').remove();
 
         // Get product name from product-title=""
@@ -131,7 +144,10 @@ function bootscore_product_page_ajax_add_to_cart_js() {
 
           complete: function (response) {
             $thisbutton.addClass('added').removeClass('loading');
-
+            
+            // Remove 'should_send_ajax_request.adding_to_cart' and 'ajax_request_not_sent.adding_to_cart' events
+            $(document.body).off('should_send_ajax_request.adding_to_cart');
+            $(document.body).off('ajax_request_not_sent.adding_to_cart', addLoadingClass);
           },
 
           success: function (response) {
