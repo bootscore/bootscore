@@ -20,6 +20,7 @@ require_once('inc/wc-enqueue.php');
 require_once('inc/wc-forms.php');
 require_once('inc/wc-loop.php');
 require_once('inc/wc-mini-cart.php');
+require_once('inc/wc-cart.php');
 require_once('inc/wc-qty-btn.php'); 
 require_once('inc/wc-redirects.php'); 
 require_once('inc/wc-setup.php'); 
