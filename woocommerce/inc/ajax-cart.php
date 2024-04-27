@@ -99,6 +99,20 @@ if ( 'no' !== $is_enabled_ajax_cart ) {
 
         $('a.ajax_add_to_cart').on('click', function (e) {
           e.preventDefault();
+
+          // Add new 'should_send_ajax_request.adding_to_cart' event to prevent standard WooCommerce Add To Cart AJAX request
+          $(document.body).on('should_send_ajax_request.adding_to_cart', function(event, $button) {
+            return false;
+          });
+
+          // Function to add the 'loading' class to the a.ajax_add_to_cart button
+          function addLoadingClass(e, fragments, cart_hash, button) {
+            button.addClass('loading');
+          }
+
+          // Add new 'ajax_request_not_sent.adding_to_cart' event to trigger 'addLoadingClass' function
+          $(document.body).on('ajax_request_not_sent.adding_to_cart', addLoadingClass);
+
           $('.woocommerce-error, .woocommerce-message, .woocommerce-info').remove();
           // Get product name from product-title=""
           let prod_title = '';
@@ -130,6 +144,10 @@ if ( 'no' !== $is_enabled_ajax_cart ) {
             data: data,
             complete: function (response) {
               $thisbutton.addClass('added').removeClass('loading');
+
+              // Remove 'should_send_ajax_request.adding_to_cart' and 'ajax_request_not_sent.adding_to_cart' events so they don't accumulate
+              $(document.body).off('should_send_ajax_request.adding_to_cart');
+              $(document.body).off('ajax_request_not_sent.adding_to_cart', addLoadingClass);
             },
             success: function (response) {
               if (response.error & response.product_url) {
