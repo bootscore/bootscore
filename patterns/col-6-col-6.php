@@ -16,7 +16,7 @@ defined('ABSPATH') || exit;
 <!-- wp:group {"className":"row","layout":{"type":"default"}} -->
 <div class="wp-block-group row"><!-- wp:group {"className":"col-lg-6","layout":{"type":"default"}} -->
 <div class="wp-block-group col-lg-6"><!-- wp:heading {"level":3} -->
-<h3 class="wp-block-heading">col-lg-4</h3>
+<h3 class="wp-block-heading">col-lg-6</h3>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
