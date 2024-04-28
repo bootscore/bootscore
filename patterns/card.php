@@ -1,6 +1,6 @@
 <?php
 /**
- * Title: Card
+ * Title: card
  * Slug: bootscore/card
  * Categories: bootscore
  * https://developer.wordpress.org/themes/features/block-patterns/
