@@ -81,6 +81,14 @@ if (!function_exists('bootscore_setup')) :
      */ 
     add_theme_support('editor-styles');
     add_editor_style(get_stylesheet_directory_uri() . '/assets/css/main.css');
+    
+    /*
+     * Register pattern category
+     */ 
+    register_block_pattern_category(
+      'bootscore',
+      array( 'label' => __( 'Bootscore', 'bootscore' ) )
+    );
   }
 endif;
 add_action('after_setup_theme', 'bootscore_setup');
