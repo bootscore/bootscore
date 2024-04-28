@@ -74,7 +74,13 @@ if (!function_exists('bootscore_setup')) :
     /*
      * Add theme support for block template-parts.
     */
-    add_theme_support( 'block-template-parts' );    
+    add_theme_support( 'block-template-parts' );   
+    
+    /*
+     * Register compiled CSS to editor
+     */ 
+    add_theme_support('editor-styles');
+    add_editor_style(get_stylesheet_directory_uri() . '/assets/css/main.css');
   }
 endif;
 add_action('after_setup_theme', 'bootscore_setup');
