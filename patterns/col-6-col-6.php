@@ -15,22 +15,18 @@ defined('ABSPATH') || exit;
 ?>
 <!-- wp:group {"className":"row","layout":{"type":"default"}} -->
 <div class="wp-block-group row"><!-- wp:group {"className":"col-lg-6 mb-3","layout":{"type":"default"}} -->
-<div class="wp-block-group col-lg-6 mb-3"><!-- wp:heading {"level":3} -->
-<h3 class="wp-block-heading">col-lg-6</h3>
-<!-- /wp:heading -->
-
-<!-- wp:paragraph -->
-<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+<div class="wp-block-group col-lg-6 mb-3"><!-- wp:group {"className":"p-4 bg-primary-subtle text-center rounded","layout":{"type":"default"}} -->
+<div class="wp-block-group p-4 bg-primary-subtle text-center rounded"><!-- wp:paragraph -->
+<p><code>col-lg-6</code></p>
 <!-- /wp:paragraph --></div>
+<!-- /wp:group --></div>
 <!-- /wp:group -->
 
 <!-- wp:group {"className":"col-lg-6 mb-3","layout":{"type":"default"}} -->
-<div class="wp-block-group col-lg-6 mb-3"><!-- wp:heading {"level":3} -->
-<h3 class="wp-block-heading">col-lg-6</h3>
-<!-- /wp:heading -->
-
-<!-- wp:paragraph -->
-<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+<div class="wp-block-group col-lg-6 mb-3"><!-- wp:group {"className":"p-4 bg-primary-subtle text-center rounded","layout":{"type":"default"}} -->
+<div class="wp-block-group p-4 bg-primary-subtle text-center rounded"><!-- wp:paragraph -->
+<p><code>col-lg-6</code></p>
 <!-- /wp:paragraph --></div>
+<!-- /wp:group --></div>
 <!-- /wp:group --></div>
 <!-- /wp:group -->
