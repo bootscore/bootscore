@@ -14,5 +14,5 @@ defined('ABSPATH') || exit;
 
 ?>
 <!-- wp:paragraph {"className":"alert alert-warning"} -->
-<p class="alert alert-warning">A simple warning alert with a <a href="#">link</a>.</p>
+<p class="alert alert-warning">A simple <code>alert alert-warning</code> with a <a href="#">link</a>.</p>
 <!-- /wp:paragraph -->

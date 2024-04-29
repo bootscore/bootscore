@@ -1,7 +1,7 @@
 <?php
 /**
- * Title: col-6 col-6
- * Slug: bootscore/col-6-col-6
+ * Title: col-6
+ * Slug: bootscore/col-6
  * Categories: bootscore
  * https://developer.wordpress.org/themes/features/block-patterns/
  * 

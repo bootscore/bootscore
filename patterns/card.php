@@ -20,7 +20,7 @@ defined('ABSPATH') || exit;
 
 <!-- wp:group {"className":"card-body","layout":{"type":"default"}} -->
 <div class="wp-block-group card-body"><!-- wp:paragraph {"className":"card-text"} -->
-<p class="card-text">Some .card-text</p>
+<p class="card-text">Some <code>card-text</code></p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group --></div>
 <!-- /wp:group -->
