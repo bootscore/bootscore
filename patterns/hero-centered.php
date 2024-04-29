@@ -21,7 +21,7 @@ defined('ABSPATH') || exit;
 <!-- /wp:heading -->
 
 <!-- wp:paragraph {"className":"lead"} -->
-<p class="lead">A simple centered hero pattern. Use <code>height-75 width-100</code> classes on the outer group to stretch it through the <code>container</code>. This may disturb layout in the backend.</p>
+<p class="lead">A simple centered hero pattern. <a href="https://bootscore.me/documentation/width-height-classes/">Width &amp; Height Classes</a> can be used on the outer group to stretch it through the <code>container</code>. This may disturb the layout in the backend.</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph -->

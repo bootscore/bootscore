@@ -7,7 +7,14 @@ Block Widgets
    margin-block-start: 0 !important;
  }
 
-// List groups
+
+// Add rounded to block img if class added toi block
+.rounded img {
+  border-radius: var(--#{$prefix}border-radius);
+}
+
+
+// List-groups
 .bs-list-group {
   .list-group-item-action {
     a {
@@ -28,6 +35,7 @@ Block Widgets
   }
 }
 
+// List-group in card
 .card {
   .bs-list-group.list-group-flush {
     .list-group-item:last-child {
