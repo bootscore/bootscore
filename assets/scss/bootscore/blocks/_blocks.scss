@@ -14,6 +14,12 @@ Block Widgets
 }
 
 
+// Separator
+.wp-block-separator {
+  border-top: var(--#{$prefix}border-width) solid;
+}
+
+
 // List-groups
 .bs-list-group {
   .list-group-item-action {
