@@ -7,8 +7,8 @@ Anisur Rahman, Murilo Carvalho
 
 Tags: featured-images, threaded-comments, translation-ready
 
-Requires at least: 4.5
-Tested up to: 6.4.3
+Requires at least: 5.0
+Tested up to: 6.5.2
 Requires PHP: 7.4
 Stable tag: 6.0.0-dev
 License: MIT License
@@ -59,6 +59,10 @@ Bootscore includes support for WooCommerce and Infinite Scroll in Jetpack.
 
 
 == Changelog ==
+
+Please visit https://github.com/bootscore/bootscore/releases for a detailed changelog.
+
+
 
 = 5.3.4 - November 14 2023 =
 
