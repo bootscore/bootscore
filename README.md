@@ -50,7 +50,7 @@ This time-saving tool is designed to swiftly create clean, mobile-first projects
 - [License & credits](#license--credits)
 
 ## Installation
-1. Download latest release [bootscore.zip](https://github.com/bootscore/bootscore/releases/latest/download/bootscore.zip).
+1. Download latest release [bootscore.zip](https://github.com/bootscore/bootscore/releases/download/v6.0.0-beta1/bootscore.zip).
 2. In your admin panel, go to **Appearance** > **Themes** and click the **Add New** button.
 3. Click **Upload Theme** and **Choose File**, then select `bootscore.zip` file. Click **Install Now**.
 4. Click **Activate** to use your new theme right away.
