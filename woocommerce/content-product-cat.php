@@ -20,10 +20,8 @@ if (!defined('ABSPATH')) {
   exit;
 }
 ?>
-<div <?php wc_product_cat_class('col-md-6 col-lg-4 col-xxl-3', $category); ?>>
-
+<div <?php wc_product_cat_class(apply_filters('bootscore/class/woocommerce/col', 'col-md-6 col-lg-4 col-xxl-3'), $category); ?>>
   <div class="card h-100">
-
     <?php
     /**
      * The woocommerce_before_subcategory hook.
@@ -64,5 +62,4 @@ if (!defined('ABSPATH')) {
       ?>
     </div>
   </div>
-
 </div>

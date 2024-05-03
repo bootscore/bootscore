@@ -1,0 +1,291 @@
+/*--------------------------------------------------------------
+WooCommerce Checkout
+--------------------------------------------------------------*/
+
+// Reset coupon collapse
+.woocommerce form {
+
+  &.checkout_coupon,
+  &.login,
+  &.register {
+    border: none;
+    padding: 0;
+    margin: 0;
+  }
+}
+
+
+// Create account password icon
+#account_password {
+  background-position: right $spacer * 2.25 center;
+}
+
+
+// /checkout/form-shipping.php
+#ship-to-different-address {
+  font-size: var(--#{$prefix}body-font-size);
+  font-weight: normal;
+  line-height: $line-height-base;
+  margin-bottom: $spacer;
+}
+
+// #order_review
+// Set table to top
+table.shop_table.woocommerce-checkout-review-order-table tr {
+  vertical-align: top;
+}
+
+
+// #payment
+.woocommerce-checkout #payment {
+
+  // Create card
+  background: $card-bg;
+  border: $card-border-width solid $card-border-color;
+  border-radius: $card-border-radius;
+  padding: $card-spacer-y $card-spacer-x;
+
+  ul.payment_methods {
+    border-bottom: var(--#{$prefix}border-width) var(--#{$prefix}border-style) var(--#{$prefix}border-color);
+    padding: 0;
+    margin-bottom: $spacer;
+
+    &::after {
+      margin-top: $spacer;
+    }
+
+    li {
+      line-height: inherit;
+      padding-left: 0;
+
+      // Adjust payment method checkboxes
+      input {
+        margin-right: $form-check-input-width * .5;
+        margin-left: 0;
+        margin-top: $form-check-input-width * .25;
+      }
+
+      &:last-child div.payment_box {
+        margin-bottom: 0;
+      }
+    }
+
+    // Payment information
+    div.payment_box {
+      border-radius: $border-radius;
+      font-size: $font-size-base;
+    }
+
+    // Hide Paypal img and link
+    .payment_method_paypal {
+
+      img,
+      .about_paypal {
+        display: none;
+      }
+    }
+
+    // If no payment method is available
+    .woocommerce-info {
+      margin-bottom: 0;
+    }
+  }
+
+
+  // Policy & place-order wrapper
+  div.form-row {
+    padding: 0;
+    margin: 0;
+  }
+
+  // Place order button
+  #place_order {
+    width: 100%;
+    margin-bottom: 0 !important; // In case aggregated CSS (Autoptimize)
+  }
+}
+
+
+// Adjust checkboxes
+.woocommerce form .form-row .input-checkbox {
+  margin-left: $form-check-padding-start * -1 !important;
+}
+
+
+// Terms & conditions collapse box
+.woocommerce .woocommerce-terms-and-conditions,
+.woocommerce-page .woocommerce-terms-and-conditions {
+  border: none;
+  box-shadow: none;
+  border-radius: $border-radius;
+  margin-bottom: $spacer;
+  padding: $spacer;
+}
+
+
+// Payment saved cards radios
+.woocommerce-SavedPaymentMethods.wc-saved-payment-methods {
+  padding-left: 0;
+
+  li {
+    padding-left: 0;
+
+    input {
+      width: $form-check-input-width !important; // Override inline-style
+      margin-top: ($line-height-base - $form-check-input-width) * .5 !important;
+      margin-right: $form-check-input-width * .5 !important;
+      margin-bottom: 0 !important;
+      margin-left: 0 !important;
+    }
+  }
+}
+
+
+// Stripe
+// Stripe credit card input
+.wc-stripe-elements-field,
+.wc-stripe-iban-element-field {
+  padding: $input-padding-y $input-padding-x !important;
+  background-color: $input-bg !important;
+  border-radius: $border-radius;
+  border: var(--#{$prefix}border-width) var(--#{$prefix}border-style) var(--#{$prefix}border-color) !important;
+}
+
+
+// Save payment information check
+.form-row.woocommerce-SavedPaymentMethods-saveNew.woocommerce-validated {
+
+  input {
+    width: $form-check-input-width !important; // Override inline-style
+  }
+}
+
+// Stripe saved credit cards
+.woocommerce-SavedPaymentMethods-saveNew {
+  label{
+    padding-left: $form-check-padding-start;
+    display: block !important; // Override inline-style
+  }
+}
+
+
+// Terms Checkbox
+.woocommerce form .form-row {
+
+  label.checkbox {
+    display: inline-block;
+  }
+}
+
+
+// Form Validation
+.woocommerce form .form-row {
+
+  &.woocommerce-validated,
+  &.woocommerce-invalid {
+
+    input.input-text,
+    select,
+    textarea {
+      background-repeat: no-repeat;
+    }
+
+    input.input-text,
+    textarea {
+      padding-right: $input-height-inner;
+      background-size: $input-height-inner-half $input-height-inner-half;
+    }
+
+    input.input-text {
+      background-position: right $input-height-inner-quarter center;
+    }
+
+    select {
+      padding-right: $form-select-feedback-icon-padding-end;
+      background-position: $form-select-bg-position, $form-select-feedback-icon-position;
+      background-size: $form-select-bg-size, $form-select-feedback-icon-size;
+    }
+
+    textarea {
+      background-position: top $input-height-inner-quarter right $input-height-inner-quarter;
+    }
+  }
+
+  &.woocommerce-validated {
+
+    input.input-text,
+    textarea {
+      background-image: var(--valid-icon);
+    }
+
+    select {
+      --bs-form-select-bg-icon: var(--valid-icon);
+    }
+
+    input.input-text,
+    textarea,
+    select {
+      border-color: var(--#{$prefix}form-valid-border-color);
+
+      &:focus {
+        box-shadow: 0 0 $input-btn-focus-blur $input-focus-width rgba(var(--#{$prefix}success-rgb), $input-btn-focus-color-opacity);
+      }
+    }
+
+    // Terms & Conditions checkbox
+    input#terms {
+      border-color: var(--#{$prefix}form-valid-color);
+      background-color: var(--#{$prefix}form-valid-color);
+
+      &:focus {
+        box-shadow: 0 0 $input-btn-focus-blur $input-focus-width rgba(var(--#{$prefix}success-rgb), $input-btn-focus-color-opacity);
+      }
+    }
+
+    .woocommerce-terms-and-conditions-checkbox-text {
+      color: var(--#{$prefix}form-valid-color);
+    }
+  }
+
+  &.woocommerce-invalid {
+
+    input.input-text,
+    textarea {
+      background-image: var(--invalid-icon);
+    }
+
+    select {
+      --bs-form-select-bg-icon: var(--invalid-icon);
+    }
+
+    input.input-text,
+    textarea,
+    select {
+      border-color: var(--#{$prefix}form-invalid-border-color);
+
+      &:focus {
+        box-shadow: 0 0 $input-btn-focus-blur $input-focus-width rgba(var(--#{$prefix}danger-rgb), $input-btn-focus-color-opacity);
+      }
+    }
+
+    label {
+      color: var(--#{$prefix}body-color);
+    }
+
+    // Terms & Conditions checkbox
+    .woocommerce-form__label-for-checkbox {
+
+      .woocommerce-terms-and-conditions-checkbox-text {
+        color: var(--#{$prefix}form-invalid-color);
+      }
+
+      input {
+        border-color: var(--#{$prefix}form-invalid-color);
+
+        &:focus {
+          box-shadow: 0 0 $input-btn-focus-blur $input-focus-width rgba(var(--#{$prefix}danger-rgb), $input-btn-focus-color-opacity);
+        }
+      }
+    }
+  }
+}

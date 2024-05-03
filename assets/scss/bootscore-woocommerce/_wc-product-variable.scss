@@ -1,0 +1,34 @@
+/*--------------------------------------------------------------
+WooCommerce Variable Product
+--------------------------------------------------------------*/
+
+// Variations select
+.woocommerce div.product form.cart .variations {
+  margin-bottom: 0;
+
+  select {
+    margin-right: 0;
+  }
+}
+
+
+// Quantity and add-to-cart-button
+form.variations_form.cart {
+  flex-direction: column;
+}
+
+.woocommerce-variation-add-to-cart.variations_button {
+  display: flex;
+}
+
+
+// Enable window alert on btn click if no selection is made
+.woocommerce button.disabled.button,
+.woocommerce div.product form.cart button.disabled.button {
+  pointer-events: auto;
+  cursor: inherit;
+}
+
+.woocommerce-variation-price {
+  margin-bottom: $spacer;
+}

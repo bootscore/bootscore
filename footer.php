@@ -8,50 +8,49 @@
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
  * @package Bootscore
- * @version 5.4.0
+ * @version 6.0.0
  */
 
 // Exit if accessed directly
-defined( 'ABSPATH' ) || exit;
+defined('ABSPATH') || exit;
 
 ?>
 
 
-<footer>
+<footer class="bootscore-footer">
 
-  <div class="bootscore-footer bg-body-tertiary pt-5 pb-3">
-    <div class="<?= apply_filters('bootscore/container_class', 'container', 'footer'); ?>">
-
-      <!-- Top Footer Widget -->
-      <?php if (is_active_sidebar('top-footer')) : ?>
-        <?php dynamic_sidebar('top footer'); ?>
-      <?php endif; ?>
+  <?php if (is_active_sidebar('footer-top')) : ?>
+    <div class="<?= apply_filters('bootscore/class/footer/top', 'bg-body-tertiary border-bottom py-5'); ?> bootscore-footer-top">
+      <div class="<?= apply_filters('bootscore/class/container', 'container', 'footer-top'); ?>">  
+        <?php dynamic_sidebar('footer-top'); ?>
+      </div>
+    </div>
+  <?php endif; ?>
+  
+  <div class="<?= apply_filters('bootscore/class/footer/columns', 'bg-body-tertiary pt-5 pb-4'); ?> bootscore-footer-columns">
+    <div class="<?= apply_filters('bootscore/class/container', 'container', 'footer-columns'); ?>">  
 
       <div class="row">
 
-        <!-- Footer 1 Widget -->
-        <div class="col-6 col-lg-3">
+        <div class="<?= apply_filters('bootscore/class/footer/col', 'col-6 col-lg-3', 'footer-1'); ?>">
           <?php if (is_active_sidebar('footer-1')) : ?>
             <?php dynamic_sidebar('footer-1'); ?>
           <?php endif; ?>
         </div>
 
-        <!-- Footer 2 Widget -->
-        <div class="col-6 col-lg-3">
+        <div class="<?= apply_filters('bootscore/class/footer/col', 'col-6 col-lg-3', 'footer-2'); ?>">
           <?php if (is_active_sidebar('footer-2')) : ?>
             <?php dynamic_sidebar('footer-2'); ?>
           <?php endif; ?>
         </div>
-
-        <!-- Footer 3 Widget -->
-        <div class="col-6 col-lg-3">
+        
+        <div class="<?= apply_filters('bootscore/class/footer/col', 'col-6 col-lg-3', 'footer-3'); ?>">
           <?php if (is_active_sidebar('footer-3')) : ?>
             <?php dynamic_sidebar('footer-3'); ?>
           <?php endif; ?>
         </div>
-
-        <!-- Footer 4 Widget -->
-        <div class="col-6 col-lg-3">
+        
+        <div class="<?= apply_filters('bootscore/class/footer/col', 'col-6 col-lg-3', 'footer-4'); ?>">
           <?php if (is_active_sidebar('footer-4')) : ?>
             <?php dynamic_sidebar('footer-4'); ?>
           <?php endif; ?>
@@ -60,34 +59,24 @@ defined( 'ABSPATH' ) || exit;
       </div>
 
       <!-- Bootstrap 5 Nav Walker Footer Menu -->
-      <?php
-      wp_nav_menu(array(
-        'theme_location' => 'footer-menu',
-        'container'      => false,
-        'menu_class'     => '',
-        'fallback_cb'    => '__return_false',
-        'items_wrap'     => '<ul id="footer-menu" class="nav %2$s">%3$s</ul>',
-        'depth'          => 1,
-        'walker'         => new bootstrap_5_wp_nav_menu_walker()
-      ));
-      ?>
+      <?php get_template_part('template-parts/footer/footer-menu'); ?>
 
     </div>
   </div>
 
-  <div class="bootscore-info bg-body-tertiary text-body-tertiary border-top py-2 text-center">
-    <div class="<?= apply_filters('bootscore/container_class', 'container', 'footer-copyright'); ?>">
+  <div class="<?= apply_filters('bootscore/class/footer/info', 'bg-body-tertiary text-body-secondary border-top py-2 text-center'); ?> bootscore-footer-info">
+    <div class="<?= apply_filters('bootscore/class/container', 'container', 'footer-info'); ?>">
       <?php if (is_active_sidebar('footer-info')) : ?>
         <?php dynamic_sidebar('footer-info'); ?>
       <?php endif; ?>
-      <small class="bootscore-copyright"><span class="cr-symbol">&copy;</span>&nbsp;<?= date('Y'); ?> <?php bloginfo('name'); ?></small>
+      <div class="small bootscore-copyright"><span class="cr-symbol">&copy;</span>&nbsp;<?= date('Y'); ?> <?php bloginfo('name'); ?></div>
     </div>
   </div>
 
 </footer>
 
 <!-- To top button -->
-<a href="#" class="btn btn-primary shadow top-button position-fixed zi-1020"><i class="fa-solid fa-chevron-up"></i><span class="visually-hidden-focusable">To top</span></a>
+<a href="#" class="<?= apply_filters('bootscore/class/footer/to_top_button', 'btn btn-primary shadow'); ?> position-fixed z-2 top-button"><i class="fa-solid fa-chevron-up"></i><span class="visually-hidden-focusable">To top</span></a>
 
 </div><!-- #page -->
 

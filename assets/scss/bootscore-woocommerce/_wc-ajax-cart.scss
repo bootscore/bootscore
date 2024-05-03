@@ -1,0 +1,129 @@
+/*--------------------------------------------------------------
+Ajax Cart
+--------------------------------------------------------------*/
+
+
+#offcanvas-cart {
+
+  .cart-list {
+    height: 100%;
+  }
+
+  .widget_shopping_cart_content {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .woocommerce-mini-cart {
+    flex: 1;
+    overflow-y: auto;
+  }
+
+  // Cart alert
+  // Top margin to first alert only. If grouped product one is out of stock there are two alerts.
+  .woocommerce-message:first-child,
+  .woocommerce-error:first-child {
+    margin-top: var(--#{$prefix}offcanvas-padding-y);
+  }
+
+  .woocommerce-message,
+  .woocommerce-error,
+  .woocommerce-info {
+    margin-right: var(--#{$prefix}offcanvas-padding-x);
+    margin-left: var(--#{$prefix}offcanvas-padding-x);
+  }
+  
+  span.quantity {
+    display: block;
+    margin-top: $spacer * .25;
+    margin-bottom: $spacer * .25;
+  }
+
+  // Variations
+  dl.variation {
+    display: flex;
+    color: var(--#{$prefix}secondary-color);
+    font-size: $small-font-size;
+    margin-bottom: 0;
+    
+    dt {
+      font-weight: normal;
+      margin-right: $spacer * .25;
+    }
+    
+    dd,
+    p {
+      margin-bottom: 0;
+    }
+  }
+
+  // Reset <strong> Subtotal in cart-footer
+  .cart-footer strong {
+    font-weight: inherit;
+  }
+}
+
+
+// Hide button in alert
+.alert .button.wc-forward {
+  display: none;
+}
+
+
+// Hide View cart in loop and product pages
+.woocommerce a.added_to_cart,
+a.added_to_cart {
+  display: none;
+}
+
+
+// btn-loader, overlayCSS is not an option
+.single_add_to_cart_button,
+.ajax_add_to_cart {
+  position: relative;
+
+  .btn-loader {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--#{$prefix}primary);
+    border-radius: $btn-border-radius;
+  }
+
+  &.loading {
+    .btn-loader {
+      display: flex;
+    }
+  }
+}
+
+
+// Reset default Woo btn loader
+.woocommerce {
+
+  #respond input#submit.loading::after,
+  a.button.loading::after,
+  button.button.loading::after,
+  input.button.loading::after,
+  #respond input#submit.added::after,
+  a.button.added::after,
+  button.button.added::after,
+  input.button.added::after {
+    display: none;
+  }
+
+  #respond input#submit.loading,
+  a.button.loading,
+  button.button.loading,
+  input.button.loading {
+    opacity: 1;
+    padding-left: 0;
+    padding-right: 0;
+  }
+}

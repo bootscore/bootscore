@@ -4,12 +4,12 @@
  * WooCommerce functions and definitions
  *
  * @package Bootscore
- * @version 5.4.0
+ * @version 6.0.0
  */
 
 
 // Exit if accessed directly
-defined( 'ABSPATH' ) || exit;
+defined('ABSPATH') || exit;
 
 
 /**
@@ -20,6 +20,7 @@ require_once('inc/wc-enqueue.php');
 require_once('inc/wc-forms.php');
 require_once('inc/wc-loop.php');
 require_once('inc/wc-mini-cart.php');
+require_once('inc/wc-cart.php');
 require_once('inc/wc-qty-btn.php'); 
 require_once('inc/wc-redirects.php'); 
 require_once('inc/wc-setup.php'); 
@@ -31,14 +32,16 @@ require_once('inc/blocks/wc-block-widget-categories.php');
 
 /**
  * Register Ajax Cart
- * Allow users to edit/disable entire AJAX functionality in child theme
+ *
+ * Enabled/Disabled based on the setting in backend under WooCommerce > Settings > Products > Enable AJAX add to cart buttons on archives.
+ * Disable file via filter add_filter('bootscore/load_ajax_cart', '__return_false');
  */
-if (!function_exists('register_ajax_cart')) :
-
-  function register_ajax_cart() {
-    require_once('inc/ajax-add-to-cart.php');
+function bootscore_register_ajax_cart() {
+  if (apply_filters('bootscore/load_ajax_cart', true)) {
+    $ajax_cart_en = 'yes' === get_option('woocommerce_enable_ajax_add_to_cart');
+    if ($ajax_cart_en) {
+      require_once('inc/ajax-cart.php');
+    }
   }
-
-  add_action('after_setup_theme', 'register_ajax_cart');
-
-endif;
+}
+add_action('after_setup_theme', 'bootscore_register_ajax_cart');

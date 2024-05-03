@@ -6,12 +6,12 @@
  * Eventually, some of the functionality here could be replaced by core features.
  *
  * @package Bootscore
- * @version 5.3.3
+ * @version 6.0.0
  */
 
 
 // Exit if accessed directly.
-defined( 'ABSPATH' ) || exit;
+defined('ABSPATH') || exit;
 
 
 /**
@@ -26,7 +26,9 @@ if (!function_exists('bootscore_category_badge')) :
       $i       = 0;
       foreach (get_the_category() as $category) {
         if (0 < $i) $thelist .= ' ';
-        $thelist .= '<a href="' . esc_url(get_category_link($category->term_id)) . '" class="badge bg-primary-subtle text-primary-emphasis text-decoration-none">' . $category->name . '</a>';
+        // Apply a filter to modify the class name
+        $class = apply_filters('bootscore/class/badge/category', 'badge bg-primary-subtle text-primary-emphasis text-decoration-none');
+        $thelist .= '<a href="' . esc_url(get_category_link($category->term_id)) . '" class="' . esc_attr($class) . '">' . $category->name . '</a>';
         $i ++;
       }
       echo $thelist;
@@ -58,13 +60,23 @@ endif;
  * Date
  */
 if (!function_exists('bootscore_date')) :
+
   /**
    * Prints HTML with meta information for the current post-date/time.
    */
   function bootscore_date() {
     $time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
+    
+    // Check if modified time is different from the published time
     if (get_the_time('U') !== get_the_modified_time('U')) {
-      $time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time> <span class="time-updated-separator">/</span> <time class="updated" datetime="%3$s">%4$s</time>';
+      $show_updated_time = apply_filters('bootscore/meta/time/updated', true);
+      
+      // If filter returns false, don't display modified time
+      if (!$show_updated_time) {
+        $time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time>';
+      } else {
+        $time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time> <span class="time-updated-separator">/</span> <time class="updated" datetime="%3$s">%4$s</time>';
+      }
     }
 
     $time_string = sprintf(
@@ -76,7 +88,7 @@ if (!function_exists('bootscore_date')) :
     );
 
     $posted_on = sprintf(
-    /* translators: %s: post date. */
+      /* translators: %s: post date. */
       '%s',
       '<span rel="bookmark">' . $time_string . '</span>'
     );
@@ -90,9 +102,16 @@ endif;
 /**
  * Author
  */
-if (!function_exists('bootscore_author')) :
+if (!function_exists('bootscore_author')) {
 
   function bootscore_author() {
+    $display_author = apply_filters('bootscore/meta/author', true);
+
+    // Check if the filter returns false, if so, return early without displaying the author
+    if (!$display_author) {
+      return;
+    }
+
     $byline = sprintf(
       esc_html_x('by %s', 'post author', 'bootscore'),
       '<span class="author vcard"><a class="url fn n" href="' . esc_url(get_author_posts_url(get_the_author_meta('ID'))) . '">' . esc_html(get_the_author()) . '</a></span>'
@@ -101,7 +120,7 @@ if (!function_exists('bootscore_author')) :
     echo '<span class="byline"> ' . $byline . '</span>'; // WPCS: XSS OK.
 
   }
-endif;
+}
 
 
 /**
@@ -197,13 +216,10 @@ if (!function_exists('bootscore_tags')) :
     // Hide category and tag text for pages.
     if ('post' === get_post_type()) {
 
-
-      /* translators: used between list items, there is a space after the comma */
       $tags_list = get_the_tag_list('', ' ');
       if ($tags_list) {
-        /* translators: 1: list of tags. */
         echo '<div class="tags-links">';
-        echo '<p class="tags-heading mb-2">' . esc_html__('Tagged', 'bootscore') . '</p>';
+        echo '<p class="tags-heading h6">' . esc_html__('Tagged', 'bootscore') . '</p>';
         echo get_the_tag_list();
         echo '</div>';
       }
@@ -213,7 +229,8 @@ if (!function_exists('bootscore_tags')) :
   add_filter("term_links-post_tag", 'add_tag_class');
 
   function add_tag_class($links) {
-    return str_replace('<a href="', '<a class="badge bg-primary-subtle text-primary-emphasis text-decoration-none me-1" href="', $links);
+    $class = apply_filters('bootscore/class/badge/tag', 'badge bg-primary-subtle text-primary-emphasis text-decoration-none');
+    return str_replace('</a>', '</a> ', str_replace('<a href="', '<a class="' . $class . '" href="', $links));
   }
 endif;
 

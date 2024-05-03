@@ -11,22 +11,23 @@
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
  * @package Bootscore
+ * @version 6.0.0
  */
+
+// Exit if accessed directly
+defined('ABSPATH') || exit;
 
 get_header();
 ?>
-  <div id="content" class="site-content <?= apply_filters('bootscore/container_class', 'container', 'index'); ?> <?= apply_filters('bootscore/content/spacer_class', 'py-5 mt-4', 'index'); ?>">
+  <div id="content" class="site-content <?= apply_filters('bootscore/class/container', 'container', 'index'); ?> <?= apply_filters('bootscore/class/content/spacer', 'pt-4 pb-5', 'index'); ?>">
     <div id="primary" class="content-area">
-
-      <!-- Hook to add something nice -->
-      <?php bs_after_primary(); ?>
 
       <main id="main" class="site-main">
 
         <!-- Header -->
-        <div class="py-3 py-md-5 text-center">
-          <h1 class="display-1"><?php bloginfo('name'); ?></h1>
-          <p class="lead"><?php bloginfo('description'); ?></p>
+        <div class="p-5 text-center bg-body-tertiary rounded mb-4">
+          <h1><?php bloginfo('name'); ?></h1>
+          <p class="lead mb-0"><?php bloginfo('description'); ?></p>
         </div>
 
         <!-- Sticky Post -->
@@ -72,7 +73,7 @@ get_header();
                             </a>
 
                             <?php if ('post' === get_post_type()) : ?>
-                              <p class="meta small mb-2 text-body-tertiary">
+                              <p class="meta small mb-2 text-body-secondary">
                                 <?php
                                 bootscore_date();
                                 bootscore_author();
@@ -115,7 +116,7 @@ get_header();
         <?php endif; ?>
         <!-- Post List -->
         <div class="row">
-          <div class="<?= apply_filters('bootscore/main/col_class', 'col'); ?>">
+          <div class="<?= apply_filters('bootscore/class/main/col', 'col'); ?>">
             <!-- Grid Layout -->
             <?php if (have_posts()) : ?>
               <?php while (have_posts()) : the_post(); ?>
@@ -143,7 +144,7 @@ get_header();
                         </a>
 
                         <?php if ('post' === get_post_type()) : ?>
-                          <p class="meta small mb-2 text-body-tertiary">
+                          <p class="meta small mb-2 text-body-secondary">
                             <?php
                             bootscore_date();
                             bootscore_author();
@@ -175,9 +176,9 @@ get_header();
               <?php endwhile; ?>
             <?php endif; ?>
 
-            <footer class="entry-footer">
+            <div class="entry-footer">
               <?php bootscore_pagination(); ?>
-            </footer>
+            </div>
 
           </div>
           <!-- col -->

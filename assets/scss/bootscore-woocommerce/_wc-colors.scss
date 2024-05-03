@@ -1,0 +1,115 @@
+/*--------------------------------------------------------------
+WooCommerce Colors
+--------------------------------------------------------------*/
+
+.woocommerce div.product p.price,
+.woocommerce div.product span.price,
+.card .price {
+  color: var(--#{$prefix}wc-price, var(--#{$prefix}secondary-color));
+}
+
+.woocommerce div.product p.price ins,
+.woocommerce div.product span.price ins,
+ins {
+  color: var(--#{$prefix}wc-price-sale, var(--#{$prefix}danger));
+}
+
+.woocommerce form .form-row .required {
+  color: var(--#{$prefix}wc-form-invalid, var(--#{$prefix}danger));
+}
+
+.woocommerce div.product p.price del,
+.woocommerce div.product span.price del {
+  opacity: 1;
+}
+
+.card a.woocommerce-LoopProduct-link.woocommerce-loop-product__link {
+  color: currentColor;
+}
+
+// Tables
+
+@include media-breakpoint-down(md) {
+
+  .woocommerce table.shop_table_responsive tr:nth-child(2n) td,
+  .woocommerce-page table.shop_table_responsive tr:nth-child(2n) td {
+    background-color: var(--#{$prefix}shop-table-responsive, var(--#{$prefix}tertiary-bg));
+  }
+}
+
+#add_payment_method .cart-collaterals .cart_totals table small,
+.woocommerce-cart .cart-collaterals .cart_totals table small,
+.woocommerce-checkout .cart-collaterals .cart_totals table small,
+small.includes_tax {
+  color: var(--#{$prefix}wc-shop-table-small, var(--#{$prefix}secondary-color));
+}
+
+#add_payment_method #payment div.payment_box,
+.woocommerce-cart #payment div.payment_box,
+.woocommerce-checkout #payment div.payment_box {
+  background-color: var(--#{$prefix}wc-payment-box, var(--#{$prefix}tertiary-bg));
+  color: currentColor;
+}
+
+#add_payment_method #payment div.payment_box::before,
+.woocommerce-cart #payment div.payment_box::before,
+.woocommerce-checkout #payment div.payment_box::before {
+  border-bottom-color: var(--#{$prefix}wc-payment-box, var(--#{$prefix}tertiary-bg));
+}
+
+.woocommerce-terms-and-conditions {
+  background: var(--#{$prefix}terms, var(--#{$prefix}tertiary-bg));
+}
+
+.woocommerce div.product .out-of-stock {
+  color: var(--#{$prefix}wc-out-of-stock, var(--#{$prefix}danger));
+}
+
+// Gallery Overlay
+.pswp__bg {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+// Loader
+.woocommerce .blockUI.blockOverlay,
+.woocommerce .loader,
+#offcanvas-cart .blockUI.blockOverlay,
+#offcanvas-cart .loader {
+  background-color: var(--#{$prefix}wc-loader-bg, var(--#{$prefix}body-bg)) !important;
+  opacity: 1 !important;
+}
+
+.woocommerce .blockUI.blockOverlay:before,
+.woocommerce .loader:before,
+#offcanvas-cart .blockUI.blockOverlay:before,
+#offcanvas-cart .loader:before {
+  color: var(--#{$prefix}wc-loader-color, var(--#{$prefix}primary));
+}
+
+// Product attributes
+.woocommerce table.shop_attributes tr:nth-child(even) td,
+.woocommerce table.shop_attributes tr:nth-child(even) th {
+  background: var(--#{$prefix}wc-attributes-tr, var(--#{$prefix}tertiary-bg));
+}
+
+// Product attributes End
+
+.pswp__ui--fit .pswp__caption,
+.pswp__ui--fit .pswp__top-bar {
+  background-color: rgba(0, 0, 0, 0) !important;
+}
+
+.woocommerce .widget_price_filter .price_slider_wrapper .ui-widget-content {
+  background-color: var(--#{$prefix}wc-price-slider-bg, var(--#{$prefix}dark));
+}
+
+.woocommerce .widget_price_filter .ui-slider .ui-slider-handle,
+.woocommerce .widget_price_filter .ui-slider .ui-slider-range {
+  background-color: var(--#{$prefix}wc-price-slider, var(--#{$prefix}primary));
+}
+
+// Validation
+.woocommerce-invalid #terms {
+  outline: none;
+  outline-offset: 0;
+}

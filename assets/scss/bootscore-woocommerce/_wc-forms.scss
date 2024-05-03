@@ -1,0 +1,261 @@
+/*--------------------------------------------------------------
+WooCommerce Forms
+--------------------------------------------------------------*/
+
+// Forms
+.woocommerce form .form-row {
+  padding: 0;
+  margin: 0 0 $spacer;
+
+  label {
+    line-height: 1.5;
+    margin-bottom: $form-label-margin-bottom;
+  }
+}
+
+
+// Show password icon
+.woocommerce form .show-password-input,
+.woocommerce-page form .show-password-input {
+  top: 0.5em;
+}
+
+
+
+// Reduce gap in horizontal forms
+.woocommerce form {
+  .form-row-first {
+    width: 50%;
+    padding-right: $spacer *.5;
+  }
+
+  .form-row-last {
+    width: 50%;
+    padding-left: $spacer *.5;
+  }
+}
+
+
+// Add missing .form-control
+.woocommerce form .form-row input.input-text,
+.woocommerce form .form-row textarea {
+  display: block;
+  width: 100%;
+  padding: $input-padding-y $input-padding-x;
+  font-family: $input-font-family;
+  @include font-size($input-font-size);
+  font-weight: $input-font-weight;
+  line-height: $input-line-height;
+  color: $input-color;
+  appearance: none; // Fix appearance for date inputs in Safari
+  background-color: $input-bg;
+  background-clip: padding-box;
+  border: $input-border-width solid $input-border-color;
+
+  // Note: This has no effect on <select>s in some browsers, due to the limited stylability of `<select>`s in CSS.
+  @include border-radius($input-border-radius, 0);
+
+  @include box-shadow($input-box-shadow);
+  @include transition($input-transition);
+
+  // Customize the `:focus` state to imitate native WebKit styles.
+  &:focus {
+    color: $input-focus-color;
+    background-color: $input-focus-bg;
+    border-color: $input-focus-border-color;
+    outline: 0;
+
+    @if $enable-shadows {
+      @include box-shadow($input-box-shadow, $input-focus-box-shadow);
+    }
+
+    @else {
+      box-shadow: $input-focus-box-shadow;
+    }
+  }
+}
+
+
+// Textarea
+.woocommerce {
+
+  // Fix checkout textarea focus
+  form .form-row textarea {
+    &:focus {
+      box-shadow: $input-focus-box-shadow;
+    }
+  }
+
+  // Height
+  form .form-row textarea,
+  #reviews #comment {
+    height: $spacer *7;
+  }
+}
+
+
+// Checks
+
+.woocommerce form .form-row .input-checkbox {
+  // Reset WC CSS
+  margin: .25em 0 0 0;
+}
+
+.checkbox,
+.woocommerce-form-login__rememberme,
+.comment-form-cookies-consent,
+.woocommerce-SavedPaymentMethods-saveNew {
+  display: block;
+  min-height: $form-check-min-height;
+  padding-left: $form-check-padding-start;
+  margin-bottom: $form-check-margin-bottom;
+
+  input {
+    float: left;
+    margin-left: $form-check-padding-start * -1;
+
+    --#{$prefix}form-check-bg: #{$form-check-input-bg};
+
+    flex-shrink: 0;
+    width: $form-check-input-width;
+    height: $form-check-input-width;
+    margin-top: ($line-height-base - $form-check-input-width) * .5; // line-height minus check height
+    vertical-align: top;
+    appearance: none;
+    background-color: var(--#{$prefix}form-check-bg);
+    background-image: var(--#{$prefix}form-check-bg-image);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    border: $form-check-input-border;
+    print-color-adjust: exact; // Keep themed appearance for print
+    @include transition($form-check-transition);
+
+    &[type="checkbox"] {
+      @include border-radius($form-check-input-border-radius);
+    }
+
+    &:active {
+      filter: $form-check-input-active-filter;
+    }
+
+    &:focus {
+      border-color: $form-check-input-focus-border;
+      outline: 0;
+      box-shadow: $form-check-input-focus-box-shadow;
+    }
+
+    &:checked {
+      background-color: $form-check-input-checked-bg-color;
+      border-color: $form-check-input-checked-border-color;
+
+      &[type="checkbox"] {
+        @if $enable-gradients {
+          --#{$prefix}form-check-bg-image: #{escape-svg($form-check-input-checked-bg-image)},
+          var(--#{$prefix}gradient);
+        }
+
+        @else {
+          --#{$prefix}form-check-bg-image: #{escape-svg($form-check-input-checked-bg-image)};
+        }
+      }
+    }
+  }
+}
+
+
+// Radios
+ul.wc_payment_methods.payment_methods.methods li,
+.woocommerce-shipping-methods li,
+.shipping.recurring-total ul {
+
+  font-weight: normal;
+  display: block;
+  min-height: $form-check-min-height;
+  padding-left: $form-check-padding-start;
+  margin-bottom: $form-check-margin-bottom;
+
+  input {
+    float: left;
+    margin-left: $form-check-padding-start * -1;
+
+    --#{$prefix}form-check-bg: #{$form-check-input-bg};
+
+    flex-shrink: 0;
+    width: $form-check-input-width;
+    height: $form-check-input-width;
+    margin-top: ($line-height-base - $form-check-input-width) * .5; // line-height minus check height
+    vertical-align: top;
+    appearance: none;
+    background-color: var(--#{$prefix}form-check-bg);
+    background-image: var(--#{$prefix}form-check-bg-image);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    border: $form-check-input-border;
+    print-color-adjust: exact; // Keep themed appearance for print
+    @include transition($form-check-transition);
+
+    &[type="radio"] {
+      // stylelint-disable-next-line property-disallowed-list
+      border-radius: $form-check-radio-border-radius;
+    }
+
+    &:active {
+      filter: $form-check-input-active-filter;
+    }
+
+    &:focus {
+      border-color: $form-check-input-focus-border;
+      outline: 0;
+      box-shadow: $form-check-input-focus-box-shadow;
+    }
+
+    &:checked {
+      background-color: $form-check-input-checked-bg-color;
+      border-color: $form-check-input-checked-border-color;
+
+      &[type="radio"] {
+        @if $enable-gradients {
+          --#{$prefix}form-check-bg-image: #{escape-svg($form-check-radio-checked-bg-image)},
+          var(--#{$prefix}gradient);
+        }
+
+        @else {
+          --#{$prefix}form-check-bg-image: #{escape-svg($form-check-radio-checked-bg-image)};
+        }
+      }
+    }
+  }
+}
+
+
+// Reset WC shipping CSS
+.woocommerce ul#shipping_method {
+
+  li {
+    padding-left: $form-check-padding-start;
+    margin-bottom: $form-check-margin-bottom;
+
+    input {
+      //margin-left: $form-check-padding-start * -1;
+      margin: 4px 0 0 $form-check-padding-start * -1;
+    }
+  }
+}
+
+
+// Reset subscription shipping CSS
+.shipping.recurring-total ul {
+  padding-left: 0;
+
+  li {
+    padding: 0 0 0 $form-check-padding-start;
+    margin-bottom: $form-check-margin-bottom;
+    text-indent: 0;
+
+    input {
+      margin: 4px 0 0 $form-check-padding-start * -1;
+    }
+  }
+}

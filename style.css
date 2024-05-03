@@ -4,9 +4,9 @@ Theme URI: https://bootscore.me/
 Author: Bootscore
 Author URI: https://bootscore.me
 Description: Flexible Bootstrap WordPress starter-theme for developers with full WooCommerce support. <a href="https://bootscore.me/category/documentation/" target="_blank">Documentation</a>
-Version: 6.0.0-dev
+Version: 6.0.0-beta1
 Requires at least: 5.0
-Tested up to: 6.4.3
+Tested up to: 6.5.2
 Requires PHP: 7.4
 License: MIT License
 License URI: https://github.com/bootscore/bootscore/blob/main/LICENSE
@@ -15,10 +15,10 @@ Tags: featured-images, threaded-comments, translation-ready
 
 Use this theme to make something cool, have fun, and share what you've learned with others.
 
-Bootscore is based on Underscores https://underscores.me/, (C) 2012-2022 Automattic, Inc.
+Bootscore is based on Underscores https://underscores.me/, (C) 2012-2024 Automattic, Inc.
 Underscores is distributed under the terms of the GNU GPL v2 or later.
 */
 
 /* 
-All style editing is done via /assets/scss/_bootscore_custom.scss
+All style editing is done via /assets/scss/_bootscore-custom.scss
 */

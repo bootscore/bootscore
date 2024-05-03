@@ -6,25 +6,27 @@
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
  * @package Bootscore
+ * @version 6.0.0
  */
+
+// Exit if accessed directly
+defined('ABSPATH') || exit;
 
 get_header();
 ?>
 
-  <div id="content" class="site-content <?= apply_filters('bootscore/container_class', 'container', 'archive'); ?> <?= apply_filters('bootscore/content/spacer_class', 'py-5 mt-5', 'archive'); ?>">
+  <div id="content" class="site-content <?= apply_filters('bootscore/class/container', 'container', 'archive'); ?> <?= apply_filters('bootscore/class/content/spacer', 'pt-4 pb-5', 'archive'); ?>">
     <div id="primary" class="content-area">
 
-      <?php bs_after_primary(); ?>
-
       <div class="row">
-        <div class="<?= apply_filters('bootscore/main/col_class', 'col') ?>">
+        <div class="<?= apply_filters('bootscore/class/main/col', 'col') ?>">
 
           <main id="main" class="site-main">
 
-            <header class="page-header mb-4">
+            <div class="page-header mb-4">
               <?php the_archive_title('<h1>', '</h1>'); ?>
               <?php the_archive_description('<div class="archive-description">', '</div>'); ?>
-            </header>
+            </div>
 
             <?php if (have_posts()) : ?>
               <?php while (have_posts()) : the_post(); ?>
@@ -50,7 +52,7 @@ get_header();
                         </a>
 
                         <?php if ('post' === get_post_type()) : ?>
-                          <p class="meta small mb-2 text-body-tertiary">
+                          <p class="meta small mb-2 text-body-secondary">
                             <?php
                             bootscore_date();
                             bootscore_author();
@@ -82,9 +84,9 @@ get_header();
               <?php endwhile; ?>
             <?php endif; ?>
 
-            <footer class="entry-footer">
+            <div class="entry-footer">
               <?php bootscore_pagination(); ?>
-            </footer>
+            </div>
 
           </main>
 

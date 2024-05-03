@@ -4,7 +4,7 @@
  * Columns
  *
  * @package Bootscore
- * @version 5.3.3
+ * @version 6.0.0
  */
 
 
@@ -21,11 +21,11 @@ defined('ABSPATH') || exit;
 function bootscore_main_col_class_sidebar($string) {
   if (is_active_sidebar('sidebar-1')) {
     // Sidebar is not empty
-    return "col-md-8 col-lg-9";
+    return "col-lg-9";
   }
 
   return $string;
 }
 
-add_filter('bootscore/main/col_class', 'bootscore_main_col_class_sidebar');
+add_filter('bootscore/class/main/col', 'bootscore_main_col_class_sidebar');
 

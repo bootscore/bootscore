@@ -1,0 +1,56 @@
+/*--------------------------------------------------------------
+WooCommerce Product Page
+--------------------------------------------------------------*/
+
+
+// Stock badge
+.woocommerce div.product p.stock {
+  font-size: $badge-font-size;
+  font-weight: $badge-font-weight;
+  color: $badge-color;
+  padding: $badge-padding-y $badge-padding-x;
+  border-radius: $badge-border-radius;
+  background-color: var(--#{$prefix}danger);
+  display: inline-block;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+}
+
+
+// Quantity and add-to-cart-button
+.woocommerce {
+  div.product form.cart {
+    display: flex;
+    flex-wrap: wrap;
+
+    div.quantity {
+      float: none;
+      margin-right: $spacer;
+    }
+  }
+
+  // Add-to-cart-button
+  div.product form.cart .button {
+    flex-grow: 1;
+  }
+}
+
+
+// Line break in meta
+.product_meta .sku_wrapper::after,
+.product_meta .posted_in::after {
+  content: "\A";
+  white-space: pre;
+}
+
+// Reset italic font in product additional information tab
+.woocommerce table.shop_attributes td {
+  font-style: normal;
+}
+
+// Fix related products if no product tab (disabled reviews, no product description, no attributes) is used
+.related.products {
+  clear: both;
+}

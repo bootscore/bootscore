@@ -1,18 +1,18 @@
 @import "bootstrap/functions";
 
-@import "bootscore_variables";
+@import "bootscore-variables";
 
 @import "bootstrap/variables";
 @import "bootstrap/variables-dark";
 
-@import "bootscore_maps";
+@import "bootscore-maps";
 
 @import "bootstrap/maps";
 @import "bootstrap/mixins";
 
 @import "bootstrap/utilities";
 
-@import "bootscore_utilities";
+@import "bootscore-utilities";
 
 @import "bootstrap/root";
 @import "bootstrap/reboot";
@@ -50,6 +50,6 @@
 
 @import "bootstrap/utilities/api";
 
-@import "bootscore_style";
-@import "bootscore_woocommerce"; // Comment or delete this line if WooCommerce styles are not needed
-@import "bootscore_custom";
+@import "bootscore-style";
+@import "bootscore-woocommerce"; // Comment or delete this line if WooCommerce styles are not needed
+@import "bootscore-custom";

@@ -9,7 +9,7 @@
 
 
 // Exit if accessed directly
-defined( 'ABSPATH' ) || exit;
+defined('ABSPATH') || exit;
 
 
 /**
@@ -61,7 +61,7 @@ if (!function_exists('bootscore_pagination')) :
       echo '</ul>';
       echo '</nav>';
       // Uncomment this if you want to show [Page 2 of 30]
-      // echo '<div class="pagination-info mb-5 text-center">[ <span class="text-muted">' . __('Page', 'bootscore') . '</span> '.$paged.' <span class="text-muted">' . __('of', 'bootscore') . '</span> '.$pages.' ]</div>';
+      // echo '<div class="pagination-info mb-5 text-center">[ <span class="text-body-secondary">' . __('Page', 'bootscore') . '</span> '.$paged.' <span class="text-body-secondary">' . __('of', 'bootscore') . '</span> '.$pages.' ]</div>';
     }
   }
 

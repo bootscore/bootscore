@@ -2,7 +2,12 @@
 Header
 --------------------------------------------------------------*/
 
+
+// Setting the scroll-padding to the <html> creates issues in Safari with the new .sticky-top header position.
+// Disable it roughly and try to find a solution later.
+/*
 // Navbar height
 html {
   scroll-padding-top: 55px;
 }
+*/

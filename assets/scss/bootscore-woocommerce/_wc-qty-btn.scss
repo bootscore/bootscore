@@ -1,0 +1,53 @@
+/*--------------------------------------------------------------
+WooCommerce Quantity Input
+--------------------------------------------------------------*/
+
+.quantity {
+  .input-group {
+    // Fixed width for quantity
+    width: 140px;
+  }
+
+  .form-control {
+    text-align: center;
+
+    // Hide browser arrows in quantity input
+    appearance: textfield;
+    -webkit-appearance: none;
+    -moz-appearance: textfield;
+
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      display: none;
+      margin: 0;
+    }
+  }
+
+  // Disable quantity input if only 1 product in stock left or sold individually
+  &:has([max="1"]) {
+
+    .input-group-text {
+      pointer-events: none;
+    }
+
+    .form-control {
+      background-color: $input-disabled-bg;
+      pointer-events: none;
+    }
+  }
+}
+
+
+// Disable quantity input on variation single product page if nothing selected
+.woocommerce-variation-add-to-cart-disabled {
+  .quantity {
+    .input-group-text {
+      pointer-events: none;
+    }
+
+    .form-control {
+      background-color: $input-disabled-bg;
+      pointer-events: none;
+    }
+  }
+}

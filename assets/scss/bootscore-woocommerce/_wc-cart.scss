@@ -1,0 +1,185 @@
+/*--------------------------------------------------------------
+WooCommerce Cart
+--------------------------------------------------------------*/
+
+// Remove btn
+.woocommerce {
+
+  // Hide the "x"
+  a.remove {
+    position: relative;
+    text-indent: -9999px;
+    border: 0;
+
+    &:hover {
+      background: none;
+    }
+
+    // Add a Fontawesome trash icon instead
+    &::before {
+      content: ' ';
+      text-indent: 0;
+      position: absolute;
+      top: 50%;
+      left: 0;
+      transform: translate(0, -50%);
+      mask-position: center;
+      mask-repeat: no-repeat;
+      mask-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' height='1em' viewBox='0 0 448 512'%3e%3c!--! Font Awesome Free 6.4.0 by %40fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons%2c Inc. --%3e%3cpath d='M170.5 51.6L151.5 80h145l-19-28.4c-1.5-2.2-4-3.6-6.7-3.6H177.1c-2.7 0-5.2 1.3-6.7 3.6zm147-26.6L354.2 80H368h48 8c13.3 0 24 10.7 24 24s-10.7 24-24 24h-8V432c0 44.2-35.8 80-80 80H112c-44.2 0-80-35.8-80-80V128H24c-13.3 0-24-10.7-24-24S10.7 80 24 80h8H80 93.8l36.7-55.1C140.9 9.4 158.4 0 177.1 0h93.7c18.7 0 36.2 9.4 46.6 24.9zM80 128V432c0 17.7 14.3 32 32 32H336c17.7 0 32-14.3 32-32V128H80zm80 64V400c0 8.8-7.2 16-16 16s-16-7.2-16-16V192c0-8.8 7.2-16 16-16s16 7.2 16 16zm80 0V400c0 8.8-7.2 16-16 16s-16-7.2-16-16V192c0-8.8 7.2-16 16-16s16 7.2 16 16zm80 0V400c0 8.8-7.2 16-16 16s-16-7.2-16-16V192c0-8.8 7.2-16 16-16s16 7.2 16 16z'/%3e%3c/svg%3e");
+      -webkit-mask-position: center;
+      -webkit-mask-repeat: no-repeat;
+      -webkit-mask-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' height='1em' viewBox='0 0 448 512'%3e%3c!--! Font Awesome Free 6.4.0 by %40fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons%2c Inc. --%3e%3cpath d='M170.5 51.6L151.5 80h145l-19-28.4c-1.5-2.2-4-3.6-6.7-3.6H177.1c-2.7 0-5.2 1.3-6.7 3.6zm147-26.6L354.2 80H368h48 8c13.3 0 24 10.7 24 24s-10.7 24-24 24h-8V432c0 44.2-35.8 80-80 80H112c-44.2 0-80-35.8-80-80V128H24c-13.3 0-24-10.7-24-24S10.7 80 24 80h8H80 93.8l36.7-55.1C140.9 9.4 158.4 0 177.1 0h93.7c18.7 0 36.2 9.4 46.6 24.9zM80 128V432c0 17.7 14.3 32 32 32H336c17.7 0 32-14.3 32-32V128H80zm80 64V400c0 8.8-7.2 16-16 16s-16-7.2-16-16V192c0-8.8 7.2-16 16-16s16 7.2 16 16zm80 0V400c0 8.8-7.2 16-16 16s-16-7.2-16-16V192c0-8.8 7.2-16 16-16s16 7.2 16 16zm80 0V400c0 8.8-7.2 16-16 16s-16-7.2-16-16V192c0-8.8 7.2-16 16-16s16 7.2 16 16z'/%3e%3c/svg%3e");
+      width: $font-size-base;
+      height: $font-size-base;
+      background-color: var(--#{$prefix}remove-invalid, var(--#{$prefix}danger));
+    }
+  }
+}
+
+
+// WooCommerce breakpoints are at 769px
+@media (max-width: 768px) {
+
+  // Fixed height for quantity cell in mobile cart if input is hidden
+  // See _wc_qty_btn.scss
+  .woocommerce-cart-form .product-quantity {
+
+    // Right align quantity input in mobile
+    .quantity .input-group {
+      margin-left: auto;
+    }
+  }
+
+  // Coupon button in cart page
+  .cart td.actions .coupon .button {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  // Update cart button
+  .shop_table_responsive .actions button:not(.input-group button) {
+    width: 100%;
+  }
+
+  // Shipping
+  .woocommerce .cart-collaterals {
+
+    ul#shipping_method,
+    .shipping.recurring-total ul {
+      clear: both;
+      text-align: left;
+      margin-top: $spacer *2;
+    }
+    
+    .woocommerce-shipping-destination,
+    .woocommerce-shipping-calculator,
+    .woocommerce-shipping-contents,
+    .first-payment-date {
+      text-align: left;
+    }
+  }
+}
+
+
+// Coupon
+.woocommerce-cart {
+  table.cart td.actions .coupon .input-text {
+
+    // Override WooCommerce form CSS
+    float: none;
+    margin: 0;
+    padding: $input-padding-y $input-padding-x;
+    border: $input-border-width solid $input-border-color;
+    background-color: $input-bg;
+
+    // Add border-radius to form because first hidden item inside the input-group is the label
+    border-top-left-radius: $input-border-radius !important;
+    border-bottom-left-radius: $input-border-radius !important;
+
+    @include box-shadow($input-box-shadow);
+    @include transition($input-transition);
+
+    &:focus {
+      color: $input-focus-color;
+      background-color: $input-focus-bg;
+      border-color: $input-focus-border-color;
+      outline: 0;
+      box-shadow: $input-focus-box-shadow;
+    }
+
+    &::placeholder {
+      color: $input-placeholder-color;
+      opacity: 1;
+    }
+  }
+
+  .coupon {
+    // create .input-group
+    position: relative;
+    display: flex;
+    flex-wrap: wrap; // For form validation feedback
+    align-items: stretch;
+    width: 100%;
+
+    input {
+      position: relative; // For focus state's z-index
+      flex: 1 1 auto;
+      width: 1%;
+      min-width: 0;
+
+      &:focus {
+        z-index: 5;
+      }
+    }
+
+    button {
+      // Create .input-group-text
+      display: flex;
+      align-items: center;
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    > :not(:last-child) {
+      @include border-end-radius(0);
+    }
+
+    > :not(:first-child) {
+      margin-left: calc(#{$input-border-width} * -1);
+      @include border-start-radius(0);
+    }
+  }
+
+  // WooCommerce breakpoints are at 769px
+  @media (min-width: 769px) {
+    .coupon {
+      width: 400px;
+    }
+  }
+
+
+  // Proceed to checkout btn
+  .wc-proceed-to-checkout a.checkout-button {
+    width: 100%
+  }
+}
+
+
+// Update cart button
+:where(body:not(.woocommerce-block-theme-has-button-styles)) .woocommerce button.button:disabled,
+:where(body:not(.woocommerce-block-theme-has-button-styles)) .woocommerce button.button:disabled[disabled] {
+  padding: #{$btn-padding-y} #{$btn-padding-x};
+  color: var(--#{$prefix}primary);
+}
+
+
+// Cross sell products
+.cross-sells {
+  margin-bottom: $spacer;
+}
+
+
+.includes_tax {
+  display: block;
+}

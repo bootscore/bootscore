@@ -1,0 +1,35 @@
+/*--------------------------------------------------------------
+Admin bar
+--------------------------------------------------------------*/
+
+// Mobile
+@include media-breakpoint-down(md) {
+  #wpadminbar {
+    position: fixed;
+  }
+}
+
+.logged-in.admin-bar {
+
+  // Push content down when WP admin-bar is visible
+  .fixed-top,
+  .sticky-top,
+  .offcanvas:not(.offcanvas-bottom),
+  .offcanvas-md,
+  .offcanvas-lg,
+  .offcanvas-xl,
+  .offcanvas-xxl,
+  .modal-dialog {
+    top: var(--wp-admin--admin-bar--height, 32px);
+  }
+
+  // Adjust modal height
+  .modal-fullscreen,
+  .modal-fullscreen-sm-down,
+  .modal-fullscreen-md-down,
+  .modal-fullscreen-lg-down,
+  .modal-fullscreen-xl-down,
+  .modal-fullscreen-xxl-down {
+    height: calc(100% - var(--wp-admin--admin-bar--height, 32px));
+  }
+}

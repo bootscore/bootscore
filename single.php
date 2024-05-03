@@ -2,31 +2,32 @@
 /**
  * Template Post Type: post
  *
- * @version 5.3.1
+ * @package Bootscore
+ * @version 6.0.0
  */
+
+// Exit if accessed directly
+defined('ABSPATH') || exit;
 
 get_header();
 ?>
 
-  <div id="content" class="site-content <?= apply_filters('bootscore/container_class', 'container', 'single'); ?> <?= apply_filters('bootscore/content/spacer_class', 'py-5 mt-4', 'single'); ?>">
+  <div id="content" class="site-content <?= apply_filters('bootscore/class/container', 'container', 'single'); ?> <?= apply_filters('bootscore/class/content/spacer', 'pt-3 pb-5', 'single'); ?>">
     <div id="primary" class="content-area">
-
-      <!-- Hook to add something nice -->
-      <?php bs_after_primary(); ?>
 
       <?php the_breadcrumb(); ?>
 
       <div class="row">
-        <div class="<?= apply_filters('bootscore/main/col_class', 'col'); ?>">
+        <div class="<?= apply_filters('bootscore/class/main/col', 'col'); ?>">
 
           <main id="main" class="site-main">
 
-            <header class="entry-header">
+            <div class="entry-header">
               <?php the_post(); ?>
               <?php bootscore_category_badge(); ?>
               <h1><?php the_title(); ?></h1>
               <p class="entry-meta">
-                <small class="text-body-tertiary">
+                <small class="text-body-secondary">
                   <?php
                   bootscore_date();
                   bootscore_author();
@@ -35,19 +36,19 @@ get_header();
                 </small>
               </p>
               <?php bootscore_post_thumbnail(); ?>
-            </header>
+            </div>
 
             <div class="entry-content">
               <?php the_content(); ?>
             </div>
 
-            <footer class="entry-footer clear-both">
+            <div class="entry-footer clear-both">
               <div class="mb-4">
                 <?php bootscore_tags(); ?>
               </div>
               <!-- Related posts using bS Swiper plugin -->
               <?php if (function_exists('bootscore_related_posts')) bootscore_related_posts(); ?>
-              <nav aria-label="bS page navigation">
+              <nav aria-label="bs page navigation">
                 <ul class="pagination justify-content-center">
                   <li class="page-item">
                     <?php previous_post_link('%link'); ?>
@@ -58,7 +59,7 @@ get_header();
                 </ul>
               </nav>
               <?php comments_template(); ?>
-            </footer>
+            </div>
 
           </main>
 
