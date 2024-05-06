@@ -13,8 +13,8 @@
 defined('ABSPATH') || exit;
 
 ?>
-<!-- wp:group {"className":"card mb-3"} -->
-<div class="wp-block-group card mb-3"><!-- wp:image {"sizeSlug":"large","className":"card-img-top mb-0"} -->
+<!-- wp:group {"className":"card"} -->
+<div class="wp-block-group card"><!-- wp:image {"sizeSlug":"large","className":"card-img-top mb-0"} -->
 <figure class="wp-block-image size-large card-img-top mb-0"><img src="https://dummyimage.com/1200x900/6c757d/ffffff" alt=""/></figure>
 <!-- /wp:image -->
 
