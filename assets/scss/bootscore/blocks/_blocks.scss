@@ -8,10 +8,17 @@ Block Widgets
  }
 
 
-// Add rounded to block img if class added toi block
+// Add rounded to block img if class added to img block
 .rounded img {
   border-radius: var(--#{$prefix}border-radius);
 }
+
+// Add card-img-top to block img if class added to img block
+.card-img-top img {
+  border-top-left-radius: $card-inner-border-radius;
+  border-top-right-radius: $card-inner-border-radius;
+}
+
 
 
 // Separator
