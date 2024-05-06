@@ -1,7 +1,7 @@
 <?php
 /**
- * Title: jumbotron
- * Slug: bootscore/jumbotron
+ * Title: jumbotron basic
+ * Slug: bootscore/jumbotron-basic
  * Categories: bootscore
  * https://developer.wordpress.org/themes/features/block-patterns/
  * 
@@ -19,6 +19,6 @@ defined('ABSPATH') || exit;
 <!-- /wp:heading -->
 
 <!-- wp:paragraph {"className":"lead mb-0"} -->
-<p class="lead mb-0">This is a simple Bootstrap jumbotron that sits within a&nbsp;<code>.container</code>, recreated with built-in utility classes.</p>
+<p class="lead mb-0">This is a simple Bootstrap jumbotron, recreated with built-in utility classes.</p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
