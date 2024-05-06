@@ -14,5 +14,5 @@ defined('ABSPATH') || exit;
 
 ?>
 <!-- wp:paragraph -->
-<p><a class="btn btn-dark" href="#">btn-dark</a></p>
+<p><a class="btn btn-dark" href="#">Button</a></p>
 <!-- /wp:paragraph -->
