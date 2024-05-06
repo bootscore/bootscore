@@ -13,8 +13,8 @@
 defined('ABSPATH') || exit;
 
 ?>
-<!-- wp:group {"className":"card"} -->
-<div class="wp-block-group card"><!-- wp:heading {"className":"card-header h6"} -->
+<!-- wp:group {"className":"card mb-3"} -->
+<div class="wp-block-group card mb-3"><!-- wp:heading {"className":"card-header h6"} -->
 <h2 class="wp-block-heading card-header h6">Card header</h2>
 <!-- /wp:heading -->
 
