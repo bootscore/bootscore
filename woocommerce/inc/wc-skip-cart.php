@@ -28,19 +28,13 @@ function bootscore_widget_shopping_cart_proceed_to_checkout() {
  * Hide WooCommerce Mini-Cart "View Cart" Button
  */
 remove_action('woocommerce_widget_shopping_cart_buttons', 'woocommerce_widget_shopping_cart_button_view_cart', 10);
-add_action('woocommerce_widget_shopping_cart_buttons', 'bootscore_remove_view_cart_minicart', 10);
- 
-function bootscore_remove_view_cart_minicart() {
-  remove_action( 'woocommerce_widget_shopping_cart_buttons', 'woocommerce_widget_shopping_cart_button_view_cart', 20 );
-}
 
 
 /**
- * Skip cart redirecting to checkout
+ * Skip cart page and redirecting to checkout
  */
 function bootscore_skip_cart_page_redirection_to_checkout() {
 
-  // If is cart page, redirect checkout.
   if( is_cart() )
     wp_redirect( wc_get_checkout_url() );
 }
