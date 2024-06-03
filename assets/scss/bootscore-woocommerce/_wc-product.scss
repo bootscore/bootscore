@@ -5,16 +5,16 @@ WooCommerce Product Page
 
 // Gallery
 .woocommerce {
-  div.product div.images {
-    img {
-      border-radius: var(--#{$prefix}border-radius);
-    }
 
-    .flex-control-thumbs {
-      display: flex;
-      margin-top: $spacer *.5;
-      gap: $spacer *.5;
-    }
+  &-product-gallery__image,
+  div.product div.images .flex-control-thumbs img {
+    border-radius: var(--#{$prefix}border-radius);
+  }
+
+  div.product div.images .flex-control-thumbs {
+    display: flex;
+    margin-top: $spacer *.5;
+    gap: $spacer *.5;
   }
 }
 
