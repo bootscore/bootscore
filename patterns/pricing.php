@@ -14,14 +14,14 @@ defined('ABSPATH') || exit;
 
 ?>
 <!-- wp:group {"className":"row","layout":{"type":"default"}} -->
-<div class="wp-block-group row"><!-- wp:group {"className":"col-md-4 mb-3 mb-md-0","layout":{"type":"default"}} -->
-<div class="wp-block-group col-md-4 mb-3 mb-md-0"><!-- wp:group {"className":"card text-center"} -->
-<div class="wp-block-group card text-center"><!-- wp:heading {"className":"card-header h4"} -->
+<div class="wp-block-group row"><!-- wp:group {"className":"col-md-4 mb-3","layout":{"type":"default"}} -->
+<div class="wp-block-group col-md-4 mb-3"><!-- wp:group {"className":"card text-center h-100"} -->
+<div class="wp-block-group card text-center h-100"><!-- wp:heading {"className":"card-header h4"} -->
 <h2 class="wp-block-heading card-header h4">Free</h2>
 <!-- /wp:heading -->
 
-<!-- wp:group {"className":"card-body","layout":{"type":"default"}} -->
-<div class="wp-block-group card-body"><!-- wp:heading {"level":3,"className":"card-title"} -->
+<!-- wp:group {"className":"card-body h-100 d-flex flex-column","layout":{"type":"default"}} -->
+<div class="wp-block-group card-body h-100 d-flex flex-column"><!-- wp:heading {"level":3,"className":"card-title"} -->
 <h3 class="wp-block-heading card-title">$0<small class="text-body-secondary">/mo</small></h3>
 <!-- /wp:heading -->
 
@@ -43,21 +43,21 @@ defined('ABSPATH') || exit;
 <!-- /wp:list-item --></ul>
 <!-- /wp:list -->
 
-<!-- wp:paragraph -->
-<p><a class="btn btn-lg  btn-outline-primary d-block" href="#">Sign up for free</a></p>
+<!-- wp:paragraph {"className":"mt-auto"} -->
+<p class="mt-auto"><a class="btn btn-lg  btn-outline-primary d-block" href="#">Sign up for free</a></p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group --></div>
 <!-- /wp:group --></div>
 <!-- /wp:group -->
 
-<!-- wp:group {"className":"col-md-4 mb-3 mb-md-0","layout":{"type":"default"}} -->
-<div class="wp-block-group col-md-4 mb-3 mb-md-0"><!-- wp:group {"className":"card text-center"} -->
-<div class="wp-block-group card text-center"><!-- wp:heading {"className":"card-header h4"} -->
-<h2 class="wp-block-heading card-header h4">Pro</h2>
+<!-- wp:group {"className":"col-md-4 mb-3","layout":{"type":"default"}} -->
+<div class="wp-block-group col-md-4 mb-3"><!-- wp:group {"className":"card text-center h-100 border-primary"} -->
+<div class="wp-block-group card text-center h-100 border-primary"><!-- wp:heading {"className":"card-header h4 text-bg-primary border-primary"} -->
+<h2 class="wp-block-heading card-header h4 text-bg-primary border-primary">Pro</h2>
 <!-- /wp:heading -->
 
-<!-- wp:group {"className":"card-body","layout":{"type":"default"}} -->
-<div class="wp-block-group card-body"><!-- wp:heading {"level":3,"className":"card-title"} -->
+<!-- wp:group {"className":"card-body h-100 d-flex flex-column","layout":{"type":"default"}} -->
+<div class="wp-block-group card-body h-100 d-flex flex-column"><!-- wp:heading {"level":3,"className":"card-title"} -->
 <h3 class="wp-block-heading card-title">$15<small class="text-body-secondary">/mo</small></h3>
 <!-- /wp:heading -->
 
@@ -79,21 +79,21 @@ defined('ABSPATH') || exit;
 <!-- /wp:list-item --></ul>
 <!-- /wp:list -->
 
-<!-- wp:paragraph -->
-<p><a class="btn btn-lg  btn-primary d-block" href="#">Get started</a></p>
+<!-- wp:paragraph {"className":"mt-auto"} -->
+<p class="mt-auto"><a class="btn btn-lg  btn-primary d-block" href="#">Get started</a></p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group --></div>
 <!-- /wp:group --></div>
 <!-- /wp:group -->
 
-<!-- wp:group {"className":"col-md-4","layout":{"type":"default"}} -->
-<div class="wp-block-group col-md-4"><!-- wp:group {"className":"card text-center border-primary"} -->
-<div class="wp-block-group card text-center border-primary"><!-- wp:heading {"className":"card-header h4 text-bg-primary border-primary"} -->
-<h2 class="wp-block-heading card-header h4 text-bg-primary border-primary">Enterprise</h2>
+<!-- wp:group {"className":"col-md-4 mb-3","layout":{"type":"default"}} -->
+<div class="wp-block-group col-md-4 mb-3"><!-- wp:group {"className":"card text-center h-100"} -->
+<div class="wp-block-group card text-center h-100"><!-- wp:heading {"className":"card-header h4"} -->
+<h2 class="wp-block-heading card-header h4">Enterprise</h2>
 <!-- /wp:heading -->
 
-<!-- wp:group {"className":"card-body","layout":{"type":"default"}} -->
-<div class="wp-block-group card-body"><!-- wp:heading {"level":3,"className":"card-title"} -->
+<!-- wp:group {"className":"card-body h-100 d-flex flex-column","layout":{"type":"default"}} -->
+<div class="wp-block-group card-body h-100 d-flex flex-column"><!-- wp:heading {"level":3,"className":"card-title"} -->
 <h3 class="wp-block-heading card-title">$29<small class="text-body-secondary">/mo</small></h3>
 <!-- /wp:heading -->
 
@@ -115,8 +115,8 @@ defined('ABSPATH') || exit;
 <!-- /wp:list-item --></ul>
 <!-- /wp:list -->
 
-<!-- wp:paragraph -->
-<p><a class="btn btn-lg  btn-primary d-block" href="https://themes.bootscore.me/boilerplate/contact/">Contact us</a></p>
+<!-- wp:paragraph {"className":"mt-auto"} -->
+<p class="mt-auto"><a class="btn btn-lg  btn-primary d-block" href="https://themes.bootscore.me/boilerplate/contact/">Contact us</a></p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group --></div>
 <!-- /wp:group --></div>
