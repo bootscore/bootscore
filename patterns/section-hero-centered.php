@@ -1,7 +1,7 @@
 <?php
 /**
- * Title: hero centered
- * Slug: bootscore/hero-centered
+ * Title: section hero centered
+ * Slug: bootscore/section-hero-centered
  * Categories: bootscore
  * https://developer.wordpress.org/themes/features/block-patterns/
  * 
@@ -13,15 +13,15 @@
 defined('ABSPATH') || exit;
 
 ?>
-<!-- wp:group {"className":"bg-body-tertiary py-5 mb-3","layout":{"type":"default"}} -->
-<div class="wp-block-group bg-body-tertiary py-5 mb-3"><!-- wp:group {"className":"container h-100 d-flex justify-content-center align-items-center","layout":{"type":"default"}} -->
+<!-- wp:group {"className":"bg-body-tertiary py-5","layout":{"type":"default"}} -->
+<div class="wp-block-group bg-body-tertiary py-5"><!-- wp:group {"className":"container h-100 d-flex justify-content-center align-items-center","layout":{"type":"default"}} -->
 <div class="wp-block-group container h-100 d-flex justify-content-center align-items-center"><!-- wp:group {"className":"text-center","layout":{"type":"default"}} -->
 <div class="wp-block-group text-center"><!-- wp:heading {"className":"display-5 fw-bold"} -->
 <h2 class="wp-block-heading display-5 fw-bold">Hero centered</h2>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph {"className":"lead"} -->
-<p class="lead">A simple centered hero pattern. <a href="https://bootscore.me/documentation/width-height-classes/">Width &amp; Height Classes</a> can be used on the outer group to stretch it through the <code>container</code>. This may disturb the layout in the backend.</p>
+<p class="lead">This is a <code>section</code> with a simple centered hero pattern wrapped in a <code>container</code>. Use it on the <code>page-blank</code> template.</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph -->

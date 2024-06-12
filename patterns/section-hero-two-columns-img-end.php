@@ -1,7 +1,7 @@
 <?php
 /**
- * Title: hero two columns
- * Slug: bootscore/hero-two-columns
+ * Title: section hero two columns img end
+ * Slug: bootscore/section-hero-two-columns-img-end
  * Categories: bootscore
  * https://developer.wordpress.org/themes/features/block-patterns/
  * 
@@ -13,18 +13,18 @@
 defined('ABSPATH') || exit;
 
 ?>
-<!-- wp:group {"className":"bg-body-tertiary py-5 mb-3","layout":{"type":"default"}} -->
-<div class="wp-block-group bg-body-tertiary py-5 mb-3"><!-- wp:group {"className":"container h-100","layout":{"type":"default"}} -->
+<!-- wp:group {"className":"bg-body-tertiary py-5","layout":{"type":"default"}} -->
+<div class="wp-block-group bg-body-tertiary py-5"><!-- wp:group {"className":"container h-100","layout":{"type":"default"}} -->
 <div class="wp-block-group container h-100"><!-- wp:group {"className":"row h-100","layout":{"type":"default"}} -->
 <div class="wp-block-group row h-100"><!-- wp:group {"className":"col-lg-6","layout":{"type":"default"}} -->
 <div class="wp-block-group col-lg-6"><!-- wp:group {"className":"h-100 d-flex align-items-center","layout":{"type":"default"}} -->
 <div class="wp-block-group h-100 d-flex align-items-center"><!-- wp:group {"layout":{"type":"default"}} -->
 <div class="wp-block-group"><!-- wp:heading {"className":"display-5 fw-bold"} -->
-<h2 class="wp-block-heading display-5 fw-bold">Hero two columns</h2>
+<h2 class="wp-block-heading display-5 fw-bold">Section with hero</h2>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph {"className":"lead"} -->
-<p class="lead">A hero pattern with two columns. <a href="https://bootscore.me/documentation/width-height-classes/">Width &amp; Height Classes</a> can be used on the outer group to stretch it through the <code>container</code>. This may disturb the layout in the backend.</p>
+<p class="lead">This <code>section</code> features a two-column hero with a right-aligned image and CTA buttons wrapped in a <code>container</code>. Use it on the <code>page-blank</code> template.</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph -->

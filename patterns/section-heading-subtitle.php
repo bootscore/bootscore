@@ -1,7 +1,7 @@
 <?php
 /**
- * Title: section container
- * Slug: bootscore/section-container
+ * Title: section heading subtitle
+ * Slug: section-heading-subtitle
  * Categories: bootscore
  * https://developer.wordpress.org/themes/features/block-patterns/
  * 
@@ -20,7 +20,11 @@ defined('ABSPATH') || exit;
 <!-- /wp:heading -->
 
 <!-- wp:paragraph {"className":"lead text-center mb-4"} -->
-<p class="lead text-center mb-4">This is a <code>&lt;section></code> with heading and subtitle. Content is wrapped in a <code>container</code>.</p>
+<p class="lead text-center mb-4">This is a <code>section</code> with heading and subtitle wrapped in a <code>container</code>. Use it on the <code>page-blank</code> template.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>Some content</p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group --></section>
 <!-- /wp:group -->
