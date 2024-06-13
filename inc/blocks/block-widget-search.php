@@ -39,8 +39,8 @@ if (!function_exists('bootscore_block_widget_search_classes')) {
       '<form novalidate="novalidate" ',
       'wp-block-search__input form-control ',
       'wp-block-search__input form-control"',
-      'wp-block-search__button btn btn-outline-secondary ',
       'wp-block-search__button btn btn-outline-secondary',
+      'wp-block-search__button has-icon btn btn-outline-secondary',
       '<i class="fa-solid fa-magnifying-glass"></i>'
     );
 
