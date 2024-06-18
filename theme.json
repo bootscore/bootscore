@@ -7,42 +7,42 @@
       "palette":[
         {
           "slug":"primary",
-          "color":"#0d6efd",
+          "color":"var(--bs-primary)",
           "name":"Primary"
         },
         {
           "slug":"secondary",
-          "color":"#6c757d",
+          "color":"var(--bs-secondary)",
           "name":"Secondary"
         },
         {
           "slug":"success",
-          "color":"#198754",
+          "color":"var(--bs-success)",
           "name":"Success"
         },
         {
           "slug":"info",
-          "color":"#0dcaf0",
+          "color":"var(--bs-info)",
           "name":"Info"
         },
         {
           "slug":"warning",
-          "color":"#ffc107",
+          "color":"var(--bs-warning)",
           "name":"Warning"
         },
         {
           "slug":"danger",
-          "color":"#dc3545",
+          "color":"var(--bs-danger)",
           "name":"Danger"
         },
         {
           "slug":"light",
-          "color":"#f8f9fa",
+          "color":"var(--bs-light)",
           "name":"Light"
         },
         {
           "slug":"dark",
-          "color":"#212529",
+          "color":"var(--bs-dark)",
           "name":"Dark"
         }
       ]
