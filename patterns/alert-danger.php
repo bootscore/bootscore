@@ -1,6 +1,6 @@
 <?php
 /**
- * Title: alert-danger
+ * Title: Dismissible alert-danger with icon
  * Slug: bootscore/alert-danger
  * Categories: bootscore
  * https://developer.wordpress.org/themes/features/block-patterns/
@@ -13,6 +13,6 @@
 defined('ABSPATH') || exit;
 
 ?>
-<!-- wp:paragraph {"className":"alert alert-danger"} -->
-<p class="alert alert-danger">A simple danger alert with a <a href="#">link</a>.</p>
+<!-- wp:paragraph {"className":"alert alert-danger alert-icon alert-danger-icon alert-dismissible fade show"} -->
+<p class="alert alert-danger alert-icon alert-danger-icon alert-dismissible fade show">A dismissing danger alert with an icon and a&nbsp;<a href="#">link</a>.<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></p>
 <!-- /wp:paragraph -->

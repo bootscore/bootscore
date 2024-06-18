@@ -1,6 +1,6 @@
 <?php
 /**
- * Title: alert-info
+ * Title: Basic alert-info
  * Slug: bootscore/alert-info
  * Categories: bootscore
  * https://developer.wordpress.org/themes/features/block-patterns/
