@@ -57,22 +57,16 @@ add_action('wp_enqueue_scripts', 'bootscore_scripts');
  */ 
 function bootscore_add_editor_styles() {
   add_theme_support('editor-styles');
-  add_editor_style(get_stylesheet_directory_uri() . '/assets/css/main.css');
+  add_editor_style('assets/css/main.css');
 
-  // Enqueue the style for the Gutenberg editor
-  if (is_gutenberg_page()) {
+  // Check if the current page is the Gutenberg editor
+  $screen = get_current_screen();
+  if ($screen && $screen->is_block_editor) {
     wp_enqueue_style('main-editor-style', get_stylesheet_directory_uri() . '/assets/css/main.css', array(), '1.0', 'all');
   }
 }
 add_action('enqueue_block_editor_assets', 'bootscore_add_editor_styles');
 
-/*
- * Helper function to check if the current page is Gutenberg editor
- */
-function is_gutenberg_page() {
-  $screen = get_current_screen();
-  return $screen && $screen->is_block_editor;
-}
 
 
 /**

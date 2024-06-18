@@ -74,7 +74,7 @@ if (!function_exists('bootscore_setup')) :
     /*
      * Add theme support for block template-parts.
     */
-    add_theme_support( 'block-template-parts' );   
+    add_theme_support( 'block-template-parts' );
     
     /*
      * Register pattern category
