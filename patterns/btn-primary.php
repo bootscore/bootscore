@@ -13,6 +13,6 @@
 defined('ABSPATH') || exit;
 
 ?>
-<!-- wp:paragraph -->
+<!-- wp:paragraph {"metadata":{"name":"btn-primary"}} -->
 <p><a class="btn btn-primary" href="#">Button</a></p>
 <!-- /wp:paragraph -->
