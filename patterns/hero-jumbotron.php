@@ -1,7 +1,7 @@
 <?php
 /**
- * Title: jumbotron basic
- * Slug: bootscore/jumbotron-basic
+ * Title: Hero jumbotron
+ * Slug: bootscore/hero-jumbotron
  * Categories: bootscore
  * https://developer.wordpress.org/themes/features/block-patterns/
  * 
@@ -13,7 +13,7 @@
 defined('ABSPATH') || exit;
 
 ?>
-<!-- wp:group {"className":"p-5 text-center bg-body-tertiary rounded-3","layout":{"type":"default"}} -->
+<!-- wp:group {"metadata":{"name":"Hero jumbotron"},"className":"p-5 text-center bg-body-tertiary rounded-3","layout":{"type":"default"}} -->
 <div class="wp-block-group p-5 text-center bg-body-tertiary rounded-3"><!-- wp:heading {"level":1,"className":"text-body-emphasis"} -->
 <h1 class="wp-block-heading text-body-emphasis">Basic jumbotron</h1>
 <!-- /wp:heading -->
