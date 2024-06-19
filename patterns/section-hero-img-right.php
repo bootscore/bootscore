@@ -1,7 +1,7 @@
 <?php
 /**
- * Title: section hero two columns img end
- * Slug: bootscore/section-hero-two-columns-img-end
+ * Title: section hero image right
+ * Slug: bootscore/section-hero-img-right
  * Categories: bootscore
  * https://developer.wordpress.org/themes/features/block-patterns/
  * 
@@ -13,7 +13,7 @@
 defined('ABSPATH') || exit;
 
 ?>
-<!-- wp:group {"className":"bg-body-tertiary py-5","layout":{"type":"default"}} -->
+<!-- wp:group {"metadata":{"name":"Section hero image right"},"className":"bg-body-tertiary py-5","layout":{"type":"default"}} -->
 <div class="wp-block-group bg-body-tertiary py-5"><!-- wp:group {"className":"container h-100","layout":{"type":"default"}} -->
 <div class="wp-block-group container h-100"><!-- wp:group {"className":"row h-100","layout":{"type":"default"}} -->
 <div class="wp-block-group row h-100"><!-- wp:group {"className":"col-lg-6","layout":{"type":"default"}} -->
