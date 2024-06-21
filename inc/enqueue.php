@@ -59,10 +59,12 @@ function bootscore_add_editor_styles() {
   add_theme_support('editor-styles');
   add_editor_style('assets/css/main.css');
 
-  // Check if the current page is the Gutenberg editor
+  // Check if the current page is the Gutenberg editor and enqueue CSS to tha main admin area to use variables in theme.json
   $screen = get_current_screen();
   if ($screen && $screen->is_block_editor) {
     wp_enqueue_style('main-editor-style', get_stylesheet_directory_uri() . '/assets/css/main.css', array(), '1.0', 'all');
+    // Fix minor CSS issues in the backend editor screen
+    wp_enqueue_style('admin-style', get_template_directory_uri() . '/assets/admin/css/admin.css', array(), '1.0', 'all');
   }
 }
 add_action('enqueue_block_editor_assets', 'bootscore_add_editor_styles');
