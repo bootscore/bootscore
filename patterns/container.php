@@ -13,7 +13,7 @@
 defined('ABSPATH') || exit;
 
 ?>
-<!-- wp:group {"className":"container","layout":{"type":"default"}} -->
+<!-- wp:group {"metadata":{"name":"container"},"className":"container","layout":{"type":"default"}} -->
 <div class="wp-block-group container"><!-- wp:paragraph -->
 <p>This is a <code>container</code></p>
 <!-- /wp:paragraph --></div>

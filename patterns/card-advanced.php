@@ -1,7 +1,7 @@
 <?php
 /**
- * Title: card extended
- * Slug: bootscore/card-extended
+ * Title: card advanced
+ * Slug: bootscore/card-advanced
  * Categories: bootscore
  * https://developer.wordpress.org/themes/features/block-patterns/
  * 
@@ -13,7 +13,7 @@
 defined('ABSPATH') || exit;
 
 ?>
-<!-- wp:group {"className":"card"} -->
+<!-- wp:group {"metadata":{"name":"card advanced"},"className":"card"} -->
 <div class="wp-block-group card"><!-- wp:heading {"className":"card-header h6"} -->
 <h2 class="wp-block-heading card-header h6">Card header</h2>
 <!-- /wp:heading -->

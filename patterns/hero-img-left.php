@@ -1,7 +1,7 @@
 <?php
 /**
- * Title: hero img start
- * Slug: bootscore/hero-img-start
+ * Title: hero img left
+ * Slug: bootscore/hero-img-left
  * Categories: bootscore
  * https://developer.wordpress.org/themes/features/block-patterns/
  * 
@@ -13,7 +13,7 @@
 defined('ABSPATH') || exit;
 
 ?>
-<!-- wp:group {"className":"row h-100","layout":{"type":"default"}} -->
+<!-- wp:group {"metadata":{"name":"Hero with image left"},"className":"row h-100","layout":{"type":"default"}} -->
 <div class="wp-block-group row h-100"><!-- wp:group {"className":"col-lg-6 mb-3 mb-lg-0","layout":{"type":"default"}} -->
 <div class="wp-block-group col-lg-6 mb-3 mb-lg-0"><!-- wp:group {"className":"h-100 d-flex align-items-center","layout":{"type":"default"}} -->
 <div class="wp-block-group h-100 d-flex align-items-center"><!-- wp:image {"sizeSlug":"large","className":"rounded"} -->

@@ -13,9 +13,9 @@
 defined('ABSPATH') || exit;
 
 ?>
-<!-- wp:group {"className":"card"} -->
+<!-- wp:group {"metadata":{"name":"card with categories"},"className":"card"} -->
 <div class="wp-block-group card"><!-- wp:heading {"className":"card-header h6"} -->
-<h2 class="wp-block-heading card-header h6">Card with <code>list-group-flush</code></h2>
+<h2 class="wp-block-heading card-header h6">Categories</h2>
 <!-- /wp:heading -->
 
 <!-- wp:categories {"showPostCounts":true,"className":"list-group-flush"} /--></div>

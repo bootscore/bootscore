@@ -1,7 +1,7 @@
 <?php
 /**
- * Title: pricing
- * Slug: bootscore/pricing
+ * Title: cards pricing
+ * Slug: bootscore/cards-pricing
  * Categories: bootscore
  * https://developer.wordpress.org/themes/features/block-patterns/
  * 
@@ -13,7 +13,7 @@
 defined('ABSPATH') || exit;
 
 ?>
-<!-- wp:group {"className":"row","layout":{"type":"default"}} -->
+<!-- wp:group {"metadata":{"name":"cards pricing"},"className":"row","layout":{"type":"default"}} -->
 <div class="wp-block-group row"><!-- wp:group {"className":"col-md-4 mb-3","layout":{"type":"default"}} -->
 <div class="wp-block-group col-md-4 mb-3"><!-- wp:group {"className":"card text-center h-100"} -->
 <div class="wp-block-group card text-center h-100"><!-- wp:heading {"className":"card-header h4"} -->

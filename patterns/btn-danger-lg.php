@@ -1,7 +1,7 @@
 <?php
 /**
- * Title: btn-light
- * Slug: bootscore/btn-light
+ * Title: btn-danger-lg
+ * Slug: bootscore/btn-danger-lg
  * Categories: bootscore
  * https://developer.wordpress.org/themes/features/block-patterns/
  * 
@@ -13,6 +13,6 @@
 defined('ABSPATH') || exit;
 
 ?>
-<!-- wp:paragraph -->
-<p><a class="btn btn-light" href="#">Button</a></p>
+<!-- wp:paragraph {"metadata":{"name":"btn-danger-lg"}} -->
+<p><a class="btn btn-danger btn-lg" href="#">Button</a></p>
 <!-- /wp:paragraph -->

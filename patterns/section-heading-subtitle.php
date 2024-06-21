@@ -1,6 +1,6 @@
 <?php
 /**
- * Title: section heading subtitle
+ * Title: section with heading and subtitle
  * Slug: section-heading-subtitle
  * Categories: bootscore
  * https://developer.wordpress.org/themes/features/block-patterns/
@@ -13,7 +13,7 @@
 defined('ABSPATH') || exit;
 
 ?>
-<!-- wp:group {"tagName":"section","className":"py-5 bg-body-tertiary","layout":{"type":"default"}} -->
+<!-- wp:group {"tagName":"section","metadata":{"name":"section with heading and subtitle"},"className":"py-5 bg-body-tertiary","layout":{"type":"default"}} -->
 <section class="wp-block-group py-5 bg-body-tertiary"><!-- wp:group {"className":"container","layout":{"type":"default"}} -->
 <div class="wp-block-group container"><!-- wp:heading {"className":"text-center"} -->
 <h2 class="wp-block-heading text-center">Section with heading</h2>
@@ -24,7 +24,7 @@ defined('ABSPATH') || exit;
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph -->
-<p>Some content</p>
+<p>Some content inside the <code>container</code>.</p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group --></section>
 <!-- /wp:group -->
