@@ -15,6 +15,23 @@ defined('ABSPATH') || exit;
 
 
 /**
+ * Update Checker
+ * https://github.com/YahnisElsts/plugin-update-checker
+ */
+require 'inc/update/plugin-update-checker.php';
+use YahnisElsts\PluginUpdateChecker\v5\PucFactory;
+
+$myUpdateChecker = PucFactory::buildUpdateChecker(
+	'https://github.com/bootscore/bootscore/',
+	__FILE__,
+	'bootscore'
+);
+
+// Set the branch that contains the stable release.
+$myUpdateChecker->setBranch('main');
+
+
+/**
  * Load required files
  */
 require_once('inc/theme-setup.php');             // Theme setup and custom theme supports
@@ -58,20 +75,3 @@ if (class_exists('WooCommerce')) {
 if (defined('JETPACK__VERSION')) {
   require get_template_directory() . '/inc/jetpack.php';
 }
-
-
-/**
- * Init the update checker
- * https://github.com/YahnisElsts/plugin-update-checker
- */
-require 'inc/update/plugin-update-checker.php';
-use YahnisElsts\PluginUpdateChecker\v5\PucFactory;
-
-$myUpdateChecker = PucFactory::buildUpdateChecker(
-	'https://github.com/bootscore/bootscore/',
-	__FILE__,
-	'bootscore'
-);
-
-//Set the branch that contains the stable release.
-$myUpdateChecker->setBranch('main');
