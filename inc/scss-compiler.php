@@ -1,9 +1,9 @@
 <?php
 
 /**
- * Functions to compile scss in the theme itself
+ * Class with functions to compile SCSS files.
  *
- * @package Bootscore 
+ * @package Bootscore
  * @version 6.0.0
  */
 
@@ -11,101 +11,193 @@
 // Exit if accessed directly
 defined('ABSPATH') || exit;
 
-
 require_once "scssphp/scss.inc.php";
 
 use ScssPhp\ScssPhp\Compiler;
 
-/**
- * Compiles the scss to a css file to be read by the browser.
- */
-function bootscore_compile_scss() {
-  $disable_compiler = apply_filters('bootscore/scss/disable_compiler', (defined('BOOTSCORE_SCSS_DISABLE_COMPILER') && BOOTSCORE_SCSS_DISABLE_COMPILER));
+class BootscoreScssCompiler {
+  private $compiler;
+  private bool $should_compile = false;
+  private string $scss_file;
+  private string $css_file;
+  private string $theme_directory;
+  private bool $skip_environment_check = false;
+  private array $file_mtime_check = [];
+  private int $files_mtime;
+  private bool $is_environment_dev;
+  private string $file_id;
 
-  if ($disable_compiler) {
-    return;
+  public function __construct() {
+    $this->compiler               = new Compiler();
+    $this->theme_directory        = ($this->shouldProcessChild()) ? get_stylesheet_directory() : get_template_directory();
+    $this->skip_environment_check = apply_filters('bootscore/scss/skip_environment_check', (defined('BOOTSCORE_SCSS_SKIP_ENVIRONMENT_CHECK') && BOOTSCORE_SCSS_SKIP_ENVIRONMENT_CHECK));
+    $this->is_environment_dev     = in_array(wp_get_environment_type(), array('development', 'local'), true);
   }
 
-  $compiler = new Compiler();
+  public function scssFile(string $scss_file, $auto_set_css_file = true) {
+    $this->scss_file = $scss_file;
 
-  if (bootscore_child_has_scss() && is_child_theme()) {
-    $theme_directory = get_stylesheet_directory();
-  } else {
-    $theme_directory = get_template_directory();
-  }
-
-  $scss_file = $theme_directory . '/assets/scss/main.scss';
-  $css_file  = $theme_directory . '/assets/css/main.css';
-
-  $compiler->setImportPaths(dirname($scss_file));
-  if (is_child_theme() && bootscore_child_has_scss()) {
-    $compiler->addImportPath(get_template_directory() . '/assets/scss/');
-  }
-
-  $last_modified   = bootscore_get_last_modified_scss($theme_directory);
-  $stored_modified = get_theme_mod('bootscore_scss_modified_timestamp', 0);
-
-  $is_environment_dev     = in_array(wp_get_environment_type(), array('development', 'local'), true);
-  $skip_environment_check = apply_filters('bootscore/scss/skip_environment_check', (defined('BOOTSCORE_SCSS_SKIP_ENVIRONMENT_CHECK') && BOOTSCORE_SCSS_SKIP_ENVIRONMENT_CHECK));
-
-  if ($is_environment_dev) {
-    $compiler->setSourceMap(Compiler::SOURCE_MAP_FILE);
-    $compiler->setSourceMapOptions([
-      'sourceMapURL'      => site_url('', 'relative') . '/' . str_replace(ABSPATH, '', $css_file) . '.map',
-      'sourceMapBasepath' => substr(str_replace('\\', '/', ABSPATH), 0, - 1),
-      'sourceRoot'        => site_url('', 'relative') . '/',
-    ]);
-    $compiler->setOutputStyle(\ScssPhp\ScssPhp\OutputStyle::EXPANDED);
-  } else {
-    $compiler->setOutputStyle(\ScssPhp\ScssPhp\OutputStyle::COMPRESSED);
-  }
-
-  $compiler = apply_filters('bootscore/scss/compiler', $compiler);
-
-  try {
-    if ($last_modified > $stored_modified || !file_exists($css_file) || $is_environment_dev && !$skip_environment_check) {
-      $compiled = $compiler->compileString(file_get_contents($scss_file));
-
-      if (!file_exists(dirname($css_file))) {
-        mkdir(dirname($css_file), 0755, true);
-      }
-
-      file_put_contents($css_file, $compiled->getCss());
-      if ($is_environment_dev) {
-        file_put_contents($css_file . '.map', $compiled->getSourceMap());
-      }
-
-      set_theme_mod('bootscore_scss_modified_timestamp', $last_modified);
+    if ($auto_set_css_file) {
+      $this->css_file = str_replace('scss', 'css', $scss_file);
     }
-  } catch (Exception $e) {
-    if ($is_environment_dev) {
-      wp_die('<b>Bootscore SCSS Compiler - Caught exception:</b><br><br> ' . $e->getMessage());
+
+    return $this;
+  }
+
+  public function cssFile(string $css_file) {
+    $this->css_file = $css_file;
+
+    return $this;
+  }
+
+  public function getScssFile() {
+    return $this->theme_directory . $this->scss_file;
+  }
+
+  public function getCssFile() {
+    return $this->theme_directory . $this->css_file;
+  }
+
+  public function addImportPath(string $import_path) {
+    $this->compiler->addImportPath($import_path);
+
+    return $this;
+  }
+
+  public function addModifiedCheck($file, $prefix_theme_directory = true) {
+    $this->file_mtime_check[] = ($prefix_theme_directory) ? $this->theme_directory . $file : $file;
+
+    return $this;
+  }
+
+  public function addModifiedSelf() {
+    $this->addModifiedCheck($this->scss_file);
+
+    return $this;
+  }
+
+  public function addModifiedCheckDir($dir, $prefix_theme_directory = true) {
+    $dir   = ($prefix_theme_directory) ? $this->theme_directory . $dir : $dir;
+    $files = glob($dir . '/*');
+    foreach ($files as $file) {
+      // check if file is a scss file
+      if (pathinfo($file, PATHINFO_EXTENSION) !== 'scss') {
+        continue;
+      }
+      $this->addModifiedCheck($file, false);
+    }
+
+    return $this;
+  }
+
+  public function addModifiedCheckTheme() {
+    $this->addModifiedCheckDir('/assets/scss');
+
+    return $this;
+  }
+
+  private function generateId($input, $length = 8) {
+    return substr(md5($input), 0, $length);
+  }
+
+  private function shouldProcessChild() {
+    return is_child_theme() && bootscore_child_has_scss();
+  }
+
+  private function addImportPaths() {
+    $this->compiler->setImportPaths(dirname($this->theme_directory . $this->scss_file));
+
+    if ($this->shouldProcessChild()) {
+      $this->compiler->addImportPath(get_template_directory() . '/assets/scss/');
+    }
+  }
+
+  private function setOutputStyle() {
+    if ($this->is_environment_dev) {
+      $this->compiler->setSourceMap(Compiler::SOURCE_MAP_FILE);
+      $this->compiler->setSourceMapOptions([
+        'sourceMapURL'      => site_url('', 'relative') . '/' . str_replace(ABSPATH, '', $this->css_file) . '.map',
+        'sourceMapBasepath' => substr(str_replace('\\', '/', ABSPATH), 0, - 1),
+        'sourceRoot'        => site_url('', 'relative') . '/',
+      ]);
+      $this->compiler->setOutputStyle(\ScssPhp\ScssPhp\OutputStyle::EXPANDED);
     } else {
-      wp_die('Something went wrong with the SCSS compiler.');
+      $this->compiler->setOutputStyle(\ScssPhp\ScssPhp\OutputStyle::COMPRESSED);
+    }
+  }
+
+  private function getModifiedTime() {
+    $this->files_mtime = 0;
+    foreach ($this->file_mtime_check as $file) {
+      $this->files_mtime = max($this->files_mtime, filemtime($file));
+    }
+  }
+
+  private function processModifiedCheck() {
+    $this->getModifiedTime();
+
+    $stored_modified = get_theme_mod('bootscore_scss_modified_timestamp_' . $this->file_id, 0);
+
+    if ($this->files_mtime > $stored_modified) {
+      $this->should_compile = true;
+    }
+  }
+
+  private function extraChecks() {
+    if ($this->is_environment_dev && !$this->skip_environment_check) {
+      $this->should_compile = true;
+    }
+
+    if (!file_exists($this->getCssFile())) {
+      $this->should_compile = true;
+    }
+
+    if (apply_filters('bootscore/scss/disable_compiler', (defined('BOOTSCORE_SCSS_DISABLE_COMPILER') && BOOTSCORE_SCSS_DISABLE_COMPILER))) {
+      $this->should_compile = false;
+    }
+  }
+
+  public function compile() {
+    $this->addImportPaths();
+    $this->setOutputStyle();
+    $this->file_id = $this->generateId($this->scss_file);
+    $this->addModifiedSelf();
+    if (!empty($this->file_mtime_check)) {
+      $this->processModifiedCheck();
+    }
+    $this->extraChecks();
+
+    if (!$this->should_compile) {
+      return;
+    }
+
+    $this->compiler = apply_filters('bootscore/scss/compiler', $this->compiler);
+
+    try {
+      $compiled = $this->compiler->compileString(file_get_contents($this->getScssFile()));
+
+      if (!file_exists(dirname($this->getCssFile()))) {
+        mkdir(dirname($this->getCssFile()), 0755, true);
+      }
+
+      file_put_contents($this->getCssFile(), $compiled->getCss());
+      if ($this->is_environment_dev) {
+        file_put_contents($this->getCssFile() . '.map', $compiled->getSourceMap());
+      }
+
+      if (!empty($this->file_mtime_check)) {
+        set_theme_mod('bootscore_scss_modified_timestamp_' . $this->file_id, $this->files_mtime);
+      }
+    } catch (Exception $e) {
+      if ($this->is_environment_dev) {
+        wp_die('<b>Bootscore SCSS Compiler - Caught exception:</b><br><br> ' . $e->getMessage());
+      } else {
+        wp_die('Something went wrong with the SCSS compiler.');
+      }
     }
   }
 }
 
-
-/**
- * Checks if the scss files and returns the last modified times added together.
- *
- * @return float Last modified times added together.
- */
-function bootscore_get_last_modified_scss($theme_directory) {
-  $directory           = $theme_directory . '/assets/scss/';
-  $files               = scandir($directory);
-  $total_last_modified = 0;
-  foreach ($files as $file) {
-    if (strpos($file, '.scss') !== false || strpos($file, '.css') !== false) {
-      $file_stats          = stat($directory . $file);
-      $total_last_modified += $file_stats['mtime'];
-    }
-  }
-  $total_last_modified += stat(get_template_directory() . '/assets/scss/bootstrap/bootstrap.scss')['mtime'];
-
-  return $total_last_modified;
-}
 
 /**
  * Check if the child theme has scss files included.
@@ -114,4 +206,13 @@ function bootscore_get_last_modified_scss($theme_directory) {
  */
 function bootscore_child_has_scss() {
   return file_exists(get_stylesheet_directory() . '/assets/scss/main.scss');
+}
+
+function bootscore_compile_scss() {
+  $scss_compiler = new BootscoreScssCompiler();
+  $scss_compiler->scssFile('/assets/scss/main.scss')
+                ->cssFile('/assets/css/main.css')
+                ->addModifiedCheckTheme()
+                ->addModifiedCheck(get_template_directory() . '/assets/scss/bootstrap/bootstrap.scss', false)
+                ->compile();
 }
