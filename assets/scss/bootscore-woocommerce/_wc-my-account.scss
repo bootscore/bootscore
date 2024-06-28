@@ -56,23 +56,25 @@ WooCommerce My Account
 .woocommerce {
 
   // Make row
-  .col2-set,
-  .woocommerce-page .col2-set {
+  .u-columns {
     @include make-row();
     width: auto;
+
+    // Make col
+    .u-column1.col-1,
+    .u-column2.col-2 {
+      @include make-col-ready();
+      margin-bottom: $spacer;
+
+      @include media-breakpoint-up(lg) {
+        @include make-col(6);
+        float: none;
+      }
+    }
   }
 
-  // Make col
-  .col2-set .col-1,
-  .woocommerce-page .col2-set .col-1,
-  .col2-set .col-2,
-  .woocommerce-page .col2-set .col-2 {
-    @include make-col-ready();
-    margin-bottom: $spacer;
-
-    @include media-breakpoint-up(lg) {
-      @include make-col(6);
-      float: none;
-    }
+  // See https://github.com/bootscore/bootscore/issues/774
+  .u-column1.col-1 {
+    width: 100%;
   }
 }
