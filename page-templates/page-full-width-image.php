@@ -23,7 +23,7 @@ get_header();
         <?php $thumb = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'full'); ?>
         <div class="entry-header featured-full-width-img height-75 bg-dark text-light mb-4" style="background-image: url('<?= $thumb['0']; ?>')">
           <div class="<?= apply_filters('bootscore/class/container', 'container', 'page-full-width-image'); ?> entry-header h-100 d-flex align-items-end pb-3">
-            <div>
+            <div class="full-width-img-title">
               <h1 class="entry-title"><?php the_title(); ?></h1>
             </div>
           </div>

@@ -3,6 +3,22 @@ WooCommerce Product Page
 --------------------------------------------------------------*/
 
 
+// Gallery
+.woocommerce {
+
+  &-product-gallery__image,
+  div.product div.images .flex-control-thumbs img {
+    border-radius: var(--#{$prefix}border-radius);
+  }
+
+  div.product div.images .flex-control-thumbs {
+    display: flex;
+    margin-top: $spacer *.5;
+    gap: $spacer *.5;
+  }
+}
+
+
 // Stock badge
 .woocommerce div.product p.stock {
   font-size: $badge-font-size;

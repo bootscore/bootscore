@@ -8,15 +8,15 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2024-03-09 19:19+0000\n"
+"PO-Revision-Date: 2024-06-06 18:39+0000\n"
 "Last-Translator: \n"
-"Language-Team: Deutsch\n"
+"Language-Team: German\n"
 "X-Generator: Loco https://localise.biz/\n"
 "Language: de_DE\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Loco-Version: 2.6.4; wp-6.2"
+"X-Loco-Version: 2.6.9; wp-6.5.4"
 
-#: woocommerce/inc/ajax-cart.php:521
+#: woocommerce/inc/ajax-cart.php:539
 msgid " for this product"
 msgstr ""
 
@@ -26,7 +26,7 @@ msgid "%s <span class=\"says d-none\">says:</span>"
 msgstr "%s <span class=\"sagt d-none\">says:</span>"
 
 #. used between list items, there is a space after the comma
-#: inc/template-tags.php:47
+#: inc/template-tags.php:49
 msgid ", "
 msgstr ", "
 
@@ -72,25 +72,20 @@ msgid "Back Home &raquo;"
 msgstr "Zur Startseite"
 
 #. Name of the template
+#: page-templates/page-blank.php:3
 msgid "Blank"
-msgstr ""
+msgstr "Blank"
 
 #. Name of the template
+#: page-templates/page-blank-container.php:3
 msgid "Blank with container"
 msgstr "Blank mit Container"
 
-#. Name of the template
-msgid ""
-"Blank without container (Don't use it. Use Blank template instead. This file "
-"will be removed later)"
-msgstr ""
-
 #. Name of the theme
 #. Author of the theme
-#, fuzzy
 #| msgid "bootScore"
 msgid "Bootscore"
-msgstr "bootScore"
+msgstr "Bootscore"
 
 #: comments.php:107
 msgid "Cancel"
@@ -124,6 +119,10 @@ msgctxt "comments title"
 msgid "One Comment &ldquo;%s&rdquo;"
 msgstr "Ein Kommentar &ldquo;%s&rdquo;"
 
+#: languages/plugin-translations.php:26
+msgid "Contents"
+msgstr "Inhalte"
+
 #: languages/plugin-translations.php:10
 msgid ""
 "Cookies help us deliver our services. By using our services, you agree to "
@@ -142,7 +141,7 @@ msgid "Dark"
 msgstr "Dunkel"
 
 #. %s: Name of current post. Only visible to screen readers
-#: inc/comments.php:44 inc/comments.php:68 inc/template-tags.php:151
+#: inc/comments.php:44 inc/comments.php:68 inc/template-tags.php:170
 msgid "Edit"
 msgstr "Bearbeiten"
 
@@ -179,27 +178,25 @@ msgstr "Footer 4"
 
 #: inc/widgets.php:137
 msgid "Footer Info"
-msgstr ""
+msgstr "Footer Info"
+
+#: inc/widgets.php:82
+msgid "Footer Top"
+msgstr "Footer Top"
 
 #. Name of the template
+#: page-templates/page-full-width-image.php:3
 msgid "Full Width Image"
 msgstr "Bild in voller Breite"
 
 #. Name of the template
+#: single-templates/single-full-width-image.php:2
 msgid "Full width image"
 msgstr "Bild in voller Breite"
 
-#: woocommerce/myaccount/my-account-offcanvas.php:21
-msgid "Hello"
-msgstr "Hallo"
-
-#: woocommerce/myaccount/my-account-offcanvas.php:26
-msgid ""
-"Here you can view your recent orders, manage your shipping and billing "
-"addresses, and edit your password and account details."
-msgstr ""
-"Hier kannst du deine letzten Bestellungen ansehen, deine Liefer- und "
-"Rechnungsadresse verwalten und dein Passwort und die Kontodetails bearbeiten."
+#: inc/breadcrumb.php:24
+msgid "Home"
+msgstr "Start"
 
 #. Author URI of the theme
 msgid "https://bootscore.me"
@@ -209,11 +206,11 @@ msgstr ""
 msgid "https://bootscore.me/"
 msgstr "https://bootscore.me/"
 
-#: woocommerce/inc/ajax-cart.php:549
+#: woocommerce/inc/ajax-cart.php:573
 msgid "Invalid key or number"
-msgstr ""
+msgstr "Ungültiger Schlüssel oder Nummer"
 
-#: template-parts/content-none.php:51
+#: template-parts/search/content-none.php:51
 msgid ""
 "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
 "searching can help."
@@ -226,11 +223,11 @@ msgid "Last Page"
 msgstr "Letzte Seite"
 
 #. %s: post title
-#: comments.php:105 inc/template-tags.php:122
+#: comments.php:105 inc/template-tags.php:141
 msgid "Leave a Comment"
 msgstr "Kommentar schreiben"
 
-#: inc/template-tags.php:180
+#: inc/template-tags.php:199
 msgid "Leave a comment"
 msgstr "Kommentar schreiben"
 
@@ -240,6 +237,7 @@ msgid "Leave a Comment to %s"
 msgstr "Kommentar schreiben %s"
 
 #. Name of the template
+#: page-templates/page-sidebar-left.php:3
 msgid "Left Sidebar"
 msgstr "Linke Sidebar"
 
@@ -251,7 +249,7 @@ msgstr "Hell"
 msgid "Look what I found: "
 msgstr "Schau mal was ich gefunden habe: "
 
-#: header.php:51
+#: header.php:56
 msgid "Menu"
 msgstr "Menü"
 
@@ -271,11 +269,17 @@ msgstr "Neuere Kommentare"
 msgid "Next Page"
 msgstr "Nächste Seite"
 
+#: languages/plugin-translations.php:25
+msgid "No headings found."
+msgstr "Keine Überschriften gefunden."
+
 #. Name of the template
+#: page-templates/page-sidebar-none.php:3
+#: single-templates/single-sidebar-none.php:2
 msgid "No Sidebar"
 msgstr "Keine Sidebar"
 
-#: woocommerce/inc/ajax-cart.php:531
+#: woocommerce/inc/ajax-cart.php:549
 msgid "Nonce verification failed"
 msgstr ""
 
@@ -283,7 +287,7 @@ msgstr ""
 msgid "Nothing found"
 msgstr "Nichts gefunden"
 
-#: template-parts/content-none.php:22
+#: template-parts/search/content-none.php:22
 msgid "Nothing Found for"
 msgstr "Nichts gefunden für"
 
@@ -307,10 +311,6 @@ msgstr "Seitennavigation"
 msgid "Page not found."
 msgstr "Seite nicht gefunden."
 
-#: page-templates/page-blank-without-container.php:22
-msgid "Pages:"
-msgstr "Seiten:"
-
 #: inc/password-protected-form.php:22
 msgid "Password"
 msgstr "Passwort"
@@ -319,7 +319,7 @@ msgstr "Passwort"
 msgid "Pingback:"
 msgstr "Pingback:"
 
-#: inc/template-tags.php:97
+#: inc/template-tags.php:116
 #, php-format
 msgctxt "post author"
 msgid "by %s"
@@ -333,17 +333,17 @@ msgstr "Kommentar senden"
 msgid "Previous Page"
 msgstr "Vorherige Seite"
 
-#: woocommerce/inc/ajax-cart.php:545
+#: woocommerce/inc/ajax-cart.php:565
 msgid "Quantity updated successfully"
-msgstr ""
+msgstr "Anzahl erfolgreich geändert"
 
 #: archive.php:73 index.php:94 index.php:165
-#: template-parts/content-search.php:60
+#: template-parts/search/content-search.php:60
 msgid "Read more »"
 msgstr "Weiterlesen »"
 
 #. 1: link to WP admin new post page.
-#: template-parts/content-none.php:33
+#: template-parts/search/content-none.php:33
 #, php-format
 msgid ""
 "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
@@ -368,11 +368,6 @@ msgstr "Suche"
 msgid "Search Results for: %s"
 msgstr "Suchergebnisse für: %s"
 
-#: woocommerce/cart/mini-cart.php:125
-msgid "Shipping, taxes, and discounts calculated at checkout."
-msgstr ""
-"Versandgebühren, Steuern und Rabatte werden auf der Bezahlseite berechnet."
-
 #: woocommerce/loop/orderby.php:28
 msgid "Shop order"
 msgstr "Shop Bestellung"
@@ -382,10 +377,15 @@ msgid "Sidebar"
 msgstr "Seitenmenü"
 
 #. Name of the template
+#: single-templates/single-sidebar-left.php:2
 msgid "Sidebar left"
 msgstr "Sidebar links"
 
-#: template-parts/content-none.php:45
+#: header.php:34
+msgid "Skip to content"
+msgstr "Weiter zum Inhalt"
+
+#: template-parts/search/content-none.php:45
 msgid ""
 "Sorry, but nothing matched your search terms. Please try again with some "
 "different keywords."
@@ -401,8 +401,7 @@ msgstr "Kommentar"
 msgid "Submit"
 msgstr "Senden"
 
-#. 1: list of tags.
-#: inc/template-tags.php:206
+#: inc/template-tags.php:222
 msgid "Tagged"
 msgstr "Schlagworte"
 
@@ -412,11 +411,7 @@ msgstr "Farbschema wählen"
 
 #: inc/widgets.php:26
 msgid "Top Bar"
-msgstr ""
-
-#: inc/widgets.php:82
-msgid "Top Footer"
-msgstr "Top Footer"
+msgstr "Top Bar"
 
 #: inc/widgets.php:37
 msgid "Top Nav"
@@ -424,7 +419,7 @@ msgstr "Top Navigation"
 
 #: inc/widgets.php:49
 msgid "Top Nav 2"
-msgstr ""
+msgstr "Top Nav 2"
 
 #: inc/widgets.php:60
 msgid "Top Nav Search"
