@@ -114,10 +114,13 @@ class BootscoreScssCompiler {
 
   private function setOutputStyle() {
     if ($this->is_environment_dev) {
+      $source_map_url = site_url('', 'relative') . '/' . ltrim(str_replace(ABSPATH, '', $this->getCssFile()), '/');
+      $source_map_url .= '.map';
+
       $this->compiler->setSourceMap(Compiler::SOURCE_MAP_FILE);
       $this->compiler->setSourceMapOptions([
-        'sourceMapURL'      => site_url('', 'relative') . '/' . str_replace(ABSPATH, '', $this->css_file) . '.map',
-        'sourceMapBasepath' => substr(str_replace('\\', '/', ABSPATH), 0, - 1),
+        'sourceMapURL'      => $source_map_url,
+        'sourceMapBasepath' => rtrim(str_replace('\\', '/', ABSPATH), '/'),
         'sourceRoot'        => site_url('', 'relative') . '/',
       ]);
       $this->compiler->setOutputStyle(\ScssPhp\ScssPhp\OutputStyle::EXPANDED);
