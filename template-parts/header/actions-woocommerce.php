@@ -40,20 +40,21 @@ if ( is_cart() ) {
  // Do nothing
 } elseif ( is_checkout() ) { ?>
   <!-- Add a back-to-cart button -->
-  <?php if ( apply_filters('bootscore/skip_cart', true) ) : ?>
-    <!-- Default behavior: back-to-cart links to shop page -->
-    <?php
-    $shop_page_url = get_permalink( wc_get_page_id( 'shop' ) );
-    ?>
-    <a class="<?= apply_filters('bootscore/class/header/button', 'btn btn-outline-secondary', 'back-to-cart'); ?> ms-1 ms-md-2 back-to-cart" href="<?= esc_url( $shop_page_url ); ?>">
-      <i class="fa-solid fa-arrow-left d-none d-md-inline me-2"></i><i class="fa-solid fa-bag-shopping"></i><span class="visually-hidden-focusable">Return to Shop</span>
-    </a>
-  <?php else : ?>
-    <!-- Enabled by filter: back-to-cart button links to cart page -->
-    <a class="<?= apply_filters('bootscore/class/header/button', 'btn btn-outline-secondary', 'back-to-cart'); ?> ms-1 ms-md-2 back-to-cart" href="<?= wc_get_cart_url() ?>">
-      <i class="fa-solid fa-arrow-left d-none d-md-inline me-2"></i><i class="fa-solid fa-bag-shopping"></i><span class="visually-hidden-focusable">Return to Cart</span>
-    </a>
-  <?php endif; ?>
+  <?php
+  // Check the filter and AJAX cart option
+  $skip_cart_filter = apply_filters('bootscore/skip_cart', true);
+  $ajax_cart_en = 'yes' === get_option('woocommerce_enable_ajax_add_to_cart');
+
+ if ($skip_cart_filter && $ajax_cart_en) {
+    $back_to_cart_url = get_permalink(wc_get_page_id('shop'));
+  } else {
+    $back_to_cart_url = wc_get_cart_url();
+  }
+
+  ?>
+  <a class="<?= apply_filters('bootscore/class/header/button', 'btn btn-outline-secondary', 'back-to-cart'); ?> ms-1 ms-md-2 back-to-cart" href="<?= esc_url($back_to_cart_url); ?>">
+    <i class="fa-solid fa-arrow-left d-none d-md-inline me-2"></i><i class="fa-solid fa-bag-shopping"></i><span class="visually-hidden-focusable">Return to <?= ($back_to_cart_url == wc_get_cart_url()) ? 'Cart' : 'Shop'; ?></span>
+  </a>
 <?php } else { ?>
   <!-- Add mini-cart toggler -->
   <button class="<?= apply_filters('bootscore/class/header/button', 'btn btn-outline-secondary', 'cart-toggler'); ?> ms-1 ms-md-2 position-relative cart-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas-cart" aria-controls="offcanvas-cart">
@@ -65,9 +66,8 @@ if ( is_cart() ) {
         <span class="cart-content">
           <?php if ($count > 0) { ?>
             <?= esc_html($count); ?>
-            <?php
-          }
-          ?></span>
+          <?php } ?>
+        </span>
       <?php } ?>
     </div>
   </button>
