@@ -55,11 +55,16 @@ add_action('after_setup_theme', 'bootscore_register_ajax_cart');
   * Enable default cart page and buttoins via filter 
   * add_filter('bootscore/skip_cart', '__return_false');
   */
- function bootscore_register_cart_file() {
-   if (apply_filters('bootscore/skip_cart', true)) {
-     require_once('inc/wc-skip-cart.php');
-   } else {
-     require_once('inc/wc-cart.php');
-   }
- }
- add_action('after_setup_theme', 'bootscore_register_cart_file');
+function bootscore_register_cart_file() {
+  // Check the filter first
+  $skip_cart_filter = apply_filters('bootscore/skip_cart', true);
+  // Check the AJAX cart option
+  $ajax_cart_en = 'yes' === get_option('woocommerce_enable_ajax_add_to_cart');
+
+  if ($skip_cart_filter && $ajax_cart_en) {
+    require_once('inc/wc-skip-cart.php');
+  } else {
+    require_once('inc/wc-cart.php');
+  }
+}
+add_action('after_setup_theme', 'bootscore_register_cart_file');
