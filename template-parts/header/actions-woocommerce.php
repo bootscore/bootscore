@@ -45,15 +45,12 @@ if ( is_cart() ) {
   $skip_cart_filter = apply_filters('bootscore/skip_cart', true);
   $ajax_cart_en = 'yes' === get_option('woocommerce_enable_ajax_add_to_cart');
 
-  if ($skip_cart_filter) {
-    if ($ajax_cart_en) {
-      $back_to_cart_url = get_permalink(wc_get_page_id('shop'));
-    } else {
-      $back_to_cart_url = wc_get_cart_url();
-    }
+ if ($skip_cart_filter && $ajax_cart_en) {
+    $back_to_cart_url = get_permalink(wc_get_page_id('shop'));
   } else {
     $back_to_cart_url = wc_get_cart_url();
   }
+
   ?>
   <a class="<?= apply_filters('bootscore/class/header/button', 'btn btn-outline-secondary', 'back-to-cart'); ?> ms-1 ms-md-2 back-to-cart" href="<?= esc_url($back_to_cart_url); ?>">
     <i class="fa-solid fa-arrow-left d-none d-md-inline me-2"></i><i class="fa-solid fa-bag-shopping"></i><span class="visually-hidden-focusable">Return to <?= ($back_to_cart_url == wc_get_cart_url()) ? 'Cart' : 'Shop'; ?></span>
