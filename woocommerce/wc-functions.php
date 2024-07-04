@@ -61,12 +61,8 @@ function bootscore_register_cart_file() {
   // Check the AJAX cart option
   $ajax_cart_en = 'yes' === get_option('woocommerce_enable_ajax_add_to_cart');
 
-  if ($skip_cart_filter) {
-    if ($ajax_cart_en) {
-      require_once('inc/wc-skip-cart.php');
-    } else {
-      require_once('inc/wc-cart.php');
-    }
+  if ($skip_cart_filter && $ajax_cart_en) {
+    require_once('inc/wc-skip-cart.php');
   } else {
     require_once('inc/wc-cart.php');
   }
