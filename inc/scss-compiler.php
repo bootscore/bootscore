@@ -212,10 +212,18 @@ function bootscore_child_has_scss() {
 }
 
 function bootscore_compile_scss() {
+  // Compile the main.scss file
   $scss_compiler = new BootscoreScssCompiler();
   $scss_compiler->scssFile('/assets/scss/main.scss')
                 ->cssFile('/assets/css/main.css')
                 ->addModifiedCheckTheme()
                 ->addModifiedCheck(get_template_directory() . '/assets/scss/bootstrap/bootstrap.scss', false)
                 ->compile();
+  
+  // Compile the editor.scss file
+  $scss_compiler_editor = new BootscoreScssCompiler();
+  $scss_compiler_editor->scssFile('/assets/scss/editor.scss')
+                      ->cssFile('/assets/css/editor.css')
+                      ->addModifiedCheck('/assets/scss/editor.scss')
+                      ->compile();  
 }
