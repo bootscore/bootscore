@@ -224,7 +224,6 @@ function bootscore_compile_scss() {
   $scss_compiler_editor = new BootscoreScssCompiler();
   $scss_compiler_editor ->scssFile('/assets/scss/editor.scss')
                         ->cssFile('/assets/css/editor.css')
-                        //->addModifiedCheck('/assets/scss/editor.scss')
                         ->addModifiedCheckTheme()
                         ->addModifiedCheck(get_stylesheet_directory() . '/assets/scss/main.css', false)
                         ->compile();
