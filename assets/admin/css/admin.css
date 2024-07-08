@@ -1,0 +1,10 @@
+/*--------------------------------------------------------------
+admin.css
+Fix minor CSS issues in the backend editor screen
+See /inc/enqueue.php
+--------------------------------------------------------------*/
+
+/* Fix pattern prreview iframe */
+.block-editor-block-preview__content iframe {
+  max-width: 1200px;
+}
