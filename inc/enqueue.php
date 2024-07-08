@@ -59,7 +59,7 @@ function bootscore_add_editor_styles() {
   add_theme_support('editor-styles');
   add_editor_style('assets/css/main.css');
 
-  // Check if the current page is the Gutenberg editor and enqueue CSS to tha main admin area to use variables in theme.json
+  // Check if the current page is the Gutenberg editor and enqueue CSS to the main admin area to use variables in theme.json
   $screen = get_current_screen();
   if ($screen && $screen->is_block_editor) {
     wp_enqueue_style('editor-style', get_stylesheet_directory_uri() . '/assets/css/editor.css', array(), '1.0', 'all');
