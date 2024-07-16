@@ -3,9 +3,15 @@ Block Widgets
 --------------------------------------------------------------*/
 
 // Reset WP margin-top
- :where(body .is-layout-flow) > * {
-   margin-block-start: 0 !important;
- }
+.is-layout-flow > {
+  * {
+    margin-block-start: 0;
+  }
+
+  p {
+    margin-block-end: $spacer;
+  }
+}
 
 
 // Add rounded to block img if class added to img block
