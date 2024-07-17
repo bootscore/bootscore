@@ -13,10 +13,10 @@
 defined('ABSPATH') || exit;
 
 ?>
-<!-- wp:group {"tagName":"section","metadata":{"name":"section with heading and subtitle"},"className":"py-5 bg-body-tertiary","layout":{"type":"default"}} -->
+<!-- wp:group {"tagName":"section","metadata":{"name":"section with heading and subtitle","categories":["bootscore"],"patternName":"section-heading-subtitle"},"className":"py-5 bg-body-tertiary","layout":{"type":"default"}} -->
 <section class="wp-block-group py-5 bg-body-tertiary"><!-- wp:group {"className":"container","layout":{"type":"default"}} -->
-<div class="wp-block-group container"><!-- wp:heading {"className":"text-center"} -->
-<h2 class="wp-block-heading text-center">Section with heading</h2>
+<div class="wp-block-group container"><!-- wp:heading {"className":"text-center mb-2"} -->
+<h2 class="wp-block-heading text-center mb-2">Section with heading</h2>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph {"className":"lead text-center mb-4"} -->

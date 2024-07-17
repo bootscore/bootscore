@@ -13,7 +13,7 @@
 defined('ABSPATH') || exit;
 
 ?>
-<!-- wp:group {"metadata":{"name":"Hero with image right"},"className":"row h-100","layout":{"type":"default"}} -->
+<!-- wp:group {"metadata":{"name":"Hero with image right","categories":["bootscore"],"patternName":"bootscore/hero-img-right"},"className":"row h-100","layout":{"type":"default"}} -->
 <div class="wp-block-group row h-100"><!-- wp:group {"className":"col-lg-6 mb-3 mb-lg-0 order-lg-2","layout":{"type":"default"}} -->
 <div class="wp-block-group col-lg-6 mb-3 mb-lg-0 order-lg-2"><!-- wp:group {"className":"h-100 d-flex align-items-center","layout":{"type":"default"}} -->
 <div class="wp-block-group h-100 d-flex align-items-center"><!-- wp:image {"sizeSlug":"large","className":"rounded"} -->
@@ -25,8 +25,8 @@ defined('ABSPATH') || exit;
 <!-- wp:group {"className":"col-lg-6","layout":{"type":"default"}} -->
 <div class="wp-block-group col-lg-6"><!-- wp:group {"className":"h-100 d-flex align-items-center","layout":{"type":"default"}} -->
 <div class="wp-block-group h-100 d-flex align-items-center"><!-- wp:group {"className":"text-block","layout":{"type":"default"}} -->
-<div class="wp-block-group text-block"><!-- wp:heading {"className":"display-5 fw-bold"} -->
-<h2 class="wp-block-heading display-5 fw-bold">Hero</h2>
+<div class="wp-block-group text-block"><!-- wp:heading {"className":"display-5 fw-bold mb-2"} -->
+<h2 class="wp-block-heading display-5 fw-bold mb-2">Hero</h2>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph {"metadata":{"name":""},"className":"lead"} -->

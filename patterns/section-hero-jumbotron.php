@@ -13,11 +13,11 @@
 defined('ABSPATH') || exit;
 
 ?>
-<!-- wp:group {"metadata":{"name":"Section jumbotron"},"className":"bg-body-tertiary py-5","layout":{"type":"default"}} -->
+<!-- wp:group {"metadata":{"name":"Section jumbotron","categories":["bootscore"],"patternName":"bootscore/section-hero-jumbotron"},"className":"bg-body-tertiary py-5","layout":{"type":"default"}} -->
 <div class="wp-block-group bg-body-tertiary py-5"><!-- wp:group {"className":"container h-100 d-flex justify-content-center align-items-center","layout":{"type":"default"}} -->
 <div class="wp-block-group container h-100 d-flex justify-content-center align-items-center"><!-- wp:group {"className":"text-center","layout":{"type":"default"}} -->
-<div class="wp-block-group text-center"><!-- wp:heading {"className":"display-5 fw-bold"} -->
-<h2 class="wp-block-heading display-5 fw-bold">Section jumbotron</h2>
+<div class="wp-block-group text-center"><!-- wp:heading {"className":"display-5 fw-bold mb-2"} -->
+<h2 class="wp-block-heading display-5 fw-bold mb-2">Section jumbotron</h2>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph {"className":"lead"} -->
