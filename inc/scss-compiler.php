@@ -230,7 +230,8 @@ function bootscore_compile_scss() {
   $scss_compiler_editor = new BootscoreScssCompiler();
   $scss_compiler_editor->scssFile('/assets/scss/editor.scss')
                        ->cssFile('/assets/css/editor.css')
-                       ->addModifiedCheckTheme()
-                       ->addModifiedCheck(get_stylesheet_directory() . '/assets/scss/main.css', false)
+                       ->addModifiedCheck(get_template_directory() . '/assets/scss/bootstrap/bootstrap.scss', false)
+                       ->addModifiedCheck('/assets/scss/_bootstrap-variables.scss')
+                       ->skipEnvironmentCheck()
                        ->compile();
 }
