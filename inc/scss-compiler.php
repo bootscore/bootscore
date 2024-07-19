@@ -232,7 +232,7 @@ function bootscore_compile_scss() {
                        ->cssFile('/assets/css/editor.css')
                        ->addModifiedSelf()
                        ->addModifiedCheck(get_template_directory() . '/assets/scss/bootstrap/bootstrap.scss', false)
-                       ->addModifiedCheck('/assets/scss/_bootstrap-variables.scss')
+                       ->addModifiedCheck('/assets/scss/_bootscore-variables.scss')
                        ->skipEnvironmentCheck()
                        ->compile();
 }
