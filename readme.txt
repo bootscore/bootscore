@@ -8,9 +8,9 @@ Anisur Rahman, Murilo Carvalho, stan1781
 Tags: featured-images, threaded-comments, translation-ready
 
 Requires at least: 5.0
-Tested up to: 6.5.2
+Tested up to: 6.6
 Requires PHP: 7.4
-Stable tag: 6.0.0-dev
+Stable tag: 6.0.0
 License: MIT License
 License URI: https://github.com/bootscore/bootscore/blob/main/LICENSE
 
