@@ -1,0 +1,14 @@
+/*!
+ * editor.scss
+ * This file compiles Bootstrap colors, which are used in theme.json as variables, 
+ * and adds the compiled colors to the color picker in the sidebar.
+ */
+@import "bootstrap/functions";
+
+@import "bootscore-variables";
+
+@import "bootstrap/variables";
+@import "bootstrap/variables-dark";
+@import "bootstrap/maps";
+@import "bootstrap/mixins";
+@import "bootstrap/root";

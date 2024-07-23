@@ -96,6 +96,12 @@ class BootscoreScssCompiler {
     return $this;
   }
 
+  public function skipEnvironmentCheck($skip = true) {
+    $this->skip_environment_check = $skip;
+
+    return $this;
+  }
+
   private function generateId($input, $length = 8) {
     return substr(md5($input), 0, $length);
   }
@@ -212,10 +218,21 @@ function bootscore_child_has_scss() {
 }
 
 function bootscore_compile_scss() {
-  $scss_compiler = new BootscoreScssCompiler();
-  $scss_compiler->scssFile('/assets/scss/main.scss')
-                ->cssFile('/assets/css/main.css')
-                ->addModifiedCheckTheme()
-                ->addModifiedCheck(get_template_directory() . '/assets/scss/bootstrap/bootstrap.scss', false)
-                ->compile();
+  // Compile the main.scss file
+  $scss_compiler_main = new BootscoreScssCompiler();
+  $scss_compiler_main->scssFile('/assets/scss/main.scss')
+                     ->cssFile('/assets/css/main.css')
+                     ->addModifiedCheckTheme()
+                     ->addModifiedCheck(get_template_directory() . '/assets/scss/bootstrap/bootstrap.scss', false)
+                     ->compile();
+
+  // Compile the editor.scss file
+  $scss_compiler_editor = new BootscoreScssCompiler();
+  $scss_compiler_editor->scssFile('/assets/scss/editor.scss')
+                       ->cssFile('/assets/css/editor.css')
+                       ->addModifiedSelf()
+                       ->addModifiedCheck(get_template_directory() . '/assets/scss/bootstrap/bootstrap.scss', false)
+                       ->addModifiedCheck('/assets/scss/_bootscore-variables.scss')
+                       ->skipEnvironmentCheck()
+                       ->compile();
 }
