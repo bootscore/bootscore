@@ -31,11 +31,20 @@ remove_action('woocommerce_widget_shopping_cart_buttons', 'woocommerce_widget_sh
 
 
 /**
- * Skip cart page and redirecting to checkout
+ * Skip cart page and redirecting to checkout.
+ * Redirect empty checkout to shop page.
  */
 function bootscore_skip_cart_page_redirection_to_checkout() {
+  // Check if we are on the cart page and redirect to the checkout page
+  if (is_cart()) {
+    wp_redirect(wc_get_checkout_url());
+    exit;
+  }
 
-  if( is_cart() )
-    wp_redirect( wc_get_checkout_url() );
+  // Check if we are on the checkout page and if the cart is empty, redirect to the shop page
+  if (is_checkout() && WC()->cart->is_empty()) {
+    wp_redirect(wc_get_page_permalink('shop'));
+    exit;
+  }
 }
 add_action('template_redirect', 'bootscore_skip_cart_page_redirection_to_checkout');
