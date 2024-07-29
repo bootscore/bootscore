@@ -1,3 +1,6 @@
+@import "bootstrap/mixins/banner";
+@include bsBanner("");
+
 @import "bootstrap/functions";
 
 @import "bootscore-variables";
