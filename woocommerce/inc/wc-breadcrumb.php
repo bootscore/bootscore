@@ -26,9 +26,7 @@ if (!function_exists('bs_woocommerce_breadcrumbs')) :
       </nav>',
       'before'      => '<li class="breadcrumb-item">',
       'after'       => '</li>',
-      // Remove "Home" and add Fontawesome house icon (_wc_breadcrumb.scss)
-      //'home'        => _x('Home', 'breadcrumb', 'woocommerce'),
-      'home'        => ' ',
+      'home'        => _x('Home', 'breadcrumb', 'woocommerce'),
     );
   }
 endif;

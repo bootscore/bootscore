@@ -3,7 +3,7 @@ WooCommerce Breadcrumb
 --------------------------------------------------------------*/
 
 .wc-breadcrumb {
-
+  /*
   // Add a Fontawesome house icon for empty "Home" (wc-functions.php)
   .breadcrumb-item:first-child a {
 
@@ -24,7 +24,29 @@ WooCommerce Breadcrumb
     &:hover::before {
       background-color: var(--#{$prefix}link-hover-color);
     }
+  }*/
+
+  .breadcrumb-item:first-child a {
+
+    position: relative;
+    text-indent: -9999px;
+    display: block;
+    margin-right: $breadcrumb-item-padding-x;
+
+
+    &::after {
+
+      content: "x";
+      text-indent: 0;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
   }
+
+
+
+
 
   // Additional code for wc breadcrumbs, 
   // as the wc breadcrumb function does not allow for custom 
