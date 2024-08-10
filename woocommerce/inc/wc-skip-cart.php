@@ -4,7 +4,7 @@
  * WooCommerce Skip Cart Page
  *
  * @package Bootscore 
- * @version 6.0.0
+ * @version 6.0.1
  */
 
 
@@ -31,11 +31,13 @@ remove_action('woocommerce_widget_shopping_cart_buttons', 'woocommerce_widget_sh
 
 
 /**
- * Skip cart page and redirecting to checkout
+ * Skip cart page and redirect to checkout only if the cart has items.
  */
 function bootscore_skip_cart_page_redirection_to_checkout() {
-
-  if( is_cart() )
+  // Check if it's the cart page and if the cart has items.
+  if ( is_cart() && WC()->cart->get_cart_contents_count() > 0 ) {
     wp_redirect( wc_get_checkout_url() );
+    exit; // Ensure that the script stops executing after redirect.
+  }
 }
 add_action('template_redirect', 'bootscore_skip_cart_page_redirection_to_checkout');
