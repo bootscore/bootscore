@@ -4,7 +4,7 @@
  * WooCommerce AJAX cart
  *
  * @package Bootscore
- * @version 6.0.1
+ * @version 6.0.0
  */
 
 
@@ -576,7 +576,6 @@ function bootscore_qty_update(){
 }
 
 // Add quantity fields in Mini Cart.
-// Edit this snippet
 add_filter('woocommerce_widget_cart_item_quantity', 'add_minicart_quantity_fields', 10, 3);
 function add_minicart_quantity_fields($html, $cart_item, $cart_item_key) {
   $_product   = apply_filters( 'woocommerce_cart_item_product', $cart_item['data'], $cart_item, $cart_item_key );
