@@ -21,12 +21,12 @@ WooCommerce Quantity Input
       display: none;
       margin: 0;
     }
-    
+/*
     // Disable quantity input if only 1 product in stock left or sold individually
     &[max="1"] {
       background-color: $input-disabled-bg;
       pointer-events: none;
-    }
+    }*/
   }
 }
 

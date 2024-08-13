@@ -603,3 +603,42 @@ function add_minicart_quantity_fields($html, $cart_item, $cart_item_key) {
 
   return $output;
 }
+
+
+/**
+ * Disable quantity buttons if product is sold individually or only one in stock left
+ *
+ * See https://github.com/bootscore/bootscore/issues/801
+ * See https://github.com/bootscore/bootscore/pull/823
+ */
+function add_custom_quantity_disable_script() {
+  ?>
+  <script>
+  jQuery(function ($) {
+    // Function to disable quantity inputs and buttons
+    function disableQuantityInputs() {
+      $('.quantity').each(function() {
+        var $input = $(this).find('input[type="number"]');
+        var max = $input.attr('max');
+
+        if (max == 1) { // Check if max is 1 or any condition you wish
+          $(this).find('button').attr('disabled', 'disabled');
+          $input.attr('disabled', 'disabled');
+        }
+      });
+    }
+
+    // Trigger the function after AJAX completes
+    $(document).ajaxComplete(function() {
+      disableQuantityInputs();
+    });
+
+    // Optionally, call it on document ready to handle initial load cases
+    disableQuantityInputs();
+  });
+  </script>
+  <?php
+}
+
+// Hook the function to wp_footer to ensure it loads on the front-end
+add_action('wp_footer', 'add_custom_quantity_disable_script');
