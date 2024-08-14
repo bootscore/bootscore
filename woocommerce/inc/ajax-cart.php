@@ -606,12 +606,12 @@ function add_minicart_quantity_fields($html, $cart_item, $cart_item_key) {
 
 
 /**
- * Disable quantity buttons if product is sold individually or only one in stock left
+ * Disable quantity input if only 1 product in stock left or sold individually
  *
- * See https://github.com/bootscore/bootscore/issues/801
- * See https://github.com/bootscore/bootscore/pull/823
+ * https://github.com/bootscore/bootscore/issues/801
+ * https://github.com/bootscore/bootscore/pull/823
  */
-function add_custom_quantity_disable_script() {
+function bootscore_disable_quantity() {
   ?>
   <script>
   jQuery(function ($) {
@@ -640,5 +640,4 @@ function add_custom_quantity_disable_script() {
   <?php
 }
 
-// Hook the function to wp_footer to ensure it loads on the front-end
-add_action('wp_footer', 'add_custom_quantity_disable_script');
+add_action('wp_footer', 'bootscore_disable_quantity');
