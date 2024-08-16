@@ -621,7 +621,7 @@ function bootscore_disable_quantity() {
         var $input = $(this).find('input[type="number"]');
         var max = $input.attr('max');
 
-        if (max == 1) { // Check if max is 1 or any condition you wish
+        if (max == 1) { // Check if max is 1
           $(this).find('button').attr('disabled', 'disabled');
           $input.attr('disabled', 'disabled');
         }
