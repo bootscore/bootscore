@@ -895,6 +895,34 @@ class Compiler
     }
 
     /**
+     * Recursively compares two arrays, accounting for both flat and nested arrays.
+     *
+     * @param array $array1
+     * @param array $array2
+     * @return bool
+     */
+    protected function arrays_are_equal_recursive($array1, $array2)
+    {
+        if (count($array1) !== count($array2)) {
+            return false;
+        }
+
+        foreach ($array1 as $key => $value) {
+            if (is_array($value) && isset($array2[$key]) && is_array($array2[$key])) {
+                // Recursively compare nested arrays
+                if (!$this->arrays_are_equal_recursive($value, $array2[$key])) {
+                    return false;
+                }
+            } elseif ($value !== $array2[$key]) {
+                // Compare scalar values
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    /**
      * Match extends
      *
      * @param array $selector
@@ -924,7 +952,8 @@ class Compiler
             // if the new part is just including a previous part don't try to extend anymore
             if (\count($part) > 1) {
                 foreach ($partsPile as $previousPart) {
-                    if (! \count(array_diff($previousPart, $part))) {
+                    // Compare arrays, including nested arrays
+                    if ($this->arrays_are_equal_recursive($previousPart, $part)) {
                         continue 2;
                     }
                 }
@@ -998,7 +1027,7 @@ class Compiler
                     }
 
                     // selector sequence merging
-                    if (! empty($before) && \count($new) > 1) {
+                    if (!empty($before) && \count($new) > 1) {
                         $preSharedParts = $k > 0 ? \array_slice($before, 0, $k) : [];
                         $postSharedParts = $k > 0 ? \array_slice($before, $k) : $before;
 
