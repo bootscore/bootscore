@@ -14,7 +14,7 @@
  * @see     https://docs.woocommerce.com/document/template-structure/
  * @author  WooThemes
  * @package WooCommerce/Templates
- * @version 9.0.0
+ * @version 9.3.0
  */
 
 if (!defined('ABSPATH')) {
@@ -31,7 +31,9 @@ do_action('woocommerce_before_account_navigation');
     <nav class="woocommerce-MyAccount-navigation" aria-label="<?php esc_html_e( 'Account pages', 'woocommerce' ); ?>">
       <div class="list-group mb-4">
         <?php foreach (wc_get_account_menu_items() as $endpoint => $label) : ?>
-          <a href="<?php echo esc_url(wc_get_account_endpoint_url($endpoint)); ?>" class="list-group-item list-group-item-action"><?php echo esc_html($label); ?></a>
+          <a href="<?php echo esc_url( wc_get_account_endpoint_url( $endpoint ) ); ?>" class="list-group-item list-group-item-action" <?php echo wc_is_current_account_menu_item( $endpoint ) ? 'aria-current="page"' : ''; ?>>
+            <?php echo esc_html( $label ); ?>
+          </a>
         <?php endforeach; ?>
       </div>
     </nav>
