@@ -15,7 +15,7 @@
  *
  * @see     https://docs.woocommerce.com/document/template-structure/
  * @package WooCommerce\Templates
- * @version 7.9.0
+ * @version 9.3.0
  */
 
 defined('ABSPATH') || exit;
@@ -105,13 +105,15 @@ do_action('woocommerce_before_mini_cart'); ?>
               <?php echo apply_filters( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
                 'woocommerce_cart_item_remove_link',
                 sprintf(
-                  '<a href="%s" class="remove_from_cart_button link-danger" aria-label="%s" data-product_id="%s" data-cart_item_key="%s" data-product_sku="%s"><i class="fa-regular fa-trash-can"></i></a>',
+                  '<a href="%s" class="remove_from_cart_button link-danger" aria-label="%s" data-product_id="%s" data-cart_item_key="%s" data-product_sku="%s" data-success_message="%s"><i class="fa-regular fa-trash-can"></i></a>',
                   esc_url(wc_get_cart_remove_url($cart_item_key)),
                   /* translators: %s is the product name */
                   esc_attr( sprintf( __( 'Remove %s from cart', 'woocommerce' ), wp_strip_all_tags( $product_name ) ) ),
                   esc_attr($product_id),
                   esc_attr($cart_item_key),
-                  esc_attr($_product->get_sku())
+                  esc_attr( $_product->get_sku() ),
+                  /* translators: %s is the product name */
+                  esc_attr( sprintf( __( '&ldquo;%s&rdquo; has been removed from your cart', 'woocommerce' ), wp_strip_all_tags( $product_name ) ) )
                 ),
                 $cart_item_key
               );
