@@ -8,7 +8,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2024-06-06 18:39+0000\n"
+"PO-Revision-Date: 2024-09-13 09:17+0000\n"
 "Last-Translator: \n"
 "Language-Team: German\n"
 "X-Generator: Loco https://localise.biz/\n"
@@ -83,6 +83,7 @@ msgstr "Blank mit Container"
 
 #. Name of the theme
 #. Author of the theme
+#: inc/theme-setup.php:84
 #| msgid "bootScore"
 msgid "Bootscore"
 msgstr "Bootscore"
@@ -94,6 +95,46 @@ msgstr "Abbrechen"
 #: template-parts/header/offcanvas-woocommerce.php:44
 msgid "Cart"
 msgstr "Warenkorb"
+
+#: theme.json:1
+msgctxt "Color name"
+msgid "Danger"
+msgstr ""
+
+#: theme.json:1
+msgctxt "Color name"
+msgid "Dark"
+msgstr ""
+
+#: theme.json:1
+msgctxt "Color name"
+msgid "Info"
+msgstr ""
+
+#: theme.json:1
+msgctxt "Color name"
+msgid "Light"
+msgstr ""
+
+#: theme.json:1
+msgctxt "Color name"
+msgid "Primary"
+msgstr ""
+
+#: theme.json:1
+msgctxt "Color name"
+msgid "Secondary"
+msgstr ""
+
+#: theme.json:1
+msgctxt "Color name"
+msgid "Success"
+msgstr ""
+
+#: theme.json:1
+msgctxt "Color name"
+msgid "Warning"
+msgstr ""
 
 #: comments.php:61 comments.php:81
 msgid "Comment navigation"
@@ -119,7 +160,7 @@ msgctxt "comments title"
 msgid "One Comment &ldquo;%s&rdquo;"
 msgstr "Ein Kommentar &ldquo;%s&rdquo;"
 
-#: languages/plugin-translations.php:26
+#: languages/plugin-translations.php:27
 msgid "Contents"
 msgstr "Inhalte"
 
@@ -295,6 +336,10 @@ msgstr "Nichts gefunden für"
 msgid "Older Comments"
 msgstr "Ältere Kommentare"
 
+#: languages/plugin-translations.php:26
+msgid "On this page"
+msgstr "Inhaltsverzeichnis"
+
 #: sidebar.php:25
 msgid "Open side menu"
 msgstr "Seitenmenü öffnen"
@@ -314,6 +359,111 @@ msgstr "Seite nicht gefunden."
 #: inc/password-protected-form.php:22
 msgid "Password"
 msgstr "Passwort"
+
+#: patterns/alert-danger.php:2
+msgctxt "Pattern title"
+msgid "alert-danger with icon and dismiss button"
+msgstr ""
+
+#: patterns/alert-info.php:2
+msgctxt "Pattern title"
+msgid "alert-info"
+msgstr ""
+
+#: patterns/btn-danger-lg.php:2
+msgctxt "Pattern title"
+msgid "btn-danger-lg"
+msgstr ""
+
+#: patterns/btn-outline-secondary-sm.php:2
+msgctxt "Pattern title"
+msgid "btn-outline-secondary-sm"
+msgstr ""
+
+#: patterns/btn-primary.php:2
+msgctxt "Pattern title"
+msgid "btn-primary"
+msgstr ""
+
+#: patterns/card-advanced.php:2
+msgctxt "Pattern title"
+msgid "card advanced"
+msgstr ""
+
+#: patterns/card-basic.php:2
+msgctxt "Pattern title"
+msgid "card basic"
+msgstr ""
+
+#: patterns/card-categories.php:2
+msgctxt "Pattern title"
+msgid "card categories"
+msgstr ""
+
+#: patterns/cards-pricing.php:2
+msgctxt "Pattern title"
+msgid "cards pricing"
+msgstr ""
+
+#: patterns/container.php:2
+msgctxt "Pattern title"
+msgid "container"
+msgstr ""
+
+#: patterns/grid-col-3.php:2
+msgctxt "Pattern title"
+msgid "Grid 3/3/3/3"
+msgstr ""
+
+#: patterns/grid-col-4-col-8.php:2
+msgctxt "Pattern title"
+msgid "Grid 4/8"
+msgstr ""
+
+#: patterns/grid-col-6.php:2
+msgctxt "Pattern title"
+msgid "Grid 6/6"
+msgstr ""
+
+#: patterns/grid-col-8-col-4.php:2
+msgctxt "Pattern title"
+msgid "Grid 8/4"
+msgstr ""
+
+#: patterns/hero-img-left.php:2
+msgctxt "Pattern title"
+msgid "hero img left"
+msgstr ""
+
+#: patterns/hero-img-right.php:2
+msgctxt "Pattern title"
+msgid "hero img right"
+msgstr ""
+
+#: patterns/hero-jumbotron.php:2
+msgctxt "Pattern title"
+msgid "Hero jumbotron"
+msgstr ""
+
+#: patterns/section-hero-img-left.php:2
+msgctxt "Pattern title"
+msgid "section hero image left"
+msgstr ""
+
+#: patterns/section-hero-img-right.php:2
+msgctxt "Pattern title"
+msgid "section hero image right"
+msgstr ""
+
+#: patterns/section-hero-jumbotron.php:2
+msgctxt "Pattern title"
+msgid "section hero jumbotron"
+msgstr ""
+
+#: patterns/section-heading-subtitle.php:2
+msgctxt "Pattern title"
+msgid "section with heading and subtitle"
+msgstr ""
 
 #: inc/comments.php:44
 msgid "Pingback:"

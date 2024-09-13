@@ -23,4 +23,5 @@
 
 <!-- bs TOC -->
 <?php _e('No headings found.', 'bootscore'); ?>
+<?php _e('On this page', 'bootscore'); ?>
 <?php _e('Contents', 'bootscore'); ?>
