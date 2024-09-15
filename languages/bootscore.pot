@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: _s 1.0.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/tags/_s\n"
-"POT-Creation-Date: 2024-09-13 09:16+0000\n"
+"POT-Creation-Date: 2024-09-15 08:25+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -330,10 +330,6 @@ msgstr ""
 msgid "Older Comments"
 msgstr ""
 
-#: languages/plugin-translations.php:26
-msgid "On this page"
-msgstr ""
-
 #: sidebar.php:25
 msgid "Open side menu"
 msgstr ""
@@ -541,6 +537,10 @@ msgstr ""
 
 #: inc/template-tags.php:222
 msgid "Tagged"
+msgstr ""
+
+#: languages/plugin-translations.php:26
+msgid "Toggle table of contents"
 msgstr ""
 
 #: languages/plugin-translations.php:16

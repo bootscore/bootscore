@@ -8,9 +8,9 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2024-09-13 09:17+0000\n"
+"PO-Revision-Date: 2024-09-15 08:26+0000\n"
 "Last-Translator: \n"
-"Language-Team: German\n"
+"Language-Team: Deutsch\n"
 "X-Generator: Loco https://localise.biz/\n"
 "Language: de_DE\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
@@ -336,10 +336,6 @@ msgstr "Nichts gefunden für"
 msgid "Older Comments"
 msgstr "Ältere Kommentare"
 
-#: languages/plugin-translations.php:26
-msgid "On this page"
-msgstr "Inhaltsverzeichnis"
-
 #: sidebar.php:25
 msgid "Open side menu"
 msgstr "Seitenmenü öffnen"
@@ -554,6 +550,10 @@ msgstr "Senden"
 #: inc/template-tags.php:222
 msgid "Tagged"
 msgstr "Schlagworte"
+
+#: languages/plugin-translations.php:26
+msgid "Toggle table of contents"
+msgstr "Inhaltsverzeichnis ein-/ausblenden"
 
 #: languages/plugin-translations.php:16
 msgid "Toggle theme"
