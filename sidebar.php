@@ -6,7 +6,7 @@
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
  * @package Bootscore
- * @version 6.0.0
+ * @version 6.1.0
  */
 
 
@@ -22,7 +22,7 @@ if (!is_active_sidebar('sidebar-1')) {
   <aside id="secondary" class="widget-area">
 
     <button class="<?= apply_filters('bootscore/class/sidebar/button', 'd-lg-none btn btn-outline-primary w-100 mb-4 d-flex justify-content-between align-items-center'); ?>" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebar" aria-controls="sidebar">
-      <?php esc_html_e('Open side menu', 'bootscore'); ?> <i class="fa-solid fa-ellipsis-vertical"></i>
+      <?= apply_filters('bootscore/offcanvas/sidebar/title', __('Open side menu', 'bootscore')); ?> <i class="fa-solid fa-ellipsis-vertical"></i>
     </button>
 
     <div class="<?= apply_filters('bootscore/class/sidebar/offcanvas', 'offcanvas-lg offcanvas-end'); ?>" tabindex="-1" id="sidebar" aria-labelledby="sidebarLabel">
