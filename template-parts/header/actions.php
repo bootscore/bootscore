@@ -25,7 +25,7 @@ defined('ABSPATH') || exit;
 
 <!-- Search toggler mobile -->
 <?php if (is_active_sidebar('top-nav-search')) : ?>
-  <button class="<?= apply_filters('bootscore/class/header/button', 'btn btn-outline-secondary', 'search-toggler'); ?> d-<?= apply_filters('bootscore/class/header/search/breakpoint', 'lg'); ?>-none ms-1 ms-md-2 search-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-search" aria-expanded="false" aria-controls="collapse-search">
+  <button class="<?= apply_filters('bootscore/class/header/button', 'btn btn-outline-secondary', 'search-toggler'); ?> d-<?= apply_filters('bootscore/class/header/search/breakpoint', 'lg'); ?>-none <?= apply_filters('bootscore/class/header/button/spacer', 'ms-1 ms-md-2', 'search-toggler'); ?> search-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-search" aria-expanded="false" aria-controls="collapse-search">
     <?= apply_filters('bootscore/header/search-toggler/icon', '<i class="fa-solid fa-magnifying-glass"></i>'); ?> <span class="visually-hidden-focusable">Search</span>
   </button>
 <?php endif; ?>
