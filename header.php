@@ -69,7 +69,7 @@ defined('ABSPATH') || exit;
           </div>
         </div>
 
-        <div class="header-actions d-flex align-items-center">
+        <div class="header-actions <?= apply_filters('bootscore/class/header-actions', 'd-flex align-items-center'); ?>">
 
           <!-- Top Nav Widget -->
           <?php if (is_active_sidebar('top-nav')) : ?>
