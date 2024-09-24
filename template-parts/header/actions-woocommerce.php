@@ -52,7 +52,7 @@ if ( is_cart() ) {
   }
 
   ?>
-  <a class="<?= apply_filters('bootscore/class/header/button', 'btn btn-outline-secondary', 'back-to-cart'); ?> <?= apply_filters('bootscore/class/header/button/spacer', 'ms-1 ms-md-2', 'back-to-cart'); ?> back-to-cart" href="<?= esc_url($back_to_cart_url); ?>">
+  <a class="<?= apply_filters('bootscore/class/header/button', 'btn btn-outline-secondary', 'back-to-cart'); ?> <?= apply_filters('bootscore/class/header/button/spacer', 'ms-1 ms-md-2', 'cart-toggler'); ?> back-to-cart" href="<?= esc_url($back_to_cart_url); ?>">
     <?= apply_filters('bootscore/icon/arrow-left', '<i class="fa-solid fa-arrow-left d-none d-md-inline me-2"></i>'); ?><?= apply_filters('bootscore/icon/cart', '<i class="fa-solid fa-bag-shopping"></i>'); ?><span class="visually-hidden-focusable">Return to <?= ($back_to_cart_url == wc_get_cart_url()) ? 'Cart' : 'Shop'; ?></span>
   </a>
 <?php } else { ?>
