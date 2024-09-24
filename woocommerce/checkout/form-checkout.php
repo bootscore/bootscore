@@ -13,7 +13,7 @@
  *
  * @see https://docs.woocommerce.com/document/template-structure/
  * @package WooCommerce\Templates
- * @version 3.5.0
+ * @version 9.4.0
  */
 
 if (!defined('ABSPATH')) {
@@ -30,8 +30,8 @@ if (!$checkout->is_registration_enabled() && $checkout->is_registration_required
 
 ?>
 
-<form name="checkout" method="post" class="row checkout woocommerce-checkout" action="<?php echo esc_url(wc_get_checkout_url()); ?>" enctype="multipart/form-data">
-
+<form name="checkout" method="post" class="row checkout woocommerce-checkout" action="<?php echo esc_url( wc_get_checkout_url() ); ?>" enctype="multipart/form-data" aria-label="<?php echo esc_attr__( 'Checkout', 'woocommerce' ); ?>">
+  
   <?php if ($checkout->get_checkout_fields()) : ?>
 
     <div class="col-lg-7 mb-4" id="customer_details">
