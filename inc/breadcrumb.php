@@ -19,8 +19,8 @@ if (!function_exists('the_breadcrumb')) :
   function the_breadcrumb() {
 
     if (!is_home()) {
-      echo '<nav aria-label="breadcrumb" class="overflow-x-auto text-nowrap mb-4 mt-2 py-2 px-3 bg-body-tertiary rounded">';
-      echo '<ol class="breadcrumb flex-nowrap mb-0">';
+      echo '<nav aria-label="breadcrumb" class="' . apply_filters('bootscore/class/breadcrumb/nav', 'overflow-x-auto text-nowrap mb-4 mt-2 py-2 px-3 bg-body-tertiary rounded') . '">';
+      echo '<ol class="breadcrumb ' . apply_filters('bootscore/class/breadcrumb/ol', 'flex-nowrap mb-0') . '">';
       echo '<li class="breadcrumb-item"><a href="' . home_url() . '">' . '' . apply_filters('bootscore/icon/home', '<i class="fa-solid fa-house"></i>') . '<span class="visually-hidden">' . __('Home', 'bootscore') . '</span>' . '</a></li>';
       // display parent category names with links
       if (is_category() || is_single()) {
