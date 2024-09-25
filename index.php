@@ -11,7 +11,7 @@
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
  * @package Bootscore
- * @version 6.0.0
+ * @version 6.1.0
  */
 
 // Exit if accessed directly
@@ -64,7 +64,7 @@ get_header();
                                 <?php bootscore_category_badge(); ?>
                               </div>
                               <div class="col-2 text-end">
-                                <span class="badge text-bg-danger"><i class="fa-solid fa-star"></i></span>
+                                <span class="badge text-bg-danger"><?= apply_filters('bootscore/icon/star', '<i class="fa-solid fa-star"></i>'); ?></span>
                               </div>
                             </div>
 
