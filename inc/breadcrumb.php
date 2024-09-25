@@ -21,13 +21,13 @@ if (!function_exists('the_breadcrumb')) :
     if (!is_home()) {
       echo '<nav aria-label="breadcrumb" class="' . apply_filters('bootscore/class/breadcrumb/nav', 'overflow-x-auto text-nowrap mb-4 mt-2 py-2 px-3 bg-body-tertiary rounded') . '">';
       echo '<ol class="breadcrumb ' . apply_filters('bootscore/class/breadcrumb/ol', 'flex-nowrap mb-0') . '">';
-      echo '<li class="breadcrumb-item"><a href="' . home_url() . '">' . '' . apply_filters('bootscore/icon/home', '<i class="fa-solid fa-house"></i>') . '<span class="visually-hidden">' . __('Home', 'bootscore') . '</span>' . '</a></li>';
+      echo '<li class="breadcrumb-item"><a class="' . apply_filters('bootscore/class/breadcrumb/item/link', '') . '" href="' . home_url() . '">' . '' . apply_filters('bootscore/icon/home', '<i class="fa-solid fa-house"></i>') . '<span class="visually-hidden">' . __('Home', 'bootscore') . '</span>' . '</a></li>';
       // display parent category names with links
       if (is_category() || is_single()) {
         $cat_IDs = wp_get_post_categories(get_the_ID());
         foreach ($cat_IDs as $cat_ID) {
           $cat = get_category($cat_ID);
-          echo '<li class="breadcrumb-item"><a href="' . get_term_link($cat->term_id) . '">' . $cat->name . '</a></li>';
+          echo '<li class="breadcrumb-item"><a class="' . apply_filters('bootscore/class/breadcrumb/item/link', '') . '" href="' . get_term_link($cat->term_id) . '">' . $cat->name . '</a></li>';
         }
       }
       // display current page name
