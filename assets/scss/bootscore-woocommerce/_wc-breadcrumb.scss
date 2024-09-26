@@ -43,3 +43,16 @@ WooCommerce Breadcrumb
   }
 }
 */
+
+
+.wc-breadcrumb {
+
+  // Additional code for wc breadcrumbs, 
+  // as the wc breadcrumb function does not allow for custom 
+  // class for last child
+  .breadcrumb-item:last-child {
+    color: var(--#{$prefix}breadcrumb-item-active-color);
+    padding-right: $spacer;
+  }
+
+}
