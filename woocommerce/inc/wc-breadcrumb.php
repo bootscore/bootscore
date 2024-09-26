@@ -21,12 +21,12 @@ if (!function_exists('bs_woocommerce_breadcrumbs')) :
     return array(
       'delimiter'   => '',
       'wrap_before' => "<nav aria-label='breadcrumb' class='" . apply_filters('bootscore/class/breadcrumb/nav', 'overflow-x-auto text-nowrap mb-4 mt-2 py-2 px-3 bg-body-tertiary rounded') . "'>
-      <ol class='breadcrumb " . apply_filters('bootscore/class/breadcrumb/ol', 'flex-nowrap mb-0') . "'>",
-      'wrap_after'  => '</ol>
-      </nav>',
+      <ol class='breadcrumb " . apply_filters('bootscore/class/breadcrumb/ol', 'flex-nowrap mb-0') . "'>
+      <li class='breadcrumb-item'><a class='" . apply_filters('bootscore/class/breadcrumb/item/link', 'test') . "' href='" . esc_url(home_url()) . "'>" . apply_filters('bootscore/icon/home', '<i class="fa-solid fa-house"></i>') . "</a></li>", // Use the filter for home icon
+      'wrap_after'  => '</ol></nav>',
       'before'      => '<li class="breadcrumb-item">',
       'after'       => '</li>',
-      'home'        => _x('Home', 'breadcrumb', 'woocommerce'),
+      'home'        => '', // Leave the home value empty
     );
   }
 endif;
