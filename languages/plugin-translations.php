@@ -23,5 +23,4 @@
 
 <!-- bs TOC -->
 <?php _e('No headings found.', 'bootscore'); ?>
-<?php _e('Toggle table of contents', 'bootscore'); ?>
 <?php _e('Contents', 'bootscore'); ?>
