@@ -36,13 +36,19 @@ defined('ABSPATH') || exit;
   <!-- Top Bar Widget -->
   <?php if (is_active_sidebar('top-bar')) : ?>
     <?php dynamic_sidebar('top-bar'); ?>
-  <?php endif; ?>  
+  <?php endif; ?>
+  
+  <?php do_action( 'bootscore_before_masthead' ); ?>
 
   <header id="masthead" class="<?= apply_filters('bootscore/class/header', 'sticky-top bg-body-tertiary'); ?> site-header">
 
+    <?php do_action( 'bootscore_after_masthead_open' ); ?>
+    
     <nav id="nav-main" class="navbar <?= apply_filters('bootscore/class/header/navbar/breakpoint', 'navbar-expand-lg'); ?>">
 
       <div class="<?= apply_filters('bootscore/class/container', 'container', 'header'); ?>">
+        
+        <?php do_action( 'bootscore_before_navbar_brand' ); ?>
         
         <!-- Navbar Brand -->
         <a class="<?= apply_filters('bootscore/class/header/navbar-brand', 'navbar-brand'); ?>" href="<?= esc_url(home_url()); ?>">
@@ -110,4 +116,8 @@ defined('ABSPATH') || exit;
     endif;
     ?>
 
+    <?php do_action( 'bootscore_before_masthead_close' ); ?>
+    
   </header><!-- #masthead -->
+  
+  <?php do_action( 'bootscore_after_masthead' ); ?>
