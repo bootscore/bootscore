@@ -21,7 +21,7 @@ defined('ABSPATH') || exit;
 if ( is_account_page() || is_checkout() ) {
  // Do nothing
 } else { ?>
-<div class="offcanvas offcanvas-<?= apply_filters('bootscore/class/header/offcanvas/direction', 'start', 'account'); ?>" tabindex="-1" id="offcanvas-user">
+<div class="offcanvas offcanvas-<?= apply_filters('bootscore/class/header/offcanvas/direction', 'end', 'account'); ?>" tabindex="-1" id="offcanvas-user">
   <div class="offcanvas-header">
     <span class="h5 offcanvas-title"><?= apply_filters('bootscore/offcanvas/user/title', __('Account', 'bootscore')); ?></span>
     <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
