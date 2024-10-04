@@ -28,7 +28,12 @@ defined('ABSPATH') || exit;
   <?php endif; ?>
   
   <div class="<?= apply_filters('bootscore/class/footer/columns', 'bg-body-tertiary pt-5 pb-4'); ?> bootscore-footer-columns">
+    
+    <?php do_action( 'bootscore_footer_columns_before_container' ); ?>
+    
     <div class="<?= apply_filters('bootscore/class/container', 'container', 'footer-columns'); ?>">  
+      
+      <?php do_action( 'bootscore_footer_columns_after_container_open' ); ?>
 
       <div class="row">
 
@@ -57,15 +62,25 @@ defined('ABSPATH') || exit;
         </div>
 
       </div>
+      
+      <?php do_action( 'bootscore_footer_columns_before_footer_menu' ); ?>
 
       <!-- Bootstrap 5 Nav Walker Footer Menu -->
       <?php get_template_part('template-parts/footer/footer-menu'); ?>
 
+      <?php do_action( 'bootscore_footer_columns_before_container_close' ); ?>
+      
     </div>
+    
+    <?php do_action( 'bootscore_footer_columns_after_container' ); ?>
+    
   </div>
 
   <div class="<?= apply_filters('bootscore/class/footer/info', 'bg-body-tertiary text-body-secondary border-top py-2 text-center'); ?> bootscore-footer-info">
     <div class="<?= apply_filters('bootscore/class/container', 'container', 'footer-info'); ?>">
+      
+      <?php do_action( 'bootscore_footer_info_after_container_open' ); ?>
+      
       <?php if (is_active_sidebar('footer-info')) : ?>
         <?php dynamic_sidebar('footer-info'); ?>
       <?php endif; ?>
