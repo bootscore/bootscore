@@ -21,7 +21,7 @@ defined('ABSPATH') || exit;
 if ( is_account_page() || is_checkout() ) {
  // Do nothing
 } else { ?>
-<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvas-user">
+<div class="offcanvas offcanvas-<?= apply_filters('bootscore/class/header/offcanvas/direction', 'start', 'account'); ?>" tabindex="-1" id="offcanvas-user">
   <div class="offcanvas-header">
     <span class="h5 offcanvas-title"><?= apply_filters('bootscore/offcanvas/user/title', __('Account', 'bootscore')); ?></span>
     <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -39,7 +39,7 @@ if ( is_account_page() || is_checkout() ) {
 if ( is_checkout() || is_cart() ) {
  // Do nothing
 } else { ?>
-  <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvas-cart">
+  <div class="offcanvas offcanvas-<?= apply_filters('bootscore/class/header/offcanvas/direction', 'end', 'cart'); ?>" tabindex="-1" id="offcanvas-cart">
     <div class="offcanvas-header">
       <span class="h5 offcanvas-title"><?= apply_filters('bootscore/offcanvas/cart/title', __('Cart', 'bootscore')); ?></span>
       <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>

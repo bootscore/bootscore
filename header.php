@@ -57,7 +57,7 @@ defined('ABSPATH') || exit;
         </a>  
 
         <!-- Offcanvas Navbar -->
-        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvas-navbar">
+        <div class="offcanvas offcanvas-<?= apply_filters('bootscore/class/header/offcanvas/direction', 'end', 'menu'); ?>" tabindex="-1" id="offcanvas-navbar">
           <div class="offcanvas-header">
             <span class="h5 offcanvas-title"><?= apply_filters('bootscore/offcanvas/navbar/title', __('Menu', 'bootscore')); ?></span>
             <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
