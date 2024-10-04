@@ -130,7 +130,7 @@ do_action('woocommerce_before_mini_cart'); ?>
     ?>
   </div>
 
-  <div class="cart-footer bg-body-tertiary p-3">
+  <div class="cart-footer <?= apply_filters('bootscore/class/cart/footer', 'bg-body-tertiary p-3'); ?>">
 
     <div class="woocommerce-mini-cart__total total h5 d-flex justify-content-between">
       <?php
