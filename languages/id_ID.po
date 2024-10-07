@@ -1,147 +1,106 @@
 # Copyright (C) 2017 Automattic
 # This file is distributed under the GNU General Public License v2 or later.
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: _s 1.0.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/tags/_s\n"
-"POT-Creation-Date: 2024-09-15 08:25+0000\n"
+"POT-Creation-Date: 2024-06-06 18:26+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2024-10-06 01:38+0000\n"
 "Last-Translator: \n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language-Team: Bahasa Indonesia\n"
 "X-Generator: Loco https://localise.biz/\n"
-"Language: \n"
-"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;"
+"Language: id_ID\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Loco-Version: 2.6.11; wp-6.6.2"
 
 #: woocommerce/inc/ajax-cart.php:539
 msgid " for this product"
-msgstr ""
+msgstr "untuk produk ini"
 
 #: inc/comments.php:61
 #, php-format
 msgid "%s <span class=\"says d-none\">says:</span>"
-msgstr ""
+msgstr "%s <span class=\"says d-none\">menulis:</span>"
 
 #. used between list items, there is a space after the comma
 #: inc/template-tags.php:49
 msgid ", "
-msgstr ""
+msgstr ","
 
 #: languages/plugin-translations.php:11
 msgid "/privacy-policy"
-msgstr ""
+msgstr "/kebijakan-privasi"
 
 #: inc/comments.php:66
 #, php-format
 msgctxt "1: date, 2: time"
 msgid "%1$s at %2$s"
-msgstr ""
+msgstr "%1$s pada %2$s"
 
 #: inc/widgets.php:148
 msgid "404 Page"
-msgstr ""
+msgstr "Halaman 404"
 
 #: languages/plugin-translations.php:13
 msgid "Accept"
-msgstr ""
+msgstr "Terima"
 
 #: template-parts/header/offcanvas-woocommerce.php:26
 msgid "Account"
-msgstr ""
+msgstr "Akun"
 
 #: inc/widgets.php:28 inc/widgets.php:39 inc/widgets.php:51 inc/widgets.php:62
 #: inc/widgets.php:73 inc/widgets.php:84 inc/widgets.php:95 inc/widgets.php:106
 #: inc/widgets.php:117 inc/widgets.php:128 inc/widgets.php:139
 #: inc/widgets.php:150
 msgid "Add widgets here."
-msgstr ""
+msgstr "Tambahkan widget disini."
 
 #: languages/plugin-translations.php:3
 msgid "All"
-msgstr ""
+msgstr "Semua"
 
 #: languages/plugin-translations.php:19
 msgid "Auto"
-msgstr ""
+msgstr "Otomatis"
 
 #: 404.php:32
 msgid "Back Home &raquo;"
-msgstr ""
+msgstr "Ke Beranda &raquo;"
 
 #. Name of the template
 #: page-templates/page-blank.php:3
 msgid "Blank"
-msgstr ""
+msgstr "Kosong"
 
 #. Name of the template
 #: page-templates/page-blank-container.php:3
 msgid "Blank with container"
-msgstr ""
+msgstr "Kosong dengan kontainer"
 
 #. Name of the theme
 #. Author of the theme
-#: inc/theme-setup.php:84
 msgid "Bootscore"
-msgstr ""
+msgstr "Bootscore"
 
 #: comments.php:107
 msgid "Cancel"
-msgstr ""
+msgstr "Batalkan"
 
 #: template-parts/header/offcanvas-woocommerce.php:44
 msgid "Cart"
-msgstr ""
-
-#: theme.json:1
-msgctxt "Color name"
-msgid "Danger"
-msgstr ""
-
-#: theme.json:1
-msgctxt "Color name"
-msgid "Dark"
-msgstr ""
-
-#: theme.json:1
-msgctxt "Color name"
-msgid "Info"
-msgstr ""
-
-#: theme.json:1
-msgctxt "Color name"
-msgid "Light"
-msgstr ""
-
-#: theme.json:1
-msgctxt "Color name"
-msgid "Primary"
-msgstr ""
-
-#: theme.json:1
-msgctxt "Color name"
-msgid "Secondary"
-msgstr ""
-
-#: theme.json:1
-msgctxt "Color name"
-msgid "Success"
-msgstr ""
-
-#: theme.json:1
-msgctxt "Color name"
-msgid "Warning"
-msgstr ""
+msgstr "Keranjang"
 
 #: comments.php:61 comments.php:81
 msgid "Comment navigation"
-msgstr ""
+msgstr "Navigasi komentar"
 
 #: comments.php:98
 msgid "Comments are closed."
-msgstr ""
+msgstr "Komentar ditutup."
 
 #. 1: number of comments, 2: post title
 #: comments.php:43
@@ -149,46 +108,47 @@ msgstr ""
 msgctxt "comments title"
 msgid "%1$s Comment on &ldquo;%2$s&rdquo;"
 msgid_plural "%1$s Comments on &ldquo;%2$s&rdquo;"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1$s Komentar di &ldquo;%2$s&rdquo;"
 
 #. %s: post title
 #: comments.php:39
 #, php-format
 msgctxt "comments title"
 msgid "One Comment &ldquo;%s&rdquo;"
-msgstr ""
+msgstr "Satu Komentar &ldquo;%s&rdquo;"
 
-#: languages/plugin-translations.php:27
+#: languages/plugin-translations.php:26
 msgid "Contents"
-msgstr ""
+msgstr "Konten"
 
 #: languages/plugin-translations.php:10
 msgid ""
 "Cookies help us deliver our services. By using our services, you agree to "
 "our use of cookies."
 msgstr ""
+"Cookie membantu kami menjalankan layanan kami. Dengan menggunakan layanan "
+"kami, Anda menyetujui penggunaan cookie oleh kami."
 
 #: inc/pagination.php:49
 msgid "Current Page"
-msgstr ""
+msgstr "Halaman Saat Ini"
 
 #: languages/plugin-translations.php:18
 msgid "Dark"
-msgstr ""
+msgstr "Gelap"
 
 #. %s: Name of current post. Only visible to screen readers
 #: inc/comments.php:44 inc/comments.php:68 inc/template-tags.php:170
 msgid "Edit"
-msgstr ""
+msgstr "Sunting"
 
 #: comments.php:130 woocommerce/single-product-reviews.php:96
 msgid "Email* (will not be published)"
-msgstr ""
+msgstr "Email* (tidak akan dipublikasikan)"
 
 #: inc/pagination.php:40
 msgid "First Page"
-msgstr ""
+msgstr "Halaman Pertama"
 
 #. Description of the theme
 msgid ""
@@ -196,291 +156,191 @@ msgid ""
 "WooCommerce support. <a href=\"https://bootscore."
 "me/category/documentation/\">Documentation</a>"
 msgstr ""
+"Tema starter WordPress Bootstrap yang fleksibel untuk pengembang dengan "
+"dukungan penuh WooCommerce. <a href=\"https://bootscore."
+"me/category/documentation/\">Dokumentasi</a>"
 
 #: inc/widgets.php:93
 msgid "Footer 1"
-msgstr ""
+msgstr "Footer 1"
 
 #: inc/widgets.php:104
 msgid "Footer 2"
-msgstr ""
+msgstr "Footer 2"
 
 #: inc/widgets.php:115
 msgid "Footer 3"
-msgstr ""
+msgstr "Footer 3"
 
 #: inc/widgets.php:126
 msgid "Footer 4"
-msgstr ""
+msgstr "Footer 4"
 
 #: inc/widgets.php:137
 msgid "Footer Info"
-msgstr ""
+msgstr "Footer info"
 
 #: inc/widgets.php:82
 msgid "Footer Top"
-msgstr ""
+msgstr "Footer atas"
 
 #. Name of the template
 #: page-templates/page-full-width-image.php:3
 msgid "Full Width Image"
-msgstr ""
+msgstr "Gambar Lebar Penuh"
 
 #. Name of the template
 #: single-templates/single-full-width-image.php:2
 msgid "Full width image"
-msgstr ""
+msgstr "Gambar lebar penuh"
 
 #: inc/breadcrumb.php:24
 msgid "Home"
-msgstr ""
+msgstr "Beranda"
 
 #. Author URI of the theme
 msgid "https://bootscore.me"
-msgstr ""
+msgstr "https://bootscore.me"
 
 #. URI of the theme
 msgid "https://bootscore.me/"
-msgstr ""
+msgstr "https://bootscore.me/"
 
 #: woocommerce/inc/ajax-cart.php:573
 msgid "Invalid key or number"
-msgstr ""
+msgstr "Kunci atau nomor tidak valid"
 
 #: template-parts/search/content-none.php:51
 msgid ""
 "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
 "searching can help."
 msgstr ""
+"Sepertinya kami tidak dapat menemukan apa yang Anda cari. Mungkin pencarian "
+"dapat membantu."
 
 #: inc/pagination.php:58
 msgid "Last Page"
-msgstr ""
+msgstr "Halaman terakhir"
 
 #. %s: post title
 #: comments.php:105 inc/template-tags.php:141
 msgid "Leave a Comment"
-msgstr ""
+msgstr "Tinggalkan komentar"
 
 #: inc/template-tags.php:199
 msgid "Leave a comment"
-msgstr ""
+msgstr "Tinggalkan komentar"
 
 #: comments.php:106
 #, php-format
 msgid "Leave a Comment to %s"
-msgstr ""
+msgstr "Tinggalkan komentar untuk %s"
 
 #. Name of the template
 #: page-templates/page-sidebar-left.php:3
 msgid "Left Sidebar"
-msgstr ""
+msgstr "Bilah Sisi Kiri"
 
 #: languages/plugin-translations.php:17
 msgid "Light"
-msgstr ""
+msgstr "Terang"
 
 #: languages/plugin-translations.php:7
 msgid "Look what I found: "
-msgstr ""
+msgstr "Lihat apa yang saya temukan:"
 
 #: header.php:56
 msgid "Menu"
-msgstr ""
+msgstr "Menu"
 
 #: languages/plugin-translations.php:12
 msgid "More Information"
-msgstr ""
+msgstr "Informasi selengkapnya"
 
 #: comments.php:127 woocommerce/single-product-reviews.php:90
 msgid "Name*"
-msgstr ""
+msgstr "Nama*"
 
 #: comments.php:65 comments.php:85
 msgid "Newer Comments"
-msgstr ""
+msgstr "Komentar Terbaru"
 
 #: inc/pagination.php:54
 msgid "Next Page"
-msgstr ""
+msgstr "Halaman Selanjutnya"
 
 #: languages/plugin-translations.php:25
 msgid "No headings found."
-msgstr ""
+msgstr "Tidak ada heading yang ditemukan."
 
 #. Name of the template
 #: page-templates/page-sidebar-none.php:3
 #: single-templates/single-sidebar-none.php:2
 msgid "No Sidebar"
-msgstr ""
+msgstr "Tanpa Bilah Sisi"
 
 #: woocommerce/inc/ajax-cart.php:549
 msgid "Nonce verification failed"
-msgstr ""
+msgstr "Verifikasi nonce gagal"
 
 #: languages/plugin-translations.php:4
 msgid "Nothing found"
-msgstr ""
+msgstr "Tidak ditemukan"
 
 #: template-parts/search/content-none.php:22
 msgid "Nothing Found for"
-msgstr ""
+msgstr "Tidak Ditemukan untuk"
 
 #: comments.php:64 comments.php:84
 msgid "Older Comments"
-msgstr ""
+msgstr "Komentar Lama"
 
 #: sidebar.php:25
 msgid "Open side menu"
-msgstr ""
+msgstr "Buka menu samping"
 
 #: inc/pagination.php:49
 msgid "Page"
-msgstr ""
+msgstr "Halaman"
 
 #: inc/pagination.php:36
 msgid "Page navigation"
-msgstr ""
+msgstr "Navigasi halaman"
 
 #: 404.php:27
 msgid "Page not found."
-msgstr ""
+msgstr "Halaman tidak ditemukan."
 
 #: inc/password-protected-form.php:22
 msgid "Password"
-msgstr ""
-
-#: patterns/alert-danger.php:2
-msgctxt "Pattern title"
-msgid "alert-danger with icon and dismiss button"
-msgstr ""
-
-#: patterns/alert-info.php:2
-msgctxt "Pattern title"
-msgid "alert-info"
-msgstr ""
-
-#: patterns/btn-danger-lg.php:2
-msgctxt "Pattern title"
-msgid "btn-danger-lg"
-msgstr ""
-
-#: patterns/btn-outline-secondary-sm.php:2
-msgctxt "Pattern title"
-msgid "btn-outline-secondary-sm"
-msgstr ""
-
-#: patterns/btn-primary.php:2
-msgctxt "Pattern title"
-msgid "btn-primary"
-msgstr ""
-
-#: patterns/card-advanced.php:2
-msgctxt "Pattern title"
-msgid "card advanced"
-msgstr ""
-
-#: patterns/card-basic.php:2
-msgctxt "Pattern title"
-msgid "card basic"
-msgstr ""
-
-#: patterns/card-categories.php:2
-msgctxt "Pattern title"
-msgid "card categories"
-msgstr ""
-
-#: patterns/cards-pricing.php:2
-msgctxt "Pattern title"
-msgid "cards pricing"
-msgstr ""
-
-#: patterns/container.php:2
-msgctxt "Pattern title"
-msgid "container"
-msgstr ""
-
-#: patterns/grid-col-3.php:2
-msgctxt "Pattern title"
-msgid "Grid 3/3/3/3"
-msgstr ""
-
-#: patterns/grid-col-4-col-8.php:2
-msgctxt "Pattern title"
-msgid "Grid 4/8"
-msgstr ""
-
-#: patterns/grid-col-6.php:2
-msgctxt "Pattern title"
-msgid "Grid 6/6"
-msgstr ""
-
-#: patterns/grid-col-8-col-4.php:2
-msgctxt "Pattern title"
-msgid "Grid 8/4"
-msgstr ""
-
-#: patterns/hero-img-left.php:2
-msgctxt "Pattern title"
-msgid "hero img left"
-msgstr ""
-
-#: patterns/hero-img-right.php:2
-msgctxt "Pattern title"
-msgid "hero img right"
-msgstr ""
-
-#: patterns/hero-jumbotron.php:2
-msgctxt "Pattern title"
-msgid "Hero jumbotron"
-msgstr ""
-
-#: patterns/section-hero-img-left.php:2
-msgctxt "Pattern title"
-msgid "section hero image left"
-msgstr ""
-
-#: patterns/section-hero-img-right.php:2
-msgctxt "Pattern title"
-msgid "section hero image right"
-msgstr ""
-
-#: patterns/section-hero-jumbotron.php:2
-msgctxt "Pattern title"
-msgid "section hero jumbotron"
-msgstr ""
-
-#: patterns/section-heading-subtitle.php:2
-msgctxt "Pattern title"
-msgid "section with heading and subtitle"
-msgstr ""
+msgstr "Kata sandi"
 
 #: inc/comments.php:44
 msgid "Pingback:"
-msgstr ""
+msgstr "Ping balik"
 
 #: inc/template-tags.php:116
 #, php-format
 msgctxt "post author"
 msgid "by %s"
-msgstr ""
+msgstr "oleh %s"
 
 #: comments.php:108
 msgid "Post Comment"
-msgstr ""
+msgstr "Kirim Komentar"
 
 #: inc/pagination.php:44
 msgid "Previous Page"
-msgstr ""
+msgstr "Halaman Sebelumnya"
 
 #: woocommerce/inc/ajax-cart.php:565
 msgid "Quantity updated successfully"
-msgstr ""
+msgstr "Kuantitas berhasil diperbarui"
 
 #: archive.php:73 index.php:94 index.php:165
 #: template-parts/search/content-search.php:60
 msgid "Read more »"
-msgstr ""
+msgstr "Baca selengkapnya »"
 
 #. 1: link to WP admin new post page.
 #: template-parts/search/content-none.php:33
@@ -488,93 +348,94 @@ msgstr ""
 msgid ""
 "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
 msgstr ""
+"Siap menerbitkan postingan pertama Anda? <a href=\"%1$s\">Mulai di sini</a>."
 
 #: inc/comments.php:122
 msgid ""
 "Save my name, email, and website in this browser for the next time I comment."
 msgstr ""
+"Simpan nama, email, dan situs web saya di browser ini untuk komentar saya "
+"berikutnya."
 
 #: searchform.php:3
 msgid "Search"
-msgstr ""
+msgstr "Cari"
 
 #. %s: search query.
 #: search.php:31
 #, php-format
 msgid "Search Results for: %s"
-msgstr ""
+msgstr "Hasil Pencarian untuk: %s"
 
 #: woocommerce/loop/orderby.php:28
 msgid "Shop order"
-msgstr ""
+msgstr "Pesanan toko"
 
 #: sidebar.php:30 inc/widgets.php:71
 msgid "Sidebar"
-msgstr ""
+msgstr "Bilah sisi"
 
 #. Name of the template
 #: single-templates/single-sidebar-left.php:2
 msgid "Sidebar left"
-msgstr ""
+msgstr "Bilah Sisi Kiri"
 
 #: header.php:34
 msgid "Skip to content"
-msgstr ""
+msgstr "Loncat ke konten"
 
 #: template-parts/search/content-none.php:45
 msgid ""
 "Sorry, but nothing matched your search terms. Please try again with some "
 "different keywords."
 msgstr ""
+"Maaf, tidak ada yang cocok dengan kata kunci pencarian Anda. Silakan coba "
+"lagi dengan kata kunci yang berbeda."
 
 #: comments.php:110
 msgid "Start typing..."
-msgstr ""
+msgstr "Mulai mengetik..."
 
 #: inc/password-protected-form.php:23
 msgid "Submit"
-msgstr ""
+msgstr "Kirim"
 
 #: inc/template-tags.php:222
 msgid "Tagged"
-msgstr ""
-
-#: languages/plugin-translations.php:26
-msgid "Toggle table of contents"
-msgstr ""
+msgstr "Tag:"
 
 #: languages/plugin-translations.php:16
 msgid "Toggle theme"
-msgstr ""
+msgstr "Beralih tema"
 
 #: inc/widgets.php:26
 msgid "Top Bar"
-msgstr ""
+msgstr "Bar Atas"
 
 #: inc/widgets.php:37
 msgid "Top Nav"
-msgstr ""
+msgstr "Navigasi Atas"
 
 #: inc/widgets.php:49
 msgid "Top Nav 2"
-msgstr ""
+msgstr "Navigasi Atas 2"
 
 #: inc/widgets.php:60
 msgid "Top Nav Search"
-msgstr ""
+msgstr "Pencarian Navigasi Atas"
 
 #: comments.php:135
 msgid "Website"
-msgstr ""
+msgstr "situs web"
 
 #: languages/plugin-translations.php:22
 msgid "You might also like"
-msgstr ""
+msgstr "Anda mungkin juga suka"
 
 #: inc/comments.php:73
 msgid "Your comment is awaiting moderation."
-msgstr ""
+msgstr "Komentar Anda sedang menunggu moderasi."
 
 #: woocommerce/single-product-reviews.php:135
 msgid "Your review...*"
-msgstr ""
+msgstr "Ulasan Anda...*"
