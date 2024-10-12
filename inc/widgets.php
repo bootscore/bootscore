@@ -37,7 +37,7 @@ if (!function_exists('bootscore_widgets_init')) :
       'name'          => esc_html__('Top Nav', 'bootscore'),
       'id'            => 'top-nav',
       'description'   => esc_html__('Add widgets here.', 'bootscore'),
-      'before_widget' => '<div class="widget top-nav-widget ' . apply_filters('bootscore/class/header/top-nav-widget/spacer', 'ms-1 ms-md-2') . '">',
+      'before_widget' => '<div class="widget top-nav-widget ' . apply_filters('bootscore/class/header/action/spacer', 'ms-1 ms-md-2', 'top-nav-widget') . '">',
       'after_widget'  => '</div>',
       'before_title'  => '<div class="widget-title d-none">',
       'after_title'   => '</div>'
