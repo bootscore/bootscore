@@ -6,7 +6,7 @@
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
  * @package Bootscore
- * @version 6.0.0
+ * @version 6.1.0
  */
 
 
@@ -54,10 +54,10 @@ defined('ABSPATH') || exit;
               <?= strip_tags(get_the_excerpt()); ?>
             </a>
           </p>
-
+          
           <p class="card-text">
-            <a class="read-more" href="<?php the_permalink(); ?>">
-              <?php _e('Read more »', 'bootscore'); ?>
+            <a class="<?= apply_filters('bootscore/class/loop/read-more', 'read-more', 'content-search'); ?>" href="<?php the_permalink(); ?>">
+              <?= apply_filters('bootscore/loop/read-more/text', __('Read more »', 'bootscore', 'content-search')); ?>
             </a>
           </p>
 

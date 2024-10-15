@@ -92,8 +92,8 @@ get_header();
                             </p>
 
                             <p class="card-text">
-                              <a class="read-more" href="<?php the_permalink(); ?>">
-                                <?php _e('Read more »', 'bootscore'); ?>
+                              <a class="<?= apply_filters('bootscore/class/loop/read-more', 'read-more', 'index-sticky'); ?>" href="<?php the_permalink(); ?>">
+                                <?= apply_filters('bootscore/loop/read-more/text', __('Read more »', 'bootscore', 'index-sticky')); ?>
                               </a>
                             </p>
 
@@ -163,8 +163,8 @@ get_header();
                         </p>
 
                         <p class="card-text">
-                          <a class="read-more" href="<?php the_permalink(); ?>">
-                            <?php _e('Read more »', 'bootscore'); ?>
+                          <a class="<?= apply_filters('bootscore/class/loop/read-more', 'read-more', 'index'); ?>" href="<?php the_permalink(); ?>">
+                            <?= apply_filters('bootscore/loop/read-more/text', __('Read more »', 'bootscore', 'index')); ?>
                           </a>
                         </p>
 
