@@ -6,7 +6,7 @@
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
  * @package Bootscore
- * @version 6.0.0
+ * @version 6.1.0
  */
 
 // Exit if accessed directly
@@ -31,6 +31,8 @@ get_header();
 
         <div class="<?= apply_filters('bootscore/class/container', 'container', 'page-full-width-image'); ?> <?= apply_filters('bootscore/class/content/spacer', 'pb-5', 'page-full-width-image'); ?>">
 
+          <?php do_action( 'bootscore_before_breadcrumb' ); ?>
+          
           <div class="row">
             <div class="<?= apply_filters('bootscore/class/main/col', 'col'); ?>">
 

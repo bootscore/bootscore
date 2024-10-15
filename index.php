@@ -21,6 +21,8 @@ get_header();
 ?>
   <div id="content" class="site-content <?= apply_filters('bootscore/class/container', 'container', 'index'); ?> <?= apply_filters('bootscore/class/content/spacer', 'pt-4 pb-5', 'index'); ?>">
     <div id="primary" class="content-area">
+      
+      <?php do_action( 'bootscore_before_breadcrumb' ); ?>
 
       <main id="main" class="site-main">
 
