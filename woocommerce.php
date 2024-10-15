@@ -11,7 +11,7 @@
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
  * @package Bootscore
- * @version 6.0.0
+ * @version 6.1.0
  */
 
 // Exit if accessed directly
@@ -25,7 +25,10 @@ get_header();
 
       <main id="main" class="site-main">
 
+        <?php do_action( 'bootscore_before_breadcrumb' ); ?>
+
         <?php woocommerce_breadcrumb(); ?>
+
         <div class="row">
           <div class="<?= apply_filters('bootscore/class/main/col', 'col'); ?>">
             <?php woocommerce_content(); ?>
