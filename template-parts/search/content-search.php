@@ -18,13 +18,13 @@ defined('ABSPATH') || exit;
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-  <div class="card horizontal mb-4">
+  <div class="<?= apply_filters('bootscore/class/loop/card', 'card horizontal mb-4', 'content-search'); ?>">
     <div class="row g-0">
 
       <?php if (has_post_thumbnail()) : ?>
-        <div class="col-lg-6 col-xl-5 col-xxl-4">
+        <div class="<?= apply_filters('bootscore/class/loop/card/image/col', 'col-lg-6 col-xl-5 col-xxl-4', 'content-search'); ?>">
           <a href="<?php the_permalink(); ?>">
-            <?php the_post_thumbnail('medium', array('class' => 'card-img-lg-start')); ?>
+                                      <?php the_post_thumbnail('medium', array('class' => apply_filters('bootscore/class/loop/card/image', 'card-img-lg-start', 'content-search'))); ?>
           </a>
         </div>
       <?php endif; ?>

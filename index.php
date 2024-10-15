@@ -47,13 +47,13 @@ get_header();
                 while ($the_query->have_posts()) : $the_query->the_post(); ?>
                   <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-                    <div class="card horizontal mb-4">
+                    <div class="<?= apply_filters('bootscore/class/loop/card', 'card horizontal mb-4', 'index-sticky'); ?>">
                       <div class="row g-0">
 
                         <?php if (has_post_thumbnail()) : ?>
-                          <div class="col-lg-6 col-xl-5 col-xxl-4">
+                          <div class="<?= apply_filters('bootscore/class/loop/card/image/col', 'col-lg-6 col-xl-5 col-xxl-4', 'index-sticky'); ?>">
                             <a href="<?php the_permalink(); ?>">
-                              <?php the_post_thumbnail('medium', array('class' => 'card-img-lg-start')); ?>
+                              <?php the_post_thumbnail('medium', array('class' => apply_filters('bootscore/class/loop/card/image', 'card-img-lg-start', 'index-sticky'))); ?>
                             </a>
                           </div>
                         <?php endif; ?>
@@ -125,13 +125,13 @@ get_header();
                 <?php if (is_sticky()) continue; //ignore sticky posts
                 ?>
 
-                <div class="card horizontal mb-4">
+                <div class="<?= apply_filters('bootscore/class/loop/card', 'card horizontal mb-4', 'index'); ?>">
                   <div class="row g-0">
 
                     <?php if (has_post_thumbnail()) : ?>
-                      <div class="col-lg-6 col-xl-5 col-xxl-4">
+                      <div class="<?= apply_filters('bootscore/class/loop/card/image/col', 'col-lg-6 col-xl-5 col-xxl-4', 'index'); ?>">
                         <a href="<?php the_permalink(); ?>">
-                          <?php the_post_thumbnail('medium', array('class' => 'card-img-lg-start')); ?>
+                          <?php the_post_thumbnail('medium', array('class' => apply_filters('bootscore/class/loop/card/image', 'card-img-lg-start', 'index'))); ?>
                         </a>
                       </div>
                     <?php endif; ?>

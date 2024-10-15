@@ -33,13 +33,13 @@ get_header();
             <?php if (have_posts()) : ?>
               <?php while (have_posts()) : the_post(); ?>
 
-                <div class="card horizontal mb-4">
+                <div class="<?= apply_filters('bootscore/class/loop/card', 'card horizontal mb-4', 'archive'); ?>">
                   <div class="row g-0">
 
                     <?php if (has_post_thumbnail()) : ?>
-                      <div class="col-lg-6 col-xl-5 col-xxl-4">
+                      <div class="<?= apply_filters('bootscore/class/loop/card/image/col', 'col-lg-6 col-xl-5 col-xxl-4', 'archive'); ?>">
                         <a href="<?php the_permalink(); ?>">
-                          <?php the_post_thumbnail('medium', array('class' => 'card-img-lg-start')); ?>
+                          <?php the_post_thumbnail('medium', array('class' => apply_filters('bootscore/class/loop/card/image', 'card-img-lg-start', 'archive'))); ?>
                         </a>
                       </div>
                     <?php endif; ?>
