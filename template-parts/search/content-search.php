@@ -16,6 +16,8 @@ defined('ABSPATH') || exit;
 ?>
 
 
+<?php do_action( 'bootscore_before_loop_item' ); ?>
+
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
   <div class="<?= apply_filters('bootscore/class/loop/card', 'card horizontal mb-4', 'content-search'); ?>">
@@ -69,4 +71,7 @@ defined('ABSPATH') || exit;
   </div>
 
 </article>
+
+<?php do_action( 'bootscore_after_loop_item' ); ?>
+
 <!-- #post-<?php the_ID(); ?> -->

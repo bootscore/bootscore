@@ -119,11 +119,16 @@ get_header();
         <!-- Post List -->
         <div class="row">
           <div class="<?= apply_filters('bootscore/class/main/col', 'col'); ?>">
+            
+            <?php do_action( 'bootscore_before_loop' ); ?>
+            
             <!-- Grid Layout -->
             <?php if (have_posts()) : ?>
               <?php while (have_posts()) : the_post(); ?>
                 <?php if (is_sticky()) continue; //ignore sticky posts
                 ?>
+            
+                <?php do_action( 'bootscore_before_loop_item' ); ?>
 
                 <div class="<?= apply_filters('bootscore/class/loop/card', 'card horizontal mb-4', 'index'); ?>">
                   <div class="row g-0">
@@ -174,9 +179,13 @@ get_header();
                     </div>
                   </div>
                 </div>
+            
+                <?php do_action( 'bootscore_after_loop_item' ); ?>
 
               <?php endwhile; ?>
             <?php endif; ?>
+            
+            <?php do_action( 'bootscore_after_loop' ); ?>
 
             <div class="entry-footer">
               <?php bootscore_pagination(); ?>

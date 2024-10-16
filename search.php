@@ -34,11 +34,15 @@ get_header();
                   ?>
                 </h1>
               </div>
+            
+            <?php do_action( 'bootscore_before_loop' ); ?>
 
               <?php
               /* Start the Loop */
               while (have_posts()) :
                 the_post();
+            
+            //do_action( 'bootscore_before_loop' );
 
                 /**
                  * Run the loop for the search to output the results.
@@ -48,6 +52,8 @@ get_header();
                 get_template_part('template-parts/search/content', 'search');
 
               endwhile;
+            
+              do_action( 'bootscore_after_loop' );
 
               bootscore_pagination();
 
@@ -57,7 +63,7 @@ get_header();
 
             endif;
             ?>
-
+            
           </main><!-- #main -->
 
         </div><!-- col -->

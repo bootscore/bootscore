@@ -29,9 +29,13 @@ get_header();
               <?php the_archive_title('<h1>', '</h1>'); ?>
               <?php the_archive_description('<div class="archive-description">', '</div>'); ?>
             </div>
+            
+            <?php do_action( 'bootscore_before_loop' ); ?>
 
             <?php if (have_posts()) : ?>
               <?php while (have_posts()) : the_post(); ?>
+            
+              <?php do_action( 'bootscore_before_loop_item' ); ?>
 
                 <div class="<?= apply_filters('bootscore/class/loop/card', 'card horizontal mb-4', 'archive'); ?>">
                   <div class="row g-0">
@@ -82,9 +86,13 @@ get_header();
                     </div>
                   </div>
                 </div>
+            
+                <?php do_action( 'bootscore_after_loop_item' ); ?>
 
               <?php endwhile; ?>
             <?php endif; ?>
+            
+            <?php do_action( 'bootscore_after_loop' ); ?>
 
             <div class="entry-footer">
               <?php bootscore_pagination(); ?>
