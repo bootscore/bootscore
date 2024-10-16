@@ -210,7 +210,7 @@ endif;
  */
 if (!function_exists('bootscore_tags')) :
   /**
-   * Prints HTML with meta information for the categories, tags and comments.
+   * Prints HTML with meta information for the categories, tags, and comments.
    */
   function bootscore_tags() {
     // Hide category and tag text for pages.
@@ -219,7 +219,12 @@ if (!function_exists('bootscore_tags')) :
       $tags_list = get_the_tag_list('', ' ');
       if ($tags_list) {
         echo '<div class="tags-links">';
-        echo '<p class="tags-heading h6">' . esc_html__('Tagged', 'bootscore') . '</p>';
+        
+        // Check if not on a singular page (e.g., in the loop on archive pages)
+        if (is_singular('post')) {
+          echo '<p class="tags-heading h6">' . esc_html__('Tagged', 'bootscore') . '</p>';
+        }
+
         echo get_the_tag_list();
         echo '</div>';
       }
