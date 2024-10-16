@@ -18,7 +18,7 @@ get_header();
   <div id="content" class="site-content <?= apply_filters('bootscore/class/container', 'container', 'page-sidebar-none'); ?> <?= apply_filters('bootscore/class/content/spacer', 'pt-4 pb-5', 'page-sidebar-none'); ?>">
     <div id="primary" class="content-area">
       
-      <?php do_action( 'bootscore_before_breadcrumb' ); ?>
+      <?php do_action( 'bootscore_after_primary_open' ); ?>
 
       <main id="main" class="site-main">
 

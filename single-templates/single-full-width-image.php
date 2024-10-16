@@ -30,7 +30,7 @@ get_header();
 
         <div class="<?= apply_filters('bootscore/class/container', 'container', 'single-full-width-image'); ?> <?= apply_filters('bootscore/class/content/spacer', 'pt-3 pb-5', 'single-full-width-image'); ?>">
 
-          <?php do_action( 'bootscore_before_breadcrumb' ); ?>
+          <?php do_action( 'bootscore_after_primary_open' ); ?>
           
           <?php the_breadcrumb(); ?>
 

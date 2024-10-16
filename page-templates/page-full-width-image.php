@@ -31,7 +31,7 @@ get_header();
 
         <div class="<?= apply_filters('bootscore/class/container', 'container', 'page-full-width-image'); ?> <?= apply_filters('bootscore/class/content/spacer', 'pb-5', 'page-full-width-image'); ?>">
 
-          <?php do_action( 'bootscore_before_breadcrumb' ); ?>
+          <?php do_action( 'bootscore_after_primary_open' ); ?>
           
           <div class="row">
             <div class="<?= apply_filters('bootscore/class/main/col', 'col'); ?>">

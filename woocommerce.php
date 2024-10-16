@@ -25,7 +25,7 @@ get_header();
 
       <main id="main" class="site-main">
 
-        <?php do_action( 'bootscore_before_breadcrumb' ); ?>
+        <?php do_action( 'bootscore_after_primary_open' ); ?>
 
         <?php woocommerce_breadcrumb(); ?>
 

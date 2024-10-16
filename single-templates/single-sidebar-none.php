@@ -16,7 +16,7 @@ get_header();
   <div id="content" class="site-content <?= apply_filters('bootscore/class/container', 'container', 'single-sidebar-none'); ?> <?= apply_filters('bootscore/class/content/spacer', 'pt-3 pb-5', 'single-sidebar-none'); ?>">
     <div id="primary" class="content-area">
       
-      <?php do_action( 'bootscore_before_breadcrumb' ); ?>
+      <?php do_action( 'bootscore_after_primary_open' ); ?>
 
       <?php the_breadcrumb(); ?>
 
