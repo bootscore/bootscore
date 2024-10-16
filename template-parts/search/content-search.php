@@ -66,6 +66,9 @@ defined('ABSPATH') || exit;
           <?php bootscore_tags(); ?>
 
         </div>
+        
+        <?php do_action( 'bootscore_loop_item_after_card_body' ); ?>
+        
       </div>
     </div>
   </div>
