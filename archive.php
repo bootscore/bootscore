@@ -49,7 +49,7 @@ get_header();
                     <?php endif; ?>
 
                     <div class="col">
-                      <div class="card-body">
+                      <div class="<?= apply_filters('bootscore/class/loop/card/body', 'card-body', 'archive'); ?>">
 
                         <?php bootscore_category_badge(); ?>
 

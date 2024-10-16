@@ -36,6 +36,9 @@ get_header();
         <?php if (is_sticky() && is_home() && !is_paged()) : ?>
           <div class="row">
             <div class="col">
+              
+              <?php do_action( 'bootscore_before_loop_sticky' ); ?>
+              
               <?php
               $args      = array(
                 'posts_per_page'      => 2,
@@ -45,6 +48,9 @@ get_header();
               $the_query = new WP_Query($args);
               if ($the_query->have_posts()) :
                 while ($the_query->have_posts()) : $the_query->the_post(); ?>
+              
+              <?php do_action( 'bootscore_before_loop_item_sticky' ); ?>
+              
                   <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
                     <div class="<?= apply_filters('bootscore/class/loop/card', 'card horizontal mb-4', 'index-sticky'); ?>">
@@ -59,7 +65,7 @@ get_header();
                         <?php endif; ?>
 
                         <div class="col">
-                          <div class="card-body">
+                          <div class="<?= apply_filters('bootscore/class/loop/card/body', 'card-body', 'index-sticky'); ?>">
 
                             <div class="row">
                               <div class="col-10">
@@ -105,17 +111,23 @@ get_header();
                     </div>
 
                   </article>
+              
+              <?php do_action( 'bootscore_after_loop_item_sticky' ); ?>
                 <?php
                 endwhile;
               endif;
               wp_reset_postdata();
               ?>
+              
+              <?php do_action( 'bootscore_after_loop_sticky' ); ?>
+              
             </div>
 
             <!-- col -->
           </div>
           <!-- row -->
         <?php endif; ?>
+        
         <!-- Post List -->
         <div class="row">
           <div class="<?= apply_filters('bootscore/class/main/col', 'col'); ?>">
@@ -142,7 +154,7 @@ get_header();
                     <?php endif; ?>
 
                     <div class="col">
-                      <div class="card-body">
+                      <div class="<?= apply_filters('bootscore/class/loop/card/body', 'card-body', 'index'); ?>">
 
                         <?php bootscore_category_badge(); ?>
 

@@ -41,8 +41,6 @@ get_header();
               /* Start the Loop */
               while (have_posts()) :
                 the_post();
-            
-            //do_action( 'bootscore_before_loop' );
 
                 /**
                  * Run the loop for the search to output the results.
