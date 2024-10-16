@@ -216,16 +216,25 @@ if (!function_exists('bootscore_tags')) :
     // Hide category and tag text for pages.
     if ('post' === get_post_type()) {
 
+      // Apply custom filter to hide tags in the loop
+      $hide_tags_in_loop = apply_filters('bootscore_hide_loop_tags', false);
+
       $tags_list = get_the_tag_list('', ' ');
       if ($tags_list) {
         echo '<div class="tags-links">';
         
-        // Check if not on a singular page (e.g., in the loop on archive pages)
+        // Show 'Tagged' heading only on singular post pages
         if (is_singular('post')) {
           echo '<p class="tags-heading h6">' . esc_html__('Tagged', 'bootscore') . '</p>';
+          // Always show tag badges in singular post content
+          echo get_the_tag_list();
+        } else {
+          // Only hide tags if in the loop or if the post is sticky and the filter is set to true
+          if (!$hide_tags_in_loop || (!in_the_loop() && !is_sticky())) {
+            echo get_the_tag_list();
+          }
         }
 
-        echo get_the_tag_list();
         echo '</div>';
       }
     }
