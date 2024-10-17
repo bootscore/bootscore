@@ -6,7 +6,7 @@
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
  * @package Bootscore
- * @version 6.0.0
+ * @version 6.1.0
  */
 
 // Exit if accessed directly
@@ -17,6 +17,8 @@ get_header();
 
   <div id="content" class="site-content <?= apply_filters('bootscore/class/container', 'container', 'archive'); ?> <?= apply_filters('bootscore/class/content/spacer', 'pt-4 pb-5', 'archive'); ?>">
     <div id="primary" class="content-area">
+      
+      <?php do_action( 'bootscore_after_primary_open', 'archive' ); ?>
 
       <div class="row">
         <div class="<?= apply_filters('bootscore/class/main/col', 'col') ?>">
@@ -27,23 +29,27 @@ get_header();
               <?php the_archive_title('<h1>', '</h1>'); ?>
               <?php the_archive_description('<div class="archive-description">', '</div>'); ?>
             </div>
+            
+            <?php do_action( 'bootscore_before_loop' ); ?>
 
             <?php if (have_posts()) : ?>
               <?php while (have_posts()) : the_post(); ?>
+            
+              <?php do_action( 'bootscore_before_loop_item' ); ?>
 
-                <div class="card horizontal mb-4">
+                <div class="<?= apply_filters('bootscore/class/loop/card', 'card horizontal mb-4', 'archive'); ?>">
                   <div class="row g-0">
 
                     <?php if (has_post_thumbnail()) : ?>
-                      <div class="col-lg-6 col-xl-5 col-xxl-4">
+                      <div class="<?= apply_filters('bootscore/class/loop/card/image/col', 'col-lg-6 col-xl-5 col-xxl-4', 'archive'); ?>">
                         <a href="<?php the_permalink(); ?>">
-                          <?php the_post_thumbnail('medium', array('class' => 'card-img-lg-start')); ?>
+                          <?php the_post_thumbnail('medium', array('class' => apply_filters('bootscore/class/loop/card/image', 'card-img-lg-start', 'archive'))); ?>
                         </a>
                       </div>
                     <?php endif; ?>
 
                     <div class="col">
-                      <div class="card-body">
+                      <div class="<?= apply_filters('bootscore/class/loop/card/body', 'card-body', 'archive'); ?>">
 
                         <?php bootscore_category_badge(); ?>
 
@@ -69,20 +75,27 @@ get_header();
                         </p>
 
                         <p class="card-text">
-                          <a class="read-more" href="<?php the_permalink(); ?>">
-                            <?php _e('Read more »', 'bootscore'); ?>
+                          <a class="<?= apply_filters('bootscore/class/loop/read-more', 'read-more', 'archive'); ?>" href="<?php the_permalink(); ?>">
+                            <?= apply_filters('bootscore/loop/read-more/text', __('Read more »', 'bootscore', 'archive')); ?>
                           </a>
                         </p>
 
                         <?php bootscore_tags(); ?>
 
                       </div>
+                      
+                      <?php do_action( 'bootscore_loop_item_after_card_body' ); ?>
+                      
                     </div>
                   </div>
                 </div>
+            
+                <?php do_action( 'bootscore_after_loop_item' ); ?>
 
               <?php endwhile; ?>
             <?php endif; ?>
+            
+            <?php do_action( 'bootscore_after_loop' ); ?>
 
             <div class="entry-footer">
               <?php bootscore_pagination(); ?>

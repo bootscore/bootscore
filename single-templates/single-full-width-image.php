@@ -4,7 +4,7 @@
  * Template Post Type: post
  *
  * @package Bootscore
- * @version 6.0.0
+ * @version 6.1.0
  */
 
 // Exit if accessed directly
@@ -15,6 +15,8 @@ get_header();
 
   <div id="content" class="site-content">
     <div id="primary" class="content-area">
+      
+      <?php do_action( 'bootscore_after_primary_open', 'single-full-width-image' ); ?>
 
       <main id="main" class="site-main">
 
@@ -29,7 +31,9 @@ get_header();
         </div>
 
         <div class="<?= apply_filters('bootscore/class/container', 'container', 'single-full-width-image'); ?> <?= apply_filters('bootscore/class/content/spacer', 'pt-3 pb-5', 'single-full-width-image'); ?>">
-
+          
+          <?php do_action( 'bootscore_after_featured_image', 'single-full-width-image' ); ?>
+          
           <?php the_breadcrumb(); ?>
 
           <div class="row">
