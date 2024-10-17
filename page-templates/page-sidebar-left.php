@@ -18,7 +18,7 @@ get_header();
   <div id="content" class="site-content <?= apply_filters('bootscore/class/container', 'container', 'page-sidebar-left'); ?> <?= apply_filters('bootscore/class/content/spacer', 'pt-4 pb-5', 'page-sidebar-left'); ?>">
     <div id="primary" class="content-area">
       
-      <?php do_action( 'bootscore_after_primary_open' ); ?>
+      <?php do_action( 'bootscore_after_primary_open', 'page-sidebar-left' ); ?>
 
       <div class="row">
         <?php get_sidebar(); ?>
@@ -31,6 +31,8 @@ get_header();
               <h1><?php the_title(); ?></h1>
               <?php bootscore_post_thumbnail(); ?>
             </div>
+            
+            <?php do_action( 'bootscore_after_featured_image', 'page-sidebar-left' ); ?>
 
             <div class="entry-content">
               <?php the_content(); ?>

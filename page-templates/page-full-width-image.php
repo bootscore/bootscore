@@ -17,6 +17,8 @@ get_header();
 
   <div id="content" class="site-content">
     <div id="primary" class="content-area">
+      
+      <?php do_action( 'bootscore_after_primary_open', 'page-full-width-image' ); ?>
 
       <main id="main" class="site-main">
 
@@ -30,8 +32,8 @@ get_header();
         </div>
 
         <div class="<?= apply_filters('bootscore/class/container', 'container', 'page-full-width-image'); ?> <?= apply_filters('bootscore/class/content/spacer', 'pb-5', 'page-full-width-image'); ?>">
-
-          <?php do_action( 'bootscore_after_primary_open' ); ?>
+          
+          <?php do_action( 'bootscore_after_featured_image', 'page-full-width-image' ); ?>
           
           <div class="row">
             <div class="<?= apply_filters('bootscore/class/main/col', 'col'); ?>">
