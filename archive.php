@@ -37,7 +37,8 @@ get_header();
             
               <?php do_action( 'bootscore_before_loop_item', 'archive'  ); ?>
 
-                <div class="<?= apply_filters('bootscore/class/loop/card', 'card horizontal mb-4', 'archive'); ?>">
+                <article id="post-<?php the_ID(); ?>" <?php post_class( apply_filters('bootscore/class/loop/card', 'card horizontal mb-4', 'archive') ); ?>>
+                  
                   <div class="row g-0">
 
                     <?php if (has_post_thumbnail()) : ?>
@@ -87,8 +88,10 @@ get_header();
                       <?php do_action( 'bootscore_loop_item_after_card_body', 'archive'  ); ?>
                       
                     </div>
+                    
                   </div>
-                </div>
+                  
+                </article>
             
                 <?php do_action( 'bootscore_after_loop_item', 'archive'  ); ?>
 
