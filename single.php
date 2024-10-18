@@ -45,6 +45,8 @@ get_header();
             <div class="entry-content">
               <?php the_content(); ?>
             </div>
+            
+            <?php do_action( 'bootscore_before_entry_footer', 'single' ); ?>
 
             <div class="entry-footer clear-both">
               <div class="mb-4">

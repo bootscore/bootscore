@@ -41,6 +41,8 @@ get_header();
               <div class="entry-content">
                 <?php the_content(); ?>
               </div>
+              
+              <?php do_action( 'bootscore_before_entry_footer', 'page-full-width-image' ); ?>
 
               <div class="entry-footer">
                 <?php comments_template(); ?>
