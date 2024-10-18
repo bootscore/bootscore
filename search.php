@@ -35,7 +35,7 @@ get_header();
                 </h1>
               </div>
             
-            <?php do_action( 'bootscore_before_loop' ); ?>
+            <?php do_action( 'bootscore_before_loop', 'search' ); ?>
 
               <?php
               /* Start the Loop */
@@ -51,7 +51,7 @@ get_header();
 
               endwhile;
             
-              do_action( 'bootscore_after_loop' );
+              do_action( 'bootscore_after_loop', 'search' );
 
               bootscore_pagination();
 

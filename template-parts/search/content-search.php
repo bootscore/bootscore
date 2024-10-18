@@ -16,7 +16,7 @@ defined('ABSPATH') || exit;
 ?>
 
 
-<?php do_action( 'bootscore_before_loop_item' ); ?>
+<?php do_action( 'bootscore_before_loop_item', 'content-search' ); ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
@@ -67,7 +67,7 @@ defined('ABSPATH') || exit;
 
         </div>
         
-        <?php do_action( 'bootscore_loop_item_after_card_body' ); ?>
+        <?php do_action( 'bootscore_loop_item_after_card_body', 'content-search' ); ?>
         
       </div>
     </div>
@@ -75,6 +75,6 @@ defined('ABSPATH') || exit;
 
 </article>
 
-<?php do_action( 'bootscore_after_loop_item' ); ?>
+<?php do_action( 'bootscore_after_loop_item', 'content-search' ); ?>
 
 <!-- #post-<?php the_ID(); ?> -->

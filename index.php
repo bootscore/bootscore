@@ -37,7 +37,7 @@ get_header();
           <div class="row">
             <div class="col">
               
-              <?php do_action( 'bootscore_before_loop_sticky' ); ?>
+              <?php do_action( 'bootscore_before_loop', 'index-sticky' ); ?>
               
               <?php
               $args      = array(
@@ -49,7 +49,7 @@ get_header();
               if ($the_query->have_posts()) :
                 while ($the_query->have_posts()) : $the_query->the_post(); ?>
               
-              <?php do_action( 'bootscore_before_loop_item_sticky' ); ?>
+              <?php do_action( 'bootscore_before_loop_item', 'index-sticky' ); ?>
               
                   <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
@@ -107,7 +107,7 @@ get_header();
 
                           </div>
                           
-                          <?php do_action( 'bootscore_loop_item_after_card_body' ); ?>
+                          <?php do_action( 'bootscore_loop_item_after_card_body', 'index-sticky' ); ?>
                           
                         </div>
                       </div>
@@ -115,14 +115,14 @@ get_header();
 
                   </article>
               
-              <?php do_action( 'bootscore_after_loop_item_sticky' ); ?>
+              <?php do_action( 'bootscore_after_loop_item', 'index-sticky' ); ?>
                 <?php
                 endwhile;
               endif;
               wp_reset_postdata();
               ?>
               
-              <?php do_action( 'bootscore_after_loop_sticky' ); ?>
+              <?php do_action( 'bootscore_after_loop', 'index-sticky' ); ?>
               
             </div>
 
@@ -135,7 +135,7 @@ get_header();
         <div class="row">
           <div class="<?= apply_filters('bootscore/class/main/col', 'col'); ?>">
             
-            <?php do_action( 'bootscore_before_loop' ); ?>
+            <?php do_action( 'bootscore_before_loop', 'index' ); ?>
             
             <!-- Grid Layout -->
             <?php if (have_posts()) : ?>
@@ -143,7 +143,7 @@ get_header();
                 <?php if (is_sticky()) continue; //ignore sticky posts
                 ?>
             
-                <?php do_action( 'bootscore_before_loop_item' ); ?>
+                <?php do_action( 'bootscore_before_loop_item', 'index' ); ?>
 
                 <div class="<?= apply_filters('bootscore/class/loop/card', 'card horizontal mb-4', 'index'); ?>">
                   <div class="row g-0">
@@ -192,18 +192,18 @@ get_header();
 
                       </div>
                       
-                      <?php do_action( 'bootscore_loop_item_after_card_body' ); ?>
+                      <?php do_action( 'bootscore_loop_item_after_card_body', 'index' ); ?>
                       
                     </div>
                   </div>
                 </div>
             
-                <?php do_action( 'bootscore_after_loop_item' ); ?>
+                <?php do_action( 'bootscore_after_loop_item', 'index' ); ?>
 
               <?php endwhile; ?>
             <?php endif; ?>
             
-            <?php do_action( 'bootscore_after_loop' ); ?>
+            <?php do_action( 'bootscore_after_loop', 'index' ); ?>
 
             <div class="entry-footer">
               <?php bootscore_pagination(); ?>

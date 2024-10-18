@@ -30,12 +30,12 @@ get_header();
               <?php the_archive_description('<div class="archive-description">', '</div>'); ?>
             </div>
             
-            <?php do_action( 'bootscore_before_loop' ); ?>
+            <?php do_action( 'bootscore_before_loop', 'archive' ); ?>
 
             <?php if (have_posts()) : ?>
               <?php while (have_posts()) : the_post(); ?>
             
-              <?php do_action( 'bootscore_before_loop_item' ); ?>
+              <?php do_action( 'bootscore_before_loop_item', 'archive'  ); ?>
 
                 <div class="<?= apply_filters('bootscore/class/loop/card', 'card horizontal mb-4', 'archive'); ?>">
                   <div class="row g-0">
@@ -84,18 +84,18 @@ get_header();
 
                       </div>
                       
-                      <?php do_action( 'bootscore_loop_item_after_card_body' ); ?>
+                      <?php do_action( 'bootscore_loop_item_after_card_body', 'archive'  ); ?>
                       
                     </div>
                   </div>
                 </div>
             
-                <?php do_action( 'bootscore_after_loop_item' ); ?>
+                <?php do_action( 'bootscore_after_loop_item', 'archive'  ); ?>
 
               <?php endwhile; ?>
             <?php endif; ?>
             
-            <?php do_action( 'bootscore_after_loop' ); ?>
+            <?php do_action( 'bootscore_after_loop', 'archive'  ); ?>
 
             <div class="entry-footer">
               <?php bootscore_pagination(); ?>
