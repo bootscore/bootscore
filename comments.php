@@ -9,7 +9,7 @@
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
  * @package Bootscore
- * @version 6.0.0
+ * @version 6.1.0
  */
 
 // Exit if accessed directly
@@ -69,7 +69,7 @@ if (post_password_required()) {
     <?php endif; // Check for comment navigation. 
     ?>
 
-    <ul class="comment-list">
+    <ul class="comment-list list-unstyled">
       <?php
       wp_list_comments(array('callback' => 'bootscore_comment', 'avatar_size' => 128));
       ?>

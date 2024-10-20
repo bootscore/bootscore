@@ -11,7 +11,7 @@
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
  * @package Bootscore
- * @version 6.0.0
+ * @version 6.1.0
  */
 
 // Exit if accessed directly
@@ -21,6 +21,8 @@ get_header();
 ?>
   <div id="content" class="site-content <?= apply_filters('bootscore/class/container', 'container', 'index'); ?> <?= apply_filters('bootscore/class/content/spacer', 'pt-4 pb-5', 'index'); ?>">
     <div id="primary" class="content-area">
+      
+      <?php do_action( 'bootscore_after_primary_open', 'index' ); ?>
 
       <main id="main" class="site-main">
 
@@ -34,6 +36,9 @@ get_header();
         <?php if (is_sticky() && is_home() && !is_paged()) : ?>
           <div class="row">
             <div class="col">
+              
+              <?php do_action( 'bootscore_before_loop', 'index-sticky' ); ?>
+              
               <?php
               $args      = array(
                 'posts_per_page'      => 2,
@@ -43,99 +48,117 @@ get_header();
               $the_query = new WP_Query($args);
               if ($the_query->have_posts()) :
                 while ($the_query->have_posts()) : $the_query->the_post(); ?>
-                  <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+              
+              <?php do_action( 'bootscore_before_loop_item', 'index-sticky' ); ?>
 
-                    <div class="card horizontal mb-4">
-                      <div class="row g-0">
+              <article id="post-<?php the_ID(); ?>" <?php post_class( apply_filters('bootscore/class/loop/card', 'card horizontal mb-4', 'index-sticky') ); ?>>
 
-                        <?php if (has_post_thumbnail()) : ?>
-                          <div class="col-lg-6 col-xl-5 col-xxl-4">
-                            <a href="<?php the_permalink(); ?>">
-                              <?php the_post_thumbnail('medium', array('class' => 'card-img-lg-start')); ?>
-                            </a>
-                          </div>
-                        <?php endif; ?>
+                <div class="row g-0">
 
-                        <div class="col">
-                          <div class="card-body">
+                  <?php if (has_post_thumbnail()) : ?>
+                    <div class="<?= apply_filters('bootscore/class/loop/card/image/col', 'col-lg-6 col-xl-5 col-xxl-4', 'index-sticky'); ?>">
+                      <a href="<?php the_permalink(); ?>">
+                        <?php the_post_thumbnail('medium', array('class' => apply_filters('bootscore/class/loop/card/image', 'card-img-lg-start', 'index-sticky'))); ?>
+                      </a>
+                    </div>
+                  <?php endif; ?>
 
-                            <div class="row">
-                              <div class="col-10">
-                                <?php bootscore_category_badge(); ?>
-                              </div>
-                              <div class="col-2 text-end">
-                                <span class="badge text-bg-danger"><i class="fa-solid fa-star"></i></span>
-                              </div>
-                            </div>
+                  <div class="col">
+                    <div class="<?= apply_filters('bootscore/class/loop/card/body', 'card-body', 'index-sticky'); ?>">
 
-                            <a class="text-body text-decoration-none" href="<?php the_permalink(); ?>">
-                              <?php the_title('<h2 class="blog-post-title h5">', '</h2>'); ?>
-                            </a>
-
-                            <?php if ('post' === get_post_type()) : ?>
-                              <p class="meta small mb-2 text-body-secondary">
-                                <?php
-                                bootscore_date();
-                                bootscore_author();
-                                bootscore_comments();
-                                bootscore_edit();
-                                ?>
-                              </p>
-                            <?php endif; ?>
-
-                            <p class="card-text">
-                              <a class="text-body text-decoration-none" href="<?php the_permalink(); ?>">
-                                <?= strip_tags(get_the_excerpt()); ?>
-                              </a>
-                            </p>
-
-                            <p class="card-text">
-                              <a class="read-more" href="<?php the_permalink(); ?>">
-                                <?php _e('Read more »', 'bootscore'); ?>
-                              </a>
-                            </p>
-
-                            <?php bootscore_tags(); ?>
-
-                          </div>
+                      <div class="row">
+                        <div class="col-10">
+                          <?php bootscore_category_badge(); ?>
+                        </div>
+                        <div class="col-2 text-end">
+                          <span class="badge text-bg-danger"><?= apply_filters('bootscore/icon/star', '<i class="fa-solid fa-star"></i>'); ?></span>
                         </div>
                       </div>
+
+                      <a class="text-body text-decoration-none" href="<?php the_permalink(); ?>">
+                        <?php the_title('<h2 class="blog-post-title h5">', '</h2>'); ?>
+                      </a>
+
+                      <?php if ('post' === get_post_type()) : ?>
+                        <p class="meta small mb-2 text-body-secondary">
+                          <?php
+                          bootscore_date();
+                          bootscore_author();
+                          bootscore_comments();
+                          bootscore_edit();
+                          ?>
+                        </p>
+                      <?php endif; ?>
+
+                      <p class="card-text">
+                        <a class="text-body text-decoration-none" href="<?php the_permalink(); ?>">
+                          <?= strip_tags(get_the_excerpt()); ?>
+                        </a>
+                      </p>
+
+                      <p class="card-text">
+                        <a class="<?= apply_filters('bootscore/class/loop/read-more', 'read-more', 'index-sticky'); ?>" href="<?php the_permalink(); ?>">
+                          <?= apply_filters('bootscore/loop/read-more/text', __('Read more »', 'bootscore', 'index-sticky')); ?>
+                        </a>
+                      </p>
+
+                      <?php bootscore_tags(); ?>
+
                     </div>
 
-                  </article>
+                    <?php do_action( 'bootscore_loop_item_after_card_body', 'index-sticky' ); ?>
+
+                  </div>
+                  
+                </div>
+
+              </article>
+              
+              <?php do_action( 'bootscore_after_loop_item', 'index-sticky' ); ?>
                 <?php
                 endwhile;
               endif;
               wp_reset_postdata();
               ?>
+              
+              <?php do_action( 'bootscore_after_loop', 'index-sticky' ); ?>
+              
             </div>
 
             <!-- col -->
           </div>
           <!-- row -->
         <?php endif; ?>
+        
         <!-- Post List -->
         <div class="row">
           <div class="<?= apply_filters('bootscore/class/main/col', 'col'); ?>">
+            
+            <?php do_action( 'bootscore_before_loop', 'index' ); ?>
+            
             <!-- Grid Layout -->
             <?php if (have_posts()) : ?>
               <?php while (have_posts()) : the_post(); ?>
                 <?php if (is_sticky()) continue; //ignore sticky posts
                 ?>
+            
+                <?php do_action( 'bootscore_before_loop_item', 'index' ); ?>
 
-                <div class="card horizontal mb-4">
+                <article id="post-<?php the_ID(); ?>" <?php post_class( apply_filters('bootscore/class/loop/card', 'card horizontal mb-4', 'index') ); ?>>
+                  
                   <div class="row g-0">
 
                     <?php if (has_post_thumbnail()) : ?>
-                      <div class="col-lg-6 col-xl-5 col-xxl-4">
+                      <div class="<?= apply_filters('bootscore/class/loop/card/image/col', 'col-lg-6 col-xl-5 col-xxl-4', 'index'); ?>">
                         <a href="<?php the_permalink(); ?>">
-                          <?php the_post_thumbnail('medium', array('class' => 'card-img-lg-start')); ?>
+                          <?php the_post_thumbnail('medium', array('class' => apply_filters('bootscore/class/loop/card/image', 'card-img-lg-start', 'index'))); ?>
                         </a>
                       </div>
                     <?php endif; ?>
 
                     <div class="col">
-                      <div class="card-body">
+                      
+                      <div class="<?= apply_filters('bootscore/class/loop/card/body', 'card-body', 'index'); ?>">
 
                         <?php bootscore_category_badge(); ?>
 
@@ -161,20 +184,29 @@ get_header();
                         </p>
 
                         <p class="card-text">
-                          <a class="read-more" href="<?php the_permalink(); ?>">
-                            <?php _e('Read more »', 'bootscore'); ?>
+                          <a class="<?= apply_filters('bootscore/class/loop/read-more', 'read-more', 'index'); ?>" href="<?php the_permalink(); ?>">
+                            <?= apply_filters('bootscore/loop/read-more/text', __('Read more »', 'bootscore', 'index')); ?>
                           </a>
                         </p>
 
                         <?php bootscore_tags(); ?>
 
                       </div>
+                      
+                      <?php do_action( 'bootscore_loop_item_after_card_body', 'index' ); ?>
+                      
                     </div>
+                    
                   </div>
-                </div>
+                  
+                </article>
+            
+                <?php do_action( 'bootscore_after_loop_item', 'index' ); ?>
 
               <?php endwhile; ?>
             <?php endif; ?>
+            
+            <?php do_action( 'bootscore_after_loop', 'index' ); ?>
 
             <div class="entry-footer">
               <?php bootscore_pagination(); ?>
