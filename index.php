@@ -102,7 +102,9 @@ get_header();
                         </a>
                       </p>
 
-                      <?php bootscore_tags(); ?>
+                      <?php if (!apply_filters('bootscore_hide_loop_tags', false, 'index-sticky')) : ?>
+                        <?php bootscore_tags(); ?>
+                      <?php endif; ?>
 
                     </div>
 
@@ -189,7 +191,9 @@ get_header();
                           </a>
                         </p>
 
-                        <?php bootscore_tags(); ?>
+                        <?php if (!apply_filters('bootscore_hide_loop_tags', false, 'index')) : ?>
+                          <?php bootscore_tags(); ?>
+                        <?php endif; ?>
 
                       </div>
                       

@@ -62,7 +62,9 @@ defined('ABSPATH') || exit;
           </a>
         </p>
 
-        <?php bootscore_tags(); ?>
+        <?php if (!apply_filters('bootscore_hide_loop_tags', false, 'content-search')) : ?>
+          <?php bootscore_tags(); ?>
+        <?php endif; ?>
 
       </div>
 

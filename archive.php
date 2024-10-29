@@ -81,7 +81,9 @@ get_header();
                           </a>
                         </p>
 
+                      <?php if (!apply_filters('bootscore_hide_loop_tags', false, 'archive')) : ?>
                         <?php bootscore_tags(); ?>
+                      <?php endif; ?>
 
                       </div>
                       
