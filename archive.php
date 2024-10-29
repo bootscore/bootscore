@@ -74,7 +74,7 @@ get_header();
                         <?php endif; ?>
 
                         <?php if (apply_filters('bootscore/loop/excerpt', true, 'archive')) : ?>
-                          <p class="card-text">
+                          <p class="<?= apply_filters('bootscore/class/loop/card-text/excerpt', 'card-text', 'archive'); ?>">
                             <a class="text-body text-decoration-none" href="<?php the_permalink(); ?>">
                               <?= strip_tags(get_the_excerpt()); ?>
                             </a>
@@ -82,7 +82,7 @@ get_header();
                         <?php endif; ?>
 
                         <?php if (apply_filters('bootscore/loop/read-more', true, 'archive')) : ?>
-                          <p class="card-text">
+                          <p class="<?= apply_filters('bootscore/class/loop/card-text/read-more', 'card-text', 'archive'); ?>">
                             <a class="<?= apply_filters('bootscore/class/loop/read-more', 'read-more', 'archive'); ?>" href="<?php the_permalink(); ?>">
                               <?= apply_filters('bootscore/loop/read-more/text', __('Read more »', 'bootscore', 'archive')); ?>
                             </a>

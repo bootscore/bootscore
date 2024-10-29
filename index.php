@@ -95,7 +95,7 @@ get_header();
                       <?php endif; ?>
 
                       <?php if (apply_filters('bootscore/loop/excerpt', true, 'index-sticky')) : ?>
-                        <p class="card-text">
+                        <p class="<?= apply_filters('bootscore/class/loop/card-text/excerpt', 'card-text', 'index-sticky'); ?>">
                           <a class="text-body text-decoration-none" href="<?php the_permalink(); ?>">
                             <?= strip_tags(get_the_excerpt()); ?>
                           </a>
@@ -103,7 +103,7 @@ get_header();
                       <?php endif; ?>
 
                       <?php if (apply_filters('bootscore/loop/read-more', true, 'index-sticky')) : ?>
-                        <p class="card-text">
+                        <p class="<?= apply_filters('bootscore/class/loop/card-text/read-more', 'card-text', 'index-sticky'); ?>">
                           <a class="<?= apply_filters('bootscore/class/loop/read-more', 'read-more', 'index-sticky'); ?>" href="<?php the_permalink(); ?>">
                             <?= apply_filters('bootscore/loop/read-more/text', __('Read more »', 'bootscore', 'index-sticky')); ?>
                           </a>
@@ -192,7 +192,7 @@ get_header();
                         <?php endif; ?>
 
                         <?php if (apply_filters('bootscore/loop/excerpt', true, 'index')) : ?>
-                          <p class="card-text">
+                          <p class="<?= apply_filters('bootscore/class/loop/card-text/excerpt', 'card-text', 'index'); ?>">
                             <a class="text-body text-decoration-none" href="<?php the_permalink(); ?>">
                               <?= strip_tags(get_the_excerpt()); ?>
                             </a>
@@ -200,7 +200,7 @@ get_header();
                         <?php endif; ?>
 
                         <?php if (apply_filters('bootscore/loop/read-more', true, 'index')) : ?>
-                          <p class="card-text">
+                          <p class="<?= apply_filters('bootscore/class/loop/card-text/read-more', 'card-text', 'index'); ?>">
                             <a class="<?= apply_filters('bootscore/class/loop/read-more', 'read-more', 'index'); ?>" href="<?php the_permalink(); ?>">
                               <?= apply_filters('bootscore/loop/read-more/text', __('Read more »', 'bootscore', 'index')); ?>
                             </a>

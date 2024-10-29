@@ -55,7 +55,7 @@ defined('ABSPATH') || exit;
         <?php endif; ?>
 
         <?php if (apply_filters('bootscore/loop/excerpt', true, 'content-search')) : ?>
-          <p class="card-text">
+          <p class="<?= apply_filters('bootscore/class/loop/card-text/excerpt', 'card-text', 'content-search'); ?>">
             <a class="text-body text-decoration-none" href="<?php the_permalink(); ?>">
               <?= strip_tags(get_the_excerpt()); ?>
             </a>
@@ -63,7 +63,7 @@ defined('ABSPATH') || exit;
         <?php endif; ?>
 
         <?php if (apply_filters('bootscore/loop/read-more', true, 'content-search')) : ?>
-          <p class="card-text">
+          <p class="<?= apply_filters('bootscore/class/loop/card-text/read-more', 'card-text', 'content-search'); ?>">
             <a class="<?= apply_filters('bootscore/class/loop/read-more', 'read-more', 'content-search'); ?>" href="<?php the_permalink(); ?>">
               <?= apply_filters('bootscore/loop/read-more/text', __('Read more »', 'bootscore', 'content-search')); ?>
             </a>
