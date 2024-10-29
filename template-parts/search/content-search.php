@@ -39,15 +39,17 @@ defined('ABSPATH') || exit;
           <?php the_title('<h2 class="blog-post-title h5">', '</h2>'); ?>
         </a>
 
-        <?php if ('post' === get_post_type()) : ?>
-          <p class="meta small mb-2 text-body-secondary">
-            <?php
-            bootscore_date();
-            bootscore_author();
-            bootscore_comments();
-            bootscore_edit();
-            ?>
-          </p>
+        <?php if (!apply_filters('bootscore_hide_loop_meta', false, 'content-search')) : ?>
+          <?php if ('post' === get_post_type()) : ?>
+            <p class="meta small mb-2 text-body-secondary">
+              <?php
+              bootscore_date();
+              bootscore_author();
+              bootscore_comments();
+              bootscore_edit();
+              ?>
+            </p>
+          <?php endif; ?>
         <?php endif; ?>
 
         <?php if (!apply_filters('bootscore_hide_loop_excerpt', false, 'content-search')) : ?>
