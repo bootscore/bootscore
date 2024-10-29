@@ -53,7 +53,7 @@ get_header();
 
               <article id="post-<?php the_ID(); ?>" <?php post_class( apply_filters('bootscore/class/loop/card', 'card horizontal mb-4', 'index-sticky') ); ?>>
 
-                <div class="row g-0">
+                <div class="<?= apply_filters('bootscore/class/loop/card/row', 'row g-0', 'index-sticky'); ?>">
 
                   <?php if (has_post_thumbnail()) : ?>
                     <div class="<?= apply_filters('bootscore/class/loop/card/image/col', 'col-lg-6 col-xl-5 col-xxl-4', 'index-sticky'); ?>">
@@ -63,7 +63,7 @@ get_header();
                     </div>
                   <?php endif; ?>
 
-                  <div class="col">
+                  <div class="<?= apply_filters('bootscore/class/loop/card/content/col', 'col', 'index-sticky'); ?>">
                     <div class="<?= apply_filters('bootscore/class/loop/card/body', 'card-body', 'index-sticky'); ?>">
 
                       <div class="row">
@@ -156,7 +156,7 @@ get_header();
 
                 <article id="post-<?php the_ID(); ?>" <?php post_class( apply_filters('bootscore/class/loop/card', 'card horizontal mb-4', 'index') ); ?>>
                   
-                  <div class="row g-0">
+                  <div class="<?= apply_filters('bootscore/class/loop/card/row', 'row g-0', 'index'); ?>">
 
                     <?php if (has_post_thumbnail()) : ?>
                       <div class="<?= apply_filters('bootscore/class/loop/card/image/col', 'col-lg-6 col-xl-5 col-xxl-4', 'index'); ?>">
@@ -166,7 +166,7 @@ get_header();
                       </div>
                     <?php endif; ?>
 
-                    <div class="col">
+                    <div class="<?= apply_filters('bootscore/class/loop/card/content/col', 'col', 'index'); ?>">
                       
                       <div class="<?= apply_filters('bootscore/class/loop/card/body', 'card-body', 'index'); ?>">
 

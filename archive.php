@@ -39,7 +39,7 @@ get_header();
 
                 <article id="post-<?php the_ID(); ?>" <?php post_class( apply_filters('bootscore/class/loop/card', 'card horizontal mb-4', 'archive') ); ?>>
                   
-                  <div class="row g-0">
+                  <div class="<?= apply_filters('bootscore/class/loop/card/row', 'row g-0', 'archive'); ?>">
 
                     <?php if (has_post_thumbnail()) : ?>
                       <div class="<?= apply_filters('bootscore/class/loop/card/image/col', 'col-lg-6 col-xl-5 col-xxl-4', 'archive'); ?>">
@@ -49,7 +49,7 @@ get_header();
                       </div>
                     <?php endif; ?>
 
-                    <div class="col">
+                    <div class="<?= apply_filters('bootscore/class/loop/card/content/col', 'col', 'archive'); ?>">
                       <div class="<?= apply_filters('bootscore/class/loop/card/body', 'card-body', 'archive'); ?>">
 
                         <?php if (apply_filters('bootscore/loop/category', true, 'archive')) : ?>

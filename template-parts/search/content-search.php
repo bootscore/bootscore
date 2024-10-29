@@ -20,7 +20,7 @@ defined('ABSPATH') || exit;
 
 <article id="post-<?php the_ID(); ?>" <?php post_class( apply_filters('bootscore/class/loop/card', 'card horizontal mb-4', 'content-search') ); ?>>
   
-  <div class="row g-0">
+  <div class="<?= apply_filters('bootscore/class/loop/card/row', 'row g-0', 'content-search'); ?>">
 
     <?php if (has_post_thumbnail()) : ?>
       <div class="<?= apply_filters('bootscore/class/loop/card/image/col', 'col-lg-6 col-xl-5 col-xxl-4', 'content-search'); ?>">
@@ -30,7 +30,7 @@ defined('ABSPATH') || exit;
       </div>
     <?php endif; ?>
 
-    <div class="col">
+    <div class="<?= apply_filters('bootscore/class/loop/card/content/col', 'col', 'content-search'); ?>">
       <div class="<?= apply_filters('bootscore/class/loop/card/body', 'card-body', 'content-search'); ?>">
 
         <?php if (apply_filters('bootscore/loop/category', true, 'content-search')) : ?>
