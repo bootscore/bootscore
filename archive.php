@@ -75,15 +75,17 @@ get_header();
                           </a>
                         </p>
 
-                        <p class="card-text">
-                          <a class="<?= apply_filters('bootscore/class/loop/read-more', 'read-more', 'archive'); ?>" href="<?php the_permalink(); ?>">
-                            <?= apply_filters('bootscore/loop/read-more/text', __('Read more »', 'bootscore', 'archive')); ?>
-                          </a>
-                        </p>
+                        <?php if (!apply_filters('bootscore_hide_loop_read_more', false, 'archive')) : ?>
+                          <p class="card-text">
+                            <a class="<?= apply_filters('bootscore/class/loop/read-more', 'read-more', 'archive'); ?>" href="<?php the_permalink(); ?>">
+                              <?= apply_filters('bootscore/loop/read-more/text', __('Read more »', 'bootscore', 'archive')); ?>
+                            </a>
+                          </p>
+                        <?php endif; ?>
 
-                      <?php if (!apply_filters('bootscore_hide_loop_tags', false, 'archive')) : ?>
-                        <?php bootscore_tags(); ?>
-                      <?php endif; ?>
+                        <?php if (!apply_filters('bootscore_hide_loop_tags', false, 'archive')) : ?>
+                          <?php bootscore_tags(); ?>
+                        <?php endif; ?>
 
                       </div>
                       

@@ -56,11 +56,13 @@ defined('ABSPATH') || exit;
           </a>
         </p>
 
-        <p class="card-text">
-          <a class="<?= apply_filters('bootscore/class/loop/read-more', 'read-more', 'content-search'); ?>" href="<?php the_permalink(); ?>">
-            <?= apply_filters('bootscore/loop/read-more/text', __('Read more »', 'bootscore', 'content-search')); ?>
-          </a>
-        </p>
+        <?php if (!apply_filters('bootscore_hide_loop_read_more', false, 'content-search')) : ?>
+          <p class="card-text">
+            <a class="<?= apply_filters('bootscore/class/loop/read-more', 'read-more', 'content-search'); ?>" href="<?php the_permalink(); ?>">
+              <?= apply_filters('bootscore/loop/read-more/text', __('Read more »', 'bootscore', 'content-search')); ?>
+            </a>
+          </p>
+        <?php endif; ?>
 
         <?php if (!apply_filters('bootscore_hide_loop_tags', false, 'content-search')) : ?>
           <?php bootscore_tags(); ?>

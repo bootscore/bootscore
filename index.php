@@ -96,11 +96,13 @@ get_header();
                         </a>
                       </p>
 
-                      <p class="card-text">
-                        <a class="<?= apply_filters('bootscore/class/loop/read-more', 'read-more', 'index-sticky'); ?>" href="<?php the_permalink(); ?>">
-                          <?= apply_filters('bootscore/loop/read-more/text', __('Read more »', 'bootscore', 'index-sticky')); ?>
-                        </a>
-                      </p>
+                      <?php if (!apply_filters('bootscore_hide_loop_read_more', false, 'index-sticky')) : ?>
+                        <p class="card-text">
+                          <a class="<?= apply_filters('bootscore/class/loop/read-more', 'read-more', 'index-sticky'); ?>" href="<?php the_permalink(); ?>">
+                            <?= apply_filters('bootscore/loop/read-more/text', __('Read more »', 'bootscore', 'index-sticky')); ?>
+                          </a>
+                        </p>
+                      <?php endif; ?>
 
                       <?php if (!apply_filters('bootscore_hide_loop_tags', false, 'index-sticky')) : ?>
                         <?php bootscore_tags(); ?>
@@ -185,11 +187,13 @@ get_header();
                           </a>
                         </p>
 
-                        <p class="card-text">
-                          <a class="<?= apply_filters('bootscore/class/loop/read-more', 'read-more', 'index'); ?>" href="<?php the_permalink(); ?>">
-                            <?= apply_filters('bootscore/loop/read-more/text', __('Read more »', 'bootscore', 'index')); ?>
-                          </a>
-                        </p>
+                        <?php if (!apply_filters('bootscore_hide_loop_read_more', false, 'index')) : ?>
+                          <p class="card-text">
+                            <a class="<?= apply_filters('bootscore/class/loop/read-more', 'read-more', 'index'); ?>" href="<?php the_permalink(); ?>">
+                              <?= apply_filters('bootscore/loop/read-more/text', __('Read more »', 'bootscore', 'index')); ?>
+                            </a>
+                          </p>
+                        <?php endif; ?>
 
                         <?php if (!apply_filters('bootscore_hide_loop_tags', false, 'index')) : ?>
                           <?php bootscore_tags(); ?>
