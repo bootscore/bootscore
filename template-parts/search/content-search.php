@@ -33,13 +33,15 @@ defined('ABSPATH') || exit;
     <div class="col">
       <div class="<?= apply_filters('bootscore/class/loop/card/body', 'card-body', 'content-search'); ?>">
 
-        <?php bootscore_category_badge(); ?>
+        <?php if (apply_filters('bootscore/loop/category', true, 'content-search')) : ?>
+          <?php bootscore_category_badge(); ?>
+        <?php endif; ?>
 
         <a class="text-body text-decoration-none" href="<?php the_permalink(); ?>">
           <?php the_title('<h2 class="blog-post-title h5">', '</h2>'); ?>
         </a>
 
-        <?php if (!apply_filters('bootscore_hide_loop_meta', false, 'content-search')) : ?>
+        <?php if (apply_filters('bootscore/loop/meta', true, 'content-search')) : ?>
           <?php if ('post' === get_post_type()) : ?>
             <p class="meta small mb-2 text-body-secondary">
               <?php
@@ -52,7 +54,7 @@ defined('ABSPATH') || exit;
           <?php endif; ?>
         <?php endif; ?>
 
-        <?php if (!apply_filters('bootscore_hide_loop_excerpt', false, 'content-search')) : ?>
+        <?php if (apply_filters('bootscore/loop/excerpt', true, 'content-search')) : ?>
           <p class="card-text">
             <a class="text-body text-decoration-none" href="<?php the_permalink(); ?>">
               <?= strip_tags(get_the_excerpt()); ?>
@@ -60,7 +62,7 @@ defined('ABSPATH') || exit;
           </p>
         <?php endif; ?>
 
-        <?php if (!apply_filters('bootscore_hide_loop_read_more', false, 'content-search')) : ?>
+        <?php if (apply_filters('bootscore/loop/read-more', true, 'content-search')) : ?>
           <p class="card-text">
             <a class="<?= apply_filters('bootscore/class/loop/read-more', 'read-more', 'content-search'); ?>" href="<?php the_permalink(); ?>">
               <?= apply_filters('bootscore/loop/read-more/text', __('Read more »', 'bootscore', 'content-search')); ?>
@@ -68,7 +70,7 @@ defined('ABSPATH') || exit;
           </p>
         <?php endif; ?>
 
-        <?php if (!apply_filters('bootscore_hide_loop_tags', false, 'content-search')) : ?>
+        <?php if (apply_filters('bootscore/loop/tags', true, 'content-search')) : ?>
           <?php bootscore_tags(); ?>
         <?php endif; ?>
 

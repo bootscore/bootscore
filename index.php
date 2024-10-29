@@ -68,7 +68,9 @@ get_header();
 
                       <div class="row">
                         <div class="col-10">
-                          <?php bootscore_category_badge(); ?>
+                          <?php if (apply_filters('bootscore/loop/category', true, 'index-sticky')) : ?>
+                            <?php bootscore_category_badge(); ?>
+                          <?php endif; ?>
                         </div>
                         <div class="col-2 text-end">
                           <span class="badge text-bg-danger"><?= apply_filters('bootscore/icon/star', '<i class="fa-solid fa-star"></i>'); ?></span>
@@ -79,7 +81,7 @@ get_header();
                         <?php the_title('<h2 class="blog-post-title h5">', '</h2>'); ?>
                       </a>
 
-                      <?php if (!apply_filters('bootscore_hide_loop_meta', false, 'index-sticky')) : ?>
+                      <?php if (apply_filters('bootscore/loop/meta', true, 'index-sticky')) : ?>
                         <?php if ('post' === get_post_type()) : ?>
                           <p class="meta small mb-2 text-body-secondary">
                             <?php
@@ -92,7 +94,7 @@ get_header();
                         <?php endif; ?>
                       <?php endif; ?>
 
-                      <?php if (!apply_filters('bootscore_hide_loop_excerpt', false, 'index-sticky')) : ?>
+                      <?php if (apply_filters('bootscore/loop/excerpt', true, 'index-sticky')) : ?>
                         <p class="card-text">
                           <a class="text-body text-decoration-none" href="<?php the_permalink(); ?>">
                             <?= strip_tags(get_the_excerpt()); ?>
@@ -100,7 +102,7 @@ get_header();
                         </p>
                       <?php endif; ?>
 
-                      <?php if (!apply_filters('bootscore_hide_loop_read_more', false, 'index-sticky')) : ?>
+                      <?php if (apply_filters('bootscore/loop/read-more', true, 'index-sticky')) : ?>
                         <p class="card-text">
                           <a class="<?= apply_filters('bootscore/class/loop/read-more', 'read-more', 'index-sticky'); ?>" href="<?php the_permalink(); ?>">
                             <?= apply_filters('bootscore/loop/read-more/text', __('Read more »', 'bootscore', 'index-sticky')); ?>
@@ -108,7 +110,7 @@ get_header();
                         </p>
                       <?php endif; ?>
 
-                      <?php if (!apply_filters('bootscore_hide_loop_tags', false, 'index-sticky')) : ?>
+                      <?php if (apply_filters('bootscore/loop/tags', true, 'index-sticky')) : ?>
                         <?php bootscore_tags(); ?>
                       <?php endif; ?>
 
@@ -168,13 +170,15 @@ get_header();
                       
                       <div class="<?= apply_filters('bootscore/class/loop/card/body', 'card-body', 'index'); ?>">
 
-                        <?php bootscore_category_badge(); ?>
+                        <?php if (apply_filters('bootscore/loop/category', true, 'index')) : ?>
+                          <?php bootscore_category_badge(); ?>
+                        <?php endif; ?>
 
                         <a class="text-body text-decoration-none" href="<?php the_permalink(); ?>">
                           <?php the_title('<h2 class="blog-post-title h5">', '</h2>'); ?>
                         </a>
 
-                        <?php if (!apply_filters('bootscore_hide_loop_meta', false, 'index')) : ?>
+                        <?php if (apply_filters('bootscore/loop/meta', true, 'index')) : ?>
                           <?php if ('post' === get_post_type()) : ?>
                             <p class="meta small mb-2 text-body-secondary">
                               <?php
@@ -187,7 +191,7 @@ get_header();
                           <?php endif; ?>
                         <?php endif; ?>
 
-                        <?php if (!apply_filters('bootscore_hide_loop_excerpt', false, 'index')) : ?>
+                        <?php if (apply_filters('bootscore/loop/excerpt', true, 'index')) : ?>
                           <p class="card-text">
                             <a class="text-body text-decoration-none" href="<?php the_permalink(); ?>">
                               <?= strip_tags(get_the_excerpt()); ?>
@@ -195,7 +199,7 @@ get_header();
                           </p>
                         <?php endif; ?>
 
-                        <?php if (!apply_filters('bootscore_hide_loop_read_more', false, 'index')) : ?>
+                        <?php if (apply_filters('bootscore/loop/read-more', true, 'index')) : ?>
                           <p class="card-text">
                             <a class="<?= apply_filters('bootscore/class/loop/read-more', 'read-more', 'index'); ?>" href="<?php the_permalink(); ?>">
                               <?= apply_filters('bootscore/loop/read-more/text', __('Read more »', 'bootscore', 'index')); ?>
@@ -203,7 +207,7 @@ get_header();
                           </p>
                         <?php endif; ?>
 
-                        <?php if (!apply_filters('bootscore_hide_loop_tags', false, 'index')) : ?>
+                        <?php if (apply_filters('bootscore/loop/tags', true, 'index')) : ?>
                           <?php bootscore_tags(); ?>
                         <?php endif; ?>
 

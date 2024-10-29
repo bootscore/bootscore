@@ -52,13 +52,15 @@ get_header();
                     <div class="col">
                       <div class="<?= apply_filters('bootscore/class/loop/card/body', 'card-body', 'archive'); ?>">
 
-                        <?php bootscore_category_badge(); ?>
+                        <?php if (apply_filters('bootscore/loop/category', true, 'archive')) : ?>
+                          <?php bootscore_category_badge(); ?>
+                        <?php endif; ?>
 
                         <a class="text-body text-decoration-none" href="<?php the_permalink(); ?>">
                           <?php the_title('<h2 class="blog-post-title h5">', '</h2>'); ?>
                         </a>
 
-                        <?php if (!apply_filters('bootscore_hide_loop_meta', false, 'archive')) : ?>
+                        <?php if (apply_filters('bootscore/loop/meta', true, 'archive')) : ?>
                           <?php if ('post' === get_post_type()) : ?>
                             <p class="meta small mb-2 text-body-secondary">
                               <?php
@@ -71,7 +73,7 @@ get_header();
                           <?php endif; ?>
                         <?php endif; ?>
 
-                        <?php if (!apply_filters('bootscore_hide_loop_excerpt', false, 'archive')) : ?>
+                        <?php if (apply_filters('bootscore/loop/excerpt', true, 'archive')) : ?>
                           <p class="card-text">
                             <a class="text-body text-decoration-none" href="<?php the_permalink(); ?>">
                               <?= strip_tags(get_the_excerpt()); ?>
@@ -79,7 +81,7 @@ get_header();
                           </p>
                         <?php endif; ?>
 
-                        <?php if (!apply_filters('bootscore_hide_loop_read_more', false, 'archive')) : ?>
+                        <?php if (apply_filters('bootscore/loop/read-more', true, 'archive')) : ?>
                           <p class="card-text">
                             <a class="<?= apply_filters('bootscore/class/loop/read-more', 'read-more', 'archive'); ?>" href="<?php the_permalink(); ?>">
                               <?= apply_filters('bootscore/loop/read-more/text', __('Read more »', 'bootscore', 'archive')); ?>
@@ -87,7 +89,7 @@ get_header();
                           </p>
                         <?php endif; ?>
 
-                        <?php if (!apply_filters('bootscore_hide_loop_tags', false, 'archive')) : ?>
+                        <?php if (apply_filters('bootscore/loop/tags', true, 'archive')) : ?>
                           <?php bootscore_tags(); ?>
                         <?php endif; ?>
 
