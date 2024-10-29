@@ -90,11 +90,13 @@ get_header();
                         </p>
                       <?php endif; ?>
 
-                      <p class="card-text">
-                        <a class="text-body text-decoration-none" href="<?php the_permalink(); ?>">
-                          <?= strip_tags(get_the_excerpt()); ?>
-                        </a>
-                      </p>
+                      <?php if (!apply_filters('bootscore_hide_loop_excerpt', false, 'index-sticky')) : ?>
+                        <p class="card-text">
+                          <a class="text-body text-decoration-none" href="<?php the_permalink(); ?>">
+                            <?= strip_tags(get_the_excerpt()); ?>
+                          </a>
+                        </p>
+                      <?php endif; ?>
 
                       <?php if (!apply_filters('bootscore_hide_loop_read_more', false, 'index-sticky')) : ?>
                         <p class="card-text">
@@ -181,11 +183,13 @@ get_header();
                           </p>
                         <?php endif; ?>
 
-                        <p class="card-text">
-                          <a class="text-body text-decoration-none" href="<?php the_permalink(); ?>">
-                            <?= strip_tags(get_the_excerpt()); ?>
-                          </a>
-                        </p>
+                        <?php if (!apply_filters('bootscore_hide_loop_excerpt', false, 'index')) : ?>
+                          <p class="card-text">
+                            <a class="text-body text-decoration-none" href="<?php the_permalink(); ?>">
+                              <?= strip_tags(get_the_excerpt()); ?>
+                            </a>
+                          </p>
+                        <?php endif; ?>
 
                         <?php if (!apply_filters('bootscore_hide_loop_read_more', false, 'index')) : ?>
                           <p class="card-text">

@@ -50,11 +50,13 @@ defined('ABSPATH') || exit;
           </p>
         <?php endif; ?>
 
-        <p class="card-text">
-          <a class="text-body text-decoration-none" href="<?php the_permalink(); ?>">
-            <?= strip_tags(get_the_excerpt()); ?>
-          </a>
-        </p>
+        <?php if (!apply_filters('bootscore_hide_loop_excerpt', false, 'content-search')) : ?>
+          <p class="card-text">
+            <a class="text-body text-decoration-none" href="<?php the_permalink(); ?>">
+              <?= strip_tags(get_the_excerpt()); ?>
+            </a>
+          </p>
+        <?php endif; ?>
 
         <?php if (!apply_filters('bootscore_hide_loop_read_more', false, 'content-search')) : ?>
           <p class="card-text">
