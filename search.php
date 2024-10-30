@@ -33,6 +33,7 @@ get_header();
                   printf(esc_html__('Search Results for: %s', 'bootscore'), '<span class="text-body-secondary">' . get_search_query() . '</span>');
                   ?>
                 </h1>
+                <?php do_action( 'bootscore_after_title', 'search' ); ?>
               </div>
             
             <?php do_action( 'bootscore_before_loop', 'search' ); ?>

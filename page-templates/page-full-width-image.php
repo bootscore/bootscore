@@ -26,7 +26,8 @@ get_header();
         <div class="entry-header featured-full-width-img height-75 bg-dark text-light mb-4" style="background-image: url('<?= $thumb['0']; ?>')">
           <div class="<?= apply_filters('bootscore/class/container', 'container', 'page-full-width-image'); ?> entry-header h-100 d-flex align-items-end pb-3">
             <div class="full-width-img-title">
-              <h1 class="entry-title"><?php the_title(); ?></h1>
+              <?php the_title('<h1>', '</h1>'); ?>
+              <?php do_action( 'bootscore_after_title', 'page-full-width-image' ); ?>
             </div>
           </div>
         </div>
