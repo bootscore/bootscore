@@ -16,7 +16,7 @@ defined('ABSPATH') || exit;
 ?>
 
 
-<?php do_action( 'bootscore_before_loop_item', 'content-search' ); ?>
+<?php do_action('bootscore_before_loop_item', 'content-search'); ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class( apply_filters('bootscore/class/loop/card', 'card horizontal mb-4', 'content-search') ); ?>>
   
@@ -36,9 +36,11 @@ defined('ABSPATH') || exit;
         <?php if (apply_filters('bootscore/loop/category', true, 'content-search')) : ?>
           <?php bootscore_category_badge(); ?>
         <?php endif; ?>
+        
+        <?php do_action('bootscore_before_loop_title', 'content-search'); ?>
 
         <a class="text-body text-decoration-none" href="<?php the_permalink(); ?>">
-          <?php the_title('<h2 class="blog-post-title h5">', '</h2>'); ?>
+          <?php the_title('<h2 class="' . apply_filters('bootscore/class/loop/card/title', 'blog-post-title h5', 'content-search') . '">', '</h2>'); ?>
         </a>
 
         <?php if (apply_filters('bootscore/loop/meta', true, 'content-search')) : ?>
@@ -76,13 +78,13 @@ defined('ABSPATH') || exit;
 
       </div>
 
-      <?php do_action( 'bootscore_loop_item_after_card_body', 'content-search' ); ?>
+      <?php do_action('bootscore_loop_item_after_card_body', 'content-search'); ?>
 
     </div>
   </div>
 
 </article>
 
-<?php do_action( 'bootscore_after_loop_item', 'content-search' ); ?>
+<?php do_action('bootscore_after_loop_item', 'content-search'); ?>
 
 <!-- #post-<?php the_ID(); ?> -->

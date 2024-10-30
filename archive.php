@@ -18,7 +18,7 @@ get_header();
   <div id="content" class="site-content <?= apply_filters('bootscore/class/container', 'container', 'archive'); ?> <?= apply_filters('bootscore/class/content/spacer', 'pt-4 pb-5', 'archive'); ?>">
     <div id="primary" class="content-area">
       
-      <?php do_action( 'bootscore_after_primary_open', 'archive' ); ?>
+      <?php do_action('bootscore_after_primary_open', 'archive'); ?>
 
       <div class="row">
         <div class="<?= apply_filters('bootscore/class/main/col', 'col') ?>">
@@ -36,7 +36,7 @@ get_header();
             <?php if (have_posts()) : ?>
               <?php while (have_posts()) : the_post(); ?>
             
-              <?php do_action( 'bootscore_before_loop_item', 'archive'  ); ?>
+              <?php do_action('bootscore_before_loop_item', 'archive'); ?>
 
                 <article id="post-<?php the_ID(); ?>" <?php post_class( apply_filters('bootscore/class/loop/card', 'card horizontal mb-4', 'archive') ); ?>>
                   
@@ -57,8 +57,10 @@ get_header();
                           <?php bootscore_category_badge(); ?>
                         <?php endif; ?>
 
+                        <?php do_action('bootscore_before_loop_title', 'archive'); ?>
+                        
                         <a class="text-body text-decoration-none" href="<?php the_permalink(); ?>">
-                          <?php the_title('<h2 class="blog-post-title h5">', '</h2>'); ?>
+                          <?php the_title('<h2 class="' . apply_filters('bootscore/class/loop/card/title', 'blog-post-title h5', 'archive') . '">', '</h2>'); ?>
                         </a>
 
                         <?php if (apply_filters('bootscore/loop/meta', true, 'archive')) : ?>
@@ -96,7 +98,7 @@ get_header();
 
                       </div>
                       
-                      <?php do_action( 'bootscore_loop_item_after_card_body', 'archive'  ); ?>
+                      <?php do_action('bootscore_loop_item_after_card_body', 'archive'); ?>
                       
                     </div>
                     
@@ -104,12 +106,12 @@ get_header();
                   
                 </article>
             
-                <?php do_action( 'bootscore_after_loop_item', 'archive'  ); ?>
+                <?php do_action('bootscore_after_loop_item', 'archive'); ?>
 
               <?php endwhile; ?>
             <?php endif; ?>
             
-            <?php do_action( 'bootscore_after_loop', 'archive'  ); ?>
+            <?php do_action('bootscore_after_loop', 'archive'); ?>
 
             <div class="entry-footer">
               <?php bootscore_pagination(); ?>

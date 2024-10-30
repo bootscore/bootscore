@@ -22,7 +22,7 @@ get_header();
   <div id="content" class="site-content <?= apply_filters('bootscore/class/container', 'container', 'index'); ?> <?= apply_filters('bootscore/class/content/spacer', 'pt-4 pb-5', 'index'); ?>">
     <div id="primary" class="content-area">
       
-      <?php do_action( 'bootscore_after_primary_open', 'index' ); ?>
+      <?php do_action('bootscore_after_primary_open', 'index'); ?>
 
       <main id="main" class="site-main">
 
@@ -38,7 +38,7 @@ get_header();
           <div class="row">
             <div class="col">
               
-              <?php do_action( 'bootscore_before_loop', 'index-sticky' ); ?>
+              <?php do_action('bootscore_before_loop', 'index-sticky'); ?>
               
               <?php
               $args      = array(
@@ -50,7 +50,7 @@ get_header();
               if ($the_query->have_posts()) :
                 while ($the_query->have_posts()) : $the_query->the_post(); ?>
               
-              <?php do_action( 'bootscore_before_loop_item', 'index-sticky' ); ?>
+              <?php do_action('bootscore_before_loop_item', 'index-sticky'); ?>
 
               <article id="post-<?php the_ID(); ?>" <?php post_class( apply_filters('bootscore/class/loop/card', 'card horizontal mb-4', 'index-sticky') ); ?>>
 
@@ -78,8 +78,10 @@ get_header();
                         </div>
                       </div>
 
+                      <?php do_action('bootscore_before_loop_title', 'index-sticky'); ?>
+                      
                       <a class="text-body text-decoration-none" href="<?php the_permalink(); ?>">
-                        <?php the_title('<h2 class="blog-post-title h5">', '</h2>'); ?>
+                        <?php the_title('<h2 class="' . apply_filters('bootscore/class/loop/card/title', 'blog-post-title h5', 'index-sticky') . '">', '</h2>'); ?>
                       </a>
 
                       <?php if (apply_filters('bootscore/loop/meta', true, 'index-sticky')) : ?>
@@ -117,7 +119,7 @@ get_header();
 
                     </div>
 
-                    <?php do_action( 'bootscore_loop_item_after_card_body', 'index-sticky' ); ?>
+                    <?php do_action('bootscore_loop_item_after_card_body', 'index-sticky'); ?>
 
                   </div>
                   
@@ -125,14 +127,14 @@ get_header();
 
               </article>
               
-              <?php do_action( 'bootscore_after_loop_item', 'index-sticky' ); ?>
+              <?php do_action('bootscore_after_loop_item', 'index-sticky'); ?>
                 <?php
                 endwhile;
               endif;
               wp_reset_postdata();
               ?>
               
-              <?php do_action( 'bootscore_after_loop', 'index-sticky' ); ?>
+              <?php do_action('bootscore_after_loop', 'index-sticky'); ?>
               
             </div>
 
@@ -174,9 +176,11 @@ get_header();
                         <?php if (apply_filters('bootscore/loop/category', true, 'index')) : ?>
                           <?php bootscore_category_badge(); ?>
                         <?php endif; ?>
+                        
+                        <?php do_action('bootscore_before_loop_title', 'index'); ?>
 
                         <a class="text-body text-decoration-none" href="<?php the_permalink(); ?>">
-                          <?php the_title('<h2 class="blog-post-title h5">', '</h2>'); ?>
+                          <?php the_title('<h2 class="' . apply_filters('bootscore/class/loop/card/title', 'blog-post-title h5', 'index') . '">', '</h2>'); ?>
                         </a>
 
                         <?php if (apply_filters('bootscore/loop/meta', true, 'index')) : ?>
@@ -214,7 +218,7 @@ get_header();
 
                       </div>
                       
-                      <?php do_action( 'bootscore_loop_item_after_card_body', 'index' ); ?>
+                      <?php do_action('bootscore_loop_item_after_card_body', 'index'); ?>
                       
                     </div>
                     
@@ -222,12 +226,12 @@ get_header();
                   
                 </article>
             
-                <?php do_action( 'bootscore_after_loop_item', 'index' ); ?>
+                <?php do_action('bootscore_after_loop_item', 'index'); ?>
 
               <?php endwhile; ?>
             <?php endif; ?>
             
-            <?php do_action( 'bootscore_after_loop', 'index' ); ?>
+            <?php do_action('bootscore_after_loop', 'index'); ?>
 
             <div class="entry-footer">
               <?php bootscore_pagination(); ?>
