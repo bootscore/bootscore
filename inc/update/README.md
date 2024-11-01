@@ -29,7 +29,7 @@ From the users' perspective, it works just like with plugins and themes hosted o
 Getting Started
 ---------------
 
-*Note:* In each of the below examples, part of the instructions are to create an instance of the update checker class. It's recommended to do this either during the `plugins_loaded` action or outside of any hooks. If you do it only during an `admin_*` action, then updates will not be visible to a wide variety of WordPress maanagement tools; they will only be visible to logged-in users on dashboard pages.
+*Note:* In each of the below examples, part of the instructions is to create an instance of the update checker class. It's recommended to do this either during the `plugins_loaded` action or outside of any hooks. If you do it only during an `admin_*` action, then updates will not be visible to a wide variety of WordPress management tools; they will only be visible to logged-in users on dashboard pages.
 
 ### Self-hosted Plugins and Themes
 
@@ -252,8 +252,8 @@ BitBucket doesn't have an equivalent to GitHub's releases, so the process is sli
 
 	Alternatively, if you're using a self-hosted GitLab instance, initialize the update checker like this:
 	```php
-	use YahnisElsts\PluginUpdateChecker\v5p4\Vcs\PluginUpdateChecker;
-	use YahnisElsts\PluginUpdateChecker\v5p4\Vcs\GitLabApi;
+	use YahnisElsts\PluginUpdateChecker\v5p5\Vcs\PluginUpdateChecker;
+	use YahnisElsts\PluginUpdateChecker\v5p5\Vcs\GitLabApi;
 	
 	$myUpdateChecker = new PluginUpdateChecker(
 		new GitLabApi('https://myserver.com/user-name/repo-name/'),
@@ -264,8 +264,8 @@ BitBucket doesn't have an equivalent to GitHub's releases, so the process is sli
 	```
 	If you're using a self-hosted GitLab instance and [subgroups or nested groups](https://docs.gitlab.com/ce/user/group/subgroups/index.html), you have to tell the update checker which parts of the URL are subgroups:
 	```php
-	use YahnisElsts\PluginUpdateChecker\v5p4\Vcs\PluginUpdateChecker;
-	use YahnisElsts\PluginUpdateChecker\v5p4\Vcs\GitLabApi;
+	use YahnisElsts\PluginUpdateChecker\v5p5\Vcs\PluginUpdateChecker;
+	use YahnisElsts\PluginUpdateChecker\v5p5\Vcs\GitLabApi;
    
 	$myUpdateChecker = new PluginUpdateChecker(
 		new GitLabApi(
@@ -347,14 +347,14 @@ Other classes have also been renamed, usually by simply removing the `Puc_vXpY_`
 | Old class name                      | New class name                                                 |
 |-------------------------------------|----------------------------------------------------------------|
 | `Puc_v4_Factory`                    | `YahnisElsts\PluginUpdateChecker\v5\PucFactory`                |
-| `Puc_v4p13_Factory`                 | `YahnisElsts\PluginUpdateChecker\v5p4\PucFactory`              |
-| `Puc_v4p13_Plugin_UpdateChecker`    | `YahnisElsts\PluginUpdateChecker\v5p4\Plugin\UpdateChecker`    |
-| `Puc_v4p13_Theme_UpdateChecker`     | `YahnisElsts\PluginUpdateChecker\v5p4\Theme\UpdateChecker`     |
-| `Puc_v4p13_Vcs_PluginUpdateChecker` | `YahnisElsts\PluginUpdateChecker\v5p4\Vcs\PluginUpdateChecker` |
-| `Puc_v4p13_Vcs_ThemeUpdateChecker`  | `YahnisElsts\PluginUpdateChecker\v5p4\Vcs\ThemeUpdateChecker`  |
-| `Puc_v4p13_Vcs_GitHubApi`           | `YahnisElsts\PluginUpdateChecker\v5p4\Vcs\GitHubApi`           |
-| `Puc_v4p13_Vcs_GitLabApi`           | `YahnisElsts\PluginUpdateChecker\v5p4\Vcs\GitLabApi`           |
-| `Puc_v4p13_Vcs_BitBucketApi`        | `YahnisElsts\PluginUpdateChecker\v5p4\Vcs\BitBucketApi`        |
+| `Puc_v4p13_Factory`                 | `YahnisElsts\PluginUpdateChecker\v5p5\PucFactory`              |
+| `Puc_v4p13_Plugin_UpdateChecker`    | `YahnisElsts\PluginUpdateChecker\v5p5\Plugin\UpdateChecker`    |
+| `Puc_v4p13_Theme_UpdateChecker`     | `YahnisElsts\PluginUpdateChecker\v5p5\Theme\UpdateChecker`     |
+| `Puc_v4p13_Vcs_PluginUpdateChecker` | `YahnisElsts\PluginUpdateChecker\v5p5\Vcs\PluginUpdateChecker` |
+| `Puc_v4p13_Vcs_ThemeUpdateChecker`  | `YahnisElsts\PluginUpdateChecker\v5p5\Vcs\ThemeUpdateChecker`  |
+| `Puc_v4p13_Vcs_GitHubApi`           | `YahnisElsts\PluginUpdateChecker\v5p5\Vcs\GitHubApi`           |
+| `Puc_v4p13_Vcs_GitLabApi`           | `YahnisElsts\PluginUpdateChecker\v5p5\Vcs\GitLabApi`           |
+| `Puc_v4p13_Vcs_BitBucketApi`        | `YahnisElsts\PluginUpdateChecker\v5p5\Vcs\BitBucketApi`        |
 
 License Management
 ------------------
