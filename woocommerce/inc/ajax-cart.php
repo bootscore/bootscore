@@ -406,7 +406,7 @@ function bootscore_ajax_add_to_cart_js() {
             }, 300);
 
             let cart_res = res.data;
-            $('.cart-content span.woocommerce-Price-amount.amount').html(
+            $('#offcanvas-cart .cart-content span.woocommerce-Price-amount.amount').html(
               cart_res['total']
             );
             wrap.find('.bootscore-custom-render-total').html(
@@ -418,7 +418,7 @@ function bootscore_ajax_add_to_cart_js() {
               cart_res['total']
             );
             $('.cart-footer .amount').html(cart_res['total']);
-            $('.cart-content .cart-total').html(cart_res['total']);
+            //$('.cart-content .cart-total').html(cart_res['total']);
           },
           error: function (jqXHR, textStatus, errorThrown) {
             setTimeout(function () {
