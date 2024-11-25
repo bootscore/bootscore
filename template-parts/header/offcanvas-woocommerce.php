@@ -6,7 +6,7 @@
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
  * @package Bootscore
- * @version 6.0.0
+ * @version 6.1.0
  */
 
 
@@ -18,21 +18,24 @@ defined('ABSPATH') || exit;
 
 <!-- Offcanvas user -->
 <?php
-if ( is_account_page() || is_checkout() ) {
- // Do nothing
-} else { ?>
-<div class="offcanvas offcanvas-<?= apply_filters('bootscore/class/header/offcanvas/direction', 'end', 'account'); ?>" tabindex="-1" id="offcanvas-user">
-  <div class="offcanvas-header">
-    <span class="h5 offcanvas-title"><?= apply_filters('bootscore/offcanvas/user/title', __('Account', 'bootscore')); ?></span>
-    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-  </div>
-  <div class="offcanvas-body">
-    <div class="my-offcanvas-account">
-      <?= do_shortcode('[woocommerce_my_account]'); ?>
+if (apply_filters('bootscore/enable_account', true)) {
+  if ( is_account_page() || is_checkout() ) {
+  // Do nothing
+  } else { ?>
+  <div class="offcanvas offcanvas-<?= apply_filters('bootscore/class/header/offcanvas/direction', 'end', 'account'); ?>" tabindex="-1" id="offcanvas-user">
+    <div class="offcanvas-header">
+      <span class="h5 offcanvas-title"><?= apply_filters('bootscore/offcanvas/user/title', __('Account', 'bootscore')); ?></span>
+      <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <div class="my-offcanvas-account">
+        <?= do_shortcode('[woocommerce_my_account]'); ?>
+      </div>
     </div>
   </div>
-</div>
-<?php } ?>
+  <?php }
+  }
+?>
 
 <!-- Offcanvas cart -->
 <?php

@@ -25,13 +25,17 @@ defined('ABSPATH') || exit;
 
 <!-- User toggler -->
 <?php
-if ( is_account_page() || is_checkout() ) {
- // Do nothing
-} else { ?>
-  <button class="<?= apply_filters('bootscore/class/header/button', 'btn btn-outline-secondary', 'account-toggler'); ?> <?= apply_filters('bootscore/class/header/action/spacer', 'ms-1 ms-md-2', 'account-toggler'); ?> account-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas-user" aria-controls="offcanvas-user">
-    <?= apply_filters('bootscore/icon/user', '<i class="fa-solid fa-user"></i>'); ?> <span class="visually-hidden-focusable">Account</span>
-  </button>
-<?php } ?>
+if (apply_filters('bootscore/enable_account', true)) {
+  if ( is_account_page() || is_checkout() ) {
+  // Do nothing
+  } else { ?>
+    <button class="<?= apply_filters('bootscore/class/header/button', 'btn btn-outline-secondary', 'account-toggler'); ?> <?= apply_filters('bootscore/class/header/action/spacer', 'ms-1 ms-md-2', 'account-toggler'); ?> account-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas-user" aria-controls="offcanvas-user">
+      <?= apply_filters('bootscore/icon/user', '<i class="fa-solid fa-user"></i>'); ?> <span class="visually-hidden-focusable">Account</span>
+    </button>
+  <?php } 
+ }
+?>
+
 
 
 <!-- Mini cart toggler -->
