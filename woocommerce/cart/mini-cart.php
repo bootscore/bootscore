@@ -70,14 +70,14 @@ do_action('woocommerce_before_mini_cart'); ?>
               
               <?php
                 if (apply_filters('bootscore/class/cart/enable_cart_product_excerpt', true)) { ?>  
-                  <small class="text-body-secondary d-block text-truncate">
-                    <?php echo get_the_excerpt($product_id); ?>
-                  </small>
+                  <p class="cart-product-excerpt <?= apply_filters('bootscore/class/cart/product-excerpt', 'small text-body-secondary text-truncate mb-0'); ?>">
+                    <?= get_the_excerpt($product_id); ?>
+                  </p>
               <?php  }
               ?>   
               
               <?php
-                if (apply_filters('bootscore/class/cart/enable_cart_stock_quantity', false)) {
+                if (apply_filters('bootscore/class/cart/enable_cart_stock_quantity', true)) {
                   $stock_quantity = $_product->get_stock_quantity();
                   // Check if the product is sold individually
                   if ($_product->is_sold_individually()) {
