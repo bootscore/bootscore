@@ -14,9 +14,28 @@ Block Widgets
 }
 
 
-// Add rounded to block img if class added to img block
-figure.rounded img {
-  border-radius: var(--#{$prefix}border-radius);
+// Add rounded-* classes to block img when class is added to the figure
+figure.rounded {
+
+  img {
+    border-radius: var(--#{$prefix}border-radius);
+  }
+
+  &-lg img {
+    border-radius: var(--#{$prefix}border-radius-lg);
+  }
+
+  &-xl img {
+    border-radius: var(--#{$prefix}border-radius-xl);
+  }
+
+  &-xxl img {
+    border-radius: var(--#{$prefix}border-radius-xxl);
+  }
+
+  &-circle img {
+    border-radius: 50%;
+  }
 }
 
 // Add card-img-top to block img if class added to img block
