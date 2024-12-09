@@ -75,3 +75,34 @@ if (class_exists('WooCommerce')) {
 if (defined('JETPACK__VERSION')) {
   require get_template_directory() . '/inc/jetpack.php';
 }
+
+
+
+ /**
+ * Disable WooCommerce account
+ */
+add_filter('bootscore/enable_account', '__return_false');
+
+
+/**
+ * Disable Cart Product Excerpt
+ */
+add_filter('bootscore/class/cart/enable_cart_product_excerpt', '__return_true');
+
+/**
+ * Disable Cart Stock Quantity
+ */
+add_filter('bootscore/class/cart/enable_cart_stock_quantity', '__return_true');
+
+
+function remove_text_truncate_class($classes) {
+    // Remove the 'text-truncate' class if it exists
+    $classes = str_replace('text-truncate', '', $classes);
+    
+    // Trim any leading or trailing spaces that might be left
+    $classes = trim($classes);
+    
+    // Return the modified class list
+    return $classes;
+}
+add_filter('bootscore/class/cart/product-title', 'remove_text_truncate_class');
