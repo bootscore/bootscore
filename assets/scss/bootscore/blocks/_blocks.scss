@@ -15,7 +15,7 @@ Block Widgets
 
 
 // Add rounded to block img if class added to img block
-.rounded img {
+figure.rounded img {
   border-radius: var(--#{$prefix}border-radius);
 }
 
