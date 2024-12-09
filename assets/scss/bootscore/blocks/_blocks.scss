@@ -81,3 +81,16 @@ figure.rounded {
     }
   }
 }
+
+
+// Add dark mode support to gallery/img block lightbox
+.wp-lightbox-overlay {
+  .scrim {
+    // Override inline-style 
+    background-color: var(--#{$prefix}body-bg) !important;
+  }
+}
+
+[data-bs-theme="dark"] .close-button {
+  filter: invert(1);
+}
