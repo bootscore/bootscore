@@ -4,7 +4,7 @@
  * Enqueue styles & scripts
  *
  * @package Bootscore 
- * @version 6.0.0
+ * @version 6.0.3
  */
 
 
@@ -52,20 +52,27 @@ add_action('wp_enqueue_scripts', 'bootscore_scripts');
 
 
 
-/*
- * Register compiled CSS to editor
- */ 
+/**
+ * Register compiled CSS for block editor and Pattern Library
+ */
 function bootscore_add_editor_styles() {
+  // Add support for editor styles and main.css for the editor
   add_theme_support('editor-styles');
   add_editor_style('assets/css/main.css');
 
-  // Check if the current page is the Gutenberg editor and enqueue CSS to the main admin area to use variables in theme.json
-  $screen = get_current_screen();
-  if ($screen && $screen->is_block_editor) {
-    wp_enqueue_style('editor-style', get_stylesheet_directory_uri() . '/assets/css/editor.css', array(), '1.0', 'all');
-  }
+  // Enqueue additional styles for block editor and Pattern Library
+  add_action('admin_enqueue_scripts', function($hook_suffix) {
+    // Check if the current page is the block editor or the Pattern Library
+    $screen = get_current_screen();
+    
+    // Enqueue editor.css only in the block editor
+    if ($screen && $screen->is_block_editor) wp_enqueue_style('editor-style', get_stylesheet_directory_uri() . '/assets/css/editor.css', [], '1.0', 'all');
+
+    // Enqueue main.css only in the Pattern Library
+    if ('appearance_page_edit-wp-patterns' === $hook_suffix) wp_enqueue_style('bootscore-pattern-library-styles', get_template_directory_uri() . '/assets/css/main.css', [], wp_get_theme()->get('Version'));
+  });
 }
-add_action('enqueue_block_editor_assets', 'bootscore_add_editor_styles');
+add_action('after_setup_theme', 'bootscore_add_editor_styles');
 
 
 
