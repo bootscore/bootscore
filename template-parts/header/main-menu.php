@@ -6,7 +6,7 @@
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
  * @package Bootscore
- * @version 6.0.0
+ * @version 6.1.0
  */
 
 
@@ -23,7 +23,7 @@ wp_nav_menu(array(
   'container'      => false,
   'menu_class'     => '',
   'fallback_cb'    => '__return_false',
-  'items_wrap'     => '<ul id="bootscore-navbar" class="navbar-nav ms-auto %2$s">%3$s</ul>',
+  'items_wrap'     => '<ul id="bootscore-navbar" class="navbar-nav ' . apply_filters('bootscore/class/header/navbar-nav', 'ms-auto') . ' %2$s">%3$s</ul>',
   'depth'          => 2,
   'walker'         => new bootstrap_5_wp_nav_menu_walker()
 ));
