@@ -51,7 +51,6 @@ function bootscore_scripts() {
 add_action('wp_enqueue_scripts', 'bootscore_scripts');
 
 
-
 /**
  * Register compiled CSS for block editor and Pattern Library
  */
@@ -62,18 +61,16 @@ function bootscore_add_editor_styles() {
 
   // Enqueue additional styles for block editor and Pattern Library
   add_action('admin_enqueue_scripts', function($hook_suffix) {
-    // Check if the current page is the block editor or the Pattern Library
     $screen = get_current_screen();
     
     // Enqueue editor.css only in the block editor
-    if ($screen && $screen->is_block_editor) wp_enqueue_style('editor-style', get_stylesheet_directory_uri() . '/assets/css/editor.css', [], '1.0', 'all');
+    if ($screen && $screen->is_block_editor) wp_enqueue_style('editor-style', get_stylesheet_directory_uri() . '/assets/css/editor.css');
 
     // Enqueue main.css only in the Pattern Library
-    if ('appearance_page_edit-wp-patterns' === $hook_suffix) wp_enqueue_style('bootscore-pattern-library-styles', get_template_directory_uri() . '/assets/css/main.css', [], wp_get_theme()->get('Version'));
+    if ('appearance_page_edit-wp-patterns' === $hook_suffix) wp_enqueue_style('bootscore-pattern-library-styles', get_stylesheet_directory_uri() . '/assets/css/main.css');
   });
 }
 add_action('after_setup_theme', 'bootscore_add_editor_styles');
-
 
 
 /**
