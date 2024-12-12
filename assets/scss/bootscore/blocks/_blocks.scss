@@ -14,7 +14,14 @@ Block Widgets
 }
 
 
-// Add rounded-* classes to block img when class is added to the figure
+// Add width-100 classes to block img if class is added to the figure
+figure.w-100 {
+  img {
+    width: 100%;
+  }
+}
+
+// Add rounded-* classes to block img if class is added to the figure
 figure.rounded {
 
   img {
@@ -38,10 +45,12 @@ figure.rounded {
   }
 }
 
-// Add card-img-top to block img if class added to img block
-.card-img-top img {
-  border-top-left-radius: $card-inner-border-radius;
-  border-top-right-radius: $card-inner-border-radius;
+// Add card-img-top to block img if class added to the figure
+figure.card-img-top {
+  img {
+    border-top-left-radius: $card-inner-border-radius;
+    border-top-right-radius: $card-inner-border-radius;
+  }
 }
 
 
