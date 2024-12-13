@@ -52,25 +52,33 @@ add_action('wp_enqueue_scripts', 'bootscore_scripts');
 
 
 /**
- * Register compiled CSS for block editor and Pattern Library
+ * Register editor styles.
  */
 function bootscore_add_editor_styles() {
   // Add support for editor styles and main.css for the editor
   add_theme_support('editor-styles');
   add_editor_style('assets/css/main.css');
-
-  // Enqueue additional styles for block editor and Pattern Library
-  add_action('admin_enqueue_scripts', function($hook_suffix) {
-    $screen = get_current_screen();
-    
-    // Enqueue editor.css only in the block editor
-    if ($screen && $screen->is_block_editor) wp_enqueue_style('editor-style', get_stylesheet_directory_uri() . '/assets/css/editor.css');
-
-    // Enqueue main.css only in the Pattern Library
-    if ('appearance_page_edit-wp-patterns' === $hook_suffix) wp_enqueue_style('bootscore-pattern-library-styles', get_stylesheet_directory_uri() . '/assets/css/main.css');
-  });
 }
 add_action('after_setup_theme', 'bootscore_add_editor_styles');
+
+
+/**
+ * Enqueue styles for block editor and Pattern Library.
+ */
+function bootscore_enqueue_editor_and_pattern_library_styles($hook_suffix) {
+  $screen = get_current_screen();
+  
+  // Enqueue editor.css only in the block editor
+  if ($screen && $screen->is_block_editor) {
+    wp_enqueue_style('editor-style', get_stylesheet_directory_uri() . '/assets/css/editor.css');
+  }
+
+  // Enqueue main.css only in the Pattern Library
+  if ('appearance_page_edit-wp-patterns' === $hook_suffix) {
+    wp_enqueue_style('bootscore-pattern-library-styles', get_stylesheet_directory_uri() . '/assets/css/main.css');
+  }
+}
+add_action('admin_enqueue_scripts', 'bootscore_enqueue_editor_and_pattern_library_styles');
 
 
 /**
