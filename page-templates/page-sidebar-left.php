@@ -28,7 +28,7 @@ get_header();
 
             <div class="entry-header">
               <?php the_post(); ?>
-              <?php the_title('<h1>', '</h1>'); ?>
+              <?php the_title('<h1 class="entry-title ' . apply_filters('bootscore/class/entry/title', '', 'page-sidebar-left') . '">', '</h1>'); ?>
               <?php do_action( 'bootscore_after_title', 'page-sidebar-left' ); ?>
               <?php bootscore_post_thumbnail(); ?>
             </div>

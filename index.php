@@ -28,7 +28,7 @@ get_header();
 
         <!-- Header -->
         <div class="p-5 text-center bg-body-tertiary rounded mb-4">
-          <h1><?php bloginfo('name'); ?></h1>
+          <h1 class="entry-title <?= apply_filters('bootscore/class/entry/title', '', 'index'); ?>"><?php bloginfo('name'); ?></h1>
           <?php do_action( 'bootscore_after_title', 'index' ); ?>
           <p class="lead mb-0"><?php bloginfo('description'); ?></p>
         </div>

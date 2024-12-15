@@ -22,7 +22,9 @@ get_header();
         <section class="error-404 not-found">
           <div class="page-404">
 
-            <h1 class="mb-3">404</h1>
+            <div class="entry-header">
+              <h1 class="entry-title <?= apply_filters('bootscore/class/entry/title', '', '404'); ?>">404</h1>
+            </div>
             <!-- Remove this line and place some widgets -->
             <p class="alert alert-info mb-4"><?php esc_html_e('Page not found.', 'bootscore'); ?></p>
             <!-- 404 Widget -->
