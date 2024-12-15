@@ -58,11 +58,11 @@ defined('ABSPATH') || exit;
 
         <!-- Offcanvas Navbar -->
         <div class="offcanvas offcanvas-<?= apply_filters('bootscore/class/header/offcanvas/direction', 'end', 'menu'); ?>" tabindex="-1" id="offcanvas-navbar">
-          <div class="offcanvas-header">
+          <div class="offcanvas-header <?= apply_filters('bootscore/class/offcanvas/header', '', 'menu'); ?>">
             <span class="h5 offcanvas-title"><?= apply_filters('bootscore/offcanvas/navbar/title', __('Menu', 'bootscore')); ?></span>
             <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
           </div>
-          <div class="offcanvas-body">
+          <div class="offcanvas-body <?= apply_filters('bootscore/class/offcanvas/body', '', 'menu'); ?>">
 
             <!-- Bootstrap 5 Nav Walker Main Menu -->
             <?php get_template_part('template-parts/header/main-menu'); ?>

@@ -23,11 +23,11 @@ if (apply_filters('bootscore/enable_account', true)) {
   // Do nothing
   } else { ?>
   <div class="offcanvas offcanvas-<?= apply_filters('bootscore/class/header/offcanvas/direction', 'end', 'account'); ?>" tabindex="-1" id="offcanvas-user">
-    <div class="offcanvas-header">
+    <div class="offcanvas-header <?= apply_filters('bootscore/class/offcanvas/header', '', 'account'); ?>">
       <span class="h5 offcanvas-title"><?= apply_filters('bootscore/offcanvas/user/title', __('Account', 'bootscore')); ?></span>
       <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
-    <div class="offcanvas-body">
+    <div class="offcanvas-body <?= apply_filters('bootscore/class/offcanvas/body', '', 'account'); ?>">
       <div class="my-offcanvas-account">
         <?= do_shortcode('[woocommerce_my_account]'); ?>
       </div>
@@ -43,11 +43,11 @@ if ( is_checkout() || is_cart() ) {
  // Do nothing
 } else { ?>
   <div class="offcanvas offcanvas-<?= apply_filters('bootscore/class/header/offcanvas/direction', 'end', 'cart'); ?>" tabindex="-1" id="offcanvas-cart">
-    <div class="offcanvas-header">
+    <div class="offcanvas-header <?= apply_filters('bootscore/class/offcanvas/header', '', 'cart'); ?>">
       <span class="h5 offcanvas-title"><?= apply_filters('bootscore/offcanvas/cart/title', __('Cart', 'bootscore')); ?></span>
       <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
-    <div class="offcanvas-body p-0">
+    <div class="offcanvas-body p-0 <?= apply_filters('bootscore/class/offcanvas/body', '', 'cart'); ?>">
       <div class="cart-list">
         <div class="widget_shopping_cart_content"><?php woocommerce_mini_cart(); ?></div>
       </div>

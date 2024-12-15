@@ -26,11 +26,11 @@ if (!is_active_sidebar('sidebar-1')) {
     </button>
 
     <div class="<?= apply_filters('bootscore/class/sidebar/offcanvas', 'offcanvas-lg offcanvas-end'); ?>" tabindex="-1" id="sidebar" aria-labelledby="sidebarLabel">
-      <div class="offcanvas-header">
+      <div class="offcanvas-header <?= apply_filters('bootscore/class/offcanvas/header', '', 'sidebar'); ?>">
         <span class="h5 offcanvas-title" id="sidebarLabel"><?= apply_filters('bootscore/offcanvas/sidebar/title', __('Sidebar', 'bootscore')); ?></span>
         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#sidebar" aria-label="Close"></button>
       </div>
-      <div class="offcanvas-body flex-column">
+      <div class="offcanvas-body flex-column <?= apply_filters('bootscore/class/offcanvas/body', '', 'sidebar'); ?>">
         
         <?php do_action( 'bootscore_before_sidebar_widgets' ); ?>
         
