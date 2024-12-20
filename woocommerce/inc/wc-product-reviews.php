@@ -13,21 +13,23 @@
 
 
 /**
- * Change the 'comments' div ID to 'woo-comments'
+ * Replace <div id="comments"> with <div id="woo-comments"> in WooCommerce reviews.
  */
-add_filter('comments_template', function ($template) {
-    // Include the default comments template, and capture the output.
+add_action('woocommerce_after_single_product_summary', function () {
+    // Start output buffering.
     ob_start();
-    include($template);
+}, 1);
+
+add_action('woocommerce_after_single_product_summary', function () {
+    // Get the buffered content.
     $output = ob_get_clean();
 
-    // Replace the 'comments' div ID with 'woo-comments'
-    $output = preg_replace('/<div id="comments"/', '<div id="woo-comments"', $output, 1);
+    // Replace <div id="comments"> with <div id="woo-comments">.
+    $output = str_replace('<div id="comments"', '<div id="woo-comments"', $output);
 
-    // Return the modified output
+    // Output the modified content.
     echo $output;
-    return '';
-}, 20);
+}, 100);
 
 
 /**
