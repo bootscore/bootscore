@@ -47,3 +47,18 @@ function bootscore_quantity_input_classes( $classes ) {
   return $classes;
 }
 add_filter( 'woocommerce_quantity_input_classes', 'bootscore_quantity_input_classes' );
+
+
+/**
+ * Reviews text area
+ */
+add_filter('comment_form_field_comment', function ($field) {
+  // Add the 'form-control' class to the textarea
+  $field = str_replace(
+    '<textarea',
+    '<textarea class="form-control" placeholder="' . __('Your review...*', 'bootscore') . '"',
+    $field
+  );
+
+  return $field;
+});
