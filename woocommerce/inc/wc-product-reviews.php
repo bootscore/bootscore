@@ -16,19 +16,19 @@
  * Replace <div id="comments"> with <div id="woo-comments"> in WooCommerce reviews.
  */
 add_action('woocommerce_after_single_product_summary', function () {
-    // Start output buffering.
-    ob_start();
+  // Start output buffering.
+  ob_start();
 }, 1);
 
 add_action('woocommerce_after_single_product_summary', function () {
-    // Get the buffered content.
-    $output = ob_get_clean();
+  // Get the buffered content.
+  $output = ob_get_clean();
 
-    // Replace <div id="comments"> with <div id="woo-comments">.
-    $output = str_replace('<div id="comments"', '<div id="woo-comments"', $output);
+  // Replace <div id="comments"> with <div id="woo-comments">.
+  $output = str_replace('<div id="comments"', '<div id="woo-comments"', $output);
 
-    // Output the modified content.
-    echo $output;
+  // Output the modified content.
+  echo $output;
 }, 100);
 
 
@@ -44,6 +44,29 @@ add_filter('woocommerce_product_review_comment_form_args', function ($args) {
 
   return $args;
 });
+
+
+/**
+ * Replace <ol class="commentlist"> with <ul class="comment-list"> in WooCommerce reviews.
+ */
+add_action('woocommerce_after_single_product_summary', function () {
+  // Start output buffering.
+  ob_start();
+}, 1);
+
+add_action('woocommerce_after_single_product_summary', function () {
+  // Get the buffered content.
+  $output = ob_get_clean();
+
+  // Replace <ol class="commentlist"> with <ul class="comment-list">.
+  $output = str_replace('<ol class="commentlist">', '<ul class="comment-list">', $output);
+
+  // Replace the closing </ol> tag with </ul>.
+  $output = str_replace('</ol>', '</ul>', $output);
+
+  // Output the modified content.
+  echo $output;
+}, 100);
 
 
 /**
