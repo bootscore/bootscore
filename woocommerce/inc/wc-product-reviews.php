@@ -85,3 +85,27 @@ add_filter('comment_form_field_comment', function ($field) {
 
   return $field;
 });
+
+
+/**
+ * Add 'woocommerce-info' class to the verification required message for WooCommerce reviews.
+ */
+add_action('woocommerce_after_single_product_summary', function () {
+  // Start output buffering.
+  ob_start();
+}, 1);
+
+add_action('woocommerce_after_single_product_summary', function () {
+  // Get the buffered content.
+  $output = ob_get_clean();
+
+  // Replace the verification required paragraph with the desired class.
+  $output = str_replace(
+    '<p class="woocommerce-verification-required">',
+    '<p class="woocommerce-verification-required woocommerce-info">',
+    $output
+  );
+
+  // Output the modified content.
+  echo $output;
+}, 100);
