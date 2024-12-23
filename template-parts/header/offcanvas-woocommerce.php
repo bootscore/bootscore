@@ -24,7 +24,7 @@ if (apply_filters('bootscore/enable_account', true)) {
   } else { ?>
   <div class="offcanvas offcanvas-<?= apply_filters('bootscore/class/header/offcanvas/direction', 'end', 'account'); ?>" tabindex="-1" id="offcanvas-user">
     <div class="offcanvas-header <?= apply_filters('bootscore/class/offcanvas/header', '', 'account'); ?>">
-      <span class="h5 offcanvas-title"><?= apply_filters('bootscore/offcanvas/user/title', __('Account', 'bootscore')); ?></span>
+      <span class="h5 offcanvas-title"><?= apply_filters('bootscore/offcanvas/account/title', __('Account', 'bootscore')); ?></span>
       <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
     <div class="offcanvas-body <?= apply_filters('bootscore/class/offcanvas/body', '', 'account'); ?>">
