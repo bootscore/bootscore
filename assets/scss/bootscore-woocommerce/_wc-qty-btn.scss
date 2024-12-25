@@ -23,10 +23,7 @@ WooCommerce Quantity Input
     }
   }
 
-  /*
   // Disable quantity input if only 1 product in stock left or sold individually
-  // https://github.com/bootscore/bootscore/issues/801
-  // https://github.com/bootscore/bootscore/pull/823
   &:has([max="1"]) {
 
     .input-group-text {
@@ -38,7 +35,6 @@ WooCommerce Quantity Input
       pointer-events: none;
     }
   }
-  */
 }
 
 
