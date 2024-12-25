@@ -4,14 +4,14 @@
  * Class with functions to compile SCSS files.
  *
  * @package Bootscore
- * @version 6.0.0
+ * @version 6.0.4
  */
 
 
 // Exit if accessed directly
 defined('ABSPATH') || exit;
 
-require_once "scssphp/scss.inc.php";
+require_once "scssphp/autoload.php";
 
 use ScssPhp\ScssPhp\Compiler;
 
