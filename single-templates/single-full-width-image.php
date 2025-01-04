@@ -23,8 +23,8 @@ get_header();
         <?php the_post(); ?>
         <?php $thumb = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'full'); ?>
         <div class="entry-header <?= apply_filters('bootscore/class/featured-full-width-img', 'featured-full-width-img height-75 bg-dark text-light mb-4', 'single-full-width-image'); ?>" style="background-image: url('<?= $thumb['0']; ?>')">
-          <div class="<?= apply_filters('bootscore/class/container', 'container', 'single-full-width-image'); ?> entry-header h-100 d-flex align-items-end pb-3">
-            <div class="entry-header full-width-img-title">
+          <div class="<?= apply_filters('bootscore/class/container', 'container', 'single-full-width-image'); ?> <?= apply_filters('bootscore/class/featured-full-width-img/container', 'h-100 d-flex align-items-end pb-3', 'single-full-width-image'); ?>">
+            <div class="<?= apply_filters('bootscore/class/full-width-img-title-wrapper', 'full-width-img-title-wrapper', 'single-full-width-image'); ?>">
               <?php the_title('<h1 class="entry-title ' . apply_filters('bootscore/class/entry/title', '', 'single-full-width-image') . '">', '</h1>'); ?>
               <?php do_action( 'bootscore_after_title', 'single-full-width-image' ); ?>
             </div>
