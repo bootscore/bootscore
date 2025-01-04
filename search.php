@@ -27,6 +27,7 @@ get_header();
             <?php if (have_posts()) : ?>
 
               <div class="entry-header">
+                <?php do_action( 'bootscore_before_title', 'search' ); ?>
                 <h1 class="entry-title <?= apply_filters('bootscore/class/entry/title', '', 'search'); ?>">
                   <?php
                   /* translators: %s: search query. */

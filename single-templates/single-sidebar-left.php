@@ -29,6 +29,7 @@ get_header();
             <div class="entry-header">
               <?php the_post(); ?>
               <?php bootscore_category_badge(); ?>
+              <?php do_action( 'bootscore_before_title', 'single-sidebar-left' ); ?>
               <?php the_title('<h1 class="entry-title ' . apply_filters('bootscore/class/entry/title', '', 'single-sidebar-left') . '">', '</h1>'); ?>
               <?php do_action( 'bootscore_after_title', 'single-sidebar-left' ); ?>
               <p class="entry-meta">
