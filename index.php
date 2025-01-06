@@ -68,16 +68,16 @@ get_header();
                   <div class="<?= apply_filters('bootscore/class/loop/card/content/col', 'col', 'index-sticky'); ?>">
                     <div class="<?= apply_filters('bootscore/class/loop/card/body', 'card-body', 'index-sticky'); ?>">
 
+                      <?php if (apply_filters('bootscore/loop/category', true, 'index-sticky')) : ?>
                       <div class="row">
                         <div class="col-10">
-                          <?php if (apply_filters('bootscore/loop/category', true, 'index-sticky')) : ?>
-                            <?php bootscore_category_badge(); ?>
-                          <?php endif; ?>
+                          <?php bootscore_category_badge(); ?>
                         </div>
                         <div class="col-2 text-end">
                           <span class="badge text-bg-danger"><?= apply_filters('bootscore/icon/star', '<i class="fa-solid fa-star"></i>'); ?></span>
                         </div>
                       </div>
+                      <?php endif; ?>
 
                       <?php do_action('bootscore_before_loop_title', 'index-sticky'); ?>
                       
