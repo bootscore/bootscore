@@ -4,7 +4,7 @@
  * Comments
  *
  * @package Bootscore 
- * @version 6.1.0
+ * @version 6.0.0
  */
 
 
@@ -51,8 +51,7 @@ if (!function_exists('bootscore_comment')) :
         <article id="div-comment-<?php comment_ID(); ?>" class="comment-body mb-4 d-flex">
 
           <div class="flex-shrink-0 me-3">
-            <?php echo get_avatar($comment, 80, '', '', array('class' => apply_filters('bootscore/class/comment/avatar', 'img-thumbnail rounded-circle'))); ?>
-
+            <?php if (0 != $args['avatar_size']) echo get_avatar($comment, $args['avatar_size'], '', '', array('class' => 'img-thumbnail rounded-circle')); ?>
           </div>
 
           <div class="comment-content">
