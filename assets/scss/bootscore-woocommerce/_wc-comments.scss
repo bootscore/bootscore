@@ -2,17 +2,16 @@
 WooCommerce Comments
 --------------------------------------------------------------*/
 
-// Star rating
-#woo-comments .star-rating {
-  float: right;
-  margin: 0;
-}
+#woo-comments {
 
-// Nested comments
-#woo-comments .depth-2 {
-  padding-left: 65px;
-}
+  // Nested comments, allow only 1 depth
+  .comment-list > li > .children:first-of-type {
+    padding-left: 96px;
+  }
 
-.woocommerce #reviews h3 {
-  margin-bottom: $spacer * .5,;
+  // Star rating
+  .star-rating {
+    float: right;
+    margin: 0;
+  }
 }

@@ -3,34 +3,31 @@ Comments
 --------------------------------------------------------------*/
 
 // Reset list-style
-ul.comment-list {
+.comment-list,
+.children {
   list-style: none;
   padding: 0;
-
-  li {
-    list-style: none;
-  }
 }
 
-// Avatar size
-.avatar {
-  width: 80px;
-}
-
-// Comment padding
-.comment-list ul.children {
+.comment-list > .children {
   padding-left: 96px;
 }
 
-@include media-breakpoint-down(lg) {
-  .comment-list ul.children ul.children {
-    padding-left: 0;
+@include media-breakpoint-up(md) {
+  .comment-list > .children > .children {
+    padding-left: 96px;
   }
 }
 
 @include media-breakpoint-up(lg) {
-  .comment-list ul.children ul.children ul.children {
-    padding-left: 0;
+  .comment-list > .children > .children > .children {
+    padding-left: 96px;
+  }
+}
+
+@include media-breakpoint-up(xl) {
+  .comment-list > .children > .children > .children > .children {
+    padding-left: 96px;
   }
 }
 
