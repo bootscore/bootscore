@@ -32,8 +32,8 @@ defined('ABSPATH') || exit;
 <div id="page" class="site">
   
   <!-- Skip Links -->
-  <a class="visually-hidden-focusable skip-link" href="#primary"><?php esc_html_e( 'Skip to content', 'bootscore' ); ?></a>
-  <a class="visually-hidden-focusable skip-link" href="#footer"><?php esc_html_e( 'Skip to footer', 'bootscore' ); ?></a>
+  <a class="skip-link visually-hidden-focusable" href="#primary"><?php esc_html_e( 'Skip to content', 'bootscore' ); ?></a>
+  <a class="skip-link visually-hidden-focusable" href="#footer"><?php esc_html_e( 'Skip to footer', 'bootscore' ); ?></a>
 
   <!-- Top Bar Widget -->
   <?php if (is_active_sidebar('top-bar')) : ?>
