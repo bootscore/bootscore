@@ -19,7 +19,7 @@ defined('ABSPATH') || exit;
 
 <?php do_action( 'bootscore_before_footer' ); ?>
 
-<footer class="bootscore-footer">
+<footer id="footer" class="bootscore-footer">
 
   <?php if (is_active_sidebar('footer-top')) : ?>
     <div class="<?= apply_filters('bootscore/class/footer/top', 'bg-body-tertiary border-bottom py-5'); ?> bootscore-footer-top">
