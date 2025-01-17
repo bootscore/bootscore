@@ -8,7 +8,7 @@
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
  * @package Bootscore
- * @version 6.0.0
+ * @version 6.0.4
  */
 
 // Exit if accessed directly
@@ -31,7 +31,9 @@ defined('ABSPATH') || exit;
 
 <div id="page" class="site">
   
+  <!-- Skip Links -->
   <a class="skip-link visually-hidden-focusable" href="#primary"><?php esc_html_e( 'Skip to content', 'bootscore' ); ?></a>
+  <a class="skip-link visually-hidden-focusable" href="#footer"><?php esc_html_e( 'Skip to footer', 'bootscore' ); ?></a>
 
   <!-- Top Bar Widget -->
   <?php if (is_active_sidebar('top-bar')) : ?>
