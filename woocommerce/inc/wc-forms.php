@@ -24,9 +24,13 @@ function bootscore_dequeue_styles_and_scripts_select2() {
   wp_dequeue_script('selectWoo');
   wp_deregister_script('selectWoo');
 
-  // Dequeue and deregister the country select script
-  wp_dequeue_script('wc-country-select');
-  wp_deregister_script('wc-country-select');
+  // Dequeue and deregister the country select script. Needed for blockified classic checkout.
+  // Bug with stripe checkout payment. See:
+  // Issue: https://github.com/bootscore/bootscore/issues/918
+  // PR: https://github.com/bootscore/bootscore/pull/919
+  // Revert: https://github.com/bootscore/bootscore/pull/926
+  //wp_dequeue_script('wc-country-select');
+  //wp_deregister_script('wc-country-select');
 }
 add_action('wp_enqueue_scripts', 'bootscore_dequeue_styles_and_scripts_select2', 100);
 
