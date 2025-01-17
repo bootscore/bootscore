@@ -13,7 +13,7 @@
  *
  * @see     https://docs.woocommerce.com/document/template-structure/
  * @package WooCommerce\Templates
- * @version 3.8.0
+ * @version 9.6.0
  */
 
 if (!defined('ABSPATH')) {
@@ -35,8 +35,8 @@ if (!empty($product_tabs)) : ?>
     <div class="tab-scroller d-flex overflow-auto">
       <ul class="wc-tabs nav nav-tabs mb-4 flex-grow-1" role="tablist">
         <?php foreach ($product_tabs as $key => $product_tab) : ?>
-          <li class="nav-item <?php echo esc_attr($key); ?>_tab" id="tab-title-<?php echo esc_attr($key); ?>" role="tab" aria-controls="tab-<?php echo esc_attr($key); ?>">
-            <a class="nav-link" href="#tab-<?php echo esc_attr($key); ?>">
+          <li class="<?php echo esc_attr( $key ); ?>_tab nav-item" id="tab-title-<?php echo esc_attr( $key ); ?>">
+		    <a class="nav-link" href="#tab-<?php echo esc_attr( $key ); ?>" role="tab" aria-controls="tab-<?php echo esc_attr( $key ); ?>">
               <?php echo wp_kses_post(apply_filters('woocommerce_product_' . $key . '_tab_title', $product_tab['title'], $key)); ?>
             </a>
           </li>
