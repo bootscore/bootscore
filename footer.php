@@ -8,7 +8,7 @@
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
  * @package Bootscore
- * @version 6.0.4
+ * @version 6.1.0
  */
 
 // Exit if accessed directly
@@ -16,6 +16,8 @@ defined('ABSPATH') || exit;
 
 ?>
 
+
+<?php do_action( 'bootscore_before_footer' ); ?>
 
 <footer id="footer" class="bootscore-footer">
 
