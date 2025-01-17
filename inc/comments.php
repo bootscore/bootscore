@@ -113,18 +113,24 @@ function custom_reply_title($defaults) {
 
 /**
  * Comment Cookie Checkbox
+ * See https://github.com/bootscore/bootscore/issues/921
  */
-function wp44138_change_comment_form_cookies_consent($fields) {
-  $consent           = empty($commenter['comment_author_email']) ? '' : ' checked="checked"';
-  $fields['cookies'] = '<p class="comment-form-cookies-consent custom-control form-check mb-3">' .
-                       '<input id="wp-comment-cookies-consent" name="wp-comment-cookies-consent" type="checkbox" value="yes" class="form-check-input"' . $consent . ' />' .
-                       '<label for="wp-comment-cookies-consent" class="form-check-label">' . __('Save my name, email, and website in this browser for the next time I comment.', 'bootscore') . '</label>' .
-                       '</p>';
+function bootscore_change_comment_form_cookies_consent($fields) {
+  // Check if the "Show comments cookies opt-in checkbox" setting is enabled
+  if (get_option('show_comments_cookies_opt_in')) {
+    $consent           = empty($commenter['comment_author_email']) ? '' : ' checked="checked"';
+    $fields['cookies'] = '<p class="comment-form-cookies-consent form-check mb-3">' .
+                         '<input id="wp-comment-cookies-consent" name="wp-comment-cookies-consent" type="checkbox" value="yes" class="form-check-input"' . $consent . ' />' .
+                         '<label for="wp-comment-cookies-consent" class="form-check-label">' . __('Save my name, email, and website in this browser for the next time I comment.', 'bootscore') . '</label>' .
+                         '</p>';
+  } else {
+    // Remove the 'cookies' field if the setting is disabled
+    unset($fields['cookies']);
+  }
 
   return $fields;
 }
-
-add_filter('comment_form_default_fields', 'wp44138_change_comment_form_cookies_consent');
+add_filter('comment_form_default_fields', 'bootscore_change_comment_form_cookies_consent');
 
 
 /**
