@@ -17,8 +17,6 @@ defined('ABSPATH') || exit;
 ?>
 
 
-<?php do_action( 'bootscore_before_footer' ); ?>
-
 <footer id="footer" class="bootscore-footer">
 
   <?php if (is_active_sidebar('footer-top')) : ?>
