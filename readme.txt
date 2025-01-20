@@ -3,14 +3,14 @@
 Contributors: Bastian Kreiter, Justin Kruit, Martin Holzer, Tim Groeneveld, Laurent Binder, Patrick, Gustavo Silva, TershiXia, 
 electronicsandprogramming, charly, Alexandros Kourmoulakis, Sven Geiß, ucalegonte, Benhaim Ido, Sean Emerson, Androidacy, Tamás Dohány,
 David Vanderhaeghe, Karsten Reincke, Patrick Champoux, sweetappleuk, exlexv, Beda Schmid, JWestarp, sir-lexonarkz, xoneill007, 
-Anisur Rahman, Murilo Carvalho, stan1781, MattScarfe, Sarif Hidayat, Hefin Sankala
+Anisur Rahman, Murilo Carvalho, stan1781, MattScarfe, Sarif Hidayat, Hefin Sankala, Michele Grimaldi, Massimo Ghielmi
 
 Tags: featured-images, threaded-comments, translation-ready
 
 Requires at least: 5.0
 Tested up to: 6.7
 Requires PHP: 7.4
-Stable tag: 6.0.3
+Stable tag: 6.0.4
 License: MIT License
 License URI: https://github.com/bootscore/bootscore/blob/main/LICENSE
 
