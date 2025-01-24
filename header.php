@@ -8,7 +8,7 @@
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
  * @package Bootscore
- * @version 6.0.4
+ * @version 6.0.5
  */
 
 // Exit if accessed directly
