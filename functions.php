@@ -6,7 +6,7 @@
  * @link https://developer.wordpress.org/themes/basics/theme-functions/
  *
  * @package Bootscore
- * @version 6.0.0
+ * @version 6.1.0
  */
 
 
@@ -51,6 +51,7 @@ require_once('inc/template-tags.php');           // Meta information like author
 require_once('inc/template-functions.php');      // Functions which enhance the theme by hooking into WordPress
 require_once('inc/widgets.php');                 // Register widget area and disables Gutenberg in widgets
 require_once('inc/deprecated.php');              // Fallback functions being dropped in v6
+require_once('inc/tinymce-editor.php');          // Fix body margin and font-family in backend if classic editor is used
 
 // Blocks
 require_once('inc/blocks/block-widget-archives.php');        // Archive block
