@@ -4,7 +4,7 @@
  * Class with functions to compile SCSS files.
  *
  * @package Bootscore
- * @version 6.0.4
+ * @version 6.0.5
  */
 
 
