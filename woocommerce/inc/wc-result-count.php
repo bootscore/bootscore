@@ -4,7 +4,7 @@
  * WooCommerce Archive Result Count ans Orderby
  *
  * @package Bootscore
- * @version 6.x.x
+ * @version 6.0.5
  */
 
 
