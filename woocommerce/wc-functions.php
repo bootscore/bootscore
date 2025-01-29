@@ -4,7 +4,7 @@
  * WooCommerce functions and definitions
  *
  * @package Bootscore
- * @version 6.0.0
+ * @version 6.0.5
  */
 
 
@@ -22,7 +22,9 @@ require_once('inc/wc-loop.php');
 require_once('inc/wc-mini-cart.php');
 require_once('inc/wc-qty-btn.php'); 
 require_once('inc/wc-redirects.php'); 
+require_once('inc/wc-result-count.php'); 
 require_once('inc/wc-setup.php'); 
+require_once('inc/wc-single-product-reviews.php'); 
 require_once('inc/wc-deprecated.php'); 
 
 // Blocks
