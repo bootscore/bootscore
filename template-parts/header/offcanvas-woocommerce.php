@@ -6,7 +6,7 @@
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
  * @package Bootscore
- * @version 6.0.0
+ * @version 6.0.5
  */
 
 
@@ -24,7 +24,7 @@ if ( is_account_page() || is_checkout() ) {
 <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvas-user">
   <div class="offcanvas-header">
     <span class="h5 offcanvas-title"><?= apply_filters('bootscore/offcanvas/user/title', __('Account', 'bootscore')); ?></span>
-    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="<?php esc_attr_e( 'Close', 'bootscore' ); ?>"></button>
   </div>
   <div class="offcanvas-body">
     <div class="my-offcanvas-account">
@@ -42,7 +42,7 @@ if ( is_checkout() || is_cart() ) {
   <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvas-cart">
     <div class="offcanvas-header">
       <span class="h5 offcanvas-title"><?= apply_filters('bootscore/offcanvas/cart/title', __('Cart', 'bootscore')); ?></span>
-      <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="<?php esc_attr_e( 'Close', 'bootscore' ); ?>"></button>
     </div>
     <div class="offcanvas-body p-0">
       <div class="cart-list">

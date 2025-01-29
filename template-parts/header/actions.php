@@ -6,7 +6,7 @@
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
  * @package Bootscore
- * @version 6.0.0
+ * @version 6.0.5
  */
 
 
@@ -25,7 +25,7 @@ defined('ABSPATH') || exit;
 
 <!-- Search toggler mobile -->
 <?php if (is_active_sidebar('top-nav-search')) : ?>
-  <button class="<?= apply_filters('bootscore/class/header/button', 'btn btn-outline-secondary', 'search-toggler'); ?> d-lg-none ms-1 ms-md-2 search-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-search" aria-expanded="false" aria-controls="collapse-search">
+  <button class="<?= apply_filters('bootscore/class/header/button', 'btn btn-outline-secondary', 'search-toggler'); ?> d-lg-none ms-1 ms-md-2 search-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-search" aria-expanded="false" aria-controls="collapse-search" aria-label="<?php esc_attr_e( 'Search toggler', 'bootscore' ); ?>">
     <i class="fa-solid fa-magnifying-glass"></i><span class="visually-hidden-focusable">Search</span>
   </button>
 <?php endif; ?>
