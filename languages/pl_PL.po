@@ -90,6 +90,11 @@ msgid "Bastian Kreiter"
 msgstr "Bastian Kreiter"
 
 #. Name of the template
+#: page-templates/page-blank.php:3
+msgid "Blank"
+msgstr "Pusta strona"
+
+#. Name of the template
 msgid "Blank with container"
 msgstr "Puste z kontenerem"
 
@@ -156,9 +161,7 @@ msgstr ""
 
 #: woocommerce/checkout/form-shipping.php:35
 msgid "Delivery details"
-msgstr ""
-"\n"
-"Szczegóły dostawy"
+msgstr "Szczegóły dostawy"
 
 #. %s: Name of current post. Only visible to screen readers
 #: inc/comment-list.php:29 inc/comment-list.php:53 inc/template-tags.php:139
@@ -276,6 +279,10 @@ msgstr "Nie znaleziono wyników dla"
 #: comments.php:58 comments.php:76
 msgid "Older Comments"
 msgstr "Starsze komentarze"
+
+#: sidebar.php:25
+msgid "Open side menu"
+msgstr "Rozwiń menu boczne"
 
 #: inc/template-tags.php:258
 msgid "or"
