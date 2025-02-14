@@ -46,7 +46,7 @@ if ( is_checkout() || is_cart() ) {
     </div>
     <div class="offcanvas-body p-0">
       <div class="cart-list">
-        <div class="widget_shopping_cart_content"><?php woocommerce_mini_cart(); ?></div>
+        <div class="widget_shopping_cart_content"><?php //woocommerce_mini_cart(); ?></div>
       </div>
     </div>
   </div>
