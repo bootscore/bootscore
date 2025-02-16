@@ -259,3 +259,47 @@ ul.wc_payment_methods.payment_methods.methods li,
     }
   }
 }
+
+
+
+
+// Fix delect since WC 9.7
+// See https://github.com/bootscore/bootscore/pull/957
+.woocommerce form .form-row select {
+  //cursor: pointer;
+  //appearance: none;
+  padding-right: 3em;
+  //background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJibGFjayIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJmZWF0aGVyIGZlYXRoZXItY2hldnJvbi1kb3duIj48cG9seWxpbmUgcG9pbnRzPSI2IDkgMTIgMTUgMTggOSI+PC9wb2x5bGluZT48L3N2Zz4=);
+  background-image: var(--#{$prefix}form-select-bg-img), var(--#{$prefix}form-select-bg-icon, none);;
+  
+  background-repeat: no-repeat;
+  background-size: $form-select-bg-size;
+  //background-size: 16px;
+  
+  //background-position: calc(100% - .5em) 50%;
+background-position: $form-select-bg-position;
+}
+
+
+//.woocommerce form .form-row .input-text, 
+.woocommerce form .form-row select {
+  font-family: inherit;
+  font-weight: $form-select-font-weight;
+  letter-spacing: normal;
+  padding: $form-select-padding-y $form-select-padding-x;
+  display: block;
+  background-color: $form-select-bg;
+  border: $form-select-border-width solid $form-select-border-color;
+  border-radius: $form-select-border-radius;
+  color: $form-select-color;
+  box-sizing: border-box;
+  width: 100%;
+  margin: 0;
+  line-height: $form-select-line-height;
+  height: auto;
+}
+
+
+.woocommerce form .form-row .input-text:focus, .woocommerce form .form-row select:focus {
+  border-color: $input-focus-border-color;
+}
