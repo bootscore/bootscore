@@ -301,3 +301,8 @@ ul.wc_payment_methods.payment_methods.methods li,
     border-color: var(--#{$prefix}success);
   }
 }
+
+// Hide Feedback 
+.checkout-inline-error-message {
+  display: none;
+}
