@@ -275,14 +275,13 @@ ul.wc_payment_methods.payment_methods.methods li,
     padding: $input-padding-y $input-padding-x;
     background-color: $input-bg;
     border: $form-select-border-width solid $form-select-border-color;
-    border-radius: $form-select-border-radius;
-    color: $form-select-color;
+    border-radius: $input-border-radius;
+    color: $input-color;
     line-height: $input-line-height;
   }
 
   select {
-    background-image: var(--#{$prefix}form-select-bg-img),
-    var(--#{$prefix}form-select-bg-icon, none);
+    background-image: var(--#{$prefix}form-select-bg-img), var(--#{$prefix}form-select-bg-icon, none);
     background-size: $form-select-bg-size;
     background-position: $form-select-bg-position;
   }
@@ -305,4 +304,37 @@ ul.wc_payment_methods.payment_methods.methods li,
 // Hide Feedback 
 .checkout-inline-error-message {
   display: none;
+}
+
+
+// Fix select in blockified classic checkout
+.woocommerce {
+  .select2-container--default .select2-selection--single {
+    --#{$prefix}form-select-bg-img: #{escape-svg($form-select-indicator)};
+
+    background-color: $input-bg;
+    border: $form-select-border-width solid $form-select-border-color;
+    border-radius: $input-border-radius;
+    background-image: var(--#{$prefix}form-select-bg-img), var(--#{$prefix}form-select-bg-icon, none);
+    background-size: $form-select-bg-size;
+    background-position: $form-select-bg-position;
+    background-repeat: no-repeat;
+  }
+
+  .select2-container .select2-selection--single {
+    height: auto;
+    margin: 0;
+  }
+
+  .select2-container .select2-selection--single .select2-selection__rendered {
+    padding: $input-padding-y $input-padding-x;
+    line-height: $input-line-height;
+    color: $input-color;
+    font-weight: $input-font-weight;
+  }
+
+  // Hide arrow
+  .select2-container--default .select2-selection--single .select2-selection__arrow {
+    display: none;
+  }
 }
