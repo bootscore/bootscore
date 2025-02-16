@@ -88,8 +88,7 @@ WooCommerce Forms
 
   // Height
   form .form-row textarea,
-  textarea#order_comments,
-  // WC 9.7
+  textarea#order_comments, // WC 9.7
   #reviews #comment {
     height: $spacer *7;
   }
@@ -308,7 +307,10 @@ ul.wc_payment_methods.payment_methods.methods li,
 
 
 // Fix select in blockified classic checkout
+
 .woocommerce {
+  
+  // Create a select
   .select2-container--default .select2-selection--single {
     --#{$prefix}form-select-bg-img: #{escape-svg($form-select-indicator)};
 
@@ -338,26 +340,96 @@ ul.wc_payment_methods.payment_methods.methods li,
     display: none;
   }
 }
-
+   
 // Validation    
 .woocommerce form .form-row.woocommerce-validated .select2-container:not(.select2-container--open) .select2-selection {
-background-image: var(--#{$prefix}form-select-bg-img), var(--valid-icon);
-  
+  background-image: var(--#{$prefix}form-select-bg-img), var(--valid-icon);
   border-color: var(--#{$prefix}success);
-    
   padding-right: 4.125rem;
   background-position: right 0.75rem center, center right 2.25rem;
   //background-size: $form-feedback-font-size;
-background-size: 16px 12px, calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
+  background-size: 16px 12px, calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
 }
     
     
 .woocommerce form .form-row.woocommerce-invalid .select2-container:not(.select2-container--open) .select2-selection {
   background-image: var(--#{$prefix}form-select-bg-img), var(--invalid-icon);
-  border-color: var(--#{$prefix}danger);
-    
-      padding-right: 4.125rem;
+  border-color: var(--#{$prefix}danger);  
+  padding-right: 4.125rem;
   background-position: right 0.75rem center, center right 2.25rem;
   //background-size: $form-feedback-font-size;
-background-size: 16px 12px, calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
+  background-size: 16px 12px, calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
 }
+    
+    
+
+/*
+  // Search input form-control
+  .select2-container--default .select2-search--dropdown .select2-search__field {
+    border: $input-border-width solid $input-border-color !important;
+    border-radius: $input-border-radius !important;
+  }
+  */
+    
+  
+    // Dropdown
+.select2-search--dropdown {
+  padding: $spacer !important;
+}
+    
+.select2-container .select2-dropdown, .select2-container .select2-selection {
+  background-color: $dropdown-bg;
+  color: $dropdown-color;
+  border: $dropdown-border-width solid $dropdown-border-color;
+  border-radius: $dropdown-border-radius;
+}
+    
+// Search input form-control    
+.select2-container--default .select2-search--dropdown .select2-search__field {
+  border: $input-border-width solid $input-border-color !important;
+  border-radius: $input-border-radius !important;
+  padding: $input-padding-y $input-padding-x;
+  font-family: $input-font-family;
+  @include font-size($input-font-size);
+  font-weight: $input-font-weight;
+  line-height: $input-line-height;
+  
+  &:focus-visible {
+    color: $input-focus-color;
+    background-color: $input-focus-bg;
+    border-color: $input-focus-border-color !important;
+    outline: 0;
+
+    @if $enable-shadows {
+      @include box-shadow($input-box-shadow, $input-focus-box-shadow);
+    }
+
+    @else {
+      box-shadow: $input-focus-box-shadow;
+    }
+
+  }
+}
+
+
+    // List
+.select2-container--default .select2-results__option[aria-selected=true], .select2-container--default .select2-results__option[data-selected=true] {
+  background-color: var(--#{$prefix}tertiary-bg) !important;
+}
+    
+.select2-container--default .select2-results__option--highlighted[aria-selected], .select2-container--default .select2-results__option--highlighted[data-selected] {
+  background-color: var(--#{$prefix}primary) !important;
+  //color: #fff;
+}
+    
+// Items
+.select2-results__option {
+  padding: $dropdown-item-padding-y $dropdown-item-padding-x !important;
+  /*
+  &:focus-visible {
+    outline: 0;
+    @include box-shadow($input-box-shadow, $input-focus-box-shadow);
+  }
+  */
+}
+    
