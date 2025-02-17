@@ -229,6 +229,7 @@ table.shop_table.woocommerce-checkout-review-order-table tr {
 
       &:focus {
         box-shadow: 0 0 $input-btn-focus-blur $input-focus-width rgba(var(--#{$prefix}success-rgb), $input-btn-focus-color-opacity);
+        border-color: var(--#{$prefix}form-valid-border-color);
       }
     }
 
@@ -265,6 +266,7 @@ table.shop_table.woocommerce-checkout-review-order-table tr {
 
       &:focus {
         box-shadow: 0 0 $input-btn-focus-blur $input-focus-width rgba(var(--#{$prefix}danger-rgb), $input-btn-focus-color-opacity);
+        border-color: var(--#{$prefix}form-invalid-border-color);
       }
     }
 
