@@ -366,6 +366,11 @@ table.shop_table.woocommerce-checkout-review-order-table tr {
   .select2-container .select2-selection--single {
     height: auto;
     margin: 0;
+    min-height: 38px; // empty blockified cart shipping calculator 
+  }
+      
+  .select2-selection__placeholder {
+    color: $form-select-color !important;
   }
 
   .select2-container .select2-selection--single .select2-selection__rendered {
