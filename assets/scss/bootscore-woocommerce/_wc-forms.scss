@@ -347,7 +347,7 @@ ul.wc_payment_methods.payment_methods.methods li,
 .woocommerce form .form-row.woocommerce-validated .select2-container:not(.select2-container--open) .select2-selection {
   background-image: var(--#{$prefix}form-select-bg-img), var(--valid-icon);
   border-color: var(--#{$prefix}form-valid-color);
-  padding-right: 4.125rem;
+  padding-right: $form-select-feedback-icon-padding-end;
   background-position: right 0.75rem center, center right 2.25rem;
   //background-size: $form-feedback-font-size;
   background-size: 16px 12px, calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
@@ -362,7 +362,7 @@ ul.wc_payment_methods.payment_methods.methods li,
 .woocommerce form .form-row.woocommerce-invalid .select2-container:not(.select2-container--open) .select2-selection {
   background-image: var(--#{$prefix}form-select-bg-img), var(--invalid-icon);
   border-color: var(--#{$prefix}form-invalid-border-color);;  
-  padding-right: 4.125rem;
+  padding-right: $form-select-feedback-icon-padding-end;
   background-position: right 0.75rem center, center right 2.25rem;
   //background-size: $form-feedback-font-size;
   background-size: 16px 12px, calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
@@ -388,6 +388,7 @@ ul.wc_payment_methods.payment_methods.methods li,
 // Search input form-control    
 .select2-container--default .select2-search--dropdown .select2-search__field {
   border: $input-border-width solid $input-border-color !important;
+  background-color: $input-bg;
   border-radius: $input-border-radius !important;
   padding: $input-padding-y $input-padding-x;
   font-family: $input-font-family;
@@ -416,21 +417,19 @@ ul.wc_payment_methods.payment_methods.methods li,
     // List
 .select2-container--default .select2-results__option[aria-selected=true], .select2-container--default .select2-results__option[data-selected=true] {
   background-color: var(--#{$prefix}tertiary-bg) !important;
+  
+    &:focus-visible {
+      outline: 0;
+    }
 }
     
 .select2-container--default .select2-results__option--highlighted[aria-selected], .select2-container--default .select2-results__option--highlighted[data-selected] {
   background-color: var(--#{$prefix}primary) !important;
-  //color: #fff;
+  color: color-contrast($primary) !important;
 }
     
 // Items
 .select2-results__option {
   padding: $dropdown-item-padding-y $dropdown-item-padding-x !important;
-  /*
-  &:focus-visible {
-    outline: 0;
-    @include box-shadow($input-box-shadow, $input-focus-box-shadow);
-  }
-  */
 }
     
