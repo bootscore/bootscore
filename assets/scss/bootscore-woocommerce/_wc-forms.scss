@@ -348,9 +348,8 @@ ul.wc_payment_methods.payment_methods.methods li,
   background-image: var(--#{$prefix}form-select-bg-img), var(--valid-icon);
   border-color: var(--#{$prefix}form-valid-color);
   padding-right: $form-select-feedback-icon-padding-end;
-  background-position: right 0.75rem center, center right 2.25rem;
-  //background-size: $form-feedback-font-size;
-  background-size: 16px 12px, calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
+  background-position: $form-select-bg-position, $form-select-feedback-icon-position;
+  background-size: $form-select-bg-size, $form-select-feedback-icon-size;
 }
     
 .woocommerce form .form-row.woocommerce-validated .select2-container:not(.select2-container--open) .select2-selection:focus-visible {
@@ -363,9 +362,8 @@ ul.wc_payment_methods.payment_methods.methods li,
   background-image: var(--#{$prefix}form-select-bg-img), var(--invalid-icon);
   border-color: var(--#{$prefix}form-invalid-border-color);;  
   padding-right: $form-select-feedback-icon-padding-end;
-  background-position: right 0.75rem center, center right 2.25rem;
-  //background-size: $form-feedback-font-size;
-  background-size: 16px 12px, calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
+  background-position: $form-select-bg-position, $form-select-feedback-icon-position;
+  background-size: $form-select-bg-size, $form-select-feedback-icon-size;
 }
     
 
