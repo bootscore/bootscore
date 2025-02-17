@@ -308,6 +308,15 @@ ul.wc_payment_methods.payment_methods.methods li,
 
 // Fix select in blockified classic checkout
 
+@if $enable-dark-mode {
+  @include color-mode(dark) {
+    .woocommerce .select2-container--default .select2-selection--single {
+      --#{$prefix}form-select-bg-img: #{escape-svg($form-select-indicator-dark)};
+    }
+  }
+}  
+
+
 .woocommerce {
   
   // Create a select
@@ -322,6 +331,9 @@ ul.wc_payment_methods.payment_methods.methods li,
     background-position: $form-select-bg-position;
     background-repeat: no-repeat;
   }
+      
+    
+  
       
 
 
