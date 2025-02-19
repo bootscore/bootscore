@@ -75,6 +75,11 @@ WooCommerce Coupon
       &:focus {
         z-index: 5;
       }
+      
+      &::placeholder {
+        color: $input-placeholder-color;
+        opacity: 1;
+      }
     }
   }
 

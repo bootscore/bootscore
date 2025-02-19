@@ -373,7 +373,7 @@ table.shop_table.woocommerce-checkout-review-order-table tr {
   }
 
   .select2-container .select2-selection--single .select2-selection__rendered {
-    padding: $input-padding-y $input-padding-x;
+    padding: $form-select-padding-y $form-select-indicator-padding $form-select-padding-y $form-select-padding-x;
     line-height: $input-line-height;
     color: $input-color;
     font-weight: $input-font-weight;
