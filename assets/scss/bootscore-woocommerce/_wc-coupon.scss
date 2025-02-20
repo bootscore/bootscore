@@ -1,0 +1,125 @@
+/*--------------------------------------------------------------
+WooCommerce Coupon
+--------------------------------------------------------------*/
+
+// https://github.com/bootscore/bootscore/tree/Update-WC-9.8-templates
+
+
+
+// Cart
+// WooCommerce breakpoints are at 769px
+@media (max-width: 768px) {
+  .woocommerce-cart table.cart td.actions .coupon {
+    display: flex;
+
+    .input-text {
+      flex: 1 1 auto;
+    }
+  }
+}
+
+@media (min-width: 769px) {
+  .woocommerce-cart table.cart td.actions .coupon {
+
+    .input-text {
+      width: auto !important;
+    }
+  }
+}
+
+
+// Cart coupon .input-group
+.woocommerce-cart table.cart td.actions .coupon {
+
+  .input-text {
+    // @include border-end-radius(0); // Not working here
+    border-top-right-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+    margin: 0;
+
+    &::placeholder {
+      color: $input-placeholder-color;
+      opacity: 1;
+    }
+
+    &:focus {
+      z-index: 5;
+    }
+  }
+
+  button {
+    @include border-start-radius(0);
+    margin-left: calc(var(--#{$prefix}border-width) * -1);
+  }
+}
+
+
+// Checkout coupon .input-group
+.woocommerce form.checkout_coupon {
+
+  display: flex;
+  flex-wrap: wrap;
+
+  .form-row-first {
+    padding-right: 0;
+    flex: 1 1 auto;
+
+    .input-text {
+      @include border-end-radius(0);
+
+      &:focus {
+        z-index: 5;
+      }
+      
+      &::placeholder {
+        color: $input-placeholder-color;
+        opacity: 1;
+      }
+    }
+  }
+
+  .form-row-last {
+    padding-left: 0;
+    width: auto;
+
+    button {
+      @include border-start-radius(0);
+      margin-left: calc(var(--#{$prefix}border-width) * -1);
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  // Truncate button text
+  .woocommerce form.checkout_coupon .form-row-last button {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 160px;
+  }
+}
+
+
+// Validation
+
+// Roughly hide error message. Messy WC styles
+.coupon-error-notice {
+  display: none !important;
+}
+
+.checkout_coupon,
+.coupon {
+  input.input-text {
+    position: relative;
+
+    &.has-error {
+      background-image: var(--invalid-icon);
+      border-color: var(--#{$prefix}form-invalid-border-color) !important;
+      background-repeat: no-repeat;
+      padding-right: $input-height-inner !important;
+      background-size: $input-height-inner-half $input-height-inner-half;
+      background-position: right $input-height-inner-quarter center;
+      box-shadow: 0 0 $input-btn-focus-blur $input-focus-width rgba(var(--#{$prefix}danger-rgb), $input-btn-focus-color-opacity) !important;
+    }
+  }
+}
