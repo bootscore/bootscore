@@ -6,9 +6,9 @@ WooCommerce Coupon
 
 
 
-
+// Cart
 // WooCommerce breakpoints are at 769px
-@media (max-width: 769px) {
+@media (max-width: 768px) {
   .woocommerce-cart table.cart td.actions .coupon {
     display: flex;
 
@@ -91,6 +91,16 @@ WooCommerce Coupon
       @include border-start-radius(0);
       margin-left: calc(var(--#{$prefix}border-width) * -1);
     }
+  }
+}
+
+@media (max-width: 768px) {
+  // Truncate button text
+  .woocommerce form.checkout_coupon .form-row-last button {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 160px;
   }
 }
 
