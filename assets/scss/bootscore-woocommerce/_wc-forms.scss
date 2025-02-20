@@ -38,7 +38,8 @@ WooCommerce Forms
 
 // Add missing .form-control
 .woocommerce form .form-row input.input-text,
-.woocommerce form .form-row textarea {
+.woocommerce form .form-row textarea,
+.woocommerce-cart table.cart td.actions .coupon .input-text {
   display: block;
   width: 100%;
   padding: $input-padding-y $input-padding-x;
@@ -88,6 +89,7 @@ WooCommerce Forms
 
   // Height
   form .form-row textarea,
+  textarea#order_comments, // WC 9.7
   #reviews #comment {
     height: $spacer *7;
   }
