@@ -3,7 +3,7 @@ WooCommerce Deprecated
 --------------------------------------------------------------*/
 
 
-// Cheeckout coupon message
+// Checkout coupon message
 // The message will be deleted in WC 9.8 and this can be removed after WC 9.8 release
 // This makes sure that coupon will work in WC 9.7 and 9.8 with or without the message
 .woocommerce form.checkout_coupon p:first-child:not(.form-row-first) {
