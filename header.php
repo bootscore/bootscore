@@ -8,7 +8,7 @@
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
  * @package Bootscore
- * @version 6.0.5
+ * @version 6.1.0
  */
 
 // Exit if accessed directly
@@ -38,27 +38,33 @@ defined('ABSPATH') || exit;
   <!-- Top Bar Widget -->
   <?php if (is_active_sidebar('top-bar')) : ?>
     <?php dynamic_sidebar('top-bar'); ?>
-  <?php endif; ?>  
+  <?php endif; ?>
+  
+  <?php do_action( 'bootscore_before_masthead' ); ?>
 
   <header id="masthead" class="<?= apply_filters('bootscore/class/header', 'sticky-top bg-body-tertiary'); ?> site-header">
 
+    <?php do_action( 'bootscore_after_masthead_open' ); ?>
+    
     <nav id="nav-main" class="navbar <?= apply_filters('bootscore/class/header/navbar/breakpoint', 'navbar-expand-lg'); ?>">
 
       <div class="<?= apply_filters('bootscore/class/container', 'container', 'header'); ?>">
         
+        <?php do_action( 'bootscore_before_navbar_brand' ); ?>
+        
         <!-- Navbar Brand -->
-        <a class="navbar-brand" href="<?= esc_url(home_url()); ?>">
-          <img src="<?= esc_url(apply_filters('bootscore/logo', get_stylesheet_directory_uri() . '/assets/img/logo/logo.svg', 'default')); ?>" alt="<?php bloginfo('name'); ?> Logo" class="d-td-none me-2">
-          <img src="<?= esc_url(apply_filters('bootscore/logo', get_stylesheet_directory_uri() . '/assets/img/logo/logo-theme-dark.svg', 'theme-dark')); ?>" alt="<?php bloginfo('name'); ?> Logo" class="d-tl-none me-2">
+        <a class="<?= apply_filters('bootscore/class/header/navbar-brand', 'navbar-brand'); ?>" href="<?= esc_url(home_url()); ?>">
+          <img src="<?= esc_url(apply_filters('bootscore/logo', get_stylesheet_directory_uri() . '/assets/img/logo/logo.svg', 'default')); ?>" alt="<?php bloginfo('name'); ?> Logo" class="d-td-none">
+          <img src="<?= esc_url(apply_filters('bootscore/logo', get_stylesheet_directory_uri() . '/assets/img/logo/logo-theme-dark.svg', 'theme-dark')); ?>" alt="<?php bloginfo('name'); ?> Logo" class="d-tl-none">
         </a>  
 
         <!-- Offcanvas Navbar -->
-        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvas-navbar">
-          <div class="offcanvas-header">
+        <div class="offcanvas offcanvas-<?= apply_filters('bootscore/class/header/offcanvas/direction', 'end', 'menu'); ?>" tabindex="-1" id="offcanvas-navbar">
+          <div class="offcanvas-header <?= apply_filters('bootscore/class/offcanvas/header', '', 'menu'); ?>">
             <span class="h5 offcanvas-title"><?= apply_filters('bootscore/offcanvas/navbar/title', __('Menu', 'bootscore')); ?></span>
             <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
           </div>
-          <div class="offcanvas-body">
+          <div class="offcanvas-body <?= apply_filters('bootscore/class/offcanvas/body', '', 'menu'); ?>">
 
             <!-- Bootstrap 5 Nav Walker Main Menu -->
             <?php get_template_part('template-parts/header/main-menu'); ?>
@@ -71,7 +77,7 @@ defined('ABSPATH') || exit;
           </div>
         </div>
 
-        <div class="header-actions d-flex align-items-center">
+        <div class="header-actions <?= apply_filters('bootscore/class/header-actions', 'd-flex align-items-center'); ?>">
 
           <!-- Top Nav Widget -->
           <?php if (is_active_sidebar('top-nav')) : ?>
@@ -87,9 +93,11 @@ defined('ABSPATH') || exit;
           ?>
 
           <!-- Navbar Toggler -->
-          <button class="<?= apply_filters('bootscore/class/header/button', 'btn btn-outline-secondary', 'nav-toggler'); ?> <?= apply_filters('bootscore/class/header/navbar/toggler/breakpoint', 'd-lg-none'); ?> ms-1 ms-md-2 nav-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas-navbar" aria-controls="offcanvas-navbar" aria-label="<?php esc_attr_e( 'Toggle main menu', 'bootscore' ); ?>">
-            <i class="fa-solid fa-bars"></i><span class="visually-hidden-focusable">Menu</span>
+          <button class="<?= apply_filters('bootscore/class/header/button', 'btn btn-outline-secondary', 'nav-toggler'); ?> <?= apply_filters('bootscore/class/header/navbar/toggler/breakpoint', 'd-lg-none'); ?> <?= apply_filters('bootscore/class/header/action/spacer', 'ms-1 ms-md-2', 'nav-toggler'); ?> nav-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas-navbar" aria-controls="offcanvas-navbar" aria-label="<?php esc_attr_e( 'Toggle main menu', 'bootscore' ); ?>">
+            <?= apply_filters('bootscore/icon/menu', '<i class="fa-solid fa-bars"></i>'); ?> <span class="visually-hidden-focusable">Menu</span>
           </button>
+          
+          <?php do_action( 'bootscore_after_nav_toggler' ); ?>
 
         </div><!-- .header-actions -->
 
@@ -112,4 +120,8 @@ defined('ABSPATH') || exit;
     endif;
     ?>
 
+    <?php do_action( 'bootscore_before_masthead_close' ); ?>
+    
   </header><!-- #masthead -->
+  
+  <?php do_action( 'bootscore_after_masthead' ); ?>

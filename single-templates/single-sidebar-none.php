@@ -4,7 +4,7 @@
  * Template Post Type: post
  *
  * @package Bootscore
- * @version 6.0.0
+ * @version 6.1.0
  */
 
 // Exit if accessed directly
@@ -15,6 +15,8 @@ get_header();
 
   <div id="content" class="site-content <?= apply_filters('bootscore/class/container', 'container', 'single-sidebar-none'); ?> <?= apply_filters('bootscore/class/content/spacer', 'pt-3 pb-5', 'single-sidebar-none'); ?>">
     <div id="primary" class="content-area">
+      
+     <?php do_action( 'bootscore_after_primary_open', 'single-sidebar-none' ); ?>
 
       <?php the_breadcrumb(); ?>
 
@@ -23,7 +25,9 @@ get_header();
         <div class="entry-header">
           <?php the_post(); ?>
           <?php bootscore_category_badge(); ?>
-          <h1><?php the_title(); ?></h1>
+          <?php do_action( 'bootscore_before_title', 'single-sidebar-none' ); ?>
+          <?php the_title('<h1 class="entry-title ' . apply_filters('bootscore/class/entry/title', '', 'single-sidebar-none') . '">', '</h1>'); ?>
+          <?php do_action( 'bootscore_after_title', 'single-sidebar-none' ); ?>
           <p class="entry-meta">
             <small class="text-body-secondary">
               <?php
@@ -35,10 +39,14 @@ get_header();
           </p>
           <?php bootscore_post_thumbnail(); ?>
         </div>
+        
+        <?php do_action( 'bootscore_after_featured_image', 'single-sidebar-none' ); ?>
 
         <div class="entry-content">
           <?php the_content(); ?>
         </div>
+        
+        <?php do_action( 'bootscore_before_entry_footer', 'single-sidebar-none' ); ?>
 
         <div class="entry-footer clear-both">
           <div class="mb-4">

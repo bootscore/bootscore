@@ -61,27 +61,32 @@ do_action('woocommerce_before_mini_cart'); ?>
                 <?php echo $product_name; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped 
                 ?>
               <?php else : ?>
-                <a class="h6 text-decoration-none d-block text-truncate mb-0" href="<?php echo esc_url($product_permalink); ?>">
+                <a class="cart-product-title <?= apply_filters('bootscore/class/cart/product-title', 'h6 text-decoration-none d-block text-truncate mb-0'); ?>" href="<?php echo esc_url($product_permalink); ?>">
                   <?php echo $product_name; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
                   ?>
                 </a>
               <?php endif; ?>
               
-              <small class="text-body-secondary d-block text-truncate">
-                <?php echo get_the_excerpt($product_id); ?>
-              </small>
+              <?php
+                if (apply_filters('bootscore/class/cart/enable_cart_product_excerpt', true)) { ?>  
+                  <p class="cart-product-excerpt <?= apply_filters('bootscore/class/cart/product-excerpt', 'small text-body-secondary text-truncate mb-0'); ?>">
+                    <?= get_the_excerpt($product_id); ?>
+                  </p>
+              <?php  }
+              ?>   
               
               <?php
-                $stock_quantity = $_product->get_stock_quantity();
-                // Check if the product is sold individually
-                if ($_product->is_sold_individually()) {
-                  echo '<div class="cart-badge mb-2"><span class="badge bg-danger">' . esc_html__('Sold individually', 'woocommerce') . '</span></div>';
-                }
-
-                // Check if the product has only 5 or fewer left in stock
-                elseif ($stock_quantity <= 5 && $stock_quantity > 0) {
-                  $stock_message = sprintf(esc_html__('Only %s left in stock', 'woocommerce'), $stock_quantity);
-                  echo '<div class="cart-badge mb-2"><span class="badge bg-danger">' . $stock_message . '</span></div>';
+                if (apply_filters('bootscore/class/cart/enable_cart_stock_quantity', true)) {
+                  $stock_quantity = $_product->get_stock_quantity();
+                  // Check if the product is sold individually
+                  if ($_product->is_sold_individually()) {
+                    echo '<div class="cart-badge mb-2"><span class="badge bg-danger">' . esc_html__('Sold individually', 'woocommerce') . '</span></div>';
+                  }
+                  // Check if the product has only 5 or fewer left in stock
+                  elseif ($stock_quantity <= 5 && $stock_quantity > 0) {
+                    $stock_message = sprintf(esc_html__('Only %s left in stock', 'woocommerce'), $stock_quantity);
+                    echo '<div class="cart-badge mb-2"><span class="badge bg-danger">' . $stock_message . '</span></div>';
+                  }
                 }
               ?>              
 
@@ -104,7 +109,7 @@ do_action('woocommerce_before_mini_cart'); ?>
               <?php echo apply_filters( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
                 'woocommerce_cart_item_remove_link',
                 sprintf(
-                  '<a href="%s" class="remove_from_cart_button link-danger" aria-label="%s" data-product_id="%s" data-cart_item_key="%s" data-product_sku="%s" data-success_message="%s"><i class="fa-regular fa-trash-can"></i></a>',
+                  '<a href="%s" class="remove_from_cart_button link-danger" aria-label="%s" data-product_id="%s" data-cart_item_key="%s" data-product_sku="%s" data-success_message="%s">' . apply_filters('bootscore/icon/trash', '<i class="fa-regular fa-trash-can"></i>') . '</a>',
                   esc_url(wc_get_cart_remove_url($cart_item_key)),
                   /* translators: %s is the product name */
                   esc_attr( sprintf( __( 'Remove %s from cart', 'woocommerce' ), wp_strip_all_tags( $product_name ) ) ),
@@ -131,7 +136,7 @@ do_action('woocommerce_before_mini_cart'); ?>
     ?>
   </div>
 
-  <div class="cart-footer bg-body-tertiary p-3">
+  <div class="cart-footer <?= apply_filters('bootscore/class/header/cart/footer', 'bg-body-tertiary p-3'); ?>">
 
     <div class="woocommerce-mini-cart__total total h5 d-flex justify-content-between">
       <?php
