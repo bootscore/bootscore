@@ -27,13 +27,11 @@ if (!function_exists('bootscore_block_table_classes')) {
     
     $search  = array(
       'wp-block-table',
-      //'<thead', // Not working in dark-mode yet
-      'has-fixed-layout'
+      '<table'
     );
     $replace = array(
       'table-responsive',
-      //'<thead class="table-light"', // Not working in dark-mode yet
-      'table table-bordered table-hover'
+      '<table class="table table-bordered table-hover"'
     );
     
     $block_content = str_replace($search, $replace, $block_content);
