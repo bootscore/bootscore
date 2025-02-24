@@ -103,3 +103,9 @@ figure.card-img-top {
 [data-bs-theme="dark"] .close-button {
   filter: invert(1);
 }
+
+
+// Blockquote
+.blockquote p:last-of-type {
+  margin-bottom: 0;
+}

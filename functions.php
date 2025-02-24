@@ -54,12 +54,17 @@ require_once('inc/deprecated.php');              // Fallback functions being dro
 require_once('inc/tinymce-editor.php');          // Fix body margin and font-family in backend if classic editor is used
 
 // Blocks
+// Widgets
 require_once('inc/blocks/block-widget-archives.php');        // Archive block
 require_once('inc/blocks/block-widget-calendar.php');        // Calendar block
 require_once('inc/blocks/block-widget-categories.php');      // Categories block
 require_once('inc/blocks/block-widget-latest-comments.php'); // Latest posts block
 require_once('inc/blocks/block-widget-latest-posts.php');    // Latest posts block
 require_once('inc/blocks/block-widget-search.php');          // Searchform block
+
+// Contents
+require_once('inc/blocks/block-quote.php'); // Quote block
+require_once('inc/blocks/block-table.php'); // Table block
 
 
 /**
