@@ -9,3 +9,32 @@ WooCommerce Deprecated
 .woocommerce form.checkout_coupon p:first-child:not(.form-row-first) {
   width: 100%;
 }
+
+
+// Stripe legacy checkout
+// https://woocommerce.com/document/stripe/admin-experience/new-checkout-experience/
+// Stripe credit card input
+.wc-stripe-elements-field,
+.wc-stripe-iban-element-field {
+  padding: $input-padding-y $input-padding-x !important;
+  background-color: $input-bg !important;
+  border-radius: $border-radius;
+  border: var(--#{$prefix}border-width) var(--#{$prefix}border-style) var(--#{$prefix}border-color) !important;
+}
+
+
+// Save payment information check
+.form-row.woocommerce-SavedPaymentMethods-saveNew.woocommerce-validated {
+
+  input {
+    width: $form-check-input-width !important; // Override inline-style
+  }
+}
+
+// Stripe saved credit cards
+.woocommerce-SavedPaymentMethods-saveNew {
+  label{
+    padding-left: $form-check-padding-start;
+    display: block !important; // Override inline-style
+  }
+}
