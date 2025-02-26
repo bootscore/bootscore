@@ -141,7 +141,28 @@ table.shop_table.woocommerce-checkout-review-order-table tr {
 
 
 // Stripe
+// https://woocommerce.com/document/stripe/customization/style-payment-form/
+/*
+.p-Input .Input, .p-FauxInput {
+  border: 1px solid red !important;
+}
+*/
+/*
+.Input:focus, .p-Input--focused, .Input, .p-FauxInput {
+color: #339900;
+}
+*/
 
+/*
+:root {
+    --borderRadius: 15px !important;
+}
+*/
+
+.Input, .p-FauxInput {
+border-bottom-left-radius: 16px;
+  border-bottom-right-radius: 16px;
+}
 
 
 
