@@ -19,233 +19,126 @@ defined('ABSPATH') || exit;
 
 get_header();
 ?>
-  <div id="content" class="site-content <?= apply_filters('bootscore/class/container', 'container', 'index'); ?> <?= apply_filters('bootscore/class/content/spacer', 'pt-4 pb-5', 'index'); ?>">
-    <div id="primary" class="content-area">
-      
-      <?php do_action('bootscore_after_primary_open', 'index'); ?>
+    <div id="content" class="site-content <?= apply_filters('bootscore/class/container', 'container', 'index'); ?> <?= apply_filters('bootscore/class/content/spacer', 'pt-4 pb-5', 'index'); ?>">
+        <div id="primary" class="content-area">
 
-      <main id="main" class="site-main">
+			<?php do_action('bootscore_after_primary_open', 'index'); ?>
 
-        <!-- Header -->
-        <div class="p-5 text-center bg-body-tertiary rounded mb-4">
-          <?php do_action( 'bootscore_before_title', 'index' ); ?>
-          <h1 class="entry-title <?= apply_filters('bootscore/class/entry/title', '', 'index'); ?>"><?php bloginfo('name'); ?></h1>
-          <?php do_action( 'bootscore_after_title', 'index' ); ?>
-          <p class="lead mb-0"><?php bloginfo('description'); ?></p>
-        </div>
+            <main id="main" class="site-main">
 
-        <!-- Sticky Post -->
-        <?php if (is_sticky() && is_home() && !is_paged()) : ?>
-          <div class="row">
-            <div class="col">
-              
-              <?php do_action('bootscore_before_loop', 'index-sticky'); ?>
-              
-              <?php
-              $args      = array(
-                'posts_per_page'      => 2,
-                'post__in'            => get_option('sticky_posts'),
-                'ignore_sticky_posts' => 2
-              );
-              $the_query = new WP_Query($args);
-              if ($the_query->have_posts()) :
-                while ($the_query->have_posts()) : $the_query->the_post(); ?>
-              
-              <?php do_action('bootscore_before_loop_item', 'index-sticky'); ?>
-
-              <article id="post-<?php the_ID(); ?>" <?php post_class( apply_filters('bootscore/class/loop/card', 'card horizontal mb-4', 'index-sticky') ); ?>>
-
-                <div class="<?= apply_filters('bootscore/class/loop/card/row', 'row g-0', 'index-sticky'); ?>">
-
-                  <?php if (has_post_thumbnail()) : ?>
-                    <div class="<?= apply_filters('bootscore/class/loop/card/image/col', 'col-lg-6 col-xl-5 col-xxl-4', 'index-sticky'); ?>">
-                      <a href="<?php the_permalink(); ?>">
-                        <?php the_post_thumbnail('medium', array('class' => apply_filters('bootscore/class/loop/card/image', 'card-img-lg-start', 'index-sticky'))); ?>
-                      </a>
-                    </div>
-                  <?php endif; ?>
-
-                  <div class="<?= apply_filters('bootscore/class/loop/card/content/col', 'col', 'index-sticky'); ?>">
-                    <div class="<?= apply_filters('bootscore/class/loop/card/body', 'card-body', 'index-sticky'); ?>">
-
-                      <?php if (apply_filters('bootscore/loop/category', true, 'index-sticky')) : ?>
-                      <div class="row">
-                        <div class="col-10">
-                          <?php bootscore_category_badge(); ?>
-                        </div>
-                        <div class="col-2 text-end">
-                          <span class="badge text-bg-danger"><?= apply_filters('bootscore/icon/star', '<i class="fa-solid fa-star"></i>'); ?></span>
-                        </div>
-                      </div>
-                      <?php endif; ?>
-
-                      <?php do_action('bootscore_before_loop_title', 'index-sticky'); ?>
-                      
-                      <a class="text-body text-decoration-none" href="<?php the_permalink(); ?>">
-                        <?php the_title('<h2 class="' . apply_filters('bootscore/class/loop/card/title', 'blog-post-title h5', 'index-sticky') . '">', '</h2>'); ?>
-                      </a>
-
-                      <?php if (apply_filters('bootscore/loop/meta', true, 'index-sticky')) : ?>
-                        <?php if ('post' === get_post_type()) : ?>
-                          <p class="meta small mb-2 text-body-secondary">
-                            <?php
-                            bootscore_date();
-                            bootscore_author();
-                            bootscore_comments();
-                            bootscore_edit();
-                            ?>
-                          </p>
-                        <?php endif; ?>
-                      <?php endif; ?>
-
-                      <?php if (apply_filters('bootscore/loop/excerpt', true, 'index-sticky')) : ?>
-                        <p class="<?= apply_filters('bootscore/class/loop/card-text/excerpt', 'card-text', 'index-sticky'); ?>">
-                          <a class="text-body text-decoration-none" href="<?php the_permalink(); ?>">
-                            <?= strip_tags(get_the_excerpt()); ?>
-                          </a>
-                        </p>
-                      <?php endif; ?>
-
-                      <?php if (apply_filters('bootscore/loop/read-more', true, 'index-sticky')) : ?>
-                        <p class="<?= apply_filters('bootscore/class/loop/card-text/read-more', 'card-text', 'index-sticky'); ?>">
-                          <a class="<?= apply_filters('bootscore/class/loop/read-more', 'read-more', 'index-sticky'); ?>" href="<?php the_permalink(); ?>">
-                            <?= apply_filters('bootscore/loop/read-more/text', __('Read more »', 'bootscore', 'index-sticky')); ?>
-                          </a>
-                        </p>
-                      <?php endif; ?>
-
-                      <?php if (apply_filters('bootscore/loop/tags', true, 'index-sticky')) : ?>
-                        <?php bootscore_tags(); ?>
-                      <?php endif; ?>
-
-                    </div>
-
-                    <?php do_action('bootscore_loop_item_after_card_body', 'index-sticky'); ?>
-
-                  </div>
-                  
+                <!-- Header -->
+                <div class="p-5 text-center bg-body-tertiary rounded mb-4">
+					<?php do_action( 'bootscore_before_title', 'index' ); ?>
+                    <h1 class="entry-title <?= apply_filters('bootscore/class/entry/title', '', 'index'); ?>"><?php bloginfo('name'); ?></h1>
+					<?php do_action( 'bootscore_after_title', 'index' ); ?>
+                    <p class="lead mb-0"><?php bloginfo('description'); ?></p>
                 </div>
 
-              </article>
-              
-              <?php do_action('bootscore_after_loop_item', 'index-sticky'); ?>
-                <?php
-                endwhile;
-              endif;
-              wp_reset_postdata();
-              ?>
-              
-              <?php do_action('bootscore_after_loop', 'index-sticky'); ?>
-              
-            </div>
+                <!-- Post List -->
+                <div class="row">
+                    <div class="<?= apply_filters('bootscore/class/main/col', 'col'); ?>">
 
-            <!-- col -->
-          </div>
-          <!-- row -->
-        <?php endif; ?>
-        
-        <!-- Post List -->
-        <div class="row">
-          <div class="<?= apply_filters('bootscore/class/main/col', 'col'); ?>">
-            
-            <?php do_action( 'bootscore_before_loop', 'index' ); ?>
-            
-            <!-- Grid Layout -->
-            <?php if (have_posts()) : ?>
-              <?php while (have_posts()) : the_post(); ?>
-                <?php if (is_sticky()) continue; //ignore sticky posts
-                ?>
-            
-                <?php do_action( 'bootscore_before_loop_item', 'index' ); ?>
+						<?php do_action( 'bootscore_before_loop', 'index' ); ?>
 
-                <article id="post-<?php the_ID(); ?>" <?php post_class( apply_filters('bootscore/class/loop/card', 'card horizontal mb-4', 'index') ); ?>>
-                  
-                  <div class="<?= apply_filters('bootscore/class/loop/card/row', 'row g-0', 'index'); ?>">
+						<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
-                    <?php if (has_post_thumbnail()) : ?>
-                      <div class="<?= apply_filters('bootscore/class/loop/card/image/col', 'col-lg-6 col-xl-5 col-xxl-4', 'index'); ?>">
-                        <a href="<?php the_permalink(); ?>">
-                          <?php the_post_thumbnail('medium', array('class' => apply_filters('bootscore/class/loop/card/image', 'card-img-lg-start', 'index'))); ?>
-                        </a>
-                      </div>
-                    <?php endif; ?>
+							<?php do_action( 'bootscore_before_loop_item', 'index' ); ?>
 
-                    <div class="<?= apply_filters('bootscore/class/loop/card/content/col', 'col', 'index'); ?>">
-                      
-                      <div class="<?= apply_filters('bootscore/class/loop/card/body', 'card-body', 'index'); ?>">
+                            <article id="post-<?php the_ID(); ?>" <?php post_class( apply_filters('bootscore/class/loop/card', 'card horizontal mb-4', 'index-sticky') ); ?>>
 
-                        <?php if (apply_filters('bootscore/loop/category', true, 'index')) : ?>
-                          <?php bootscore_category_badge(); ?>
-                        <?php endif; ?>
-                        
-                        <?php do_action('bootscore_before_loop_title', 'index'); ?>
+                                <div class="<?= apply_filters('bootscore/class/loop/card/row', 'row g-0', 'index-sticky'); ?>">
 
-                        <a class="text-body text-decoration-none" href="<?php the_permalink(); ?>">
-                          <?php the_title('<h2 class="' . apply_filters('bootscore/class/loop/card/title', 'blog-post-title h5', 'index') . '">', '</h2>'); ?>
-                        </a>
+									<?php if (has_post_thumbnail()) : ?>
+                                        <div class="<?= apply_filters('bootscore/class/loop/card/image/col', 'col-lg-6 col-xl-5 col-xxl-4', 'index-sticky'); ?>">
+                                            <a href="<?php the_permalink(); ?>">
+												<?php the_post_thumbnail('medium', array('class' => apply_filters('bootscore/class/loop/card/image', 'card-img-lg-start', 'index-sticky'))); ?>
+                                            </a>
+                                        </div>
+									<?php endif; ?>
 
-                        <?php if (apply_filters('bootscore/loop/meta', true, 'index')) : ?>
-                          <?php if ('post' === get_post_type()) : ?>
-                            <p class="meta small mb-2 text-body-secondary">
-                              <?php
-                              bootscore_date();
-                              bootscore_author();
-                              bootscore_comments();
-                              bootscore_edit();
-                              ?>
-                            </p>
-                          <?php endif; ?>
-                        <?php endif; ?>
+                                    <div class="<?= apply_filters('bootscore/class/loop/card/content/col', 'col', 'index'); ?>">
+                                        <div class="<?= apply_filters('bootscore/class/loop/card/body', 'card-body', 'index'); ?>">
 
-                        <?php if (apply_filters('bootscore/loop/excerpt', true, 'index')) : ?>
-                          <p class="<?= apply_filters('bootscore/class/loop/card-text/excerpt', 'card-text', 'index'); ?>">
-                            <a class="text-body text-decoration-none" href="<?php the_permalink(); ?>">
-                              <?= strip_tags(get_the_excerpt()); ?>
-                            </a>
-                          </p>
-                        <?php endif; ?>
+                                            <div class="row">
+                                                <div class="col-10">
+													<?php if (is_sticky()) { ?>
+														<?php do_action('bootscore_before_loop_title', 'index'); ?>
+                                                        <a class="text-body text-decoration-none" href="<?php the_permalink(); ?>">
+															<?php the_title('<h2 class="blog-post-title h5 mb-3">', '</h2>'); ?>
+                                                        </a>
+													<?php } ?>
+													<?php if (apply_filters('bootscore/loop/category', true, 'index-sticky')) : ?>
+														<?php bootscore_category_badge(); ?>
+													<?php endif; ?>
+                                                </div>
+                                                <div class="col-2 text-end">
+													<?php if (is_sticky() ) { ?>
+                                                        <span class="badge text-bg-danger"><?= apply_filters('bootscore/icon/star', '<i class="fa-solid fa-star"></i>'); ?></span>
+													<?php } ?>
+                                                </div>
+                                            </div>
 
-                        <?php if (apply_filters('bootscore/loop/read-more', true, 'index')) : ?>
-                          <p class="<?= apply_filters('bootscore/class/loop/card-text/read-more', 'card-text', 'index'); ?>">
-                            <a class="<?= apply_filters('bootscore/class/loop/read-more', 'read-more', 'index'); ?>" href="<?php the_permalink(); ?>">
-                              <?= apply_filters('bootscore/loop/read-more/text', __('Read more »', 'bootscore', 'index')); ?>
-                            </a>
-                          </p>
-                        <?php endif; ?>
+											<?php if (!is_sticky() ) { ?>
+												<?php do_action('bootscore_before_loop_title', 'index'); ?>
+                                                <a class="text-body text-decoration-none" href="<?php the_permalink(); ?>">
+													<?php the_title('<h2 class="' . apply_filters('bootscore/class/loop/card/title', 'blog-post-title h5', 'index') . '">', '</h2>'); ?>
+                                                </a>
+											<?php } ?>
 
-                        <?php if (apply_filters('bootscore/loop/tags', true, 'index')) : ?>
-                          <?php bootscore_tags(); ?>
-                        <?php endif; ?>
+											<?php if (apply_filters('bootscore/loop/meta', true, 'index') && 'post' === get_post_type()) : ?>
+                                                <p class="meta small mb-2 text-body-secondary">
+													<?php
+													bootscore_date();
+													bootscore_author();
+													bootscore_comments();
+													bootscore_edit();
+													?>
+                                                </p>
+											<?php endif; ?>
 
-                      </div>
-                      
-                      <?php do_action('bootscore_loop_item_after_card_body', 'index'); ?>
-                      
-                    </div>
-                    
-                  </div>
-                  
-                </article>
-            
-                <?php do_action('bootscore_after_loop_item', 'index'); ?>
+											<?php if (apply_filters('bootscore/loop/excerpt', true, 'index')) : ?>
+                                                <p class="<?= apply_filters('bootscore/class/loop/card-text/excerpt', 'card-text', 'index'); ?>">
+                                                    <a class="text-body text-decoration-none" href="<?php the_permalink(); ?>">
+														<?= strip_tags(get_the_excerpt()); ?>
+                                                    </a>
+                                                </p>
+											<?php endif; ?>
 
-              <?php endwhile; ?>
-            <?php endif; ?>
-            
-            <?php do_action('bootscore_after_loop', 'index'); ?>
+											<?php if (apply_filters('bootscore/loop/read-more', true, 'index')) : ?>
+                                                <p class="<?= apply_filters('bootscore/class/loop/card-text/read-more', 'card-text', 'index'); ?>">
+                                                    <a class="<?= apply_filters('bootscore/class/loop/read-more', 'read-more', 'index'); ?>" href="<?php the_permalink(); ?>">
+														<?= apply_filters('bootscore/loop/read-more/text', __('Read more ยป', 'bootscore', 'index')); ?>
+                                                    </a>
+                                                </p>
+											<?php endif; ?>
 
-            <div class="entry-footer">
-              <?php bootscore_pagination(); ?>
-            </div>
+											<?php if (apply_filters('bootscore/loop/tags', true, 'index')) : ?>
+												<?php bootscore_tags(); ?>
+											<?php endif; ?>
 
-          </div>
-          <!-- col -->
-          <?php get_sidebar(); ?>
-        </div>
-        <!-- row -->
-      </main><!-- #main -->
+                                        </div>
 
-    </div><!-- #primary -->
-  </div><!-- #content -->
+										<?php do_action('bootscore_loop_item_after_card_body', 'index-sticky'); ?>
+
+                                    </div><!-- col -->
+                                </div><!-- row -->
+                            </article><!-- article -->
+
+							<?php do_action('bootscore_after_loop_item', 'index'); ?>
+
+						<?php endwhile; ?>
+						<?php endif; ?>
+
+						<?php do_action('bootscore_after_loop', 'index'); ?>
+
+                        <div class="entry-footer">
+							<?php bootscore_pagination(); ?>
+                        </div>
+                    </div><!-- col -->
+					<?php get_sidebar(); ?>
+                </div><!-- row -->
+            </main><!-- #main -->
+        </div><!-- #primary -->
+    </div><!-- #content -->
 <?php
 get_footer();
