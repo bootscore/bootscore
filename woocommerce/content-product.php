@@ -27,7 +27,7 @@ if ( ! is_a( $product, WC_Product::class ) || ! $product->is_visible() ) {
 ?>
 
 <div class="<?= apply_filters('bootscore/class/woocommerce/col', 'col-md-6 col-lg-4 col-xxl-3'); ?>">
-  <div <?php wc_product_class( apply_filters( 'bootscore/class/product/card', 'card h-100 text-center' ), $product ); ?>>
+  <div <?php wc_product_class( apply_filters( 'bootscore/class/woocommerce/product/card', 'card h-100 text-center' ), $product ); ?>>
     <?php
     /**
      * Hook: woocommerce_before_shop_loop_item.
@@ -45,7 +45,7 @@ if ( ! is_a( $product, WC_Product::class ) || ! $product->is_visible() ) {
     do_action('woocommerce_before_shop_loop_item_title');
 
     ?>
-    <div class="<?= apply_filters('bootscore/class/product/card/card-body', 'card-body d-flex flex-column'); ?>">
+    <div class="<?= apply_filters('bootscore/class/woocommerce/product/card/card-body', 'card-body d-flex flex-column'); ?>">
       <?php
       /**
        * Hook: woocommerce_shop_loop_item_title.
