@@ -83,7 +83,8 @@ function bootscore_loop_category_thumbnail($category) {
  * @return string Add to cart link HTML.
  */
 function bootscore_loop_add_to_cart_link( $html ) {
-  return '<div class="add-to-cart-container mt-auto">' . $html . '</div>';
+  $classes = apply_filters('bootscore/class/woocommerce/loop/add-to-cart', 'add-to-cart-container mt-auto');
+  return '<div class="' . esc_attr($classes) . '">' . $html . '</div>';
 }
 add_filter( 'woocommerce_loop_add_to_cart_link', 'bootscore_loop_add_to_cart_link' );
 
