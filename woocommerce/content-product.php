@@ -45,7 +45,7 @@ if ( ! is_a( $product, WC_Product::class ) || ! $product->is_visible() ) {
     do_action('woocommerce_before_shop_loop_item_title');
 
     ?>
-    <div class="card-body d-flex flex-column">
+    <div class="<?= apply_filters('bootscore/class/product/card/card-body', 'card-body d-flex flex-column'); ?>">
       <?php
       /**
        * Hook: woocommerce_shop_loop_item_title.

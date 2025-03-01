@@ -38,7 +38,7 @@ if (!defined('ABSPATH')) {
     do_action('woocommerce_before_subcategory_title', $category);
 
     ?>
-    <div class="card-body d-flex flex-column">
+    <div class="<?= apply_filters('bootscore/class/product/card/card-body', 'card-body d-flex flex-column'); ?>">
       <?php
 
       /**
