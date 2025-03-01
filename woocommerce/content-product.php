@@ -27,7 +27,7 @@ if ( ! is_a( $product, WC_Product::class ) || ! $product->is_visible() ) {
 ?>
 
 <div class="<?= apply_filters('bootscore/class/woocommerce/col', 'col-md-6 col-lg-4 col-xxl-3'); ?>">
-  <div <?php wc_product_class('card h-100 d-flex text-center', $product); ?>>
+  <div <?php wc_product_class( apply_filters( 'bootscore/class/product/card', 'card h-100 text-center' ), $product ); ?>>
     <?php
     /**
      * Hook: woocommerce_before_shop_loop_item.
