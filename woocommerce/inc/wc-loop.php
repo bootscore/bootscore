@@ -108,11 +108,13 @@ function bootscore_loop_add_to_cart_args( $args ) {
       $args['class'] = implode( ' ', $args['class'] );
     }
 
-      $args['class'] .= ' btn btn-primary w-100 mt-auto';
-    } else {
-      $args['class'] = 'btn btn-primary w-100 mt-auto';
-    }
+    // Apply filter for button classes
+    $custom_classes = apply_filters('bootscore/class/woocommerce/loop/add-to-cart/button', 'btn btn-primary d-block');
+    $args['class'] .= ' ' . $custom_classes;
+  } else {
+    $args['class'] = apply_filters('bootscore/class/woocommerce/loop/add-to-cart/button', 'btn btn-primary d-block');
+  }
 
-    return $args;
+  return $args;
 }
 add_filter( 'woocommerce_loop_add_to_cart_args', 'bootscore_loop_add_to_cart_args' );
