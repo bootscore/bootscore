@@ -52,15 +52,25 @@ add_action('wp_enqueue_scripts', 'bootscore_scripts');
 
 
 /**
- * Register editor styles.
+ * Register editor styles for block editor.
+ * Prevents loading when Classic Editor plugin is active.
+ * https://github.com/bootscore/bootscore/issues/974
  */
 function bootscore_add_editor_styles() {
-  // Add support for editor styles and main.css for the editor
+  // Ensure function exists before calling it
+  if (!function_exists('is_plugin_active')) {
+    require_once ABSPATH . 'wp-admin/includes/plugin.php';
+  }
+
+  // Skip adding styles if Classic Editor is active
+  if (is_plugin_active('classic-editor/classic-editor.php')) {
+    return;
+  }
+
   add_theme_support('editor-styles');
   add_editor_style('assets/css/main.css');
 }
 add_action('after_setup_theme', 'bootscore_add_editor_styles');
-
 
 /**
  * Enqueue styles for block editor and Pattern Library.
