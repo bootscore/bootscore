@@ -21,7 +21,7 @@ if (!defined('ABSPATH')) {
 }
 ?>
 <div <?php wc_product_cat_class(apply_filters('bootscore/class/woocommerce/col', 'col-md-6 col-lg-4 col-xxl-3'), $category); ?>>
-  <div class="card h-100">
+  <div class="<?= apply_filters('bootscore/class/woocommerce/product/card', 'card h-100 text-center'); ?>">
     <?php
     /**
      * The woocommerce_before_subcategory hook.
@@ -38,7 +38,7 @@ if (!defined('ABSPATH')) {
     do_action('woocommerce_before_subcategory_title', $category);
 
     ?>
-    <div class="card-body d-flex flex-column">
+    <div class="<?= apply_filters('bootscore/class/woocommerce/product/card/card-body', 'card-body d-flex flex-column'); ?>">
       <?php
 
       /**
