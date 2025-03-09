@@ -4,7 +4,7 @@
  * WooCommerce Loop
  *
  * @package Bootscore 
- * @version 6.0.0
+ * @version 6.1.1
  */
 
 
@@ -41,16 +41,52 @@ function bootscore_wc_product_col_class($class) {
 
 
 /**
+ * Add card-img-top class to product loop
+ */
+remove_action('woocommerce_before_shop_loop_item_title', 'woocommerce_template_loop_product_thumbnail', 10);
+add_action('woocommerce_before_shop_loop_item_title', 'bootscore_loop_product_thumbnail', 10);
+
+function bootscore_loop_product_thumbnail() {
+  global $product;
+  $classes = apply_filters('bootscore/class/woocommerce/product/loop/img', 'card-img-top');
+
+  echo $product ? $product->get_image('woocommerce_thumbnail', "class=$classes") : '';
+}
+
+
+/**
+ * Add card-img-top class to category loop
+ */
+remove_action('woocommerce_before_subcategory_title', 'woocommerce_subcategory_thumbnail', 10);
+add_action('woocommerce_before_subcategory_title', 'bootscore_loop_category_thumbnail', 10);
+
+function bootscore_loop_category_thumbnail($category) {
+  $classes = apply_filters('bootscore/class/woocommerce/category/loop/img', 'card-img-top');
+
+  // Get the category thumbnail ID
+  $thumbnail_id = get_term_meta($category->term_id, 'thumbnail_id', true);
+
+  if ($thumbnail_id) {
+    // Display the assigned category image
+    echo wp_get_attachment_image($thumbnail_id, 'woocommerce_thumbnail', false, ['class' => $classes]);
+  } else {
+    // Display the WooCommerce placeholder image with custom class
+    echo '<img src="' . esc_url(wc_placeholder_img_src()) . '" alt="' . esc_attr__('Placeholder', 'woocommerce') . '" class="' . esc_attr($classes) . '" />';
+  }
+}
+
+
+/**
  * Wrap add to cart link in container.
  *
  * @param string $html Add to cart link HTML.
  * @return string Add to cart link HTML.
  */
 function bootscore_loop_add_to_cart_link( $html ) {
-  return '<div class="add-to-cart-container mt-auto">' . $html . '</div>';
+  $classes = apply_filters('bootscore/class/woocommerce/loop/add-to-cart', 'add-to-cart-container mt-auto');
+  return '<div class="' . esc_attr($classes) . '">' . $html . '</div>';
 }
 add_filter( 'woocommerce_loop_add_to_cart_link', 'bootscore_loop_add_to_cart_link' );
-
 
 
 /**
@@ -72,11 +108,13 @@ function bootscore_loop_add_to_cart_args( $args ) {
       $args['class'] = implode( ' ', $args['class'] );
     }
 
-      $args['class'] .= ' btn btn-primary w-100 mt-auto';
-    } else {
-      $args['class'] = 'btn btn-primary w-100 mt-auto';
-    }
+    // Apply filter for button classes
+    $custom_classes = apply_filters('bootscore/class/woocommerce/loop/add-to-cart/button', 'btn btn-primary d-block');
+    $args['class'] .= ' ' . $custom_classes;
+  } else {
+    $args['class'] = apply_filters('bootscore/class/woocommerce/loop/add-to-cart/button', 'btn btn-primary d-block');
+  }
 
-    return $args;
+  return $args;
 }
 add_filter( 'woocommerce_loop_add_to_cart_args', 'bootscore_loop_add_to_cart_args' );
