@@ -15,11 +15,9 @@ WooCommerce Forms
 
 
 // Show password icon
-.woocommerce form .show-password-input,
-.woocommerce-page form .show-password-input {
-  top: 0.5em;
+:root {
+  --wc-form-color-text: var(--#{$prefix}body-color);
 }
-
 
 
 // Reduce gap in horizontal forms
