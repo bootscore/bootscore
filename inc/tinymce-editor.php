@@ -4,7 +4,7 @@
  * TinyMCE Editor
  *
  * @package Bootscore 
- * @version 6.1.0
+ * @version 6.1.1
  */
 
 
@@ -19,7 +19,7 @@ defined('ABSPATH') || exit;
  */
 add_filter( 'tiny_mce_before_init', function( $settings ) {
 
-  $content_style = 'body.mce-content-body { margin: 9px 10px; font-family: inherit; }';
+  $content_style = 'body.mce-content-body { margin: 9px 10px; font-family: inherit; height: auto; color: inherit; background: inherit; background-color: inherit; background-image: none; }';
 
   if ( isset( $settings['content_style'] ) ) {
     $settings['content_style'] .= ' ' . $content_style;
