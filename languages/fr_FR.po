@@ -4,119 +4,147 @@ msgid ""
 msgstr ""
 "Project-Id-Version: _s 1.0.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/tags/_s\n"
-"POT-Creation-Date: 2021-01-09 11:33+0000\n"
+"POT-Creation-Date: 2024-09-15 08:25+0000\n"
+"PO-Revision-Date: 2025-03-10 11:02+0100\n"
+"Last-Translator: \n"
+"Language-Team: French (France)\n"
+"Language: fr_FR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2021-05-30 09:06+0000\n"
-"Language-Team: French (France)\n"
-"X-Generator: Loco https://localise.biz/\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"Last-Translator: \n"
-"Language: fr_FR\n"
-"X-Loco-Version: 2.5.2; wp-5.7"
+"X-Generator: Poedit 3.5\n"
+"X-Loco-Version: 2.5.2; wp-5.7\n"
 
-#: single-sidebar-left.php:31 single-sidebar-none.php:28
-#: single-full-width-image.php:34 single.php:29
-msgid " by "
-msgstr " par "
+#: woocommerce/inc/ajax-cart.php:539
+msgid " for this product"
+msgstr ""
 
-#: inc/comment-list.php:46
+#: inc/comments.php:61
 #, php-format
 msgid "%s <span class=\"says d-none\">says:</span>"
 msgstr "%s <span class=\"says d-none\">dit :</span>"
 
 #. used between list items, there is a space after the comma
-#: inc/template-tags.php:38
+#: inc/template-tags.php:49
 msgid ", "
 msgstr ", "
 
-#: languages/plugin-translations.php:5
+#: languages/plugin-translations.php:11
 msgid "/privacy-policy"
 msgstr "/politique-de-confidentialite"
 
-#: inc/comment-list.php:51
+#: inc/comments.php:66
 #, php-format
 msgctxt "1: date, 2: time"
 msgid "%1$s at %2$s"
 msgstr "%1$s à %2$s"
 
-#: functions.php:214
+#: inc/widgets.php:148
 msgid "404 Page"
 msgstr "Page 404"
 
-#. Description of the theme
-msgid ""
-"A powerful Bootstrap 5 WordPress Starter Theme with WooCommerce Support. <a "
-"href=\"https://bootscore.me/category/documentation/\">Documentation</a>. "
-"This theme gives you full control whatever you do and the full freedom to "
-"design whatever you want. It comes with a wide selection of category, page, "
-"post, author and archive templates as well as sidebar, header, footer and "
-"404 widgets. There are no customizer settings in the backend. All settings "
-"can only be made by touching the code. Some CSS, HTML, PHP and JS Skills are "
-"required to customize it."
-msgstr ""
-
-#: languages/plugin-translations.php:7
+#: languages/plugin-translations.php:13
 msgid "Accept"
 msgstr "Accepter"
 
-#: functions.php:120 functions.php:132 functions.php:144 functions.php:156
-#: functions.php:168 functions.php:180 functions.php:192 functions.php:204
-#: functions.php:216
+#: template-parts/header/offcanvas-woocommerce.php:26
+msgid "Account"
+msgstr "Compte"
+
+#: inc/widgets.php:28 inc/widgets.php:39 inc/widgets.php:51 inc/widgets.php:62
+#: inc/widgets.php:73 inc/widgets.php:84 inc/widgets.php:95 inc/widgets.php:106
+#: inc/widgets.php:117 inc/widgets.php:128 inc/widgets.php:139
+#: inc/widgets.php:150
 msgid "Add widgets here."
 msgstr "Ajoutez des widgets ici."
 
-#: languages/plugin-translations.php:2
+#: languages/plugin-translations.php:3
 msgid "All"
 msgstr "Tous"
 
-#: 404.php:27
+#: languages/plugin-translations.php:19
+msgid "Auto"
+msgstr "Auto"
+
+#: 404.php:32
 msgid "Back Home &raquo;"
 msgstr "Retour à l'accueil &raquo;"
 
-#. Author of the theme
-msgid "Bastian Kreiter"
-msgstr "Bastian Kreiter"
+#. Name of the template
+#: page-templates/page-blank.php:3
+msgid "Blank"
+msgstr "Vide"
 
 #. Name of the template
+#: page-templates/page-blank-container.php:3
 msgid "Blank with container"
 msgstr "Vide - Avec container"
 
-#. Name of the template
-msgid "Blank without container"
-msgstr "Vide - Sans container"
-
 #. Name of the theme
-msgid "bootScore 5"
-msgstr "bootScore 5"
+#. Author of the theme
+#: inc/theme-setup.php:84
+msgid "Bootscore"
+msgstr "Bootscore"
 
-#: comments.php:100
+#: comments.php:107
 msgid "Cancel"
 msgstr "Annuler"
 
-#: header-woocommerce.php:166
+#: template-parts/header/offcanvas-woocommerce.php:44
 msgid "Cart"
 msgstr "Panier"
 
-#: header-woocommerce.php:145
-msgid "Close account"
-msgstr "Fermer"
+#: theme.json:1
+msgctxt "Color name"
+msgid "Danger"
+msgstr ""
 
-#: header-woocommerce.php:82 header.php:81
-msgid "Close menu"
-msgstr "Fermer"
+#: theme.json:1
+msgctxt "Color name"
+msgid "Dark"
+msgstr ""
 
-#: comments.php:55 comments.php:73
+#: theme.json:1
+msgctxt "Color name"
+msgid "Info"
+msgstr ""
+
+#: theme.json:1
+msgctxt "Color name"
+msgid "Light"
+msgstr ""
+
+#: theme.json:1
+msgctxt "Color name"
+msgid "Primary"
+msgstr ""
+
+#: theme.json:1
+msgctxt "Color name"
+msgid "Secondary"
+msgstr ""
+
+#: theme.json:1
+msgctxt "Color name"
+msgid "Success"
+msgstr ""
+
+#: theme.json:1
+msgctxt "Color name"
+msgid "Warning"
+msgstr ""
+
+#: comments.php:61 comments.php:81
 msgid "Comment navigation"
 msgstr "Navigation des commentaires"
 
-#: comments.php:91
+#: comments.php:98
 msgid "Comments are closed."
 msgstr "Les commentaires sont fermés."
 
 #. 1: number of comments, 2: post title
-#: comments.php:38
+#: comments.php:43
 #, php-format
 msgctxt "comments title"
 msgid "%1$s Comment on &ldquo;%2$s&rdquo;"
@@ -125,17 +153,17 @@ msgstr[0] "%1$s commentaire pour  &ldquo;%2$s&rdquo;"
 msgstr[1] "%1$s commentaires pour  &ldquo;%2$s&rdquo;"
 
 #. %s: post title
-#: comments.php:34
+#: comments.php:39
 #, php-format
 msgctxt "comments title"
 msgid "One Comment &ldquo;%s&rdquo;"
 msgstr "Un commentaire  &ldquo;%s&rdquo;"
 
-#: header-woocommerce.php:157
-msgid "Continue shopping"
-msgstr "Fermer"
+#: languages/plugin-translations.php:27
+msgid "Contents"
+msgstr "Contenus"
 
-#: languages/plugin-translations.php:4
+#: languages/plugin-translations.php:10
 msgid ""
 "Cookies help us deliver our services. By using our services, you agree to "
 "our use of cookies."
@@ -143,73 +171,88 @@ msgstr ""
 "Les cookies nous aident à faire fonctionner notre site. En utilisant notre "
 "site, vous acceptez l'utilisation des cookies."
 
-#: woocommerce/checkout/form-shipping.php:35
-msgid "Delivery details"
-msgstr "Détails de livraison"
+#: inc/pagination.php:49
+msgid "Current Page"
+msgstr "Page actuelle"
+
+#: languages/plugin-translations.php:18
+msgid "Dark"
+msgstr "Sombre"
 
 #. %s: Name of current post. Only visible to screen readers
-#: inc/comment-list.php:29 inc/comment-list.php:53 inc/template-tags.php:139
+#: inc/comments.php:44 inc/comments.php:68 inc/template-tags.php:170
 msgid "Edit"
 msgstr "Modifer"
 
-#: comments.php:125 woocommerce/single-product-reviews.php:95
+#: comments.php:130 woocommerce/single-product-reviews.php:96
 msgid "Email* (will not be published)"
 msgstr "E-mail* (ne sera pas publiée)"
 
-#: functions.php:166
+#: inc/pagination.php:40
+msgid "First Page"
+msgstr "Première page"
+
+#. Description of the theme
+msgid ""
+"Flexible Bootstrap WordPress starter-theme for developers with full "
+"WooCommerce support. <a href=\"https://bootscore.me/category/documentation/"
+"\">Documentation</a>"
+msgstr ""
+"Thème de démarrage WordPress Bootstrap flexible pour les développeurs avec "
+"un support complet de WooCommerce.  <a href=\"https://bootscore.me/category/"
+"documentation/\">Documentation</a>"
+
+#: inc/widgets.php:93
 msgid "Footer 1"
 msgstr "Pied de page - 1"
 
-#: functions.php:178
+#: inc/widgets.php:104
 msgid "Footer 2"
 msgstr "Pied de page - 2"
 
-#: functions.php:190
+#: inc/widgets.php:115
 msgid "Footer 3"
 msgstr "Pied de page - 3"
 
-#: functions.php:202
+#: inc/widgets.php:126
 msgid "Footer 4"
 msgstr "Pied de page - 4"
 
-#: functions.php:66
-msgid "Footer Menu"
-msgstr "Pied de page - Menu"
+#: inc/widgets.php:137
+msgid "Footer Info"
+msgstr "Pied de page - Info"
+
+#: inc/widgets.php:82
+msgid "Footer Top"
+msgstr "Pied de page - Top"
 
 #. Name of the template
+#: page-templates/page-full-width-image.php:3
 msgid "Full Width Image"
 msgstr "Image Pleine Largeur"
 
 #. Name of the template
+#: single-templates/single-full-width-image.php:2
 msgid "Full width image"
 msgstr "Image pleine largeur"
 
-#: woocommerce/myaccount/my-account-offcanvas.php:17
-msgid "Hello"
-msgstr "Hello"
+#: inc/breadcrumb.php:24
+msgid "Home"
+msgstr "Accueil"
 
-#: woocommerce/myaccount/my-account-offcanvas.php:22
-msgid ""
-"Here you can view your recent orders, manage your shipping and billing "
-"addresses, and edit your password and account details."
-msgstr ""
-"Ici, vous pouvez consulter vos commandes récentes, gérer vos adresses de "
-"livraison et de facturation, et modifier votre mot de passe et les détails "
-"de votre compte."
+#. Author URI of the theme
+msgid "https://bootscore.me"
+msgstr "https://bootscore.me"
 
 #. URI of the theme
 msgid "https://bootscore.me/"
 msgstr "https://bootscore.me/"
 
-#. Author URI of the theme
-msgid "https://crftwrk.de"
-msgstr "https://crftwrk.de"
+#: woocommerce/inc/ajax-cart.php:573
+msgid "Invalid key or number"
+msgstr "Clé ou nombre invalide"
 
-#: inc/template-tags.php:256
-msgid "Internet Explorer detected"
-msgstr "Internet Explorer détecté"
-
-#: template-parts/content-none.php:43
+#: template-parts/search/content-none.php:51
 msgid ""
 "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
 "searching can help."
@@ -217,108 +260,237 @@ msgstr ""
 "Il semble que nous ne trouvons pas ce que vous voulez. Peut-être qu'une "
 "recherche peut vous aider."
 
+#: inc/pagination.php:58
+msgid "Last Page"
+msgstr "Dernière page"
+
 #. %s: post title
-#: comments.php:98 inc/template-tags.php:110
+#: comments.php:105 inc/template-tags.php:141
 msgid "Leave a Comment"
 msgstr "Laisser un commentaire"
 
-#: inc/template-tags.php:167
+#: inc/template-tags.php:199
 msgid "Leave a comment"
 msgstr "Laisser un commentaire"
 
-#: comments.php:99
+#: comments.php:106
 #, php-format
 msgid "Leave a Comment to %s"
 msgstr "Laisser un commentaire pour %s"
 
 #. Name of the template
+#: page-templates/page-sidebar-left.php:3
 msgid "Left Sidebar"
 msgstr "Barre latérale gauche"
 
-#: languages/plugin-translations.php:3
+#: languages/plugin-translations.php:17
+msgid "Light"
+msgstr "Clair"
+
+#: languages/plugin-translations.php:7
 msgid "Look what I found: "
 msgstr "Regardez ce que j'ai trouvé : "
 
-#: functions.php:65
-msgid "Main Menu"
-msgstr "Menu principal"
+#: header.php:56
+msgid "Menu"
+msgstr "Menu"
 
-#: languages/plugin-translations.php:6
+#: languages/plugin-translations.php:12
 msgid "More Information"
 msgstr "Plus d'informations"
 
-#: comments.php:121 woocommerce/single-product-reviews.php:89
+#: comments.php:127 woocommerce/single-product-reviews.php:90
 msgid "Name*"
 msgstr "Nom*"
 
-#: comments.php:59 comments.php:77
+#: comments.php:65 comments.php:85
 msgid "Newer Comments"
 msgstr "Commentaires plus récents"
 
+#: inc/pagination.php:54
+msgid "Next Page"
+msgstr "Page suivante"
+
+#: languages/plugin-translations.php:25
+msgid "No headings found."
+msgstr "Aucune rubrique n'a été trouvée."
+
 #. Name of the template
+#: page-templates/page-sidebar-none.php:3
+#: single-templates/single-sidebar-none.php:2
 msgid "No Sidebar"
 msgstr "Sans barre latérale"
 
-#: template-parts/content-none.php:14
+#: woocommerce/inc/ajax-cart.php:549
+msgid "Nonce verification failed"
+msgstr "Échec de la vérification du nonce"
+
+#: languages/plugin-translations.php:4
+msgid "Nothing found"
+msgstr "Rien n'a été trouvé"
+
+#: template-parts/search/content-none.php:22
 msgid "Nothing Found for"
 msgstr "Rien n'a été trouvé pour"
 
-#: comments.php:58 comments.php:76
+#: comments.php:64 comments.php:84
 msgid "Older Comments"
 msgstr "Commentaires plus anciens"
 
-#: inc/template-tags.php:258
-msgid "or"
-msgstr "ou"
+#: sidebar.php:25
+msgid "Open side menu"
+msgstr "Ouvrir le menu latéral"
 
-#: 404.php:22
+#: inc/pagination.php:49
+msgid "Page"
+msgstr "Pages"
+
+#: inc/pagination.php:36
+msgid "Page navigation"
+msgstr "Navigation dans la page"
+
+#: 404.php:27
 msgid "Page not found."
 msgstr "Page non trouvée."
 
-#: page-blank-with-container.php:21 page-sidebar-none.php:33
-#: page-blank-without-container.php:21 page-sidebar-left.php:38 page.php:43
-msgid "Pages:"
-msgstr "Pages :"
-
-#: functions.php:411
+#: inc/password-protected-form.php:22
 msgid "Password"
 msgstr "Mot de passe"
 
-#: inc/comment-list.php:29
+#: patterns/alert-danger.php:2
+msgctxt "Pattern title"
+msgid "alert-danger with icon and dismiss button"
+msgstr ""
+
+#: patterns/alert-info.php:2
+msgctxt "Pattern title"
+msgid "alert-info"
+msgstr ""
+
+#: patterns/btn-danger-lg.php:2
+msgctxt "Pattern title"
+msgid "btn-danger-lg"
+msgstr ""
+
+#: patterns/btn-outline-secondary-sm.php:2
+msgctxt "Pattern title"
+msgid "btn-outline-secondary-sm"
+msgstr ""
+
+#: patterns/btn-primary.php:2
+msgctxt "Pattern title"
+msgid "btn-primary"
+msgstr ""
+
+#: patterns/card-advanced.php:2
+msgctxt "Pattern title"
+msgid "card advanced"
+msgstr ""
+
+#: patterns/card-basic.php:2
+msgctxt "Pattern title"
+msgid "card basic"
+msgstr ""
+
+#: patterns/card-categories.php:2
+msgctxt "Pattern title"
+msgid "card categories"
+msgstr ""
+
+#: patterns/cards-pricing.php:2
+msgctxt "Pattern title"
+msgid "cards pricing"
+msgstr ""
+
+#: patterns/container.php:2
+msgctxt "Pattern title"
+msgid "container"
+msgstr ""
+
+#: patterns/grid-col-3.php:2
+msgctxt "Pattern title"
+msgid "Grid 3/3/3/3"
+msgstr ""
+
+#: patterns/grid-col-4-col-8.php:2
+msgctxt "Pattern title"
+msgid "Grid 4/8"
+msgstr ""
+
+#: patterns/grid-col-6.php:2
+msgctxt "Pattern title"
+msgid "Grid 6/6"
+msgstr ""
+
+#: patterns/grid-col-8-col-4.php:2
+msgctxt "Pattern title"
+msgid "Grid 8/4"
+msgstr ""
+
+#: patterns/hero-img-left.php:2
+msgctxt "Pattern title"
+msgid "hero img left"
+msgstr ""
+
+#: patterns/hero-img-right.php:2
+msgctxt "Pattern title"
+msgid "hero img right"
+msgstr ""
+
+#: patterns/hero-jumbotron.php:2
+msgctxt "Pattern title"
+msgid "Hero jumbotron"
+msgstr ""
+
+#: patterns/section-hero-img-left.php:2
+msgctxt "Pattern title"
+msgid "section hero image left"
+msgstr ""
+
+#: patterns/section-hero-img-right.php:2
+msgctxt "Pattern title"
+msgid "section hero image right"
+msgstr ""
+
+#: patterns/section-hero-jumbotron.php:2
+msgctxt "Pattern title"
+msgid "section hero jumbotron"
+msgstr ""
+
+#: patterns/section-heading-subtitle.php:2
+msgctxt "Pattern title"
+msgid "section with heading and subtitle"
+msgstr ""
+
+#: inc/comments.php:44
 msgid "Pingback:"
 msgstr "Pingback :"
 
-#: inc/template-tags.php:258
-msgid "Please use a modern and secure web browser like"
-msgstr "Veuillez utiliser un navigateur Web moderne et sécurisé tel que"
-
-#: inc/template-tags.php:85
+#: inc/template-tags.php:116
 #, php-format
 msgctxt "post author"
 msgid "by %s"
 msgstr "par %s"
 
-#: comments.php:101
+#: comments.php:108
 msgid "Post Comment"
 msgstr "Laisser un commentaire"
 
-#: author.php:68
-msgid "Read more"
-msgstr "Lire la suite"
+#: inc/pagination.php:44
+msgid "Previous Page"
+msgstr "Page précédente"
 
-#: category.php:61 author-sidebar-left.php:71 index.php:78 index.php:134
-#: archive.php:63 category-equal-height.php:63
-#: author-equal-height-sidebar-right.php:68 archive-sidebar-left.php:65
-#: author-masonry.php:69 archive-equal-height-sidebar-right.php:62
-#: category-masonry.php:63 archive-equal-height.php:63 archive-masonry.php:63
-#: category-sidebar-left.php:63 author-equal-height.php:69
-#: category-equal-height-sidebar-right.php:63
-#: template-parts/content-search.php:42
+#: woocommerce/inc/ajax-cart.php:565
+msgid "Quantity updated successfully"
+msgstr "Quantité mise à jour avec succès"
+
+#: archive.php:73 index.php:94 index.php:165
+#: template-parts/search/content-search.php:60
 msgid "Read more »"
 msgstr "Lire la suite »"
 
 #. 1: link to WP admin new post page.
-#: template-parts/content-none.php:25
+#: template-parts/search/content-none.php:33
 #, php-format
 msgid ""
 "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
@@ -326,7 +498,7 @@ msgstr ""
 "Vous êtes prêt à publier votre premier article ? <a href=\"%1$s\"> Commencez "
 "ici </a>."
 
-#: inc/comment-list.php:109
+#: inc/comments.php:122
 msgid ""
 "Save my name, email, and website in this browser for the next time I comment."
 msgstr ""
@@ -338,24 +510,29 @@ msgid "Search"
 msgstr "Rechercher"
 
 #. %s: search query.
-#: search.php:29
+#: search.php:31
 #, php-format
 msgid "Search Results for: %s"
 msgstr "Résultats pour: %s"
 
-#: woocommerce/loop/orderby.php:27
+#: woocommerce/loop/orderby.php:28
 msgid "Shop order"
 msgstr "Commande"
 
-#: functions.php:142
+#: sidebar.php:30 inc/widgets.php:71
 msgid "Sidebar"
 msgstr "Barre latérale"
 
 #. Name of the template
+#: single-templates/single-sidebar-left.php:2
 msgid "Sidebar left"
 msgstr "Barre latérale gauche"
 
-#: template-parts/content-none.php:37
+#: header.php:34
+msgid "Skip to content"
+msgstr "Aller au contenu"
+
+#: template-parts/search/content-none.php:45
 msgid ""
 "Sorry, but nothing matched your search terms. Please try again with some "
 "different keywords."
@@ -363,53 +540,114 @@ msgstr ""
 "Désolé, mais rien ne correspond à votre recherche. Veuillez réessayer avec "
 "d'autres mots-clés."
 
-#: comments.php:103
+#: comments.php:110
 msgid "Start typing..."
 msgstr "Commencez à écrire..."
 
-#: functions.php:412
+#: inc/password-protected-form.php:23
 msgid "Submit"
 msgstr "Envoyer"
 
-#. 1: list of tags.
-#: inc/template-tags.php:191
-#, php-format
-msgid "Tagged %1$s"
-msgstr "Étiqueté %1$s"
+#: inc/template-tags.php:222
+msgid "Tagged"
+msgstr "Étiqueté"
 
-#: inc/template-tags.php:257
-msgid "This website will offer limited functionality in this browser."
-msgstr "Ce site offrira des fonctionnalités limitées dans ce navigateur."
+#: languages/plugin-translations.php:26
+msgid "Toggle table of contents"
+msgstr "Basculer la table des matières"
 
-#: inc/template-tags.php:258
-msgid "to display this site correctly."
-msgstr "pour afficher ce site correctement."
+#: languages/plugin-translations.php:16
+msgid "Toggle theme"
+msgstr "Basculer le thème"
 
-#: woocommerce/cart/mini-cart.php:112
-#| msgid "To find out your shipping cost , Please proceed to checkout."
-msgid "To find out your shipping cost, please proceed to checkout."
-msgstr "Les options de livraison seront mises à jour lors de la commande."
+#: inc/widgets.php:26
+msgid "Top Bar"
+msgstr "Barre supérieure"
 
-#: functions.php:154
-msgid "Top Footer"
-msgstr "Pied de page - Top"
-
-#: functions.php:118
+#: inc/widgets.php:37
 msgid "Top Nav"
-msgstr "Top - Menu"
+msgstr "Navigation supérieure"
 
-#: functions.php:130
+#: inc/widgets.php:49
+msgid "Top Nav 2"
+msgstr "Navigation supérieure 2"
+
+#: inc/widgets.php:60
 msgid "Top Nav Search"
 msgstr "Top - Recherche"
 
-#: comments.php:130
+#: comments.php:135
 msgid "Website"
 msgstr "Site web"
 
-#: inc/comment-list.php:58
+#: languages/plugin-translations.php:22
+msgid "You might also like"
+msgstr "Vous pourriez aimer également"
+
+#: inc/comments.php:73
 msgid "Your comment is awaiting moderation."
 msgstr "Votre commentaire est en attente de modération."
 
-#: woocommerce/single-product-reviews.php:134
+#: woocommerce/single-product-reviews.php:135
 msgid "Your review...*"
 msgstr "Votre avis...*"
+
+#~ msgid " by "
+#~ msgstr " par "
+
+#~ msgid "Bastian Kreiter"
+#~ msgstr "Bastian Kreiter"
+
+#~ msgid "Blank without container"
+#~ msgstr "Vide - Sans container"
+
+#~ msgid "Close menu"
+#~ msgstr "Fermer"
+
+#~ msgid "Continue shopping"
+#~ msgstr "Fermer"
+
+#~ msgid "Delivery details"
+#~ msgstr "Détails de livraison"
+
+#~ msgid "Footer Menu"
+#~ msgstr "Pied de page - Menu"
+
+#~ msgid "Hello"
+#~ msgstr "Hello"
+
+#~ msgid ""
+#~ "Here you can view your recent orders, manage your shipping and billing "
+#~ "addresses, and edit your password and account details."
+#~ msgstr ""
+#~ "Ici, vous pouvez consulter vos commandes récentes, gérer vos adresses de "
+#~ "livraison et de facturation, et modifier votre mot de passe et les "
+#~ "détails de votre compte."
+
+#~ msgid "https://crftwrk.de"
+#~ msgstr "https://crftwrk.de"
+
+#~ msgid "Internet Explorer detected"
+#~ msgstr "Internet Explorer détecté"
+
+#~ msgid "or"
+#~ msgstr "ou"
+
+#~ msgid "Please use a modern and secure web browser like"
+#~ msgstr "Veuillez utiliser un navigateur Web moderne et sécurisé tel que"
+
+#~ msgid "Read more"
+#~ msgstr "Lire la suite"
+
+#~ msgid "This website will offer limited functionality in this browser."
+#~ msgstr "Ce site offrira des fonctionnalités limitées dans ce navigateur."
+
+#~ msgid "to display this site correctly."
+#~ msgstr "pour afficher ce site correctement."
+
+#~| msgid "To find out your shipping cost , Please proceed to checkout."
+#~ msgid "To find out your shipping cost, please proceed to checkout."
+#~ msgstr "Les options de livraison seront mises à jour lors de la commande."
+
+#~ msgid "Top Footer"
+#~ msgstr "Pied de page - Top"
