@@ -2,17 +2,6 @@
 Block Widgets
 --------------------------------------------------------------*/
 
-// Reset WP margin-top
-.is-layout-flow > {
-  * {
-    margin-block-start: 0;
-  }
-
-  p {
-    margin-block-end: $spacer;
-  }
-}
-
 
 // Add width-100 classes to block img if class is added to the figure
 figure.w-100 {
@@ -108,4 +97,10 @@ figure.card-img-top {
 // Blockquote
 .blockquote p:last-of-type {
   margin-bottom: 0;
+}
+
+
+// Fix category dropdown label if 'Show label' is switched off
+.wp-block-categories .wp-block-categories__label {
+  width: auto;
 }
