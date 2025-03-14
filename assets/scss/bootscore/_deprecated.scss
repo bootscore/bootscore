@@ -5,6 +5,7 @@ Deprecated
 
 // Reset WP margin-top/bottom
 // Use hide-wp-block-classes instead
+// See https://github.com/bootscore/bootscore/pull/977
 .is-layout-flow > {
   * {
     margin-block-start: 0;
