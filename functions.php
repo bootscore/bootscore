@@ -6,7 +6,7 @@
  * @link https://developer.wordpress.org/themes/basics/theme-functions/
  *
  * @package Bootscore
- * @version 6.1.0
+ * @version 6.1.1
  */
 
 
@@ -47,6 +47,7 @@ require_once('inc/navwalker.php');               // Register the Bootstrap 5 nav
 require_once('inc/navmenu.php');                 // Register the nav menus
 require_once('inc/pagination.php');              // Pagination for loop and single posts
 require_once('inc/password-protected-form.php'); // Form if post or page is protected by password
+require_once('inc/patterns.php');                // Register pattern category and script to hide wp-block classes
 require_once('inc/template-tags.php');           // Meta information like author, date, comments, category and tags badges
 require_once('inc/template-functions.php');      // Functions which enhance the theme by hooking into WordPress
 require_once('inc/widgets.php');                 // Register widget area and disables Gutenberg in widgets
