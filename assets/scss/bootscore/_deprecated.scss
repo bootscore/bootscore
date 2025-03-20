@@ -6,12 +6,40 @@ Deprecated
 // Reset WP margin-top/bottom
 // Use hide-wp-block-classes instead
 // See https://github.com/bootscore/bootscore/pull/977
-.is-layout-flow > {
+.is-layout-flow:not(.hide-wp-block-classes.is-layout-flow) > {
   * {
     margin-block-start: 0;
   }
 
-  p {
+  p:not(:last-child) {
     margin-block-end: $spacer;
   }
 }
+
+
+/*
+:root :where(.is-layout-flow) > :first-child {
+  margin-block-start: auto;
+}
+*/
+
+
+:root :where(.editor-styles-wrapper) :where(.hide-wp-block-classes.is-layout-flow)>:first-child {
+  margin-block-start: auto;
+}
+
+/*
+:root :where(.editor-styles-wrapper) :where(.hide-wp-block-classes.is-layout-flow) > {
+  * {
+    margin-block-start: auto;
+  }
+}
+*/
+
+/*
+.hide-wp-block-classes.is-layout-flow > {
+  * {
+    margin-block-start: auto;
+  }
+}
+*/
