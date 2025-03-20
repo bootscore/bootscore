@@ -182,7 +182,7 @@ msgstr "Sombre"
 #. %s: Name of current post. Only visible to screen readers
 #: inc/comments.php:44 inc/comments.php:68 inc/template-tags.php:170
 msgid "Edit"
-msgstr "Modifer"
+msgstr "Modifier"
 
 #: comments.php:130 woocommerce/single-product-reviews.php:96
 msgid "Email* (will not be published)"
