@@ -4,7 +4,7 @@
  * Theme setup
  *
  * @package Bootscore 
- * @version 6.2.0
+ * @version 6.1.2
  */
 
 
