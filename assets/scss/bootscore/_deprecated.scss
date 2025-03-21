@@ -3,7 +3,7 @@ Deprecated
 --------------------------------------------------------------*/
 
 
-// Reset WP margin-top/bottom
+// Reset .is-layout-flow group block margins
 // Use hide-wp-block-classes instead
 // See https://github.com/bootscore/bootscore/pull/977
 .is-layout-flow:not(.hide-wp-block-classes.is-layout-flow) > {
@@ -15,31 +15,3 @@ Deprecated
     margin-block-end: $spacer;
   }
 }
-
-
-/*
-:root :where(.is-layout-flow) > :first-child {
-  margin-block-start: auto;
-}
-*/
-
-
-:root :where(.editor-styles-wrapper) :where(.hide-wp-block-classes.is-layout-flow)>:first-child {
-  margin-block-start: auto;
-}
-
-/*
-:root :where(.editor-styles-wrapper) :where(.hide-wp-block-classes.is-layout-flow) > {
-  * {
-    margin-block-start: auto;
-  }
-}
-*/
-
-/*
-.hide-wp-block-classes.is-layout-flow > {
-  * {
-    margin-block-start: auto;
-  }
-}
-*/

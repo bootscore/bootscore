@@ -104,3 +104,10 @@ figure.card-img-top {
 .wp-block-categories .wp-block-categories__label {
   width: auto;
 }
+
+
+// Fix .hide-wp-block-classes.is-layout-flow group block margins in GB edit screen
+// See https://github.com/bootscore/bootscore/pull/977
+:root :where(.editor-styles-wrapper) :where(.hide-wp-block-classes.is-layout-flow)>:first-child {
+  margin-block-start: auto;
+}
