@@ -1,6 +1,6 @@
 <?php
 /**
- * Title: c - cards pricing
+ * Title: c - Cards pricing
  * Slug: bootscore/c.cards-pricing
  * Categories: bootscore
  * https://developer.wordpress.org/themes/features/block-patterns/
@@ -13,7 +13,7 @@
 defined('ABSPATH') || exit;
 
 ?>
-<!-- wp:group {"metadata":{"name":"c - cards pricing - row g-3 mb-3 row-cols-1 row-cols-md-3 hide-wp-block-classes","categories":["bootscore"],"patternName":"bootscore/cards-pricing"},"className":"row g-3 mb-3 row-cols-1 row-cols-md-3 hide-wp-block-classes","layout":{"type":"default"}} -->
+<!-- wp:group {"metadata":{"name":"c - Cards pricing - row g-3 mb-3 row-cols-1 row-cols-md-3 hide-wp-block-classes","categories":["bootscore"],"patternName":"bootscore/c.cards-pricing"},"className":"row g-3 mb-3 row-cols-1 row-cols-md-3 hide-wp-block-classes","layout":{"type":"default"}} -->
 <div class="wp-block-group row g-3 mb-3 row-cols-1 row-cols-md-3 hide-wp-block-classes"><!-- wp:group {"metadata":{"name":"col"},"className":"col","layout":{"type":"default"}} -->
 <div class="wp-block-group col"><!-- wp:group {"metadata":{"name":"card text-center h-100"},"className":"card text-center h-100"} -->
 <div class="wp-block-group card text-center h-100"><!-- wp:heading {"metadata":{"name":"card-header h4"},"className":"card-header h4"} -->

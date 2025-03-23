@@ -1,6 +1,6 @@
 <?php
 /**
- * Title: l - container
+ * Title: l - Container
  * Slug: bootscore/l.container
  * Categories: bootscore
  * https://developer.wordpress.org/themes/features/block-patterns/
@@ -13,7 +13,7 @@
 defined('ABSPATH') || exit;
 
 ?>
-<!-- wp:group {"metadata":{"name":"l - container hide-wp-block-classes","categories":["bootscore"],"patternName":"bootscore/container"},"className":"container hide-wp-block-classes","layout":{"type":"default"}} -->
+<!-- wp:group {"metadata":{"name":"l - Container - container hide-wp-block-classes","categories":["bootscore"],"patternName":"bootscore/l.container"},"className":"container hide-wp-block-classes","layout":{"type":"default"}} -->
 <div class="wp-block-group container hide-wp-block-classes"><!-- wp:paragraph -->
 <p>This is a <code>container</code></p>
 <!-- /wp:paragraph --></div>
