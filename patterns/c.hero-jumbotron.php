@@ -13,8 +13,8 @@
 defined('ABSPATH') || exit;
 
 ?>
-<!-- wp:group {"metadata":{"name":"c - Hero jumbotron - p-5 text-center bg-body-tertiary rounded-3 hide-wp-block-classes","categories":["bootscore"],"patternName":"bootscore/hero-jumbotron"},"className":"p-5 text-center bg-body-tertiary rounded-3 hide-wp-block-classes","layout":{"type":"default"}} -->
-<div class="wp-block-group p-5 text-center bg-body-tertiary rounded-3 hide-wp-block-classes"><!-- wp:heading {"level":1,"metadata":{"name":"text-body-emphasis"},"className":"text-body-emphasis"} -->
+<!-- wp:group {"metadata":{"name":"c - Hero jumbotron - mb-3 p-5 text-center bg-body-tertiary rounded-3 hide-wp-block-classes","categories":["bootscore"],"patternName":"bootscore/c.hero-jumbotron"},"className":"mb-3 p-5 text-center bg-body-tertiary rounded-3 hide-wp-block-classes","layout":{"type":"default"}} -->
+<div class="wp-block-group mb-3 p-5 text-center bg-body-tertiary rounded-3 hide-wp-block-classes"><!-- wp:heading {"level":1,"metadata":{"name":"text-body-emphasis"},"className":"text-body-emphasis"} -->
 <h1 class="wp-block-heading text-body-emphasis">Basic jumbotron</h1>
 <!-- /wp:heading -->
 
