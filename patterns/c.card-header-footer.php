@@ -1,7 +1,7 @@
 <?php
 /**
- * Title: c - card advanced
- * Slug: bootscore/c.card-advanced
+ * Title: c - Card with header and footer
+ * Slug: bootscore/c.card-header-footer
  * Categories: bootscore
  * https://developer.wordpress.org/themes/features/block-patterns/
  * 
@@ -13,7 +13,7 @@
 defined('ABSPATH') || exit;
 
 ?>
-<!-- wp:group {"metadata":{"name":"c - card advanced - card hide-wp-block-classes","categories":["bootscore"],"patternName":"bootscore/card-advanced"},"className":"card hide-wp-block-classes"} -->
+<!-- wp:group {"metadata":{"name":"c - Card with header and footer - card hide-wp-block-classes","categories":["bootscore"],"patternName":"bootscore/c.card-advanced"},"className":"card hide-wp-block-classes"} -->
 <div class="wp-block-group card hide-wp-block-classes"><!-- wp:heading {"metadata":{"name":"card-header h6"},"className":"card-header h6"} -->
 <h2 class="wp-block-heading card-header h6">Card header</h2>
 <!-- /wp:heading -->
