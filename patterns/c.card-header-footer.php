@@ -13,8 +13,8 @@
 defined('ABSPATH') || exit;
 
 ?>
-<!-- wp:group {"metadata":{"name":"c - Card with header and footer - card hide-wp-block-classes","categories":["bootscore"],"patternName":"bootscore/c.card-advanced"},"className":"card hide-wp-block-classes"} -->
-<div class="wp-block-group card hide-wp-block-classes"><!-- wp:heading {"metadata":{"name":"card-header h6"},"className":"card-header h6"} -->
+<!-- wp:group {"metadata":{"name":"c - Card with header and footer - card mb-3 hide-wp-block-classes","categories":["bootscore"],"patternName":"bootscore/c.card-advanced"},"className":"card mb-3 hide-wp-block-classes"} -->
+<div class="wp-block-group card mb-3 hide-wp-block-classes"><!-- wp:heading {"metadata":{"name":"card-header h6"},"className":"card-header h6"} -->
 <h2 class="wp-block-heading card-header h6">Card header</h2>
 <!-- /wp:heading -->
 
