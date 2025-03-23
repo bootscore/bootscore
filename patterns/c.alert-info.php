@@ -1,6 +1,6 @@
 <?php
 /**
- * Title: c - alert-info
+ * Title: c - Alert-info
  * Slug: bootscore/c.alert-info
  * Categories: bootscore
  * https://developer.wordpress.org/themes/features/block-patterns/
@@ -13,6 +13,6 @@
 defined('ABSPATH') || exit;
 
 ?>
-<!-- wp:paragraph {"metadata":{"name":"c - alert alert-info hide-wp-block-classes","categories":["bootscore"],"patternName":"bootscore/alert-info"},"className":"alert alert-info hide-wp-block-classes"} -->
+<!-- wp:paragraph {"metadata":{"name":"c - Alert info - alert alert-info hide-wp-block-classes","categories":["bootscore"],"patternName":"bootscore/c.alert-info"},"className":"alert alert-info hide-wp-block-classes"} -->
 <p class="alert alert-info hide-wp-block-classes">A simple info alert with a <a href="#">link</a>.</p>
 <!-- /wp:paragraph -->
