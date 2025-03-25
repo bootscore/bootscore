@@ -47,7 +47,6 @@ require_once('inc/navwalker.php');               // Register the Bootstrap 5 nav
 require_once('inc/navmenu.php');                 // Register the nav menus
 require_once('inc/pagination.php');              // Pagination for loop and single posts
 require_once('inc/password-protected-form.php'); // Form if post or page is protected by password
-require_once('inc/patterns.php');                // Register pattern category and script to hide wp-block classes
 require_once('inc/template-tags.php');           // Meta information like author, date, comments, category and tags badges
 require_once('inc/template-functions.php');      // Functions which enhance the theme by hooking into WordPress
 require_once('inc/widgets.php');                 // Register widget area and disables Gutenberg in widgets
@@ -55,6 +54,9 @@ require_once('inc/deprecated.php');              // Fallback functions being dro
 require_once('inc/tinymce-editor.php');          // Fix body margin and font-family in backend if classic editor is used
 
 // Blocks
+// Patterns
+require_once('inc/blocks/patterns.php');  // Register pattern category and script to hide wp-block classes
+
 // Widgets
 require_once('inc/blocks/block-widget-archives.php');        // Archive block
 require_once('inc/blocks/block-widget-calendar.php');        // Calendar block

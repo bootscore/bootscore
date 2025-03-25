@@ -12,7 +12,6 @@
 defined('ABSPATH') || exit;
 
 
-
 /*
  * Register pattern category
  */ 
@@ -23,7 +22,6 @@ function bootscore_pattern_category() {
   );
 }
 add_action('init', 'bootscore_pattern_category');
-
 
 
 /**
