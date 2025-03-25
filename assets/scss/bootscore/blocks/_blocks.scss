@@ -104,23 +104,3 @@ figure.card-img-top {
 .wp-block-categories .wp-block-categories__label {
   width: auto;
 }
-
-
-// Fix .hide-wp-block-classes.is-layout-flow group block margins in GB edit screen
-// See https://github.com/bootscore/bootscore/pull/977
-:root :where(.editor-styles-wrapper) :where(.hide-wp-block-classes.is-layout-flow) {
-  
-  // .hide-wp-block-classes.is-layout-flow group block margins
-  & > :first-child {
-    margin-block-start: auto;
-  }
-
-  // card layout
-  .card {
-    margin-top: inherit;
-    padding: 0;
-    min-width: 100%;
-    max-width: 100%;
-    box-shadow: none;
-  }
-}
