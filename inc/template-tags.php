@@ -6,7 +6,7 @@
  * Eventually, some of the functionality here could be replaced by core features.
  *
  * @package Bootscore
- * @version 6.1.0
+ * @version 6.1.2
  */
 
 
@@ -221,7 +221,7 @@ if (!function_exists('bootscore_tags')) :
         echo '<div class="tags-links">';
 
         // Show 'Tagged' heading only on singular post pages
-        if (is_singular('post')) {
+        if (is_singular('post') && get_the_ID() === get_queried_object_id()) {
           echo '<p class="tags-heading h6">' . esc_html__('Tagged', 'bootscore') . '</p>';
         }
 
