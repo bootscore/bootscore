@@ -67,15 +67,36 @@ add_filter( 'allowed_block_types_all', function( $allowed_blocks, $editor_contex
       'core/comments',
       'core/post-comments-form',
       
-      
+      // Embed
+      'core/embed',
       
       
       
       
 
       // WooCommerce
-      //'woocommerce/mini-cart',
-      //'woocommerce/cart-link',
+      'woocommerce/cart-link',
+      'woocommerce/customer-account',
+      'woocommerce/featured-category',
+      'woocommerce/featured-product',
+      'woocommerce/mini-cart',
+      'woocommerce/store-notices',
+      'woocommerce/single-product',
+      
+      
+      //'woocommerce/cart-cross-sells-block',
+      //'woocommerce/related-products',
+      // 'woocommerce/featured-product',
+      
+      // Filters
+      //'woocommerce/active-filters',
+      //'woocommerce/price-filter',
+      
+      
+      
+      //'woocommerce/product-reviews',
+
+
     ]);
 
     return array_values( array_filter( $all_blocks, fn( $block ) => ! in_array( $block, $disabled_blocks, true ) ) );
