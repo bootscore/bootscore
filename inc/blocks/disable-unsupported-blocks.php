@@ -11,3 +11,75 @@
 // Exit if accessed directly
 defined('ABSPATH') || exit;
 
+
+/**
+ * Disable unsupported blocks
+ */
+add_filter( 'allowed_block_types_all', function( $allowed_blocks, $editor_context ) {
+  if ( ! empty( $editor_context->post ) ) {
+    $all_blocks = array_keys( WP_Block_Type_Registry::get_instance()->get_all_registered() );
+
+    // Blocks to disable
+    $disabled_blocks = apply_filters('bootscore/unsupported_blocks', [
+
+      // WordPress core
+      // Text
+      'core/details',
+      'core/pullquote',
+      'core/verse',
+
+      // Media
+      'core/cover',
+      'core/file',
+      'core/media-text',
+      
+      // Design
+      'core/columns',
+      'core/more',
+      'core/nextpage',
+      
+      // Widgets
+      'core/page-list',
+      'core/rss',
+      'core/social-links',
+      'core/tag-cloud',
+      
+      // Theme
+      'core/navigation',
+      'core/site-logo',
+      'core/site-tagline',
+      'core/site-title',
+      'core/query',
+      'core/avatar',
+      'core/post-title',
+      'core/post-excerpt',
+      'core/post-featured-image',
+      'core/post-author',
+      'core/post-author-biography',
+      'core/post-author-name',
+      'core/post-date',
+      //'core/query-pagination',
+      //'core/query-pagination-next',
+      //'core/query-pagination-previous',
+      'core/read-more',
+      'core/loginout',
+      'core/term-description',
+      'core/comments',
+      'core/post-comments-form',
+      
+      
+      
+      
+      
+      
+
+      // WooCommerce
+      //'woocommerce/mini-cart',
+      //'woocommerce/cart-link',
+    ]);
+
+    return array_values( array_filter( $all_blocks, fn( $block ) => ! in_array( $block, $disabled_blocks, true ) ) );
+  }
+
+  return $allowed_blocks;
+}, 10, 2 );
