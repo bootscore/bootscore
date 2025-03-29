@@ -104,3 +104,19 @@ add_filter( 'allowed_block_types_all', function( $allowed_blocks, $editor_contex
 
   return $allowed_blocks;
 }, 10, 2 );
+
+
+
+
+
+
+// Disable all WP core patterns
+add_action('init', function() {
+    remove_theme_support('core-block-patterns');
+},  9  );
+
+if ( is_admin() ) {
+    remove_theme_support('core-block-patterns');
+}
+
+// Disable WooCommerce patterns
