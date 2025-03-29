@@ -66,8 +66,9 @@ require_once('inc/blocks/block-widget-latest-posts.php');    // Latest posts blo
 require_once('inc/blocks/block-widget-search.php');          // Searchform block
 
 // Contents
-require_once('inc/blocks/block-quote.php'); // Quote block
-require_once('inc/blocks/block-table.php'); // Table block
+require_once('inc/blocks/block-buttons.php'); // Button block
+require_once('inc/blocks/block-quote.php');   // Quote block
+require_once('inc/blocks/block-table.php');   // Table block
 
 
 /**
