@@ -6,7 +6,7 @@
  * https://developer.wordpress.org/themes/features/block-patterns/
  * 
  * @package Bootscore
- * @version 6.1.2
+ * @version 6.2.0
  */
 
 // Exit if accessed directly
