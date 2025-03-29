@@ -11,30 +11,28 @@
 // Exit if accessed directly
 defined('ABSPATH') || exit;
 
-
 /**
- * Buttons
- */
+  * Buttons
+  *
+  * Only btn-primary and btn-outline-primary is supported
+  */
 if (!function_exists('bootscore_block_buttons_classes')) {
-  /**
-   * Adds Bootstrap classes to block buttons.
-   *
-   * @param string $block_content The block content.
-   * @param array  $block         The full block, including name and attributes.
-   * @return string The filtered block content.
-   */
   function bootscore_block_buttons_classes($block_content, $block) {
-    
-    $search  = array(
-      //'wp-block-buttons',
-      'wp-block-button__link'
+    if ($block['blockName'] !== 'core/buttons') {
+      return $block_content;
+    }
+
+    // Convert all wp-block-button__link classes to btn-primary by default
+    $block_content = str_replace('wp-block-button__link', 'btn btn-primary', $block_content);
+
+    // Use regex to find buttons inside div.wp-block-button.is-style-outline and replace btn-primary with btn-outline-primary
+    $block_content = preg_replace_callback(
+      '/<div class="wp-block-button([^"]*is-style-outline[^"]*)">.*?<a class="([^"]*?)btn btn-primary([^"]*?)"/s',
+      function ($matches) {
+        return '<div class="wp-block-button' . $matches[1] . '"><a class="' . $matches[2] . 'btn btn-outline-primary' . $matches[3] . '"';
+      },
+      $block_content
     );
-    $replace = array(
-      //'mb-3',
-      'btn btn-primary'
-    );
-    
-    $block_content = str_replace($search, $replace, $block_content);
 
     return apply_filters('bootscore/block/buttons/content', $block_content, $block);
   }
