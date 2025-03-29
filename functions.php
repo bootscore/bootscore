@@ -70,6 +70,12 @@ require_once('inc/blocks/block-buttons.php'); // Button block
 require_once('inc/blocks/block-quote.php');   // Quote block
 require_once('inc/blocks/block-table.php');   // Table block
 
+// Experimental
+// Disable unsupported blocks and patterns
+if (apply_filters('bootscore/disable/unsupported/blocks', false)) {
+  require_once('inc/blocks/disable-unsupported-blocks.php');
+}
+
 
 /**
  * Load WooCommerce scripts if plugin is activated
