@@ -82,19 +82,33 @@ add_filter( 'allowed_block_types_all', function( $allowed_blocks, $editor_contex
       'woocommerce/mini-cart',
       'woocommerce/store-notices',
       'woocommerce/single-product',
-      
-      
-      //'woocommerce/cart-cross-sells-block',
-      //'woocommerce/related-products',
-      // 'woocommerce/featured-product',
+      'woocommerce/product-collection',
       
       // Filters
-      //'woocommerce/active-filters',
-      //'woocommerce/price-filter',
+      'woocommerce/filter-wrapper',
+      'woocommerce/active-filters',
+      'woocommerce/attribute-filter',
+      'woocommerce/price-filter',
+      'woocommerce/product-filters',
+      'woocommerce/product-filter-active',
+      'woocommerce/product-filter-attribute',
+      'woocommerce/product-filter-checkbox-list',
+      'woocommerce/product-filter-chips',
+      'woocommerce/product-filter-clear-button',
+      'woocommerce/product-filter-price',
+      'woocommerce/product-filter-price-slider',
+      'woocommerce/product-filter-rating',
+      'woocommerce/product-filter-removable-chips',
+      'woocommerce/product-filter-status',
       
+      // Reviews
+      'woocommerce/product-details',
+      'woocommerce/product-reviews',
+      'woocommerce/blockified-product-details',
+      'woocommerce/blockified-product-reviews',
+      'woocommerce/product-review-rating',
+      'woocommerce/product-reviews-title',
       
-      
-      //'woocommerce/product-reviews',
 
 
     ]);
@@ -118,5 +132,3 @@ add_action('init', function() {
 if ( is_admin() ) {
     remove_theme_support('core-block-patterns');
 }
-
-// Disable WooCommerce patterns
