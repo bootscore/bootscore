@@ -22,6 +22,7 @@ add_filter('allowed_block_types_all', function( $allowed_blocks, $editor_context
     'core/paragraph',
     'core/heading',
     'core/list',
+    'core/list-item',
     'core/quote',
     'core/code',
     'core/preformatted',
