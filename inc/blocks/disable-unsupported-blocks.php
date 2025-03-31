@@ -36,6 +36,7 @@ add_filter('allowed_block_types_all', function( $allowed_blocks, $editor_context
     'core/video',
 
     // Design
+    'core/button',
     'core/buttons',
     'core/group',
     'core/separator',

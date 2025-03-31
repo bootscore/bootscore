@@ -22,6 +22,9 @@ if (!function_exists('bootscore_block_buttons_classes')) {
       return $block_content;
     }
 
+    // Replace wp-block-buttons-is-layout-flex with gap-1 mb-3
+    $block_content = str_replace('wp-block-buttons-is-layout-flex', 'gap-1 mb-3', $block_content);
+
     // Convert all wp-block-button__link classes to btn-primary by default
     $block_content = str_replace('wp-block-button__link', 'btn btn-primary', $block_content);
 
