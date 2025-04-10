@@ -14,9 +14,19 @@ WooCommerce Forms
 }
 
 
-// Show password icon
-:root {
-  --wc-form-color-text: var(--#{$prefix}body-color);
+// Show password icon 
+// WC 9.8
+[data-bs-theme="dark"] {
+
+  .woocommerce,
+  .woocommerce-page {
+    
+    form {
+      .show-password-input::before {
+        filter: invert(1);
+      }
+    }
+  }
 }
 
 
@@ -87,7 +97,8 @@ WooCommerce Forms
 
   // Height
   form .form-row textarea,
-  textarea#order_comments, // WC 9.7
+  textarea#order_comments,
+  // WC 9.7
   #reviews #comment {
     height: $spacer *7;
   }
