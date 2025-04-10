@@ -29,10 +29,6 @@ WooCommerce Forms
   }
 }
 
-:root {
-  --wc-form-color-text: var(--#{$prefix}body-color);
-}
-
 
 // Reduce gap in horizontal forms
 .woocommerce form {

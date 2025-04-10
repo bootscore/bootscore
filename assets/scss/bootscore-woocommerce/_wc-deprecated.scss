@@ -9,3 +9,10 @@ WooCommerce Deprecated
 .woocommerce form.checkout_coupon p:first-child:not(.form-row-first) {
   width: 100%;
 }
+
+
+// Show password icon 
+// < WC 9.8
+:root {
+  --wc-form-color-text: var(--#{$prefix}body-color);
+}
