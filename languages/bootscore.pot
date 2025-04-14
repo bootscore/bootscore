@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: _s 1.0.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/tags/_s\n"
-"POT-Creation-Date: 2024-09-15 08:25+0000\n"
+"POT-Creation-Date: 2025-04-14 06:27+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -16,13 +16,8 @@ msgstr ""
 "Language: \n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;"
 
-#: woocommerce/inc/ajax-cart.php:539
+#: test.php:22 woocommerce/inc/ajax-cart.php:539
 msgid " for this product"
-msgstr ""
-
-#: inc/comments.php:61
-#, php-format
-msgid "%s <span class=\"says d-none\">says:</span>"
 msgstr ""
 
 #. used between list items, there is a space after the comma
@@ -34,7 +29,7 @@ msgstr ""
 msgid "/privacy-policy"
 msgstr ""
 
-#: inc/comments.php:66
+#: inc/comments.php:65
 #, php-format
 msgctxt "1: date, 2: time"
 msgid "%1$s at %2$s"
@@ -48,8 +43,12 @@ msgstr ""
 msgid "Accept"
 msgstr ""
 
-#: template-parts/header/offcanvas-woocommerce.php:26
+#: template-parts/header/offcanvas-woocommerce.php:27
 msgid "Account"
+msgstr ""
+
+#: template-parts/header/actions-woocommerce.php:32
+msgid "Account toggler"
 msgstr ""
 
 #: inc/widgets.php:28 inc/widgets.php:39 inc/widgets.php:51 inc/widgets.php:62
@@ -67,7 +66,7 @@ msgstr ""
 msgid "Auto"
 msgstr ""
 
-#: 404.php:32
+#: 404.php:38
 msgid "Back Home &raquo;"
 msgstr ""
 
@@ -91,8 +90,16 @@ msgstr ""
 msgid "Cancel"
 msgstr ""
 
-#: template-parts/header/offcanvas-woocommerce.php:44
+#: template-parts/header/offcanvas-woocommerce.php:47
 msgid "Cart"
+msgstr ""
+
+#: template-parts/header/actions-woocommerce.php:64
+msgid "Cart toggler"
+msgstr ""
+
+#: template-parts/header/offcanvas-woocommerce.php:28
+msgid "Close"
 msgstr ""
 
 #: theme.json:1
@@ -178,12 +185,16 @@ msgid "Dark"
 msgstr ""
 
 #. %s: Name of current post. Only visible to screen readers
-#: inc/comments.php:44 inc/comments.php:68 inc/template-tags.php:170
+#: inc/template-tags.php:170 inc/comments.php:44 inc/comments.php:67
 msgid "Edit"
 msgstr ""
 
-#: comments.php:130 woocommerce/single-product-reviews.php:96
+#: comments.php:130
 msgid "Email* (will not be published)"
+msgstr ""
+
+#: assets/js/theme-wc.js:52 assets/js/theme-wc.js:63
+msgid "Error:"
 msgstr ""
 
 #: inc/pagination.php:40
@@ -231,7 +242,7 @@ msgstr ""
 msgid "Full width image"
 msgstr ""
 
-#: inc/breadcrumb.php:24
+#: inc/breadcrumb.php:24 woocommerce/inc/wc-breadcrumb.php:25
 msgid "Home"
 msgstr ""
 
@@ -243,7 +254,7 @@ msgstr ""
 msgid "https://bootscore.me/"
 msgstr ""
 
-#: woocommerce/inc/ajax-cart.php:573
+#: test.php:56 woocommerce/inc/ajax-cart.php:573
 msgid "Invalid key or number"
 msgstr ""
 
@@ -280,11 +291,15 @@ msgstr ""
 msgid "Light"
 msgstr ""
 
+#: functions.php:167
+msgid "Login form expired, please refresh page."
+msgstr ""
+
 #: languages/plugin-translations.php:7
 msgid "Look what I found: "
 msgstr ""
 
-#: header.php:56
+#: header.php:64
 msgid "Menu"
 msgstr ""
 
@@ -292,7 +307,7 @@ msgstr ""
 msgid "More Information"
 msgstr ""
 
-#: comments.php:127 woocommerce/single-product-reviews.php:90
+#: comments.php:127
 msgid "Name*"
 msgstr ""
 
@@ -314,7 +329,7 @@ msgstr ""
 msgid "No Sidebar"
 msgstr ""
 
-#: woocommerce/inc/ajax-cart.php:549
+#: test.php:32 woocommerce/inc/ajax-cart.php:549
 msgid "Nonce verification failed"
 msgstr ""
 
@@ -342,12 +357,16 @@ msgstr ""
 msgid "Page navigation"
 msgstr ""
 
-#: 404.php:27
+#: 404.php:33
 msgid "Page not found."
 msgstr ""
 
 #: inc/password-protected-form.php:22
 msgid "Password"
+msgstr ""
+
+#: assets/js/theme-wc.js:65
+msgid "Password is required."
 msgstr ""
 
 #: patterns/alert-danger.php:2
@@ -473,12 +492,11 @@ msgstr ""
 msgid "Previous Page"
 msgstr ""
 
-#: woocommerce/inc/ajax-cart.php:565
+#: test.php:48 woocommerce/inc/ajax-cart.php:565
 msgid "Quantity updated successfully"
 msgstr ""
 
-#: archive.php:73 index.php:94 index.php:165
-#: template-parts/search/content-search.php:60
+#: index.php:104 archive.php:91 template-parts/search/content-search.php:70
 msgid "Read more »"
 msgstr ""
 
@@ -489,23 +507,28 @@ msgid ""
 "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
 msgstr ""
 
-#: inc/comments.php:122
+#: footer.php:96
+msgid "Return to top"
+msgstr ""
+
+#: inc/comments.php:124
 msgid ""
 "Save my name, email, and website in this browser for the next time I comment."
 msgstr ""
 
-#: searchform.php:3
+#: searchform.php:20
 msgid "Search"
 msgstr ""
 
 #. %s: search query.
-#: search.php:31
+#: search.php:34
 #, php-format
 msgid "Search Results for: %s"
 msgstr ""
 
-#: woocommerce/loop/orderby.php:28
-msgid "Shop order"
+#: template-parts/header/actions.php:28
+#: template-parts/header/actions-woocommerce.php:21
+msgid "Search toggler"
 msgstr ""
 
 #: sidebar.php:30 inc/widgets.php:71
@@ -517,8 +540,16 @@ msgstr ""
 msgid "Sidebar left"
 msgstr ""
 
-#: header.php:34
+#: header.php:35
 msgid "Skip to content"
+msgstr ""
+
+#: header.php:36
+msgid "Skip to footer"
+msgstr ""
+
+#: functions.php:150
+msgid "Slow down a bit."
 msgstr ""
 
 #: template-parts/search/content-none.php:45
@@ -535,8 +566,28 @@ msgstr ""
 msgid "Submit"
 msgstr ""
 
-#: inc/template-tags.php:222
+#: searchform.php:21
+msgid "Submit search"
+msgstr ""
+
+#: functions.php:187
+msgid "Success:"
+msgstr ""
+
+#: inc/template-tags.php:225
 msgid "Tagged"
+msgstr ""
+
+#: assets/js/theme-wc.js:103
+msgid "Technical error"
+msgstr ""
+
+#: functions.php:181
+msgid "This combination of access data was not found in our database."
+msgstr ""
+
+#: header.php:96
+msgid "Toggle main menu"
 msgstr ""
 
 #: languages/plugin-translations.php:26
@@ -563,18 +614,26 @@ msgstr ""
 msgid "Top Nav Search"
 msgstr ""
 
+#: assets/js/theme-wc.js:54
+msgid "Username or email is required."
+msgstr ""
+
 #: comments.php:135
 msgid "Website"
+msgstr ""
+
+#: functions.php:187
+msgid "Welcome"
 msgstr ""
 
 #: languages/plugin-translations.php:22
 msgid "You might also like"
 msgstr ""
 
-#: inc/comments.php:73
+#: inc/comments.php:72
 msgid "Your comment is awaiting moderation."
 msgstr ""
 
-#: woocommerce/single-product-reviews.php:135
+#: woocommerce/inc/wc-single-product-reviews.php:82
 msgid "Your review...*"
 msgstr ""

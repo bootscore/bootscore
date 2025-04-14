@@ -43,6 +43,8 @@ function bootscore_scripts() {
   // Theme JS
   wp_enqueue_script('bootscore-script', get_template_directory_uri() . '/assets/js/theme.js', array('jquery'), $modificated_themeJs, true);
 
+  wp_enqueue_script('riby-login', get_template_directory_uri() . '/assets/js/theme-wc.js', array('jquery', 'bootscore-script'), false, true);
+
   if (is_singular() && comments_open() && get_option('thread_comments')) {
     wp_enqueue_script('comment-reply');
   }

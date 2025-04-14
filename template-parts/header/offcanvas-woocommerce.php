@@ -29,7 +29,7 @@ if (apply_filters('bootscore/enable_account', true)) {
     </div>
     <div class="offcanvas-body <?= apply_filters('bootscore/class/offcanvas/body', '', 'account'); ?>">
       <div class="my-offcanvas-account">
-        <?= do_shortcode('[woocommerce_my_account]'); ?>
+          <div id="ajax_login_form_container" class="account_sidebar_content"></div>
       </div>
     </div>
   </div>
