@@ -82,22 +82,6 @@ if (defined('JETPACK__VERSION')) {
   require get_template_directory() . '/inc/jetpack.php';
 }
 
-add_action('wp_enqueue_scripts', function() {
-    wp_enqueue_script(
-        'login-script',
-        get_template_directory_uri() . '/assets/js/theme-wc.js',
-        ['jquery', 'wp-i18n'],
-        '1.0',
-        true
-    );
-
-    wp_set_script_translations('login-script', 'bootscore', plugin_dir_path(__FILE__) . 'languages');
-});
-
-add_action('init', function() {
-    load_plugin_textdomain('bootscore', false, dirname(plugin_basename(__FILE__)) . '/languages');
-});
-
 /**
  * Handles AJAX request to load account menu HTML.
  */
@@ -117,21 +101,21 @@ function load_account_menu_html() {
  *
  * @return string|null The IP address of the client, or null if it cannot be determined.
  */
-function wptajl_client_ip() {
-    global $wptajl_client_ip;
+function get_user_ip() {
+    global $user_ip;
 
-    if (!is_null($wptajl_client_ip)) { // We've already discovered the browser's IP address.
-        return $wptajl_client_ip;
+    if (!is_null($user_ip)) { // We've already discovered the browser's IP address.
+        return $user_ip;
     }
     
     if ( !empty($_SERVER['HTTP_CLIENT_IP']) ) {
-        $wptajl_client_ip = filter_var($_SERVER['HTTP_CLIENT_IP'], FILTER_VALIDATE_IP);
+        $user_ip = filter_var($_SERVER['HTTP_CLIENT_IP'], FILTER_VALIDATE_IP);
     } elseif ( !empty($_SERVER['HTTP_X_FORWARDED_FOR']) ) {
-        $wptajl_client_ip = filter_var($_SERVER['HTTP_X_FORWARDED_FOR'], FILTER_VALIDATE_IP);
+        $user_ip = filter_var($_SERVER['HTTP_X_FORWARDED_FOR'], FILTER_VALIDATE_IP);
     } else {
-        $wptajl_client_ip = filter_var($_SERVER['REMOTE_ADDR'], FILTER_VALIDATE_IP);
+        $user_ip = filter_var($_SERVER['REMOTE_ADDR'], FILTER_VALIDATE_IP);
     }
-    return $wptajl_client_ip;
+    return $user_ip;
 }
 
 
@@ -141,16 +125,16 @@ function wptajl_client_ip() {
 add_action('wp_ajax_nopriv_ajax_login', 'ajax_login');
 function ajax_login() {
     // Check if there is no IP address, just die
-    if ( empty ($client_ip = wptajl_client_ip()) ) {
+    if ( empty ($user_ip = get_user_ip()) ) {
         die();
     }
-    $client_key = 'login_attempt_' . $client_ip;
+    $user_key = 'login_attempt_' . $user_ip;
     // If there are too little time between logins, output: 'Slow down a bit.'
-    if ( get_transient($client_key) ) {
+    if ( get_transient($user_key) ) {
         $response['message'] = __('Slow down a bit.', 'bootscore');
         wp_send_json_error($response, 400);
     } else {
-        set_transient($client_key, '1', 5);
+        set_transient($user_key, '1', 3);
     }
 
     $response = [
@@ -175,6 +159,7 @@ function ajax_login() {
 
 
     $user = wp_authenticate($username, $password);
+    $remember = filter_var(sanitize_text_field($_POST['rememberme'] ?? ''), FILTER_VALIDATE_BOOLEAN);
 
     // If the user do not exist, output: 'This combination of access data was not found in our database.'
     if ( !is_a($user, 'WP_User') ) {
@@ -182,9 +167,16 @@ function ajax_login() {
         wp_send_json_error($response, 401);
     }
 
-    // If everything is ok till here the user logged in successfully
-    wp_set_auth_cookie($user->ID, false);
-    $response['message'] = sprintf( '<strong>' . __( 'Success:', 'bootscore' ) . '</strong>' .  __( 'Welcome', 'bootscore' ) . '<strong> %s</strong>!', esc_html($username) );
+    wp_set_current_user($user->ID);
+    // If the user click "Remember me" -> remembered for 14 days
+    wp_set_auth_cookie($user->ID, $remember);
+    do_action('wp_login', $user->user_login, $user);
+
+    $response['message'] = sprintf(
+        '<strong>' . __( 'Success:', 'bootscore' ) . '</strong>' . __( 'Welcome:', 'bootscore' ) . '<strong> %s</strong>!',
+        esc_html($username)
+    );
     $response['isLoggedIn'] = true;
+    // If everything is ok till here the user logged in successfully
     wp_send_json_success($response, 200);
 }

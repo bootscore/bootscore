@@ -8,7 +8,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2025-04-14 06:27+0000\n"
+"PO-Revision-Date: 2025-04-16 11:02+0000\n"
 "Last-Translator: \n"
 "Language-Team: Deutsch\n"
 "X-Generator: Loco https://localise.biz/\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Loco-Version: 2.7.2; wp-6.7.2"
 
-#: test.php:22 woocommerce/inc/ajax-cart.php:539
+#: woocommerce/inc/ajax-cart.php:537
 msgid " for this product"
 msgstr ""
 
@@ -197,7 +197,7 @@ msgstr "Bearbeiten"
 msgid "Email* (will not be published)"
 msgstr "Email* (wird nicht veröffentlicht)"
 
-#: assets/js/theme-wc.js:52 assets/js/theme-wc.js:63
+#: woocommerce/js/woocommerce.js:118 woocommerce/js/woocommerce.js:129
 msgid "Error:"
 msgstr "Fehler:"
 
@@ -258,7 +258,7 @@ msgstr ""
 msgid "https://bootscore.me/"
 msgstr "https://bootscore.me/"
 
-#: test.php:56 woocommerce/inc/ajax-cart.php:573
+#: woocommerce/inc/ajax-cart.php:571
 msgid "Invalid key or number"
 msgstr "Ungültiger Schlüssel oder Nummer"
 
@@ -297,7 +297,7 @@ msgstr "Linke Sidebar"
 msgid "Light"
 msgstr "Hell"
 
-#: functions.php:167
+#: functions.php:155
 #, fuzzy
 #| msgid "Login form expired, please refresh page"
 msgid "Login form expired, please refresh page."
@@ -337,7 +337,7 @@ msgstr "Keine Überschriften gefunden."
 msgid "No Sidebar"
 msgstr "Keine Sidebar"
 
-#: test.php:32 woocommerce/inc/ajax-cart.php:549
+#: woocommerce/inc/ajax-cart.php:547
 msgid "Nonce verification failed"
 msgstr ""
 
@@ -373,7 +373,7 @@ msgstr "Seite nicht gefunden."
 msgid "Password"
 msgstr "Passwort"
 
-#: assets/js/theme-wc.js:65
+#: woocommerce/js/woocommerce.js:131
 msgid "Password is required."
 msgstr "Passwort ist erforderlich."
 
@@ -500,7 +500,7 @@ msgstr "Kommentar senden"
 msgid "Previous Page"
 msgstr "Vorherige Seite"
 
-#: test.php:48 woocommerce/inc/ajax-cart.php:565
+#: woocommerce/inc/ajax-cart.php:563
 msgid "Quantity updated successfully"
 msgstr "Anzahl erfolgreich geändert"
 
@@ -560,7 +560,7 @@ msgstr "Weiter zum Inhalt"
 msgid "Skip to footer"
 msgstr ""
 
-#: functions.php:150
+#: functions.php:138
 msgid "Slow down a bit."
 msgstr "Nicht so schnell."
 
@@ -584,7 +584,7 @@ msgstr "Senden"
 msgid "Submit search"
 msgstr ""
 
-#: functions.php:187
+#: functions.php:179
 #, fuzzy
 #| msgid "Success: "
 msgid "Success:"
@@ -594,11 +594,11 @@ msgstr "Erfolg: "
 msgid "Tagged"
 msgstr "Schlagworte"
 
-#: assets/js/theme-wc.js:103
+#: woocommerce/js/woocommerce.js:171
 msgid "Technical error"
 msgstr "Technischer Fehler"
 
-#: functions.php:181
+#: functions.php:169
 msgid "This combination of access data was not found in our database."
 msgstr ""
 "Diese Kombination von Zugangsdaten wurde in unserer Datenbank nicht gefunden."
@@ -631,7 +631,7 @@ msgstr "Top Nav 2"
 msgid "Top Nav Search"
 msgstr "Top Navigation Suche"
 
-#: assets/js/theme-wc.js:54
+#: woocommerce/js/woocommerce.js:120
 msgid "Username or email is required."
 msgstr "Benutzername oder E-Mail ist erforderlich."
 
@@ -639,10 +639,10 @@ msgstr "Benutzername oder E-Mail ist erforderlich."
 msgid "Website"
 msgstr "Webseite"
 
-#: functions.php:187
+#: functions.php:179
 #, fuzzy
-#| msgid "Welcome "
-msgid "Welcome"
+#| msgid "Welcome"
+msgid "Welcome:"
 msgstr "Willkommen"
 
 #: languages/plugin-translations.php:22
