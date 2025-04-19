@@ -13,7 +13,7 @@ defined('ABSPATH') || exit;
 
 
 /**
- * Table Quote
+ * Quote
  */
 if (!function_exists('bootscore_block_quote_classes')) {
   /**
