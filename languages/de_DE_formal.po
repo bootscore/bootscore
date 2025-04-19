@@ -8,7 +8,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2024-09-15 08:27+0000\n"
+"PO-Revision-Date: 2025-04-19 13:42+0000\n"
 "Last-Translator: \n"
 "Language-Team: Deutsch (Sie)\n"
 "X-Generator: Loco https://localise.biz/\n"
@@ -20,11 +20,6 @@ msgstr ""
 msgid " for this product"
 msgstr "für dieses Produkt."
 
-#: inc/comments.php:61
-#, php-format
-msgid "%s <span class=\"says d-none\">says:</span>"
-msgstr "%s <span class=\"says d-none\">sagt:</span>"
-
 #. used between list items, there is a space after the comma
 #: inc/template-tags.php:49
 msgid ", "
@@ -34,7 +29,7 @@ msgstr ","
 msgid "/privacy-policy"
 msgstr "/datenschutzerklaerung"
 
-#: inc/comments.php:66
+#: inc/comments.php:65
 #, php-format
 msgctxt "1: date, 2: time"
 msgid "%1$s at %2$s"
@@ -48,9 +43,13 @@ msgstr "404 Seite"
 msgid "Accept"
 msgstr "Verstanden"
 
-#: template-parts/header/offcanvas-woocommerce.php:26
+#: template-parts/header/offcanvas-woocommerce.php:27
 msgid "Account"
 msgstr "Konto"
+
+#: template-parts/header/actions-woocommerce.php:32
+msgid "Account toggler"
+msgstr ""
 
 #: inc/widgets.php:28 inc/widgets.php:39 inc/widgets.php:51 inc/widgets.php:62
 #: inc/widgets.php:73 inc/widgets.php:84 inc/widgets.php:95 inc/widgets.php:106
@@ -67,7 +66,7 @@ msgstr "Alle"
 msgid "Auto"
 msgstr "Automatisch"
 
-#: 404.php:32
+#: 404.php:38
 msgid "Back Home &raquo;"
 msgstr "Zur Startseite &raquo;"
 
@@ -92,9 +91,17 @@ msgstr "Bootscore"
 msgid "Cancel"
 msgstr "Abbrechen"
 
-#: template-parts/header/offcanvas-woocommerce.php:44
+#: template-parts/header/offcanvas-woocommerce.php:49
 msgid "Cart"
 msgstr "Warenkorb"
+
+#: template-parts/header/actions-woocommerce.php:64
+msgid "Cart toggler"
+msgstr ""
+
+#: template-parts/header/offcanvas-woocommerce.php:28
+msgid "Close"
+msgstr "Schließen"
 
 #: theme.json:1
 msgctxt "Color name"
@@ -182,13 +189,17 @@ msgid "Dark"
 msgstr "Dunkel"
 
 #. %s: Name of current post. Only visible to screen readers
-#: inc/comments.php:44 inc/comments.php:68 inc/template-tags.php:170
+#: inc/template-tags.php:170 inc/comments.php:44 inc/comments.php:67
 msgid "Edit"
 msgstr "Bearbeiten"
 
-#: comments.php:130 woocommerce/single-product-reviews.php:96
+#: comments.php:130
 msgid "Email* (will not be published)"
 msgstr "Email* (wird nicht veröffentlicht)"
+
+#: woocommerce/js/ajax-login.js:59
+msgid "Error:"
+msgstr "Fehler:"
 
 #: inc/pagination.php:40
 msgid "First Page"
@@ -235,7 +246,7 @@ msgstr "Bild in voller Breite"
 msgid "Full width image"
 msgstr "Bild in voller Breite"
 
-#: inc/breadcrumb.php:24
+#: inc/breadcrumb.php:24 woocommerce/inc/wc-breadcrumb.php:25
 msgid "Home"
 msgstr "Start"
 
@@ -286,11 +297,15 @@ msgstr "Linke Sidebar"
 msgid "Light"
 msgstr "Hell"
 
+#: woocommerce/inc/wc-ajax-login.php:66
+msgid "Login form expired, please refresh page."
+msgstr "Anmeldeformular abgelaufen, bitte Seite aktualisieren."
+
 #: languages/plugin-translations.php:7
 msgid "Look what I found: "
 msgstr "Schauen Sie mal was ich gefunden habe: "
 
-#: header.php:56
+#: header.php:64
 msgid "Menu"
 msgstr "Menü"
 
@@ -298,7 +313,7 @@ msgstr "Menü"
 msgid "More Information"
 msgstr "Weitere Informationen"
 
-#: comments.php:127 woocommerce/single-product-reviews.php:90
+#: comments.php:127
 msgid "Name*"
 msgstr "Name*"
 
@@ -315,8 +330,8 @@ msgid "No headings found."
 msgstr "Keine Überschriften gefunden."
 
 #. Name of the template
-#: page-templates/page-sidebar-none.php:3
 #: single-templates/single-sidebar-none.php:2
+#: page-templates/page-sidebar-none.php:3
 msgid "No Sidebar"
 msgstr "Ohne Sidebar"
 
@@ -348,13 +363,17 @@ msgstr "Seite"
 msgid "Page navigation"
 msgstr "Seitennavigation"
 
-#: 404.php:27
+#: 404.php:33
 msgid "Page not found."
 msgstr "Seite nicht gefunden"
 
 #: inc/password-protected-form.php:22
 msgid "Password"
 msgstr "Passwort"
+
+#: woocommerce/js/ajax-login.js:55
+msgid "Password is required."
+msgstr "."
 
 #: patterns/alert-danger.php:2
 msgctxt "Pattern title"
@@ -483,8 +502,7 @@ msgstr "Vorherige Seite"
 msgid "Quantity updated successfully"
 msgstr "Anzahl erfolgreich geändert"
 
-#: archive.php:73 index.php:94 index.php:165
-#: template-parts/search/content-search.php:60
+#: archive.php:91 index.php:104 template-parts/search/content-search.php:70
 msgid "Read more »"
 msgstr "Weiterlesen »"
 
@@ -497,26 +515,31 @@ msgstr ""
 "Bereit Ihren ersten Post zu veröffentlichen? <a href=\"%1$s\">Starten Sie "
 "hier</a>."
 
-#: inc/comments.php:122
+#: footer.php:96
+msgid "Return to top"
+msgstr ""
+
+#: inc/comments.php:124
 msgid ""
 "Save my name, email, and website in this browser for the next time I comment."
 msgstr ""
 "Meinen Namen, E-Mail und Website in diesem Browser speichern, bis ich wieder "
 "kommentiere."
 
-#: searchform.php:3
+#: searchform.php:20
 msgid "Search"
 msgstr "Suche"
 
 #. %s: search query.
-#: search.php:31
+#: search.php:34
 #, php-format
 msgid "Search Results for: %s"
 msgstr "Suchergebnisse für: %s"
 
-#: woocommerce/loop/orderby.php:28
-msgid "Shop order"
-msgstr "Shop Bestellung"
+#: template-parts/header/actions-woocommerce.php:21
+#: template-parts/header/actions.php:28
+msgid "Search toggler"
+msgstr ""
 
 #: sidebar.php:30 inc/widgets.php:71
 msgid "Sidebar"
@@ -527,9 +550,17 @@ msgstr "Seitenmenü"
 msgid "Sidebar left"
 msgstr "Sidebar links"
 
-#: header.php:34
+#: header.php:35
 msgid "Skip to content"
 msgstr "Weiter zum Inhalt"
+
+#: header.php:36
+msgid "Skip to footer"
+msgstr ""
+
+#: woocommerce/inc/wc-ajax-login.php:49
+msgid "Slow down a bit."
+msgstr ""
 
 #: template-parts/search/content-none.php:45
 msgid ""
@@ -547,9 +578,27 @@ msgstr "Schreiben Sie Ihren Kommentar..."
 msgid "Submit"
 msgstr "Senden"
 
-#: inc/template-tags.php:222
+#: searchform.php:21
+msgid "Submit search"
+msgstr ""
+
+#: inc/template-tags.php:225
 msgid "Tagged"
 msgstr "Schlagworte"
+
+#: woocommerce/js/ajax-login.js:100
+msgid "Technical error"
+msgstr "Technischer Fehler"
+
+#: woocommerce/inc/wc-ajax-login.php:81
+msgid "This combination of access data was not found in our database."
+msgstr ""
+"Die Kombination aus Nutzername und Passwort konnte nicht in unserer "
+"Datenbank gefunden werden"
+
+#: header.php:96
+msgid "Toggle main menu"
+msgstr ""
 
 #: languages/plugin-translations.php:26
 msgid "Toggle table of contents"
@@ -575,18 +624,30 @@ msgstr "Top Nav 2"
 msgid "Top Nav Search"
 msgstr "Top Nav Suche"
 
+#: woocommerce/js/ajax-login.js:53
+msgid "Username or email and password are required."
+msgstr "Nutzername oder E-Mail und Passwort werden benötigt."
+
+#: woocommerce/js/ajax-login.js:54
+msgid "Username or email is required."
+msgstr "Nutzername oder E-Mail wird benötigt."
+
 #: comments.php:135
 msgid "Website"
 msgstr "Webseite"
+
+#: woocommerce/inc/wc-ajax-login.php:91
+msgid "Welcome"
+msgstr "Willkommen"
 
 #: languages/plugin-translations.php:22
 msgid "You might also like"
 msgstr "Das könnte Sie auch interessieren"
 
-#: inc/comments.php:73
+#: inc/comments.php:72
 msgid "Your comment is awaiting moderation."
 msgstr "Ihr Kommentar wartet auf Moderation."
 
-#: woocommerce/single-product-reviews.php:135
+#: woocommerce/inc/wc-single-product-reviews.php:82
 msgid "Your review...*"
 msgstr "Ihre Bewertung...*"
