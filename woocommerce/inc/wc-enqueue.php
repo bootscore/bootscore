@@ -26,11 +26,17 @@ function bootscore_wc_scripts() {
   wp_localize_script( 'bootscore-script', 'bootscoreTheme', array( 'ajaxurl' => admin_url( 'admin-ajax.php' ) ) );
 
   // Get modification time. Enqueue files with modification date to prevent browser from loading cached scripts and styles when file content changes. 
-  $modificated_WooCommerceJS = date('YmdHi', filemtime(get_template_directory() . '/woocommerce/js/woocommerce.js'));
+  $modified_WooCommerceJS = date('YmdHi', filemtime(get_template_directory() . '/woocommerce/js/woocommerce.js'));
 
   // WooCommerce JS
-  wp_enqueue_script('bootscore-wc-script', get_template_directory_uri() . '/woocommerce/js/woocommerce.js', array(), $modificated_WooCommerceJS, true);
-  wp_set_script_translations('bootscore-wc-script', 'bootscore', get_template_directory() . '/languages');
+  wp_enqueue_script('bootscore-wc-script', get_template_directory_uri() . '/woocommerce/js/woocommerce.js', array(), $modified_WooCommerceJS, true);
+
+  if (apply_filters('bootscore/wc_ajax_login', true)) {
+	  $modified_ajaxLogin_JS = date('YmdHi', filemtime(get_template_directory() . '/woocommerce/js/ajax-login.js'));
+
+	  wp_enqueue_script('bootscore-ajax-login-script', get_template_directory_uri() . '/woocommerce/js/ajax-login.js', array(), $modified_ajaxLogin_JS, true);
+	  wp_set_script_translations('bootscore-ajax-login-script', 'bootscore', get_template_directory() . '/languages');
+  }
 
   if (is_singular() && comments_open() && get_option('thread_comments')) {
     wp_enqueue_script('comment-reply');

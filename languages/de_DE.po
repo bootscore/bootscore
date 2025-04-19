@@ -8,7 +8,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2025-04-16 11:02+0000\n"
+"PO-Revision-Date: 2025-04-19 13:42+0000\n"
 "Last-Translator: \n"
 "Language-Team: Deutsch\n"
 "X-Generator: Loco https://localise.biz/\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Loco-Version: 2.7.2; wp-6.7.2"
 
-#: woocommerce/inc/ajax-cart.php:537
+#: woocommerce/inc/ajax-cart.php:539
 msgid " for this product"
 msgstr ""
 
@@ -91,7 +91,7 @@ msgstr "Bootscore"
 msgid "Cancel"
 msgstr "Abbrechen"
 
-#: template-parts/header/offcanvas-woocommerce.php:47
+#: template-parts/header/offcanvas-woocommerce.php:49
 msgid "Cart"
 msgstr "Warenkorb"
 
@@ -197,7 +197,7 @@ msgstr "Bearbeiten"
 msgid "Email* (will not be published)"
 msgstr "Email* (wird nicht veröffentlicht)"
 
-#: woocommerce/js/woocommerce.js:118 woocommerce/js/woocommerce.js:129
+#: woocommerce/js/ajax-login.js:59
 msgid "Error:"
 msgstr "Fehler:"
 
@@ -258,7 +258,7 @@ msgstr ""
 msgid "https://bootscore.me/"
 msgstr "https://bootscore.me/"
 
-#: woocommerce/inc/ajax-cart.php:571
+#: woocommerce/inc/ajax-cart.php:573
 msgid "Invalid key or number"
 msgstr "Ungültiger Schlüssel oder Nummer"
 
@@ -297,7 +297,7 @@ msgstr "Linke Sidebar"
 msgid "Light"
 msgstr "Hell"
 
-#: functions.php:155
+#: woocommerce/inc/wc-ajax-login.php:66
 #, fuzzy
 #| msgid "Login form expired, please refresh page"
 msgid "Login form expired, please refresh page."
@@ -332,12 +332,12 @@ msgid "No headings found."
 msgstr "Keine Überschriften gefunden."
 
 #. Name of the template
-#: page-templates/page-sidebar-none.php:3
 #: single-templates/single-sidebar-none.php:2
+#: page-templates/page-sidebar-none.php:3
 msgid "No Sidebar"
 msgstr "Keine Sidebar"
 
-#: woocommerce/inc/ajax-cart.php:547
+#: woocommerce/inc/ajax-cart.php:549
 msgid "Nonce verification failed"
 msgstr ""
 
@@ -373,9 +373,9 @@ msgstr "Seite nicht gefunden."
 msgid "Password"
 msgstr "Passwort"
 
-#: woocommerce/js/woocommerce.js:131
+#: woocommerce/js/ajax-login.js:55
 msgid "Password is required."
-msgstr "Passwort ist erforderlich."
+msgstr "Passwort wird benötigt"
 
 #: patterns/alert-danger.php:2
 msgctxt "Pattern title"
@@ -500,11 +500,11 @@ msgstr "Kommentar senden"
 msgid "Previous Page"
 msgstr "Vorherige Seite"
 
-#: woocommerce/inc/ajax-cart.php:563
+#: woocommerce/inc/ajax-cart.php:565
 msgid "Quantity updated successfully"
 msgstr "Anzahl erfolgreich geändert"
 
-#: index.php:104 archive.php:91 template-parts/search/content-search.php:70
+#: archive.php:91 index.php:104 template-parts/search/content-search.php:70
 msgid "Read more »"
 msgstr "Weiterlesen »"
 
@@ -538,8 +538,8 @@ msgstr "Suche"
 msgid "Search Results for: %s"
 msgstr "Suchergebnisse für: %s"
 
-#: template-parts/header/actions.php:28
 #: template-parts/header/actions-woocommerce.php:21
+#: template-parts/header/actions.php:28
 msgid "Search toggler"
 msgstr ""
 
@@ -560,7 +560,7 @@ msgstr "Weiter zum Inhalt"
 msgid "Skip to footer"
 msgstr ""
 
-#: functions.php:138
+#: woocommerce/inc/wc-ajax-login.php:49
 msgid "Slow down a bit."
 msgstr "Nicht so schnell."
 
@@ -584,21 +584,15 @@ msgstr "Senden"
 msgid "Submit search"
 msgstr ""
 
-#: functions.php:179
-#, fuzzy
-#| msgid "Success: "
-msgid "Success:"
-msgstr "Erfolg: "
-
 #: inc/template-tags.php:225
 msgid "Tagged"
 msgstr "Schlagworte"
 
-#: woocommerce/js/woocommerce.js:171
+#: woocommerce/js/ajax-login.js:100
 msgid "Technical error"
 msgstr "Technischer Fehler"
 
-#: functions.php:169
+#: woocommerce/inc/wc-ajax-login.php:81
 msgid "This combination of access data was not found in our database."
 msgstr ""
 "Diese Kombination von Zugangsdaten wurde in unserer Datenbank nicht gefunden."
@@ -631,18 +625,22 @@ msgstr "Top Nav 2"
 msgid "Top Nav Search"
 msgstr "Top Navigation Suche"
 
-#: woocommerce/js/woocommerce.js:120
+#: woocommerce/js/ajax-login.js:53
+msgid "Username or email and password are required."
+msgstr "Nutzername oder E-Mail und Passwort werden benötigt."
+
+#: woocommerce/js/ajax-login.js:54
 msgid "Username or email is required."
-msgstr "Benutzername oder E-Mail ist erforderlich."
+msgstr "Nutzername oder E-Mail wird benötigt."
 
 #: comments.php:135
 msgid "Website"
 msgstr "Webseite"
 
-#: functions.php:179
+#: woocommerce/inc/wc-ajax-login.php:91
 #, fuzzy
-#| msgid "Welcome"
-msgid "Welcome:"
+#| msgid "Welcome:"
+msgid "Welcome"
 msgstr "Willkommen"
 
 #: languages/plugin-translations.php:22
