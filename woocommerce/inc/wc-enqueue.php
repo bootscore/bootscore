@@ -4,7 +4,7 @@
  * WooCommerce enqueue scripts
  *
  * @package Bootscore
- * @version 6.0.0
+ * @version 6.2.0
  */
 
 
@@ -32,10 +32,10 @@ function bootscore_wc_scripts() {
   wp_enqueue_script('bootscore-wc-script', get_template_directory_uri() . '/woocommerce/js/woocommerce.js', array(), $modified_WooCommerceJS, true);
 
   if (apply_filters('bootscore/wc_ajax_login', true)) {
-	  $modified_ajaxLogin_JS = date('YmdHi', filemtime(get_template_directory() . '/woocommerce/js/ajax-login.js'));
+    $modified_ajaxLogin_JS = date('YmdHi', filemtime(get_template_directory() . '/woocommerce/js/ajax-login.js'));
 
-	  wp_enqueue_script('bootscore-ajax-login-script', get_template_directory_uri() . '/woocommerce/js/ajax-login.js', array(), $modified_ajaxLogin_JS, true);
-	  wp_set_script_translations('bootscore-ajax-login-script', 'bootscore', get_template_directory() . '/languages');
+    wp_enqueue_script('bootscore-ajax-login-script', get_template_directory_uri() . '/woocommerce/js/ajax-login.js', array(), $modified_ajaxLogin_JS, true);
+    wp_set_script_translations('bootscore-ajax-login-script', 'bootscore', get_template_directory() . '/languages');
   }
 
   if (is_singular() && comments_open() && get_option('thread_comments')) {
