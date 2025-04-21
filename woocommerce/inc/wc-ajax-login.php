@@ -28,7 +28,7 @@ function load_account_menu_html() {
  *
  * @return string|null The IP address of the client, or null if it cannot be determined.
  */
-function get_user_ip() {
+function bootscore_get_user_ip() {
   global $user_ip;
 
   if (!is_null($user_ip)) { // We've already discovered the browser's IP address.
@@ -52,7 +52,7 @@ function get_user_ip() {
 add_action('wp_ajax_nopriv_ajax_login', 'ajax_login');
 function ajax_login() {
   // Check if there is no IP address, just die
-  if ( empty ($user_ip = get_user_ip()) ) {
+  if ( empty ($user_ip = bootscore_get_user_ip()) ) {
     die();
   }
   $user_key = 'login_attempt_' . $user_ip;
@@ -107,3 +107,16 @@ function ajax_login() {
   // If everything is ok till here the user logged in successfully
   wp_send_json_success($response, 200);
 }
+
+
+/**
+ * Add a loader to offcanvas login
+ */
+function bootscore_add_loader_to_login() {
+  echo '<div class="ajax-login-loader position-absolute top-0 end-0 bottom-0 start-0 z-1 align-items-center justify-content-center bg-body">
+          <div class="spinner-border text-primary" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+        </div>';
+}
+add_action('bootscore_before_my_offcanvas_account', 'bootscore_add_loader_to_login');
