@@ -10,6 +10,9 @@ jQuery(function ($) {
   offcanvasUser.addEventListener('show.bs.offcanvas', loadOffcanvasMyAccount);
 
   function loadOffcanvasMyAccount() {
+    // Add loader on initial load of the form / account menu
+    $("#offcanvas-user").addClass("ajax-login"); // 👉 Add class while loading
+
     accountContent();
     // Be sure to only load it once after opening the offcanvas
     offcanvasUser.removeEventListener('show.bs.offcanvas', loadOffcanvasMyAccount);
@@ -17,8 +20,6 @@ jQuery(function ($) {
 
   // Function to load account menu content via AJAX
   function accountContent(successMessage = "") {
-    $("body").addClass("ajax-login"); // 👉 Add class when loading starts
-
     $.ajax({
       url: bootscoreTheme.ajaxurl,
       type: 'POST',
@@ -26,7 +27,6 @@ jQuery(function ($) {
         action: 'load_account_menu_html',
       },
       complete: function (response) {
-        $("body").removeClass("ajax-login"); // 👉 Remove class when loading finishes
 
         response = response.responseJSON;
 
@@ -38,24 +38,13 @@ jQuery(function ($) {
         if (successMessage !== "") {
           offCanvasWrapper.find(".woocommerce-notices-wrapper").html(successMessage);
         }
+        // Remove loader if retrieval of the account form/menu was successfull
+        $("#offcanvas-user").removeClass("ajax-login");
 
         offCanvasWrapper.find(".woocommerce-form-login__submit").on("click", (e) => ajax_submit_login(e));
       }
     });
-
-
-    // Add class "ajax-login" when offcanvas opens
-    offcanvasUser.addEventListener('show.bs.offcanvas', () => {
-      document.body.classList.add('ajax-login');
-      loadOffcanvasMyAccount();
-      offcanvasUser.removeEventListener('show.bs.offcanvas', loadOffcanvasMyAccount);
-    });
-
-    offcanvasUser.addEventListener('hidden.bs.offcanvas', () => {
-      document.body.classList.remove('ajax-login');
-    });
   }
-
 
   function ajax_submit_login(e) {
     e.preventDefault();
@@ -77,15 +66,16 @@ jQuery(function ($) {
     }
 
     if (inlineErrorMessage !== '') {
-      $(".woocommerce-notices-wrapper").html(
+      $(".my-offcanvas-account").find(".woocommerce-notices-wrapper").html(
         "<div class='woocommerce-error'>" + "<strong>" + __('Error:', 'bootscore') + "</strong> " +
         inlineErrorMessage + "</div>");
       return;
     } else {
-      $(".woocommerce-notices-wrapper").empty();
+      $(".my-offcanvas-account").find(".woocommerce-notices-wrapper").empty();
     }
 
-    $("body").addClass("ajax-login"); // 👉 Add class while loading
+    // Add loader on submit of the form
+    $("#offcanvas-user").addClass("ajax-login");
 
     $.ajax({
       url: bootscoreTheme.ajaxurl,
@@ -98,8 +88,6 @@ jQuery(function ($) {
         rememberMe: rememberMe
       },
       success: function (response) {
-        $("body").removeClass("ajax-login"); // 👉 Remove class on success
-
         if (!response) return;
 
         if (response.data.isLoggedIn) {
@@ -113,7 +101,6 @@ jQuery(function ($) {
         }
       },
       error: function (response) {
-        $("body").removeClass("ajax-login"); // 👉 Remove class on error
 
         let data = response.responseJSON.data;
 
@@ -123,9 +110,12 @@ jQuery(function ($) {
         } else {
           outputHtml = __('Technical error', 'bootscore') + ' ' + '(' + response.status + ')';
         }
-        $(".woocommerce-notices-wrapper").html(
+        $(".my-offcanvas-account").find(".woocommerce-notices-wrapper").html(
           "<div class='woocommerce-error'>" + outputHtml + "</div>"
         );
+
+        // Remove loader on error
+        $("#offcanvas-user").removeClass("ajax-login");
       }
     });
   }
