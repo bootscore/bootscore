@@ -4,7 +4,7 @@
  * WooCommerce functions and definitions
  *
  * @package Bootscore
- * @version 6.1.0
+ * @version 6.2.0
  */
 
 
@@ -71,6 +71,7 @@ function bootscore_register_cart_file() {
 }
 add_action('after_setup_theme', 'bootscore_register_cart_file');
 
+
 /**
  * Creates an ajax login for woocommerce in the offcanvas user account.
  *
@@ -82,8 +83,8 @@ add_action('after_setup_theme', 'bootscore_register_cart_file');
  */
 
 function bootscore_register_ajax_login_file() {
-	if (apply_filters('bootscore/wc_ajax_login', true)) {
-		require_once('inc/wc-ajax-login.php');
-	}
+  if (apply_filters('bootscore/wc_ajax_login', true)) {
+    require_once('inc/wc-ajax-login.php');
+  }
 }
 add_action('after_setup_theme', 'bootscore_register_ajax_login_file');
