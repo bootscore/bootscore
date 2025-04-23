@@ -54,7 +54,7 @@ add_action('after_setup_theme', 'bootscore_register_ajax_cart');
   *
   * Disable cart page, "View Cart" button in mini-cart and redirect cart page to checkout
   *
-  * Enable default cart page and buttoins via filter 
+  * Enable default cart page and buttons via filter
   * add_filter('bootscore/skip_cart', '__return_false');
   */
 function bootscore_register_cart_file() {
