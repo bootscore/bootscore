@@ -6,7 +6,7 @@
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
  * @package Bootscore
- * @version 6.1.0
+ * @version 6.2.0
  */
 
 
@@ -27,9 +27,12 @@ if (apply_filters('bootscore/enable_account', true)) {
       <span class="h5 offcanvas-title"><?= apply_filters('bootscore/offcanvas/account/title', __('Account', 'bootscore')); ?></span>
       <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close" aria-label="<?php esc_attr_e( 'Close', 'bootscore' ); ?>"></button>
     </div>
-    <div class="offcanvas-body <?= apply_filters('bootscore/class/offcanvas/body', '', 'account'); ?>">
+    <div class="offcanvas-body position-relative <?= apply_filters('bootscore/class/offcanvas/body', '', 'account'); ?>">
+      <?php do_action( 'bootscore_before_my_offcanvas_account' ); ?>
       <div class="my-offcanvas-account">
-        <?= do_shortcode('[woocommerce_my_account]'); ?>
+        <?php if (! apply_filters('bootscore/wc_ajax_login', true)) : ?>
+          <?= do_shortcode('[woocommerce_my_account]'); ?>
+        <?php endif; ?>
       </div>
     </div>
   </div>
