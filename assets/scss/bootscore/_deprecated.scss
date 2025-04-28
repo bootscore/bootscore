@@ -3,15 +3,15 @@ Deprecated
 --------------------------------------------------------------*/
 
 
-// Reset WP margin-top/bottom
+// Reset .is-layout-flow group block margins
 // Use hide-wp-block-classes instead
 // See https://github.com/bootscore/bootscore/pull/977
-.is-layout-flow > {
+.is-layout-flow:not(.hide-wp-block-classes.is-layout-flow) > {
   * {
     margin-block-start: 0;
   }
 
-  p {
+  p:not(:last-child) {
     margin-block-end: $spacer;
   }
 }

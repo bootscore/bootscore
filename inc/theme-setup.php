@@ -4,7 +4,7 @@
  * Theme setup
  *
  * @package Bootscore 
- * @version 6.0.0
+ * @version 6.2.0
  */
 
 
@@ -75,14 +75,6 @@ if (!function_exists('bootscore_setup')) :
      * Add theme support for block template-parts.
     */
     add_theme_support( 'block-template-parts' );
-    
-    /*
-     * Register pattern category
-     */ 
-    register_block_pattern_category(
-      'bootscore',
-      array( 'label' => __( 'Bootscore', 'bootscore' ) )
-    );
   }
 endif;
 add_action('after_setup_theme', 'bootscore_setup');
