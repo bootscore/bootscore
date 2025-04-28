@@ -4,7 +4,7 @@
  * WooCommerce AJAX cart
  *
  * @package Bootscore
- * @version 6.1.2
+ * @version 6.2.0
  */
 
 
