@@ -12,6 +12,7 @@
 defined('ABSPATH') || exit;
 
 
+
 /**
  * Disable unsupported blocks
  */
