@@ -33,3 +33,13 @@ WooCommerce My Account Offcanvas
     order: -1;
   }
 }
+
+
+// Ajax loader
+.ajax-login-loader {
+  display: none;
+}
+
+.ajax-login .ajax-login-loader {
+  display: flex;
+}
