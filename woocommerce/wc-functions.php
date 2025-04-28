@@ -4,7 +4,7 @@
  * WooCommerce functions and definitions
  *
  * @package Bootscore
- * @version 6.1.0
+ * @version 6.2.0
  */
 
 
@@ -54,7 +54,7 @@ add_action('after_setup_theme', 'bootscore_register_ajax_cart');
   *
   * Disable cart page, "View Cart" button in mini-cart and redirect cart page to checkout
   *
-  * Enable default cart page and buttoins via filter 
+  * Enable default cart page and buttons via filter
   * add_filter('bootscore/skip_cart', '__return_false');
   */
 function bootscore_register_cart_file() {
@@ -70,3 +70,21 @@ function bootscore_register_cart_file() {
   }
 }
 add_action('after_setup_theme', 'bootscore_register_cart_file');
+
+
+/**
+ * Creates an ajax login for woocommerce in the offcanvas user account.
+ *
+ * The implementation has 2 main goals
+ * 1. Better user experience. Login happens immediately and the user can directly access his account
+ * 2. Removes one of the last parts of the template that makes full page caching possible even for logged in users.
+ *
+ * Optout of ajax login: add_filter('bootscore/wc_ajax_login', '__return_false');
+ */
+
+function bootscore_register_ajax_login_file() {
+  if (apply_filters('bootscore/wc_ajax_login', true)) {
+    require_once('inc/wc-ajax-login.php');
+  }
+}
+add_action('after_setup_theme', 'bootscore_register_ajax_login_file');

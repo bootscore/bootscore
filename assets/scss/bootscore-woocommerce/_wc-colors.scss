@@ -24,7 +24,14 @@ ins {
 }
 
 .card a.woocommerce-LoopProduct-link.woocommerce-loop-product__link {
-  color: currentColor;
+  color: var(--#{$prefix}body-color);
+}
+
+// Star rating
+.woocommerce {
+  .star-rating::before {
+    color: var(--#{$prefix}secondary-color);
+  }
 }
 
 // Tables
