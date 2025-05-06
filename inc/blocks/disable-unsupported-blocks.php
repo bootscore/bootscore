@@ -12,7 +12,6 @@
 defined('ABSPATH') || exit;
 
 
-
 /**
  * Disable unsupported blocks
  */
@@ -89,6 +88,23 @@ if ( is_admin() ) {
 }
 
 
+/**
+ * Disable all WooCommerce patterns
+ */
+function bootscore_disable_all_woocommerce_patterns() {
+  if (!class_exists('WP_Block_Patterns_Registry')) return;
+
+  $registry = WP_Block_Patterns_Registry::get_instance();
+  $patterns = $registry->get_all_registered();
+
+  foreach ($patterns as $pattern) {
+    $name = $pattern['name'];
+    if (strpos($name, 'woocommerce/') === 0 || strpos($name, 'woocommerce-blocks/') === 0) {
+      unregister_block_pattern($name);
+    }
+  }
+}
+add_action('wp_loaded', 'bootscore_disable_all_woocommerce_patterns', 20);
 
 
 /**
