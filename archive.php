@@ -29,7 +29,20 @@ get_header();
               <?php do_action( 'bootscore_before_title', 'archive' ); ?>
               <?php the_archive_title('<h1 class="entry-title ' . apply_filters('bootscore/class/entry/title', '', 'archive') . '">', '</h1>'); ?>
               <?php do_action( 'bootscore_after_title', 'archive' ); ?>
-              <?php the_archive_description('<p class="archive-description">', '</p>'); ?>
+              <?php
+                $description = get_the_archive_description();
+                $class = apply_filters('bootscore/class/entry/archive-description', 'archive-description');
+
+                if (trim($description)) {
+                  // If it contains block-level HTML already (like <p>, <ul>, <div>), just echo it
+                  if (preg_match('/<\/?(p|div|ul|ol|table|section|article|blockquote)[^>]*>/', $description)) {
+                    echo $description;
+                  } else {
+                    echo '<p class="' . esc_attr($class) . '">' . $description . '</p>';
+                  }
+                }
+              ?>
+
             </div>
             
             <?php do_action( 'bootscore_before_loop', 'archive' ); ?>
