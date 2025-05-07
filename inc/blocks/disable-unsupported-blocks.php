@@ -13,11 +13,11 @@ defined('ABSPATH') || exit;
 
 
 /**
- * Disable unsupported blocks
+ * Allow only supported blocks.
  */
-add_filter('allowed_block_types_all', function( $allowed_blocks, $editor_context ) {
-
+add_filter('allowed_block_types_all', function ($allowed_blocks, $editor_context) {
   $supported_blocks = [
+
     // Text
     'core/paragraph',
     'core/heading',
@@ -62,13 +62,11 @@ add_filter('allowed_block_types_all', function( $allowed_blocks, $editor_context
     'woocommerce/checkout',
   ];
 
-  // Post editor
-  if ( ! empty( $editor_context->post ) ) {
-    return $supported_blocks;
-  }
-
-  // Block-based Widgets screen
-  if ( is_admin() && get_current_screen() && get_current_screen()->id === 'widgets' ) {
+  // Restrict in post editor or block-based widgets screen
+  if (
+    !empty($editor_context->post) ||
+    (is_admin() && ($screen = get_current_screen()) && $screen->id === 'widgets')
+  ) {
     return $supported_blocks;
   }
 
@@ -77,31 +75,57 @@ add_filter('allowed_block_types_all', function( $allowed_blocks, $editor_context
 
 
 /**
- * Disable all WP core patterns
+ * Disable all core block patterns.
  */
-add_action('init', function() {
+add_action('init', function () {
   remove_theme_support('core-block-patterns');
-},  9  );
+}, 9);
 
-if ( is_admin() ) {
+add_action('admin_init', function () {
   remove_theme_support('core-block-patterns');
-}
+});
 
 
 /**
- * Disable all WooCommerce patterns
+ * Disable all WooCommerce block patterns.
  */
-function bootscore_disable_all_woocommerce_patterns() {
-  if (!class_exists('WP_Block_Patterns_Registry')) return;
+add_action('wp_loaded', function () {
+  if (!class_exists('WP_Block_Patterns_Registry')) {
+    return;
+  }
 
   $registry = WP_Block_Patterns_Registry::get_instance();
   $patterns = $registry->get_all_registered();
 
   foreach ($patterns as $pattern) {
-    $name = $pattern['name'];
-    if (strpos($name, 'woocommerce/') === 0 || strpos($name, 'woocommerce-blocks/') === 0) {
-      unregister_block_pattern($name);
+    if (isset($pattern['name'])) {
+      $name = $pattern['name'];
+      if (
+        strpos($name, 'woocommerce/') === 0 ||
+        strpos($name, 'woocommerce-blocks/') === 0
+      ) {
+        unregister_block_pattern($name);
+      }
+    }
+  }
+}, 20);
+
+/**
+ * Disable all WooCommerce patterns.
+ */
+function bootscore_disable_all_woocommerce_patterns() {
+  if (!class_exists('WP_Block_Patterns_Registry')) {
+    return;
+  }
+
+  $registry = WP_Block_Patterns_Registry::get_instance();
+  foreach ($registry->get_all_registered() as $pattern) {
+    if (isset($pattern['name'])) {
+      $name = $pattern['name'];
+      if (strpos($name, 'woocommerce/') === 0 || strpos($name, 'woocommerce-blocks/') === 0) {
+        unregister_block_pattern($name);
+      }
     }
   }
 }
-add_action('wp_loaded', 'bootscore_disable_all_woocommerce_patterns', 20);
+add_action('init', 'bootscore_disable_all_woocommerce_patterns', 20);
