@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Experimantal: Disable unsupported blocks and patterns - Whitelist
+ * Experimental: Disable unsupported blocks and patterns - Whitelist
  *
  * @package Bootscore
  * @version 6.2.0
@@ -13,7 +13,7 @@ defined('ABSPATH') || exit;
 
 
 /**
- * Allow only supported blocks.
+ * Allow only supported blocks in post editor and Widgets screen.
  */
 add_filter('allowed_block_types_all', function ($allowed_blocks, $editor_context) {
   $supported_blocks = [
@@ -62,7 +62,7 @@ add_filter('allowed_block_types_all', function ($allowed_blocks, $editor_context
     'woocommerce/checkout',
   ];
 
-  // Restrict in post editor or block-based widgets screen
+  // Restrict to supported blocks in post editor or block-based Widgets screen
   if (
     !empty($editor_context->post) ||
     (is_admin() && ($screen = get_current_screen()) && $screen->id === 'widgets')
@@ -75,7 +75,7 @@ add_filter('allowed_block_types_all', function ($allowed_blocks, $editor_context
 
 
 /**
- * Disable all core block patterns.
+ * Disable all WordPress core block patterns.
  */
 add_action('init', function () {
   remove_theme_support('core-block-patterns');
@@ -89,40 +89,20 @@ add_action('admin_init', function () {
 /**
  * Disable all WooCommerce block patterns.
  */
-add_action('wp_loaded', function () {
-  if (!class_exists('WP_Block_Patterns_Registry')) {
-    return;
-  }
-
-  $registry = WP_Block_Patterns_Registry::get_instance();
-  $patterns = $registry->get_all_registered();
-
-  foreach ($patterns as $pattern) {
-    if (isset($pattern['name'])) {
-      $name = $pattern['name'];
-      if (
-        strpos($name, 'woocommerce/') === 0 ||
-        strpos($name, 'woocommerce-blocks/') === 0
-      ) {
-        unregister_block_pattern($name);
-      }
-    }
-  }
-}, 20);
-
-/**
- * Disable all WooCommerce patterns.
- */
 function bootscore_disable_all_woocommerce_patterns() {
   if (!class_exists('WP_Block_Patterns_Registry')) {
     return;
   }
 
   $registry = WP_Block_Patterns_Registry::get_instance();
+
   foreach ($registry->get_all_registered() as $pattern) {
     if (isset($pattern['name'])) {
       $name = $pattern['name'];
-      if (strpos($name, 'woocommerce/') === 0 || strpos($name, 'woocommerce-blocks/') === 0) {
+      if (
+        strpos($name, 'woocommerce/') === 0 ||
+        strpos($name, 'woocommerce-blocks/') === 0
+      ) {
         unregister_block_pattern($name);
       }
     }
