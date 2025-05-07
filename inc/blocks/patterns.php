@@ -32,6 +32,8 @@ add_action('init', 'bootscore_pattern_category');
  * - wp-block-heading
  * - wp-block-list
  * - wp-block-image
+ * - is-layout-constrained
+ * - -is-layout-constrained
  * if `hide-wp-block-classes` class is set to a parent group.
  */
 function bootscore_remove_block_classes($block_content, $block) {
@@ -44,7 +46,7 @@ function bootscore_remove_block_classes($block_content, $block) {
     if (strpos($block_content, $required_outer_class) !== false) {
       // Remove the unwanted classes
       $block_content = preg_replace(
-        '/\bwp-block-group\b|\bis-layout-flow\b|\bwp-block-group-is-layout-flow\b|\bwp-block-heading\b|\bwp-block-list\b|\bwp-block-image\b/',
+        '/\bwp-block-group\b|\bis-layout-flow\b|\bwp-block-group-is-layout-flow\b|\bwp-block-heading\b|\bwp-block-list\b|\bwp-block-image\b|\bis-layout-constrained\b|\b\-is-layout-constrained\b/',
         '',
         $block_content
       );
@@ -60,13 +62,13 @@ function bootscore_remove_block_classes($block_content, $block) {
 
           // Rebuild the `class` attribute or return an empty string if no classes remain
           return !empty($classes) ? 'class="' . implode(' ', $classes) . '"' : '';
-          },
-          $block_content
-        );
+        },
+        $block_content
+      );
 
-        // Remove any leftover empty `class=""` attributes
-        $block_content = preg_replace('/\sclass=""/', '', $block_content);
-      }
+      // Remove any leftover empty `class=""` attributes
+      $block_content = preg_replace('/\sclass=""/', '', $block_content);
+    }
   }
   return $block_content;
 }

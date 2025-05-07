@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Experimantal: Disable unsupported blocks and patterns - Whitelist
+ * Experimental: Disable unsupported blocks and patterns - Whitelist
  *
  * @package Bootscore
  * @version 6.2.0
@@ -13,11 +13,11 @@ defined('ABSPATH') || exit;
 
 
 /**
- * Disable unsupported blocks
+ * Allow only supported blocks in post editor and Widgets screen.
  */
-add_filter('allowed_block_types_all', function( $allowed_blocks, $editor_context ) {
-
+add_filter('allowed_block_types_all', function ($allowed_blocks, $editor_context) {
   $supported_blocks = [
+
     // Text
     'core/paragraph',
     'core/heading',
@@ -62,13 +62,11 @@ add_filter('allowed_block_types_all', function( $allowed_blocks, $editor_context
     'woocommerce/checkout',
   ];
 
-  // Post editor
-  if ( ! empty( $editor_context->post ) ) {
-    return $supported_blocks;
-  }
-
-  // Block-based Widgets screen
-  if ( is_admin() && get_current_screen() && get_current_screen()->id === 'widgets' ) {
+  // Restrict to supported blocks in post editor or block-based Widgets screen
+  if (
+    !empty($editor_context->post) ||
+    (is_admin() && ($screen = get_current_screen()) && $screen->id === 'widgets')
+  ) {
     return $supported_blocks;
   }
 
@@ -77,69 +75,37 @@ add_filter('allowed_block_types_all', function( $allowed_blocks, $editor_context
 
 
 /**
- * Disable all WP core patterns
+ * Disable all WordPress core block patterns.
  */
-add_action('init', function() {
+add_action('init', function () {
   remove_theme_support('core-block-patterns');
-},  9  );
+}, 9);
 
-if ( is_admin() ) {
+add_action('admin_init', function () {
   remove_theme_support('core-block-patterns');
-}
-
-
+});
 
 
 /**
- * Disable all WP block styles
+ * Disable all WooCommerce block patterns.
  */
-/*
-function prefix_remove_core_block_styles() {
-	global $wp_styles;
+function bootscore_disable_all_woocommerce_patterns() {
+  if (!class_exists('WP_Block_Patterns_Registry')) {
+    return;
+  }
 
-	foreach ( $wp_styles->queue as $key => $handle ) {
-		if ( strpos( $handle, 'wp-block-' ) === 0 ) {
-			wp_dequeue_style( $handle );
-		}
-	}
+  $registry = WP_Block_Patterns_Registry::get_instance();
+
+  foreach ($registry->get_all_registered() as $pattern) {
+    if (isset($pattern['name'])) {
+      $name = $pattern['name'];
+      if (
+        strpos($name, 'woocommerce/') === 0 ||
+        strpos($name, 'woocommerce-blocks/') === 0
+      ) {
+        unregister_block_pattern($name);
+      }
+    }
+  }
 }
-add_action( 'wp_enqueue_scripts', 'prefix_remove_core_block_styles' );
-
-
-
-add_action(
-	'wp_default_styles',
-	function( $styles ) {
-
-		// Create an array with the two handles wp-block-library and
-		 // wp-block-library-theme
-		$handles = [ 'wp-block-library', 'wp-block-library-theme' ];
-
-		foreach ( $handles as $handle ) {
-			// Search and compare with the list of registered style handles:
-			$style = $styles->query( $handle, 'registered' );
-			if ( ! $style ) {
-				continue;
-			}
-			// Remove the style
-			$styles->remove( $handle );
-			// Remove path and dependencies
-			$styles->add( $handle, false, [] );
-		}
-	},
-	PHP_INT_MAX
-);
-
-remove_filter( 'render_block', 'wp_render_layout_support_flag', 10, 2 );
-*/
-
-
-// This line is preferably be added to your theme's functions.php file
-// with other add_theme_support() function calls.
-//add_theme_support( 'disable-layout-styles' );
-
-// These two lines will probably not be necessary eventually
-//remove_filter( 'render_block', 'wp_render_layout_support_flag', 10, 2 );
-//remove_filter( 'render_block', 'gutenberg_render_layout_support_flag', 10, 2 );
-
-
+add_action('init', 'bootscore_disable_all_woocommerce_patterns', 20);
