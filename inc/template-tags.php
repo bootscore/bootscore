@@ -19,16 +19,15 @@ defined('ABSPATH') || exit;
  */
 function bootscore_get_archive_description() {
   $description = get_the_archive_description();
-  if (empty($description)) {
+  if (empty(trim($description))) {
     return '';
   }
 
-  // Clean up description
-  $description = preg_replace('/<\/?p[^>]*>/', '', $description);
-  $description = trim($description);
+  // Strip only outer <p> tag
+  $description = preg_replace('#^<p[^>]*>(.*?)</p>$#s', '$1', $description);
 
   // Get filtered class
-  $class = apply_filters('bootscore/class/entry/archive-description', 'archive-description ');
+  $class = trim(apply_filters('bootscore/class/entry/archive-description', 'archive-description '));
 
   return '<p class="' . esc_attr($class) . '">' . $description . '</p>';
 }
