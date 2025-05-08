@@ -30,15 +30,15 @@ get_header();
               <?php the_archive_title('<h1 class="entry-title ' . apply_filters('bootscore/class/entry/title', '', 'archive') . '">', '</h1>'); ?>
               <?php do_action( 'bootscore_after_title', 'archive' ); ?>
               <?php 
-              $description = get_the_archive_description();
-              if ($description) : 
-                // Remove ALL <p> tags (opening and closing)
-                $description = preg_replace('/<\/?p[^>]*>/', '', $description);
-                // Get filtered class name
-                $class = apply_filters('bootscore/class/entry/archive-description', 'archive-description ');
-                // Then add your own single wrapper with filtered class
-                echo '<p class="' . esc_attr($class) . '">' . $description . '</p>';
-              endif; 
+                $description = get_the_archive_description();
+                if ($description) : 
+                  // Remove ALL <p> tags (opening and closing)
+                  $description = preg_replace('/<\/?p[^>]*>/', '', $description);
+                  // Get filtered class name
+                  $class = apply_filters('bootscore/class/entry/archive-description', 'archive-description ');
+                  // Then add your own single wrapper with filtered class
+                  echo '<p class="' . esc_attr($class) . '">' . $description . '</p>';
+                endif; 
               ?>
             </div>
             
