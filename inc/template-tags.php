@@ -6,12 +6,32 @@
  * Eventually, some of the functionality here could be replaced by core features.
  *
  * @package Bootscore
- * @version 6.1.2
+ * @version 6.2.0
  */
 
 
 // Exit if accessed directly.
 defined('ABSPATH') || exit;
+
+
+/**
+ * Gets filtered archive description with consistent HTML wrapper
+ */
+function bootscore_get_archive_description() {
+  $description = get_the_archive_description();
+  if (empty($description)) {
+    return '';
+  }
+
+  // Clean up description
+  $description = preg_replace('/<\/?p[^>]*>/', '', $description);
+  $description = trim($description);
+
+  // Get filtered class
+  $class = apply_filters('bootscore/class/entry/archive-description', 'archive-description ');
+
+  return '<p class="' . esc_attr($class) . '">' . $description . '</p>';
+}
 
 
 /**
