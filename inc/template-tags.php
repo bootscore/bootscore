@@ -17,7 +17,7 @@ defined('ABSPATH') || exit;
 /**
  * Gets filtered archive description with consistent HTML wrapper
  */
-function bootscore_get_archive_description() {
+function bootscore_archive_description() {
   $description = get_the_archive_description();
   if (empty(trim($description))) {
     return '';

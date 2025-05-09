@@ -29,7 +29,7 @@ get_header();
               <?php do_action( 'bootscore_before_title', 'archive' ); ?>
               <?php the_archive_title('<h1 class="entry-title ' . apply_filters('bootscore/class/entry/title', '', 'archive') . '">', '</h1>'); ?>
               <?php do_action( 'bootscore_after_title', 'archive' ); ?>
-              <?= bootscore_get_archive_description(); ?>
+              <?= bootscore_archive_description(); ?>
             </div>
             
             <?php do_action( 'bootscore_before_loop', 'archive' ); ?>
