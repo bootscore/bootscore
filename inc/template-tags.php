@@ -15,25 +15,6 @@ defined('ABSPATH') || exit;
 
 
 /**
- * Gets filtered archive description with consistent HTML wrapper
- */
-function bootscore_archive_description() {
-  $description = get_the_archive_description();
-  if (empty(trim($description))) {
-    return '';
-  }
-
-  // Strip only outer <p> tag
-  $description = preg_replace('#^<p[^>]*>(.*?)</p>$#s', '$1', $description);
-
-  // Get filtered class
-  $class = trim(apply_filters('bootscore/class/entry/archive-description', 'archive-description '));
-
-  return '<p class="' . esc_attr($class) . '">' . $description . '</p>';
-}
-
-
-/**
  * Category Badge
  */
 if (!function_exists('bootscore_category_badge')) :
@@ -140,6 +121,18 @@ if (!function_exists('bootscore_author')) {
 
   }
 }
+
+
+/**
+ * Fix wpautop in author description archive.php
+ * See https://github.com/bootscore/bootscore/pull/1017
+ */
+add_filter('get_the_archive_description', function ($description) {
+  if (is_author()) {
+    return wpautop($description);
+  }
+  return $description;
+});
 
 
 /**
