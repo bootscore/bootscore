@@ -6,7 +6,7 @@
  * Eventually, some of the functionality here could be replaced by core features.
  *
  * @package Bootscore
- * @version 6.1.2
+ * @version 6.2.0
  */
 
 
@@ -121,6 +121,18 @@ if (!function_exists('bootscore_author')) {
 
   }
 }
+
+
+/**
+ * Fix wpautop in author description archive.php
+ * See https://github.com/bootscore/bootscore/pull/1017
+ */
+add_filter('get_the_archive_description', function ($description) {
+  if (is_author()) {
+    return wpautop($description);
+  }
+  return $description;
+});
 
 
 /**

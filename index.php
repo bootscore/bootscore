@@ -11,7 +11,7 @@
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
  * @package Bootscore
- * @version 6.1.1
+ * @version 6.2.0
  */
 
 // Exit if accessed directly
@@ -59,14 +59,14 @@ get_header();
                       <div class="<?= apply_filters('bootscore/class/loop/card/content/col', 'col', 'index'); ?>">
                         <div class="<?= apply_filters('bootscore/class/loop/card/body', 'card-body', 'index'); ?>">
                           
-                          <div class="d-flex justify-content-between gap-3">
+                          <div class="<?= apply_filters('bootscore/class/loop/card/content/meta-wrapper', 'd-flex justify-content-between gap-3'); ?>">
 
                             <?php if (apply_filters('bootscore/loop/category', true, 'index')) : ?>
                               <?php bootscore_category_badge(); ?>
                             <?php endif; ?>
 
                             <?php if (is_sticky() ) { ?>
-                              <p class="sticky-badge"><span class="badge text-bg-danger"><?= apply_filters('bootscore/icon/star', '<i class="fa-solid fa-star"></i>'); ?></span></p>
+                              <p class="sticky-badge"><span class="<?= apply_filters('bootscore/class/loop/card/content/sticky-post-badge', 'badge text-bg-danger'); ?>"><?= apply_filters('bootscore/icon/star', '<i class="fa-solid fa-star"></i>'); ?></span></p>
                             <?php } ?>
                             
                           </div>

@@ -6,7 +6,7 @@
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
  * @package Bootscore
- * @version 6.1.0
+ * @version 6.2.0
  */
 
 // Exit if accessed directly
@@ -29,7 +29,7 @@ get_header();
               <?php do_action( 'bootscore_before_title', 'archive' ); ?>
               <?php the_archive_title('<h1 class="entry-title ' . apply_filters('bootscore/class/entry/title', '', 'archive') . '">', '</h1>'); ?>
               <?php do_action( 'bootscore_after_title', 'archive' ); ?>
-              <?php the_archive_description('<p class="archive-description">', '</p>'); ?>
+              <?php the_archive_description( '<div class="archive-description ' . apply_filters('bootscore/class/entry/archive-description', '') . '">', '</div>' ); ?>
             </div>
             
             <?php do_action( 'bootscore_before_loop', 'archive' ); ?>
