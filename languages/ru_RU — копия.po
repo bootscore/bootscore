@@ -1,20 +1,25 @@
-# Copyright (C) 2017 Automattic
-# This file is distributed under the GNU General Public License v2 or later.
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: _s 1.0.0\n"
-"Report-Msgid-Bugs-To: https://wordpress.org/tags/_s\n"
-"POT-Creation-Date: 2025-05-10 15:35+0000\n"
+"Project-Id-Version: bootScore\n"
+"POT-Creation-Date: 2023-03-05 03:41+0300\n"
+"PO-Revision-Date: 2025-05-10 15:37+0000\n"
+"Last-Translator: \n"
+"Language-Team: Russian\n"
+"Language: ru_RU\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: \n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
 "X-Generator: Loco https://localise.biz/\n"
-"Language: \n"
-"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-WPHeader: style.css\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
 
 #: woocommerce/inc/ajax-cart.php:539
 msgid " for this product"
@@ -23,29 +28,29 @@ msgstr ""
 #. used between list items, there is a space after the comma
 #: inc/template-tags.php:49
 msgid ", "
-msgstr ""
+msgstr ", "
 
 #: languages/plugin-translations.php:11
 msgid "/privacy-policy"
-msgstr ""
+msgstr "/privacy-policy"
 
 #: inc/comments.php:65
 #, php-format
 msgctxt "1: date, 2: time"
 msgid "%1$s at %2$s"
-msgstr ""
+msgstr "%1$s в %2$s"
 
 #: inc/widgets.php:148
 msgid "404 Page"
-msgstr ""
+msgstr "Ошибка 404"
 
 #: languages/plugin-translations.php:13
 msgid "Accept"
-msgstr ""
+msgstr "Принять"
 
 #: template-parts/header/offcanvas-woocommerce.php:27
 msgid "Account"
-msgstr ""
+msgstr "Аккаунт"
 
 #: template-parts/header/actions-woocommerce.php:32
 msgid "Account toggler"
@@ -56,11 +61,11 @@ msgstr ""
 #: inc/widgets.php:117 inc/widgets.php:128 inc/widgets.php:139
 #: inc/widgets.php:150
 msgid "Add widgets here."
-msgstr ""
+msgstr "Добавьте виджеты сюда."
 
 #: languages/plugin-translations.php:3
 msgid "All"
-msgstr ""
+msgstr "Все"
 
 #: languages/plugin-translations.php:19
 msgid "Auto"
@@ -68,7 +73,7 @@ msgstr ""
 
 #: 404.php:38
 msgid "Back Home &raquo;"
-msgstr ""
+msgstr "Вернуться на главную страницу"
 
 #. Name of the template
 #: page-templates/page-blank.php:3
@@ -83,16 +88,17 @@ msgstr ""
 #. Name of the theme
 #. Author of the theme
 #: inc/blocks/patterns.php:21
+#| msgid "bootScore"
 msgid "Bootscore"
-msgstr ""
+msgstr "Bootscore"
 
 #: comments.php:107
 msgid "Cancel"
-msgstr ""
+msgstr "Отмена"
 
 #: template-parts/header/offcanvas-woocommerce.php:50
 msgid "Cart"
-msgstr ""
+msgstr "Корзина"
 
 #: template-parts/header/actions-woocommerce.php:64
 msgid "Cart toggler"
@@ -144,11 +150,11 @@ msgstr ""
 
 #: comments.php:61 comments.php:81
 msgid "Comment navigation"
-msgstr ""
+msgstr "Навигация по комментариям"
 
 #: comments.php:98
 msgid "Comments are closed."
-msgstr ""
+msgstr "Обсуждение закрыто."
 
 #. 1: number of comments, 2: post title
 #: comments.php:43
@@ -156,15 +162,16 @@ msgstr ""
 msgctxt "comments title"
 msgid "%1$s Comment on &ldquo;%2$s&rdquo;"
 msgid_plural "%1$s Comments on &ldquo;%2$s&rdquo;"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1$s Комментарий для &ldquo;%2$s&rdquo;"
+msgstr[1] "%1$s Комментария для &ldquo;%2$s&rdquo;"
+msgstr[2] "%1$s Комментариев для &ldquo;%2$s&rdquo;"
 
 #. %s: post title
 #: comments.php:39
 #, php-format
 msgctxt "comments title"
 msgid "One Comment &ldquo;%s&rdquo;"
-msgstr ""
+msgstr "Один комментарий &ldquo;%s&rdquo;"
 
 #: languages/plugin-translations.php:27
 msgid "Contents"
@@ -175,6 +182,8 @@ msgid ""
 "Cookies help us deliver our services. By using our services, you agree to "
 "our use of cookies."
 msgstr ""
+"Файлы cookie обеспечивают работу наших сервисов. Используя наш сайт, вы "
+"соглашаетесь с нашими правилами в отношении этих файлов."
 
 #: inc/pagination.php:49
 msgid "Current Page"
@@ -187,15 +196,17 @@ msgstr ""
 #. %s: Name of current post. Only visible to screen readers
 #: inc/comments.php:44 inc/comments.php:67 inc/template-tags.php:182
 msgid "Edit"
-msgstr ""
+msgstr "Изменить"
 
 #: comments.php:130
 msgid "Email* (will not be published)"
-msgstr ""
+msgstr "Email (не будет опубликован)"
 
 #: inc/pagination.php:40
+#, fuzzy
+#| msgid "First name"
 msgid "First Page"
-msgstr ""
+msgstr "Имя"
 
 #. Description of the theme
 msgid ""
@@ -206,19 +217,19 @@ msgstr ""
 
 #: inc/widgets.php:93
 msgid "Footer 1"
-msgstr ""
+msgstr "Футер 1"
 
 #: inc/widgets.php:104
 msgid "Footer 2"
-msgstr ""
+msgstr "Футер 2"
 
 #: inc/widgets.php:115
 msgid "Footer 3"
-msgstr ""
+msgstr "Футер 3"
 
 #: inc/widgets.php:126
 msgid "Footer 4"
-msgstr ""
+msgstr "Футер 4"
 
 #: inc/widgets.php:137
 msgid "Footer Info"
@@ -244,11 +255,11 @@ msgstr ""
 
 #. Author URI of the theme
 msgid "https://bootscore.me"
-msgstr ""
+msgstr "https://bootscore.me"
 
 #. URI of the theme
 msgid "https://bootscore.me/"
-msgstr ""
+msgstr "https://bootscore.me/"
 
 #: woocommerce/inc/ajax-cart.php:573
 msgid "Invalid key or number"
@@ -259,24 +270,27 @@ msgid ""
 "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
 "searching can help."
 msgstr ""
+"Кажется, мы не можем найти то, что вы ищете. Возможно, поиск может помочь."
 
 #: inc/pagination.php:58
+#, fuzzy
+#| msgid "Last name"
 msgid "Last Page"
-msgstr ""
+msgstr "Фамилия"
 
 #. %s: post title
 #: comments.php:105 inc/template-tags.php:153
 msgid "Leave a Comment"
-msgstr ""
+msgstr "Оставить комментарий"
 
 #: inc/template-tags.php:211
 msgid "Leave a comment"
-msgstr ""
+msgstr "Оставить комментарий"
 
 #: comments.php:106
 #, php-format
 msgid "Leave a Comment to %s"
-msgstr ""
+msgstr "Оставить комментарий для %s"
 
 #. Name of the template
 #: page-templates/page-sidebar-left.php:3
@@ -293,23 +307,23 @@ msgstr ""
 
 #: languages/plugin-translations.php:7
 msgid "Look what I found: "
-msgstr ""
+msgstr "Смотрите, что я обнаружил:"
 
 #: header.php:64
 msgid "Menu"
-msgstr ""
+msgstr "Меню"
 
 #: languages/plugin-translations.php:12
 msgid "More Information"
-msgstr ""
+msgstr "Больше информации"
 
 #: comments.php:127
 msgid "Name*"
-msgstr ""
+msgstr "Имя*"
 
 #: comments.php:65 comments.php:85
 msgid "Newer Comments"
-msgstr ""
+msgstr "Новые Комментарии"
 
 #: inc/pagination.php:54
 msgid "Next Page"
@@ -335,19 +349,21 @@ msgstr ""
 
 #: template-parts/search/content-none.php:22
 msgid "Nothing Found for"
-msgstr ""
+msgstr "Ничего не найдено для"
 
 #: comments.php:64 comments.php:84
 msgid "Older Comments"
-msgstr ""
+msgstr "Предыдущие комментарии"
 
 #: sidebar.php:25
 msgid "Open side menu"
-msgstr ""
+msgstr "Открыть боковое меню"
 
 #: inc/pagination.php:49
+#, fuzzy
+#| msgid "Pages:"
 msgid "Page"
-msgstr ""
+msgstr "Страницы:"
 
 #: inc/pagination.php:36
 msgid "Page navigation"
@@ -355,11 +371,11 @@ msgstr ""
 
 #: 404.php:33
 msgid "Page not found."
-msgstr ""
+msgstr "Страница не найдена."
 
 #: inc/password-protected-form.php:22
 msgid "Password"
-msgstr ""
+msgstr "Пароль"
 
 #: patterns/c.alert-danger.php:2
 msgctxt "Pattern title"
@@ -468,17 +484,17 @@ msgstr ""
 
 #: inc/comments.php:44
 msgid "Pingback:"
-msgstr ""
+msgstr "Пингбэк:"
 
 #: inc/template-tags.php:116
 #, php-format
 msgctxt "post author"
 msgid "by %s"
-msgstr ""
+msgstr "Автор: %s"
 
 #: comments.php:108
 msgid "Post Comment"
-msgstr ""
+msgstr "Отправить комментарий"
 
 #: inc/pagination.php:44
 msgid "Previous Page"
@@ -490,7 +506,7 @@ msgstr ""
 
 #: archive.php:91 index.php:104 template-parts/search/content-search.php:70
 msgid "Read more »"
-msgstr ""
+msgstr "Читать дальше »"
 
 #. 1: link to WP admin new post page.
 #: template-parts/search/content-none.php:33
@@ -498,6 +514,7 @@ msgstr ""
 msgid ""
 "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
 msgstr ""
+"Готовы опубликовать свой первый пост? <a href=\"%1$s\">Начните здесь</a>."
 
 #: footer.php:96
 msgid "Return to top"
@@ -507,16 +524,18 @@ msgstr ""
 msgid ""
 "Save my name, email, and website in this browser for the next time I comment."
 msgstr ""
+"Сохранить моё имя, email и адрес сайта в этом браузере для последующих моих "
+"комментариев."
 
 #: searchform.php:20
 msgid "Search"
-msgstr ""
+msgstr "Поиск"
 
 #. %s: search query.
 #: search.php:34
 #, php-format
 msgid "Search Results for: %s"
-msgstr ""
+msgstr "Результаты поиска для: %s"
 
 #: template-parts/header/actions.php:28
 #: template-parts/header/actions-woocommerce.php:21
@@ -525,7 +544,7 @@ msgstr ""
 
 #: sidebar.php:30 inc/widgets.php:71
 msgid "Sidebar"
-msgstr ""
+msgstr "Боковая панель"
 
 #. Name of the template
 #: single-templates/single-sidebar-left.php:2
@@ -549,14 +568,16 @@ msgid ""
 "Sorry, but nothing matched your search terms. Please try again with some "
 "different keywords."
 msgstr ""
+"Извините, но ничто не соответствовало вашим условиям поиска. Пожалуйста, "
+"попытайтесь снова с другими ключевыми словами."
 
 #: comments.php:110
 msgid "Start typing..."
-msgstr ""
+msgstr "Начните печатать ..."
 
 #: inc/password-protected-form.php:23
 msgid "Submit"
-msgstr ""
+msgstr "Отправить"
 
 #: searchform.php:21
 msgid "Submit search"
@@ -588,7 +609,7 @@ msgstr ""
 
 #: inc/widgets.php:37
 msgid "Top Nav"
-msgstr ""
+msgstr "Верхнее меню"
 
 #: inc/widgets.php:49
 msgid "Top Nav 2"
@@ -596,11 +617,11 @@ msgstr ""
 
 #: inc/widgets.php:60
 msgid "Top Nav Search"
-msgstr ""
+msgstr "Поиск в верхнем меню"
 
 #: comments.php:135
 msgid "Website"
-msgstr ""
+msgstr "Сайт"
 
 #: woocommerce/inc/wc-ajax-login.php:103
 msgid "Welcome"
@@ -612,8 +633,8 @@ msgstr ""
 
 #: inc/comments.php:72
 msgid "Your comment is awaiting moderation."
-msgstr ""
+msgstr "Ваш комментарий ожидает модерации"
 
 #: woocommerce/inc/wc-single-product-reviews.php:82
 msgid "Your review...*"
-msgstr ""
+msgstr "Ваш отзыв…"
