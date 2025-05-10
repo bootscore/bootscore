@@ -2,1000 +2,609 @@ msgid ""
 msgstr ""
 "Project-Id-Version: bootScore\n"
 "POT-Creation-Date: 2023-03-05 03:41+0300\n"
-"PO-Revision-Date: 2023-03-05 03:42+0300\n"
+"PO-Revision-Date: 2025-05-10 19:45+0300\n"
 "Last-Translator: \n"
-"Language-Team: \n"
-"Language: ru\n"
+"Language-Team: Russian\n"
+"Language: ru_RU\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8.12\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Poedit 3.6\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-WPHeader: style.css\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Poedit-SourceCharset: UTF-8\n"
-"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
-"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
-"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-KeywordsList: "
+"__;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: *.js\n"
 
-#: 404.php:23
-msgid "Page not found."
-msgstr "Страница не найдена."
+#: woocommerce/inc/ajax-cart.php:539
+msgid " for this product"
+msgstr " для этого товара"
 
-#: 404.php:28
-msgid "Back Home &raquo;"
-msgstr "Вернуться на главную страницу"
+#. used between list items, there is a space after the comma
+#: inc/template-tags.php:49
+msgid ", "
+msgstr ", "
 
-#: archive.php:64 index.php:82 index.php:139 template-parts/content-search.php:43
-msgid "Read more »"
-msgstr "Читать дальше »"
+#: languages/plugin-translations.php:11
+msgid "/privacy-policy"
+msgstr "/privacy-policy"
 
-#: comments.php:35
-#, php-format
-msgctxt "comments title"
-msgid "One Comment &ldquo;%s&rdquo;"
-msgstr "Один комментарий &ldquo;%s&rdquo;"
-
-#: comments.php:40
-#, php-format
-msgctxt "comments title"
-msgid "%1$s Comment on &ldquo;%2$s&rdquo;"
-msgid_plural "%1$s Comments on &ldquo;%2$s&rdquo;"
-msgstr[0] "%1$s Комментарий для &ldquo;%2$s&rdquo;"
-msgstr[1] "%1$s Комментария для &ldquo;%2$s&rdquo;"
-msgstr[2] "%1$s Комментариев для &ldquo;%2$s&rdquo;"
-
-#: comments.php:57 comments.php:77
-msgid "Comment navigation"
-msgstr "Навигация по комментариям"
-
-#: comments.php:60 comments.php:80
-msgid "Older Comments"
-msgstr "Предыдущие комментарии"
-
-#: comments.php:61 comments.php:81
-msgid "Newer Comments"
-msgstr "Новые Комментарии"
-
-#: comments.php:95
-msgid "Comments are closed."
-msgstr "Обсуждение закрыто."
-
-#: comments.php:102 inc/template-tags.php:111
-msgid "Leave a Comment"
-msgstr "Оставить комментарий"
-
-#: comments.php:103
-#, php-format
-msgid "Leave a Comment to %s"
-msgstr "Оставить комментарий для %s"
-
-#: comments.php:104
-msgid "Cancel"
-msgstr "Отмена"
-
-#: comments.php:105
-msgid "Post Comment"
-msgstr "Отправить комментарий"
-
-#: comments.php:107
-msgid "Start typing..."
-msgstr "Начните печатать ..."
-
-#: comments.php:126 woocommerce/single-product-reviews.php:90
-msgid "Name*"
-msgstr "Имя*"
-
-#: comments.php:129 woocommerce/single-product-reviews.php:96
-msgid "Email* (will not be published)"
-msgstr "Email (не будет опубликован)"
-
-#: comments.php:134
-msgid "Website"
-msgstr "Сайт"
-
-#: functions.php:124
-msgid "Top Nav"
-msgstr "Верхнее меню"
-
-#: functions.php:126 functions.php:138 functions.php:150 functions.php:162
-#: functions.php:174 functions.php:186 functions.php:198 functions.php:210
-#: functions.php:222
-msgid "Add widgets here."
-msgstr "Добавьте виджеты сюда."
-
-#: functions.php:136
-msgid "Top Nav Search"
-msgstr "Поиск в верхнем меню"
-
-#: functions.php:148 sidebar.php:26
-msgid "Sidebar"
-msgstr "Боковая панель"
-
-#: functions.php:160
-msgid "Top Footer"
-msgstr "Верх футера"
-
-#: functions.php:172
-msgid "Footer 1"
-msgstr "Футер 1"
-
-#: functions.php:184
-msgid "Footer 2"
-msgstr "Футер 2"
-
-#: functions.php:196
-msgid "Footer 3"
-msgstr "Футер 3"
-
-#: functions.php:208
-msgid "Footer 4"
-msgstr "Футер 4"
-
-#: functions.php:220
-msgid "404 Page"
-msgstr "Ошибка 404"
-
-#: functions.php:273
-msgid "Internet Explorer detected"
-msgstr "Обнаружен Internet Explorer"
-
-#: functions.php:274
-msgid "This website will offer limited functionality in this browser."
-msgstr ""
-"Этот сайт будет предлагать ограниченную функциональность в этом браузере."
-
-#: functions.php:275
-msgid "Please use a modern and secure web browser like"
-msgstr "Пожалуйста, используйте современный и безопасный веб-браузер, такой как"
-
-#: functions.php:276
-msgid ""
-" <a href=\"https://www.mozilla.org/firefox/\" target=\"_blank\">Mozilla "
-"Firefox</a>, <a href=\"https://www.google.com/chrome/\" target=\"_blank"
-"\">Google Chrome</a>, <a href=\"https://www.opera.com/\" target=\"_blank"
-"\">Opera</a> "
-msgstr ""
-"<a href=\"https://browser.yandex.ru/\" target=\"_blank\">Яндекс Браузер</a>, "
-"<a href=\"https://www.opera.com/\" target=\"_blank\">Opera</a>, <a href="
-"\"https://www.mozilla.org/firefox/\" target=\"_blank\">Mozilla Firefox</a>, <a "
-"href=\"https://www.google.com/chrome/\" target=\"_blank\">Google Chrome</a>, "
-"<a href=\"https://www.opera.com/\" target=\"_blank\">Opera</a>"
-
-#: functions.php:277
-msgid "or"
-msgstr "или"
-
-#: functions.php:278
-msgid ""
-" <a href=\"https://www.microsoft.com/edge\" target=\"_blank\">Microsoft Edge</"
-"a> "
-msgstr ""
-"<a href=\"https://www.microsoft.com/edge\" target=\"_blank\">Microsoft Edge</a>"
-
-#: functions.php:279
-msgid "to display this site correctly."
-msgstr "для корректного отображения этого сайта."
-
-#: functions.php:447 woocommerce/global/form-login.php:44
-#: woocommerce/myaccount/form-login.php:52
-#: woocommerce/myaccount/form-login.php:110
-#: woocommerce/myaccount/my-account-offcanvas.php:59
-#: woocommerce/myaccount/my-account-offcanvas.php:116
-msgid "Password"
-msgstr "Пароль"
-
-#: functions.php:448 woocommerce/single-product-reviews.php:82
-msgid "Submit"
-msgstr "Отправить"
-
-#: header-woocommerce.php:55 header.php:55
-msgid "Menu"
-msgstr "Меню"
-
-#: header-woocommerce.php:136
-msgid "Account"
-msgstr "Аккаунт"
-
-#: header-woocommerce.php:149
-msgid "Cart"
-msgstr "Корзина"
-
-#: inc/comment-list.php:27
-msgid "Pingback:"
-msgstr "Пингбэк:"
-
-#: inc/comment-list.php:27 inc/comment-list.php:51 inc/template-tags.php:139
-#: woocommerce/myaccount/my-address.php:54
-msgid "Edit"
-msgstr "Изменить"
-
-#: inc/comment-list.php:44
-#, php-format
-msgid "%s <span class=\"says d-none\">says:</span>"
-msgstr "%s <span class=\"says d-none\">говорит:</span>"
-
-#: inc/comment-list.php:49
+#: inc/comments.php:65
 #, php-format
 msgctxt "1: date, 2: time"
 msgid "%1$s at %2$s"
 msgstr "%1$s в %2$s"
 
-#: inc/comment-list.php:56
-msgid "Your comment is awaiting moderation."
-msgstr "Ваш комментарий ожидает модерации"
+#: inc/widgets.php:148
+msgid "404 Page"
+msgstr "Ошибка 404"
 
-#: inc/comment-list.php:105
-msgid ""
-"Save my name, email, and website in this browser for the next time I comment."
+#: languages/plugin-translations.php:13
+msgid "Accept"
+msgstr "Принять"
+
+#: template-parts/header/offcanvas-woocommerce.php:27
+msgid "Account"
+msgstr "Аккаунт"
+
+#: template-parts/header/actions-woocommerce.php:32
+msgid "Account toggler"
+msgstr "Переключатель аккаунта"
+
+#: inc/widgets.php:28 inc/widgets.php:39 inc/widgets.php:51 inc/widgets.php:62 inc/widgets.php:73 inc/widgets.php:84
+#: inc/widgets.php:95 inc/widgets.php:106 inc/widgets.php:117 inc/widgets.php:128 inc/widgets.php:139 inc/widgets.php:150
+msgid "Add widgets here."
+msgstr "Добавьте виджеты сюда."
+
+#: languages/plugin-translations.php:3
+msgid "All"
+msgstr "Все"
+
+#: languages/plugin-translations.php:19
+msgid "Auto"
+msgstr "Авто"
+
+#: 404.php:38
+msgid "Back Home »"
+msgstr "Вернуться на главную страницу"
+
+#. Name of the template
+#: page-templates/page-blank.php:3
+msgid "Blank"
+msgstr "Пустой"
+
+#. Name of the template
+#: page-templates/page-blank-container.php:3
+msgid "Blank with container"
+msgstr "Пустой с контейнером"
+
+#. Name of the theme
+#. Author of the theme
+#: inc/blocks/patterns.php:21
+#| msgid "bootScore"
+msgid "Bootscore"
+msgstr "Bootscore"
+
+#: comments.php:107
+msgid "Cancel"
+msgstr "Отмена"
+
+#: template-parts/header/offcanvas-woocommerce.php:50
+msgid "Cart"
+msgstr "Корзина"
+
+#: template-parts/header/actions-woocommerce.php:64
+msgid "Cart toggler"
+msgstr "Переключатель корзины"
+
+#: template-parts/header/offcanvas-woocommerce.php:28
+msgid "Close"
+msgstr "Закрыть"
+
+#: theme.json:1
+msgctxt "Color name"
+msgid "Danger"
+msgstr "Опасность"
+
+#: theme.json:1
+msgctxt "Color name"
+msgid "Dark"
+msgstr "Тёмный"
+
+#: theme.json:1
+msgctxt "Color name"
+msgid "Info"
+msgstr "Информация"
+
+#: theme.json:1
+msgctxt "Color name"
+msgid "Light"
+msgstr "Светлый"
+
+#: theme.json:1
+msgctxt "Color name"
+msgid "Primary"
+msgstr "Основной"
+
+#: theme.json:1
+msgctxt "Color name"
+msgid "Secondary"
+msgstr "Вторичный"
+
+#: theme.json:1
+msgctxt "Color name"
+msgid "Success"
+msgstr "Успех"
+
+#: theme.json:1
+msgctxt "Color name"
+msgid "Warning"
+msgstr "Предупреждение"
+
+#: comments.php:61 comments.php:81
+msgid "Comment navigation"
+msgstr "Навигация по комментариям"
+
+#: comments.php:98
+msgid "Comments are closed."
+msgstr "Обсуждение закрыто."
+
+#. 1: number of comments, 2: post title
+#: comments.php:43
+#, php-format
+msgctxt "comments title"
+msgid "%1$s Comment on “%2$s”"
+msgid_plural "%1$s Comments on “%2$s”"
+msgstr[0] "%1$s комментарий к «%2$s»"
+msgstr[1] "%1$s комментария к «%2$s»"
+msgstr[2] "%1$s комментариев к «%2$s»"
+
+#. %s: post title
+#: comments.php:39
+#, php-format
+msgctxt "comments title"
+msgid "One Comment “%s”"
+msgstr "Один комментарий к «%s»"
+
+#: languages/plugin-translations.php:27
+msgid "Contents"
+msgstr "Содержание"
+
+#: languages/plugin-translations.php:10
+msgid "Cookies help us deliver our services. By using our services, you agree to our use of cookies."
 msgstr ""
-"Сохранить моё имя, email и адрес сайта в этом браузере для последующих моих "
-"комментариев."
+"Файлы cookie обеспечивают работу наших сервисов. Используя наш сайт, вы соглашаетесь с нашими правилами в отношении этих файлов."
 
-#: inc/template-tags.php:39
-msgid ", "
-msgstr ", "
+#: inc/pagination.php:49
+msgid "Current Page"
+msgstr "Текущая страница"
 
-#: inc/template-tags.php:87
+#: languages/plugin-translations.php:18
+msgid "Dark"
+msgstr "Тёмный"
+
+#. %s: Name of current post. Only visible to screen readers
+#: inc/comments.php:44 inc/comments.php:67 inc/template-tags.php:182
+msgid "Edit"
+msgstr "Изменить"
+
+#: comments.php:130
+msgid "Email* (will not be published)"
+msgstr "Email* (не будет опубликован)"
+
+#: inc/pagination.php:40
+msgid "First Page"
+msgstr "Первая страница"
+
+#. Description of the theme
+msgid "Flexible Bootstrap WordPress starter-theme for developers with full WooCommerce support. Documentation"
+msgstr "Гибкая стартовая тема WordPress на Bootstrap для разработчиков с полной поддержкой WooCommerce. Документация"
+
+#: inc/widgets.php:93
+msgid "Footer 1"
+msgstr "Футер 1"
+
+#: inc/widgets.php:104
+msgid "Footer 2"
+msgstr "Футер 2"
+
+#: inc/widgets.php:115
+msgid "Footer 3"
+msgstr "Футер 3"
+
+#: inc/widgets.php:126
+msgid "Footer 4"
+msgstr "Футер 4"
+
+#: inc/widgets.php:137
+msgid "Footer Info"
+msgstr "Информация в футере"
+
+#: inc/widgets.php:82
+msgid "Footer Top"
+msgstr "Верх футера"
+
+#. Name of the template
+#: page-templates/page-full-width-image.php:3
+msgid "Full Width Image"
+msgstr "Изображение на всю ширину"
+
+#. Name of the template
+#: single-templates/single-full-width-image.php:2
+msgid "Full width image"
+msgstr "Изображение на всю ширину"
+
+#: inc/breadcrumb.php:24 woocommerce/inc/wc-breadcrumb.php:25
+msgid "Home"
+msgstr "Главная"
+
+#. Author URI of the theme
+msgid "https://bootscore.me"
+msgstr "https://bootscore.me"
+
+#. URI of the theme
+msgid "https://bootscore.me/"
+msgstr "https://bootscore.me/"
+
+#: woocommerce/inc/ajax-cart.php:573
+msgid "Invalid key or number"
+msgstr "Неверный ключ или номер"
+
+#: template-parts/search/content-none.php:51
+msgid "It seems we can’t find what you’re looking for. Perhaps searching can help."
+msgstr "Кажется, мы не можем найти то, что вы ищете. Возможно, поиск может помочь."
+
+#: inc/pagination.php:58
+msgid "Last Page"
+msgstr "Последняя страница"
+
+#. %s: post title
+#: comments.php:105 inc/template-tags.php:153
+msgid "Leave a Comment"
+msgstr "Оставить комментарий"
+
+#: inc/template-tags.php:211
+msgid "Leave a comment"
+msgstr "Оставить комментарий"
+
+#: comments.php:106
+#, php-format
+msgid "Leave a Comment to %s"
+msgstr "Оставить комментарий для %s"
+
+#. Name of the template
+#: page-templates/page-sidebar-left.php:3
+msgid "Left Sidebar"
+msgstr "Левая боковая панель"
+
+#: languages/plugin-translations.php:17
+msgid "Light"
+msgstr "Светлый"
+
+#: woocommerce/inc/wc-ajax-login.php:78
+msgid "Login form expired, please refresh page."
+msgstr "Срок действия формы входа истёк, пожалуйста, обновите страницу."
+
+#: languages/plugin-translations.php:7
+msgid "Look what I found: "
+msgstr "Смотрите, что я обнаружил: "
+
+#: header.php:64
+msgid "Menu"
+msgstr "Меню"
+
+#: languages/plugin-translations.php:12
+msgid "More Information"
+msgstr "Больше информации"
+
+#: comments.php:127
+msgid "Name*"
+msgstr "Имя*"
+
+#: comments.php:65 comments.php:85
+msgid "Newer Comments"
+msgstr "Новые комментарии"
+
+#: inc/pagination.php:54
+msgid "Next Page"
+msgstr "Следующая страница"
+
+#: languages/plugin-translations.php:25
+msgid "No headings found."
+msgstr "Заголовки не найдены."
+
+#. Name of the template
+#: page-templates/page-sidebar-none.php:3 single-templates/single-sidebar-none.php:2
+msgid "No Sidebar"
+msgstr "Без боковой панели"
+
+#: woocommerce/inc/ajax-cart.php:549
+msgid "Nonce verification failed"
+msgstr "Проверка Nonce не удалась"
+
+#: languages/plugin-translations.php:4
+msgid "Nothing found"
+msgstr "Ничего не найдено"
+
+#: template-parts/search/content-none.php:22
+msgid "Nothing Found for"
+msgstr "Ничего не найдено для"
+
+#: comments.php:64 comments.php:84
+msgid "Older Comments"
+msgstr "Предыдущие комментарии"
+
+#: sidebar.php:25
+msgid "Open side menu"
+msgstr "Открыть боковое меню"
+
+#: inc/pagination.php:49
+msgid "Page"
+msgstr "Страница"
+
+#: inc/pagination.php:36
+msgid "Page navigation"
+msgstr "Навигация по страницам"
+
+#: 404.php:33
+msgid "Page not found."
+msgstr "Страница не найдена."
+
+#: inc/password-protected-form.php:22
+msgid "Password"
+msgstr "Пароль"
+
+#: patterns/c.alert-danger.php:2
+msgctxt "Pattern title"
+msgid "c - Alert-danger with icon and dismiss button"
+msgstr "c - Опасное уведомление с иконкой и кнопкой закрытия"
+
+#: patterns/c.alert-info.php:2
+msgctxt "Pattern title"
+msgid "c - Alert-info"
+msgstr "c - Информационное уведомление"
+
+#: patterns/c.btn-danger-lg.php:2
+msgctxt "Pattern title"
+msgid "c - Button danger lg"
+msgstr "c - Кнопка опасности большая"
+
+#: patterns/c.btn-outline-secondary-sm.php:2
+msgctxt "Pattern title"
+msgid "c - Button outline-secondary sm"
+msgstr "c - Кнопка с контуром вторичная маленькая"
+
+#: patterns/c.btn-primary.php:2
+msgctxt "Pattern title"
+msgid "c - Button primary"
+msgstr "c - Кнопка основная"
+
+#: patterns/c.card-basic.php:2
+msgctxt "Pattern title"
+msgid "c - Card basic with image"
+msgstr "c - Базовая карточка с изображением"
+
+#: patterns/c.card-widget-categories.php:2
+msgctxt "Pattern title"
+msgid "c - Card with category widget"
+msgstr "c - Карточка с виджетом категорий"
+
+#: patterns/c.card-header-footer.php:2
+msgctxt "Pattern title"
+msgid "c - Card with header and footer"
+msgstr "c - Карточка с заголовком и футером"
+
+#: patterns/c.cards-pricing.php:2
+msgctxt "Pattern title"
+msgid "c - Cards pricing"
+msgstr "c - Карточки с ценами"
+
+#: patterns/c.hero-img-left.php:2
+msgctxt "Pattern title"
+msgid "c - Hero img left"
+msgstr "c - Hero изображение слева"
+
+#: patterns/c.hero-img-right.php:2
+msgctxt "Pattern title"
+msgid "c - Hero img right"
+msgstr "c - Hero изображение справа"
+
+#: patterns/c.hero-jumbotron.php:2
+msgctxt "Pattern title"
+msgid "c - Hero jumbotron"
+msgstr "c - Hero jumbotron"
+
+#: patterns/l.container.php:2
+msgctxt "Pattern title"
+msgid "l - Container"
+msgstr "l - Контейнер"
+
+#: patterns/l.grid-col-3.php:2
+msgctxt "Pattern title"
+msgid "l - Grid 3/3/3/3"
+msgstr "l - Сетка 3/3/3/3"
+
+#: patterns/l.grid-col-4-col-8.php:2
+msgctxt "Pattern title"
+msgid "l - Grid 4/8"
+msgstr "l - Сетка 4/8"
+
+#: patterns/l.grid-col-6.php:2
+msgctxt "Pattern title"
+msgid "l - Grid 6/6"
+msgstr "l - Сетка 6/6"
+
+#: patterns/l.grid-col-8-col-4.php:2
+msgctxt "Pattern title"
+msgid "l - Grid 8/4"
+msgstr "l - Сетка 8/4"
+
+#: patterns/s.heading-subtitle.php:2
+msgctxt "Pattern title"
+msgid "s - Heading and subtitle"
+msgstr "s - Заголовок и подзаголовок"
+
+#: patterns/s.hero-img-left.php:2
+msgctxt "Pattern title"
+msgid "s - Hero image left"
+msgstr "s - Hero изображение слева"
+
+#: patterns/s.hero-img-right.php:2
+msgctxt "Pattern title"
+msgid "s - Hero image right"
+msgstr "s - Hero изображение справа"
+
+#: patterns/s.hero-jumbotron.php:2
+msgctxt "Pattern title"
+msgid "s - Hero jumbotron"
+msgstr "s - Hero jumbotron"
+
+#: inc/comments.php:44
+msgid "Pingback:"
+msgstr "Пингбэк:"
+
+#: inc/template-tags.php:116
 #, php-format
 msgctxt "post author"
 msgid "by %s"
 msgstr "Автор: %s"
 
-#: inc/template-tags.php:167
-msgid "Leave a comment"
-msgstr "Оставить комментарий"
+#: comments.php:108
+msgid "Post Comment"
+msgstr "Отправить комментарий"
 
-#: inc/template-tags.php:191
+#: inc/pagination.php:44
+msgid "Previous Page"
+msgstr "Предыдущая страница"
+
+#: woocommerce/inc/ajax-cart.php:565
+msgid "Quantity updated successfully"
+msgstr "Количество успешно обновлено"
+
+#: archive.php:91 index.php:104 template-parts/search/content-search.php:70
+msgid "Read more »"
+msgstr "Читать дальше »"
+
+#. 1: link to WP admin new post page.
+#: template-parts/search/content-none.php:33
 #, php-format
-msgid "Tagged %1$s"
-msgstr "Теги: %1$s"
+msgid "Ready to publish your first post? Get started here."
+msgstr "Готовы опубликовать свой первый пост? Начните здесь."
 
-#: languages/plugin-translations.php:2
-msgid "All"
-msgstr "Все"
+#: footer.php:96
+msgid "Return to top"
+msgstr "Вернуться наверх"
 
-#: languages/plugin-translations.php:3
-msgid "Look what I found: "
-msgstr "Смотрите, что я обнаружил:"
+#: inc/comments.php:124
+msgid "Save my name, email, and website in this browser for the next time I comment."
+msgstr "Сохранить моё имя, email и сайт в этом браузере для последующих комментариев."
 
-#: languages/plugin-translations.php:4
-msgid ""
-"Cookies help us deliver our services. By using our services, you agree to our "
-"use of cookies."
-msgstr ""
-"Файлы cookie обеспечивают работу наших сервисов. Используя наш сайт, вы "
-"соглашаетесь с нашими правилами в отношении этих файлов."
+#: searchform.php:20
+msgid "Search"
+msgstr "Поиск"
 
-#: languages/plugin-translations.php:5
-msgid "/privacy-policy"
-msgstr "/privacy-policy"
-
-#: languages/plugin-translations.php:6
-msgid "More Information"
-msgstr "Больше информации"
-
-#: languages/plugin-translations.php:7
-msgid "Accept"
-msgstr "Принять"
-
-#: page-templates/page-blank-without-container.php:25
-msgid "Pages:"
-msgstr "Страницы:"
-
-#: search.php:30
+#. %s: search query.
+#: search.php:34
 #, php-format
 msgid "Search Results for: %s"
 msgstr "Результаты поиска для: %s"
 
-#: searchform.php:3
-msgid "Search"
-msgstr "Поиск"
-
-#: sidebar.php:21
-msgid "Open side menu"
-msgstr "Открыть боковое меню"
-
-#: template-parts/content-none.php:15
-msgid "Nothing Found for"
-msgstr "Ничего не найдено для"
-
-#: template-parts/content-none.php:26
-#, php-format
-msgid "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
-msgstr ""
-"Готовы опубликовать свой первый пост? <a href=\"%1$s\">Начните здесь</a>."
-
-#: template-parts/content-none.php:38
-msgid ""
-"Sorry, but nothing matched your search terms. Please try again with some "
-"different keywords."
-msgstr ""
-"Извините, но ничто не соответствовало вашим условиям поиска. Пожалуйста, "
-"попытайтесь снова с другими ключевыми словами."
-
-#: template-parts/content-none.php:44
-msgid ""
-"It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching "
-"can help."
-msgstr ""
-"Кажется, мы не можем найти то, что вы ищете. Возможно, поиск может помочь."
-
-#: woocommerce/ajax-cart/ajax-add-to-cart.php:139
-msgid "You cannot add another"
-msgstr "Вы не можете добавить еще"
-
-#: woocommerce/ajax-cart/ajax-add-to-cart.php:139
-msgid "to your cart."
-msgstr "в корзину."
-
-#: woocommerce/ajax-cart/ajax-add-to-cart.php:141
-msgid "has been added to your cart."
-msgstr "был добавлен в корзину."
-
-#: woocommerce/cart/cart-shipping.php:52
-#, php-format
-msgid "Shipping to %s."
-msgstr "Адрес доставки %s."
-
-#: woocommerce/cart/cart-shipping.php:53
-msgid "Change address"
-msgstr "Изменить адрес"
-
-#: woocommerce/cart/cart-shipping.php:55
-msgid "Shipping options will be updated during checkout."
-msgstr "Варианты доставки будут обновлены во время оформления заказа."
-
-#: woocommerce/cart/cart-shipping.php:63
-msgid "Shipping costs are calculated during checkout."
-msgstr "Стоимость доставки будет подсчитана во время оформления покупки."
-
-#: woocommerce/cart/cart-shipping.php:65
-msgid "Enter your address to view shipping options."
-msgstr "Введите свой адрес для просмотра вариантов доставки."
-
-#: woocommerce/cart/cart-shipping.php:68
-msgid ""
-"There are no shipping options available. Please ensure that your address has "
-"been entered correctly, or contact us if you need any help."
-msgstr ""
-"Нету вариантов доставки. Пожалуйста, убедитесь, что ваш адрес был введен "
-"правильно, или свяжитесь с нами, если вам нужна помощь."
-
-#: woocommerce/cart/cart-shipping.php:82
-#, php-format
-msgid "No shipping options were found for %s."
-msgstr "Не найдено вариантов доставки для %s."
-
-#: woocommerce/cart/cart-shipping.php:86
-msgid "Enter a different address"
-msgstr "Введите другой адрес"
-
-#: woocommerce/cart/cart-totals.php:26
-msgid "Cart totals"
-msgstr "Всего в корзине"
-
-#: woocommerce/cart/cart-totals.php:31 woocommerce/cart/cart-totals.php:32
-#: woocommerce/cart/cart.php:34 woocommerce/cart/cart.php:126
-#: woocommerce/checkout/review-order.php:25
-#: woocommerce/checkout/review-order.php:60
-msgid "Subtotal"
-msgstr "Промежуточный итог"
-
-#: woocommerce/cart/cart-totals.php:53 woocommerce/cart/cart-totals.php:54
-msgid "Shipping"
-msgstr "Доставка"
-
-#: woocommerce/cart/cart-totals.php:73
-#, php-format
-msgid "(estimated for %s)"
-msgstr "(оценивается %s)"
-
-#: woocommerce/cart/cart-totals.php:101 woocommerce/cart/cart-totals.php:102
-#: woocommerce/checkout/review-order.php:108
-#: woocommerce/order/order-details.php:53
-msgid "Total"
-msgstr "Всего"
-
-#: woocommerce/cart/cart.php:31 woocommerce/cart/cart.php:78
-#: woocommerce/checkout/form-pay.php:28 woocommerce/checkout/review-order.php:24
-#: woocommerce/order/order-details.php:52
-msgid "Product"
-msgstr "Товар"
-
-#: woocommerce/cart/cart.php:32 woocommerce/cart/cart.php:98
-msgid "Price"
-msgstr "Цена"
-
-#: woocommerce/cart/cart.php:33 woocommerce/cart/cart.php:104
-#: woocommerce/global/quantity-input.php:24
-msgid "Quantity"
-msgstr "Количество"
-
-#: woocommerce/cart/cart.php:57 woocommerce/cart/mini-cart.php:83
-msgid "Remove this item"
-msgstr "Удалить этот элемент"
-
-#: woocommerce/cart/cart.php:93
-msgid "Available on backorder"
-msgstr "Доступно по заказу"
-
-#: woocommerce/cart/cart.php:145 woocommerce/checkout/form-coupon.php:39
-msgid "Coupon code"
-msgstr "Код купона"
-
-#: woocommerce/cart/cart.php:146
-msgid "Coupon:"
-msgstr "Купон:"
-
-#: woocommerce/cart/cart.php:147 woocommerce/checkout/form-coupon.php:40
-msgid "Apply coupon"
-msgstr "Применить купон"
-
-#: woocommerce/cart/cart.php:153
-msgid "Update cart"
-msgstr "Обновить корзину"
-
-#: woocommerce/cart/mini-cart.php:118
-msgid "To find out your shipping cost, please proceed to checkout."
-msgstr "Чтобы узнать стоимость доставки, перейдите к оформлению заказа."
-
-#: woocommerce/cart/mini-cart.php:130
-msgid "No products in the cart."
-msgstr "Нет товаров в корзине."
-
-#: woocommerce/cart/shipping-calculator.php:25
-msgid "Calculate shipping"
-msgstr "Рассчитать стоимость доставки"
-
-#: woocommerce/cart/shipping-calculator.php:32
-msgid "Select a country / region&hellip;"
-msgstr "Выберите страну / регион&hellip;"
-
-#: woocommerce/cart/shipping-calculator.php:51
-#: woocommerce/cart/shipping-calculator.php:56
-#: woocommerce/cart/shipping-calculator.php:68
-msgid "State / County"
-msgstr "Область / Страна"
-
-#: woocommerce/cart/shipping-calculator.php:57
-msgid "Select an option&hellip;"
-msgstr "Выберите параметр&hellip;"
-
-#: woocommerce/cart/shipping-calculator.php:77
-msgid "City"
-msgstr "Город"
-
-#: woocommerce/cart/shipping-calculator.php:83
-msgid "Postcode / ZIP"
-msgstr "Почтовый индекс"
-
-#: woocommerce/cart/shipping-calculator.php:87
-msgid "Update"
-msgstr "Обновить"
-
-#: woocommerce/checkout/form-billing.php:25
-msgid "Billing &amp; Shipping"
-msgstr "Оплата &amp; Доставка"
-
-#: woocommerce/checkout/form-billing.php:29
-msgid "Billing details"
-msgstr "Платежные реквизиты"
-
-#: woocommerce/checkout/form-billing.php:54
-msgid "Create an account?"
-msgstr "Создать аккаунт?"
-
-#: woocommerce/checkout/form-checkout.php:27
-msgid "You must be logged in to checkout."
-msgstr "Вам необходимо авторизоваться для оформления заказа."
-
-#: woocommerce/checkout/form-checkout.php:48
-msgid "Your order"
-msgstr "Ваш заказ"
-
-#: woocommerce/checkout/form-coupon.php:27
-msgid "Have a coupon?"
-msgstr "Есть купон?"
-
-#: woocommerce/checkout/form-coupon.php:27
-msgid "Click here to enter your code"
-msgstr "Нажмите здесь, чтобы ввести код"
-
-#: woocommerce/checkout/form-coupon.php:36
-msgid "If you have a coupon code, please apply it below."
-msgstr "Если у вас есть код купона, вы можете воспользоваться им ниже."
-
-#: woocommerce/checkout/form-pay.php:29
-msgid "Qty"
-msgstr "Количество"
-
-#: woocommerce/checkout/form-pay.php:30
-msgid "Totals"
-msgstr "Итого"
-
-#: woocommerce/checkout/form-pay.php:84
-msgid ""
-"Sorry, it seems that there are no available payment methods for your location. "
-"Please contact us if you require assistance or wish to make alternate "
-"arrangements."
-msgstr ""
-"К сожалению, нет никаких доступных способов оплаты для вашего местоположения. "
-"Пожалуйста, свяжитесь с нами, если вам требуется помощь."
-
-#: woocommerce/checkout/form-shipping.php:29
-msgid "Ship to a different address?"
-msgstr "Отправить на другой адрес?"
-
-#: woocommerce/checkout/form-shipping.php:36
-msgid "Delivery details"
-msgstr "Детальніше про доставку"
-
-#: woocommerce/checkout/form-shipping.php:60
-msgid "Additional information"
-msgstr "Дополнительная информация"
-
-#: woocommerce/checkout/payment.php:35
-msgid ""
-"Sorry, it seems that there are no available payment methods for your state. "
-"Please contact us if you require assistance or wish to make alternate "
-"arrangements."
-msgstr ""
-"К сожалению, нет никаких доступных способов оплаты для вашего местоположения. "
-"Пожалуйста, свяжитесь с нами если вам требуется помощь или вы хотите "
-"произвести оплату альтернативным способом."
-
-#: woocommerce/checkout/payment.php:35
-msgid "Please fill in your details above to see available payment methods."
-msgstr ""
-"Пожалуйста, заполните ваши данные, чтобы просмотреть доступные способы оплаты."
-
-#: woocommerce/checkout/payment.php:44
-#, php-format
-msgid ""
-"Since your browser does not support JavaScript, or it is disabled, please "
-"ensure you click the %1$sUpdate Totals%2$s button before placing your order. "
-"You may be charged more than the amount stated above if you fail to do so."
-msgstr ""
-"Поскольку ваш браузер не поддерживает JavaScript, перед тем, как сделать "
-"заказ, нажмите кнопку %1$sОбновить итог%2$s. Если вы этого не сделаете, с Вас "
-"может взиматься сумма, превышающая указанную выше сумму."
-
-#: woocommerce/checkout/payment.php:46
-msgid "Update totals"
-msgstr "Обновить итоги"
-
-#: woocommerce/checkout/thankyou.php:32
-msgid ""
-"Unfortunately your order cannot be processed as the originating bank/merchant "
-"has declined your transaction. Please attempt your purchase again."
-msgstr ""
-"К сожалению Ваш заказ не может быть выполнен, т.к. платежная система отклонила "
-"вашу транзакцию. Пожалуйста, повторите попытку покупки снова."
-
-#: woocommerce/checkout/thankyou.php:35
-msgid "Pay"
-msgstr "Оплатить"
-
-#: woocommerce/checkout/thankyou.php:37
-msgid "My account"
-msgstr "Мой аккаунт"
-
-#: woocommerce/checkout/thankyou.php:43 woocommerce/checkout/thankyou.php:90
-msgid "Thank you. Your order has been received."
-msgstr "Спасибо. Ваш заказ был получен."
-
-#: woocommerce/checkout/thankyou.php:49
-msgid "Order number:"
-msgstr "Номер заказа:"
-
-#: woocommerce/checkout/thankyou.php:55
-msgid "Date:"
-msgstr "Дата:"
-
-#: woocommerce/checkout/thankyou.php:62
-msgid "Email:"
-msgstr "Email:"
-
-#: woocommerce/checkout/thankyou.php:69
-msgid "Total:"
-msgstr "Итого:"
-
-#: woocommerce/checkout/thankyou.php:76
-msgid "Payment method:"
-msgstr "Способ оплаты:"
-
-#: woocommerce/global/form-login.php:40
-#: woocommerce/myaccount/form-lost-password.php:30
-msgid "Username or email"
-msgstr "Имя пользователя или email"
-
-#: woocommerce/global/form-login.php:53 woocommerce/myaccount/form-login.php:60
-#: woocommerce/myaccount/my-account-offcanvas.php:68
-msgid "Remember me"
-msgstr "Запомнить меня"
-
-#: woocommerce/global/form-login.php:59 woocommerce/myaccount/form-login.php:36
-#: woocommerce/myaccount/my-account-offcanvas.php:45
-msgid "Login"
-msgstr "Войти"
-
-#: woocommerce/global/form-login.php:62 woocommerce/myaccount/form-login.php:68
-#: woocommerce/myaccount/my-account-offcanvas.php:76
-msgid "Lost your password?"
-msgstr "Забыли пароль?"
-
-#: woocommerce/global/quantity-input.php:24
-#, php-format
-msgid "%s quantity"
-msgstr "%s количество"
-
-#: woocommerce/global/quantity-input.php:45
-msgctxt "Product quantity input tooltip"
-msgid "Qty"
-msgstr "Количество"
-
-#: woocommerce/loop/orderby.php:28
-msgid "Shop order"
-msgstr "Заказ магазина"
-
-#: woocommerce/loop/result-count.php:32
-msgid "Showing the single result"
-msgstr "Показан единственный результат"
-
-#: woocommerce/loop/result-count.php:35
-#, php-format
-msgid "Showing all %d result"
-msgid_plural "Showing all %d results"
-msgstr[0] "Показан %d результат"
-msgstr[1] "Показаны %d результата"
-msgstr[2] "Показаны %d результатов"
-
-#: woocommerce/loop/result-count.php:40
-#, php-format
-msgctxt "with first and last result"
-msgid "Showing %1$d&ndash;%2$d of %3$d result"
-msgid_plural "Showing %1$d&ndash;%2$d of %3$d results"
-msgstr[0] "Показан %1$d&ndash;%2$d из %3$d результата"
-msgstr[1] "Показаны %1$d&ndash;%2$d из %3$d результатов"
-msgstr[2] "Показаны %1$d&ndash;%2$d из %3$d результатов"
-
-#: woocommerce/myaccount/form-edit-account.php:28
-msgid "First name"
-msgstr "Имя"
-
-#: woocommerce/myaccount/form-edit-account.php:32
-msgid "Last name"
-msgstr "Фамилия"
-
-#: woocommerce/myaccount/form-edit-account.php:38
-msgid "Display name"
-msgstr "Отображаемое имя"
-
-#: woocommerce/myaccount/form-edit-account.php:39
-msgid ""
-"This will be how your name will be displayed in the account section and in "
-"reviews"
-msgstr "Так будет отображаться ваше имя в разделе аккаунта и в отзывах"
-
-#: woocommerce/myaccount/form-edit-account.php:44
-#: woocommerce/myaccount/form-login.php:103
-#: woocommerce/myaccount/my-account-offcanvas.php:109
-msgid "Email address"
-msgstr "Адрес электронной почты"
-
-#: woocommerce/myaccount/form-edit-account.php:49
-msgid "Password change"
-msgstr "Смена пароля"
-
-#: woocommerce/myaccount/form-edit-account.php:52
-msgid "Current password (leave blank to leave unchanged)"
-msgstr "Текущий пароль (оставьте пустым, чтобы оставить без изменений)"
-
-#: woocommerce/myaccount/form-edit-account.php:56
-msgid "New password (leave blank to leave unchanged)"
-msgstr "Новый пароль (оставьте пустым, чтобы оставить без изменений)"
-
-#: woocommerce/myaccount/form-edit-account.php:60
-msgid "Confirm new password"
-msgstr "Подтвердите новый пароль"
-
-#: woocommerce/myaccount/form-edit-account.php:70
-msgid "Save changes"
-msgstr "Сохранить изменения"
-
-#: woocommerce/myaccount/form-login.php:47
-#: woocommerce/myaccount/my-account-offcanvas.php:54
-msgid "Username or email address"
-msgstr "Имя пользователя или адрес электронной почты"
-
-#: woocommerce/myaccount/form-login.php:65
-#: woocommerce/myaccount/my-account-offcanvas.php:73
-msgid "Log in"
-msgstr "Войти"
-
-#: woocommerce/myaccount/form-login.php:85
-#: woocommerce/myaccount/form-login.php:124
-#: woocommerce/myaccount/my-account-offcanvas.php:91
-#: woocommerce/myaccount/my-account-offcanvas.php:131
-msgid "Register"
-msgstr "Регистрация"
-
-#: woocommerce/myaccount/form-login.php:96
-#: woocommerce/myaccount/my-account-offcanvas.php:102
-msgid "Username"
-msgstr "Имя пользователя"
-
-#: woocommerce/myaccount/form-login.php:116
-#: woocommerce/myaccount/my-account-offcanvas.php:123
-msgid "A link to set a new password will be sent to your email address."
-msgstr ""
-"Ссылка для установки нового пароля будет отправлена ​​на Ваш адрес электронной "
-"почты."
-
-#: woocommerce/myaccount/form-lost-password.php:26
-msgid ""
-"Lost your password? Please enter your username or email address. You will "
-"receive a link to create a new password via email."
-msgstr ""
-"Забыли пароль? Пожалуйста, введите ваше имя пользователя или адрес электронной "
-"почты. Вы получите ссылку для создания нового пароля по электронной почте."
-
-#: woocommerce/myaccount/form-lost-password.php:41
-msgid "Reset password"
-msgstr "Сбросить пароль"
-
-#: woocommerce/myaccount/form-reset-password.php:26
-msgid "Enter a new password below."
-msgstr "Введите новый пароль ниже."
-
-#: woocommerce/myaccount/form-reset-password.php:30
-msgid "New password"
-msgstr "Новый пароль"
-
-#: woocommerce/myaccount/form-reset-password.php:34
-msgid "Re-enter new password"
-msgstr "Повторно введите новый пароль"
-
-#: woocommerce/myaccount/form-reset-password.php:47
-msgid "Save"
-msgstr "Сохранить"
-
-#: woocommerce/myaccount/my-account-offcanvas.php:17
-msgid "Hello"
-msgstr "Здравствуйте"
-
-#: woocommerce/myaccount/my-account-offcanvas.php:22
-msgid ""
-"Here you can view your recent orders, manage your shipping and billing "
-"addresses, and edit your password and account details."
-msgstr ""
-"Здесь вы можете просматривать свои последние заказы, управлять адресами "
-"доставки и выставления счетов, а также редактировать свой пароль и данные "
-"учетной записи."
-
-#: woocommerce/myaccount/my-address.php:28
-#: woocommerce/myaccount/my-address.php:33
-#: woocommerce/order/order-details-customer.php:32
-msgid "Billing address"
-msgstr "Платежный адрес"
-
-#: woocommerce/myaccount/my-address.php:29
-#: woocommerce/order/order-details-customer.php:51
-msgid "Shipping address"
-msgstr "Адрес доставки"
-
-#: woocommerce/myaccount/my-address.php:42
-msgid "The following addresses will be used on the checkout page by default."
-msgstr "Следующие адреса будут использованы при оформлении заказов по умолчанию."
-
-#: woocommerce/myaccount/my-address.php:58
-msgid "You have not set up this type of address yet."
-msgstr "Вы еще не настроили этот тип адреса."
-
-#: woocommerce/myaccount/orders.php:50
-msgctxt "hash before order number"
-msgid "#"
-msgstr "№"
-
-#: woocommerce/myaccount/orders.php:62
-#, php-format
-msgid "%1$s for %2$s item"
-msgid_plural "%1$s for %2$s items"
-msgstr[0] "%1$s за %2$s шт."
-msgstr[1] "%1$s за %2$s шт."
-msgstr[2] "%1$s за %2$s шт."
-
-#: woocommerce/myaccount/orders.php:90
-msgid "Previous"
-msgstr "Предыдущий"
-
-#: woocommerce/myaccount/orders.php:94
-msgid "Next"
-msgstr "Следующий"
-
-#: woocommerce/myaccount/orders.php:101
-msgid "Browse products"
-msgstr "Просмотр товаров"
-
-#: woocommerce/myaccount/orders.php:102
-msgid "No order has been made yet."
-msgstr "Пока ничего не сделано."
-
-#: woocommerce/myaccount/payment-methods.php:51
-#, php-format
-msgid "%1$s ending in %2$s"
-msgstr "%s оканчивается %s"
-
-#: woocommerce/myaccount/payment-methods.php:72
-msgid "No saved methods found."
-msgstr "Сохраненных методов не найдено."
-
-#: woocommerce/myaccount/payment-methods.php:79
-msgid "Add payment method"
-msgstr "Добавить способ оплаты"
-
-#: woocommerce/order/order-again.php:23
-msgid "Order again"
-msgstr "Заказать снова"
-
-#: woocommerce/order/order-details-customer.php:35
-#: woocommerce/order/order-details-customer.php:53
-msgid "N/A"
-msgstr "Нет данных"
-
-#: woocommerce/order/order-details.php:46
-msgid "Order details"
-msgstr "Детали заказа"
-
-#: woocommerce/order/order-details.php:95
-msgid "Note:"
-msgstr "Заметка:"
-
-#: woocommerce/order/order-downloads.php:25
-msgid "Downloads"
-msgstr "Загрузки"
-
-#: woocommerce/order/order-downloads.php:57
-msgid "&infin;"
-msgstr "&infin;"
-
-#: woocommerce/order/order-downloads.php:63
-msgid "Never"
-msgstr "Никогда"
-
-#: woocommerce/product-searchform.php:27
-msgid "Search products..."
-msgstr "Поиск продуктов ..."
-
-#: woocommerce/product-searchform.php:28
-msgid "Search for:"
-msgstr "Искать:"
-
-#: woocommerce/product-searchform.php:30
-msgctxt "submit button"
-msgid "Search"
-msgstr "Поиск"
-
-#: woocommerce/single-product-reviews.php:35
-#, php-format
-msgid "%1$s review for %2$s"
-msgid_plural "%1$s reviews for %2$s"
-msgstr[0] "%1$s отзыв о %2$s"
-msgstr[1] "%1$s отзыва на %2$s"
-msgstr[2] "%1$s отзывов на %2$s"
-
-#: woocommerce/single-product-reviews.php:38
-msgid "Reviews"
-msgstr "Отзывы"
-
-#: woocommerce/single-product-reviews.php:65
-msgid "There are no reviews yet."
-msgstr "Отзывов пока нет."
-
-#: woocommerce/single-product-reviews.php:76
-msgid "Add a review"
-msgstr "Добавить отзыв"
-
-#: woocommerce/single-product-reviews.php:76
-#, php-format
-msgid "Be the first to review &ldquo;%s&rdquo;"
-msgstr "Будьте первым, кто оставил отзыв на &ldquo;%s&rdquo;"
-
-#: woocommerce/single-product-reviews.php:78
-#, php-format
-msgid "Leave a Reply to %s"
-msgstr "Оставить комментарий к %s"
-
-#: woocommerce/single-product-reviews.php:121
-#, php-format
-msgid "You must be %1$slogged in%2$s to post a review."
-msgstr "Вы должны быть %1$sзарегистрированы%2$s, чтобы опубликовать отзыв."
-
-#: woocommerce/single-product-reviews.php:125
-msgid "Your rating"
-msgstr "Ваш рейтинг"
-
-#: woocommerce/single-product-reviews.php:126
-msgid "Rate&hellip;"
-msgstr "Оценить&hellip;"
-
-#: woocommerce/single-product-reviews.php:127
-msgid "Perfect"
-msgstr "Отлично"
-
-#: woocommerce/single-product-reviews.php:128
-msgid "Good"
-msgstr "Хорошо"
-
-#: woocommerce/single-product-reviews.php:129
-msgid "Average"
-msgstr "Средне"
-
-#: woocommerce/single-product-reviews.php:130
-msgid "Not that bad"
-msgstr "Не так уж плохо"
-
-#: woocommerce/single-product-reviews.php:131
-msgid "Very poor"
-msgstr "Очень плохо"
-
-#: woocommerce/single-product-reviews.php:135
+#: template-parts/header/actions.php:28 template-parts/header/actions-woocommerce.php:21
+msgid "Search toggler"
+msgstr "Переключатель поиска"
+
+#: sidebar.php:30 inc/widgets.php:71
+msgid "Sidebar"
+msgstr "Боковая панель"
+
+#. Name of the template
+#: single-templates/single-sidebar-left.php:2
+msgid "Sidebar left"
+msgstr "Боковая панель слева"
+
+#: header.php:35
+msgid "Skip to content"
+msgstr "Перейти к содержимому"
+
+#: header.php:36
+msgid "Skip to footer"
+msgstr "Перейти к футеру"
+
+#: woocommerce/inc/wc-ajax-login.php:61
+msgid "Slow down a bit."
+msgstr "Притормозите немного."
+
+#: template-parts/search/content-none.php:45
+msgid "Sorry, but nothing matched your search terms. Please try again with some different keywords."
+msgstr "Извините, но ничто не соответствовало вашим условиям поиска. Пожалуйста, попробуйте снова с другими ключевыми словами."
+
+#: comments.php:110
+msgid "Start typing..."
+msgstr "Начните печатать..."
+
+#: inc/password-protected-form.php:23
+msgid "Submit"
+msgstr "Отправить"
+
+#: searchform.php:21
+msgid "Submit search"
+msgstr "Отправить поиск"
+
+#: inc/template-tags.php:237
+msgid "Tagged"
+msgstr "Отмечено"
+
+#: woocommerce/inc/wc-ajax-login.php:93
+msgid "This combination of access data was not found in our database."
+msgstr "Эта комбинация данных доступа не найдена в нашей базе данных."
+
+#: header.php:96
+msgid "Toggle main menu"
+msgstr "Переключить главное меню"
+
+#: languages/plugin-translations.php:26
+msgid "Toggle table of contents"
+msgstr "Переключить оглавление"
+
+#: languages/plugin-translations.php:16
+msgid "Toggle theme"
+msgstr "Переключить тему"
+
+#: inc/widgets.php:26
+msgid "Top Bar"
+msgstr "Верхняя панель"
+
+#: inc/widgets.php:37
+msgid "Top Nav"
+msgstr "Верхнее меню"
+
+#: inc/widgets.php:49
+msgid "Top Nav 2"
+msgstr "Верхнее меню 2"
+
+#: inc/widgets.php:60
+msgid "Top Nav Search"
+msgstr "Поиск в верхнем меню"
+
+#: comments.php:135
+msgid "Website"
+msgstr "Сайт"
+
+#: woocommerce/inc/wc-ajax-login.php:103
+msgid "Welcome"
+msgstr "Добро пожаловать"
+
+#: languages/plugin-translations.php:22
+msgid "You might also like"
+msgstr "Вам также может понравиться"
+
+#: inc/comments.php:72
+msgid "Your comment is awaiting moderation."
+msgstr "Ваш комментарий ожидает модерации."
+
+#: woocommerce/inc/wc-single-product-reviews.php:82
 msgid "Your review...*"
-msgstr "Ваш отзыв…"
-
-#: woocommerce/single-product-reviews.php:142
-msgid ""
-"Only logged in customers who have purchased this product may leave a review."
-msgstr ""
-"Только зарегистрированные пользователи, которые купили этот продукт, могут "
-"оставить отзыв."
-
-#: woocommerce/woocommerce-functions.php:93
-msgctxt "breadcrumb"
-msgid "Home"
-msgstr "Главная"
-
-#: woocommerce/woocommerce-functions.php:140
-msgid "View cart"
-msgstr "Просмотр корзины"
-
-#: woocommerce/woocommerce-functions.php:143
-msgid "Checkout"
-msgstr "Оформить заказ"
-
-#. Theme Name of the plugin/theme
-#. Author of the plugin/theme
-msgid "bootScore"
-msgstr "bootScore"
-
-#. Theme URI of the plugin/theme
-msgid "https://bootscore.me/"
-msgstr "https://bootscore.me/"
-
-#. Description of the plugin/theme
-msgid ""
-"A powerful Bootstrap 5 WordPress Starter Theme with WooCommerce Support. <a "
-"href=\"https://bootscore.me/category/documentation/\" target=\"_blank"
-"\">Documentation</a>. This theme gives you full control whatever you do and "
-"the full freedom to design whatever you want. It comes with a wide selection "
-"of category, page, post, author and archive templates as well as sidebar, "
-"header, footer and 404 widgets. There are no customizer settings in the "
-"backend. All settings can only be made by touching the code. Some CSS, HTML, "
-"PHP and JS Skills are required to customize it."
-msgstr ""
-"Мощная стартовая тема WordPress Bootstrap 5 с поддержкой WooCommerce. <a href="
-"\"https://bootscore.me/category/documentation/\" target=\"_blank"
-"\">Документация</a>. Эта тема дает вам полный контроль над тем, что вы "
-"делаете, и полную свободу создавать все, что вы хотите. Она поставляется с "
-"широким выбором шаблонов категорий, страниц, постов, авторов и архивов, а "
-"также боковой панели, верхнего и нижнего колонтитула и виджетов 404. В бэкенде "
-"нет настроек кастомайзера. Все настройки можно выполнить, только внутри кода. "
-"Для его настройки требуются некоторые навыки работы с CSS, HTML, PHP и JS."
-
-#. Author URI of the plugin/theme
-msgid "https://bootscore.me"
-msgstr "https://bootscore.me"
+msgstr "Ваш отзыв…*"
