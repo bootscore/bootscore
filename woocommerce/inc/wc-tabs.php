@@ -55,3 +55,24 @@ if ( ! function_exists( 'woocommerce_output_product_data_tabs' ) ) {
   }
   
 }
+
+
+/**
+ * Add a badge to Reviews (1)
+ */
+function bootscorre_reviews_tab_badge( $tabs ) {
+  // Check if the Reviews tab exists
+  if ( isset( $tabs['reviews'] ) ) {
+    // Get the review count
+    $review_count = get_comments_number( get_the_ID() );
+
+    // Change the Reviews tab title format
+    $tabs['reviews']['title'] = sprintf(
+      __( 'Reviews <span class="badge bg-primary-subtle text-primary-emphasis">%d</span>', 'bootscore' ),
+      $review_count
+    );
+  }
+
+  return $tabs;
+}
+add_filter( 'woocommerce_product_tabs', 'bootscorre_reviews_tab_badge', 20 );
