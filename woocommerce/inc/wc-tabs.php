@@ -13,10 +13,10 @@ defined('ABSPATH') || exit;
 
 
 /**
- * Custom WooCommerce product data tabs with Bootstrap markup via pluggable function.
+ * Custom WooCommerce product data tabs with Bootstrap markupvia pluggable function.
  *
- * https://github.com/bootscore/bootscore/pull/1021
- * https://www.businessbloomer.com/woocommerce-explode-product-tabs/
+ * @link https://github.com/bootscore/bootscore/pull/1021
+ * @link https://www.businessbloomer.com/woocommerce-explode-product-tabs/
  */
 if ( ! function_exists( 'woocommerce_output_product_data_tabs' ) ) {
 
