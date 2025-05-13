@@ -58,21 +58,32 @@ if ( ! function_exists( 'woocommerce_output_product_data_tabs' ) ) {
 
 
 /**
- * Add a badge to Reviews (1)
+ * Add Bootstrap badge to Reviews tab title count.
+ *
+ * Replaces the (1) count in the Reviews tab title with a styled badge.
  */
-function bootscorre_reviews_tab_badge( $tabs ) {
-  // Check if the Reviews tab exists
+function bootscore_reviews_tab_title_badge( $tabs ) {
   if ( isset( $tabs['reviews'] ) ) {
-    // Get the review count
-    $review_count = get_comments_number( get_the_ID() );
+    $title = $tabs['reviews']['title'];
 
-    // Change the Reviews tab title format
-    $tabs['reviews']['title'] = sprintf(
-      __( 'Reviews <span class="badge bg-primary-subtle text-primary-emphasis">%d</span>', 'bootscore' ),
-      $review_count
+    // Use new filter name: bootscore/class/reviews/tab-badge
+    $badge_template = apply_filters(
+      'bootscore/class/reviews/tab-badge',
+      '<span class="badge bg-primary-subtle text-primary-emphasis">%s</span>'
     );
+
+    // Replace (1) with badge
+    $title = preg_replace_callback(
+      '/\((\d+)\)/',
+      function( $matches ) use ( $badge_template ) {
+        return sprintf( $badge_template, $matches[1] );
+      },
+      $title
+    );
+
+    $tabs['reviews']['title'] = $title;
   }
 
   return $tabs;
 }
-add_filter( 'woocommerce_product_tabs', 'bootscorre_reviews_tab_badge', 20 );
+add_filter( 'woocommerce_product_tabs', 'bootscore_reviews_tab_title_badge', 20 );
