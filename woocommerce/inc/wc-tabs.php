@@ -38,17 +38,23 @@ if ( ! function_exists( 'woocommerce_output_product_data_tabs' ) ) {
         </ul>
       </div>
 
+      <?php $first = true; ?>
       <?php foreach ( $product_tabs as $key => $product_tab ) : ?>
-        <div class="woocommerce-Tabs-panel woocommerce-Tabs-panel--<?php echo esc_attr( $key ); ?> panel entry-content wc-tab" id="tab-<?php echo esc_attr( $key ); ?>" role="tabpanel" aria-labelledby="tab-title-<?php echo esc_attr( $key ); ?>">
+        <div class="woocommerce-Tabs-panel woocommerce-Tabs-panel--<?php echo esc_attr( $key ); ?> panel entry-content wc-tab"
+             id="tab-<?php echo esc_attr( $key ); ?>"
+             role="tabpanel"
+             aria-labelledby="tab-title-<?php echo esc_attr( $key ); ?>"
+             style="<?php echo $first ? '' : 'display:none;'; ?>">
           <?php
           if ( isset( $product_tab['callback'] ) ) {
             call_user_func( $product_tab['callback'], $key, $product_tab );
           }
           ?>
         </div>
+        <?php $first = false; ?>
       <?php endforeach; ?>
 
-        <?php do_action( 'woocommerce_product_after_tabs' ); ?>
+      <?php do_action( 'woocommerce_product_after_tabs' ); ?>
     </div>
 
     <?php

@@ -3,18 +3,21 @@ jQuery(function ($) {
   // Single-product Tabs
   // First item active
   $('.wc-tabs .nav-item:first-child a').addClass('active');
+  $('.wc-tab').hide().first().show();
 
-  // Set active class to nav-link
+  // Tab switching
   $('body').on('click', '.wc-tabs li a', function (e) {
     e.preventDefault();
+
     var $tab = $(this);
     var $tabs_wrapper = $tab.closest('.wc-tabs-wrapper, .woocommerce-tabs');
-    var $tabs = $tabs_wrapper.find('.wc-tabs');
 
-    $tabs.find('li a').removeClass('active');
-    $tabs_wrapper.find('.wc-tab, .panel:not(.panel .panel)').hide();
+    // Remove active classes and hide all tab panels
+    $tabs_wrapper.find('.wc-tabs li a').removeClass('active');
+    $tabs_wrapper.find('.wc-tab').hide();
 
-    $tab.closest('li a').addClass('active');
+    // Activate clicked tab and show corresponding panel
+    $tab.addClass('active');
     $tabs_wrapper.find($tab.attr('href')).show();
   });
   // Single-product Tabs End
