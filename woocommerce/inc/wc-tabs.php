@@ -75,7 +75,7 @@ function bootscore_reviews_tab_title_badge( $tabs ) {
     // Use new filter name: bootscore/class/reviews/tab-badge
     $badge_template = apply_filters(
       'bootscore/class/reviews/tab-badge',
-      '<span class="badge bg-primary-subtle text-primary-emphasis">%s</span>'
+      '<span class="badge bg-primary-subtle text-primary-emphasis align-middle">%s</span>'
     );
 
     // Replace (1) with badge
