@@ -24,7 +24,8 @@ require_once('inc/wc-qty-btn.php');
 require_once('inc/wc-redirects.php'); 
 require_once('inc/wc-result-count.php'); 
 require_once('inc/wc-setup.php'); 
-require_once('inc/wc-single-product-reviews.php'); 
+require_once('inc/wc-single-product-reviews.php');
+require_once('inc/wc-tabs.php');
 require_once('inc/wc-deprecated.php'); 
 
 // Blocks
