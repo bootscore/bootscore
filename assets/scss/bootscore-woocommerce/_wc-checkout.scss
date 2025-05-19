@@ -383,14 +383,16 @@ table.shop_table.woocommerce-checkout-review-order-table tr {
   .select2-container--default .select2-selection--single .select2-selection__arrow {
     display: none;
   }
-      
-  // Fix blockified cart/checkout select2-container--open width 
-  // https://github.com/bootscore/bootscore/pull/1024
-  .select2-container {
-    width: auto;
-  }
+}
+    
+    
+// Fix blockified cart/checkout select2-container--open width 
+// https://github.com/bootscore/bootscore/pull/1024
+.select2-container {
+  width: auto;
 }
    
+    
 // Validation    
 .woocommerce form {
   .form-row {
