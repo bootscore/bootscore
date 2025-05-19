@@ -83,3 +83,19 @@ WooCommerce My Account
     width: 100%;
   }
 }
+
+
+// Fix address spacing, WC breakpoint is 769px
+// https://github.com/bootscore/bootscore/pull/1024
+@media (max-width: 769px) {
+  .woocommerce .woocommerce-customer-details address {
+    margin-bottom: $spacer !important;
+  }
+}
+
+
+// Fix product meta
+// https://github.com/bootscore/bootscore/pull/1024
+.woocommerce td.product-name .wc-item-meta {
+  padding-left: 0;
+}

@@ -39,3 +39,14 @@ form.variations_form.cart {
 .woocommerce-variation-price {
   margin-bottom: $spacer;
 }
+
+
+// Fix single variation product select icon (WC 9.8.5)
+// https://github.com/bootscore/bootscore/pull/1024
+.woocommerce div.product form.cart .variations select {
+  background: var(--#{$prefix}form-select-bg-img);
+  background-size: $form-select-bg-size;
+  -webkit-background-size: $form-select-bg-size;
+  background-repeat: no-repeat;
+  background-position: $form-select-bg-position;
+}
