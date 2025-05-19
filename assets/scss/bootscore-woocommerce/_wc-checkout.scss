@@ -384,6 +384,11 @@ table.shop_table.woocommerce-checkout-review-order-table tr {
     display: none;
   }
       
+  // Fix blockified cart/checkout select2-container--open width 
+  // https://github.com/bootscore/bootscore/pull/1024
+  .select2-container {
+    width: auto;
+  }
 }
    
 // Validation    
