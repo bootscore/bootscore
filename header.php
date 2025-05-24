@@ -8,7 +8,7 @@
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
  * @package Bootscore
- * @version 6.1.0
+ * @version 6.2.0
  */
 
 // Exit if accessed directly
@@ -57,6 +57,8 @@ defined('ABSPATH') || exit;
           <img src="<?= esc_url(apply_filters('bootscore/logo', get_stylesheet_directory_uri() . '/assets/img/logo/logo.svg', 'default')); ?>" alt="<?php bloginfo('name'); ?> Logo" class="d-td-none">
           <img src="<?= esc_url(apply_filters('bootscore/logo', get_stylesheet_directory_uri() . '/assets/img/logo/logo-theme-dark.svg', 'theme-dark')); ?>" alt="<?php bloginfo('name'); ?> Logo" class="d-tl-none">
         </a>  
+        
+        <?php do_action( 'bootscore_after_navbar_brand' ); ?>
 
         <!-- Offcanvas Navbar -->
         <div class="offcanvas offcanvas-<?= apply_filters('bootscore/class/header/offcanvas/direction', 'end', 'menu'); ?>" tabindex="-1" id="offcanvas-navbar">
