@@ -94,7 +94,7 @@ if ( 'no' !== $is_enabled_ajax_cart ) {
             }
           });
 
-          // Add loading spinner to add_to_cart_button // loop buttons are added via fn-wc-archive.php
+          // Add loading spinner to add_to_cart_button // loop buttons are via a php filter in ajax-cart.php
           $('.single_add_to_cart_button').prepend('<div class="btn-loader"><span class="spinner-border spinner-border-sm"></span></div>');
 
         });
@@ -199,6 +199,24 @@ if ( 'no' !== $is_enabled_ajax_cart ) {
     <?php
   }
   add_action('wp_footer', 'bootscore_product_page_ajax_add_to_cart_js');
+
+  function bootscore_add_btn_loader_to_loop( $html ) {
+    global $product;
+
+    // Check if product is in stock
+    if(!$product->is_in_stock()) {
+      return 	'<p class="stock out-of-stock text-wrap mb-0 mt-auto">' .
+        esc_html( apply_filters( 'woocommerce_out_of_stock_message', __( 'This product is currently out of stock and unavailable.', 'woocommerce' ) ) ) .
+        '</p>';
+    }
+
+    // Implement Buttonloader directly without js
+    $pattern = '/(<a href=\"\?add-to-cart=[^>]+>)/';
+    $replacement = '$1<div class="btn-loader"><span class="spinner-border spinner-border-sm"></span></div>';
+
+    return preg_replace($pattern, $replacement, $html);
+  }
+  add_filter( 'woocommerce_loop_add_to_cart_link', 'bootscore_add_btn_loader_to_loop', 12 );
 
 function bootscore_ajax_add_to_cart_js() {
   ?>
