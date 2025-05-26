@@ -222,27 +222,14 @@ function bootscore_ajax_add_to_cart_js() {
   ?>
   <script>
     jQuery(function ($) {
-      // WC Quantity Input
-      if (!String.prototype.getDecimals) {
-        String.prototype.getDecimals = function () {
-          var num = this,
-            match = ('' + num).match(/(?:\.(\d+))?(?:[eE]([+-]?\d+))?$/);
-          if (!match) {
-            return 0;
-          }
-          return Math.max(0, (match[1] ? match[1].length : 0) - (match[2] ? +match[2] : 0));
-        };
-      }
-      // $(document.body).on('click', '.item-quantity .quantity .plus, .item-quantity .quantity .minus', function () {
+
       $(document.body).on('click', '.plus, .minus', function () {
-        var $qty = $(this).closest('.quantity').find('.qty'),
+        let $qty = $(this).closest('.quantity').find('.qty'),
           currentVal = parseInt($qty.val()),
           max = parseInt($qty.attr('max')),
           min = parseInt($qty.attr('min')),
           step = $qty.attr('step'),
           nonce = $('input[name="bootscore_update_cart_nonce"]').val(),
-          prevInputVal = jQuery(this).prev('input.qty'),
-          is_single_product_decrease_cart = $('.single form.cart .minus'),
           product_id = $(this).closest('.list-group-item').attr('data-bootscore_product_id');
 
         // Format values
@@ -254,86 +241,25 @@ function bootscore_ajax_add_to_cart_js() {
           step = 1;
         }
 
-        // Change the value
+        // Perform the Quantity Update for Increment.
         if ($(this).is('.plus')) {
-          if ( !max || currentVal < max ) {
-            prevInputVal.val(currentVal + step).change();
-          }
-
-          if (max && currentVal >= max) {
-            $qty.val(max);
-            $(this).attr('disabled', true);
-          } else {
-            $qty.val( (currentVal + parseInt(step)));
-          }
-
-          // Perform the Quantity Update for Increment.
-          var currentValWithPlusStep = (currentVal + parseInt(step));
-
-          bootscore_quantity_update_buttons( $(this), currentValWithPlusStep, step, nonce, product_id, max );
+          currentVal += parseInt(step);
         } else {
-          if (min && currentVal <= min) {
-            $qty.val(min);
-          } else if (currentVal > 0) {
-            $qty.val( (currentVal - parseInt(step)) );
-          }
-          // Perform the Quantity Update for Decrement.
-          var currentValWithMinusStep = (currentVal - parseInt(step));
-
-          bootscore_quantity_update_buttons( $(this), currentValWithMinusStep, step, nonce, product_id, max );
+          currentVal -= parseInt(step);
         }
 
-        // Trigger change event
-        $qty.trigger('change');
+        let wrap = $($(this)).closest('.woocommerce-mini-cart-item');
+        bootscore_quantity_update( wrap, currentVal, nonce, product_id, max, step );
       });
 
-      // Implement the change event.
-      function bootscore_quantity_update_buttons(el, number, step, nonce, product_id, max) {
-        var wrap = $(el).closest('.woocommerce-mini-cart-item'),
-          key = $(wrap).data('key'),
-          data = {
-            action: 'bootscore_qty_update',
-            key: key,
-            number: number,
-            step: step,
-            nonce: nonce,
-            product_id: product_id,
-            max: max
-          };
-
-        // Perform Ajax Call.
-        bootscore_perform_ajax_call(wrap, data);
-      }
-
       jQuery(document).ready(function ($) {
-        // Trigger the function on page load.
-        handleQuantityChange();
 
-        // Trigger the function when the quantity input changes.
-        $(document).on('change', '.quantity input[type="number"]', function () {
-          handleQuantityChange();
+        // Capture the old value on focus
+        $('body').on('focus', '.item-quantity .quantity input', function () {
+          $(this).data('prevValue', $(this).val());
         });
 
-        // Trigger the function when the minus button is clicked.
-        $(document).on('click', '.quantity .minus', function () {
-          handleQuantityChange();
-        });
-
-        // Function to handle quantity change minus button enable/disable.
-        function handleQuantityChange() {
-          $('.mini_cart_item').each(function () {
-            var quantityInput = $(this).find('.quantity input[type="number"]'),
-              minusButton = $(this).find('.quantity .minus');
-
-            if (parseInt(quantityInput.val()) <= 1) {
-              minusButton.prop('disabled', true);
-            } else {
-              minusButton.prop('disabled', false);
-            }
-          });
-        }
-
-        // Trigger the function when the input is blurred.
+        // Trigger the function when the input is blurred
         $('body').on('blur', '.item-quantity .quantity input', function (e) {
           e.preventDefault();
 
@@ -351,8 +277,15 @@ function bootscore_ajax_add_to_cart_js() {
             intValue = 1;
           }
 
+          let prevValue = input.data('prevValue');
           // If the new value is the same as the previous one, no need to re-render.
-          if (input.data('prevValue') === currentValue) {
+          if (prevValue === currentValue) {
+            return false;
+          }
+
+          // Check if the submitted value is valid and return html error handling if not
+          if (! this.checkValidity()){
+            this.reportValidity();
             return false;
           }
 
@@ -360,29 +293,23 @@ function bootscore_ajax_add_to_cart_js() {
           input.data('prevValue', currentValue);
 
           // Perform the Quantity Update.
-          bootscore_quantity_update_input_blur(input, intValue, nonce, product_id, max);
+          let wrap = $(input).closest('.woocommerce-mini-cart-item');
+          bootscore_quantity_update(wrap, intValue, nonce, product_id, max);
         });
-
-        // Update cart on input blur.
-        function bootscore_quantity_update_input_blur(input, number, nonce, product_id, max) {
-          var wrap = $(input).closest('.woocommerce-mini-cart-item'),
-            key = $(wrap).data('key'),
-            data = {
-              action: 'bootscore_qty_update',
-              key: key,
-              number: number,
-              nonce: nonce,
-            product_id: product_id,
-            max: NaN,
-            };
-
-          // Perform Ajax Call.
-          bootscore_perform_ajax_call(wrap, data);
-        }
       });
 
-      // Handle Ajax Call.
-      function bootscore_perform_ajax_call(wrap, data) {
+      function bootscore_quantity_update(wrap, number, nonce, product_id, max=-1, step = 1) {
+        let key = $(wrap).data('key');
+        let data = {
+          action: 'bootscore_qty_update',
+          key: key,
+          number: number,
+          step: step,
+          nonce: nonce,
+          product_id: product_id,
+          max: max,
+        };
+
         $.ajax({
           url: bootscoreTheme.ajaxurl,
           type: 'POST',
@@ -445,34 +372,6 @@ function bootscore_ajax_add_to_cart_js() {
           },
         });
       }
-
-      // Handle the cart plus and minus buttons enable/disable by their stop property.
-      jQuery(document).ready(function($) {
-        function toggleButtonAndInputState(input) {
-            var maxValue = parseFloat(input.attr('max'));
-            var value = parseFloat(input.val());
-            var plusBtn = input.siblings('.plus');
-
-            // Check if the value is equal to the max value
-            if (value === maxValue) {
-                plusBtn.prop('disabled', true);
-                input.prop('disabled', true);
-            } else {
-                plusBtn.prop('disabled', false);
-                input.prop('disabled', false);
-            }
-        }
-
-        // On document ready, toggle the state of the plus button and input field for each quantity input
-        $('.quantity input[type="number"]').each(function() {
-            toggleButtonAndInputState($(this));
-        });
-
-        // Event listener for input value change
-        $('.quantity input[type="number"]').on('input', function() {
-            toggleButtonAndInputState($(this));
-        });
-    });
 
     }); // jQuery End
   </script>
@@ -584,7 +483,7 @@ function bootscore_qty_update(){
       wp_send_json_error($response_item);
     }
 
-    if ($cart_item_key && $qty > 0) {
+    if ($cart_item_key && $qty >= 0) {
       $response_item = apply_filters('bootscore_ajax_before_qty_update', $response_item, $cart_item_key);
       $cart_content_before = WC()->cart->get_cart();
 
