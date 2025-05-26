@@ -600,7 +600,7 @@ function bootscore_qty_update(){
       } else {
         $cart_total = WC()->cart->get_cart_total();
       }
-      $response_item['fragments_replace']['.woocommerce-mini-cart__total.total .amount > bdi'] = $cart_total;
+      $response_item['fragments_replace']['.cart-toggler .woocommerce-Price-amount > bdi'] = $cart_total;
       $response_item['fragments_replace']['.cart-content-count'] = '<span class="cart-content-count position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">' . WC()->cart->get_cart_contents_count() . '</span>';
 
       wc_add_notice("Quantity of {$updated_item['data']->get_name()} updated successfully", 'success');
