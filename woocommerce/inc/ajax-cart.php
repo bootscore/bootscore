@@ -40,180 +40,162 @@ if ( 'no' !== $is_enabled_ajax_cart ) {
    */
   function bootscore_product_page_ajax_add_to_cart_js() {
     ?>
-    <script>
-      jQuery(function ($) {
+      <script>
+        jQuery(function ($) {
+          // PART 1: Enable AJAX for single product pages
+          $('form.cart').on('submit', function (e) {
+            // Only apply to single product pages, not external products
+            if (!$(this).closest('.product-type-external').length) {
+              e.preventDefault();
 
-        $('form.cart:not(.product-type-external form.cart)').on('submit', function (e) {
-          e.preventDefault();
-          $(document.body).trigger('adding_to_cart', []);
+              const form = $(this);
+              var button = form.find('.single_add_to_cart_button');
 
-          const form = $(this);
-
-          // Add loading class to button, hide in grouped products if product is out of stock
-          $(this).find('.single_add_to_cart_button:not(.outofstock .single_add_to_cart_button)').addClass('loading');
-
-          const formData = new FormData(form[0]);
-          formData.append('add-to-cart', form.find('[name=add-to-cart]').val());
-
-          // Ajax action.
-          $.ajax({
-            url: wc_add_to_cart_params.wc_ajax_url.toString().replace('%%endpoint%%', 'ace_add_to_cart'),
-            data: formData,
-            type: 'POST',
-            processData: false,
-            contentType: false,
-            complete: function (response) {
-              response = response.responseJSON;
-
-              if (!response) {
+              if (button.hasClass('disabled')) {
                 return;
               }
 
-              if (response.error && response.product_url) {
-                window.location = response.product_url;
-                return;
-              }
+              var formData = new FormData(form[0]);
+              formData.append('add-to-cart', form.find('[name=add-to-cart]').val());
 
-              // Redirect to cart option
-              if (wc_add_to_cart_params.cart_redirect_after_add === 'yes') {
-                window.location = wc_add_to_cart_params.cart_url;
-                return;
-              }
+              // Add loading class
+              button.addClass('loading');
 
-              const $thisbutton = form.find('.single_add_to_cart_button'); //
+              // Ajax action
+              $.ajax({
+                url: wc_add_to_cart_params.wc_ajax_url.toString().replace('%%endpoint%%', 'ace_add_to_cart'),
+                data: formData,
+                type: 'POST',
+                processData: false,
+                contentType: false,
+                complete: function (response) {
+                  button.removeClass('loading');
+                },
+                success: function (response) {
+                  if (response.error && response.product_url) {
+                    window.location = response.product_url;
+                    return;
+                  }
 
-              // Trigger event so themes can refresh other areas.
-              $(document.body).trigger('added_to_cart', [response.fragments, response.cart_hash, $thisbutton]);
+                  // Redirect to cart option -- Not sure if necessary or it is right, because we have the "no cart" option in the theme?
+                  if (wc_add_to_cart_params.cart_redirect_after_add === 'yes') {
+                    window.location = wc_add_to_cart_params.cart_url;
+                    return;
+                  }
 
-              // Remove existing notices
-              $('.woocommerce-error, .woocommerce-message, .woocommerce-info').remove();
-
-              // Add new notices to offcanvas
-              $('.woocommerce-mini-cart').prepend(response.fragments.notices_html);
-
-              form.unblock();
-            }
-          });
-
-        });
-
-        $('a.ajax_add_to_cart').on('click', function (e) {
-          e.preventDefault();
-
-          // Add new 'should_send_ajax_request.adding_to_cart' event to prevent standard WooCommerce Add To Cart AJAX request
-          $(document.body).on('should_send_ajax_request.adding_to_cart', function(event, $button) {
-            return false;
-          });
-
-          // Function to add the 'loading' class to the a.ajax_add_to_cart button
-          function addLoadingClass(e, fragments, cart_hash, button) {
-            button.addClass('loading');
-          }
-
-          // Add new 'ajax_request_not_sent.adding_to_cart' event to trigger 'addLoadingClass' function
-          $(document.body).on('ajax_request_not_sent.adding_to_cart', addLoadingClass);
-
-          $('.woocommerce-error, .woocommerce-message, .woocommerce-info').remove();
-          // Get product name from product-title=""
-          let prod_title = '';
-          prod_title = $(this).attr('product-title');
-
-          $(document.body).trigger('adding_to_cart', []);
-
-          let $thisbutton = $(this);
-          let href = '';
-          try {
-            href = $thisbutton.prop('href').split('?')[1];
-
-            if (href.indexOf('add-to-cart') === -1) return;
-          } catch (err) {
-            return;
-          }
-
-          let product_id = href.split('=')[1];
-
-          let data = {
-            product_id: product_id
-          };
-
-          $(document.body).trigger('adding_to_cart', [$thisbutton, data]);
-
-          $.ajax({
-            type: 'post',
-            url: wc_add_to_cart_params.wc_ajax_url.replace( '%%endpoint%%', 'add_to_cart' ),
-            data: data,
-            complete: function (response) {
-              $thisbutton.addClass('added').removeClass('loading');
-
-              // Remove 'should_send_ajax_request.adding_to_cart' and 'ajax_request_not_sent.adding_to_cart' events so they don't accumulate
-              $(document.body).off('should_send_ajax_request.adding_to_cart');
-              $(document.body).off('ajax_request_not_sent.adding_to_cart', addLoadingClass);
-            },
-            success: function (response) {
-              if (response.error & response.product_url) {
-                console.log(response.error);
-              } else {
-                $(document.body).trigger('added_to_cart', [
-                  response.fragments,
-                  response.cart_hash,
-                  $thisbutton
-                ]);
-
-                console.log('Error-: ' + response.error);
-
-                //Remove existing notices
-                $('.woocommerce-error, .woocommerce-message, .woocommerce-info').remove();
-
-                let notice = '';
-                if (response.error == true) {
-                  let message = `<?= sprintf(__('You cannot add another "%s" to your cart.', 'woocommerce'), '{{product_title}}') ?>`;
-                  notice = `<div class="woocommerce-error">${message.replace('{{product_title}}', prod_title)}</div>`;
-                } else {
-                  let message = `<?= sprintf(_n('%s has been added to your cart.', '%s have been added to your cart.', 1, 'woocommerce'), '“{{product_title}}”') ?>`;
-                  notice = `<div class="woocommerce-message">${message.replace('{{product_title}}', prod_title)}</div>`;
+                  // Trigger event so themes can refresh other areas
+                  $(document.body).trigger('added_to_cart', [
+                    response.fragments,
+                    response.cart_hash,
+                    button
+                  ]);
                 }
+              });
+            }
+          });
 
-                // Add new notices to offcanvas
-                setTimeout(function () {
-                  $('.woocommerce-mini-cart').prepend(notice);
-                }, 100);
+          // Add loading spinner to add_to_cart_button // loop buttons are added via fn-wc-archive.php
+          $('.single_add_to_cart_button').prepend('<div class="btn-loader"><span class="spinner-border spinner-border-sm"></span></div>');
 
+        });
+      </script>
+
+      <script>
+        jQuery(function ($) {
+          $('a.ajax_add_to_cart[href*="?add-to-cart"]').on('click', function (e) {
+            e.preventDefault();
+
+            // Add new 'should_send_ajax_request.adding_to_cart' event to prevent standard WooCommerce Add To Cart AJAX request
+            $(document.body).on('should_send_ajax_request.adding_to_cart', function (event, $button) {
+              return false;
+            });
+
+            let button = $(this);
+            let product_id = button.attr('href').split('=')[1];
+            //parse as float
+            let quantity = parseInt(button.attr('data-quantity')) || 1;
+            let data = {
+              "add-to-cart": product_id,
+              "quantity": quantity,
+            };
+
+            // Interesting section here. it seems that the 'adding_to_cart' event removes the loading class from the button.
+            // Therefore this approach is needed because it adds the loading after the removal. I'm not sure if this is the best way to do it.'
+            // Function to add the 'loading' class to the a.ajax_add_to_cart button
+            function addLoadingClass(e, fragments, cart_hash, button) {
+              button.addClass('loading');
+            }
+
+            // Add new 'ajax_request_not_sent.adding_to_cart' event to trigger 'addLoadingClass' function
+            $(document.body).on('ajax_request_not_sent.adding_to_cart', addLoadingClass);
+
+            $(document.body).trigger('adding_to_cart', [button, data]);
+
+            $.ajax({
+              type: 'POST',
+              url: wc_add_to_cart_params.wc_ajax_url.toString().replace('%%endpoint%%', 'ace_add_to_cart'),
+              data: data,
+              complete: function (response) {
+                button.addClass('added').removeClass('loading');
+
+                // Remove 'should_send_ajax_request.adding_to_cart' and 'ajax_request_not_sent.adding_to_cart' events so they don't accumulate
+                $(document.body).off('should_send_ajax_request.adding_to_cart');
+                // Symptom of the addition of this event above..
+                $(document.body).off('ajax_request_not_sent.adding_to_cart', addLoadingClass);
+              },
+              success: function (response) {
+                if (response.error && response.product_url) { // I assume that it was a typo. if not please let me know
+                  console.log(response.error);
+                } else {
+                  $(document.body).trigger('added_to_cart', [
+                    response.fragments,
+                    response.cart_hash,
+                    button
+                  ]);
+                }
               }
-            }
+            });
+          });
+        });
+      </script>
 
+      <script>
+        jQuery(function ($) {
+          // Chromium-specific fix for browser back button
+          if (window.chrome) {
+            $(window).on('pageshow', function (e) {
+              if (e.originalEvent.persisted) {
+                setTimeout(function () {
+                  $(document.body).trigger('wc_fragment_refresh');
+                }, 100);
+              }
+            });
+          }
+
+          // Open offcanvas when product is added to cart
+          $(document.body).on('added_to_cart', function () {
+            // This will throw an error if #offcanvas-cart doesn't exist
+            $('#offcanvas-cart').offcanvas('show');
           });
 
-        });
-
-
-        // Add loading spinner to add_to_cart_button
-        $('.single_add_to_cart_button, .ajax_add_to_cart').prepend('<div class="btn-loader"><span class="spinner-border spinner-border-sm"></span></div>');
-
-        $('body').on('added_to_cart', function () {
-          // Open offcanvas-cart when cart is loaded
-          $('#offcanvas-cart').offcanvas('show');
-        });
-
-        // Hide alert in offcanvas-cart when offcanvas is closed
-        $('#offcanvas-cart').on('hidden.bs.offcanvas', function () {
-          $('#offcanvas-cart .woocommerce-message, #offcanvas-cart .woocommerce-error, #offcanvas-cart .woocommerce-info:not(.woocommerce-mini-cart__empty-message)').remove();
-        });
-
-        // Refresh ajax mini-cart on browser back button
-        // https://github.com/woocommerce/woocommerce/issues/32454
-        const isChromium = window.chrome;
-        if (isChromium) {
-          $(window).on('pageshow', function (e) {
-            if (e.originalEvent.persisted) {
-              setTimeout(function () {
-                $(document.body).trigger('wc_fragment_refresh');
-              }, 100);
-            }
+          // Handle offcanvas closing - remove notices, so the cart is always empty on "reopening"
+          $('#offcanvas-cart').on('hidden.bs.offcanvas', function () {
+            $('#offcanvas-cart .woocommerce-message, #offcanvas-cart .woocommerce-error, #offcanvas-cart .woocommerce-info:not(.woocommerce-mini-cart__empty-message)').remove();
           });
-        }
 
-      });
-    </script>
+          // That function is not "filtered" at the moment, but should have no impact if there are no toasts in the offcanvas cart.
+          $(document.body).on('added_to_cart qty_updated qty_update_failed wc_fragments_refreshed removed_from_cart', function () {
+            // Timeout is needed because "on" the added_to_cart event the fragments are not yet updated.
+            // wc_fragments_refreshed seems to not be triggered because the added_to_cart event already has the fragments retrieved by the ajax request.
+            setTimeout(function () {
+              const toastElList = document.querySelectorAll('#offcanvas-cart .toast');
+              if (toastElList && toastElList.length > 0) {
+                const toastList = [...toastElList].map(toastEl => new bootstrap.Toast(toastEl, {}).show());
+              }
+            }, 100); // Small delay to ensure fragments are processed
+          });
+        });
+      </script>
     <?php
   }
   add_action('wp_footer', 'bootscore_product_page_ajax_add_to_cart_js');
@@ -245,14 +227,12 @@ function bootscore_ajax_add_to_cart_js() {
           is_single_product_decrease_cart = $('.single form.cart .minus'),
           product_id = $(this).closest('.list-group-item').attr('data-bootscore_product_id');
 
-          // step = (step && !isNaN(parseInt(step))) ? parseInt(step) : 1;
-
         // Format values
         if (!currentVal || currentVal === '' || currentVal === 'NaN')
           currentVal = 0;
         if (max === '' || max === 'NaN') max = '';
         if (min === '' || min === 'NaN') min = 0;
-        if ( step === 'any' || step === '' || step === undefined || parseInt(step) === 'NaN' ){
+        if (step === 'any' || step === '' || step === undefined || parseInt(step) === 'NaN'){
           step = 1;
         }
 
@@ -338,7 +318,7 @@ function bootscore_ajax_add_to_cart_js() {
         // Trigger the function when the input is blurred.
         $('body').on('blur', '.item-quantity .quantity input', function (e) {
           e.preventDefault();
-          
+
           var input = $(this),
             max = input.attr('max'),
             currentValue = input.val(),
@@ -401,24 +381,41 @@ function bootscore_ajax_add_to_cart_js() {
             wrap.append(loader);
           },
           success: function (res) {
-            setTimeout(function () {
-              wrap.find('.blockUI').remove();
-            }, 300);
-
             let cart_res = res.data;
-            $('.cart-content span.woocommerce-Price-amount.amount').html(
-              cart_res['total']
-            );
-            wrap.find('.bootscore-custom-render-total').html(
-              cart_res['item_price']
-            );
-            wrap.find('span.qty_text').html(cart_res['item_qty']);
-            $('.cart-content-count').html(cart_res['total_items']);
-            $('.woocommerce-mini-cart__total.total .amount').html(
-              cart_res['total']
-            );
-            $('.cart-footer .amount').html(cart_res['total']);
-            $('.cart-content .cart-total').html(cart_res['total']);
+            if (res.success) {
+              if (cart_res['force_fragments_refresh']) {
+                $(document.body).trigger('wc_fragment_refresh');
+                return;
+              } else {
+                console.log('in_update_js_sucess');
+                $('#offcanvas-cart .cart-content span.woocommerce-Price-amount.amount').html(
+                  cart_res['total']
+                );
+
+                $.each(cart_res['fragments_replace'], function (selector, content) {
+                  $(selector).replaceWith(content);
+                });
+
+                $.each(cart_res['fragments_append'], function (selector, content) {
+                  $(selector).append(content);
+                });
+
+                // Dispatch the custom event
+                $(document.body).trigger('qty_updated', [res]);
+              }
+            } else {
+              wrap.find('.blockUI').remove();
+
+              $.each(cart_res['fragments_replace'], function (selector, content) {
+                $(selector).replaceWith(content);
+              });
+
+              $.each(cart_res['fragments_append'], function (selector, content) {
+                $(selector).append(content);
+              });
+
+              $(document.body).trigger('qty_update_failed', [res]);
+            }
           },
           error: function (jqXHR, textStatus, errorThrown) {
             setTimeout(function () {
@@ -479,9 +476,6 @@ function bootscore_ajax_add_to_cart_js() {
   // Remove WC Core add to cart handler to prevent double-add
   remove_action('wp_loaded', array('WC_Form_Handler', 'add_to_cart_action'), 20);
 
-} else {
-  // Remove WC Core add to cart handler to prevent double-add
-  // remove_action('wp_loaded', array('WC_Form_Handler', 'add_to_cart_action'), 20);
 }
 
 /**
@@ -491,25 +485,54 @@ function bootscore_ajax_add_to_cart_add_fragments($fragments) {
   $all_notices  = WC()->session->get('wc_notices', array());
   $notice_types = apply_filters('woocommerce_notice_types', array('error', 'success', 'notice'));
 
-  // Comment or delete this to hide Alerts
-  ob_start();
-  foreach ($notice_types as $notice_type) {
-    if (wc_notice_count($notice_type) > 0) {
-      wc_get_template("notices/{$notice_type}.php", array(
-        'notices' => array_filter($all_notices[$notice_type]),
-      ));
+  $notices_html = '';
+  if (apply_filters('bootscore_use_toasts_in_minicart', true)) {
+    ob_start();
+    echo '<div class="toast-container position-fixed top-0 end-0 p-3 px-4">';
+
+    foreach ($notice_types as $notice_type) {
+      if (wc_notice_count($notice_type) > 0) {
+        // Shadow and bg is hidden because that would produce a faulty looking appearance. Solvable with a rewrite of notice.php or adding special notice files for toasts.
+        echo '<div class="toast align-items-center bg-transparent shadow-none mb-2" role="alert" aria-live="assertive" aria-atomic="true">';
+        echo '<div class="position-relative">';
+        echo '<div class="toast-body p-0 row gap-2">';
+        wc_get_template("notices/{$notice_type}.php", array(
+          'notices' => array_filter($all_notices[$notice_type]),
+        ));
+        echo '</div>';
+        // Issue that that would only be visible on the "first" notice of each type as they are all shonw in 1 toast. therefore hidden for now.
+        // The only solution I can think of would be to rewrite the notice.php files.
+        //echo '<button type="button" class="btn-close m-auto position-absolute end-0 top-0 p-2" data-bs-dismiss="toast" aria-label="Close"></button>';
+        echo '</div>';
+        echo '</div>';
+      }
     }
+    echo '</div>';
+
+    $notices_html = '<div class="woocommerce-messages">' . ob_get_clean() . '</div>';
+    // Set margin on woocommerce messages to 0. To not touch the original notice files we just do a "dirty" str_replace
+    $notices_html = preg_replace('/class="woocommerce-(message|info|error)"/', 'class="woocommerce-$1 m-0 shadow"', $notices_html);
+
+  } else {
+    ob_start();
+    foreach ($notice_types as $notice_type) {
+      if (wc_notice_count($notice_type) > 0) {
+        wc_get_template("notices/{$notice_type}.php", array(
+          'notices' => array_filter($all_notices[$notice_type]),
+        ));
+      }
+    }
+    $notices_html = '<div class="woocommerce-messages">' . ob_get_clean() . '</div>';
   }
-  $fragments['notices_html'] = ob_get_clean();
-  // Comment or delete this to hide Alerts
+  $fragments['notices_html'] = $notices_html;
+  $fragments['.woocommerce-messages'] = $fragments['notices_html'];
 
   wc_clear_notices();
-
   return $fragments;
 }
 
 add_filter('woocommerce_add_to_cart_fragments', 'bootscore_ajax_add_to_cart_add_fragments');
-
+add_filter('bootscore_add_to_cart_fragments_on_qty_update', 'bootscore_ajax_add_to_cart_add_fragments');
 
 /**
  * Stop redirecting after stock error
@@ -520,82 +543,168 @@ add_filter('woocommerce_cart_redirect_after_error', '__return_false');
 add_action( 'wp_ajax_bootscore_qty_update', 'bootscore_qty_update' );
 add_action( 'wp_ajax_nopriv_bootscore_qty_update', 'bootscore_qty_update' );
 function bootscore_qty_update(){
-  if ( isset( $_POST['number'] ) ) {
-    $key    = isset( $_POST['key'] ) ? sanitize_text_field( wp_unslash( $_POST['key'] ) ) : '';
-    $number = isset( $_POST['number'] ) ? sanitize_text_field( wp_unslash( $_POST['number'] ) ) : '';
-    $max    = isset( $_POST['max'] ) ? sanitize_text_field( wp_unslash( $_POST['max'] ) ) : '';
-    $step   = isset( $_POST['step'] ) ? sanitize_text_field( wp_unslash( $_POST['step'] ) ) : '';
-    $nonce  = isset( $_POST['nonce'] ) ? sanitize_text_field( wp_unslash( $_POST['nonce'] ) ) : '';
+  if (isset($_POST['number'])) {
+    $cart_item_key = isset($_POST['key']) ? sanitize_text_field(wp_unslash($_POST['key'])) : '';
+    $qty = isset($_POST['number']) ? sanitize_text_field(wp_unslash($_POST['number'])) : '';
+    $max = isset($_POST['max']) ? sanitize_text_field(wp_unslash($_POST['max'])) : '';
+    $step = isset($_POST['step']) ? sanitize_text_field(wp_unslash($_POST['step'])) : '';
+    $nonce = isset($_POST['nonce']) ? sanitize_text_field(wp_unslash($_POST['nonce'])) : '';
 
-    $product_id = isset( $_POST['product_id'] ) ? intval( wp_unslash( $_POST['product_id'] ) ) : 0;
-    $product    = wc_get_product($product_id);
+    $product_id = isset($_POST['product_id']) ? intval(wp_unslash($_POST['product_id'])) : 0;
+    $product = wc_get_product($product_id);
 
-    // Decline the Ajax request if the product is not purchasable.
-    if ($product && $max !== 'NaN' ) {
-      $max_quantity = $product->get_max_purchase_quantity();
-      if ( $number > $max_quantity ) {
-        wp_send_json_error(
-          array(
-            'message' => __( 'Maximum quantity allowed is ' . $max_quantity . ' for this product', 'bootscore' ),
-          )
-        );
-      }
+    // Make sure both values are defined before accessing them
+    $response_item = array(
+      'fragments_replace' => array(),
+      'fragments_append' => array(),
+    );
+
+    // Validate nonce for security. Seems not to be completely DRY but I think it should be checked early here before going through other validations.
+    if (!wp_verify_nonce($nonce, 'bootscore_update_cart')) {
+      wc_add_notice(__('Nonce verification failed', 'bootscore'), 'error');
+      $response_item['fragments_replace'] = apply_filters('bootscore_add_to_cart_fragments_on_qty_update', $response_item['fragments_replace'], 'error');
+      wp_send_json_error($response_item);
     }
 
-    // Validate nonce for security.
-    if ( ! wp_verify_nonce( $nonce, 'bootscore_update_cart' ) ) {
-      wp_send_json_error(
-          array(
-              'message' => __( 'Nonce verification failed', 'bootscore' ),
-          )
-      );
-    }
+    if ($cart_item_key && $qty > 0) {
+      $response_item = apply_filters('bootscore_ajax_before_qty_update', $response_item, $cart_item_key);
+      $cart_content_before = WC()->cart->get_cart();
 
-    $woocommerce_tax_display_cart = get_option( 'woocommerce_tax_display_cart' );
+      // First is the stock validation filter of woocommerce, to also implement third party checks here this is also implemented
+      $passed_validation_wc_standard = apply_filters('woocommerce_update_cart_validation', true, $cart_item_key, $cart_content_before[$cart_item_key], $qty);
+      // To not interfere with other areas of woocommerce we also implement our own filter here. Users can decide if they want to apply the filter everywhere or just on the qty update in the mini cart
+      $passed_validation_qty_update = apply_filters('bootscore_update_cart_validation', true, $cart_item_key, $cart_content_before[$cart_item_key], $qty);
 
-    if ( $key && $number > 0 ) {
-      WC()->cart->set_quantity( $key, $number );
-      $items               = WC()->cart->get_cart();
-      $cart                = [];
-      $cart['count']       = WC()->cart->cart_contents_count;
-      $cart['total_items'] = WC()->cart->get_cart_contents_count();
-      $cart['total']       = WC()->cart->get_cart_total();
-      $cart['item_price']  = WC()->cart->get_product_subtotal( $items[ $key ]['data'], $items[ $key ]['quantity']);
-      $cart['item_qty']    = $items[ $key ]['quantity'];
-      $cart['message']     = __( 'Quantity updated successfully', 'bootscore' );
-
-      if ( $woocommerce_tax_display_cart === 'excl' ) {
-        $cart['total'] = wc_price( WC()->cart->get_cart_contents_total() );
+      // If one check fails. we return and append all the errors in the session to the notices.
+      if (!($passed_validation_wc_standard && $passed_validation_qty_update)) {
+        $response_item['fragments_replace'] = apply_filters('bootscore_add_to_cart_fragments_on_qty_update', $response_item['fragments_replace'], 'error');
+        wp_send_json_error($response_item);
       }
 
-      wp_send_json_success( $cart );
+      // Seems to nearly always return true, There is no validation as far as I understand. Therefore the checks happen before
+      WC()->cart->set_quantity($cart_item_key, $qty);
+
+      $items = WC()->cart->get_cart();
+      $updated_item = $items[$cart_item_key];
+
+      $response_item['fragments_replace'][".woocommerce-mini-cart-item[data-key=\"$cart_item_key\"]"] = retrieve_cart_item_html($cart_item_key, $updated_item);
+
+      // Get Mini Cart Footer Fragment
+      ob_start();
+      wc_get_template('cart/mini-cart-footer.php');
+      $response_item['fragments_replace']['.widget_shopping_cart_content .cart-footer > div'] = trim(ob_get_clean());
+
+      // Get mini-cart totals and amount for the cart symbol in the header
+      if (get_option('woocommerce_tax_display_cart') === 'excl') {
+        $cart_total = wc_price(WC()->cart->get_cart_contents_total());
+      } else {
+        $cart_total = WC()->cart->get_cart_total();
+      }
+      $response_item['fragments_replace']['.woocommerce-mini-cart__total.total .amount > bdi'] = $cart_total;
+      $response_item['fragments_replace']['.cart-content-count'] = '<span class="cart-content-count position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">' . WC()->cart->get_cart_contents_count() . '</span>';
+
+      wc_add_notice("Quantity of {$updated_item['data']->get_name()} updated successfully", 'success');
+
+      // Filter to force complete fragments refresh on qty update if some incompatibility comes up.
+      $response_item['force_fragments_refresh'] = apply_filters('bootscore_ajax_force_qty_update_refresh', false, $response_item, $cart_item_key, $qty);
+
+      $cart_content_after = WC()->cart->get_cart();
+
+      // Look for Items added to the cart while updating - E.g. if there is a bogo plugin active that adds a different item:
+      $new_items = array_diff_key($cart_content_after, $cart_content_before);
+      foreach ($new_items as $key => $item) {
+        $response_item['fragments_append'][".woocommerce-mini-cart.cart_list"] .= retrieve_cart_item_html($key, $item);
+        wc_add_notice("{$item['data']->get_title()} was added to the cart", 'success');
+      }
+
+      // Look for Items removed from the cart while updating - E.g. if there is a bogo plugin active and the conditions don't apply anymore:
+      $removed_items = array_diff_key($cart_content_before, $cart_content_after);
+      foreach ($removed_items as $key => $item) {
+        $response_item['fragments_replace'][".woocommerce-mini-cart-item[data-key=\"$key\"]"] = '';
+        wc_add_notice("{$item['data']->get_title()} was removed from cart", 'notice');
+      }
+
+      // Do something to the cart just before submission but before the session notifications are added
+      $response_item = apply_filters('bootscore_ajax_after_qty_update', $response_item, $updated_item, $cart_item_key, $cart_content_after, $cart_content_before);
+
+      // If a complete fragments refresh is forced, don't get the messages here, because it would remove them from the session.
+      if (!$response_item['force_fragments_refresh']) {
+        // Add notices to the fragments used
+        $response_item['fragments_replace'] = apply_filters('bootscore_add_to_cart_fragments_on_qty_update', $response_item['fragments_replace'], 'success');
+      }
+
+      wp_send_json_success($response_item);
     } else {
-        wp_send_json_error( __('Invalid key or number', 'bootscore') );
+      wc_add_notice(__('Invalid key or number', 'bootscore'), 'error');
+      $response_item['fragments_replace'] = apply_filters('bootscore_add_to_cart_fragments_on_qty_update', $response_item['fragments_replace'], 'error');
+      wp_send_json_error($response_item);
     }
   }
 }
 
-// Add quantity fields in Mini Cart.
+function retrieve_cart_item_html($cart_item_key, $cart_item): string
+{
+  ob_start();
+  wc_get_template(
+    'cart/mini-cart-item.php',
+    array(
+      'cart_item_key' => $cart_item_key,
+      'cart_item' => $cart_item  // Note: Send the whole cart_item array
+    )
+  );
+  return trim(ob_get_clean());
+}
+
+add_action('woocommerce_before_mini_cart_contents', 'add_wc_messages_container');
+function add_wc_messages_container() {
+  // Extra container for easier handling and probable height animations
+  echo '<div class="woocommerce-messages-container"><div class="woocommerce-messages"><div></div></div></div>'; // Inner div will be replaced by update and fragments function
+}
+
+add_filter('bootscore_update_cart_validation', 'validate_qty_before_update', 10, 4);
+function validate_qty_before_update($passed, $cart_item_key, $cart_item, $qty){
+  // Decline the Ajax request if the product is not purchasable.
+  $product = $cart_item['data'];
+  if ($product) {
+    $max_quantity = $product->get_max_purchase_quantity();
+    // If quantity is unlimited the function will return -1
+    if ($max_quantity != -1 && $qty > $max_quantity) {
+      wc_add_notice(sprintf(__('We only have %1$d of (%2$s) in stock.', 'bootscore'), $max_quantity, $product->get_name()), 'error');
+      return false;
+    }
+  }
+  return $passed;
+}
+
+  // Show removal of products as well
+add_action('woocommerce_remove_cart_item', function ($cart_item_key, $cart) {
+  $removed = $cart->removed_cart_contents[$cart_item_key];
+  $product_name = wc_get_product($removed['product_id'])->get_name();
+
+  // Add your notice (WC will show these via AJAX too)
+  wc_add_notice(sprintf(__('%s has been removed from your cart.', 'woocommerce'), $product_name), 'success');
+}, 10, 2);
+
 add_filter('woocommerce_widget_cart_item_quantity', 'add_minicart_quantity_fields', 10, 3);
-function add_minicart_quantity_fields($html, $cart_item, $cart_item_key) {
-  $_product   = apply_filters( 'woocommerce_cart_item_product', $cart_item['data'], $cart_item, $cart_item_key );
-  if ( $_product->is_sold_individually() ) {
+function add_minicart_quantity_fields($html, $cart_item, $cart_item_key){
+  $_product = apply_filters('woocommerce_cart_item_product', $cart_item['data'], $cart_item, $cart_item_key);
+  if ($_product->is_sold_individually()) {
     $min_quantity = 1;
     $max_quantity = 1;
   } else {
     $min_quantity = 0;
     $max_quantity = $_product->get_max_purchase_quantity();
-  } 
+  }
 
-  $product_price = apply_filters( 'woocommerce_cart_item_price', WC()->cart->get_product_price( $cart_item['data'] ), $cart_item, $cart_item_key );
+  $product_price = apply_filters('woocommerce_cart_item_price', WC()->cart->get_product_price($cart_item['data']), $cart_item, $cart_item_key);
   wp_nonce_field('bootscore_update_cart', 'bootscore_update_cart_nonce');
 
-  $output = '<span class="quantity">' . sprintf( '<span class="qty_text">%s</span> &times; %s', $cart_item['quantity'], $product_price ) . '</span>';
+  $output = '<span class="quantity">' . sprintf('<span class="qty_text">%s</span> &times; %s', $cart_item['quantity'], $product_price) . '</span>';
   $output .= woocommerce_quantity_input(
     array(
       'input_value' => $cart_item['quantity'],
-      'max_value'   => $max_quantity,
-      'min_value'   => $min_quantity,
+      'max_value' => $max_quantity,
+      'min_value' => $min_quantity,
     ),
     $cart_item['data'],
     false
