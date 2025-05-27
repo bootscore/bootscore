@@ -222,40 +222,6 @@ function bootscore_ajax_add_to_cart_js() {
   ?>
   <script>
     jQuery(function ($) {
-      // Handling of quantity buttons in single product form, has nothing to do with ajax cart.
-      $(document.body).on('click', 'form.cart .plus, form.cart .minus,' + // for single product page
-        'form.woocommerce-cart-form .plus, form.woocommerce-cart-form .minus', // legacy cart
-        function () {
-        let $qty = $(this).closest('.quantity').find('.qty'),
-          currentVal = parseInt($qty.val()),
-          max = parseInt($qty.attr('max')),
-          min = parseInt($qty.attr('min')),
-          step = $qty.attr('step');
-
-        // Format values
-        if (! currentVal || currentVal === '' || currentVal === 'NaN') currentVal = 0;
-        if (max === '' || max === 'NaN') max = '';
-        if (min === '' || min === 'NaN') min = 0;
-        if (step === 'any' || step === '' || step === undefined || parseInt(step) === 'NaN'){ step = 1; }
-
-        // Perform the Quantity Update for Increment.
-        let newVal = currentVal;
-        if ($(this).is('.plus')) {
-          newVal += parseInt(step);
-          // As the value on page load is always 1 or the min value, the minus button will be disabled by default.
-          // As soon as we add some quantity, we enable the minus button. On further clicks you could go on 0 but
-          // would get notified immediatly by the html validation
-          $(this).closest('.quantity').find('.minus').attr('disabled', false);
-        } else {
-          newVal -= parseInt(step);
-        }
-
-        $qty.val( newVal );
-        $qty[0].reportValidity();
-
-        // needed to enable refresh cart button on legacy cart page
-        $qty.trigger('change');
-      });
 
     // Handling of quantity buttons in the ajax mini cart qty buttons
       $(document.body).on('click', '.item-quantity .plus, .item-quantity .minus', function () {
@@ -436,7 +402,7 @@ function bootscore_ajax_add_to_cart_add_fragments($fragments) {
   $notice_types = apply_filters('woocommerce_notice_types', array('error', 'success', 'notice'));
 
   $notices_html = '';
-  if (apply_filters('bootscore_use_toasts_in_minicart', true)) {
+  if (apply_filters('bootscore_use_toasts_in_minicart', false)) {
     ob_start();
     echo '<div class="toast-container position-fixed top-0 end-0 p-3 px-4">';
 
