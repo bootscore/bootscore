@@ -4,7 +4,7 @@
  * WooCommerce AJAX cart
  *
  * @package Bootscore
- * @version 6.2.0
+ * @version 6.0.1
  */
 
 
@@ -603,3 +603,41 @@ function add_minicart_quantity_fields($html, $cart_item, $cart_item_key) {
 
   return $output;
 }
+
+
+/**
+ * Disable quantity input if only 1 product in stock left or sold individually
+ *
+ * https://github.com/bootscore/bootscore/issues/801
+ * https://github.com/bootscore/bootscore/pull/823
+ */
+function bootscore_disable_quantity() {
+  ?>
+  <script>
+  jQuery(function ($) {
+    // Function to disable quantity inputs and buttons
+    function disableQuantityInputs() {
+      $('.quantity').each(function() {
+        var $input = $(this).find('input[type="number"]');
+        var max = $input.attr('max');
+
+        if (max == 1) { // Check if max is 1
+          $(this).find('button').attr('disabled', 'disabled');
+          $input.attr('disabled', 'disabled');
+        }
+      });
+    }
+
+    // Trigger the function after AJAX completes
+    $(document).ajaxComplete(function() {
+      disableQuantityInputs();
+    });
+
+    // Optionally, call it on document ready to handle initial load cases
+    disableQuantityInputs();
+  });
+  </script>
+  <?php
+}
+
+add_action('wp_footer', 'bootscore_disable_quantity');
