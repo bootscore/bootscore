@@ -210,7 +210,8 @@ if ( 'no' !== $is_enabled_ajax_cart ) {
         '</p>';
     }
 
-    // Implement Buttonloader directly without js
+    // Implement btn-loader element directly on the loop items without js
+    // Helps to decrease computing on client devices on page load and makes it cacheable
     $pattern = '/(<a href=\"\?add-to-cart=[^>]+>)/';
     $replacement = '$1<div class="btn-loader"><span class="spinner-border spinner-border-sm"></span></div>';
 
@@ -391,7 +392,6 @@ function bootscore_ajax_add_to_cart_js() {
 
   // Remove WC Core add to cart handler to prevent double-add
   remove_action('wp_loaded', array('WC_Form_Handler', 'add_to_cart_action'), 20);
-
 }
 
 /**
@@ -402,9 +402,10 @@ function bootscore_ajax_add_to_cart_add_fragments($fragments) {
   $notice_types = apply_filters('woocommerce_notice_types', array('error', 'success', 'notice'));
 
   $notices_html = '';
-  if (apply_filters('bootscore_use_toasts_in_minicart', false)) {
+  if (apply_filters('bootscore/woocommerce/notifications/mini-cart/use_toasts', false)) {
     ob_start();
     echo '<div class="toast-container position-fixed top-0 end-0 p-3 px-4">';
+    echo '<div class="toast-container ' . apply_filters('bootscore/class/woocommerce/toast-container', 'position-fixed top-0 end-0 p-3 px-4') . '">';
 
     foreach ($notice_types as $notice_type) {
       if (wc_notice_count($notice_type) > 0) {
@@ -416,7 +417,7 @@ function bootscore_ajax_add_to_cart_add_fragments($fragments) {
           'notices' => array_filter($all_notices[$notice_type]),
         ));
         echo '</div>';
-        // Issue that that would only be visible on the "first" notice of each type as they are all shonw in 1 toast. therefore hidden for now.
+        // Issue that that would only be visible on the "first" notice of each type as they are all shown in 1 toast. therefore hidden for now.
         // The only solution I can think of would be to rewrite the notice.php files.
         //echo '<button type="button" class="btn-close m-auto position-absolute end-0 top-0 p-2" data-bs-dismiss="toast" aria-label="Close"></button>';
         echo '</div>';
@@ -448,7 +449,7 @@ function bootscore_ajax_add_to_cart_add_fragments($fragments) {
 }
 
 add_filter('woocommerce_add_to_cart_fragments', 'bootscore_ajax_add_to_cart_add_fragments');
-add_filter('bootscore_add_to_cart_fragments_on_qty_update', 'bootscore_ajax_add_to_cart_add_fragments');
+add_filter('bootscore/woocommerce/ajax-cart/update-qty/fragments/replace', 'bootscore_ajax_add_to_cart_add_fragments');
 
 /**
  * Stop redirecting after stock error
@@ -478,22 +479,22 @@ function bootscore_qty_update(){
     // Validate nonce for security. Seems not to be completely DRY but I think it should be checked early here before going through other validations.
     if (!wp_verify_nonce($nonce, 'bootscore_update_cart')) {
       wc_add_notice(__('Nonce verification failed', 'bootscore'), 'error');
-      $response_item['fragments_replace'] = apply_filters('bootscore_add_to_cart_fragments_on_qty_update', $response_item['fragments_replace'], 'error');
+      $response_item['fragments_replace'] = apply_filters('bootscore/woocommerce/ajax-cart/update-qty/fragments/replace', $response_item['fragments_replace'], 'error');
       wp_send_json_error($response_item);
     }
 
     if ($cart_item_key && $qty >= 0) {
-      $response_item = apply_filters('bootscore_ajax_before_qty_update', $response_item, $cart_item_key);
+      $response_item = apply_filters('bootscore/woocommerce/ajax-cart/update-qty/response/before-update', $response_item, $cart_item_key);
       $cart_content_before = WC()->cart->get_cart();
 
       // First is the stock validation filter of woocommerce, to also implement third party checks here this is also implemented
       $passed_validation_wc_standard = apply_filters('woocommerce_update_cart_validation', true, $cart_item_key, $cart_content_before[$cart_item_key], $qty);
       // To not interfere with other areas of woocommerce we also implement our own filter here. Users can decide if they want to apply the filter everywhere or just on the qty update in the mini cart
-      $passed_validation_qty_update = apply_filters('bootscore_update_cart_validation', true, $cart_item_key, $cart_content_before[$cart_item_key], $qty);
+      $passed_validation_qty_update = apply_filters('bootscore/woocommerce/ajax-cart/update-qty/validate-update', true, $cart_item_key, $cart_content_before[$cart_item_key], $qty);
 
       // If one check fails. we return and append all the errors in the session to the notices.
       if (!($passed_validation_wc_standard && $passed_validation_qty_update)) {
-        $response_item['fragments_replace'] = apply_filters('bootscore_add_to_cart_fragments_on_qty_update', $response_item['fragments_replace'], 'error');
+        $response_item['fragments_replace'] = apply_filters('bootscore/woocommerce/ajax-cart/update-qty/fragments/replace', $response_item['fragments_replace'], 'error');
         wp_send_json_error($response_item);
       }
 
@@ -522,7 +523,7 @@ function bootscore_qty_update(){
       wc_add_notice("Quantity of {$updated_item['data']->get_name()} updated successfully", 'success');
 
       // Filter to force complete fragments refresh on qty update if some incompatibility comes up.
-      $response_item['force_fragments_refresh'] = apply_filters('bootscore_ajax_force_qty_update_refresh', false, $response_item, $cart_item_key, $qty);
+      $response_item['force_fragments_refresh'] = apply_filters('bootscore/woocommerce/ajax-cart/update-qty/response/force-full-refresh', false, $response_item, $cart_item_key, $qty);
 
       $cart_content_after = WC()->cart->get_cart();
 
@@ -541,18 +542,18 @@ function bootscore_qty_update(){
       }
 
       // Do something to the cart just before submission but before the session notifications are added
-      $response_item = apply_filters('bootscore_ajax_after_qty_update', $response_item, $updated_item, $cart_item_key, $cart_content_after, $cart_content_before);
+      $response_item = apply_filters('bootscore/woocommerce/ajax-cart/update-qty/response/after-update', $response_item, $updated_item, $cart_item_key, $cart_content_after, $cart_content_before);
 
       // If a complete fragments refresh is forced, don't get the messages here, because it would remove them from the session.
       if (!$response_item['force_fragments_refresh']) {
         // Add notices to the fragments used
-        $response_item['fragments_replace'] = apply_filters('bootscore_add_to_cart_fragments_on_qty_update', $response_item['fragments_replace'], 'success');
+        $response_item['fragments_replace'] = apply_filters('bootscore/woocommerce/ajax-cart/update-qty/fragments/replace', $response_item['fragments_replace'], 'success');
       }
 
       wp_send_json_success($response_item);
     } else {
       wc_add_notice(__('Invalid key or number', 'bootscore'), 'error');
-      $response_item['fragments_replace'] = apply_filters('bootscore_add_to_cart_fragments_on_qty_update', $response_item['fragments_replace'], 'error');
+      $response_item['fragments_replace'] = apply_filters('bootscore/woocommerce/ajax-cart/update-qty/fragments/replace', $response_item['fragments_replace'], 'error');
       wp_send_json_error($response_item);
     }
   }
@@ -577,7 +578,7 @@ function add_wc_messages_container() {
   echo '<div class="woocommerce-messages-container"><div class="woocommerce-messages"><div></div></div></div>'; // Inner div will be replaced by update and fragments function
 }
 
-add_filter('bootscore_update_cart_validation', 'validate_qty_before_update', 10, 4);
+add_filter('bootscore/woocommerce/ajax-cart/update-qty/validate-update', 'validate_qty_before_update', 10, 4);
 function validate_qty_before_update($passed, $cart_item_key, $cart_item, $qty){
   // Decline the Ajax request if the product is not purchasable.
   $product = $cart_item['data'];
