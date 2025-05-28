@@ -21,7 +21,7 @@
     add_filter('woocommerce_quantity_input_type', 'change_quantity_input_type');
 
     // Both Buttons are enabled
-    if( $args['min_value'] == $args['max_value'] ) {
+    if( $args['max_value'] == 1 || $args['min_value'] == $args['max_value'] ) {
       add_action('woocommerce_before_quantity_input_field', 'bs_quantity_minus_button_disabled');
       add_action('woocommerce_after_quantity_input_field', 'bs_quantity_plus_button_disabled');
 
