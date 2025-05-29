@@ -55,3 +55,9 @@ WooCommerce Quantity Input
     }
   }
 }
+
+// show readonly button as disabled
+.quantity input[readonly="readonly"] {
+  background-color: $input-disabled-bg;
+  pointer-events: none;
+}
