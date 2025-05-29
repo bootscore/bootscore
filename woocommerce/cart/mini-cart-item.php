@@ -1,16 +1,22 @@
 <?php
-  /**
-   * Mini-cart item template
-   *
-   * @var string $cart_item_key Cart item key
-   * @var array{
-   *     data: WC_Product,
-   *     quantity: int,
-   *     variation: array,
-   *     variation_id: int
-   * } $cart_item Cart item data
-   */
+/**
+ * Mini-cart item template
+ *
+ * @var string $cart_item_key Cart item key
+ * @var array{
+ *     data: WC_Product,
+ *     quantity: int,
+ *     variation: array,
+ *     variation_id: int
+ * } $cart_item Cart item data
+ *
+ * @WooCommerce 9.4.0
+ *
+ * @package Bootscore
+ * @version 6.2.0
+ */
 
+  // Exit if accessed directly
   defined('ABSPATH') || exit;
 
   $_product = apply_filters('woocommerce_cart_item_product', $cart_item['data'], $cart_item, $cart_item_key);

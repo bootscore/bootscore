@@ -1,3 +1,11 @@
+/**
+ * AJAX Login JS
+ *
+ * @package Bootscore
+ * @version 6.2.0
+ */
+
+
 jQuery(function ($) {
 
   const {

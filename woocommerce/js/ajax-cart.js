@@ -6,7 +6,11 @@
  * 2. Quantity update Buttons
  * 3. General Offcanvas Cart behaviour
  * 4. Browser fixes
+ *
+ * @package Bootscore
+ * @version 6.2.0
  */
+
 
 jQuery(function ($) {
   // 1 Handle AJAX Add To Cart

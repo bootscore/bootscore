@@ -1,5 +1,7 @@
 /*--------------------------------------------------------------
 WooCommerce Quantity Input
+@package Bootscore
+@version 6.2.0
 --------------------------------------------------------------*/
 
 .quantity {
@@ -22,23 +24,6 @@ WooCommerce Quantity Input
       margin: 0;
     }
   }
-
-  /*
-  // Disable quantity input if only 1 product in stock left or sold individually
-  // https://github.com/bootscore/bootscore/issues/801
-  // https://github.com/bootscore/bootscore/pull/823
-  &:has([max="1"]) {
-
-    .input-group-text {
-      pointer-events: none;
-    }
-
-    .form-control {
-      background-color: $input-disabled-bg;
-      pointer-events: none;
-    }
-  }
-  */
 }
 
 
