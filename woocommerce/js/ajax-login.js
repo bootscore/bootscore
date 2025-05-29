@@ -1,8 +1,5 @@
 /**
- * AJAX Login JS
- *
- * @package Bootscore
- * @version 6.2.0
+ * AJAX Login JS - Bootscore v6.2.0
  */
 
 

@@ -1,8 +1,5 @@
 /**
- * WooCommerce JS
- *
- * @package Bootscore
- * @version 6.2.0
+ * WooCommerce JS - Bootscore v6.2.0
  */
 
 
