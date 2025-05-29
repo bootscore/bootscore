@@ -1,4 +1,6 @@
 /**
+ * AJAX Cart JS - Bootscore v6.2.0
+ *
  * Consists of 4 parts
  * 1. Handle Ajax Add to cart
  *   1.1 Single product page
@@ -6,7 +8,9 @@
  * 2. Quantity update Buttons
  * 3. General Offcanvas Cart behaviour
  * 4. Browser fixes
+ *
  */
+
 
 jQuery(function ($) {
   // 1 Handle AJAX Add To Cart

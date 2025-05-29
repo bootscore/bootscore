@@ -1,3 +1,8 @@
+/**
+ * AJAX Login JS - Bootscore v6.2.0
+ */
+
+
 jQuery(function ($) {
 
   const {

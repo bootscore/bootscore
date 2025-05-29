@@ -1,3 +1,8 @@
+/**
+ * WooCommerce JS - Bootscore v6.2.0
+ */
+
+
 jQuery(function ($) {
 
   // Single-product Tabs
