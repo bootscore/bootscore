@@ -1,7 +1,7 @@
 <?php
 /**
  * Title: s - Heading and subtitle
- * Slug: s.heading-subtitle
+ * Slug: s-heading-subtitle
  * Categories: bootscore
  * https://developer.wordpress.org/themes/features/block-patterns/
  * 

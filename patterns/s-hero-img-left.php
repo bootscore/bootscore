@@ -1,7 +1,7 @@
 <?php
 /**
  * Title: s - Hero image left
- * Slug: bootscore/s.hero-img-left
+ * Slug: bootscore/s-hero-img-left
  * Categories: bootscore
  * https://developer.wordpress.org/themes/features/block-patterns/
  * 

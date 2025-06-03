@@ -1,7 +1,7 @@
 <?php
 /**
  * Title: c - Button primary
- * Slug: bootscore/c.btn-primary
+ * Slug: bootscore/c-btn-primary
  * Categories: bootscore
  * https://developer.wordpress.org/themes/features/block-patterns/
  * 

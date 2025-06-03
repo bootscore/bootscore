@@ -1,7 +1,7 @@
 <?php
 /**
  * Title: c - Card with header and footer
- * Slug: bootscore/c.card-header-footer
+ * Slug: bootscore/c-card-header-footer
  * Categories: bootscore
  * https://developer.wordpress.org/themes/features/block-patterns/
  * 

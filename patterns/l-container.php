@@ -1,7 +1,7 @@
 <?php
 /**
  * Title: l - Container
- * Slug: bootscore/l.container
+ * Slug: bootscore/l-container
  * Categories: bootscore
  * https://developer.wordpress.org/themes/features/block-patterns/
  * 

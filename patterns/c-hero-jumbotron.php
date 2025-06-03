@@ -1,7 +1,7 @@
 <?php
 /**
  * Title: c - Hero jumbotron
- * Slug: bootscore/c.hero-jumbotron
+ * Slug: bootscore/c-hero-jumbotron
  * Categories: bootscore
  * https://developer.wordpress.org/themes/features/block-patterns/
  * 

@@ -1,7 +1,7 @@
 <?php
 /**
  * Title: c - Card with category widget
- * Slug: bootscore/c.card-widget-categories
+ * Slug: bootscore/c-card-widget-categories
  * Categories: bootscore
  * https://developer.wordpress.org/themes/features/block-patterns/
  * 

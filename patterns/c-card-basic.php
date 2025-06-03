@@ -1,7 +1,7 @@
 <?php
 /**
  * Title: c - Card basic with image
- * Slug: bootscore/c.card-basic
+ * Slug: bootscore/c-card-basic
  * Categories: bootscore
  * https://developer.wordpress.org/themes/features/block-patterns/
  * 
