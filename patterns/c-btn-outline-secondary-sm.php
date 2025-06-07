@@ -1,7 +1,7 @@
 <?php
 /**
  * Title: c - Button outline-secondary sm
- * Slug: bootscore/c.btn-outline-secondary-sm
+ * Slug: bootscore/c-btn-outline-secondary-sm
  * Categories: bootscore
  * https://developer.wordpress.org/themes/features/block-patterns/
  * 

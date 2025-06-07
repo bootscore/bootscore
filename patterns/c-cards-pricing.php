@@ -1,7 +1,7 @@
 <?php
 /**
  * Title: c - Cards pricing
- * Slug: bootscore/c.cards-pricing
+ * Slug: bootscore/c-cards-pricing
  * Categories: bootscore
  * https://developer.wordpress.org/themes/features/block-patterns/
  * 
