@@ -170,13 +170,13 @@ jQuery(function ($) {
     var input = $(this),
       max = input.attr('max'),
       currentValue = input.val(),
-      intValue = Math.max(Math.ceil(parseInt(currentValue)), 1),
+      intValue = Math.max(Math.ceil(parseInt(currentValue)), 0),
       nonce = $('input[name="bootscore_update_cart_nonce"]').val(),
       product_id = $(this).closest('.list-group-item').attr('data-bootscore_product_id');
 
     input.val(intValue);
 
-    if (currentValue === '' || parseInt(currentValue) === '0' || intValue === NaN) {
+    if (currentValue === '' || intValue === NaN) {
       input.val(1);
       intValue = 1;
     }
@@ -199,6 +199,21 @@ jQuery(function ($) {
     // Perform the Quantity Update.
     let wrap = $(input).closest('.woocommerce-mini-cart-item');
     bootscore_quantity_update(wrap, intValue, nonce, product_id, max);
+  });
+
+  // Remove items with a modified update quantity method
+  $('body').on('click', '.remove_from_cart_button', function (e) {
+    e.preventDefault();
+
+    var input = $(this),
+        nonce = $('input[name="bootscore_update_cart_nonce"]').val(),
+        product_id = $(this).closest('.list-group-item').attr('data-bootscore_product_id');
+
+    console.log('remove_from_cart_button');
+
+    // Perform the Quantity Update.
+    let wrap = $(input).closest('.woocommerce-mini-cart-item');
+    bootscore_quantity_update(wrap, 0, nonce, product_id);
   });
 
   function bootscore_quantity_update(wrap, number, nonce, product_id, max = -1, step = 1) {

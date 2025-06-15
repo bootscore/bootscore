@@ -202,7 +202,11 @@
           $response_item['fragments_replace']['.cart-toggler .woocommerce-Price-amount > bdi'] = $cart_total;
           $response_item['fragments_replace']['.cart-content-count'] = '<span class="cart-content-count position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">' . WC()->cart->get_cart_contents_count() . '</span>';
 
-          wc_add_notice(sprintf(__("Quantity of %s updated successfully", 'bootscore'), $updated_item['data']->get_name()), 'success');
+          if($qty == 0){
+            wc_add_notice(sprintf(__('&ldquo;%s&rdquo; has been removed from your cart', 'woocommerce'), $updated_item['data']->get_name()), 'success');
+          } else {
+            wc_add_notice(sprintf(__("Quantity of %s updated successfully", 'bootscore'), $updated_item['data']->get_name()), 'success');
+          }
 
           // Filter to force complete fragments refresh on qty update if some incompatibility comes up.
           $response_item['force_fragments_refresh'] = apply_filters('bootscore/woocommerce/ajax-cart/update-qty/response/force-full-refresh', false, $response_item, $cart_item_key, $qty);
@@ -276,15 +280,6 @@
       }
       return $passed;
     }
-
-    // Show removal of products as well
-    add_action('woocommerce_remove_cart_item', function ($cart_item_key, $cart) {
-      $removed = $cart->removed_cart_contents[$cart_item_key];
-      $product_name = wc_get_product($removed['product_id'])->get_name();
-
-      // Add your notice (WC will show these via AJAX too)
-      wc_add_notice(sprintf(__('&ldquo;%s&rdquo; has been removed from your cart', 'woocommerce'), $product_name), 'success');
-    }, 10, 2);
 
     add_filter('woocommerce_widget_cart_item_quantity', 'add_minicart_quantity_fields', 10, 3);
     function add_minicart_quantity_fields($html, $cart_item, $cart_item_key)
