@@ -215,6 +215,7 @@
 
           // Look for Items added to the cart while updating - E.g. if there is a bogo plugin active that adds a different item:
           $new_items = array_diff_key($cart_content_after, $cart_content_before);
+          if( !empty( $new_items ) ) { $response_item['fragments_append'][".woocommerce-mini-cart.cart_list"] = ''; }
           foreach ($new_items as $key => $item) {
             $response_item['fragments_append'][".woocommerce-mini-cart.cart_list"] .= retrieve_cart_item_html($key, $item);
             wc_add_notice( sprintf(__( '&ldquo;%s&rdquo; has been added to your cart', 'woocommerce' ), $item['data']->get_title()), 'success' );
