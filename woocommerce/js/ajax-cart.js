@@ -255,13 +255,11 @@ jQuery(function ($) {
               cart_res['total']
             );
 
-            $.each(cart_res['fragments_replace'], function (selector, content) {
-              $(selector).replaceWith(content);
-            });
-
-            $.each(cart_res['fragments_append'], function (selector, content) {
-              $(selector).append(content);
-            });
+            if (document.startViewTransition) {
+              document.startViewTransition(() => updateCartFragments(cart_res));
+            } else {
+              updateCartFragments(cart_res);
+            }
 
             // Dispatch the custom event
             $(document.body).trigger('qty_updated', [res]);
@@ -269,13 +267,11 @@ jQuery(function ($) {
         } else {
           wrap.find('.blockUI').remove();
 
-          $.each(cart_res['fragments_replace'], function (selector, content) {
-            $(selector).replaceWith(content);
-          });
-
-          $.each(cart_res['fragments_append'], function (selector, content) {
-            $(selector).append(content);
-          });
+          if (document.startViewTransition) {
+            document.startViewTransition(() => updateCartFragments(cart_res));
+          } else {
+            updateCartFragments(cart_res);
+          }
 
           $(document.body).trigger('qty_update_failed', [res]);
         }
@@ -290,6 +286,19 @@ jQuery(function ($) {
       },
     });
   }
+
+  function updateCartFragments(cart_res) {
+    // Replace fragments
+    $.each(cart_res['fragments_replace'], function (selector, content) {
+      $(selector).replaceWith(content);
+    });
+
+    // Append fragments
+    $.each(cart_res['fragments_append'], function (selector, content) {
+      $(selector).append(content);
+    });
+  }
+
 
   // 3. General Offcanvas Cart behaviour
 
