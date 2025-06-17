@@ -213,6 +213,9 @@
 
           $cart_content_after = WC()->cart->get_cart();
 
+          // If the cart is empty, we need to force a full refresh.
+          if( WC()->cart->get_cart_contents_count() == 0) $response_item['force_fragments_refresh'] = true;
+
           // Look for Items added to the cart while updating - E.g. if there is a bogo plugin active that adds a different item:
           $new_items = array_diff_key($cart_content_after, $cart_content_before);
           if( !empty( $new_items ) ) { $response_item['fragments_append'][".woocommerce-mini-cart.cart_list"] = ''; }

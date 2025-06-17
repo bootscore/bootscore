@@ -201,6 +201,9 @@ jQuery(function ($) {
     bootscore_quantity_update(wrap, intValue, nonce, product_id, max);
   });
 
+  // Remove original handler:
+  $(document.body).off('click', '.remove_from_cart_button');
+
   // Remove items with a modified update quantity method
   $('body').on('click', '.remove_from_cart_button', function (e) {
     e.preventDefault();

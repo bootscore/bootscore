@@ -42,7 +42,7 @@ function bootscore_wc_scripts() {
 
     $modified_ajaxCart_JS = date('YmdHi', filemtime(get_template_directory() . '/woocommerce/js/ajax-cart.js'));
 
-    wp_enqueue_script('bootscore-ajax-cart-script', get_template_directory_uri() . '/woocommerce/js/ajax-cart.js', array(), $modified_ajaxCart_JS, true);
+    wp_enqueue_script('bootscore-ajax-cart-script', get_template_directory_uri() . '/woocommerce/js/ajax-cart.js', array('wc-add-to-cart'), $modified_ajaxCart_JS, true);
     //wp_set_script_translations('bootscore-ajax-cart-script', 'bootscore', get_template_directory() . '/languages');
   }
 
