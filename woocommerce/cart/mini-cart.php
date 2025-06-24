@@ -14,7 +14,7 @@
    *
    * @see     https://docs.woocommerce.com/document/template-structure/
    * @package WooCommerce\Templates
-   * @version 9.4.0
+   * @version 10.0.0
    *
    * @package Bootscore
    * @version 6.2.0
