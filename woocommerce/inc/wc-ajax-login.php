@@ -48,8 +48,11 @@ function load_account_menu_html() {
       $forwarded_ips = explode(',', $_SERVER['HTTP_X_FORWARDED_FOR']);
       foreach ($forwarded_ips as $ip) {
         $ip = trim($ip);
+        // There could be multiple IPs in the X-Forwarded-For header
+        // The first in the chain should be the right one
         if (filter_var($ip, FILTER_VALIDATE_IP)) {
           $user_ip = $ip;
+          break;
         }
       }
     }
