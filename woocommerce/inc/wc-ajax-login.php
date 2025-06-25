@@ -28,22 +28,37 @@ function load_account_menu_html() {
  *
  * @return string|null The IP address of the client, or null if it cannot be determined.
  */
-function bootscore_get_user_ip() {
-  global $user_ip;
+  function bootscore_get_user_ip() {
+    global $user_ip;
 
-  if (!is_null($user_ip)) { // We've already discovered the browser's IP address.
+    if (!is_null($user_ip)) { // We've already discovered the browser's IP address.
+      return $user_ip;
+    }
+
+    if ( !empty($_SERVER['HTTP_CLIENT_IP']) ) {
+      $user_ip = filter_var($_SERVER['HTTP_CLIENT_IP'], FILTER_VALIDATE_IP);
+    } elseif ( !empty($_SERVER['HTTP_X_FORWARDED_FOR']) ) {
+      $user_ip = filter_var($_SERVER['HTTP_X_FORWARDED_FOR'], FILTER_VALIDATE_IP);
+    } else {
+      $user_ip = filter_var($_SERVER['REMOTE_ADDR'], FILTER_VALIDATE_IP);
+    }
+
+    // If no IP was found -> Check for X-Forwarded-For (godaddy)
+    if (empty($user_ip) && !empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+      $forwarded_ips = explode(',', $_SERVER['HTTP_X_FORWARDED_FOR']);
+      foreach ($forwarded_ips as $ip) {
+        $ip = trim($ip);
+        // There could be multiple IPs in the X-Forwarded-For header
+        // The first in the chain should be the right one
+        if (filter_var($ip, FILTER_VALIDATE_IP)) {
+          $user_ip = $ip;
+          break;
+        }
+      }
+    }
+
     return $user_ip;
   }
-
-  if ( !empty($_SERVER['HTTP_CLIENT_IP']) ) {
-    $user_ip = filter_var($_SERVER['HTTP_CLIENT_IP'], FILTER_VALIDATE_IP);
-  } elseif ( !empty($_SERVER['HTTP_X_FORWARDED_FOR']) ) {
-    $user_ip = filter_var($_SERVER['HTTP_X_FORWARDED_FOR'], FILTER_VALIDATE_IP);
-  } else {
-    $user_ip = filter_var($_SERVER['REMOTE_ADDR'], FILTER_VALIDATE_IP);
-  }
-  return $user_ip;
-}
 
 
 /**
