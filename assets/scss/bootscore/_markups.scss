@@ -1,5 +1,5 @@
 /*--------------------------------------------------------------
-Markups
+Markups - Bootscore v6.2.2
 --------------------------------------------------------------*/
 
 body {
@@ -10,10 +10,27 @@ body {
 
 //HTML Markups (Theme Unit Test Data)
 
+// Make the pre horizontal scrollable no matter if has code element inside or not
+// https://github.com/bootscore/bootscore/pull/1053
 pre {
   max-width: 100%;
-  padding: 1rem;
-  border-radius: 0.25rem;
+  padding: $spacer;
+  border-radius: var(--#{$prefix}border-radius);
+  background-color: var(--#{$prefix}tertiary-bg);
+  border: 1px solid var(--#{$prefix}border-color);
+  white-space: pre;
+  -webkit-overflow-scrolling: touch; // Smooth on iOS
+
+  &:has(code) {
+    padding: 0; // Let code handle padding
+  }
+
+  code {
+    display: inline-block !important;
+    min-width: 100%;
+    padding: $spacer;
+    white-space: pre !important;
+  }
 }
 
 img {
@@ -113,6 +130,7 @@ iframe {
 }
 
 .blocks-gallery-grid {
+
   .blocks-gallery-image figcaption,
   .blocks-gallery-item figcaption {
     overflow: auto;
@@ -123,6 +141,7 @@ iframe {
 }
 
 .wp-block-gallery {
+
   .blocks-gallery-image figcaption,
   .blocks-gallery-item figcaption {
     overflow: auto;
