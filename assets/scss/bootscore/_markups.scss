@@ -1,5 +1,5 @@
 /*--------------------------------------------------------------
-Markups
+Markups - Bootscore v6.2.2
 --------------------------------------------------------------*/
 
 body {
@@ -9,12 +9,6 @@ body {
 }
 
 //HTML Markups (Theme Unit Test Data)
-
-pre {
-  max-width: 100%;
-  padding: 1rem;
-  border-radius: 0.25rem;
-}
 
 img {
   height: auto;
@@ -113,6 +107,7 @@ iframe {
 }
 
 .blocks-gallery-grid {
+
   .blocks-gallery-image figcaption,
   .blocks-gallery-item figcaption {
     overflow: auto;
@@ -123,6 +118,7 @@ iframe {
 }
 
 .wp-block-gallery {
+
   .blocks-gallery-image figcaption,
   .blocks-gallery-item figcaption {
     overflow: auto;

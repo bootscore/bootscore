@@ -1,5 +1,5 @@
 /*--------------------------------------------------------------
-WooCommerce Comments
+WooCommerce Comments - Bootscore v6.2.2
 --------------------------------------------------------------*/
 
 #woo-comments {
@@ -13,5 +13,14 @@ WooCommerce Comments
   .star-rating {
     float: right;
     margin: 0;
+  }
+}
+
+
+// WC 10.0.0 review rating stars
+// https://github.com/bootscore/bootscore/pull/1053
+.woocommerce {
+  p.stars a {
+    font-size: inherit;
   }
 }
