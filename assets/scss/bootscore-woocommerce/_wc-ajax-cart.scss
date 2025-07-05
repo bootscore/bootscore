@@ -1,5 +1,5 @@
 /*--------------------------------------------------------------
-Ajax Cart
+Ajax Cart - Bootscore v6.2.2
 --------------------------------------------------------------*/
 
 
@@ -92,8 +92,8 @@ a.added_to_cart {
     display: none;
     justify-content: center;
     align-items: center;
-    background-color: var(--#{$prefix}primary);
-    border-radius: $btn-border-radius;
+    background-color: inherit;
+    border-radius: inherit;
   }
 
   &.loading {
