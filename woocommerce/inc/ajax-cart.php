@@ -75,63 +75,56 @@
     // Remove WC Core add to cart handler to prevent double-add
     remove_action('wp_loaded', array('WC_Form_Handler', 'add_to_cart_action'), 20);
 
-    /**
-     * Add fragments for notices
-     */
-    function bootscore_ajax_add_to_cart_add_fragments($fragments)
-    {
-      $all_notices = WC()->session->get('wc_notices', array());
-      $notice_types = apply_filters('woocommerce_notice_types', array('error', 'success', 'notice'));
 
-      $notices_html = '';
-      if (apply_filters('bootscore/woocommerce/notifications/mini-cart/use_toasts', false)) {
-        ob_start();
-        echo '<div class="toast-container ' . apply_filters('bootscore/class/woocommerce/toast-container', 'position-fixed top-0 end-0 p-3 px-4') . '">';
+    
+    
+    
+    
+/**
+ * Add fragments for notices using toasts
+ */
+function bootscore_ajax_add_to_cart_add_fragments($fragments) {
+  $all_notices   = WC()->session->get('wc_notices', []);
+  $notice_types  = apply_filters('woocommerce_notice_types', ['error', 'success', 'notice']);
 
-        foreach ($notice_types as $notice_type) {
-          if (wc_notice_count($notice_type) > 0) {
-            // Shadow and bg is hidden because that would produce a faulty looking appearance. Solvable with a rewrite of notice.php or adding special notice files for toasts.
-            echo '<div class="toast align-items-center bg-transparent shadow-none mb-2" role="alert" aria-live="assertive" aria-atomic="true">';
-            echo '<div class="position-relative">';
-            echo '<div class="toast-body p-0 row gap-2">';
-            wc_get_template("notices/{$notice_type}.php", array(
-              'notices' => array_filter($all_notices[$notice_type]),
-            ));
-            echo '</div>';
-            // Issue that that would only be visible on the "first" notice of each type as they are all shown in 1 toast. therefore hidden for now.
-            // The only solution I can think of would be to rewrite the notice.php files.
-            //echo '<button type="button" class="btn-close m-auto position-absolute end-0 top-0 p-2" data-bs-dismiss="toast" aria-label="Close"></button>';
-            echo '</div>';
-            echo '</div>';
-          }
-        }
-        echo '</div>';
+  ob_start();
+  echo '<div class="toast-container ' . apply_filters('bootscore/class/woocommerce/toast-container', 'position-static w-100') . '">';
 
-        $notices_html = '<div class="woocommerce-messages">' . ob_get_clean() . '</div>';
-        // Set margin on woocommerce messages to 0. To not touch the original notice files we just do a "dirty" str_replace
-        $notices_html = preg_replace('/class="woocommerce-(message|info|error)"/', 'class="woocommerce-$1 m-0 shadow"', $notices_html);
-
-      } else {
-        ob_start();
-        foreach ($notice_types as $notice_type) {
-          if (wc_notice_count($notice_type) > 0) {
-            wc_get_template("notices/{$notice_type}.php", array(
-              'notices' => array_filter($all_notices[$notice_type]),
-            ));
-          }
-        }
-        $notices_html = '<div class="woocommerce-messages">' . ob_get_clean() . '</div>';
-      }
-      $fragments['notices_html'] = $notices_html;
-      $fragments['.woocommerce-messages'] = $fragments['notices_html'];
-
-      wc_clear_notices();
-      return $fragments;
+  foreach ($notice_types as $notice_type) {
+    if (wc_notice_count($notice_type) > 0) {
+      echo '<div class="toast align-items-center bg-transparent small w-100 border-0 shadow-none" role="alert" aria-live="assertive" aria-atomic="true">';
+      echo '<div class="position-relative">';
+      echo '<div class="toast-body p-0">';
+      wc_get_template("notices/{$notice_type}.php", [
+        'notices' => array_filter($all_notices[$notice_type] ?? []),
+      ]);
+      echo '</div>';
+      echo '</div>';
+      echo '</div>';
     }
+  }
 
-    add_filter('woocommerce_add_to_cart_fragments', 'bootscore_ajax_add_to_cart_add_fragments');
-    add_filter('bootscore/woocommerce/ajax-cart/update-qty/fragments/replace', 'bootscore_ajax_add_to_cart_add_fragments');
+  echo '</div>';
 
+  $notices_html = '<div class="woocommerce-messages">' . ob_get_clean() . '</div>';
+  $notices_html = preg_replace('/class="woocommerce-(message|info|error)"/', 'class="woocommerce-$1 m-0 border-0 rounded-0"', $notices_html);
+
+  $fragments['notices_html'] = $notices_html;
+  $fragments['.woocommerce-messages'] = $notices_html;
+
+  wc_clear_notices();
+
+  return $fragments;
+}
+
+add_filter('woocommerce_add_to_cart_fragments', 'bootscore_ajax_add_to_cart_add_fragments');
+add_filter('bootscore/woocommerce/ajax-cart/update-qty/fragments/replace', 'bootscore_ajax_add_to_cart_add_fragments');
+  
+    
+    
+    
+    
+    
     /**
      * Stop redirecting after stock error
      */
@@ -262,7 +255,7 @@
       return trim(ob_get_clean());
     }
 
-    add_action('woocommerce_before_mini_cart_contents', 'add_wc_messages_container');
+    add_action('bootscore_before_mini_cart_footer', 'add_wc_messages_container');
     function add_wc_messages_container()
     {
       // Extra container for easier handling and probable height animations
