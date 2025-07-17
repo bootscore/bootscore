@@ -44,7 +44,6 @@
       ?>
     </div>
 
-
     <?php do_action('bootscore_before_mini_cart_footer'); ?>
     
     <div class="cart-footer <?= apply_filters('bootscore/class/header/cart/footer', 'bg-body-tertiary p-3'); ?>">
