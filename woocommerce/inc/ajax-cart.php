@@ -4,7 +4,7 @@
    * WooCommerce AJAX cart
    *
    * @package Bootscore
-   * @version 6.2.2
+   * @version 6.3.0
    */
 
 
@@ -17,8 +17,7 @@
    * https://github.com/bootscore/bootscore/commit/598d1f1b4454f8826985a7c2210568bd5a814fe1
    */
   add_filter("woocommerce_loop_add_to_cart_args", "filter_wc_loop_add_to_cart_args", 20, 2);
-  function filter_wc_loop_add_to_cart_args($args, $product)
-  {
+  function filter_wc_loop_add_to_cart_args($args, $product) {
     if ($product->supports('ajax_add_to_cart') && $product->is_purchasable() && $product->is_in_stock()) {
       $args['attributes']['product-title'] = $product->get_name();
     }
@@ -39,8 +38,7 @@
      * https://aceplugins.com/ajax-add-to-cart-button-on-the-product-page-woocommerce/
      */
 
-    function bootscore_add_btn_loader_to_loop($html)
-    {
+    function bootscore_add_btn_loader_to_loop($html) {
       global $product;
 
       // Check if product is in stock
@@ -63,8 +61,7 @@
     /**
      * Add to cart handler
      */
-    function bootscore_ajax_add_to_cart_handler()
-    {
+    function bootscore_ajax_add_to_cart_handler() {
       WC_Form_Handler::add_to_cart_action();
       WC_AJAX::get_refreshed_fragments();
     }
@@ -76,65 +73,56 @@
     remove_action('wp_loaded', array('WC_Form_Handler', 'add_to_cart_action'), 20);
 
 
-    
-    
-    
-    
-/**
- * Add fragments for notices using toasts
- */
-function bootscore_ajax_add_to_cart_add_fragments($fragments) {
-  $all_notices   = WC()->session->get('wc_notices', []);
-  $notice_types  = apply_filters('woocommerce_notice_types', ['error', 'success', 'notice']);
+    /**
+     * Add fragments for notices using toasts
+     */
+    function bootscore_ajax_add_to_cart_add_fragments($fragments) {
+      $all_notices   = WC()->session->get('wc_notices', []);
+      $notice_types  = apply_filters('woocommerce_notice_types', ['error', 'success', 'notice']);
 
-  ob_start();
-  echo '<div class="toast-container ' . apply_filters('bootscore/class/woocommerce/toast-container', 'position-static w-100') . '">';
+      ob_start();
+      echo '<div class="toast-container ' . apply_filters('bootscore/class/woocommerce/toast-container', 'position-static w-100') . '">';
 
-  foreach ($notice_types as $notice_type) {
-    if (wc_notice_count($notice_type) > 0) {
-      echo '<div class="toast align-items-center bg-transparent small w-100 border-0 shadow-none" role="alert" aria-live="assertive" aria-atomic="true">';
-      echo '<div class="position-relative">';
-      echo '<div class="toast-body p-0">';
-      wc_get_template("notices/{$notice_type}.php", [
-        'notices' => array_filter($all_notices[$notice_type] ?? []),
-      ]);
+      foreach ($notice_types as $notice_type) {
+        if (wc_notice_count($notice_type) > 0) {
+          echo '<div class="toast align-items-center bg-transparent small w-100 border-0 shadow-none" role="alert" aria-live="assertive" aria-atomic="true">';
+          echo '<div class="position-relative">';
+          echo '<div class="toast-body p-0">';
+          wc_get_template("notices/{$notice_type}.php", [
+            'notices' => array_filter($all_notices[$notice_type] ?? []),
+          ]);
+          echo '</div>';
+          echo '</div>';
+          echo '</div>';
+        }
+      }
+
       echo '</div>';
-      echo '</div>';
-      echo '</div>';
+
+      $notices_html = '<div class="woocommerce-messages">' . ob_get_clean() . '</div>';
+      $notices_html = preg_replace('/class="woocommerce-(message|info|error)"/', 'class="woocommerce-$1 m-0 border-0 rounded-0"', $notices_html);
+
+      $fragments['notices_html'] = $notices_html;
+      $fragments['.woocommerce-messages'] = $notices_html;
+
+      wc_clear_notices();
+
+      return $fragments;
     }
-  }
 
-  echo '</div>';
+    add_filter('woocommerce_add_to_cart_fragments', 'bootscore_ajax_add_to_cart_add_fragments');
+    add_filter('bootscore/woocommerce/ajax-cart/update-qty/fragments/replace', 'bootscore_ajax_add_to_cart_add_fragments');
 
-  $notices_html = '<div class="woocommerce-messages">' . ob_get_clean() . '</div>';
-  $notices_html = preg_replace('/class="woocommerce-(message|info|error)"/', 'class="woocommerce-$1 m-0 border-0 rounded-0"', $notices_html);
-
-  $fragments['notices_html'] = $notices_html;
-  $fragments['.woocommerce-messages'] = $notices_html;
-
-  wc_clear_notices();
-
-  return $fragments;
-}
-
-add_filter('woocommerce_add_to_cart_fragments', 'bootscore_ajax_add_to_cart_add_fragments');
-add_filter('bootscore/woocommerce/ajax-cart/update-qty/fragments/replace', 'bootscore_ajax_add_to_cart_add_fragments');
-  
-    
-    
-    
-    
     
     /**
      * Stop redirecting after stock error
      */
     add_filter('woocommerce_cart_redirect_after_error', '__return_false');
 
-// Mini cart Ajax implementation.
+    // Mini cart Ajax implementation.
     add_action('wp_ajax_bootscore_qty_update', 'bootscore_qty_update');
     add_action('wp_ajax_nopriv_bootscore_qty_update', 'bootscore_qty_update');
-    function bootscore_qty_update()
-    {
+    function bootscore_qty_update() {
       if (isset($_POST['number'])) {
         $cart_item_key = isset($_POST['key']) ? sanitize_text_field(wp_unslash($_POST['key'])) : '';
         $qty = isset($_POST['number']) ? sanitize_text_field(wp_unslash($_POST['number'])) : '';
@@ -242,8 +230,7 @@ add_filter('bootscore/woocommerce/ajax-cart/update-qty/fragments/replace', 'boot
       }
     }
 
-    function retrieve_cart_item_html($cart_item_key, $cart_item): string
-    {
+    function retrieve_cart_item_html($cart_item_key, $cart_item): string {
       ob_start();
       wc_get_template(
         'cart/mini-cart-item.php',
@@ -256,15 +243,13 @@ add_filter('bootscore/woocommerce/ajax-cart/update-qty/fragments/replace', 'boot
     }
 
     add_action('bootscore_before_mini_cart_footer', 'add_wc_messages_container');
-    function add_wc_messages_container()
-    {
+    function add_wc_messages_container() {
       // Extra container for easier handling and probable height animations
       echo '<div class="woocommerce-messages-container"><div class="woocommerce-messages"><div></div></div></div>'; // Inner div will be replaced by update and fragments function
     }
 
     add_filter('bootscore/woocommerce/ajax-cart/update-qty/validate-update', 'validate_qty_before_update', 10, 4);
-    function validate_qty_before_update($passed, $cart_item_key, $cart_item, $qty)
-    {
+    function validate_qty_before_update($passed, $cart_item_key, $cart_item, $qty) {
       // Decline the Ajax request if the product is not purchasable.
       $product = $cart_item['data'];
       if ($product) {
@@ -279,8 +264,7 @@ add_filter('bootscore/woocommerce/ajax-cart/update-qty/fragments/replace', 'boot
     }
 
     add_filter('woocommerce_widget_cart_item_quantity', 'add_minicart_quantity_fields', 10, 3);
-    function add_minicart_quantity_fields($html, $cart_item, $cart_item_key)
-    {
+    function add_minicart_quantity_fields($html, $cart_item, $cart_item_key) {
       $_product = apply_filters('woocommerce_cart_item_product', $cart_item['data'], $cart_item, $cart_item_key);
       if ($_product->is_sold_individually()) {
         $min_quantity = 1;
