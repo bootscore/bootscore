@@ -1,0 +1,30 @@
+{
+    "translation-revision-date": "2025-05-29 09:34+0000",
+    "generator": "Loco https://localise.biz/",
+    "source": "woocommerce/js/ajax-login.js",
+    "domain": "bootscore",
+    "locale_data": {
+        "bootscore": {
+            "": {
+                "domain": "",
+                "lang": "de_DE_formal",
+                "plural-forms": "nplurals=2; plural=n != 1;"
+            },
+            "Error:": [
+                "Fehler:"
+            ],
+            "Password is required.": [
+                "."
+            ],
+            "Technical error": [
+                "Technischer Fehler"
+            ],
+            "Username or email and password are required.": [
+                "Nutzername oder E-Mail und Passwort werden ben\u00f6tigt."
+            ],
+            "Username or email is required.": [
+                "Nutzername oder E-Mail wird ben\u00f6tigt."
+            ]
+        }
+    }
+}

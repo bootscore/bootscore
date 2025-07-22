@@ -6,7 +6,7 @@
  * @link https://developer.wordpress.org/themes/basics/theme-functions/
  *
  * @package Bootscore
- * @version 6.2.0
+ * @version 6.2.2
  */
 
 
@@ -67,6 +67,7 @@ require_once('inc/blocks/block-widget-search.php');          // Searchform block
 
 // Contents
 require_once('inc/blocks/block-buttons.php'); // Button block
+require_once('inc/blocks/block-code.php');    // Code block
 require_once('inc/blocks/block-quote.php');   // Quote block
 require_once('inc/blocks/block-table.php');   // Table block
 

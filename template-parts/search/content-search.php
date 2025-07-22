@@ -6,7 +6,7 @@
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
  * @package Bootscore
- * @version 6.1.0
+ * @version 6.2.3
  */
 
 
@@ -42,6 +42,8 @@ defined('ABSPATH') || exit;
         <a class="text-body text-decoration-none" href="<?php the_permalink(); ?>">
           <?php the_title('<h2 class="' . apply_filters('bootscore/class/loop/card/title', 'blog-post-title h5', 'content-search') . '">', '</h2>'); ?>
         </a>
+        
+        <?php do_action('bootscore_after_loop_title', 'content-search'); ?>
 
         <?php if (apply_filters('bootscore/loop/meta', true, 'content-search')) : ?>
           <?php if ('post' === get_post_type()) : ?>

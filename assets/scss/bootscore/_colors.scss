@@ -1,5 +1,5 @@
 /*--------------------------------------------------------------
-Colors
+Colors - Bootscore v6.2.2
 --------------------------------------------------------------*/
 
 // Text selection
@@ -11,9 +11,4 @@ Colors
 ::-moz-selection {
   color: var(--#{$prefix}white);
   background-color: var(--#{$prefix}primary);
-}
-
-// pre tag
-pre {
-  background-color: var(--#{$prefix}tertiary-bg);
 }

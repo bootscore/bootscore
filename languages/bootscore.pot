@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: _s 1.0.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/tags/_s\n"
-"POT-Creation-Date: 2025-05-10 15:35+0000\n"
+"POT-Creation-Date: 2025-05-28 14:31+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -15,10 +15,6 @@ msgstr ""
 "X-Generator: Loco https://localise.biz/\n"
 "Language: \n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;"
-
-#: woocommerce/inc/ajax-cart.php:539
-msgid " for this product"
-msgstr ""
 
 #. used between list items, there is a space after the comma
 #: inc/template-tags.php:49
@@ -185,12 +181,16 @@ msgid "Dark"
 msgstr ""
 
 #. %s: Name of current post. Only visible to screen readers
-#: inc/comments.php:44 inc/comments.php:67 inc/template-tags.php:182
+#: inc/template-tags.php:182 inc/comments.php:44 inc/comments.php:67
 msgid "Edit"
 msgstr ""
 
 #: comments.php:130
 msgid "Email* (will not be published)"
+msgstr ""
+
+#: woocommerce/js/ajax-login.js:70
+msgid "Error:"
 msgstr ""
 
 #: inc/pagination.php:40
@@ -250,7 +250,7 @@ msgstr ""
 msgid "https://bootscore.me/"
 msgstr ""
 
-#: woocommerce/inc/ajax-cart.php:573
+#: woocommerce/inc/ajax-cart.php:237
 msgid "Invalid key or number"
 msgstr ""
 
@@ -295,7 +295,7 @@ msgstr ""
 msgid "Look what I found: "
 msgstr ""
 
-#: header.php:64
+#: header.php:66
 msgid "Menu"
 msgstr ""
 
@@ -320,12 +320,12 @@ msgid "No headings found."
 msgstr ""
 
 #. Name of the template
-#: page-templates/page-sidebar-none.php:3
 #: single-templates/single-sidebar-none.php:2
+#: page-templates/page-sidebar-none.php:3
 msgid "No Sidebar"
 msgstr ""
 
-#: woocommerce/inc/ajax-cart.php:549
+#: woocommerce/inc/ajax-cart.php:163
 msgid "Nonce verification failed"
 msgstr ""
 
@@ -359,6 +359,10 @@ msgstr ""
 
 #: inc/password-protected-form.php:22
 msgid "Password"
+msgstr ""
+
+#: woocommerce/js/ajax-login.js:65
+msgid "Password is required."
 msgstr ""
 
 #: patterns/c.alert-danger.php:2
@@ -484,8 +488,9 @@ msgstr ""
 msgid "Previous Page"
 msgstr ""
 
-#: woocommerce/inc/ajax-cart.php:565
-msgid "Quantity updated successfully"
+#: woocommerce/inc/ajax-cart.php:205
+#, php-format
+msgid "Quantity of %s updated successfully"
 msgstr ""
 
 #: archive.php:91 index.php:104 template-parts/search/content-search.php:70
@@ -518,8 +523,8 @@ msgstr ""
 msgid "Search Results for: %s"
 msgstr ""
 
-#: template-parts/header/actions.php:28
 #: template-parts/header/actions-woocommerce.php:21
+#: template-parts/header/actions.php:28
 msgid "Search toggler"
 msgstr ""
 
@@ -566,11 +571,15 @@ msgstr ""
 msgid "Tagged"
 msgstr ""
 
+#: woocommerce/js/ajax-login.js:111
+msgid "Technical error"
+msgstr ""
+
 #: woocommerce/inc/wc-ajax-login.php:93
 msgid "This combination of access data was not found in our database."
 msgstr ""
 
-#: header.php:96
+#: header.php:98
 msgid "Toggle main menu"
 msgstr ""
 
@@ -596,6 +605,19 @@ msgstr ""
 
 #: inc/widgets.php:60
 msgid "Top Nav Search"
+msgstr ""
+
+#: woocommerce/js/ajax-login.js:61
+msgid "Username or email and password are required."
+msgstr ""
+
+#: woocommerce/js/ajax-login.js:63
+msgid "Username or email is required."
+msgstr ""
+
+#: woocommerce/inc/ajax-cart.php:273
+#, php-format
+msgid "We only have %1$d of (%2$s) in stock."
 msgstr ""
 
 #: comments.php:135

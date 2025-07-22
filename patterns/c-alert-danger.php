@@ -1,7 +1,7 @@
 <?php
 /**
  * Title: c - Alert-danger with icon and dismiss button
- * Slug: bootscore/c.alert-danger
+ * Slug: bootscore/c-alert-danger
  * Categories: bootscore
  * https://developer.wordpress.org/themes/features/block-patterns/
  * 

@@ -11,7 +11,7 @@
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
  * @package Bootscore
- * @version 6.2.0
+ * @version 6.2.3
  */
 
 // Exit if accessed directly
@@ -76,6 +76,8 @@ get_header();
                           <a class="text-body text-decoration-none" href="<?php the_permalink(); ?>">
                             <?php the_title('<h2 class="' . apply_filters('bootscore/class/loop/card/title', 'blog-post-title h5', 'index') . '">', '</h2>'); ?>
                           </a>
+                          
+                          <?php do_action('bootscore_after_loop_title', 'index'); ?>
 
                           <?php if (apply_filters('bootscore/loop/meta', true, 'index')) : ?>
                             <?php if ('post' === get_post_type()) : ?>

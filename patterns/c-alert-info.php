@@ -1,7 +1,7 @@
 <?php
 /**
  * Title: c - Alert-info
- * Slug: bootscore/c.alert-info
+ * Slug: bootscore/c-alert-info
  * Categories: bootscore
  * https://developer.wordpress.org/themes/features/block-patterns/
  * 

@@ -1,7 +1,7 @@
 <?php
 /**
  * Title: c - Button danger lg
- * Slug: bootscore/c.btn-danger-lg
+ * Slug: bootscore/c-btn-danger-lg
  * Categories: bootscore
  * https://developer.wordpress.org/themes/features/block-patterns/
  * 

@@ -1,7 +1,7 @@
 <?php
 /**
  * Title: l - Grid 8/4
- * Slug: bootscore/l.grid-col-8-col-4
+ * Slug: bootscore/l-grid-col-8-col-4
  * Categories: bootscore
  * https://developer.wordpress.org/themes/features/block-patterns/
  * 

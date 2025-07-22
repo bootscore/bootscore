@@ -1,3 +1,8 @@
+/**
+ * WooCommerce JS - Bootscore v6.2.0
+ */
+
+
 jQuery(function ($) {
 
   // Single-product Tabs
@@ -23,19 +28,11 @@ jQuery(function ($) {
   // Single-product Tabs End
 
   // WC Quantity Input
-  if (!String.prototype.getDecimals) {
-    String.prototype.getDecimals = function () {
-      var num = this,
-        match = ('' + num).match(/(?:\.(\d+))?(?:[eE]([+-]?\d+))?$/);
-      if (!match) {
-        return 0;
-      }
-      return Math.max(0, (match[1] ? match[1].length : 0) - (match[2] ? +match[2] : 0));
-    };
-  }
   // Quantity "plus" and "minus" buttons
-  $(document.body).on('click', '.plus, .minus', function () {
-    var $qty = $(this).closest('.quantity').find('.qty'),
+  $(document.body).on('click', 'form.cart .plus, form.cart .minus,' + // for single product page
+    'form.woocommerce-cart-form .plus, form.woocommerce-cart-form .minus', // legacy cart
+    function () {
+    let $qty = $(this).closest('.quantity').find('.qty'),
       currentVal = parseFloat($qty.val()),
       max = parseFloat($qty.attr('max')),
       min = parseFloat($qty.attr('min')),
@@ -47,23 +44,22 @@ jQuery(function ($) {
     if (min === '' || min === 'NaN') min = 0;
     if (step === 'any' || step === '' || step === undefined || parseFloat(step) === 'NaN') step = 1;
 
-    if (typeof wc_add_to_cart_params === 'undefined' || wc_add_to_cart_params.ajax_url === '') {
       // Change the value
+      let newVal = currentVal;
       if ($(this).is('.plus')) {
-        if (max && currentVal >= max) {
-          $qty.val(max);
-        } else {
-          $qty.val((currentVal + parseFloat(step)).toFixed(step.getDecimals()));
-        }
+        newVal += parseInt(step);
+        // As the value on page load is always 1 or the min value, the minus button will be disabled by default.
+        // As soon as we add some quantity, we enable the minus button. On further clicks you could go on 0 but
+        // would get notified immediatly by the html validation
+        $(this).closest('.quantity').find('.minus').attr('disabled', false);
       } else {
-        if (min && currentVal <= min) {
-          $qty.val(min);
-        } else if (currentVal > 0) {
-          $qty.val((currentVal - parseFloat(step)).toFixed(step.getDecimals()));
-        }
+        newVal -= parseInt(step);
       }
-      $qty.trigger('change');
-    }
-  });
 
+      $qty.val( newVal );
+      $qty[0].reportValidity();
+
+      // needed to enable refresh cart button on legacy cart page
+      $qty.trigger('change');
+  });
 }); // jQuery End
