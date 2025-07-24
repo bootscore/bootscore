@@ -81,7 +81,7 @@
       $notice_types  = apply_filters('woocommerce_notice_types', ['error', 'success', 'notice']);
 
       ob_start();
-      echo '<div class="toast-container ' . apply_filters('bootscore/class/woocommerce/toast-container', 'position-static') . '">';
+      echo '<div class="toast-container ' . apply_filters('bootscore/class/woocommerce/toast-container', 'position-static w-100') . '">';
 
       foreach ($notice_types as $notice_type) {
         if (wc_notice_count($notice_type) > 0) {
