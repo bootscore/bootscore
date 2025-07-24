@@ -85,7 +85,7 @@
 
       foreach ($notice_types as $notice_type) {
         if (wc_notice_count($notice_type) > 0) {
-          echo '<div class="toast w-100 border-0 p-3" role="alert" aria-live="assertive" aria-atomic="true">';
+          echo '<div class="toast shadow-none w-100 border-0 p-3" role="alert" aria-live="assertive" aria-atomic="true">';
           echo '<div class="toast-body p-0">';
           wc_get_template("notices/{$notice_type}.php", [
             'notices' => array_filter($all_notices[$notice_type] ?? []),
