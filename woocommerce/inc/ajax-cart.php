@@ -81,17 +81,15 @@
       $notice_types  = apply_filters('woocommerce_notice_types', ['error', 'success', 'notice']);
 
       ob_start();
-      echo '<div class="toast-container ' . apply_filters('bootscore/class/woocommerce/toast-container', 'position-static w-100') . '">';
+      echo '<div class="toast-container ' . apply_filters('bootscore/class/woocommerce/toast-container', 'position-static') . '">';
 
       foreach ($notice_types as $notice_type) {
         if (wc_notice_count($notice_type) > 0) {
-          echo '<div class="toast align-items-center bg-transparent small w-100 border-0 shadow-none" role="alert" aria-live="assertive" aria-atomic="true">';
-          echo '<div class="position-relative">';
+          echo '<div class="toast w-100 border-0 p-3" role="alert" aria-live="assertive" aria-atomic="true">';
           echo '<div class="toast-body p-0">';
           wc_get_template("notices/{$notice_type}.php", [
             'notices' => array_filter($all_notices[$notice_type] ?? []),
           ]);
-          echo '</div>';
           echo '</div>';
           echo '</div>';
         }
@@ -100,7 +98,7 @@
       echo '</div>';
 
       $notices_html = '<div class="woocommerce-messages">' . ob_get_clean() . '</div>';
-      $notices_html = preg_replace('/class="woocommerce-(message|info|error)"/', 'class="woocommerce-$1 m-0 border-0 rounded-0"', $notices_html);
+      $notices_html = preg_replace('/class="woocommerce-(message|info|error)"/', 'class="woocommerce-$1 m-0"', $notices_html);
 
       $fragments['notices_html'] = $notices_html;
       $fragments['.woocommerce-messages'] = $notices_html;
