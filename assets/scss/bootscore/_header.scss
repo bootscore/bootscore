@@ -8,6 +8,6 @@ Header - Bootscore v6.3.0
 
 // Using the [id] sesector instead
 // https://piccalil.li/blog/add-scroll-margin-to-all-elements-which-can-be-targeted/
-main [id] {
+[id] {
   scroll-margin-top: var(--#{$prefix}scroll-margin-top, 55px); // 55px default navbar height
 }
