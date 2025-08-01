@@ -81,11 +81,12 @@
       $notice_types  = apply_filters('woocommerce_notice_types', ['error', 'success', 'notice']);
 
       ob_start();
-      echo '<div class="toast-container ' . apply_filters('bootscore/class/woocommerce/toast-container', 'position-static w-100') . '">';
+      echo '<div class="toast-container ' . apply_filters('bootscore/class/woocommerce/toast-container', 'position-static w-100 bg-body-tertiary overflow-hidden p-2 pb-0') . '">';
 
       foreach ($notice_types as $notice_type) {
         if (wc_notice_count($notice_type) > 0) {
           // Shadow and bg is hidden because that would produce a faulty looking appearance. Solvable with a rewrite of notice.php or adding special notice files for toasts.
+          echo '<div class="toast bg-transparent shadow-none w-100 border-0 mb-0" role="alert" aria-live="assertive" aria-atomic="true">';
           echo '<div class="toast-body p-0">';
           wc_get_template("notices/{$notice_type}.php", [
             'notices' => array_filter($all_notices[$notice_type] ?? []),
@@ -101,7 +102,7 @@
       echo '</div>';
 
       $notices_html = '<div class="woocommerce-messages">' . ob_get_clean() . '</div>';
-      $notices_html = preg_replace('/class="woocommerce-(message|info|error)"/', 'class="woocommerce-$1 m-0"', $notices_html);
+      $notices_html = preg_replace('/class="woocommerce-(message|info|error)"/', 'class="woocommerce-$1 m-0 mb-2"', $notices_html);
 
       $fragments['notices_html'] = $notices_html;
       $fragments['.woocommerce-messages'] = $notices_html;
