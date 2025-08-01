@@ -85,12 +85,15 @@
 
       foreach ($notice_types as $notice_type) {
         if (wc_notice_count($notice_type) > 0) {
-          echo '<div class="toast shadow-none w-100 border-0 p-3" role="alert" aria-live="assertive" aria-atomic="true">';
+          // Shadow and bg is hidden because that would produce a faulty looking appearance. Solvable with a rewrite of notice.php or adding special notice files for toasts.
           echo '<div class="toast-body p-0">';
           wc_get_template("notices/{$notice_type}.php", [
             'notices' => array_filter($all_notices[$notice_type] ?? []),
           ]);
           echo '</div>';
+          // Issue that that would only be visible on the "first" notice of each type as they are all shown in 1 toast. therefore hidden for now.
+          // The only solution I can think of would be to rewrite the notice.php files.
+          //echo '<button type="button" class="btn-close m-auto position-absolute end-0 top-0 p-2" data-bs-dismiss="toast" aria-label="Close"></button>';
           echo '</div>';
         }
       }
