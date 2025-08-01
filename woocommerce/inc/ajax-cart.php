@@ -87,7 +87,7 @@
         if (wc_notice_count($notice_type) > 0) {
           // Shadow and bg is hidden because that would produce a faulty looking appearance. Solvable with a rewrite of notice.php or adding special notice files for toasts.
           echo '<div class="toast bg-transparent shadow-none w-100 border-0 mb-0" role="alert" aria-live="assertive" aria-atomic="true">';
-          echo '<div class="toast-body p-0">';
+          echo '<div class="toast-body py-0">';
           wc_get_template("notices/{$notice_type}.php", [
             'notices' => array_filter($all_notices[$notice_type] ?? []),
           ]);
