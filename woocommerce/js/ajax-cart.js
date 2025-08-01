@@ -323,7 +323,26 @@ jQuery(function ($) {
     setTimeout(function () {
       const toastElList = document.querySelectorAll('#offcanvas-cart .toast');
       if (toastElList && toastElList.length > 0) {
-        const toastList = [...toastElList].map(toastEl => new bootstrap.Toast(toastEl, {}).show());
+        const toastList = [...toastElList].map(toastEl => {
+          const toast = new bootstrap.Toast(toastEl, {
+            animation: false,
+            autohide: false,
+          });
+          toast.show();
+          return toast; // Return the toast instance, not the result of show()
+        });
+
+        // Hide all toasts after 5 seconds with View Transition
+        setTimeout(() => {
+          if (document.startViewTransition) {
+            document.startViewTransition(() => {
+              toastList.map(toast => toast.hide());
+            });
+          } else {
+            toastList.map(toast => toast.hide());
+          }
+        }, 5000);
+
       }
     }, 100); // Small delay to ensure fragments are processed
   });
