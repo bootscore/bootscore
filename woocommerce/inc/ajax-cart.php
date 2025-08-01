@@ -4,7 +4,7 @@
    * WooCommerce AJAX cart
    *
    * @package Bootscore
-   * @version 6.2.2
+   * @version 6.3.0
    */
 
 
@@ -17,8 +17,7 @@
    * https://github.com/bootscore/bootscore/commit/598d1f1b4454f8826985a7c2210568bd5a814fe1
    */
   add_filter("woocommerce_loop_add_to_cart_args", "filter_wc_loop_add_to_cart_args", 20, 2);
-  function filter_wc_loop_add_to_cart_args($args, $product)
-  {
+  function filter_wc_loop_add_to_cart_args($args, $product) {
     if ($product->supports('ajax_add_to_cart') && $product->is_purchasable() && $product->is_in_stock()) {
       $args['attributes']['product-title'] = $product->get_name();
     }
@@ -39,8 +38,7 @@
      * https://aceplugins.com/ajax-add-to-cart-button-on-the-product-page-woocommerce/
      */
 
-    function bootscore_add_btn_loader_to_loop($html)
-    {
+    function bootscore_add_btn_loader_to_loop($html) {
       global $product;
 
       // Check if product is in stock
@@ -63,8 +61,7 @@
     /**
      * Add to cart handler
      */
-    function bootscore_ajax_add_to_cart_handler()
-    {
+    function bootscore_ajax_add_to_cart_handler() {
       WC_Form_Handler::add_to_cart_action();
       WC_AJAX::get_refreshed_fragments();
     }
@@ -75,73 +72,68 @@
     // Remove WC Core add to cart handler to prevent double-add
     remove_action('wp_loaded', array('WC_Form_Handler', 'add_to_cart_action'), 20);
 
+
     /**
-     * Add fragments for notices
+     * Add fragments for notices using toasts
      */
-    function bootscore_ajax_add_to_cart_add_fragments($fragments)
-    {
-      $all_notices = WC()->session->get('wc_notices', array());
-      $notice_types = apply_filters('woocommerce_notice_types', array('error', 'success', 'notice'));
+    function bootscore_ajax_add_to_cart_add_fragments($fragments) {
+      $all_notices   = WC()->session->get('wc_notices', []);
+      $notice_types  = apply_filters('woocommerce_notice_types', ['error', 'success', 'notice']);
 
-      $notices_html = '';
-      if (apply_filters('bootscore/woocommerce/notifications/mini-cart/use_toasts', false)) {
-        ob_start();
-        echo '<div class="toast-container ' . apply_filters('bootscore/class/woocommerce/toast-container', 'position-fixed top-0 end-0 p-3 px-4') . '">';
+      ob_start();
+      echo '<div class="toast-container ' . apply_filters('bootscore/class/woocommerce/toast-container', 'position-static w-100 bg-body-tertiary overflow-hidden px-3 py-0') . '">';
 
-        foreach ($notice_types as $notice_type) {
-          if (wc_notice_count($notice_type) > 0) {
-            // Shadow and bg is hidden because that would produce a faulty looking appearance. Solvable with a rewrite of notice.php or adding special notice files for toasts.
-            echo '<div class="toast align-items-center bg-transparent shadow-none mb-2" role="alert" aria-live="assertive" aria-atomic="true">';
-            echo '<div class="position-relative">';
-            echo '<div class="toast-body p-0 row gap-2">';
-            wc_get_template("notices/{$notice_type}.php", array(
-              'notices' => array_filter($all_notices[$notice_type]),
-            ));
-            echo '</div>';
-            // Issue that that would only be visible on the "first" notice of each type as they are all shown in 1 toast. therefore hidden for now.
-            // The only solution I can think of would be to rewrite the notice.php files.
-            //echo '<button type="button" class="btn-close m-auto position-absolute end-0 top-0 p-2" data-bs-dismiss="toast" aria-label="Close"></button>';
-            echo '</div>';
-            echo '</div>';
-          }
+      $atLeastOneNotice = false;
+      foreach ($notice_types as $notice_type) {
+        if (wc_notice_count($notice_type) > 0) {
+          // Shadow and bg is hidden because that would produce a faulty looking appearance. Solvable with a rewrite of notice.php or adding special notice files for toasts.
+          echo '<div class="toast bg-transparent shadow-none w-100 border-0 mb-0 ' . ($atLeastOneNotice ? 'mt-2' : 'mt-3') . '" role="alert" aria-live="assertive" aria-atomic="true">';
+          echo '<div class="toast-body p-0">';
+          wc_get_template("notices/{$notice_type}.php", [
+            'notices' => array_filter($all_notices[$notice_type] ?? []),
+          ]);
+          echo '</div>';
+          // Issue that that would only be visible on the "first" notice of each type as they are all shown in 1 toast. therefore hidden for now.
+          // The only solution I can think of would be to rewrite the notice.php files.
+          //echo '<button type="button" class="btn-close m-auto position-absolute end-0 top-0 p-2" data-bs-dismiss="toast" aria-label="Close"></button>';
+
+          echo '</div>';
+
+          $atLeastOneNotice = true;
         }
-        echo '</div>';
-
-        $notices_html = '<div class="woocommerce-messages">' . ob_get_clean() . '</div>';
-        // Set margin on woocommerce messages to 0. To not touch the original notice files we just do a "dirty" str_replace
-        $notices_html = preg_replace('/class="woocommerce-(message|info|error)"/', 'class="woocommerce-$1 m-0 shadow"', $notices_html);
-
-      } else {
-        ob_start();
-        foreach ($notice_types as $notice_type) {
-          if (wc_notice_count($notice_type) > 0) {
-            wc_get_template("notices/{$notice_type}.php", array(
-              'notices' => array_filter($all_notices[$notice_type]),
-            ));
-          }
-        }
-        $notices_html = '<div class="woocommerce-messages">' . ob_get_clean() . '</div>';
       }
+
+      echo '</div>';
+
+      $notices_html = '<div class="woocommerce-messages">' . ob_get_clean() . '</div>';
+      $notices_html = preg_replace('/class="woocommerce-(message|info|error)"/', 'class="woocommerce-$1 m-0 mb-2"', $notices_html);
+
+      if ($atLeastOneNotice) {
+        // Add a hr element inside the last toast if at least one notice is present
+        $notices_html = preg_replace('/(<\/div>\s*){3}$/', '<hr class="mb-0">$1$1$1', $notices_html);
+      }
+
       $fragments['notices_html'] = $notices_html;
-      $fragments['.woocommerce-messages'] = $fragments['notices_html'];
+      $fragments['.woocommerce-messages'] = $notices_html;
 
       wc_clear_notices();
+
       return $fragments;
     }
 
     add_filter('woocommerce_add_to_cart_fragments', 'bootscore_ajax_add_to_cart_add_fragments');
     add_filter('bootscore/woocommerce/ajax-cart/update-qty/fragments/replace', 'bootscore_ajax_add_to_cart_add_fragments');
 
+    
     /**
      * Stop redirecting after stock error
      */
     add_filter('woocommerce_cart_redirect_after_error', '__return_false');
 
-// Mini cart Ajax implementation.
+    // Mini cart Ajax implementation.
     add_action('wp_ajax_bootscore_qty_update', 'bootscore_qty_update');
     add_action('wp_ajax_nopriv_bootscore_qty_update', 'bootscore_qty_update');
-    function bootscore_qty_update()
-    {
+    function bootscore_qty_update() {
       if (isset($_POST['number'])) {
         $cart_item_key = isset($_POST['key']) ? sanitize_text_field(wp_unslash($_POST['key'])) : '';
         $qty = isset($_POST['number']) ? sanitize_text_field(wp_unslash($_POST['number'])) : '';
@@ -249,8 +241,7 @@
       }
     }
 
-    function retrieve_cart_item_html($cart_item_key, $cart_item): string
-    {
+    function retrieve_cart_item_html($cart_item_key, $cart_item): string {
       ob_start();
       wc_get_template(
         'cart/mini-cart-item.php',
@@ -262,16 +253,14 @@
       return trim(ob_get_clean());
     }
 
-    add_action('woocommerce_before_mini_cart_contents', 'add_wc_messages_container');
-    function add_wc_messages_container()
-    {
+    add_action('bootscore_before_mini_cart_footer', 'add_wc_messages_container');
+    function add_wc_messages_container() {
       // Extra container for easier handling and probable height animations
       echo '<div class="woocommerce-messages-container"><div class="woocommerce-messages"><div></div></div></div>'; // Inner div will be replaced by update and fragments function
     }
 
     add_filter('bootscore/woocommerce/ajax-cart/update-qty/validate-update', 'validate_qty_before_update', 10, 4);
-    function validate_qty_before_update($passed, $cart_item_key, $cart_item, $qty)
-    {
+    function validate_qty_before_update($passed, $cart_item_key, $cart_item, $qty) {
       // Decline the Ajax request if the product is not purchasable.
       $product = $cart_item['data'];
       if ($product) {
@@ -286,8 +275,7 @@
     }
 
     add_filter('woocommerce_widget_cart_item_quantity', 'add_minicart_quantity_fields', 10, 3);
-    function add_minicart_quantity_fields($html, $cart_item, $cart_item_key)
-    {
+    function add_minicart_quantity_fields($html, $cart_item, $cart_item_key) {
       $_product = apply_filters('woocommerce_cart_item_product', $cart_item['data'], $cart_item, $cart_item_key);
       if ($_product->is_sold_individually()) {
         $min_quantity = 1;
