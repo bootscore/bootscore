@@ -1,5 +1,5 @@
 /**
- * AJAX Cart JS - Bootscore v6.2.2
+ * AJAX Cart JS - Bootscore v6.3.0
  *
  * Consists of 4 parts
  * 1. Handle Ajax Add to cart
@@ -313,7 +313,7 @@ jQuery(function ($) {
 
   // Handle offcanvas closing - remove notices, so the cart is always empty on "reopening"
   $('#offcanvas-cart').on('hidden.bs.offcanvas', function () {
-    $('#offcanvas-cart .woocommerce-message, #offcanvas-cart .woocommerce-error, #offcanvas-cart .woocommerce-info:not(.woocommerce-mini-cart__empty-message)').remove();
+    $('#offcanvas-cart .toast').remove();
   });
 
   // That function is not "filtered" at the moment, but should have no impact if there are no toasts in the offcanvas cart.
