@@ -68,7 +68,7 @@ jQuery(function ($) {
   });
 
   // Add loading spinner to add_to_cart_button // loop buttons are via a php filter in ajax-cart.php
-  // .ajax_add_to_cart class since WC 10.1
+  // .ajax_add_to_cart class since WC 10.1 loop
   $('.single_add_to_cart_button, .ajax_add_to_cart').prepend('<div class="btn-loader"><span class="spinner-border spinner-border-sm"></span></div>');
 
   // 1.2 Enable AJAX add to cart on loop items
