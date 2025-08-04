@@ -43,17 +43,11 @@
 
       // Check if product is in stock
       if (!$product->is_in_stock()) {
-        return '<p class="stock out-of-stock text-wrap mb-0 mt-auto">' .
-          esc_html(apply_filters('woocommerce_out_of_stock_message', __('This product is currently out of stock and unavailable.', 'woocommerce'))) .
-          '</p>';
+        return '<p class="stock out-of-stock text-wrap mb-0 mt-auto">' . esc_html(apply_filters('woocommerce_out_of_stock_message', __('This product is currently out of stock and unavailable.', 'woocommerce'))) . '</p>';
       }
 
-      // Implement btn-loader element directly on the loop items without js
-      // Helps to decrease computing on client devices on page load and makes it cacheable
-      $pattern = '/(<a href=\"\?add-to-cart=[^>]+>)/';
-      $replacement = '$1<div class="btn-loader"><span class="spinner-border spinner-border-sm"></span></div>';
-
-      return preg_replace($pattern, $replacement, $html);
+      // Return the original button HTML unchanged
+      return $html;
     }
 
     add_filter('woocommerce_loop_add_to_cart_link', 'bootscore_add_btn_loader_to_loop', 12);
