@@ -38,7 +38,7 @@
      * https://aceplugins.com/ajax-add-to-cart-button-on-the-product-page-woocommerce/
      */
 
-    function bootscore_add_btn_loader_to_loop($html) {
+    function bootscore_add_out_of_stock_message($html) {
       global $product;
 
       // Check if product is in stock
@@ -50,7 +50,7 @@
       return $html;
     }
 
-    add_filter('woocommerce_loop_add_to_cart_link', 'bootscore_add_btn_loader_to_loop', 12);
+    add_filter('woocommerce_loop_add_to_cart_link', 'bootscore_add_out_of_stock_message', 12);
 
     /**
      * Add to cart handler
