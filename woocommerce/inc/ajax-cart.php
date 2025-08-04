@@ -41,15 +41,21 @@
     function bootscore_add_out_of_stock_message($html) {
       global $product;
 
-      // Check if product is in stock
+      // Only apply if explicitly enabled
+      if (!apply_filters('bootscore/loop/out-of-stock-message', false)) {
+        return $html;
+      }
+
+      // Check if product is out of stock
       if (!$product->is_in_stock()) {
-        return '<p class="stock out-of-stock text-wrap mb-0 mt-auto">' . esc_html(apply_filters('woocommerce_out_of_stock_message', __('This product is currently out of stock and unavailable.', 'woocommerce'))) . '</p>';
+        return '<p class="stock out-of-stock text-wrap mb-0 mt-auto">' .
+          esc_html(apply_filters('woocommerce_out_of_stock_message', __('This product is currently out of stock and unavailable.', 'woocommerce'))) .
+          '</p>';
       }
 
       // Return the original button HTML unchanged
       return $html;
     }
-
     add_filter('woocommerce_loop_add_to_cart_link', 'bootscore_add_out_of_stock_message', 12);
 
     /**
