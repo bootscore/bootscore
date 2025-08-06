@@ -37,7 +37,7 @@ function bootscore_wc_lightbox() {
 /*
  * Use page.php instead woocommerce.php
  *
- * @link
+ * @link https://github.com/bootscore/bootscore/pull/1073
  * @link https://developer.woocommerce.com/docs/theming/theme-development/classic-theme-developer-handbook/#using-hooks
  */
 // Remove default WooCommerce wrappers
