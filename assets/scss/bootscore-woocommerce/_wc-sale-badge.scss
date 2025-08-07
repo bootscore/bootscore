@@ -1,0 +1,12 @@
+/*--------------------------------------------------------------
+WooCommerce Sale Badge
+--------------------------------------------------------------*/
+
+.woocommerce span.onsale {
+  @extend .badge;
+  background-color: var(--#{$prefix}danger);
+  min-height: inherit;
+  min-width: inherit;
+  top: $spacer;
+  left: $spacer;
+}
