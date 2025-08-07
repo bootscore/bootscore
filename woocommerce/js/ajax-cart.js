@@ -313,7 +313,7 @@ jQuery(function ($) {
 
   // Handle offcanvas closing - remove notices, so the cart is always empty on "reopening"
   $('#offcanvas-cart').on('hidden.bs.offcanvas', function () {
-    $('#offcanvas-cart .toast').remove();
+    $('#offcanvas-cart .toast-container').remove();
   });
 
   // That function is not "filtered" at the moment, but should have no impact if there are no toasts in the offcanvas cart.
