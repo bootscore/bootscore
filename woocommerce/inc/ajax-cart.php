@@ -38,25 +38,6 @@
      * https://aceplugins.com/ajax-add-to-cart-button-on-the-product-page-woocommerce/
      */
 
-    function bootscore_add_out_of_stock_message($html) {
-      global $product;
-
-      // Only apply if explicitly enabled
-      if (!apply_filters('bootscore/loop/out-of-stock-message', false)) {
-        return $html;
-      }
-
-      // Check if product is out of stock
-      if (!$product->is_in_stock()) {
-        return '<p class="stock out-of-stock text-wrap mb-0 mt-auto">' .
-          esc_html(apply_filters('woocommerce_out_of_stock_message', __('This product is currently out of stock and unavailable.', 'woocommerce'))) .
-          '</p>';
-      }
-
-      // Return the original button HTML unchanged
-      return $html;
-    }
-    add_filter('woocommerce_loop_add_to_cart_link', 'bootscore_add_out_of_stock_message', 12);
 
     /**
      * Add to cart handler

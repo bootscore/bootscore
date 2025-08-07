@@ -1,5 +1,5 @@
 /*--------------------------------------------------------------
-WooCommerce Loop
+WooCommerce Loop - Bootscore v6.3.0
 --------------------------------------------------------------*/
 
 // Products
@@ -8,6 +8,7 @@ WooCommerce Loop
   // Product link
   a.woocommerce-LoopProduct-link.woocommerce-loop-product__link {
     text-decoration: none;
+    position: relative;
 
     &:hover {
       text-decoration: none;

@@ -4,7 +4,7 @@
  * WooCommerce Loop
  *
  * @package Bootscore 
- * @version 6.1.1
+ * @version 6.3.0
  */
 
 
@@ -118,3 +118,24 @@ function bootscore_loop_add_to_cart_args( $args ) {
   return $args;
 }
 add_filter( 'woocommerce_loop_add_to_cart_args', 'bootscore_loop_add_to_cart_args' );
+
+
+/**
+ * Add a out-of-stock badge to loop
+ */
+function bootscore_out_of_stock_badge() {
+  global $product;
+
+  // Only show if enabled via filter
+  if (!apply_filters('bootscore/loop/out-of-stock-badge', true)) {
+    return;
+  }
+
+  // Only show if not in stock
+  if (!$product->is_in_stock()) {
+    echo '<p class="badge text-bg-danger position-absolute bottom-0 start-0 mb-3 ms-3">' .
+      esc_html(apply_filters('woocommerce_out_of_stock_message', __('Out of stock', 'woocommerce'))) .
+      '</p>';
+  }
+}
+add_action('woocommerce_before_shop_loop_item_title', 'bootscore_out_of_stock_badge', 15); 
