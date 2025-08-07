@@ -22,9 +22,9 @@ add_filter('woocommerce_get_stock_html', function($html, $product) {
 
   // Define badge class based on stock status
   if ($class === 'in-stock') {
-    $badge_class = 'badge text-bg-success mb-3';
+    $badge_class = 'stock-badge badge text-bg-success mb-3';
   } else {
-    $badge_class = 'badge text-bg-danger mb-3';
+    $badge_class = 'stock-badge badge text-bg-danger mb-3';
   }
 
   return '<span class="' . esc_attr($badge_class) . '">' . esc_html($message) . '</span>';
