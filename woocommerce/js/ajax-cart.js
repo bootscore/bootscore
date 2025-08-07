@@ -67,10 +67,8 @@ jQuery(function ($) {
     }
   });
 
-  // Add loading spinner to add_to_cart_button
-  // .ajax_add_to_cart - Single product
-  // .single_add_to_cart_button - Loop
-  $('.ajax_add_to_cart, .single_add_to_cart_button').prepend('<div class="btn-loader"><span class="spinner-border spinner-border-sm"></span></div>');
+  // Add loading spinner to add_to_cart_button // loop buttons are via a php filter in ajax-cart.php
+  $('.single_add_to_cart_button').prepend('<div class="btn-loader"><span class="spinner-border spinner-border-sm"></span></div>');
 
   // 1.2 Enable AJAX add to cart on loop items
   $('a.ajax_add_to_cart[href*="?add-to-cart"]').on('click', function (e) {
