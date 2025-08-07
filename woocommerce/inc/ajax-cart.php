@@ -38,6 +38,45 @@
      * https://aceplugins.com/ajax-add-to-cart-button-on-the-product-page-woocommerce/
      */
 
+    /**
+     * Handles the add to cart button adaptions in the loop
+     * 1. Adds a btn-loader element to the add to cart button if the item is in stock
+     * 2. Adds a filter to remove the "Add to cart" button if the item is out of stock
+     * 3. Adds a badge with the woocommecerce out of stock message that is removeable via filter
+     */
+    function bootscore_add_btn_loader_to_loop($html, $product, $args) {
+
+      $return_html = '';
+
+      if ( $product->is_in_stock() && $product->supports('ajax_add_to_cart') && $product->is_purchasable() ) {
+        // Implement btn-loader element directly on the loop items without js
+        // Helps to decrease computing on client devices on page load and makes it cacheable
+        $replacement = '$1<div class="btn-loader"><span class="spinner-border spinner-border-sm"></span></div>';
+        $return_html .= preg_replace('/(<a href=\"[^?]*\?add-to-cart=[^>]+>)/', $replacement, $html);
+      } else {
+        // If the product is not purchasable, we return the original HTML without the btn-loader
+        $return_html .= $html;
+      }
+
+      // Check if product is in stock
+      if ( !$product->is_in_stock() &&
+           apply_filters('bootscore/woocommerce/loop/out-of-stock-badge', true, $product) ) {
+
+        $return_html .=
+          '<p class="badge bg-secondary text-wrap mt-2 mb-0">' .
+          esc_html(apply_filters('woocommerce_out_of_stock_message', __('This product is currently out of stock and unavailable.', 'woocommerce'))) .
+          '</p>';
+
+        // If the product is out of stock, we add the option to return without the "read more" button
+        if ( apply_filters('bootscore/woocommerce/loop/out-of-stock-remove-read-more', false) ) {
+          return $return_html;
+        }
+      }
+
+      return $return_html;
+    }
+
+    add_filter('woocommerce_loop_add_to_cart_link', 'bootscore_add_btn_loader_to_loop', 12, 3);
 
     /**
      * Add to cart handler
