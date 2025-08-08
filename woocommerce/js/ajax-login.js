@@ -1,5 +1,5 @@
 /**
- * AJAX Login JS - Bootscore v6.2.0
+ * AJAX Login JS - Bootscore v6.3.0
  */
 
 
