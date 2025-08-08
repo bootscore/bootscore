@@ -67,7 +67,7 @@
           esc_html(
             apply_filters('bootscore/woocommerce/loop/out-of-stock-badge-text',
               apply_filters('woocommerce_out_of_stock_message', __('This product is currently out of stock and unavailable.', 'woocommerce'))
-            )
+              , $product )
           ) .
           '</p>';
 
