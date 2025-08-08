@@ -312,8 +312,11 @@ jQuery(function ($) {
   });
 
   // Handle offcanvas closing - remove notices, so the cart is always empty on "reopening"
+  // Use dispose to avoid flicker issues in navbar after closing the cart
   $('#offcanvas-cart').on('hidden.bs.offcanvas', function () {
-    $('#offcanvas-cart .toast-container').remove();
+    $('#offcanvas-cart .toast').each(function () {
+      $(this).toast('dispose');
+    });
   });
 
   // That function is not "filtered" at the moment, but should have no impact if there are no toasts in the offcanvas cart.
