@@ -4,7 +4,7 @@
  * WooCommerce AJAX login
  *
  * @package Bootscore 
- * @version 6.2.2
+ * @version 6.3.0
  */
 
 
