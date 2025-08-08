@@ -60,17 +60,23 @@
 
       // Check if product is in stock
       if ( !$product->is_in_stock() &&
-           apply_filters('bootscore/woocommerce/loop/out-of-stock-badge', true, $product) ) {
+           apply_filters('bootscore/woocommerce/loop/show-out-of-stock-badge', true, $product) ) {
 
-        $return_html .=
-          '<p class="badge bg-secondary text-wrap mt-2 mb-0">' .
-          esc_html(apply_filters('woocommerce_out_of_stock_message', __('This product is currently out of stock and unavailable.', 'woocommerce'))) .
+        $badge_html =
+          '<p class="' . apply_filters('bootscore/class/woocommerce/loop/out-of-stock-badge', 'badge bg-secondary text-wrap mt-2 mb-0')  . '">' .
+          esc_html(
+            apply_filters('bootscore/woocommerce/loop/out-of-stock-badge-text',
+              apply_filters('woocommerce_out_of_stock_message', __('This product is currently out of stock and unavailable.', 'woocommerce'))
+            )
+          ) .
           '</p>';
 
         // If the product is out of stock, we add the option to return without the "read more" button
         if ( apply_filters('bootscore/woocommerce/loop/out-of-stock-remove-read-more', false) ) {
-          return $return_html;
+          return str_replace('mt-2', 'mt-auto', $badge_html);
         }
+
+        $return_html .= $badge_html;
       }
 
       return $return_html;
