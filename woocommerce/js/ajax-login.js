@@ -1,5 +1,5 @@
 /**
- * AJAX Login JS - Bootscore v6.2.0
+ * AJAX Login JS - Bootscore v6.3.0
  */
 
 
@@ -46,7 +46,11 @@ jQuery(function ($) {
         // Remove loader if retrieval of the account form/menu was successfull
         $("#offcanvas-user").removeClass("ajax-login");
 
-        offCanvasWrapper.find(".woocommerce-form-login__submit").on("click", (e) => ajax_submit_login(e));
+        // Initialize the login form if the user is not logged in
+        if(!response.data['is_logged_in']) {
+          offCanvasWrapper.find(".woocommerce-form-login__submit").on("click", (e) => ajax_submit_login(e));
+          init_pw_hide_show_toggle(offCanvasWrapper);
+        }
       }
     });
   }
@@ -122,6 +126,54 @@ jQuery(function ($) {
         // Remove loader on error
         $("#offcanvas-user").removeClass("ajax-login");
       }
+    });
+  }
+
+  function init_pw_hide_show_toggle( offCanvasWrapper ) {
+
+    offCanvasWrapper.find('.woocommerce-Input[type="password"]').each(function () {
+      const describedBy = $(this).attr('id');
+      const input = $(this);
+
+      // Create the button
+      const button = $('<button type="button" class="show-password-input" aria-label="' +
+          woocommerce_params.i18n_password_show +
+          '" aria-describedBy="' +
+          describedBy +
+          '"></button>');
+
+      // Wrap the input in a span and append the button to that span
+      input.wrap('<span class="password-input"></span>');
+      input.parent().append(button);
+    });
+
+    offCanvasWrapper.find('.show-password-input').on('click', function (event) {
+      event.preventDefault();
+
+      if ($(this).hasClass('display-password')) {
+        $(this).removeClass('display-password');
+        $(this).attr(
+            'aria-label',
+            woocommerce_params.i18n_password_show
+        );
+      } else {
+        $(this).addClass('display-password');
+        $(this).attr(
+            'aria-label',
+            woocommerce_params.i18n_password_hide
+        );
+      }
+      if ($(this).hasClass('display-password')) {
+        $(this)
+            .siblings(['input[type="password"]'])
+            .prop('type', 'text');
+      } else {
+        $(this)
+            .siblings('input[type="text"]')
+            .prop('type', 'password');
+      }
+
+      $(this).siblings('input').focus();
     });
   }
 

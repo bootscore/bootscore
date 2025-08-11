@@ -1,5 +1,5 @@
 /*--------------------------------------------------------------
-WooCommerce Colors
+WooCommerce Colors - Bootscore v6.3.0
 --------------------------------------------------------------*/
 
 .woocommerce div.product p.price,
@@ -66,10 +66,6 @@ small.includes_tax {
 
 .woocommerce-terms-and-conditions {
   background: var(--#{$prefix}terms, var(--#{$prefix}tertiary-bg));
-}
-
-.woocommerce div.product .out-of-stock {
-  color: var(--#{$prefix}wc-out-of-stock, var(--#{$prefix}danger));
 }
 
 // Gallery Overlay

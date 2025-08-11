@@ -1,5 +1,5 @@
 /*--------------------------------------------------------------
-WooCommerce Product Page
+WooCommerce Product Page - Bootscore v6.3.0
 --------------------------------------------------------------*/
 
 
@@ -16,22 +16,6 @@ WooCommerce Product Page
     margin-top: $spacer *.5;
     gap: $spacer *.5;
   }
-}
-
-
-// Stock badge
-.woocommerce div.product p.stock {
-  font-size: $badge-font-size;
-  font-weight: $badge-font-weight;
-  color: $badge-color;
-  padding: $badge-padding-y $badge-padding-x;
-  border-radius: $badge-border-radius;
-  background-color: var(--#{$prefix}danger);
-  display: inline-block;
-  line-height: 1;
-  text-align: center;
-  white-space: nowrap;
-  vertical-align: baseline;
 }
 
 

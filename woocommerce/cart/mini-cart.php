@@ -17,7 +17,7 @@
    * @version 10.0.0
    *
    * @package Bootscore
-   * @version 6.2.0
+   * @version 6.3.0
    */
 
   defined('ABSPATH') || exit;
@@ -44,6 +44,8 @@
       ?>
     </div>
 
+    <?php do_action('bootscore_before_mini_cart_footer'); ?>
+    
     <div class="cart-footer <?= apply_filters('bootscore/class/header/cart/footer', 'bg-body-tertiary p-3'); ?>">
 
       <?php wc_get_template('cart/mini-cart-footer.php'); ?>

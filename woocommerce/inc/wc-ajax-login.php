@@ -4,7 +4,7 @@
  * WooCommerce AJAX login
  *
  * @package Bootscore 
- * @version 6.2.2
+ * @version 6.3.0
  */
 
 
@@ -17,6 +17,13 @@ add_action('wp_ajax_nopriv_load_account_menu_html', 'load_account_menu_html');
 function load_account_menu_html() {
   $response = [];
   $response['menu_html'] = do_shortcode('[woocommerce_my_account]');
+  // Check if the user is logged in
+  if (is_user_logged_in()) {
+    $response['isLoggedIn'] = true;
+  } else {
+    $response['isLoggedIn'] = false;
+  }
+
   wp_send_json_success($response);
 }
 
