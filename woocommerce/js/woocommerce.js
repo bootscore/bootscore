@@ -1,20 +1,17 @@
 /**
- * WooCommerce JS - Bootscore v6.2.0
+ * WooCommerce JS - Bootscore v6.3.1
  */
 
 
 jQuery(function ($) {
 
   // Single-product Tabs
-  // First item active
+  // First tab active by default
   $('.wc-tabs .nav-item:first-child a').addClass('active');
   $('.wc-tab').hide().first().show();
 
-  // Tab switching
-  $('body').on('click', '.wc-tabs li a', function (e) {
-    e.preventDefault();
-
-    var $tab = $(this);
+  // Function to switch tabs (used by both click and deep-link)
+  function switchTab($tab) {
     var $tabs_wrapper = $tab.closest('.wc-tabs-wrapper, .woocommerce-tabs');
 
     // Remove active classes and hide all tab panels
@@ -24,8 +21,36 @@ jQuery(function ($) {
     // Activate clicked tab and show corresponding panel
     $tab.addClass('active');
     $tabs_wrapper.find($tab.attr('href')).show();
+  }
+
+  // Tab switching on click
+  $('body').on('click', '.wc-tabs li a', function (e) {
+    e.preventDefault();
+    switchTab($(this));
   });
-  // Single-product Tabs End
+
+  // --- Reviews tab deep-link support (WooCommerce 10.2) ---
+
+  function openReviewsTab() {
+    var $reviewTabLink = $('.wc-tabs li.reviews_tab a');
+    if ($reviewTabLink.length) {
+      switchTab($reviewTabLink); // directly switch tab (no click trigger)
+      // Scroll into view using CSS scroll behavior
+      document.querySelector('#tab-reviews').scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+
+  // On page load, if URL has #reviews or #tab-reviews hash
+  if (window.location.hash === '#reviews' || window.location.hash === '#tab-reviews') {
+    openReviewsTab();
+  }
+
+  // When clicking any link pointing to #reviews or #tab-reviews
+  $('body').on('click', 'a[href="#reviews"], a[href="#tab-reviews"]', function(e) {
+    e.preventDefault();
+    openReviewsTab();
+  });
+
 
   // WC Quantity Input
   // Quantity "plus" and "minus" buttons
