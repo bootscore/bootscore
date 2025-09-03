@@ -11,55 +11,39 @@ jQuery(function ($) {
   $('.wc-tabs .nav-item:first-child a').addClass('active');
   $('.wc-tab').hide().first().show();
 
-  // Function to switch tabs (used by both click and deep-link)
-  function switchTab($tab, updateHash = false) {
+  // Function to switch tabs
+  function switchTab($tab) {
     var $tabs_wrapper = $tab.closest('.wc-tabs-wrapper, .woocommerce-tabs');
 
-    // Remove active classes and hide all tab panels
     $tabs_wrapper.find('.wc-tabs li a').removeClass('active');
     $tabs_wrapper.find('.wc-tab').hide();
 
-    // Activate clicked tab and show corresponding panel
     $tab.addClass('active');
-    var target = $tab.attr('href');
-    $tabs_wrapper.find(target).show();
-
-    // Optionally update URL hash (but no scrolling)
-    if (updateHash && history.replaceState) {
-      history.replaceState(null, null, '#reviews');
-    }
+    $tabs_wrapper.find($tab.attr('href')).show();
   }
 
-  // Tab switching on click (no hash update, no scroll)
+  // Tab switching on click (no scroll, no hash update)
   $('body').on('click', '.wc-tabs li a', function (e) {
     e.preventDefault();
-    switchTab($(this), false);
+    switchTab($(this));
   });
 
-  // --- Reviews tab deep-link support (WooCommerce 10.2) ---
-
-  function openReviewsTab(scrollIntoView = false, updateHash = false) {
-    var $reviewTabLink = $('.wc-tabs li.reviews_tab a');
-    if ($reviewTabLink.length) {
-      switchTab($reviewTabLink, updateHash);
-      if (scrollIntoView) {
-        document.querySelector('#tab-reviews').scrollIntoView({ behavior: 'smooth' });
-      }
-    }
-  }
-
-  // On page load, if URL has #reviews or #tab-reviews hash → open and scroll
-  if (window.location.hash === '#reviews' || window.location.hash === '#tab-reviews') {
-    openReviewsTab(true, false);
-  }
-
-  // When clicking the product "X reviews" link only (exclude tab link)
+  // When clicking the "X reviews" link
   $('body').on('click', '.woocommerce-review-link', function(e) {
     e.preventDefault();
-    openReviewsTab(true, true);
+    var $reviewTabLink = $('.wc-tabs li.reviews_tab a');
+    if ($reviewTabLink.length) {
+      switchTab($reviewTabLink);
+      // Smooth scroll using CSS scroll-behavior
+      document.querySelector('#tab-reviews').scrollIntoView({ behavior: 'smooth' });
+      // Update URL hash without jumping
+      if (history.replaceState) {
+        history.replaceState(null, null, '#reviews');
+      }
+    }
   });
 
-
+  
   // WC Quantity Input
   // Quantity "plus" and "minus" buttons
   $(document.body).on('click', 'form.cart .plus, form.cart .minus,' + // for single product page
