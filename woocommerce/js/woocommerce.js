@@ -6,12 +6,13 @@
 jQuery(function ($) {
 
   // Single-product Tabs
+
   // First tab active by default
   $('.wc-tabs .nav-item:first-child a').addClass('active');
   $('.wc-tab').hide().first().show();
 
   // Function to switch tabs (used by both click and deep-link)
-  function switchTab($tab) {
+  function switchTab($tab, updateHash = false) {
     var $tabs_wrapper = $tab.closest('.wc-tabs-wrapper, .woocommerce-tabs');
 
     // Remove active classes and hide all tab panels
@@ -20,35 +21,42 @@ jQuery(function ($) {
 
     // Activate clicked tab and show corresponding panel
     $tab.addClass('active');
-    $tabs_wrapper.find($tab.attr('href')).show();
+    var target = $tab.attr('href');
+    $tabs_wrapper.find(target).show();
+
+    // Optionally update URL hash (but no scrolling)
+    if (updateHash && history.replaceState) {
+      history.replaceState(null, null, '#reviews');
+    }
   }
 
-  // Tab switching on click
+  // Tab switching on click (no hash update, no scroll)
   $('body').on('click', '.wc-tabs li a', function (e) {
     e.preventDefault();
-    switchTab($(this));
+    switchTab($(this), false);
   });
 
   // --- Reviews tab deep-link support (WooCommerce 10.2) ---
 
-  function openReviewsTab() {
+  function openReviewsTab(scrollIntoView = false, updateHash = false) {
     var $reviewTabLink = $('.wc-tabs li.reviews_tab a');
     if ($reviewTabLink.length) {
-      switchTab($reviewTabLink); // directly switch tab (no click trigger)
-      // Scroll into view using CSS scroll behavior
-      document.querySelector('#tab-reviews').scrollIntoView({ behavior: 'smooth' });
+      switchTab($reviewTabLink, updateHash);
+      if (scrollIntoView) {
+        document.querySelector('#tab-reviews').scrollIntoView({ behavior: 'smooth' });
+      }
     }
   }
 
-  // On page load, if URL has #reviews or #tab-reviews hash
+  // On page load, if URL has #reviews or #tab-reviews hash → open and scroll
   if (window.location.hash === '#reviews' || window.location.hash === '#tab-reviews') {
-    openReviewsTab();
+    openReviewsTab(true, false);
   }
 
-  // When clicking any link pointing to #reviews or #tab-reviews
-  $('body').on('click', 'a[href="#reviews"], a[href="#tab-reviews"]', function(e) {
+  // When clicking the product "X reviews" link only (exclude tab link)
+  $('body').on('click', '.woocommerce-review-link', function(e) {
     e.preventDefault();
-    openReviewsTab();
+    openReviewsTab(true, true);
   });
 
 
