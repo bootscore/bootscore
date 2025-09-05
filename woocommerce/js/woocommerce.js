@@ -1,5 +1,5 @@
 /**
- * WooCommerce JS - Bootscore v6.2.0
+ * WooCommerce JS - Bootscore v6.3.1
  */
 
 
@@ -25,7 +25,6 @@ jQuery(function ($) {
     $tab.addClass('active');
     $tabs_wrapper.find($tab.attr('href')).show();
   });
-  // Single-product Tabs End
 
   // WC Quantity Input
   // Quantity "plus" and "minus" buttons
