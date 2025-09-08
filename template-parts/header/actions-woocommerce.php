@@ -65,13 +65,8 @@ if ( is_cart() ) {
     <div class="d-inline-flex align-items-center">
       <?= apply_filters('bootscore/icon/cart', '<i class="fa-solid fa-bag-shopping"></i>'); ?> <span class="visually-hidden-focusable">Cart</span>
       <?php if (in_array('woocommerce/woocommerce.php', apply_filters('active_plugins', get_option('active_plugins')))) {
-        $count = WC()->cart->cart_contents_count;
         ?>
-        <span class="cart-content">
-          <?php if ($count > 0) { ?>
-            <?= esc_html($count); ?>
-          <?php } ?>
-        </span>
+        <span class="cart-content"></span>
       <?php } ?>
     </div>
   </button>
