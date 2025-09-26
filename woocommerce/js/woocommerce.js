@@ -4,6 +4,17 @@
 
 
 jQuery(function ($) {
+  
+  // Checkout Form Validation
+  $('body').on('blur change', '.form-row :input', function () {
+    var $row = $(this).closest('.form-row');
+    var isValid = $row.hasClass('woocommerce-validated');
+    var $fields = $row.find('.select2-container, input.input-text, select, .form-check-input[type=checkbox]');
+
+    $fields
+      .toggleClass('is-valid', isValid)
+      .toggleClass('is-invalid', !isValid);
+  });
 
   // Single-product Tabs
   // First item active
