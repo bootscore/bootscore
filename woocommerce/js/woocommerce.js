@@ -8,16 +8,12 @@ jQuery(function ($) {
   // Checkout Form Validation
   $('body').on('blur change', '.form-row :input', function () {
     var $row = $(this).closest('.form-row');
+    var isValid = $row.hasClass('woocommerce-validated');
+    var $fields = $row.find('.select2-container, input.input-text, select, .form-check-input[type=checkbox]');
 
-    if ($row.hasClass('woocommerce-validated')) {
-      $row.find('.select2-container, input.input-text, select, .form-check-input[type=checkbox]')
-        .removeClass('is-invalid').addClass('is-valid');
-    }
-
-    if ($row.hasClass('woocommerce-invalid')) {
-      $row.find('.select2-container, input.input-text, select, .form-check-input[type=checkbox]')
-        .removeClass('is-valid').addClass('is-invalid');
-    }
+    $fields
+      .toggleClass('is-valid', isValid)
+      .toggleClass('is-invalid', !isValid);
   });
 
   // Single-product Tabs
