@@ -1,5 +1,5 @@
 /*--------------------------------------------------------------
-WooCommerce Checkout
+WooCommerce Checkout - Bootscore v6.3.1
 --------------------------------------------------------------*/
 
 // Reset coupon collapse
@@ -177,119 +177,8 @@ table.shop_table.woocommerce-checkout-review-order-table tr {
 }
 
 
-// Form Validation
-.woocommerce form .form-row {
 
-  &.woocommerce-validated,
-  &.woocommerce-invalid {
 
-    input.input-text,
-    select,
-    textarea {
-      background-repeat: no-repeat;
-    }
-
-    input.input-text,
-    textarea {
-      padding-right: $input-height-inner;
-      background-size: $input-height-inner-half $input-height-inner-half;
-    }
-
-    input.input-text {
-      background-position: right $input-height-inner-quarter center;
-    }
-
-    select {
-      padding-right: $form-select-feedback-icon-padding-end;
-      background-position: $form-select-bg-position, $form-select-feedback-icon-position;
-      background-size: $form-select-bg-size, $form-select-feedback-icon-size;
-    }
-
-    textarea {
-      background-position: top $input-height-inner-quarter right $input-height-inner-quarter;
-    }
-  }
-
-  &.woocommerce-validated {
-
-    input.input-text,
-    textarea {
-      background-image: var(--valid-icon);
-    }
-
-    select {
-      --bs-form-select-bg-icon: var(--valid-icon);
-    }
-
-    input.input-text,
-    textarea,
-    select {
-      border-color: var(--#{$prefix}form-valid-border-color);
-
-      &:focus {
-        box-shadow: 0 0 $input-btn-focus-blur $input-focus-width rgba(var(--#{$prefix}success-rgb), $input-btn-focus-color-opacity);
-        border-color: var(--#{$prefix}form-valid-border-color);
-      }
-    }
-
-    // Terms & Conditions checkbox
-    input#terms {
-      border-color: var(--#{$prefix}form-valid-color);
-      background-color: var(--#{$prefix}form-valid-color);
-
-      &:focus {
-        box-shadow: 0 0 $input-btn-focus-blur $input-focus-width rgba(var(--#{$prefix}success-rgb), $input-btn-focus-color-opacity);
-      }
-    }
-
-    .woocommerce-terms-and-conditions-checkbox-text {
-      color: var(--#{$prefix}form-valid-color);
-    }
-  }
-
-  &.woocommerce-invalid {
-
-    input.input-text,
-    textarea {
-      background-image: var(--invalid-icon);
-    }
-
-    select {
-      --bs-form-select-bg-icon: var(--invalid-icon);
-    }
-
-    input.input-text,
-    textarea,
-    select {
-      border-color: var(--#{$prefix}form-invalid-border-color);
-
-      &:focus {
-        box-shadow: 0 0 $input-btn-focus-blur $input-focus-width rgba(var(--#{$prefix}danger-rgb), $input-btn-focus-color-opacity);
-        border-color: var(--#{$prefix}form-invalid-border-color);
-      }
-    }
-
-    label {
-      color: var(--#{$prefix}body-color);
-    }
-
-    // Terms & Conditions checkbox
-    .woocommerce-form__label-for-checkbox {
-
-      .woocommerce-terms-and-conditions-checkbox-text {
-        color: var(--#{$prefix}form-invalid-color);
-      }
-
-      input {
-        border-color: var(--#{$prefix}form-invalid-color);
-
-        &:focus {
-          box-shadow: 0 0 $input-btn-focus-blur $input-focus-width rgba(var(--#{$prefix}danger-rgb), $input-btn-focus-color-opacity);
-        }
-      }
-    }
-  }
-}
 
 
 // Fix checkout select and textarea since WC 9.7
@@ -317,15 +206,6 @@ table.shop_table.woocommerce-checkout-review-order-table tr {
     background-image: var(--#{$prefix}form-select-bg-img), var(--#{$prefix}form-select-bg-icon, none);
     background-size: $form-select-bg-size;
     background-position: $form-select-bg-position;
-  }
-
-  // Validation
-  &.woocommerce-invalid select:focus {
-    border-color: var(--#{$prefix}form-invalid-border-color);
-  }
-
-  &.woocommerce-validated select:focus {
-    border-color: var(--#{$prefix}form-valid-color);
   }
 }
 
@@ -393,39 +273,6 @@ table.shop_table.woocommerce-checkout-review-order-table tr {
 }
    
     
-// Validation    
-.woocommerce form {
-  .form-row {
-    &.woocommerce-validated,
-    &.woocommerce-invalid {
-      .select2-container:not(.select2-container--open) .select2-selection {
-        background-image: var(--#{$prefix}form-select-bg-img);
-        padding-right: $form-select-feedback-icon-padding-end;
-        background-position: $form-select-bg-position, $form-select-feedback-icon-position;
-        background-size: $form-select-bg-size, $form-select-feedback-icon-size;
-      }
-    }
-
-    &.woocommerce-validated {
-      .select2-container:not(.select2-container--open) .select2-selection {
-        border-color: var(--#{$prefix}form-valid-color);
-        background-image: var(--#{$prefix}form-select-bg-img), var(--valid-icon);
-      }
-
-      .select2-container:not(.select2-container--open) .select2-selection:focus-visible {
-        box-shadow: 0 0 $input-btn-focus-blur $input-focus-width rgba(var(--#{$prefix}success-rgb), $input-btn-focus-color-opacity);
-        outline: 0;
-      }
-    }
-
-    &.woocommerce-invalid {
-      .select2-container:not(.select2-container--open) .select2-selection {
-        border-color: var(--#{$prefix}form-invalid-border-color);
-        background-image: var(--#{$prefix}form-select-bg-img), var(--invalid-icon);
-      }
-    }
-  }
-}
 
 
 // Dropdown

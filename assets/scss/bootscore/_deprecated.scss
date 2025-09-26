@@ -17,11 +17,10 @@ Deprecated
 }
 
 
-
 // Form validation icons
 // Allows validation with CSS variables instead using JS.
 // Used in _wc_checkout.scss and bs Contact Form 7 plugin.
-// See _forms.scss
+// See https://github.com/bootscore/bs-contact-form-7/pull/21
 
 // Valid icon
 @function valid-icon-color($color) {
