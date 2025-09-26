@@ -161,7 +161,7 @@ table.shop_table.woocommerce-checkout-review-order-table tr {
 
 // Stripe saved credit cards
 .woocommerce-SavedPaymentMethods-saveNew {
-  label{
+  label {
     padding-left: $form-check-padding-start;
     display: block !important; // Override inline-style
   }
@@ -184,7 +184,7 @@ table.shop_table.woocommerce-checkout-review-order-table tr {
 // Fix checkout select and textarea since WC 9.7
 // See https://github.com/bootscore/bootscore/pull/957
 .woocommerce form .form-row {
-  
+
   .input-text,
   select {
     font-family: $input-font-family;
@@ -203,7 +203,8 @@ table.shop_table.woocommerce-checkout-review-order-table tr {
   }
 
   select {
-    background-image: var(--#{$prefix}form-select-bg-img), var(--#{$prefix}form-select-bg-icon, none);
+    background-image: var(--#{$prefix}form-select-bg-img),
+    var(--#{$prefix}form-select-bg-icon, none);
     background-size: $form-select-bg-size;
     background-position: $form-select-bg-position;
   }
@@ -225,10 +226,10 @@ table.shop_table.woocommerce-checkout-review-order-table tr {
       --#{$prefix}form-select-bg-img: #{escape-svg($form-select-indicator-dark)};
     }
   }
-}  
+}
 
 .woocommerce {
-  
+
   // Create a select
   .select2-container--default .select2-selection--single {
     --#{$prefix}form-select-bg-img: #{escape-svg($form-select-indicator)};
@@ -236,18 +237,19 @@ table.shop_table.woocommerce-checkout-review-order-table tr {
     background-color: $input-bg;
     border: $form-select-border-width solid $form-select-border-color;
     border-radius: $input-border-radius;
-    background-image: var(--#{$prefix}form-select-bg-img), var(--#{$prefix}form-select-bg-icon, none);
+    background-image: var(--#{$prefix}form-select-bg-img),
+    var(--#{$prefix}form-select-bg-icon, none);
     background-size: $form-select-bg-size;
     background-position: $form-select-bg-position;
     background-repeat: no-repeat;
   }
-      
+
   .select2-container .select2-selection--single {
     height: auto;
     margin: 0;
     min-height: 38px; // empty blockified cart shipping calculator 
   }
-      
+
   .select2-selection__placeholder {
     color: $form-select-color !important;
   }
@@ -264,19 +266,20 @@ table.shop_table.woocommerce-checkout-review-order-table tr {
     display: none;
   }
 }
-    
-    
+
+
 // Fix blockified cart/checkout select2-container--open width 
 // https://github.com/bootscore/bootscore/pull/1024
 .select2-container {
   width: auto;
 }
-   
-    
+
+
 
 
 // Dropdown
 .select2-container {
+
   .select2-dropdown,
   .select2-selection {
     background-color: $dropdown-bg;
@@ -311,7 +314,9 @@ table.shop_table.woocommerce-checkout-review-order-table tr {
 
         @if $enable-shadows {
           @include box-shadow($input-box-shadow, $input-focus-box-shadow);
-        } @else {
+        }
+
+        @else {
           box-shadow: $input-focus-box-shadow;
         }
       }
@@ -339,6 +344,35 @@ table.shop_table.woocommerce-checkout-review-order-table tr {
     &--highlighted[data-selected] {
       background-color: var(--#{$prefix}primary) !important;
       color: color-contrast($primary) !important;
+    }
+  }
+}
+
+
+
+
+// Validation
+
+.woocommerce form {
+
+  .form-row {
+
+    &.woocommerce-validated {
+
+      input.input-text,
+      select {
+        border-color: var(--#{$prefix}form-valid-border-color);
+      }
+    }
+
+    // Invalid
+    &.woocommerce-invalid {
+
+      input.input-text,
+      select {
+        border-color: var(--#{$prefix}form-invalid-border-color);
+      }
+
     }
   }
 }
