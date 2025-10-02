@@ -6,7 +6,7 @@
 jQuery(function ($) {
   
   // Checkout Form Validation
-  $('body').on('blur change', '.form-row :input', function () {
+  $('body').on('blur change', '.checkout .form-row :input', function () {
     var $row = $(this).closest('.form-row');
     var isValid = $row.hasClass('woocommerce-validated');
     var $fields = $row.find('.select2-container, input.input-text, select, .form-check-input[type=checkbox]');
