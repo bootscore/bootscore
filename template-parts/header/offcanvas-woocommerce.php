@@ -6,7 +6,7 @@
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
  * @package Bootscore
- * @version 6.2.0
+ * @version 6.3.1
  */
 
 
@@ -52,7 +52,7 @@ if ( is_checkout() || is_cart() ) {
     </div>
     <div class="offcanvas-body p-0 <?= apply_filters('bootscore/class/offcanvas/body', '', 'cart'); ?>">
       <div class="cart-list">
-        <div class="widget_shopping_cart_content"><?php woocommerce_mini_cart(); ?></div>
+        <div class="widget_shopping_cart_content"></div>
       </div>
     </div>
   </div>
