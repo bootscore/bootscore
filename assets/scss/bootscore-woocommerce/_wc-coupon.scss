@@ -1,5 +1,5 @@
 /*--------------------------------------------------------------
-WooCommerce Coupon
+WooCommerce Coupon - Bootscore v6.3.1
 --------------------------------------------------------------*/
 
 // https://github.com/bootscore/bootscore/tree/Update-WC-9.8-templates
@@ -27,31 +27,6 @@ WooCommerce Coupon
   }
 }
 
-
-// Cart coupon .input-group
-.woocommerce-cart table.cart td.actions .coupon {
-
-  .input-text {
-    // @include border-end-radius(0); // Not working here
-    border-top-right-radius: 0 !important;
-    border-bottom-right-radius: 0 !important;
-    margin: 0;
-
-    &::placeholder {
-      color: $input-placeholder-color;
-      opacity: 1;
-    }
-
-    &:focus {
-      z-index: 5;
-    }
-  }
-
-  button {
-    @include border-start-radius(0);
-    margin-left: calc(var(--#{$prefix}border-width) * -1);
-  }
-}
 
 
 // Checkout coupon .input-group
@@ -107,6 +82,7 @@ WooCommerce Coupon
   display: none !important;
 }
 
+/*
 .checkout_coupon,
 .coupon {
   input.input-text {
@@ -123,3 +99,4 @@ WooCommerce Coupon
     }
   }
 }
+*/

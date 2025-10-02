@@ -5,11 +5,15 @@
 
 jQuery(function ($) {
   
-  // Checkout Form Validation
+  // Checkout Form Validation (Bootstrap 5)
   $('body').on('blur change', '.checkout .form-row :input', function () {
     var $row = $(this).closest('.form-row');
     var isValid = $row.hasClass('woocommerce-validated');
-    var $fields = $row.find('.select2-container, input.input-text, select, .form-check-input[type=checkbox]');
+
+    // Match all relevant fields (no more input-text)
+    var $fields = $row.find(
+      '.select2-container, input.form-control, textarea.form-control, select.form-select, .form-check-input'
+    );
 
     $fields
       .toggleClass('is-valid', isValid)

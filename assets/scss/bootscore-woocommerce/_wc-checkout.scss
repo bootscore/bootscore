@@ -56,7 +56,7 @@ table.shop_table.woocommerce-checkout-review-order-table tr {
     li {
       line-height: inherit;
       padding-left: 0;
-
+/*
       // Adjust payment method checkboxes
       input {
         margin-right: $form-check-input-width * .5;
@@ -67,6 +67,7 @@ table.shop_table.woocommerce-checkout-review-order-table tr {
       &:last-child div.payment_box {
         margin-bottom: 0;
       }
+      */
     }
 
     // Payment information
@@ -128,7 +129,7 @@ table.shop_table.woocommerce-checkout-review-order-table tr {
 
   li {
     padding-left: 0;
-
+/*
     input {
       width: $form-check-input-width !important; // Override inline-style
       margin-top: ($line-height-base - $form-check-input-width) * .5 !important;
@@ -136,10 +137,12 @@ table.shop_table.woocommerce-checkout-review-order-table tr {
       margin-bottom: 0 !important;
       margin-left: 0 !important;
     }
+    */
   }
 }
 
 
+/*
 // Stripe
 // Stripe credit card input
 .wc-stripe-elements-field,
@@ -149,8 +152,9 @@ table.shop_table.woocommerce-checkout-review-order-table tr {
   border-radius: $border-radius;
   border: var(--#{$prefix}border-width) var(--#{$prefix}border-style) var(--#{$prefix}border-color) !important;
 }
+*/
 
-
+/*
 // Save payment information check
 .form-row.woocommerce-SavedPaymentMethods-saveNew.woocommerce-validated {
 
@@ -158,7 +162,9 @@ table.shop_table.woocommerce-checkout-review-order-table tr {
     width: $form-check-input-width !important; // Override inline-style
   }
 }
+*/
 
+/*
 // Stripe saved credit cards
 .woocommerce-SavedPaymentMethods-saveNew {
   label {
@@ -175,12 +181,12 @@ table.shop_table.woocommerce-checkout-review-order-table tr {
     display: inline-block;
   }
 }
+*/
 
 
 
 
-
-
+/*
 // Fix checkout select and textarea since WC 9.7
 // See https://github.com/bootscore/bootscore/pull/957
 .woocommerce form .form-row {
@@ -209,7 +215,7 @@ table.shop_table.woocommerce-checkout-review-order-table tr {
     background-position: $form-select-bg-position;
   }
 }
-
+*/
 
 // Hide Feedback 
 .checkout-inline-error-message {
@@ -276,6 +282,7 @@ table.shop_table.woocommerce-checkout-review-order-table tr {
 
 
 
+    
 
 // Dropdown
 .select2-container {
@@ -352,7 +359,7 @@ table.shop_table.woocommerce-checkout-review-order-table tr {
 
 
 // Validation
-
+/*
 .woocommerce form {
 
   .form-row {
@@ -376,3 +383,4 @@ table.shop_table.woocommerce-checkout-review-order-table tr {
     }
   }
 }
+*/
