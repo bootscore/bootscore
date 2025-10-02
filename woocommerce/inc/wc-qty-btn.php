@@ -4,7 +4,7 @@
    * WooCommerce Quantity Buttons
    *
    * @package Bootscore
-   * @version 6.2.0
+   * @version 6.3.1
    */
 
 // Exit if accessed directly
@@ -18,7 +18,13 @@
    * See https://github.com/bootscore/bootscore/pull/543/commits/57574c1fdd4ad10d296df70e51cf08b801fccb27
    */
   add_filter('woocommerce_quantity_input_args', function (array $args) {
+
     add_filter('woocommerce_quantity_input_type', 'change_quantity_input_type');
+
+    // Exit early if required args are not set
+    if (!isset($args['max_value']) || !isset($args['min_value']) || !isset($args['input_value'])) {
+      return $args;
+    }
 
     // Both Buttons are enabled
     if( $args['max_value'] == 1 || $args['min_value'] == $args['max_value'] ) {
