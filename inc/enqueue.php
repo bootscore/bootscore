@@ -25,8 +25,11 @@ function bootscore_scripts() {
   $modificated_themeJs        = date('YmdHi', filemtime(get_template_directory() . '/assets/js/theme.js'));
 
   // Bootscore
-  require_once 'scss-compiler.php';
-  bootscore_compile_scss();
+  $disable = apply_filters('bootscore/scss/disable_compiler', (defined('BOOTSCORE_SCSS_DISABLE_COMPILER') && BOOTSCORE_SCSS_DISABLE_COMPILER));
+  if ( ! $disable ) {
+    require_once 'scss-compiler.php';
+    bootscore_compile_scss();
+  }
   wp_enqueue_style('main', get_template_directory_uri() . '/assets/css/main.css', array(), $modificated_bootscoreCss);
 
   // Style CSS
