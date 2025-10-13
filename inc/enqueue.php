@@ -4,7 +4,7 @@
  * Enqueue styles & scripts
  *
  * @package Bootscore 
- * @version 6.0.3
+ * @version 6.3.1
  */
 
 
@@ -25,8 +25,11 @@ function bootscore_scripts() {
   $modificated_themeJs        = date('YmdHi', filemtime(get_template_directory() . '/assets/js/theme.js'));
 
   // Bootscore
-  require_once 'scss-compiler.php';
-  bootscore_compile_scss();
+  $bootscore_disable_compiler = apply_filters('bootscore/scss/disable_compiler', (defined('BOOTSCORE_SCSS_DISABLE_COMPILER') && BOOTSCORE_SCSS_DISABLE_COMPILER));
+  if ( ! $bootscore_disable_compiler ) {
+    require_once 'scss-compiler.php';
+    bootscore_compile_scss();
+  }
   wp_enqueue_style('main', get_template_directory_uri() . '/assets/css/main.css', array(), $modificated_bootscoreCss);
 
   // Style CSS
