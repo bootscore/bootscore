@@ -4,14 +4,14 @@
  * Class with functions to compile SCSS files.
  *
  * @package Bootscore
- * @version 7.0.0
+ * @version 6.3.1
  */
 
 
 // Exit if accessed directly
 defined('ABSPATH') || exit;
 
-require_once "scssphp/autoload.php";
+require_once "scssphp/scss.inc.php";
 
 use ScssPhp\ScssPhp\Compiler;
 
@@ -167,6 +167,9 @@ class BootscoreScssCompiler {
   }
 
   public function compile() {
+    if (apply_filters('bootscore/scss/disable_compiler', (defined('BOOTSCORE_SCSS_DISABLE_COMPILER') && BOOTSCORE_SCSS_DISABLE_COMPILER))) {
+        return;
+    }
     $this->addImportPaths();
     $this->setOutputStyle();
     $this->file_id = $this->generateId($this->scss_file);
