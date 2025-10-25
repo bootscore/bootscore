@@ -199,12 +199,28 @@
           }
 
           // Seems to nearly always return true, There is no validation as far as I understand. Therefore the checks happen before
-          WC()->cart->set_quantity($cart_item_key, $qty);
+          if($qty == 0){
+            WC()->cart->remove_cart_item($cart_item_key);
+          } else {
+            WC()->cart->set_quantity($cart_item_key, $qty);
+          }
 
           $items = WC()->cart->get_cart();
-          $updated_item = $items[$cart_item_key];
 
-          $response_item['fragments_replace'][".woocommerce-mini-cart-item[data-key=\"$cart_item_key\"]"] = retrieve_cart_item_html($cart_item_key, $updated_item);
+          // WPML seems to update the cart only after the quantity update.
+          // Fix should also work for other plugins that update the cart after the quantity change.
+          // If the original $cart_item_key is not in the cart after the quantity change, we return an error and refresh the cart fragments completely
+          if ($qty != 0 && !isset($items[$cart_item_key])) {
+            $response_item['force_fragments_refresh'] = true;
+            wp_send_json_error($response_item);
+          }
+
+          $updated_item = [];
+          if($qty != 0){
+            $updated_item = $items[$cart_item_key];
+            $response_item['fragments_replace'][".woocommerce-mini-cart-item[data-key=\"$cart_item_key\"]"] = retrieve_cart_item_html($cart_item_key, $updated_item);
+            wc_add_notice(sprintf(__("Quantity of %s updated successfully", 'bootscore'), $updated_item['data']->get_name()), 'success');
+          }
 
           // Get Mini Cart Footer Fragment
           ob_start();
@@ -219,12 +235,6 @@
           }
           $response_item['fragments_replace']['.cart-toggler .woocommerce-Price-amount > bdi'] = $cart_total;
           $response_item['fragments_replace']['.cart-content-count'] = '<span class="cart-content-count position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">' . WC()->cart->get_cart_contents_count() . '</span>';
-
-          if($qty == 0){
-            wc_add_notice(sprintf(__('&ldquo;%s&rdquo; has been removed from your cart', 'woocommerce'), $updated_item['data']->get_name()), 'success');
-          } else {
-            wc_add_notice(sprintf(__("Quantity of %s updated successfully", 'bootscore'), $updated_item['data']->get_name()), 'success');
-          }
 
           // Filter to force complete fragments refresh on qty update if some incompatibility comes up.
           $response_item['force_fragments_refresh'] = apply_filters('bootscore/woocommerce/ajax-cart/update-qty/response/force-full-refresh', false, $response_item, $cart_item_key, $qty);
@@ -246,7 +256,11 @@
           $removed_items = array_diff_key($cart_content_before, $cart_content_after);
           foreach ($removed_items as $key => $item) {
             $response_item['fragments_replace'][".woocommerce-mini-cart-item[data-key=\"$key\"]"] = '';
-            wc_add_notice(sprintf(__( '&ldquo;%s&rdquo; has been removed from your cart', 'woocommerce' ), $item['data']->get_title()), 'notice');
+            $notice_type = 'notice';
+            if($key == $cart_item_key){
+              $notice_type = 'success';
+            }
+            wc_add_notice(sprintf(__( '&ldquo;%s&rdquo; has been removed from your cart', 'woocommerce' ), $item['data']->get_title()), $notice_type);
           }
 
           // Do something to the cart just before submission but before the session notifications are added
@@ -292,7 +306,8 @@
       if ($product) {
         $max_quantity = $product->get_max_purchase_quantity();
         // If quantity is unlimited the function will return -1
-        if ($max_quantity != -1 && $qty > $max_quantity) {
+        // If the qty update function is used to remove an item this validation shouldn't be done.
+        if ($qty > 0 && $max_quantity != -1 && $qty > $max_quantity) {
           wc_add_notice(sprintf(__('We only have %1$d of (%2$s) in stock.', 'bootscore'), $max_quantity, $product->get_name()), 'error');
           return false;
         }
