@@ -248,14 +248,15 @@ jQuery(function ($) {
       },
       success: function (res) {
         let cart_res = res.data;
+        if (cart_res['force_fragments_refresh']) {
+          $(document.body).trigger('wc_fragment_refresh');
+          return;
+        }
+
         if (res.success) {
-          if (cart_res['force_fragments_refresh']) {
-            $(document.body).trigger('wc_fragment_refresh');
-            return;
-          } else {
-            console.log('in_update_js_sucess');
-            $('#offcanvas-cart .cart-content span.woocommerce-Price-amount.amount').html(
-              cart_res['total']
+          console.log('in_update_js_sucess');
+          $('#offcanvas-cart .cart-content span.woocommerce-Price-amount.amount').html(
+            cart_res['total']
             );
 
             if (document.startViewTransition) {
@@ -266,7 +267,6 @@ jQuery(function ($) {
 
             // Dispatch the custom event
             $(document.body).trigger('qty_updated', [res]);
-          }
         } else {
           wrap.find('.blockUI').remove();
 
