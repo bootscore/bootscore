@@ -127,3 +127,19 @@ a.added_to_cart {
     padding-right: 0;
   }
 }
+
+// Reset woocommerce remove button design
+.woocommerce-mini-cart-item a.remove.remove_from_cart_button {
+  display: inline;
+  text-indent: 0;
+  font-size: 16px;
+  color: RGBA(var(--bs-danger-rgb),var(--bs-link-opacity,1)) !important;
+
+  &:before {
+    content: none;
+  }
+
+  &:hover {
+    color: RGBA(176,42,55,var(--bs-link-opacity,1)) !important;
+  }
+}

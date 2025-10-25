@@ -101,7 +101,7 @@
             <?php echo apply_filters( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
               'woocommerce_cart_item_remove_link',
               sprintf(
-                '<a role="button" href="%s" class="remove_from_cart_button link-danger" aria-label="%s" data-product_id="%s" data-cart_item_key="%s" data-product_sku="%s" data-success_message="%s">' . apply_filters('bootscore/icon/trash', '<i class="fa-regular fa-trash-can"></i>') . '</a>',
+                '<a role="button" href="%s" class="remove remove_from_cart_button link-danger" aria-label="%s" data-product_id="%s" data-cart_item_key="%s" data-product_sku="%s" data-success_message="%s">' . apply_filters('bootscore/icon/trash', '<i class="fa-regular fa-trash-can"></i>') . '</a>',
                 esc_url(wc_get_cart_remove_url($cart_item_key)),
                 /* translators: %s is the product name */
                 esc_attr(sprintf(__('Remove %s from cart', 'woocommerce'), wp_strip_all_tags($product_name))),
