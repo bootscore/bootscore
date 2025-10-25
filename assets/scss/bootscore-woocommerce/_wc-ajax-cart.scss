@@ -1,5 +1,5 @@
 /*--------------------------------------------------------------
-Ajax Cart - Bootscore v6.2.2
+Ajax Cart - Bootscore v6.3.1
 --------------------------------------------------------------*/
 
 
@@ -132,14 +132,14 @@ a.added_to_cart {
 .woocommerce-mini-cart-item a.remove.remove_from_cart_button {
   display: inline;
   text-indent: 0;
-  font-size: 16px;
-  color: rgba(var(--bs-danger-rgb),var(--bs-link-opacity,1)) !important;
+  font-size: var(--#{$prefix}body-font-size);
+  color: rgba(var(--#{$prefix}danger-rgb),var(--#{$prefix}link-opacity,1)) !important;
 
   &:before {
     content: none;
   }
 
   &:hover {
-    color: rgba(176,42,55,var(--bs-link-opacity,1)) !important;
+    color: rgba(176,42,55,var(--#{$prefix}link-opacity,1)) !important;
   }
 }
