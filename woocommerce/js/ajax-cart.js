@@ -209,8 +209,8 @@ jQuery(function ($) {
     e.preventDefault();
 
     var input = $(this),
-        nonce = $('input[name="bootscore_update_cart_nonce"]').val(),
-        product_id = $(this).closest('.list-group-item').attr('data-bootscore_product_id');
+      nonce = $('input[name="bootscore_update_cart_nonce"]').val(),
+      product_id = $(this).closest('.list-group-item').attr('data-bootscore_product_id');
 
     console.log('remove_from_cart_button');
 
@@ -257,26 +257,20 @@ jQuery(function ($) {
           console.log('in_update_js_sucess');
           $('#offcanvas-cart .cart-content span.woocommerce-Price-amount.amount').html(
             cart_res['total']
-            );
-
-            if (document.startViewTransition) {
-              document.startViewTransition(() => updateCartFragments(cart_res));
-            } else {
-              updateCartFragments(cart_res);
-            }
-
-            // Dispatch the custom event
-            $(document.body).trigger('qty_updated', [res]);
-        } else {
-          wrap.find('.blockUI').remove();
+          );
 
           if (document.startViewTransition) {
             document.startViewTransition(() => updateCartFragments(cart_res));
           } else {
             updateCartFragments(cart_res);
           }
-
-          $(document.body).trigger('qty_update_failed', [res]);
+        } else {
+          wrap.find('.blockUI').remove();
+          if (document.startViewTransition) {
+            document.startViewTransition(() => updateCartFragments(cart_res, false));
+          } else {
+            updateCartFragments(cart_res, false);
+          }
         }
       },
       error: function (jqXHR, textStatus, errorThrown) {
@@ -290,7 +284,7 @@ jQuery(function ($) {
     });
   }
 
-  function updateCartFragments(cart_res) {
+  function updateCartFragments(cart_res, success = true) {
     // Replace fragments
     $.each(cart_res['fragments_replace'], function (selector, content) {
       $(selector).replaceWith(content);
@@ -300,8 +294,14 @@ jQuery(function ($) {
     $.each(cart_res['fragments_append'], function (selector, content) {
       $(selector).append(content);
     });
-  }
 
+    // As startViewTransition executes the function asynchronously, we run the events here
+    if(success) {
+      $(document.body).trigger('qty_updated', [cart_res]);
+    } else {
+      $(document.body).trigger('qty_update_failed', [cart_res]);
+    }
+  }
 
   // 3. General Offcanvas Cart behaviour
 
