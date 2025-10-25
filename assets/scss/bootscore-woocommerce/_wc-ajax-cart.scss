@@ -133,13 +133,13 @@ a.added_to_cart {
   display: inline;
   text-indent: 0;
   font-size: 16px;
-  color: RGBA(var(--bs-danger-rgb),var(--bs-link-opacity,1)) !important;
+  color: rgba(var(--bs-danger-rgb),var(--bs-link-opacity,1)) !important;
 
   &:before {
     content: none;
   }
 
   &:hover {
-    color: RGBA(176,42,55,var(--bs-link-opacity,1)) !important;
+    color: rgba(176,42,55,var(--bs-link-opacity,1)) !important;
   }
 }

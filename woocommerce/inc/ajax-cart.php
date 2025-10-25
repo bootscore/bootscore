@@ -198,8 +198,9 @@
             wp_send_json_error($response_item);
           }
 
-          // Seems to nearly always return true, There is no validation as far as I understand. Therefore the checks happen before
           if($qty == 0){
+            // set_quantity to 0 does also call the remove_cart_item function after some validation. but as that validation
+            // is not needed and some plugins maybe don't check for 0 qty (godaddy analytics) we use remove_cart_item directly
             WC()->cart->remove_cart_item($cart_item_key);
           } else {
             WC()->cart->set_quantity($cart_item_key, $qty);
