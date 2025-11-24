@@ -52,6 +52,7 @@ if (!function_exists('bootscore_wc_block_widget_product_filter_classes')) {
         // Checks
         'wc-block-product-filter-checkbox-list__item' => 'form-check',
         'wc-block-product-filter-checkbox-list__label' => 'form-check-label',
+        'wc-block-product-filter-checkbox-list__input-wrapper' => '',
         'wc-block-product-filter-checkbox-list__input' => 'form-check-input',
         'wc-block-product-filter-checkbox-list__text-wrapper' => '',
     ];
