@@ -25,66 +25,42 @@ if (!function_exists('bootscore_wc_block_widget_product_filter_classes')) {
    */
   function bootscore_wc_block_widget_product_filter_classes($block_content, $block) {
     
-    $search  = array(
-      
-      // Remove Moblie overlay
-      'wc-block-product-filters__open-overlay',
-      'wc-block-product-filters__overlay',
-      'wc-block-product-filters__overlay-wrapper',
-      'wc-block-product-filters__overlay-dialog',
-      
-      // Chips
-      'wc-block-product-filter-removable-chips__items',
-      'wc-block-product-filter-removable-chips__item',
-      'wc-block-product-filter-removable-chips__remove',
-      'btn-close-icon',
-      
-      // Clear filters button
-      'class="btn btn-outline-primary has-text-align-center wp-element-button"',
+    // Auxiliary function for class replacement
+    $replace_class = function($html, $search, $replace) {
+        return preg_replace_callback('/class="([^"]+)"/', function($matches) use ($search, $replace) {
+            $classes = explode(' ', $matches[1]);
+            foreach ($classes as &$c) {
+                if ($c === $search) {
+                    $c = $replace; // substitui a classe exata
+                }
+            }
+            return 'class="' . implode(' ', $classes) . '"';
+        }, $html);
+    };
 
-      // Range
-      // form-control seems not working
-      //'wp-block-woocommerce-product-filter-price',
-      //'min',
-      //'max',
-      
-      // Checks
-      'wc-block-product-filter-checkbox-list__item',
-      'wc-block-product-filter-checkbox-list__label',
-      'wc-block-product-filter-checkbox-list__input',
-      'wc-block-product-filter-checkbox-list__text-wrapper'
-    );
-    $replace = array(
-      
-      // Remove Moblie overlay
-      '',
-      '',
-      '',
-      '',
+    // Replacement association
+    $class_replacements = [
+        // Chips
+        'wc-block-product-filter-removable-chips__items' => 'list-unstyled d-flex flex-wrap gap-2',
+        'wc-block-product-filter-removable-chips__item' => 'badge bg-light-subtle border border-light-subtle text-light-emphasis rounded-pill text-decoration-none d-flex align-items-center',
+        'wc-block-product-filter-removable-chips__remove' => 'btn-close ms-1',
+        'wc-block-product-filter-removable-chips__remove-icon' => 'btn-close-icon d-none',
 
-      // Chips
-      'list-unstyled d-flex flex-wrap gap-2',
-      'badge bg-light-subtle border border-light-subtle text-light-emphasis rounded-pill text-decoration-none d-flex align-items-center',
-      'btn-close ms-1',
-      'btn-close-icon d-none',
-      
-      // Clear filters button
-      'class="btn btn-sm btn-outline-danger w-100" data-wp-on--click="actions.removeAllActiveFilters" ',
+        // Clear filters button
+        'wp-block-button__link' => '',
+        'btn-outline-primary' => 'btn-sm btn-outline-danger w-100',
 
-      // Range
-      // form-control seems not working
-      //'wp-block-woocommerce-product-filter-price',
-      //'min form-control',
-      //'max form-control',
-      
-      // Checks
-      'form-check',
-      'form-check-label',
-      'form-check-input',
-      ''
-    );
-    
-    $block_content = str_replace($search, $replace, $block_content);
+        // Checks
+        'wc-block-product-filter-checkbox-list__item' => 'form-check',
+        'wc-block-product-filter-checkbox-list__label' => 'form-check-label',
+        'wc-block-product-filter-checkbox-list__input-wrapper' => '',
+        'wc-block-product-filter-checkbox-list__input' => 'form-check-input',
+        'wc-block-product-filter-checkbox-list__text-wrapper' => '',
+    ];
+
+    foreach ($class_replacements as $search => $replace) {
+        $block_content = $replace_class($block_content, $search, $replace);
+    }
 
     return apply_filters('bootscore/block/product/filters/content', $block_content, $block);
   }
