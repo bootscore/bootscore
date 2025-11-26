@@ -4,7 +4,7 @@
  * WooCommerce functions and definitions
  *
  * @package Bootscore
- * @version 6.4.0
+ * @version 6.3.0
  */
 
 
@@ -32,7 +32,6 @@ require_once('inc/wc-deprecated.php');
 
 // Blocks
 require_once('inc/blocks/wc-block-widget-categories.php'); 
-require_once('inc/blocks/wc-block-widget-product-filters.php'); 
 
 
 /**
