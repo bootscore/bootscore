@@ -371,6 +371,15 @@ msgstr "Pasek boczny"
 msgid "Sidebar left"
 msgstr "Pasek boczny lewy"
 
+#: header.php:35
+msgid "Skip to content"
+msgstr "Przejdź do treści"
+
+#: header.php:36
+msgid "Skip to footer"
+msgstr "Przejdź do stopki"
+
+
 #: template-parts/content-none.php:37
 msgid ""
 "Sorry, but nothing matched your search terms. Please try again with some "
