@@ -34,7 +34,7 @@ if (!function_exists('bootscore_wc_block_widget_product_filter_classes')) {
         $classes = explode(' ', $matches[1]);
         foreach ($classes as &$c) {
           if ($c === $search) {
-            $c = $replace; // substitui a classe exata
+            $c = $replace; // Replaces the exact class
           }
         }
         return 'class="' . implode(' ', $classes) . '"';
@@ -59,7 +59,7 @@ if (!function_exists('bootscore_wc_block_widget_product_filter_classes')) {
 
       // Chips
       'wc-block-product-filter-removable-chips__items' => 'list-unstyled d-flex flex-wrap gap-2',
-      'wc-block-product-filter-removable-chips__item' => 'badge bg-primary-subtle text-primary-emphasis text-decoration-none d-flex align-items-center',
+      'wc-block-product-filter-removable-chips__item' => 'badge text-wrap text-start bg-primary-subtle text-primary-emphasis text-decoration-none d-flex align-items-center',
       'wc-block-product-filter-removable-chips__remove' => 'btn-close ms-1',
       'wc-block-product-filter-removable-chips__remove-icon' => 'btn-close-icon d-none',
 
