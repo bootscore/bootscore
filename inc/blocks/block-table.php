@@ -31,7 +31,7 @@ if (!function_exists('bootscore_block_table_classes')) {
     );
     $replace = array(
       'table-responsive',
-      '<table class="table ' . apply_filters('bootscore/class/block/table', '') . '"'
+      '<table class="table ' . esc_attr(apply_filters('bootscore/class/block/table', '')) . '"'
     );
     
     $block_content = str_replace($search, $replace, $block_content);

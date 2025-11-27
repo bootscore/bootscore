@@ -20,7 +20,7 @@ defined('ABSPATH') || exit;
 get_header();
 ?>
 
-  <div id="content" class="site-content <?= apply_filters('bootscore/class/container', 'container', 'woocommerce'); ?> <?= apply_filters('bootscore/class/content/spacer', 'pt-3 pb-5', 'woocommerce'); ?>">
+  <div id="content" class="site-content <?= esc_attr(apply_filters('bootscore/class/container', 'container', 'woocommerce')); ?> <?= esc_attr(apply_filters('bootscore/class/content/spacer', 'pt-3 pb-5', 'woocommerce')); ?>">
     <div id="primary" class="content-area">
 
       <main id="main" class="site-main">
@@ -30,7 +30,7 @@ get_header();
         <?php woocommerce_breadcrumb(); ?>
 
         <div class="row">
-          <div class="<?= apply_filters('bootscore/class/main/col', 'col'); ?>">
+          <div class="<?= esc_attr(apply_filters('bootscore/class/main/col', 'col')); ?>">
             <?php woocommerce_content(); ?>
           </div>
           <?php get_sidebar(); ?>

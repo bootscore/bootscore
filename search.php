@@ -14,13 +14,13 @@ defined('ABSPATH') || exit;
 
 get_header();
 ?>
-  <div id="content" class="site-content <?= apply_filters('bootscore/class/container', 'container', 'search'); ?> <?= apply_filters('bootscore/class/content/spacer', 'pt-4 pb-5', 'search'); ?>">
+  <div id="content" class="site-content <?= esc_attr(apply_filters('bootscore/class/container', 'container', 'search')); ?> <?= esc_attr(apply_filters('bootscore/class/content/spacer', 'pt-4 pb-5', 'search')); ?>">
     <div id="primary" class="content-area">
       
       <?php do_action( 'bootscore_after_primary_open', 'search' ); ?>
 
       <div class="row">
-        <div class="<?= apply_filters('bootscore/class/main/col', 'col'); ?>">
+        <div class="<?= esc_attr(apply_filters('bootscore/class/main/col', 'col')); ?>">
 
           <main id="main" class="site-main">
 
@@ -28,10 +28,10 @@ get_header();
 
               <div class="entry-header">
                 <?php do_action( 'bootscore_before_title', 'search' ); ?>
-                <h1 class="entry-title <?= apply_filters('bootscore/class/entry/title', '', 'search'); ?>">
+                <h1 class="entry-title <?= esc_attr(apply_filters('bootscore/class/entry/title', '', 'search')); ?>">
                   <?php
                   /* translators: %s: search query. */
-                  printf(esc_html__('Search Results for: %s', 'bootscore'), '<span class="text-body-secondary">' . get_search_query() . '</span>');
+                  printf(esc_html__('Search Results for: %s', 'bootscore'), '<span class="text-body-secondary">' . esc_html(get_search_query()) . '</span>');
                   ?>
                 </h1>
                 <?php do_action( 'bootscore_after_title', 'search' ); ?>

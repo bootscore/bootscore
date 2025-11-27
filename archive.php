@@ -15,21 +15,21 @@ defined('ABSPATH') || exit;
 get_header();
 ?>
 
-  <div id="content" class="site-content <?= apply_filters('bootscore/class/container', 'container', 'archive'); ?> <?= apply_filters('bootscore/class/content/spacer', 'pt-4 pb-5', 'archive'); ?>">
+  <div id="content" class="site-content <?= esc_attr(apply_filters('bootscore/class/container', 'container', 'archive')); ?> <?= esc_attr(apply_filters('bootscore/class/content/spacer', 'pt-4 pb-5', 'archive')); ?>">
     <div id="primary" class="content-area">
       
       <?php do_action('bootscore_after_primary_open', 'archive'); ?>
 
       <div class="row">
-        <div class="<?= apply_filters('bootscore/class/main/col', 'col') ?>">
+        <div class="<?= esc_attr(apply_filters('bootscore/class/main/col', 'col')) ?>">
 
           <main id="main" class="site-main">
 
             <div class="entry-header">
               <?php do_action( 'bootscore_before_title', 'archive' ); ?>
-              <?php the_archive_title('<h1 class="entry-title ' . apply_filters('bootscore/class/entry/title', '', 'archive') . '">', '</h1>'); ?>
+              <?php the_archive_title('<h1 class="entry-title ' . esc_attr(apply_filters('bootscore/class/entry/title', '', 'archive')) . '">', '</h1>'); ?>
               <?php do_action( 'bootscore_after_title', 'archive' ); ?>
-              <?php the_archive_description( '<div class="archive-description ' . apply_filters('bootscore/class/entry/archive-description', '') . '">', '</div>' ); ?>
+              <?php the_archive_description( '<div class="archive-description ' . esc_attr(apply_filters('bootscore/class/entry/archive-description', '')) . '">', '</div>' ); ?>
             </div>
             
             <?php do_action( 'bootscore_before_loop', 'archive' ); ?>
@@ -39,20 +39,20 @@ get_header();
             
               <?php do_action('bootscore_before_loop_item', 'archive'); ?>
 
-                <article id="post-<?php the_ID(); ?>" <?php post_class( apply_filters('bootscore/class/loop/card', 'card horizontal mb-4', 'archive') ); ?>>
+                <article id="post-<?php the_ID(); ?>" <?php post_class( esc_attr(apply_filters('bootscore/class/loop/card', 'card horizontal mb-4', 'archive')) ); ?>>
                   
-                  <div class="<?= apply_filters('bootscore/class/loop/card/row', 'row g-0', 'archive'); ?>">
+                  <div class="<?= esc_attr(apply_filters('bootscore/class/loop/card/row', 'row g-0', 'archive')); ?>">
 
                     <?php if (has_post_thumbnail()) : ?>
-                      <div class="<?= apply_filters('bootscore/class/loop/card/image/col', 'col-lg-6 col-xl-5 col-xxl-4', 'archive'); ?>">
+                      <div class="<?= esc_attr(apply_filters('bootscore/class/loop/card/image/col', 'col-lg-6 col-xl-5 col-xxl-4', 'archive')); ?>">
                         <a href="<?php the_permalink(); ?>">
-                          <?php the_post_thumbnail('medium', array('class' => apply_filters('bootscore/class/loop/card/image', 'card-img-lg-start', 'archive'))); ?>
+                          <?php the_post_thumbnail('medium', array('class' => esc_attr(apply_filters('bootscore/class/loop/card/image', 'card-img-lg-start', 'archive')))); ?>
                         </a>
                       </div>
                     <?php endif; ?>
 
-                    <div class="<?= apply_filters('bootscore/class/loop/card/content/col', 'col', 'archive'); ?>">
-                      <div class="<?= apply_filters('bootscore/class/loop/card/body', 'card-body', 'archive'); ?>">
+                    <div class="<?= esc_attr(apply_filters('bootscore/class/loop/card/content/col', 'col', 'archive')); ?>">
+                      <div class="<?= esc_attr(apply_filters('bootscore/class/loop/card/body', 'card-body', 'archive')); ?>">
 
                         <?php if (apply_filters('bootscore/loop/category', true, 'archive')) : ?>
                           <?php bootscore_category_badge(); ?>
@@ -61,7 +61,7 @@ get_header();
                         <?php do_action('bootscore_before_loop_title', 'archive'); ?>
                         
                         <a class="text-body text-decoration-none" href="<?php the_permalink(); ?>">
-                          <?php the_title('<h2 class="' . apply_filters('bootscore/class/loop/card/title', 'blog-post-title h5', 'archive') . '">', '</h2>'); ?>
+                          <?php the_title('<h2 class="' . esc_attr(apply_filters('bootscore/class/loop/card/title', 'blog-post-title h5', 'archive')) . '">', '</h2>'); ?>
                         </a>
                         
                         <?php do_action('bootscore_after_loop_title', 'archive'); ?>
@@ -80,17 +80,17 @@ get_header();
                         <?php endif; ?>
 
                         <?php if (apply_filters('bootscore/loop/excerpt', true, 'archive')) : ?>
-                          <p class="<?= apply_filters('bootscore/class/loop/card-text/excerpt', 'card-text', 'archive'); ?>">
+                          <p class="<?= esc_attr(apply_filters('bootscore/class/loop/card-text/excerpt', 'card-text', 'archive')); ?>">
                             <a class="text-body text-decoration-none" href="<?php the_permalink(); ?>">
-                              <?= strip_tags(get_the_excerpt()); ?>
+                              <?= esc_html(wp_strip_all_tags(get_the_excerpt())); ?>
                             </a>
                           </p>
                         <?php endif; ?>
 
                         <?php if (apply_filters('bootscore/loop/read-more', true, 'archive')) : ?>
-                          <p class="<?= apply_filters('bootscore/class/loop/card-text/read-more', 'card-text', 'archive'); ?>">
-                            <a class="<?= apply_filters('bootscore/class/loop/read-more', 'read-more', 'archive'); ?>" href="<?php the_permalink(); ?>">
-                              <?= apply_filters('bootscore/loop/read-more/text', __('Read more »', 'bootscore', 'archive')); ?>
+                          <p class="<?= esc_attr(apply_filters('bootscore/class/loop/card-text/read-more', 'card-text', 'archive')); ?>">
+                            <a class="<?= esc_attr(apply_filters('bootscore/class/loop/read-more', 'read-more', 'archive')); ?>" href="<?php the_permalink(); ?>">
+                              <?= esc_html(apply_filters('bootscore/loop/read-more/text', __('Read more »', 'bootscore', 'archive'))); ?>
                             </a>
                           </p>
                         <?php endif; ?>

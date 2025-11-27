@@ -12,7 +12,7 @@ defined('ABSPATH') || exit;
 get_header();
 ?>
 
-  <div id="content" class="site-content <?= apply_filters('bootscore/class/container', 'container', 'single'); ?> <?= apply_filters('bootscore/class/content/spacer', 'pt-3 pb-5', 'single'); ?>">
+  <div id="content" class="site-content <?= esc_attr(apply_filters('bootscore/class/container', 'container', 'single')); ?> <?= esc_attr(apply_filters('bootscore/class/content/spacer', 'pt-3 pb-5', 'single')); ?>">
     <div id="primary" class="content-area">
       
       <?php do_action( 'bootscore_after_primary_open', 'single' ); ?>
@@ -20,7 +20,7 @@ get_header();
       <?php the_breadcrumb(); ?>
 
       <div class="row">
-        <div class="<?= apply_filters('bootscore/class/main/col', 'col'); ?>">
+        <div class="<?= esc_attr(apply_filters('bootscore/class/main/col', 'col')); ?>">
 
           <main id="main" class="site-main">
 
@@ -28,7 +28,7 @@ get_header();
               <?php the_post(); ?>
               <?php bootscore_category_badge(); ?>
               <?php do_action( 'bootscore_before_title', 'single' ); ?>
-              <?php the_title('<h1 class="entry-title ' . apply_filters('bootscore/class/entry/title', '', 'single') . '">', '</h1>'); ?>
+              <?php the_title('<h1 class="entry-title ' . esc_attr(apply_filters('bootscore/class/entry/title', '', 'single')) . '">', '</h1>'); ?>
               <?php do_action( 'bootscore_after_title', 'single' ); ?>
               <p class="entry-meta">
                 <small class="text-body-secondary">

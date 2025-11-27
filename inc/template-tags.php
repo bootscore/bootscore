@@ -28,10 +28,10 @@ if (!function_exists('bootscore_category_badge')) :
         if (0 < $i) $thelist .= ' ';
         // Apply a filter to modify the class name
         $class = apply_filters('bootscore/class/badge/category', 'badge bg-primary-subtle text-primary-emphasis text-decoration-none');
-        $thelist .= '<a href="' . esc_url(get_category_link($category->term_id)) . '" class="' . esc_attr($class) . '">' . $category->name . '</a>';
+        $thelist .= '<a href="' . esc_url(get_category_link($category->term_id)) . '" class="' . esc_attr($class) . '">' . esc_html($category->name) . '</a>';
         $i ++;
       }
-      echo $thelist;
+      echo wp_kses_post($thelist);
       echo '</p>';
     }
   }
@@ -145,7 +145,7 @@ if (!function_exists('bootscore_comments')) :
   function bootscore_comments() {
 
     if (!is_single() && !post_password_required() && (comments_open() || get_comments_number())) {
-      echo ' <span class="comment-divider">|</span> ' . apply_filters('bootscore/icon/comments', '<i class="fa-regular fa-comments"></i>') . ' <span class="comments-link">';
+      echo ' <span class="comment-divider">|</span> ' . wp_kses_post(apply_filters('bootscore/icon/comments', '<i class="fa-regular fa-comments"></i>')) . ' <span class="comments-link">';
       comments_popup_link(
         sprintf(
           wp_kses(
@@ -204,7 +204,7 @@ if (!function_exists('bootscore_comment_count')) :
    */
   function bootscore_comment_count() {
     if (!post_password_required() && (comments_open() || get_comments_number())) {
-      echo ' <span class="comment-divider">|</span> ' . apply_filters('bootscore/icon/comments', '<i class="fa-regular fa-comments"></i>') . ' <span class="comments-link">';
+      echo ' <span class="comment-divider">|</span> ' . wp_kses_post(apply_filters('bootscore/icon/comments', '<i class="fa-regular fa-comments"></i>')) . ' <span class="comments-link">';
 
       /* translators: %s: Name of current post. Only visible to screen readers. */
       // comments_popup_link( sprintf( __( 'Leave a comment<span class="screen-reader-text"> on %s</span>', 'bootscore' ), get_the_title() ) );
@@ -247,7 +247,7 @@ if (!function_exists('bootscore_tags')) :
 
   function add_tag_class($links) {
     $class = apply_filters('bootscore/class/badge/tag', 'badge bg-primary-subtle text-primary-emphasis text-decoration-none');
-    return str_replace('</a>', '</a> ', str_replace('<a href="', '<a class="' . $class . '" href="', $links));
+    return str_replace('</a>', '</a> ', str_replace('<a href="', '<a class="' . esc_attr($class) . '" href="', $links));
   }
 endif;
 

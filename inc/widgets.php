@@ -37,7 +37,7 @@ if (!function_exists('bootscore_widgets_init')) :
       'name'          => esc_html__('Top Nav', 'bootscore'),
       'id'            => 'top-nav',
       'description'   => esc_html__('Add widgets here.', 'bootscore'),
-      'before_widget' => '<div class="widget top-nav-widget ' . apply_filters('bootscore/class/header/action/spacer', 'ms-1 ms-md-2', 'top-nav-widget') . '">',
+      'before_widget' => '<div class="widget top-nav-widget ' . esc_attr(apply_filters('bootscore/class/header/action/spacer', 'ms-1 ms-md-2', 'top-nav-widget')) . '">',
       'after_widget'  => '</div>',
       'before_title'  => '<div class="widget-title d-none">',
       'after_title'   => '</div>'
@@ -49,7 +49,7 @@ if (!function_exists('bootscore_widgets_init')) :
       'name'          => esc_html__('Top Nav 2', 'bootscore'),
       'id'            => 'top-nav-2',
       'description'   => esc_html__('Add widgets here.', 'bootscore'),
-      'before_widget' => '<div class="widget top-nav-widget-2 ' . apply_filters('bootscore/class/header/top-nav-widget-2', 'd-lg-flex align-items-lg-center mt-2 mt-lg-0 ms-lg-2') . '">',
+      'before_widget' => '<div class="widget top-nav-widget-2 ' . esc_attr(apply_filters('bootscore/class/header/top-nav-widget-2', 'd-lg-flex align-items-lg-center mt-2 mt-lg-0 ms-lg-2')) . '">',
       'after_widget'  => '</div>',
       'before_title'  => '<div class="widget-title d-none">',
       'after_title'   => '</div>'
@@ -93,7 +93,7 @@ if (!function_exists('bootscore_widgets_init')) :
       'name'          => esc_html__('Footer 1', 'bootscore'),
       'id'            => 'footer-1',
       'description'   => esc_html__('Add widgets here.', 'bootscore'),
-      'before_widget' => '<div class="widget footer_widget ' . apply_filters('bootscore/class/footer/col/spacer', 'mb-3', 'footer-1') . '">',
+      'before_widget' => '<div class="widget footer_widget ' . esc_attr(apply_filters('bootscore/class/footer/col/spacer', 'mb-3', 'footer-1')) . '">',
       'after_widget'  => '</div>',
       'before_title'  => '<h2 class="widget-title h5">',
       'after_title'   => '</h2>'
@@ -104,7 +104,7 @@ if (!function_exists('bootscore_widgets_init')) :
       'name'          => esc_html__('Footer 2', 'bootscore'),
       'id'            => 'footer-2',
       'description'   => esc_html__('Add widgets here.', 'bootscore'),
-      'before_widget' => '<div class="widget footer_widget ' . apply_filters('bootscore/class/footer/col/spacer', 'mb-3', 'footer-2') . '">',
+      'before_widget' => '<div class="widget footer_widget ' . esc_attr(apply_filters('bootscore/class/footer/col/spacer', 'mb-3', 'footer-2')) . '">',
       'after_widget'  => '</div>',
       'before_title'  => '<h2 class="widget-title h5">',
       'after_title'   => '</h2>'
@@ -115,7 +115,7 @@ if (!function_exists('bootscore_widgets_init')) :
       'name'          => esc_html__('Footer 3', 'bootscore'),
       'id'            => 'footer-3',
       'description'   => esc_html__('Add widgets here.', 'bootscore'),
-      'before_widget' => '<div class="widget footer_widget ' . apply_filters('bootscore/class/footer/col/spacer', 'mb-3', 'footer-3') . '">',
+      'before_widget' => '<div class="widget footer_widget ' . esc_attr(apply_filters('bootscore/class/footer/col/spacer', 'mb-3', 'footer-3')) . '">',
       'after_widget'  => '</div>',
       'before_title'  => '<h2 class="widget-title h5">',
       'after_title'   => '</h2>'
@@ -126,7 +126,7 @@ if (!function_exists('bootscore_widgets_init')) :
       'name'          => esc_html__('Footer 4', 'bootscore'),
       'id'            => 'footer-4',
       'description'   => esc_html__('Add widgets here.', 'bootscore'),
-      'before_widget' => '<div class="widget footer_widget ' . apply_filters('bootscore/class/footer/col/spacer', 'mb-3', 'footer-4') . '">',
+      'before_widget' => '<div class="widget footer_widget ' . esc_attr(apply_filters('bootscore/class/footer/col/spacer', 'mb-3', 'footer-4')) . '">',
       'after_widget'  => '</div>',
       'before_title'  => '<h2 class="widget-title h5">',
       'after_title'   => '</h2>'

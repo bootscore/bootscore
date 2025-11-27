@@ -18,20 +18,20 @@ defined('ABSPATH') || exit;
 
 <?php do_action('bootscore_before_loop_item', 'content-search'); ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class( apply_filters('bootscore/class/loop/card', 'card horizontal mb-4', 'content-search') ); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class( esc_attr(apply_filters('bootscore/class/loop/card', 'card horizontal mb-4', 'content-search')) ); ?>>
   
-  <div class="<?= apply_filters('bootscore/class/loop/card/row', 'row g-0', 'content-search'); ?>">
+  <div class="<?= esc_attr(apply_filters('bootscore/class/loop/card/row', 'row g-0', 'content-search')); ?>">
 
     <?php if (has_post_thumbnail()) : ?>
-      <div class="<?= apply_filters('bootscore/class/loop/card/image/col', 'col-lg-6 col-xl-5 col-xxl-4', 'content-search'); ?>">
+      <div class="<?= esc_attr(apply_filters('bootscore/class/loop/card/image/col', 'col-lg-6 col-xl-5 col-xxl-4', 'content-search')); ?>">
         <a href="<?php the_permalink(); ?>">
-          <?php the_post_thumbnail('medium', array('class' => apply_filters('bootscore/class/loop/card/image', 'card-img-lg-start', 'content-search'))); ?>
+          <?php the_post_thumbnail('medium', array('class' => esc_attr(apply_filters('bootscore/class/loop/card/image', 'card-img-lg-start', 'content-search')))); ?>
         </a>
       </div>
     <?php endif; ?>
 
-    <div class="<?= apply_filters('bootscore/class/loop/card/content/col', 'col', 'content-search'); ?>">
-      <div class="<?= apply_filters('bootscore/class/loop/card/body', 'card-body', 'content-search'); ?>">
+    <div class="<?= esc_attr(apply_filters('bootscore/class/loop/card/content/col', 'col', 'content-search')); ?>">
+      <div class="<?= esc_attr(apply_filters('bootscore/class/loop/card/body', 'card-body', 'content-search')); ?>">
 
         <?php if (apply_filters('bootscore/loop/category', true, 'content-search')) : ?>
           <?php bootscore_category_badge(); ?>
@@ -40,7 +40,7 @@ defined('ABSPATH') || exit;
         <?php do_action('bootscore_before_loop_title', 'content-search'); ?>
 
         <a class="text-body text-decoration-none" href="<?php the_permalink(); ?>">
-          <?php the_title('<h2 class="' . apply_filters('bootscore/class/loop/card/title', 'blog-post-title h5', 'content-search') . '">', '</h2>'); ?>
+          <?php the_title('<h2 class="' . esc_attr(apply_filters('bootscore/class/loop/card/title', 'blog-post-title h5', 'content-search')) . '">', '</h2>'); ?>
         </a>
         
         <?php do_action('bootscore_after_loop_title', 'content-search'); ?>
@@ -59,17 +59,17 @@ defined('ABSPATH') || exit;
         <?php endif; ?>
 
         <?php if (apply_filters('bootscore/loop/excerpt', true, 'content-search')) : ?>
-          <p class="<?= apply_filters('bootscore/class/loop/card-text/excerpt', 'card-text', 'content-search'); ?>">
+          <p class="<?= esc_attr(apply_filters('bootscore/class/loop/card-text/excerpt', 'card-text', 'content-search')); ?>">
             <a class="text-body text-decoration-none" href="<?php the_permalink(); ?>">
-              <?= strip_tags(get_the_excerpt()); ?>
+              <?= esc_html(wp_strip_all_tags(get_the_excerpt())); ?>
             </a>
           </p>
         <?php endif; ?>
 
         <?php if (apply_filters('bootscore/loop/read-more', true, 'content-search')) : ?>
-          <p class="<?= apply_filters('bootscore/class/loop/card-text/read-more', 'card-text', 'content-search'); ?>">
-            <a class="<?= apply_filters('bootscore/class/loop/read-more', 'read-more', 'content-search'); ?>" href="<?php the_permalink(); ?>">
-              <?= apply_filters('bootscore/loop/read-more/text', __('Read more »', 'bootscore', 'content-search')); ?>
+          <p class="<?= esc_attr(apply_filters('bootscore/class/loop/card-text/read-more', 'card-text', 'content-search')); ?>">
+            <a class="<?= esc_attr(apply_filters('bootscore/class/loop/read-more', 'read-more', 'content-search')); ?>" href="<?php the_permalink(); ?>">
+              <?= esc_html(apply_filters('bootscore/loop/read-more/text', __('Read more »', 'bootscore', 'content-search'))); ?>
             </a>
           </p>
         <?php endif; ?>
