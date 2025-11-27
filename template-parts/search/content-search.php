@@ -69,7 +69,7 @@ defined('ABSPATH') || exit;
         <?php if (apply_filters('bootscore/loop/read-more', true, 'content-search')) : ?>
           <p class="<?= esc_attr(apply_filters('bootscore/class/loop/card-text/read-more', 'card-text', 'content-search')); ?>">
             <a class="<?= esc_attr(apply_filters('bootscore/class/loop/read-more', 'read-more', 'content-search')); ?>" href="<?php the_permalink(); ?>">
-              <?= esc_html(apply_filters('bootscore/loop/read-more/text', __('Read more »', 'bootscore', 'content-search'))); ?>
+              <?= wp_kses_post(apply_filters('bootscore/loop/read-more/text', __('Read more »', 'bootscore', 'content-search'))); ?>
             </a>
           </p>
         <?php endif; ?>

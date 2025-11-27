@@ -103,7 +103,7 @@ get_header();
                           <?php if (apply_filters('bootscore/loop/read-more', true, 'index')) : ?>
                             <p class="<?= esc_attr(apply_filters('bootscore/class/loop/card-text/read-more', 'card-text', 'index')); ?>">
                               <a class="<?= esc_attr(apply_filters('bootscore/class/loop/read-more', 'read-more', 'index')); ?>" href="<?php the_permalink(); ?>">
-                                <?= esc_html(apply_filters('bootscore/loop/read-more/text', __('Read more »', 'bootscore', 'index'))); ?>
+                                <?= wp_kses_post(apply_filters('bootscore/loop/read-more/text', __('Read more »', 'bootscore', 'index'))); ?>
                               </a>
                             </p>
                           <?php endif; ?>
