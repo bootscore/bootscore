@@ -2,6 +2,8 @@
 WooCommerce Product Filter Block - Bootscore v6.4.0
 --------------------------------------------------------------*/
 
+// Block styles are evil, !important is required everywheree.
+
 .wc-block-product-filters {
 
   // Chips
@@ -14,23 +16,38 @@ WooCommerce Product Filter Block - Bootscore v6.4.0
 
 
 .wc-block-product-filter-price-slider {
-  
+
   &__range {
     z-index: 1; // Thumb in iOS
-  }
-  
-  // Fake Range
-  &__range .range-bar {
-    background: var(--#{$prefix}secondary-bg) !important;
-    border-radius: $form-range-track-border-radius !important;
-    height: $form-range-track-height;
-  }
 
-  &__range input[type=range]::-webkit-slider-thumb {
-    width: $form-range-thumb-width !important;
-    height: $form-range-thumb-height !important;
-    background: $form-range-thumb-bg !important;
-    border: none !important;
+    &::before {
+      --range-color: transparent;
+    }
+
+    // Fake Range
+    .range-bar {
+      background: var(--#{$prefix}secondary-bg) !important;
+      border-radius: $form-range-track-border-radius !important;
+      height: $form-range-track-height !important;
+    }
+
+    input[type=range]::-webkit-slider-thumb {
+      width: $form-range-thumb-width !important;
+      height: $form-range-thumb-height !important;
+      background: $form-range-thumb-bg !important;
+      border: none !important;
+      margin: -.25rem 0 0 !important;
+    }
+
+    input[type=range] {
+      &.min::-webkit-slider-thumb {
+        margin-left: 0 !important;
+      }
+
+      &.max::-webkit-slider-thumb {
+        margin-left: 0 !important;
+      }
+    }
   }
 
   // Fake form-control
