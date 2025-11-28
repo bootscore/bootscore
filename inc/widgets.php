@@ -6,7 +6,7 @@
  * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
  *
  * @package Bootscore 
- * @version 6.1.0
+ * @version 6.3.1
  */
 
 

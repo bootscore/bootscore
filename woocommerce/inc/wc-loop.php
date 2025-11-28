@@ -4,7 +4,7 @@
  * WooCommerce Loop
  *
  * @package Bootscore 
- * @version 6.1.1
+ * @version 6.3.1
  */
 
 

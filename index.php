@@ -11,7 +11,7 @@
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
  * @package Bootscore
- * @version 6.3.0
+ * @version 6.3.1
  */
 
 // Exit if accessed directly

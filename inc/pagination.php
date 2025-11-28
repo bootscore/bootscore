@@ -4,7 +4,7 @@
  * Pagination
  *
  * @package Bootscore
- * @version 5.3.4
+ * @version 6.3.1
  */
 
 

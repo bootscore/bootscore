@@ -4,7 +4,7 @@
  * Font Awesome
  *
  * @package Bootscore
- * @version 6.0.0
+ * @version 6.3.1
  */
 
 
