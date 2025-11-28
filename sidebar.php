@@ -2,11 +2,11 @@
 
 /**
  * The sidebar containing the main widget area
+ * Template Version: 6.3.1
  *
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
  * @package Bootscore
- * @version 6.3.1
  */
 
 

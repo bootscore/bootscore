@@ -2,9 +2,9 @@
 /**
  * Template Name: Sidebar left
  * Template Post Type: post
+ * Template Version: 6.3.1
  *
  * @package Bootscore
- * @version 6.3.1
  */
 
 // Exit if accessed directly

@@ -2,11 +2,11 @@
 
 /**
  * Template part for displaying the top-nav searchform collapse widget if WooCommerce is installed
+ * Template Version: 6.3.1
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
  * @package Bootscore
- * @version 6.3.1
  */
 
 

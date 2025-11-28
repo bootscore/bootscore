@@ -2,6 +2,7 @@
 
 /**
  * The template for displaying all pages
+ * Template Version: 6.3.1
  *
  * This is the template that displays all pages by default.
  * Please note that this is the WordPress construct of pages
@@ -11,7 +12,6 @@
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
  * @package Bootscore
- * @version 6.3.1
  */
 
 // Exit if accessed directly

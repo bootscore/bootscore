@@ -2,13 +2,13 @@
 
 /**
  * The template for displaying the footer
+ * Template Version: 6.3.1
  *
  * Contains the closing of the #content div and all content after.
  *
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
  * @package Bootscore
- * @version 6.3.1
  */
 
 // Exit if accessed directly

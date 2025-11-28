@@ -2,6 +2,7 @@
 
 /**
  * The main template file
+ * Template Version: 6.3.1
  *
  * This is the most generic template file in a WordPress theme
  * and one of the two required files for a theme (the other being style.css).
@@ -11,7 +12,6 @@
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
  * @package Bootscore
- * @version 6.3.1
  */
 
 // Exit if accessed directly

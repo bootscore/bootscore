@@ -2,6 +2,7 @@
 
 /**
  * The template for displaying comments
+ * Template Version: 6.3.1
  *
  * This is the template that displays the area of the page that contains both the current comments
  * and the comment form.
@@ -9,7 +10,6 @@
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
  * @package Bootscore
- * @version 6.3.1
  */
 
 // Exit if accessed directly

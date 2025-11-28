@@ -2,11 +2,11 @@
 
 /**
  * Template Name: Left Sidebar
+ * Template Version: 6.3.1
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
  * @package Bootscore
- * @version 6.3.1
  */
 
 // Exit if accessed directly

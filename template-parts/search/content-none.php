@@ -2,11 +2,11 @@
 
 /**
  * Template part for displaying a message that posts cannot be found
+ * Template Version: 6.3.1
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
  * @package Bootscore
- * @version 6.3.1
  */
 
 

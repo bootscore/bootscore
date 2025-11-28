@@ -2,11 +2,11 @@
 
 /**
  * The template for displaying search results pages
+ * Template Version: 6.3.1
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#search-result
  *
  * @package Bootscore
- * @version 6.3.1
  */
 
 // Exit if accessed directly

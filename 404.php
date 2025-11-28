@@ -2,11 +2,11 @@
 
 /**
  * The template for displaying 404 pages (not found)
+ * Template Version: 6.3.1
  *
  * @link https://codex.wordpress.org/Creating_an_Error_404_Page
  *
  * @package Bootscore
- * @version 6.3.1
  */
 
 // Exit if accessed directly
