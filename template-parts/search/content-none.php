@@ -2,11 +2,11 @@
 
 /**
  * Template part for displaying a message that posts cannot be found
+ * Template Version: 6.3.1
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
  * @package Bootscore
- * @version 5.3.4
  */
 
 
@@ -19,7 +19,7 @@ defined('ABSPATH') || exit;
 <section class="no-results not-found">
 
   <header class="page-header mb-4">
-    <h1 class="page-title"><?php esc_html_e('Nothing Found for', 'bootscore'); ?> <span class="text-body-secondary"><?php echo $s ?></span></h1>
+    <h1 class="page-title"><?php esc_html_e('Nothing Found for', 'bootscore'); ?> <span class="text-body-secondary"><?= esc_html(get_search_query()); ?></span></h1>
   </header>
 
   <!-- .page-header -->

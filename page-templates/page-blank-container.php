@@ -2,11 +2,11 @@
 
 /**
  * Template Name: Blank with container
+ * Template Version: 6.3.1
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
  * @package Bootscore
- * @version 6.0.0
  */
 
 // Exit if accessed directly
@@ -15,7 +15,7 @@ defined('ABSPATH') || exit;
 get_header();
 ?>
 
-  <div id="content" class="site-content <?= apply_filters('bootscore/class/container', 'container', 'page-blank-with-container'); ?>">
+  <div id="content" class="site-content <?= esc_attr(apply_filters('bootscore/class/container', 'container', 'page-blank-with-container')); ?>">
     <div id="primary" class="content-area">
 
       <main id="main" class="site-main">

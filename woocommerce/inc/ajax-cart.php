@@ -107,7 +107,7 @@
       $notice_types  = apply_filters('woocommerce_notice_types', ['error', 'success', 'notice']);
 
       ob_start();
-      echo '<div class="toast-container ' . apply_filters('bootscore/class/woocommerce/toast-container', 'position-static w-100 bg-body-tertiary overflow-hidden px-3 py-0') . '">';
+      echo '<div class="toast-container ' . esc_attr(apply_filters('bootscore/class/woocommerce/toast-container', 'position-static w-100 bg-body-tertiary overflow-hidden px-3 py-0')) . '">';
 
       $atLeastOneNotice = false;
       foreach ($notice_types as $notice_type) {
