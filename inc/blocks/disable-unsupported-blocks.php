@@ -63,6 +63,7 @@ add_filter('allowed_block_types_all', function ($allowed_blocks, $editor_context
     'woocommerce/classic-shortcode',
     'woocommerce/cart',
     'woocommerce/checkout',
+    'woocommerce/product-filters',
   ];
 
   // Restrict to supported blocks in post editor or block-based Widgets screen
