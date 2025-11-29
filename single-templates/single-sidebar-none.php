@@ -2,9 +2,9 @@
 /**
  * Template Name: No Sidebar
  * Template Post Type: post
+ * Template Version: 6.3.1
  *
  * @package Bootscore
- * @version 6.1.0
  */
 
 // Exit if accessed directly
@@ -13,7 +13,7 @@ defined('ABSPATH') || exit;
 get_header();
 ?>
 
-  <div id="content" class="site-content <?= apply_filters('bootscore/class/container', 'container', 'single-sidebar-none'); ?> <?= apply_filters('bootscore/class/content/spacer', 'pt-3 pb-5', 'single-sidebar-none'); ?>">
+  <div id="content" class="site-content <?= esc_attr(apply_filters('bootscore/class/container', 'container', 'single-sidebar-none')); ?> <?= esc_attr(apply_filters('bootscore/class/content/spacer', 'pt-3 pb-5', 'single-sidebar-none')); ?>">
     <div id="primary" class="content-area">
       
      <?php do_action( 'bootscore_after_primary_open', 'single-sidebar-none' ); ?>
@@ -26,7 +26,7 @@ get_header();
           <?php the_post(); ?>
           <?php bootscore_category_badge(); ?>
           <?php do_action( 'bootscore_before_title', 'single-sidebar-none' ); ?>
-          <?php the_title('<h1 class="entry-title ' . apply_filters('bootscore/class/entry/title', '', 'single-sidebar-none') . '">', '</h1>'); ?>
+          <?php the_title('<h1 class="entry-title ' . esc_attr(apply_filters('bootscore/class/entry/title', '', 'single-sidebar-none')) . '">', '</h1>'); ?>
           <?php do_action( 'bootscore_after_title', 'single-sidebar-none' ); ?>
           <p class="entry-meta">
             <small class="text-body-secondary">

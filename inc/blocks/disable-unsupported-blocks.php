@@ -1,10 +1,10 @@
 <?php
 
 /**
- * Experimental: Disable unsupported blocks and patterns - Whitelist
+ * Disable unsupported blocks and patterns - Whitelist
  *
  * @package Bootscore
- * @version 6.2.0
+ * @version 6.3.1
  */
 
 
@@ -18,6 +18,9 @@ defined('ABSPATH') || exit;
 add_filter('allowed_block_types_all', function ($allowed_blocks, $editor_context) {
   $supported_blocks = [
 
+    // Core
+    'core/block',
+    
     // Text
     'core/paragraph',
     'core/heading',

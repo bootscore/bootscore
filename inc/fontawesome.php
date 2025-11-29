@@ -4,7 +4,7 @@
  * Font Awesome
  *
  * @package Bootscore
- * @version 6.0.0
+ * @version 6.3.1
  */
 
 
@@ -20,10 +20,10 @@ function bsfaCode($atts) {
   $atts = (array) $atts;
   $vstr = "";
   foreach ($atts as $value) {
-    $vstr = $vstr . " $value";
+    $vstr = $vstr . " " . sanitize_html_class($value);
   }
 
-  return '<i class="' . $vstr . '"></i>';
+  return '<i class="' . esc_attr(trim($vstr)) . '"></i>';
 }
 
 ;

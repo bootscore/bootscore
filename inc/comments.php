@@ -4,7 +4,7 @@
  * Comments
  *
  * @package Bootscore 
- * @version 6.0.4
+ * @version 6.3.1
  */
 
 
@@ -51,7 +51,7 @@ if (!function_exists('bootscore_comment')) :
         <article id="div-comment-<?php comment_ID(); ?>" class="comment-body mb-4 d-flex">
 
           <div class="flex-shrink-0 me-3">
-            <?= get_avatar($comment, 80, '', '', array('class' => apply_filters('bootscore/class/comment/avatar', 'img-thumbnail rounded-circle'))); ?> 
+            <?php echo get_avatar($comment, 80, '', '', array('class' => esc_attr(apply_filters('bootscore/class/comment/avatar', 'img-thumbnail rounded-circle')))); ?> 
           </div>
 
           <div class="comment-content">
@@ -118,10 +118,11 @@ function custom_reply_title($defaults) {
 function bootscore_change_comment_form_cookies_consent($fields) {
   // Check if the "Show comments cookies opt-in checkbox" setting is enabled
   if (get_option('show_comments_cookies_opt_in')) {
+    $commenter         = wp_get_current_commenter();
     $consent           = empty($commenter['comment_author_email']) ? '' : ' checked="checked"';
     $fields['cookies'] = '<p class="comment-form-cookies-consent form-check mb-3">' .
                          '<input id="wp-comment-cookies-consent" name="wp-comment-cookies-consent" type="checkbox" value="yes" class="form-check-input"' . $consent . ' />' .
-                         '<label for="wp-comment-cookies-consent" class="form-check-label">' . __('Save my name, email, and website in this browser for the next time I comment.', 'bootscore') . '</label>' .
+                         '<label for="wp-comment-cookies-consent" class="form-check-label">' . esc_html__('Save my name, email, and website in this browser for the next time I comment.', 'bootscore') . '</label>' .
                          '</p>';
   } else {
     // Remove the 'cookies' field if the setting is disabled

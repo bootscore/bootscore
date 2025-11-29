@@ -4,7 +4,7 @@
  * Search Block Widget
  *
  * @package Bootscore
- * @version 6.0.0
+ * @version 6.3.1
  */
 
 
@@ -38,8 +38,8 @@ if (!function_exists('bootscore_block_widget_search_classes')) {
       '<form novalidate="novalidate" ',
       'wp-block-search__input form-control ',
       'wp-block-search__input form-control"',
-      'wp-block-search__button ' . apply_filters('bootscore/class/widget/search/button', 'btn btn-outline-secondary') . ' ',
-      apply_filters('bootscore/icon/search', '<i class="fa-solid fa-magnifying-glass"></i>')
+      'wp-block-search__button ' . esc_attr(apply_filters('bootscore/class/widget/search/button', 'btn btn-outline-secondary')) . ' ',
+      wp_kses_post(apply_filters('bootscore/icon/search', '<i class="fa-solid fa-magnifying-glass"></i>'))
     );
 
     if (isset($block['attrs']['buttonPosition']) && 'button-inside' === $block['attrs']['buttonPosition']) {

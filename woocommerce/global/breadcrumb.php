@@ -29,7 +29,7 @@ if ( ! empty( $breadcrumb ) ) {
 		echo $before;
 
 		if ( ! empty( $crumb[1] ) && sizeof( $breadcrumb ) !== $key + 1 ) {
-			echo '<a class="' . apply_filters('bootscore/class/breadcrumb/item/link', '') . '" href="' . esc_url( $crumb[1] ) . '">' . esc_html( $crumb[0] ) . '</a>';
+			echo '<a class="' . esc_attr(apply_filters('bootscore/class/breadcrumb/item/link', '')) . '" href="' . esc_url( $crumb[1] ) . '">' . esc_html( $crumb[0] ) . '</a>';
 		} else {
 			echo esc_html( $crumb[0] );
 		}
