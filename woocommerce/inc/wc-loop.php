@@ -4,7 +4,7 @@
  * WooCommerce Loop
  *
  * @package Bootscore 
- * @version 6.1.1
+ * @version 6.3.1
  */
 
 
@@ -20,10 +20,10 @@ if (!function_exists('woocommerce_template_loop_category_title')) :
     ?>
     <h2 class="woocommerce-loop-category__title btn btn-primary w-100 mb-0">
       <?php
-      echo $category->name;
+      echo esc_html($category->name);
 
       if ($category->count > 0) {
-        echo apply_filters('woocommerce_subcategory_count_html', ' <mark class="count badge bg-white text-dark">' . $category->count . '</mark>', $category);
+        echo wp_kses_post(apply_filters('woocommerce_subcategory_count_html', ' <mark class="count badge bg-white text-dark">' . esc_html($category->count) . '</mark>', $category));
       }
       ?>
     </h2>
