@@ -1,5 +1,5 @@
 /*--------------------------------------------------------------
-WooCommerce Coupon
+WooCommerce Coupon - Bootscore v6.3.1
 --------------------------------------------------------------*/
 
 // https://github.com/bootscore/bootscore/tree/Update-WC-9.8-templates
@@ -102,11 +102,6 @@ WooCommerce Coupon
 
 // Validation
 
-// Roughly hide error message. Messy WC styles
-.coupon-error-notice {
-  display: none !important;
-}
-
 .checkout_coupon,
 .coupon {
   input.input-text {
@@ -119,7 +114,10 @@ WooCommerce Coupon
       padding-right: $input-height-inner !important;
       background-size: $input-height-inner-half $input-height-inner-half;
       background-position: right $input-height-inner-quarter center;
-      box-shadow: 0 0 $input-btn-focus-blur $input-focus-width rgba(var(--#{$prefix}danger-rgb), $input-btn-focus-color-opacity) !important;
+
+      ~ #coupon-error-notice {
+        color: var(--#{$prefix}danger);
+      }
     }
   }
 }
