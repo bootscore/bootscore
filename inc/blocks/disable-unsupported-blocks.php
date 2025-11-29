@@ -4,7 +4,7 @@
  * Disable unsupported blocks and patterns - Whitelist
  *
  * @package Bootscore
- * @version 6.4.0
+ * @version 6.3.1
  */
 
 
