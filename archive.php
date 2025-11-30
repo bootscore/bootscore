@@ -90,7 +90,7 @@ get_header();
                         <?php if (apply_filters('bootscore/loop/read-more', true, 'archive')) : ?>
                           <p class="<?= esc_attr(apply_filters('bootscore/class/loop/card-text/read-more', 'card-text', 'archive')); ?>">
                             <a class="<?= esc_attr(apply_filters('bootscore/class/loop/read-more', 'read-more', 'archive')); ?>" href="<?php the_permalink(); ?>">
- d                              <?= wp_kses_post(apply_filters('bootscore/loop/read-more/text', __('Read more »', 'bootscore', 'archive'))); ?>
+                              <?= wp_kses_post(apply_filters('bootscore/loop/read-more/text', __('Read more »', 'bootscore', 'archive'))); ?>
                             </a>
                           </p>
                         <?php endif; ?>
