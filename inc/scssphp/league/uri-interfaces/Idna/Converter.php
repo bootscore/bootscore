@@ -21,6 +21,7 @@ use Stringable;
 use function idn_to_ascii;
 use function idn_to_utf8;
 use function rawurldecode;
+use function strtolower;
 
 use const INTL_IDNA_VARIANT_UTS46;
 
@@ -141,7 +142,7 @@ final class Converter
         $domain = rawurldecode((string) $domain);
 
         if (false === stripos($domain, 'xn--')) {
-            return Result::fromIntl(['result' => $domain, 'isTransitionalDifferent' => false, 'errors' => Error::NONE->value]);
+            return Result::fromIntl(['result' => strtolower($domain), 'isTransitionalDifferent' => false, 'errors' => Error::NONE->value]);
         }
 
         FeatureDetection::supportsIdn();
@@ -155,7 +156,7 @@ final class Converter
         idn_to_utf8($domain, $flags->toBytes(), INTL_IDNA_VARIANT_UTS46, $idnaInfo);
 
         if ([] === $idnaInfo) {
-            return Result::fromIntl(['result' => $domain, 'isTransitionalDifferent' => false, 'errors' => Error::NONE->value]);
+            return Result::fromIntl(['result' => strtolower($domain), 'isTransitionalDifferent' => false, 'errors' => Error::NONE->value]);
         }
 
         return Result::fromIntl($idnaInfo);
@@ -164,7 +165,7 @@ final class Converter
     /**
      * Tells whether the submitted host is a valid IDN regardless of its format.
      *
-     * Returns false if the host is invalid or if its conversion yield the same result
+     * Returns false if the host is invalid or if its conversion yields the same result
      */
     public static function isIdn(Stringable|string|null $domain): bool
     {

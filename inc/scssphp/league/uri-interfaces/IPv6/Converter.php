@@ -84,7 +84,7 @@ final class Converter
         return self::build($components);
     }
 
-    private static function build(array $components): string
+    public static function build(array $components): string
     {
         $components['ipAddress'] ??= null;
         $components['zoneIdentifier'] ??= null;
@@ -99,9 +99,7 @@ final class Converter
         }.']';
     }
 
-    /**]
-     * @param Stringable|string|null $host
-     *
+    /**
      * @return array{ipAddress:string|null, zoneIdentifier:string|null}
      */
     private static function parse(Stringable|string|null $host): array
@@ -133,5 +131,30 @@ final class Converter
             is_string($ipv6) && str_starts_with((string)inet_pton($ipv6), self::HOST_ADDRESS_BLOCK) =>  ['ipAddress' => $ipv6, 'zoneIdentifier' => $zoneIdentifier],
             default => ['ipAddress' => null, 'zoneIdentifier' => null],
         };
+    }
+
+    /**
+     * Tells whether the host is an IPv6.
+     */
+    public static function isIpv6(Stringable|string|null $host): bool
+    {
+        return null !== self::parse($host)['ipAddress'];
+    }
+
+    public static function normalize(Stringable|string|null $host): ?string
+    {
+        if (null === $host || '' === $host) {
+            return $host;
+        }
+
+        $host = (string) $host;
+        $components = self::parse($host);
+        if (null === $components['ipAddress']) {
+            return strtolower($host);
+        }
+
+        $components['ipAddress'] = strtolower($components['ipAddress']);
+
+        return self::build($components);
     }
 }
