@@ -31,28 +31,45 @@ WooCommerce Product Filter Block - Bootscore v6.4.0
       height: $form-range-track-height !important;
     }
 
-    input[type=range]::-webkit-slider-thumb {
-      width: $form-range-thumb-width !important;
-      height: $form-range-thumb-height !important;
-      background: $form-range-thumb-bg !important;
-      border: none !important;
-      margin: -.25rem 0 0 !important;
-    }
 
     input[type=range] {
-      &.min::-webkit-slider-thumb {
-        margin-left: 0 !important;
+      
+      // Webkit and Firefox cannot be combined
+
+      // WebKit
+      &::-webkit-slider-thumb {
+        width: $form-range-thumb-width !important;
+        height: $form-range-thumb-height !important;
+        background: $form-range-thumb-bg !important;
+        border: none !important;
+        margin: -.25rem 0 0 !important;
       }
 
-      &.max::-webkit-slider-thumb {
-        margin-left: 0 !important;
+      // Firefox
+      &::-moz-range-thumb {
+        width: $form-range-thumb-width !important;
+        height: $form-range-thumb-height !important;
+        background: $form-range-thumb-bg !important;
+        border: none !important;
+        // No margin: unsupported in Firefox
+        transform: translate(0, .25rem) !important;
+      }
+
+      input[type=range] {
+        &.min::-webkit-slider-thumb {
+          margin-left: 0 !important;
+        }
+
+        &.max::-webkit-slider-thumb {
+          margin-left: 0 !important;
+        }
       }
     }
   }
 
   // Fake form-control
   .text input[type=text] {
-    border: 1px solid;
+    border: $input-border-width solid;
     border-color: var(--#{$prefix}border-color) !important;
     border-radius: $input-border-radius !important;
     background-color: $input-bg !important;
