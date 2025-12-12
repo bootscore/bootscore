@@ -15,8 +15,8 @@
 jQuery(function ($) {
   // 1 Handle AJAX Add To Cart
 
-  // 1.1 Enable AJAX for single product pages - using event delegation
-  $(document).on('submit', 'form.cart', function (e) {
+  // 1.1 Enable AJAX for single product pages
+  $('form.cart').on('submit', function (e) {
     // Only apply to single product pages, not external products
     if (!$(this).closest('.product-type-external').length) {
       e.preventDefault();
@@ -91,112 +91,61 @@ jQuery(function ($) {
   // Fallback for older versions
   document.addEventListener('wc-blocks-render-product-grid', function () {
     addLoopButtonLoader();
-  });
+  });  
   
-  // IMPORTANT: Completely override WooCommerce's default AJAX add to cart behavior
-  // This prevents any conflicts with filter blocks
-  $(document).off('click', 'a.ajax_add_to_cart');
-  $(document).off('click', 'a.add_to_cart_button');
-  
-  // Use event delegation for ALL add to cart buttons
-  $(document).on('click', 'a.ajax_add_to_cart, a.add_to_cart_button', function (e) {
-    // Skip variable products and external products
-    if ($(this).hasClass('product_type_variable') || $(this).hasClass('product_type_external')) {
-      return;
-    }
-    
-    // Skip if button is disabled
-    if ($(this).hasClass('disabled')) {
-      return;
-    }
-    
+  $('a.ajax_add_to_cart[href*="?add-to-cart"]').on('click', function (e) {
     e.preventDefault();
-    e.stopImmediatePropagation(); // Prevent any other handlers
+
+    // Add new 'should_send_ajax_request.adding_to_cart' event to prevent standard WooCommerce Add To Cart AJAX request
+    $(document.body).on('should_send_ajax_request.adding_to_cart', function (event, $button) {
+      return false;
+    });
 
     let button = $(this);
-    let href = button.attr('href');
-    
-    // Extract product ID from href
-    let product_id = null;
-    if (href && href.includes('add-to-cart=')) {
-      product_id = href.split('add-to-cart=')[1];
-      // Remove any query parameters after product ID
-      if (product_id.includes('&')) {
-        product_id = product_id.split('&')[0];
-      }
-    }
-    
-    if (!product_id) {
-      console.error('Could not extract product ID from href:', href);
-      return;
-    }
-    
-    // Parse quantity
+    let product_id = button.attr('href').split('=')[1];
+    //parse as float
     let quantity = parseInt(button.attr('data-quantity')) || 1;
     let data = {
       "add-to-cart": product_id,
       "quantity": quantity,
     };
 
-    // Add loading class immediately
-    button.addClass('loading');
+    // Interesting section here. it seems that the 'adding_to_cart' event removes the loading class from the button.
+    // Therefore this approach is needed because it adds the loading after the removal. I'm not sure if this is the best way to do it.'
+    // Function to add the 'loading' class to the a.ajax_add_to_cart button
+    function addLoadingClass(e, fragments, cart_hash, button) {
+      button.addClass('loading');
+    }
+
+    // Add new 'ajax_request_not_sent.adding_to_cart' event to trigger 'addLoadingClass' function
+    $(document.body).on('ajax_request_not_sent.adding_to_cart', addLoadingClass);
+
+    $(document.body).trigger('adding_to_cart', [button, data]);
 
     $.ajax({
       type: 'POST',
       url: wc_add_to_cart_params.wc_ajax_url.toString().replace('%%endpoint%%', 'ace_add_to_cart'),
       data: data,
       complete: function (response) {
-        button.removeClass('loading').addClass('added');
+        button.addClass('added').removeClass('loading');
+
+        // Remove 'should_send_ajax_request.adding_to_cart' and 'ajax_request_not_sent.adding_to_cart' events so they don't accumulate
+        $(document.body).off('should_send_ajax_request.adding_to_cart');
+        // Symptom of the addition of this event above..
+        $(document.body).off('ajax_request_not_sent.adding_to_cart', addLoadingClass);
       },
       success: function (response) {
-        if (response.error && response.product_url) {
-          window.location = response.product_url;
-          return;
-        }
-
-        // Update fragments if they exist
-        if (response.fragments) {
-          $.each(response.fragments, function (key, value) {
-            $(key).replaceWith(value);
-          });
-        }
-        
-        // Always trigger the event to open cart
-        $(document.body).trigger('added_to_cart', [
-          response.fragments || {},
-          response.cart_hash,
-          button
-        ]);
-        
-        // If no fragments or no messages fragment, show a fallback notification
-        if (!response.fragments || !response.fragments['.woocommerce-messages']) {
-          // Create a simple fallback toast
-          const fallbackToast = `
-            <div class="toast-container position-static w-100 bg-body-tertiary overflow-hidden px-3 py-0">
-              <div class="toast bg-transparent shadow-none w-100 border-0 mb-0 mt-3" role="alert" aria-live="assertive" aria-atomic="true">
-                <div class="toast-body p-0">
-                  <div class="woocommerce-message m-0 mb-2" role="alert">
-                    Product added to cart successfully!
-                  </div>
-                </div>
-              </div>
-            </div>
-          `;
-          
-          // Add to cart messages container if it exists
-          const messagesContainer = $('#offcanvas-cart .woocommerce-messages-container .woocommerce-messages');
-          if (messagesContainer.length) {
-            messagesContainer.html(fallbackToast);
-          }
-          
-          // Trigger toast display
-          setTimeout(showToastNotifications, 100);
+        if (response.error && response.product_url) { // I assume that it was a typo. if not please let me know
+          console.log(response.error);
+        } else {
+          $(document.body).trigger('added_to_cart', [
+            response.fragments,
+            response.cart_hash,
+            button
+          ]);
         }
       }
     });
-    
-    // Return false to prevent any default behavior
-    return false;
   });
 
   // 2. Quantity Update Buttons
@@ -285,6 +234,8 @@ jQuery(function ($) {
       nonce = $('input[name="bootscore_update_cart_nonce"]').val(),
       product_id = $(this).closest('.list-group-item').attr('data-bootscore_product_id');
 
+    console.log('remove_from_cart_button');
+
     // Perform the Quantity Update.
     let wrap = $(input).closest('.woocommerce-mini-cart-item');
     bootscore_quantity_update(wrap, 0, nonce, product_id);
@@ -325,6 +276,7 @@ jQuery(function ($) {
         }
 
         if (res.success) {
+          console.log('in_update_js_sucess');
           $('#offcanvas-cart .cart-content span.woocommerce-Price-amount.amount').html(
             cart_res['total']
           );
@@ -376,16 +328,9 @@ jQuery(function ($) {
   // 3. General Offcanvas Cart behaviour
 
   // Open offcanvas when product is added to cart
-  $(document.body).on('added_to_cart', function (event, fragments, cart_hash, button) {
+  $(document.body).on('added_to_cart', function () {
     // This will throw an error if #offcanvas-cart doesn't exist
-    try {
-      $('#offcanvas-cart').offcanvas('show');
-    } catch (e) {
-      // Silent fail if offcanvas doesn't exist
-    }
-    
-    // Show toasts after a delay
-    setTimeout(showToastNotifications, 300);
+    $('#offcanvas-cart').offcanvas('show');
   });
 
   // Handle offcanvas closing - remove notices, so the cart is always empty on "reopening"
@@ -396,16 +341,12 @@ jQuery(function ($) {
     });
   });
 
-  // Listen for fragment refresh completion
-  $(document.body).on('wc_fragments_refreshed', function() {
-    showToastNotifications();
-  });
-
-  // Function to show toast notifications
-  function showToastNotifications() {
+  // That function is not "filtered" at the moment, but should have no impact if there are no toasts in the offcanvas cart.
+  $(document.body).on('added_to_cart qty_updated qty_update_failed wc_fragments_refreshed removed_from_cart', function () {
+    // Timeout is needed because "on" the added_to_cart event the fragments are not yet updated.
+    // wc_fragments_refreshed seems to not be triggered because the added_to_cart event already has the fragments retrieved by the ajax request.
     setTimeout(function () {
       const toastElList = document.querySelectorAll('#offcanvas-cart .toast');
-      
       if (toastElList && toastElList.length > 0) {
         const toastList = [...toastElList].map(toastEl => {
           const toast = new bootstrap.Toast(toastEl, {
@@ -426,14 +367,9 @@ jQuery(function ($) {
             toastList.map(toast => toast.hide());
           }
         }, 5000);
-      }
-    }, 100);
-  }
 
-  // That function is not "filtered" at the moment, but should have no impact if there are no toasts in the offcanvas cart.
-  $(document.body).on('added_to_cart qty_updated qty_update_failed removed_from_cart', function (event) {
-    // Show toasts
-    showToastNotifications();
+      }
+    }, 100); // Small delay to ensure fragments are processed
   });
 
   // 4. Browser Fixes
@@ -447,11 +383,4 @@ jQuery(function ($) {
       }
     });
   }
-  
-  // Force fragment refresh when filter block updates grid
-  document.addEventListener('wc_blocks_product_grid_updated', function () {
-    setTimeout(function() {
-      $(document.body).trigger('wc_fragment_refresh');
-    }, 500);
-  });
 });
