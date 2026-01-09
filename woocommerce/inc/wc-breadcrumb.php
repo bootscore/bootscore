@@ -14,6 +14,7 @@ defined('ABSPATH') || exit;
 
 /**
  * Add WooCommerce support to bootscore breadcrumbs
+ * @link https://github.com/bootscore/bootscore/pull/1150
  */
 function bootscore_add_woocommerce_breadcrumbs($breadcrumbs) {
   

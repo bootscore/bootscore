@@ -14,6 +14,7 @@ defined('ABSPATH') || exit;
 
 /**
  * Breadcrumb
+ * @link https://github.com/bootscore/bootscore/pull/1150
  */
 if (!function_exists('the_breadcrumb')) :
   function the_breadcrumb() {

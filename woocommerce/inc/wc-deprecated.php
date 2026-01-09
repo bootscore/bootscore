@@ -15,6 +15,7 @@ defined('ABSPATH') || exit;
 
 /**
  * WooCommerce Breadcrumb
+ * @link https://github.com/bootscore/bootscore/pull/1150
  */
 if (!function_exists('bs_woocommerce_breadcrumbs')) :
   add_filter('woocommerce_breadcrumb_defaults', 'bs_woocommerce_breadcrumbs');
