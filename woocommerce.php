@@ -2,7 +2,7 @@
 
 /**
  * The template for displaying all WooCommerce pages
- * Template Version: 6.3.1
+ * Template Version: 6.4.0
  *
  * This is the template that displays all pages by default.
  * Please note that this is the WordPress construct of pages
@@ -26,8 +26,8 @@ get_header();
       <main id="main" class="site-main">
 
         <?php do_action( 'bootscore_after_primary_open', 'woocommerce' ); ?>
-
-        <?php woocommerce_breadcrumb(); ?>
+        
+        <?php the_breadcrumb(); ?>
 
         <div class="row">
           <div class="<?= esc_attr(apply_filters('bootscore/class/main/col', 'col')); ?>">
