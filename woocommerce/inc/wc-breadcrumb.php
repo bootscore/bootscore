@@ -72,66 +72,12 @@ if (!function_exists('bootscore_woocommerce_breadcrumb')) :
       echo '<li class="breadcrumb-item active" aria-current="page">' . esc_html($current_term->name) . '</li>' . PHP_EOL;
     }
     
-    // Product tag archive
-    elseif (is_product_tag()) {
-      $current_term = $queried_object;
-      
-      // Shop page link
-      $shop_page_id = wc_get_page_id('shop');
-      if ($shop_page_id && $shop_page_id > 0) {
-        echo '<li class="breadcrumb-item"><a class="' . esc_attr($breadcrumb_class) . '" href="' . esc_url(get_permalink($shop_page_id)) . '">' . esc_html(get_the_title($shop_page_id)) . '</a></li>' . PHP_EOL;
-      }
-      
-      // Current tag
-      echo '<li class="breadcrumb-item active" aria-current="page">' . esc_html($current_term->name) . '</li>' . PHP_EOL;
-    }
-    
-    // Product brand archive (common taxonomy names: 'product_brand', 'brand', 'pa_brand')
-    elseif (is_tax(array('product_brand', 'brand', 'pa_brand'))) {
-      $current_term = $queried_object;
-      
-      // Shop page link
-      $shop_page_id = wc_get_page_id('shop');
-      if ($shop_page_id && $shop_page_id > 0) {
-        echo '<li class="breadcrumb-item"><a class="' . esc_attr($breadcrumb_class) . '" href="' . esc_url(get_permalink($shop_page_id)) . '">' . esc_html(get_the_title($shop_page_id)) . '</a></li>' . PHP_EOL;
-      }
-      
-      // Parent brands (if hierarchical)
-      if (isset($current_term->parent) && $current_term->parent) {
-        $ancestors = array_reverse(get_ancestors($current_term->term_id, $current_term->taxonomy));
-        foreach ($ancestors as $ancestor_id) {
-          $ancestor = get_term($ancestor_id, $current_term->taxonomy);
-          if ($ancestor && !is_wp_error($ancestor)) {
-            echo '<li class="breadcrumb-item"><a class="' . esc_attr($breadcrumb_class) . '" href="' . esc_url(get_term_link($ancestor)) . '">' . esc_html($ancestor->name) . '</a></li>' . PHP_EOL;
-          }
-        }
-      }
-      
-      // Current brand
-      echo '<li class="breadcrumb-item active" aria-current="page">' . esc_html($current_term->name) . '</li>' . PHP_EOL;
-    }
-    
     // Single product
     elseif (is_product()) {
       // Shop page link
       $shop_page_id = wc_get_page_id('shop');
       if ($shop_page_id && $shop_page_id > 0) {
         echo '<li class="breadcrumb-item"><a class="' . esc_attr($breadcrumb_class) . '" href="' . esc_url(get_permalink($shop_page_id)) . '">' . esc_html(get_the_title($shop_page_id)) . '</a></li>' . PHP_EOL;
-      }
-      
-      // Check for product brand first (if exists)
-      $brand_terms = get_the_terms(get_the_ID(), 'product_brand');
-      if (!$brand_terms || is_wp_error($brand_terms)) {
-        $brand_terms = get_the_terms(get_the_ID(), 'brand');
-      }
-      if (!$brand_terms || is_wp_error($brand_terms)) {
-        $brand_terms = get_the_terms(get_the_ID(), 'pa_brand'); // Attribute brand
-      }
-      
-      // If brand exists, show it before category
-      if ($brand_terms && !is_wp_error($brand_terms)) {
-        $main_brand = $brand_terms[0];
-        echo '<li class="breadcrumb-item"><a class="' . esc_attr($breadcrumb_class) . '" href="' . esc_url(get_term_link($main_brand)) . '">' . esc_html($main_brand->name) . '</a></li>' . PHP_EOL;
       }
       
       // Product category (first one if multiple)
