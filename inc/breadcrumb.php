@@ -74,6 +74,28 @@ if (!function_exists('the_breadcrumb')) :
       }
       
     }
+    
+    // For other archives (tags, custom taxonomies, date archives, author archives, etc.)
+    elseif (is_archive()) {
+      $archive_title = get_the_archive_title();
+      // Strip all HTML tags
+      $archive_title = wp_strip_all_tags($archive_title);
+
+      echo '<li class="breadcrumb-item active" aria-current="page">' . 
+           esc_html($archive_title) . 
+           '</li>' . PHP_EOL;
+    }
+    
+    // For search results, display the search query
+    elseif (is_search()) {
+      echo '<li class="breadcrumb-item active" aria-current="page">' . 
+           sprintf(
+             esc_html__('Search results for: "%s"', 'bootscore'), 
+             esc_html(get_search_query())
+           ) . 
+           '</li>' . PHP_EOL;
+    }    
+    
     // Single post (exclude products - they're handled by WooCommerce hook)
     elseif (is_single() && get_post_type() !== 'product') {
       $cat_ids = wp_get_post_categories(get_the_ID());
@@ -86,7 +108,6 @@ if (!function_exists('the_breadcrumb')) :
       echo '<li class="breadcrumb-item active" aria-current="page">' . esc_html(get_the_title()) . '</li>' . PHP_EOL;
     }
     
-
     // Pages, handle parent pages and current page
     elseif (is_page()) {
       $parent_id = wp_get_post_parent_id(get_the_ID());
