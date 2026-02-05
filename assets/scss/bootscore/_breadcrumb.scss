@@ -1,18 +1,19 @@
 /*--------------------------------------------------------------
-Breadcrumb
+Breadcrumb - Bootscore v6.4.0
 --------------------------------------------------------------*/
 
-// Breadcrumb active item padding if is in a horizontal scroll wrapper
+// Breadcrumb if wrapped in a horizontal scroller
 .overflow-x-auto {
 
   scrollbar-color: rgba(var(--#{$prefix}body-color-rgb),.16) transparent;
     
   .breadcrumb-item {
+    
     &.active {
       padding-right: $spacer;
     }
 
-    + .breadcrumb-item::before {
+    &::before {
       float: none;
     }
   }
