@@ -49,7 +49,7 @@ function bootscore_woocommerce_wrapper_start() {
   echo '<div id="primary" class="content-area">';
   echo '<main id="main" class="site-main">';
   do_action('bootscore_after_primary_open', 'woocommerce');
-  woocommerce_breadcrumb();
+  the_breadcrumb();
   echo '<div class="row">';
   echo '<div class="' . apply_filters('bootscore/class/main/col', 'col') . '">';
 }
