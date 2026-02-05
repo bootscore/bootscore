@@ -1,5 +1,5 @@
 /*--------------------------------------------------------------
-WooCommerce Deprecated
+WooCommerce Deprecated - Bootscore v6.4.0
 --------------------------------------------------------------*/
 
 
@@ -15,4 +15,18 @@ WooCommerce Deprecated
 // < WC 9.8
 :root {
   --wc-form-color-text: var(--#{$prefix}body-color);
+}
+
+
+// Default woocommerce_breadcrumb
+// https://github.com/bootscore/bootscore/pull/1152
+.wc-breadcrumb {
+
+  // Additional code for WC breadcrumbs, 
+  // as the WC breadcrumb function does not allow for custom 
+  // class for last child
+  .breadcrumb-item:last-child {
+    color: var(--#{$prefix}breadcrumb-item-active-color);
+    padding-right: $spacer;
+  }
 }
