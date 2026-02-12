@@ -1,8 +1,8 @@
 <?php
 
 /**
- * Template Name: Blank with container
- * Template Version: 6.3.1
+ * Template Name: Blank with container (Deprecated, this file will be removed in v7)
+ * Template Version: 6.4.0
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *

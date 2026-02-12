@@ -1,5 +1,5 @@
 /*--------------------------------------------------------------
-WooCommerce My Account Offcanvas
+WooCommerce My Account Offcanvas - Bootscore v6.4.0
 --------------------------------------------------------------*/
 
 
@@ -25,11 +25,12 @@ WooCommerce My Account Offcanvas
 
   // my-account
   .col-md-4,
-  .col-md-8 {
+  .col-lg-3 {
     width: 100%;
   }
 
-  .col-md-8 {
+  // Salution before menu
+  .col {
     order: -1;
   }
 }

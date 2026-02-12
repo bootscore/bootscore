@@ -1,20 +1,9 @@
 /*--------------------------------------------------------------
-Utilities
+Utilities - Bootscore v6.4.0
 --------------------------------------------------------------*/
 
-/* 
-Add width-100 class to element to stretch it to the entire width 
-of the screen when element is in .container.
-https://bootscore.me/documentation/width-height-classes/
-*/
-.width-100 {
-  position: relative;
-  width: 100vw;
-  margin-left: -50vw;
-  left: 50%;
-}
 
-// Clear
+// Clearfix
 .clear-both {
   clear: both;
 }
