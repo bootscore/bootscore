@@ -2,7 +2,7 @@
 
 /**
  * The template for displaying comments
- * Template Version: 6.3.1
+ * Template Version: 6.4.0
  *
  * This is the template that displays the area of the page that contains both the current comments
  * and the comment form.
@@ -95,7 +95,10 @@ if (post_password_required()) {
   // If comments are closed and there are comments, let's leave a little note, shall we?
   if (!comments_open() && get_comments_number() && post_type_supports(get_post_type(), 'comments')) : ?>
 
-    <p class="no-comments alert alert-info"><?php esc_html_e('Comments are closed.', 'bootscore'); ?></p>
+  <p class="no-comments <?= esc_attr(apply_filters('bootscore/class/comments/closed/alert', 'alert alert-info')); ?>">
+    <?php echo wp_kses_post(apply_filters('bootscore/comments/closed/text', esc_html__('Comments are closed.', 'bootscore'))); ?>
+  </p>
+  
   <?php
   endif; ?>
 

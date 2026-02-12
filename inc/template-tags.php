@@ -6,7 +6,7 @@
  * Eventually, some of the functionality here could be replaced by core features.
  *
  * @package Bootscore
- * @version 6.3.1
+ * @version 6.4.0
  */
 
 
@@ -222,7 +222,7 @@ endif;
  */
 if (!function_exists('bootscore_tags')) :
   /**
-   * Prints HTML with meta information for the categories, tags, and comments.
+   * Prints HTML with meta information for the tags.
    */
   function bootscore_tags() {
     // Hide category and tag text for pages.
@@ -247,7 +247,19 @@ if (!function_exists('bootscore_tags')) :
 
   function add_tag_class($links) {
     $class = apply_filters('bootscore/class/badge/tag', 'badge bg-primary-subtle text-primary-emphasis text-decoration-none');
-    return str_replace('</a>', '</a> ', str_replace('<a href="', '<a class="' . esc_attr($class) . '" href="', $links));
+
+    // Check if icon should be shown
+    if (apply_filters('bootscore/show/tag/icon', true)) {
+      $icon = wp_kses_post(apply_filters('bootscore/icon/tag', '<i class="fa-solid fa-tag"></i>')) . ' ';
+    } else {
+      $icon = '';
+    }
+
+    return str_replace(
+      ['<a href="', '">', '</a>'],
+      ['<a class="' . esc_attr($class) . '" href="', '">' . $icon, '</a> '],
+      $links
+    );
   }
 endif;
 
