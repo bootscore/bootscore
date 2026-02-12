@@ -1,5 +1,5 @@
 /*--------------------------------------------------------------
-Deprecated
+Deprecated - Bootscore v6.4.0. This code will be removed in v7.
 --------------------------------------------------------------*/
 
 
@@ -13,5 +13,46 @@ Deprecated
 
   p:not(:last-child) {
     margin-block-end: $spacer;
+  }
+}
+
+
+//Add width-100 class to element to stretch it to the entire width of the screen when element is wrapped inside .container.
+.width-100 {
+  position: relative;
+  width: 100vw;
+  margin-left: -50vw;
+  left: 50%;
+}
+
+
+body {
+  // Prevent horizontal scrollbars on Windows Chrome & Firefox when using width-100 class
+  overflow-x: hidden;
+  
+  // This is mandatory for the WP Theme Unit Test Data
+  // https://dev.bootscore.me/about/page-markup-and-formatting/
+  // Breaks responsive tables
+  word-break: break-word;
+  
+  // If we keep both, we can just use Bootstrap classes
+  // <?= esc_attr(apply_filters('bootscore/class/body', 'overflow-x-hidden text-break')); ?>
+  // And check responsive tables
+}
+
+// Responsive Tables
+// Theme uses word-break: break-word; on body as recommended by WordPress to handle edge cases.
+// See https://dev.bootscore.me/2009/10/05/title-should-not-overflow-the-content-area/
+// As result, words break in tables and responsive tables aren't responsive.
+// Adding white-space: nowrap; to tables to each breakpoint solves this.
+@each $breakpoint in map-keys($grid-breakpoints) {
+  $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+
+  @include media-breakpoint-down($breakpoint) {
+    .table-responsive#{$infix} {
+      .table {
+        white-space: nowrap;
+      }
+    }
   }
 }

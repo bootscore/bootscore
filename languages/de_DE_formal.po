@@ -8,7 +8,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2025-05-29 09:34+0000\n"
+"PO-Revision-Date: 2026-02-07 10:59+0000\n"
 "Last-Translator: \n"
 "Language-Team: Deutsch (Sie)\n"
 "X-Generator: Loco https://localise.biz/\n"
@@ -73,8 +73,8 @@ msgstr "Blank"
 
 #. Name of the template
 #: page-templates/page-blank-container.php:3
-msgid "Blank with container"
-msgstr "Blank mit container"
+msgid "Blank with container (Deprecated, this file will be removed in v7)"
+msgstr ""
 
 #. Name of the theme
 #. Author of the theme
@@ -185,17 +185,13 @@ msgid "Dark"
 msgstr "Dunkel"
 
 #. %s: Name of current post. Only visible to screen readers
-#: inc/template-tags.php:182 inc/comments.php:44 inc/comments.php:67
+#: inc/comments.php:44 inc/comments.php:67 inc/template-tags.php:182
 msgid "Edit"
 msgstr "Bearbeiten"
 
 #: comments.php:130
 msgid "Email* (will not be published)"
 msgstr "Email* (wird nicht veröffentlicht)"
-
-#: woocommerce/js/ajax-login.js:70
-msgid "Error:"
-msgstr "Fehler:"
 
 #: inc/pagination.php:40
 msgid "First Page"
@@ -242,7 +238,7 @@ msgstr "Bild in voller Breite"
 msgid "Full width image"
 msgstr "Bild in voller Breite"
 
-#: inc/breadcrumb.php:24 woocommerce/inc/wc-breadcrumb.php:25
+#: inc/breadcrumb.php:29 woocommerce/inc/wc-deprecated.php:28
 msgid "Home"
 msgstr "Start"
 
@@ -254,7 +250,7 @@ msgstr ""
 msgid "https://bootscore.me/"
 msgstr "https://bootscore.me/"
 
-#: woocommerce/inc/ajax-cart.php:237
+#: woocommerce/inc/ajax-cart.php:278
 msgid "Invalid key or number"
 msgstr "Ungültiger Schlüssel oder Nummer"
 
@@ -293,7 +289,11 @@ msgstr "Linke Sidebar"
 msgid "Light"
 msgstr "Hell"
 
-#: woocommerce/inc/wc-ajax-login.php:78
+#: languages/plugin-translations.php:30
+msgid "Loading..."
+msgstr "Laden..."
+
+#: woocommerce/inc/wc-ajax-login.php:100
 msgid "Login form expired, please refresh page."
 msgstr "Anmeldeformular abgelaufen, bitte Seite aktualisieren."
 
@@ -326,12 +326,12 @@ msgid "No headings found."
 msgstr "Keine Überschriften gefunden."
 
 #. Name of the template
-#: single-templates/single-sidebar-none.php:2
 #: page-templates/page-sidebar-none.php:3
+#: single-templates/single-sidebar-none.php:2
 msgid "No Sidebar"
 msgstr "Ohne Sidebar"
 
-#: woocommerce/inc/ajax-cart.php:163
+#: woocommerce/inc/ajax-cart.php:181
 msgid "Nonce verification failed"
 msgstr ""
 
@@ -367,111 +367,107 @@ msgstr "Seite nicht gefunden"
 msgid "Password"
 msgstr "Passwort"
 
-#: woocommerce/js/ajax-login.js:65
-msgid "Password is required."
-msgstr "."
-
-#: patterns/c.alert-danger.php:2
+#: patterns/c-alert-danger.php:2
 msgctxt "Pattern title"
 msgid "c - Alert-danger with icon and dismiss button"
 msgstr ""
 
-#: patterns/c.alert-info.php:2
+#: patterns/c-alert-info.php:2
 msgctxt "Pattern title"
 msgid "c - Alert-info"
 msgstr ""
 
-#: patterns/c.btn-danger-lg.php:2
+#: patterns/c-btn-danger-lg.php:2
 msgctxt "Pattern title"
 msgid "c - Button danger lg"
 msgstr ""
 
-#: patterns/c.btn-outline-secondary-sm.php:2
+#: patterns/c-btn-outline-secondary-sm.php:2
 msgctxt "Pattern title"
 msgid "c - Button outline-secondary sm"
 msgstr ""
 
-#: patterns/c.btn-primary.php:2
+#: patterns/c-btn-primary.php:2
 msgctxt "Pattern title"
 msgid "c - Button primary"
 msgstr ""
 
-#: patterns/c.card-basic.php:2
+#: patterns/c-card-basic.php:2
 msgctxt "Pattern title"
 msgid "c - Card basic with image"
 msgstr ""
 
-#: patterns/c.card-widget-categories.php:2
+#: patterns/c-card-widget-categories.php:2
 msgctxt "Pattern title"
 msgid "c - Card with category widget"
 msgstr ""
 
-#: patterns/c.card-header-footer.php:2
+#: patterns/c-card-header-footer.php:2
 msgctxt "Pattern title"
 msgid "c - Card with header and footer"
 msgstr ""
 
-#: patterns/c.cards-pricing.php:2
+#: patterns/c-cards-pricing.php:2
 msgctxt "Pattern title"
 msgid "c - Cards pricing"
 msgstr ""
 
-#: patterns/c.hero-img-left.php:2
+#: patterns/c-hero-img-left.php:2
 msgctxt "Pattern title"
 msgid "c - Hero img left"
 msgstr ""
 
-#: patterns/c.hero-img-right.php:2
+#: patterns/c-hero-img-right.php:2
 msgctxt "Pattern title"
 msgid "c - Hero img right"
 msgstr ""
 
-#: patterns/c.hero-jumbotron.php:2
+#: patterns/c-hero-jumbotron.php:2
 msgctxt "Pattern title"
 msgid "c - Hero jumbotron"
 msgstr ""
 
-#: patterns/l.container.php:2
+#: patterns/l-container.php:2
 msgctxt "Pattern title"
 msgid "l - Container"
 msgstr ""
 
-#: patterns/l.grid-col-3.php:2
+#: patterns/l-grid-col-3.php:2
 msgctxt "Pattern title"
 msgid "l - Grid 3/3/3/3"
 msgstr ""
 
-#: patterns/l.grid-col-4-col-8.php:2
+#: patterns/l-grid-col-4-col-8.php:2
 msgctxt "Pattern title"
 msgid "l - Grid 4/8"
 msgstr ""
 
-#: patterns/l.grid-col-6.php:2
+#: patterns/l-grid-col-6.php:2
 msgctxt "Pattern title"
 msgid "l - Grid 6/6"
 msgstr ""
 
-#: patterns/l.grid-col-8-col-4.php:2
+#: patterns/l-grid-col-8-col-4.php:2
 msgctxt "Pattern title"
 msgid "l - Grid 8/4"
 msgstr ""
 
-#: patterns/s.heading-subtitle.php:2
+#: patterns/s-heading-subtitle.php:2
 msgctxt "Pattern title"
 msgid "s - Heading and subtitle"
 msgstr ""
 
-#: patterns/s.hero-img-left.php:2
+#: patterns/s-hero-img-left.php:2
 msgctxt "Pattern title"
 msgid "s - Hero image left"
 msgstr ""
 
-#: patterns/s.hero-img-right.php:2
+#: patterns/s-hero-img-right.php:2
 msgctxt "Pattern title"
 msgid "s - Hero image right"
 msgstr ""
 
-#: patterns/s.hero-jumbotron.php:2
+#: patterns/s-hero-jumbotron.php:2
 msgctxt "Pattern title"
 msgid "s - Hero jumbotron"
 msgstr ""
@@ -494,13 +490,13 @@ msgstr "Kommentar posten"
 msgid "Previous Page"
 msgstr "Vorherige Seite"
 
-#: woocommerce/inc/ajax-cart.php:205
+#: woocommerce/inc/ajax-cart.php:223
 #, php-format
 #| msgid "Quantity updated successfully"
 msgid "Quantity of %s updated successfully"
 msgstr "Anzahl von %s erfolgreich geändert"
 
-#: archive.php:91 index.php:104 template-parts/search/content-search.php:70
+#: archive.php:93 index.php:106 template-parts/search/content-search.php:72
 msgid "Read more »"
 msgstr "Weiterlesen »"
 
@@ -517,7 +513,7 @@ msgstr ""
 msgid "Return to top"
 msgstr ""
 
-#: inc/comments.php:124
+#: inc/comments.php:125
 msgid ""
 "Save my name, email, and website in this browser for the next time I comment."
 msgstr ""
@@ -529,13 +525,13 @@ msgid "Search"
 msgstr "Suche"
 
 #. %s: search query.
-#: search.php:34
+#: search.php:34 inc/breadcrumb.php:116
 #, php-format
 msgid "Search Results for: %s"
 msgstr "Suchergebnisse für: %s"
 
-#: template-parts/header/actions-woocommerce.php:21
 #: template-parts/header/actions.php:28
+#: template-parts/header/actions-woocommerce.php:21
 msgid "Search toggler"
 msgstr ""
 
@@ -556,7 +552,7 @@ msgstr "Weiter zum Inhalt"
 msgid "Skip to footer"
 msgstr ""
 
-#: woocommerce/inc/wc-ajax-login.php:61
+#: woocommerce/inc/wc-ajax-login.php:83
 msgid "Slow down a bit."
 msgstr ""
 
@@ -584,11 +580,7 @@ msgstr ""
 msgid "Tagged"
 msgstr "Schlagworte"
 
-#: woocommerce/js/ajax-login.js:111
-msgid "Technical error"
-msgstr "Technischer Fehler"
-
-#: woocommerce/inc/wc-ajax-login.php:93
+#: woocommerce/inc/wc-ajax-login.php:115
 msgid "This combination of access data was not found in our database."
 msgstr ""
 "Die Kombination aus Nutzername und Passwort konnte nicht in unserer "
@@ -622,15 +614,7 @@ msgstr "Top Nav 2"
 msgid "Top Nav Search"
 msgstr "Top Nav Suche"
 
-#: woocommerce/js/ajax-login.js:61
-msgid "Username or email and password are required."
-msgstr "Nutzername oder E-Mail und Passwort werden benötigt."
-
-#: woocommerce/js/ajax-login.js:63
-msgid "Username or email is required."
-msgstr "Nutzername oder E-Mail wird benötigt."
-
-#: woocommerce/inc/ajax-cart.php:273
+#: woocommerce/inc/ajax-cart.php:312
 #, php-format
 msgid "We only have %1$d of (%2$s) in stock."
 msgstr ""
@@ -639,7 +623,7 @@ msgstr ""
 msgid "Website"
 msgstr "Webseite"
 
-#: woocommerce/inc/wc-ajax-login.php:103
+#: woocommerce/inc/wc-ajax-login.php:125
 msgid "Welcome"
 msgstr "Willkommen"
 
@@ -651,6 +635,6 @@ msgstr "Das könnte Sie auch interessieren"
 msgid "Your comment is awaiting moderation."
 msgstr "Ihr Kommentar wartet auf Moderation."
 
-#: woocommerce/inc/wc-single-product-reviews.php:82
+#: woocommerce/inc/wc-single-product-reviews.php:108
 msgid "Your review...*"
 msgstr "Ihre Bewertung...*"

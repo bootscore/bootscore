@@ -2,7 +2,7 @@
 /**
  * Template Name: Full width image
  * Template Post Type: post
- * Template Version: 6.3.1
+ * Template Version: 6.4.0
  *
  * @package Bootscore
  */
@@ -61,8 +61,15 @@ get_header();
                 <div class="mb-4">
                   <?php bootscore_tags(); ?>
                 </div>
-                <!-- Related posts using bS Swiper plugin -->
-                <?php if (function_exists('bootscore_related_posts')) bootscore_related_posts(); ?>
+
+                <?php 
+                  // Related posts using bs Swiper plugin
+                  // Deprecated, new action bootscore_before_pagination will be used for related posts
+                  if (function_exists('bootscore_related_posts')) bootscore_related_posts(); 
+                ?>
+                
+                <?php do_action( 'bootscore_before_pagination', 'single-full-width-image' ); ?>
+                
                 <nav aria-label="bs page navigation">
                   <ul class="pagination justify-content-center">
                     <li class="page-item">

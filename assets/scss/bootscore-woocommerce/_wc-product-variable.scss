@@ -1,5 +1,5 @@
 /*--------------------------------------------------------------
-WooCommerce Variable Product
+WooCommerce Variable Product - Bootscore v6.4.0
 --------------------------------------------------------------*/
 
 // Variations select
@@ -7,14 +7,6 @@ WooCommerce Variable Product
 
   select {
     margin-right: 0;
-  }
-
-  // Fix the clear button (WC 9.5) 
-  .reset_variations {
-    border: none;
-    background: none;
-    padding: 0;
-    color: var(--#{$prefix}link-color);
   }
 }
 

@@ -4,7 +4,7 @@
  * WooCommerce functions and definitions
  *
  * @package Bootscore
- * @version 6.3.0
+ * @version 6.4.0
  */
 
 
@@ -15,23 +15,23 @@ defined('ABSPATH') || exit;
 /**
  * Load required files
  */
-require_once('inc/wc-breadcrumb.php');
-require_once('inc/wc-enqueue.php');
-require_once('inc/wc-forms.php');
-require_once('inc/wc-loop.php');
-require_once('inc/wc-mini-cart.php');
-require_once('inc/wc-qty-btn.php'); 
-require_once('inc/wc-redirects.php'); 
-require_once('inc/wc-result-count.php');
-require_once('inc/wc-sale-flash.php'); 
-require_once('inc/wc-stock-badge.php'); 
-require_once('inc/wc-setup.php'); 
-require_once('inc/wc-single-product-reviews.php');
-require_once('inc/wc-tabs.php');
-require_once('inc/wc-deprecated.php'); 
+require_once get_template_directory() . '/woocommerce/inc/wc-breadcrumb.php';
+require_once get_template_directory() . '/woocommerce/inc/wc-enqueue.php';
+require_once get_template_directory() . '/woocommerce/inc/wc-forms.php';
+require_once get_template_directory() . '/woocommerce/inc/wc-loop.php';
+require_once get_template_directory() . '/woocommerce/inc/wc-mini-cart.php';
+require_once get_template_directory() . '/woocommerce/inc/wc-qty-btn.php'; 
+require_once get_template_directory() . '/woocommerce/inc/wc-redirects.php'; 
+require_once get_template_directory() . '/woocommerce/inc/wc-result-count.php';
+require_once get_template_directory() . '/woocommerce/inc/wc-sale-flash.php'; 
+require_once get_template_directory() . '/woocommerce/inc/wc-stock-badge.php'; 
+require_once get_template_directory() . '/woocommerce/inc/wc-setup.php'; 
+require_once get_template_directory() . '/woocommerce/inc/wc-single-product-reviews.php';
+require_once get_template_directory() . '/woocommerce/inc/wc-tabs.php';
+require_once get_template_directory() . '/woocommerce/inc/wc-deprecated.php'; 
 
 // Blocks
-require_once('inc/blocks/wc-block-widget-categories.php'); 
+require_once get_template_directory() . '/woocommerce/inc/blocks/wc-block-widget-categories.php'; 
 
 
 /**
@@ -45,7 +45,7 @@ function bootscore_register_ajax_cart() {
   if (apply_filters('bootscore/load_ajax_cart', true)) {
     $ajax_cart_en = 'yes' === get_option('woocommerce_enable_ajax_add_to_cart');
     if ($ajax_cart_en) {
-      require_once('inc/ajax-cart.php');
+      require_once get_template_directory() . '/woocommerce/inc/ajax-cart.php';
     }
   }
 }
@@ -67,9 +67,9 @@ function bootscore_register_cart_file() {
   $ajax_cart_en = 'yes' === get_option('woocommerce_enable_ajax_add_to_cart');
 
   if ($skip_cart_filter && $ajax_cart_en) {
-    require_once('inc/wc-skip-cart.php');
+    require_once get_template_directory() . '/woocommerce/inc/wc-skip-cart.php';
   } else {
-    require_once('inc/wc-cart.php');
+    require_once get_template_directory() . '/woocommerce/inc/wc-cart.php';
   }
 }
 add_action('after_setup_theme', 'bootscore_register_cart_file');
@@ -87,7 +87,7 @@ add_action('after_setup_theme', 'bootscore_register_cart_file');
 
 function bootscore_register_ajax_login_file() {
   if (apply_filters('bootscore/wc_ajax_login', true)) {
-    require_once('inc/wc-ajax-login.php');
+    require_once get_template_directory() . '/woocommerce/inc/wc-ajax-login.php';
   }
 }
 add_action('after_setup_theme', 'bootscore_register_ajax_login_file');

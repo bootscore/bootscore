@@ -2,7 +2,7 @@
 
 /**
  * Template part for displaying results in search pages
- * Template Version: 6.3.1
+ * Template Version: 6.4.0
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
@@ -21,6 +21,8 @@ defined('ABSPATH') || exit;
 <article id="post-<?php the_ID(); ?>" <?php post_class( esc_attr(apply_filters('bootscore/class/loop/card', 'card horizontal mb-4', 'content-search')) ); ?>>
   
   <div class="<?= esc_attr(apply_filters('bootscore/class/loop/card/row', 'row g-0', 'content-search')); ?>">
+    
+    <?php do_action('bootscore_before_loop_thumbnail', 'content-search'); ?>
 
     <?php if (has_post_thumbnail()) : ?>
       <div class="<?= esc_attr(apply_filters('bootscore/class/loop/card/image/col', 'col-lg-6 col-xl-5 col-xxl-4', 'content-search')); ?>">
@@ -29,6 +31,8 @@ defined('ABSPATH') || exit;
         </a>
       </div>
     <?php endif; ?>
+    
+    <?php do_action('bootscore_after_loop_thumbnail', 'content-search'); ?>
 
     <div class="<?= esc_attr(apply_filters('bootscore/class/loop/card/content/col', 'col', 'content-search')); ?>">
       <div class="<?= esc_attr(apply_filters('bootscore/class/loop/card/body', 'card-body', 'content-search')); ?>">
@@ -39,7 +43,7 @@ defined('ABSPATH') || exit;
         
         <?php do_action('bootscore_before_loop_title', 'content-search'); ?>
 
-        <a class="text-body text-decoration-none" href="<?php the_permalink(); ?>">
+        <a class="<?= esc_attr(apply_filters('bootscore/class/loop/card/title/link', 'text-body text-decoration-none', 'content-search')); ?>" href="<?php the_permalink(); ?>">
           <?php the_title('<h2 class="' . esc_attr(apply_filters('bootscore/class/loop/card/title', 'blog-post-title h5', 'content-search')) . '">', '</h2>'); ?>
         </a>
         
@@ -60,7 +64,7 @@ defined('ABSPATH') || exit;
 
         <?php if (apply_filters('bootscore/loop/excerpt', true, 'content-search')) : ?>
           <p class="<?= esc_attr(apply_filters('bootscore/class/loop/card-text/excerpt', 'card-text', 'content-search')); ?>">
-            <a class="text-body text-decoration-none" href="<?php the_permalink(); ?>">
+            <a class="<?= esc_attr(apply_filters('bootscore/class/loop/card-text/excerpt/link', 'text-body text-decoration-none', 'index')); ?>" href="<?php the_permalink(); ?>">
               <?= esc_html(wp_strip_all_tags(get_the_excerpt())); ?>
             </a>
           </p>
@@ -77,6 +81,8 @@ defined('ABSPATH') || exit;
         <?php if (apply_filters('bootscore/loop/tags', true, 'content-search')) : ?>
           <?php bootscore_tags(); ?>
         <?php endif; ?>
+        
+        <?php do_action('bootscore_after_loop_tags', 'content-search'); ?>
 
       </div>
 
