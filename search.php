@@ -2,7 +2,7 @@
 
 /**
  * The template for displaying search results pages
- * Template Version: 6.3.1
+ * Template Version: 6.4.0
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#search-result
  *
@@ -54,6 +54,8 @@ get_header();
               endwhile;
             
               do_action( 'bootscore_after_loop', 'search' );
+            
+              do_action( 'bootscore_before_pagination', 'search' );
 
               bootscore_pagination();
 
