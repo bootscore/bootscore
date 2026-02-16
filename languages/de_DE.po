@@ -513,7 +513,7 @@ msgstr ""
 
 #: footer.php:96
 msgid "Return to top"
-msgstr ""
+msgstr "Zurück zum Seitenanfang"
 
 #: inc/comments.php:125
 msgid ""
@@ -552,7 +552,7 @@ msgstr "Weiter zum Inhalt"
 
 #: header.php:36
 msgid "Skip to footer"
-msgstr ""
+msgstr "Weiter zum Fuß der Seite"
 
 #: woocommerce/inc/wc-ajax-login.php:83
 msgid "Slow down a bit."
@@ -576,7 +576,7 @@ msgstr "Senden"
 
 #: searchform.php:21
 msgid "Submit search"
-msgstr ""
+msgstr "Suchformular absenden"
 
 #: inc/template-tags.php:237
 msgid "Tagged"
@@ -589,7 +589,7 @@ msgstr ""
 
 #: header.php:98
 msgid "Toggle main menu"
-msgstr ""
+msgstr "Hauptmenü umschalten"
 
 #: languages/plugin-translations.php:26
 msgid "Toggle table of contents"
