@@ -21,6 +21,11 @@ text
 </details>
 
 <details>
-  <summary>search.phps</summary>
+  <summary>search.php</summary>
 text
 </details>
+
+## To Do
+
+- [ ] Link templates in files
+- [ ] test
