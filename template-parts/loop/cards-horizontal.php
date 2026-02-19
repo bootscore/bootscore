@@ -52,7 +52,7 @@ defined('ABSPATH') || exit;
         <?php do_action('bootscore_before_loop_title', 'cards-horizontal'); ?>
 
         <a class="<?= esc_attr(apply_filters('bootscore/class/loop/card/title/link', 'text-body text-decoration-none', 'cards-horizontal')); ?>" href="<?php the_permalink(); ?>">
-          <?php the_title('<h2 class="' . esc_attr(apply_filters('bootscore/class/loop/card/title', 'blog-post-title h5', 'cards-horizontal')) . '">', '</h2>'); ?>
+          <?php the_title('<h2 class="' . esc_attr(apply_filters('bootscore/class/loop/card/title', 'h5', 'cards-horizontal')) . '">', '</h2>'); ?>
         </a>
 
         <?php do_action('bootscore_after_loop_title', 'cards-horizontal'); ?>
@@ -81,7 +81,7 @@ defined('ABSPATH') || exit;
         <?php if (apply_filters('bootscore/loop/read-more', true, 'cards-horizontal')) : ?>
           <p class="<?= esc_attr(apply_filters('bootscore/class/loop/card-text/read-more', 'card-text', 'cards-horizontal')); ?>">
             <a class="<?= esc_attr(apply_filters('bootscore/class/loop/read-more', 'read-more', 'cards-horizontal')); ?>" href="<?php the_permalink(); ?>">
-              <?= wp_kses_post(apply_filters('bootscore/loop/read-more/text', __('Read more »', 'bootscore', 'cards-horizontal'))); ?>
+              <?= wp_kses_post(apply_filters('bootscore/loop/read-more/text', __('Read more »', 'bootscore'), 'cards-horizontal')); ?>
             </a>
           </p>
         <?php endif; ?>
