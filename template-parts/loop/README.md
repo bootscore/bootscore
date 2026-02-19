@@ -250,6 +250,7 @@ get_footer();
 
 - [ ] Move https://github.com/bootscore/bootscore/blob/main/assets/scss/bootscore/_loop.scss to deprecated
 - [ ] Change loop thumbnail image link as in `template-tags.php`
+- [ ] Check `the_excerpt`
 - [ ] Add templates
   - [x] `cards-horizontal.php`
   - [ ] `cards.php`
