@@ -265,6 +265,6 @@ get_footer();
   - [ ] bs Grid > bs Loop?
   - [ ] bs Isotope
   - [ ] bs Swiper
-- [ ] Delete foldser `template-parts/search`  
+- [ ] Delete folder `template-parts/search`  
 - [ ] Documentation
 
