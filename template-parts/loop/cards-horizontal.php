@@ -96,8 +96,8 @@ defined('ABSPATH') || exit;
 
       <?php do_action('bootscore_loop_item_after_card_body', 'cards-horizontal'); ?>
 
-    </div><!-- col -->
-  </div><!-- row -->
-</article><!-- article -->
+    </div>
+  </div>
+</article>
 
 <?php do_action('bootscore_after_loop_item', 'cards-horizontal'); ?>
