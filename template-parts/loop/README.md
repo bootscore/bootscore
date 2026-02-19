@@ -1,4 +1,11 @@
 # Loop templates
 
 > [!IMPORTANT]
-> This loop templates are not linked in the theme yet. Templates will be used in Bootscore v7 in archive.php, search.php and index.php instead an own loop in each file. There will be an option for more templates like vertical cards, heroes and a custom blank template. The reason why this files are already here is because bs Grid, bs Isotope and bs Swiper plugins will use this templates as well instead in each plugin shortcode.
+> This loop templates are not linked in the theme yet. Templates will be used in Bootscore v7 in archive.php, search.php and index.php instead an own loop in each file. There will be an option for more templates like vertical cards, heroes and a custom blank template. The reason why this files are already here is because bs Grid, bs Isotope and bs Swiper plugins will use this templates as well instead in each plugin shortcode and allows to develop this plugins right now.
+
+#### Call the loop
+
+```php
+<!-- Loop items  -->
+<?php get_template_part('template-parts/loop/cards-horizontal'); ?>
+```
