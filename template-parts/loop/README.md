@@ -86,7 +86,7 @@ get_header();
 
               <?php if ($layout === 'grid') : ?>
                 <!-- Grid layout needs row wrapper -->
-                <div class="<?= esc_attr(apply_filters('bootscore/class/loop/grid/col', 'row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 g-4', 'archive')); ?>">
+                <div class="<?= esc_attr(apply_filters('bootscore/class/loop/grid/col', 'row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 g-4 mb-4', 'archive')); ?>">
               <?php endif; ?>
 
               <?php while (have_posts()) : the_post(); ?>
@@ -190,7 +190,7 @@ get_header();
 
                   <?php if ($layout === 'grid') : ?>
                     <!-- Grid layout needs row wrapper -->
-                    <div class="<?= esc_attr(apply_filters('bootscore/class/loop/grid/col', 'row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 g-4', 'index')); ?>">
+                    <div class="<?= esc_attr(apply_filters('bootscore/class/loop/grid/col', 'row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 g-4 mb-4', 'index')); ?>">
                   <?php endif; ?>
 
                   <?php while (have_posts()) : the_post(); ?>
@@ -221,12 +221,12 @@ get_header();
                 
               </div>
               
-            </div><!-- col -->
+            </div>
             <?php get_sidebar(); ?>
-          </div><!-- row -->
-      </main><!-- #main -->
-    </div><!-- #primary -->
-  </div><!-- #content -->
+          </div>
+      </main>
+    </div>
+  </div>
 <?php
 get_footer();
 
@@ -284,7 +284,7 @@ $layout = apply_filters('bootscore/loop/layout', 'horizontal', 'search');
 
               <?php if ($layout === 'grid') : ?>
                 <!-- Grid layout needs row wrapper -->
-                <div class="<?= esc_attr(apply_filters('bootscore/class/loop/grid/col', 'row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 g-4', 'search')); ?>">
+                <div class="<?= esc_attr(apply_filters('bootscore/class/loop/grid/col', 'row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 g-4 mb-4', 'search')); ?>">
               <?php endif; ?>
 
               <?php
@@ -317,14 +317,14 @@ $layout = apply_filters('bootscore/loop/layout', 'horizontal', 'search');
 
             <?php endif; ?>
             
-          </main><!-- #main -->
+          </main>
 
-        </div><!-- col -->
+        </div>
         <?php get_sidebar(); ?>
-      </div><!-- row -->
+      </div>
 
-    </div><!-- #primary -->
-  </div><!-- #content -->
+    </div>
+  </div>
 <?php
 get_footer(); 
 ```
@@ -356,7 +356,7 @@ add_filter('bootscore/loop/layout', function($layout) {
  */
 
 function change_loop_grid_layout_columns() {
-  return "row row-cols-2 row-cols-lg-3 g-3";
+  return "row row-cols-2 row-cols-lg-3 g-3 mb-3";
 }
 add_filter('bootscore/class/loop/grid/col', 'change_loop_grid_layout_columns', 10, 2);
 ```
