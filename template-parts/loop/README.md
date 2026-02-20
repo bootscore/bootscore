@@ -418,6 +418,7 @@ endif;
 - [ ] Add templates
   - [x] `cards-horizontal.php`
   - [ ] `cards.php`
+    - [ ] Recheck the `card-img-top`
   - [ ] `heroes.php`
   - [ ] `custom.php` blank template with an action hook
 - [ ] Check for superfluous actions
