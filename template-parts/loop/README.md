@@ -6,8 +6,35 @@
 ### Call the loop
 
 ```php
-<!-- Loop items  -->
-<?php get_template_part('template-parts/loop/cards-horizontal'); ?>
+<?php
+// Set layout via filter (can be overridden by plugins)
+$layout = apply_filters('bootscore/loop/layout', 'horizontal'); // or 'grid'
+?>
+
+<?php if (have_posts()) : ?>
+
+  <?php if ($layout === 'grid') : ?>
+    <!-- Grid layout needs row wrapper -->
+    <div class="<?= esc_attr(apply_filters('bootscore/class/loop/grid/col', 'row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 g-4', 'archive')); ?>">
+  <?php endif; ?>
+
+  <?php while (have_posts()) : the_post(); ?>
+
+    <?php if ($layout === 'grid') : ?>
+      <!-- Use cards.php (with col wrapper) for grid -->
+      <?php get_template_part('template-parts/loop/cards'); ?>
+    <?php else : ?>
+      <!-- Use cards-horizontal.php (no wrapper) for horizontal -->
+      <?php get_template_part('template-parts/loop/cards-horizontal'); ?>
+    <?php endif; ?>
+
+  <?php endwhile; ?>
+
+  <?php if ($layout === 'grid') : ?>
+    </div><!-- .row -->
+  <?php endif; ?>
+
+<?php endif; ?>
 ```
 
 <details>
@@ -18,7 +45,7 @@
 
 /**
  * The template for displaying archive pages
- * Template Version: 6.4.0
+ * Template Version: 7.0.0
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
@@ -50,13 +77,34 @@ get_header();
             
             <?php do_action( 'bootscore_before_loop', 'archive' ); ?>
 
+            <?php
+            // Set layout via filter (can be overridden by plugins)
+            $layout = apply_filters('bootscore/loop/layout', 'horizontal'); // or 'grid'
+            ?>
+
             <?php if (have_posts()) : ?>
+
+              <?php if ($layout === 'grid') : ?>
+                <!-- Grid layout needs row wrapper -->
+                <div class="<?= esc_attr(apply_filters('bootscore/class/loop/grid/col', 'row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 g-4', 'archive')); ?>">
+              <?php endif; ?>
+
               <?php while (have_posts()) : the_post(); ?>
-            
-              <!-- Loop items  -->
-              <?php get_template_part('template-parts/loop/cards-horizontal'); ?>
+
+                <?php if ($layout === 'grid') : ?>
+                  <!-- Use cards.php (with col wrapper) for grid -->
+                  <?php get_template_part('template-parts/loop/cards'); ?>
+                <?php else : ?>
+                  <!-- Use cards-horizontal.php (no wrapper) for horizontal -->
+                  <?php get_template_part('template-parts/loop/cards-horizontal'); ?>
+                <?php endif; ?>
 
               <?php endwhile; ?>
+
+              <?php if ($layout === 'grid') : ?>
+                </div><!-- .row -->
+              <?php endif; ?>
+
             <?php endif; ?>
             
             <?php do_action('bootscore_after_loop', 'archive'); ?>
@@ -81,6 +129,7 @@ get_header();
 <?php
 get_footer();
 
+
 ```
 </details>
 
@@ -92,7 +141,7 @@ get_footer();
 
 /**
  * The main template file
- * Template Version: 6.4.0
+ * Template Version: 7.0.0
  *
  * This is the most generic template file in a WordPress theme
  * and one of the two required files for a theme (the other being style.css).
@@ -127,15 +176,39 @@ get_header();
           <!-- Post List -->
           <div class="row">
             <div class="<?= esc_attr(apply_filters('bootscore/class/main/col', 'col')); ?>">
+              
+              
 
                 <?php do_action( 'bootscore_before_loop', 'index' ); ?>
-
-                <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
               
-                <!-- Loop items  -->
-                <?php get_template_part('template-parts/loop/cards-horizontal'); ?>
+                <?php
+                // Set layout via filter (can be overridden by plugins)
+                $layout = apply_filters('bootscore/loop/layout', 'horizontal'); // or 'grid'
+                ?>
 
-                <?php endwhile; ?>
+                <?php if (have_posts()) : ?>
+
+                  <?php if ($layout === 'grid') : ?>
+                    <!-- Grid layout needs row wrapper -->
+                    <div class="<?= esc_attr(apply_filters('bootscore/class/loop/grid/col', 'row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 g-4', 'index')); ?>">
+                  <?php endif; ?>
+
+                  <?php while (have_posts()) : the_post(); ?>
+
+                    <?php if ($layout === 'grid') : ?>
+                      <!-- Use cards.php (with col wrapper) for grid -->
+                      <?php get_template_part('template-parts/loop/cards'); ?>
+                    <?php else : ?>
+                      <!-- Use cards-horizontal.php (no wrapper) for horizontal -->
+                      <?php get_template_part('template-parts/loop/cards-horizontal'); ?>
+                    <?php endif; ?>
+
+                  <?php endwhile; ?>
+
+                  <?php if ($layout === 'grid') : ?>
+                    </div><!-- .row -->
+                  <?php endif; ?>
+
                 <?php endif; ?>
 
                 <?php do_action('bootscore_after_loop', 'index'); ?>
@@ -156,6 +229,7 @@ get_header();
   </div><!-- #content -->
 <?php
 get_footer();
+
 ```
 
 </details>
@@ -168,7 +242,7 @@ get_footer();
 
 /**
  * The template for displaying search results pages
- * Template Version: 6.4.0
+ * Template Version: 7.0.0
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#search-result
  *
@@ -179,6 +253,9 @@ get_footer();
 defined('ABSPATH') || exit;
 
 get_header();
+
+// Get layout from filter (default to 'horizontal' for search)
+$layout = apply_filters('bootscore/loop/layout', 'horizontal', 'search');
 ?>
   <div id="content" class="site-content <?= esc_attr(apply_filters('bootscore/class/container', 'container', 'search')); ?> <?= esc_attr(apply_filters('bootscore/class/content/spacer', 'pt-4 pb-5', 'search')); ?>">
     <div id="primary" class="content-area">
@@ -203,34 +280,42 @@ get_header();
                 <?php do_action( 'bootscore_after_title', 'search' ); ?>
               </div>
             
-            <?php do_action( 'bootscore_before_loop', 'search' ); ?>
+              <?php do_action( 'bootscore_before_loop', 'search' ); ?>
+
+              <?php if ($layout === 'grid') : ?>
+                <!-- Grid layout needs row wrapper -->
+                <div class="<?= esc_attr(apply_filters('bootscore/class/loop/grid/col', 'row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 g-4', 'search')); ?>">
+              <?php endif; ?>
 
               <?php
               /* Start the Loop */
               while (have_posts()) :
                 the_post();
 
-                /**
-                 * Run the loop for the search to output the results.
-                 * If you want to overload this in a child theme then include a file
-                 * called content-search.php and that will be used instead.
-                 */
-                get_template_part('template-parts/loop/cards', 'horizontal');
+                if ($layout === 'grid') : 
+                  get_template_part('template-parts/loop/cards'); // with col wrapper
+                else : 
+                  get_template_part('template-parts/loop/cards-horizontal'); // no wrapper
+                endif; 
 
               endwhile;
+              ?>
             
-              do_action( 'bootscore_after_loop', 'search' );
-            
-              do_action( 'bootscore_before_pagination', 'search' );
+              <?php if ($layout === 'grid') : ?>
+                </div><!-- .row -->
+              <?php endif; ?>
 
-              bootscore_pagination();
+              <?php do_action( 'bootscore_after_loop', 'search' ); ?>
+              
+              <?php do_action( 'bootscore_before_pagination', 'search' ); ?>
 
-            else :
+              <?php bootscore_pagination(); ?>
 
-              get_template_part('template-parts/search/content', 'none');
+            <?php else : ?>
 
-            endif;
-            ?>
+              <?php get_template_part('template-parts/loop/content', 'none'); ?>
+
+            <?php endif; ?>
             
           </main><!-- #main -->
 
@@ -241,7 +326,7 @@ get_header();
     </div><!-- #primary -->
   </div><!-- #content -->
 <?php
-get_footer();
+get_footer(); 
 ```
 
 </details>
@@ -253,6 +338,28 @@ get_footer();
 
 - `bootscore/thumbnail/archive/class` (location) - template-tags.php
 - `bootscore/thumbnail/archive/size` (location) - template-tags.php
+- `bootscore/class/loop/grid/col` (location) - archive.php, index.php, search.php
+
+##### Usage
+
+```php
+/**
+ * Enable grid layout in loop
+ */
+add_filter('bootscore/loop/layout', function($layout) {
+  return 'grid'; // Override default 'horizontal'
+});
+
+
+/**
+ * Change loop grid layout item col
+ */
+
+function change_loop_grid_layout_columns() {
+  return "row row-cols-2 row-cols-lg-3 g-3";
+}
+add_filter('bootscore/class/loop/grid/col', 'change_loop_grid_layout_columns', 10, 2);
+```
 
 #### Deleted
 
