@@ -417,8 +417,8 @@ endif;
 - [ ] Check `the_excerpt`
 - [ ] Add templates
   - [x] `cards-horizontal.php`
-  - [ ] `cards.php`
-    - [ ] Recheck the `card-img-top`
+  - [x] `cards.php`
+    - [ ] Revisit the `card-img-top` in vertical loops
   - [ ] `heroes.php`
   - [ ] `custom.php` blank template with an action hook
 - [ ] Check for superfluous actions
