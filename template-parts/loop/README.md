@@ -246,6 +246,21 @@ get_footer();
 
 </details>
 
+<details>
+  <summary>Filters & Actions</summary>
+
+#### New
+
+- `bootscore/thumbnail/archive/class` - template-tags.php
+- `bootscore/thumbnail/archive/size` - template-tags.php
+
+#### Deleted
+
+- `bootscore/class/loop/card/title/link`
+- `bootscore/class/loop/card-text/excerpt/link`
+
+</details>
+
 ### To Do
 
 - [ ] Move https://github.com/bootscore/bootscore/blob/main/assets/scss/bootscore/_loop.scss to deprecated
