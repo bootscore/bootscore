@@ -251,8 +251,8 @@ get_footer();
 
 #### New
 
-- `bootscore/thumbnail/archive/class` - template-tags.php
-- `bootscore/thumbnail/archive/size` - template-tags.php
+- `bootscore/thumbnail/archive/class` (location) - template-tags.php
+- `bootscore/thumbnail/archive/size` (location) - template-tags.php
 
 #### Deleted
 

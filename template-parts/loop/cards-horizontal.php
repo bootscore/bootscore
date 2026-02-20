@@ -16,6 +16,7 @@
 // Exit if accessed directly
 defined('ABSPATH') || exit;
 
+$context = 'cards-horizontal';
 ?>
 
 
@@ -83,7 +84,7 @@ defined('ABSPATH') || exit;
           </p>
         <?php endif; ?>
 
-        <?php if (apply_filters('bootscore/loop/tags', true, 'cards-horizontal')) : ?>
+        <?php if (apply_filters('bootscore/loop/tags', true, 'cards-horizontal') && has_tag()) : ?>
           <div class="position-relative z-2">
             <?php bootscore_tags(); ?>
           </div>
