@@ -249,7 +249,49 @@ get_footer();
 ### To Do
 
 - [ ] Move https://github.com/bootscore/bootscore/blob/main/assets/scss/bootscore/_loop.scss to deprecated
-- [ ] Change loop thumbnail image link as in `template-tags.php`
+- [ ] Update loop thumbnail image script in `template-tags.php`
+
+```php
+/**
+ * Featured image
+ */
+if (!function_exists('bootscore_post_thumbnail')) :
+  /**
+   * Displays an optional post thumbnail.
+   *
+   * @param string $context Context for filtering (e.g., 'cards-horizontal')
+   */
+  function bootscore_post_thumbnail($context = '') {
+    if (post_password_required() || is_attachment() || !has_post_thumbnail()) {
+      return;
+    }
+
+    if (is_singular()) :
+
+      $class = apply_filters('bootscore/thumbnail/single/class', 'rounded mb-3', $context);
+      ?>
+
+      <div class="post-thumbnail">
+        <?php the_post_thumbnail('full', array('class' => esc_attr($class))); ?>
+      </div><!-- .post-thumbnail -->
+
+    <?php else : ?>
+
+      <?php
+      $class = apply_filters('bootscore/thumbnail/archive/class', '', $context);
+      $size = apply_filters('bootscore/thumbnail/archive/size', 'post-thumbnail', $context);
+
+      the_post_thumbnail($size, array(
+        'alt' => the_title_attribute(array('echo' => false)),
+        'class' => esc_attr($class)
+      ));
+      ?>
+
+    <?php
+    endif;
+  }
+endif;
+``` 
 - [ ] Check `the_excerpt`
 - [ ] Add templates
   - [x] `cards-horizontal.php`
@@ -268,4 +310,5 @@ get_footer();
   - [ ] bs Swiper
 - [ ] Delete folder `template-parts/search`  
 - [ ] Documentation
+- [ ] Delete this .md file
 
