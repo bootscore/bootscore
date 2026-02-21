@@ -24,7 +24,7 @@ $context = 'cards';
 
 <div class="col">
 
-  <article id="post-<?php the_ID(); ?>" <?php post_class( esc_attr(apply_filters('bootscore/class/loop/card', 'card h-100 overflow-hidden', 'cards')) ); ?>>
+  <article id="post-<?php the_ID(); ?>" <?php post_class( esc_attr(apply_filters('bootscore/class/loop/card', 'card h-100', 'cards')) ); ?>>
 
   <?php do_action('bootscore_before_loop_thumbnail', 'cards'); ?>
 
