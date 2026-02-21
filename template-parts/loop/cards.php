@@ -29,7 +29,7 @@ $context = 'cards';
   <?php do_action('bootscore_before_loop_thumbnail', 'cards'); ?>
 
   <?php if (has_post_thumbnail()) : ?>
-    <?php the_post_thumbnail('medium', array('class' => esc_attr(apply_filters('bootscore/class/loop/card/image', 'card-img-top h-100 object-fit-cover', 'cards')))); ?>
+    <?php the_post_thumbnail('medium', array('class' => esc_attr(apply_filters('bootscore/class/loop/card/image', 'card-img-top', 'cards')))); ?>
   <?php endif; ?>
 
   <?php do_action('bootscore_after_loop_thumbnail', 'cards'); ?>

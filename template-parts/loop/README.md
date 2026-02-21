@@ -418,12 +418,13 @@ endif;
 - [ ] Add templates
   - [x] `cards-horizontal.php`
   - [x] `cards.php`
-    - [ ] Revisit the `card-img-top` in vertical loops
+    - [x] Revisit the `card-img-top` in vertical loops
   - [ ] `heroes.php`
   - [ ] `custom.php` blank template with an action hook
 - [ ] Check for superfluous actions
 - [ ] Check filter names
 - [ ] Link templates in files
+  - [ ] Call the loop via function `<?php bootscore_loop() ?>`?
   - [ ] `archive.php`
   - [ ] `index.php`
   - [ ] `search.php`
