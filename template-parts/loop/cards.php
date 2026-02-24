@@ -27,9 +27,11 @@ $context = 'cards';
   <article id="post-<?php the_ID(); ?>" <?php post_class( esc_attr(apply_filters('bootscore/class/loop/card', 'card h-100', 'cards')) ); ?>>
 
   <?php do_action('bootscore_before_loop_thumbnail', 'cards'); ?>
-
-  <?php if (has_post_thumbnail()) : ?>
-    <?php the_post_thumbnail('medium', array('class' => esc_attr(apply_filters('bootscore/class/loop/card/image', 'card-img-top', 'cards')))); ?>
+    
+  <?php if ( has_post_thumbnail() ) : ?>
+    <a href="<?php the_permalink(); ?>" aria-hidden="true" tabindex="-1">
+      <?php the_post_thumbnail('medium', array('class' => esc_attr(apply_filters('bootscore/class/loop/card/image', 'card-img-top', 'cards')))); ?>
+    </a>
   <?php endif; ?>
 
   <?php do_action('bootscore_after_loop_thumbnail', 'cards'); ?>
