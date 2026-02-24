@@ -105,7 +105,10 @@ get_header();
                 </div><!-- .row -->
               <?php endif; ?>
 
-            <?php endif; ?>
+            <?php else : ?>
+              <!-- No posts found -->
+              <?php get_template_part('template-parts/loop/loop-none'); ?>
+            <?php endif; ?>            
             
             <?php do_action('bootscore_after_loop', 'archive'); ?>
 
@@ -128,7 +131,6 @@ get_header();
 
 <?php
 get_footer();
-
 
 ```
 </details>
@@ -177,10 +179,6 @@ get_header();
           <div class="row">
             <div class="<?= esc_attr(apply_filters('bootscore/class/main/col', 'col')); ?>">
               
-              
-
-                <?php do_action( 'bootscore_before_loop', 'index' ); ?>
-              
                 <?php
                 // Set layout via filter (can be overridden by plugins)
                 $layout = apply_filters('bootscore/loop/layout', 'horizontal'); // or 'grid'
@@ -209,6 +207,9 @@ get_header();
                     </div><!-- .row -->
                   <?php endif; ?>
 
+                <?php else : ?>
+                  <!-- No posts found -->
+                  <?php get_template_part('template-parts/loop/loop-none'); ?>
                 <?php endif; ?>
 
                 <?php do_action('bootscore_after_loop', 'index'); ?>
