@@ -6,6 +6,7 @@
 ### Call the loop
 
 ```php
+<!-- Loop START -->  
 <?php
 // Set layout via filter (can be overridden by plugins)
 $layout = apply_filters('bootscore/loop/layout', 'horizontal'); // or 'grid'
@@ -15,16 +16,18 @@ $layout = apply_filters('bootscore/loop/layout', 'horizontal'); // or 'grid'
 
   <?php if ($layout === 'grid') : ?>
     <!-- Grid layout needs row wrapper -->
-    <div class="<?= esc_attr(apply_filters('bootscore/class/loop/grid/col', 'row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 g-4', 'archive')); ?>">
+    <div class="<?= esc_attr(apply_filters('bootscore/class/loop/grid/col', 'row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 g-4 mb-4', 'index')); ?>">
   <?php endif; ?>
 
   <?php while (have_posts()) : the_post(); ?>
 
     <?php if ($layout === 'grid') : ?>
-      <!-- Use cards.php (with col wrapper) for grid -->
-      <?php get_template_part('template-parts/loop/cards'); ?>
+      <!-- Add col wrapper for grid layout -->
+      <div class="col">
+        <?php get_template_part('template-parts/loop/cards'); ?>
+      </div><!-- .col -->
     <?php else : ?>
-      <!-- Use cards-horizontal.php (no wrapper) for horizontal -->
+      <!-- Horizontal layout - no col wrapper -->
       <?php get_template_part('template-parts/loop/cards-horizontal'); ?>
     <?php endif; ?>
 
@@ -34,7 +37,11 @@ $layout = apply_filters('bootscore/loop/layout', 'horizontal'); // or 'grid'
     </div><!-- .row -->
   <?php endif; ?>
 
+<?php else : ?>
+  <!-- No posts found -->
+  <?php get_template_part('template-parts/loop/loop-none'); ?>
 <?php endif; ?>
+<!-- Loop END -->
 ```
 
 <details>
@@ -77,38 +84,46 @@ get_header();
             
             <?php do_action( 'bootscore_before_loop', 'archive' ); ?>
 
-            <?php
-            // Set layout via filter (can be overridden by plugins)
-            $layout = apply_filters('bootscore/loop/layout', 'horizontal'); // or 'grid'
-            ?>
+            
+              <!-- Loop START -->  
+              <?php
+              // Set layout via filter (can be overridden by plugins)
+              $layout = apply_filters('bootscore/loop/layout', 'horizontal'); // or 'grid'
+              ?>
 
-            <?php if (have_posts()) : ?>
-
-              <?php if ($layout === 'grid') : ?>
-                <!-- Grid layout needs row wrapper -->
-                <div class="<?= esc_attr(apply_filters('bootscore/class/loop/grid/col', 'row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 g-4 mb-4', 'archive')); ?>">
-              <?php endif; ?>
-
-              <?php while (have_posts()) : the_post(); ?>
+              <?php if (have_posts()) : ?>
 
                 <?php if ($layout === 'grid') : ?>
-                  <!-- Use cards.php (with col wrapper) for grid -->
-                  <?php get_template_part('template-parts/loop/cards'); ?>
-                <?php else : ?>
-                  <!-- Use cards-horizontal.php (no wrapper) for horizontal -->
-                  <?php get_template_part('template-parts/loop/cards-horizontal'); ?>
+                  <!-- Grid layout needs row wrapper -->
+                  <div class="<?= esc_attr(apply_filters('bootscore/class/loop/grid/col', 'row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 g-4 mb-4', 'index')); ?>">
                 <?php endif; ?>
 
-              <?php endwhile; ?>
+                <?php while (have_posts()) : the_post(); ?>
 
-              <?php if ($layout === 'grid') : ?>
-                </div><!-- .row -->
+                  <?php if ($layout === 'grid') : ?>
+                    <!-- Add col wrapper for grid layout -->
+                    <div class="col">
+                      <?php get_template_part('template-parts/loop/cards'); ?>
+                    </div><!-- .col -->
+                  <?php else : ?>
+                    <!-- Horizontal layout - no col wrapper -->
+                    <?php get_template_part('template-parts/loop/cards-horizontal'); ?>
+                  <?php endif; ?>
+
+                <?php endwhile; ?>
+
+                <?php if ($layout === 'grid') : ?>
+                  </div><!-- .row -->
+                <?php endif; ?>
+
+              <?php else : ?>
+                <!-- No posts found -->
+                <?php get_template_part('template-parts/loop/loop-none'); ?>
               <?php endif; ?>
-
-            <?php else : ?>
-              <!-- No posts found -->
-              <?php get_template_part('template-parts/loop/loop-none'); ?>
-            <?php endif; ?>            
+              <!-- Loop END -->            
+            
+            
+            
             
             <?php do_action('bootscore_after_loop', 'archive'); ?>
 
@@ -131,6 +146,7 @@ get_header();
 
 <?php
 get_footer();
+
 
 ```
 </details>
@@ -179,40 +195,44 @@ get_header();
           <div class="row">
             <div class="<?= esc_attr(apply_filters('bootscore/class/main/col', 'col')); ?>">
               
-                <?php
-                // Set layout via filter (can be overridden by plugins)
-                $layout = apply_filters('bootscore/loop/layout', 'horizontal'); // or 'grid'
-                ?>
+              <!-- Loop START -->  
+              <?php
+              // Set layout via filter (can be overridden by plugins)
+              $layout = apply_filters('bootscore/loop/layout', 'horizontal'); // or 'grid'
+              ?>
 
-                <?php if (have_posts()) : ?>
+              <?php if (have_posts()) : ?>
 
-                  <?php if ($layout === 'grid') : ?>
-                    <!-- Grid layout needs row wrapper -->
-                    <div class="<?= esc_attr(apply_filters('bootscore/class/loop/grid/col', 'row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 g-4 mb-4', 'index')); ?>">
-                  <?php endif; ?>
-
-                  <?php while (have_posts()) : the_post(); ?>
-
-                    <?php if ($layout === 'grid') : ?>
-                      <!-- Use cards.php (with col wrapper) for grid -->
-                      <?php get_template_part('template-parts/loop/cards'); ?>
-                    <?php else : ?>
-                      <!-- Use cards-horizontal.php (no wrapper) for horizontal -->
-                      <?php get_template_part('template-parts/loop/cards-horizontal'); ?>
-                    <?php endif; ?>
-
-                  <?php endwhile; ?>
-
-                  <?php if ($layout === 'grid') : ?>
-                    </div><!-- .row -->
-                  <?php endif; ?>
-
-                <?php else : ?>
-                  <!-- No posts found -->
-                  <?php get_template_part('template-parts/loop/loop-none'); ?>
+                <?php if ($layout === 'grid') : ?>
+                  <!-- Grid layout needs row wrapper -->
+                  <div class="<?= esc_attr(apply_filters('bootscore/class/loop/grid/col', 'row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 g-4 mb-4', 'index')); ?>">
                 <?php endif; ?>
 
-                <?php do_action('bootscore_after_loop', 'index'); ?>
+                <?php while (have_posts()) : the_post(); ?>
+
+                  <?php if ($layout === 'grid') : ?>
+                    <!-- Add col wrapper for grid layout -->
+                    <div class="col">
+                      <?php get_template_part('template-parts/loop/cards'); ?>
+                    </div><!-- .col -->
+                  <?php else : ?>
+                    <!-- Horizontal layout - no col wrapper -->
+                    <?php get_template_part('template-parts/loop/cards-horizontal'); ?>
+                  <?php endif; ?>
+
+                <?php endwhile; ?>
+
+                <?php if ($layout === 'grid') : ?>
+                  </div><!-- .row -->
+                <?php endif; ?>
+
+              <?php else : ?>
+                <!-- No posts found -->
+                <?php get_template_part('template-parts/loop/loop-none'); ?>
+              <?php endif; ?>
+              <!-- Loop END -->
+              
+              <?php do_action('bootscore_after_loop', 'index'); ?>
 
               <div class="entry-footer">
                 
@@ -230,7 +250,6 @@ get_header();
   </div>
 <?php
 get_footer();
-
 ```
 
 </details>
@@ -283,28 +302,42 @@ $layout = apply_filters('bootscore/loop/layout', 'horizontal', 'search');
             
               <?php do_action( 'bootscore_before_loop', 'search' ); ?>
 
-              <?php if ($layout === 'grid') : ?>
-                <!-- Grid layout needs row wrapper -->
-                <div class="<?= esc_attr(apply_filters('bootscore/class/loop/grid/col', 'row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 g-4 mb-4', 'search')); ?>">
-              <?php endif; ?>
-
+              <!-- Loop START -->
               <?php
-              /* Start the Loop */
-              while (have_posts()) :
-                the_post();
-
-                if ($layout === 'grid') : 
-                  get_template_part('template-parts/loop/cards'); // with col wrapper
-                else : 
-                  get_template_part('template-parts/loop/cards-horizontal'); // no wrapper
-                endif; 
-
-              endwhile;
+              // Set layout via filter (can be overridden by plugins)
+              $layout = apply_filters('bootscore/loop/layout', 'horizontal', 'search'); // or 'grid'
               ?>
-            
-              <?php if ($layout === 'grid') : ?>
-                </div><!-- .row -->
+
+              <?php if (have_posts()) : ?>
+
+                <?php if ($layout === 'grid') : ?>
+                  <!-- Grid layout needs row wrapper -->
+                  <div class="<?= esc_attr(apply_filters('bootscore/class/loop/grid/col', 'row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 g-4 mb-4', 'search')); ?>">
+                <?php endif; ?>
+
+                <?php while (have_posts()) : the_post(); ?>
+
+                  <?php if ($layout === 'grid') : ?>
+                    <!-- Add col wrapper for grid layout -->
+                    <div class="col">
+                      <?php get_template_part('template-parts/loop/cards'); ?>
+                    </div><!-- .col -->
+                  <?php else : ?>
+                    <!-- Horizontal layout - no col wrapper -->
+                    <?php get_template_part('template-parts/loop/cards-horizontal'); ?>
+                  <?php endif; ?>
+
+                <?php endwhile; ?>
+
+                <?php if ($layout === 'grid') : ?>
+                  </div><!-- .row -->
+                <?php endif; ?>
+
+              <?php else : ?>
+                <!-- No posts found -->
+                <?php get_template_part('template-parts/loop/loop-none'); ?>
               <?php endif; ?>
+              <!-- Loop END -->
 
               <?php do_action( 'bootscore_after_loop', 'search' ); ?>
               
@@ -327,7 +360,7 @@ $layout = apply_filters('bootscore/loop/layout', 'horizontal', 'search');
     </div>
   </div>
 <?php
-get_footer(); 
+get_footer();
 ```
 
 </details>

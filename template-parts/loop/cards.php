@@ -6,7 +6,6 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
- * The `overflow-hidden` class is used in cards to create responsive border radius in the image.
  * The `position-relative z-2` classes ensure badges, meta, and tags remain clickable above the `stretched-link` which covers the card.
  *
  * @package Bootscore
@@ -17,35 +16,68 @@
 defined('ABSPATH') || exit;
 
 $context = 'cards';
+$post_type = get_post_type();
 ?>
 
 
 <?php do_action( 'bootscore_before_loop_item', 'cards' ); ?>
 
-<div class="col">
+<?php if ($post_type === 'product' && class_exists('WooCommerce')) : ?>
 
+  <!-- WooCommerce Product Card -->
+  <?php 
+  global $product;
+  if (empty($product) || !is_a($product, 'WC_Product')) {
+    $product = wc_get_product(get_the_ID());
+  }
+  ?>
+  
+  <div <?php wc_product_class( esc_attr(apply_filters( 'bootscore/class/woocommerce/product/card', 'card h-100 text-center', 'cards' )), $product ); ?>>
+    
+    <?php do_action('woocommerce_before_shop_loop_item'); ?>
+    
+    <a href="<?php the_permalink(); ?>" class="woocommerce-LoopProduct-link woocommerce-loop-product__link">
+      <?php do_action('woocommerce_before_shop_loop_item_title'); ?>
+    </a>
+    
+    <div class="<?= esc_attr(apply_filters('bootscore/class/woocommerce/product/card/card-body', 'card-body d-flex flex-column', 'cards')); ?>">
+      <?php
+      do_action('woocommerce_shop_loop_item_title');
+      do_action('woocommerce_after_shop_loop_item_title');
+      ?>
+      
+      <div class="mt-auto">
+        <?php do_action('woocommerce_after_shop_loop_item'); ?>
+      </div>
+    </div>
+    
+  </div>
+  
+<?php else : ?>
+  
+  <!-- Default Post/CPT Card -->
   <article id="post-<?php the_ID(); ?>" <?php post_class( esc_attr(apply_filters('bootscore/class/loop/card', 'card h-100', 'cards')) ); ?>>
 
-  <?php do_action('bootscore_before_loop_thumbnail', 'cards'); ?>
-    
-  <?php if ( has_post_thumbnail() ) : ?>
-    <a href="<?php the_permalink(); ?>" aria-hidden="true" tabindex="-1">
-      <?php the_post_thumbnail('medium', array('class' => esc_attr(apply_filters('bootscore/class/loop/card/image', 'card-img-top', 'cards')))); ?>
-    </a>
-  <?php endif; ?>
+    <?php do_action('bootscore_before_loop_thumbnail', 'cards'); ?>
+      
+    <?php if ( has_post_thumbnail() ) : ?>
+      <a href="<?php the_permalink(); ?>" aria-hidden="true" tabindex="-1">
+        <?php the_post_thumbnail('medium', array('class' => esc_attr(apply_filters('bootscore/class/loop/card/image', 'card-img-top', 'cards')))); ?>
+      </a>
+    <?php endif; ?>
 
-  <?php do_action('bootscore_after_loop_thumbnail', 'cards'); ?>
+    <?php do_action('bootscore_after_loop_thumbnail', 'cards'); ?>
 
     <div class="<?= esc_attr(apply_filters('bootscore/class/loop/card/body', 'card-body h-100 d-flex flex-column', 'cards')); ?>">
 
-      <div class="<?= esc_attr(apply_filters('bootscore/class/loop/card/content/meta-wrapper', 'position-relative z-2 d-flex justify-content-between gap-3')); ?>">
+      <div class="<?= esc_attr(apply_filters('bootscore/class/loop/card/content/meta-wrapper', 'position-relative z-2 d-flex justify-content-between gap-3', 'cards')); ?>">
 
         <?php if (apply_filters('bootscore/loop/category', true, 'cards')) : ?>
           <?php bootscore_category_badge(); ?>
         <?php endif; ?>
 
         <?php if (is_sticky() ) { ?>
-          <p class="sticky-badge"><span class="<?= esc_attr(apply_filters('bootscore/class/loop/card/content/sticky-post-badge', 'badge bg-danger-subtle text-danger-emphasis')); ?>"><?= wp_kses_post(apply_filters('bootscore/icon/star', '<i class="fa-solid fa-star"></i>')); ?></span></p>
+          <p class="sticky-badge"><span class="<?= esc_attr(apply_filters('bootscore/class/loop/card/content/sticky-post-badge', 'badge bg-danger-subtle text-danger-emphasis', 'cards')); ?>"><?= wp_kses_post(apply_filters('bootscore/icon/star', '<i class="fa-solid fa-star"></i>')); ?></span></p>
         <?php } ?>
 
       </div>
@@ -97,6 +129,6 @@ $context = 'cards';
 
   </article>
   
-</div>
+<?php endif; ?>
 
 <?php do_action('bootscore_after_loop_item', 'cards'); ?>
