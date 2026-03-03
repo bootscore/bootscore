@@ -6,36 +6,47 @@
 ### Call the loop
 
 ```php
-<!-- Loop START -->  
+<!-- Loop START -->
 <?php
 // Set layout via filter (can be overridden by plugins)
-$layout = apply_filters('bootscore/loop/layout', 'horizontal'); // or 'grid'
+$layout = apply_filters('bootscore/loop/layout', 'horizontal', 'index'); // or 'grid'
+
+// Default grid classes
+$grid_classes = apply_filters('bootscore/class/loop/grid/col',
+  'row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 g-4 mb-4',
+  'index'
+);
+
+// Default horizontal classes
+$horizontal_classes = apply_filters('bootscore/class/loop/horizontal/col',
+  'row row-cols-1 g-4 mb-4',
+  'index'
+);
 ?>
 
 <?php if (have_posts()) : ?>
 
-  <?php if ($layout === 'grid') : ?>
-    <!-- Grid layout needs row wrapper -->
-    <div class="<?= esc_attr(apply_filters('bootscore/class/loop/grid/col', 'row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 g-4 mb-4', 'index')); ?>">
-  <?php endif; ?>
+  <!-- Loop row wrapper -->
+  <div class="<?= $layout === 'grid' ? esc_attr($grid_classes) : esc_attr($horizontal_classes); ?>">
 
-  <?php while (have_posts()) : the_post(); ?>
+    <?php while (have_posts()) : the_post(); ?>
 
-    <?php if ($layout === 'grid') : ?>
-      <!-- Add col wrapper for grid layout -->
+      <!-- Column wrapper for ALL layouts -->
       <div class="col">
-        <?php get_template_part('template-parts/loop/cards'); ?>
+
+        <?php if ($layout === 'grid') : ?>
+          <!-- Grid card -->
+          <?php get_template_part('template-parts/loop/cards'); ?>
+        <?php else : ?>
+          <!-- Horizontal card -->
+          <?php get_template_part('template-parts/loop/cards-horizontal'); ?>
+        <?php endif; ?>
+
       </div><!-- .col -->
-    <?php else : ?>
-      <!-- Horizontal layout - no col wrapper -->
-      <?php get_template_part('template-parts/loop/cards-horizontal'); ?>
-    <?php endif; ?>
 
-  <?php endwhile; ?>
+    <?php endwhile; ?>
 
-  <?php if ($layout === 'grid') : ?>
-    </div><!-- .row -->
-  <?php endif; ?>
+  </div><!-- .row (loop row) -->
 
 <?php else : ?>
   <!-- No posts found -->
@@ -65,88 +76,94 @@ defined('ABSPATH') || exit;
 get_header();
 ?>
 
-  <div id="content" class="site-content <?= esc_attr(apply_filters('bootscore/class/container', 'container', 'archive')); ?> <?= esc_attr(apply_filters('bootscore/class/content/spacer', 'pt-4 pb-5', 'archive')); ?>">
-    <div id="primary" class="content-area">
-      
-      <?php do_action('bootscore_after_primary_open', 'archive'); ?>
+<div id="content" class="site-content <?= esc_attr(apply_filters('bootscore/class/container', 'container', 'archive')); ?> <?= esc_attr(apply_filters('bootscore/class/content/spacer', 'pt-4 pb-5', 'archive')); ?>">
+  <div id="primary" class="content-area">
+    
+    <?php do_action('bootscore_after_primary_open', 'archive'); ?>
 
-      <div class="row">
-        <div class="<?= esc_attr(apply_filters('bootscore/class/main/col', 'col')) ?>">
+    <div class="row">
+      <div class="<?= esc_attr(apply_filters('bootscore/class/main/col', 'col', 'archive')); ?>">
 
-          <main id="main" class="site-main">
+        <main id="main" class="site-main">
 
-            <div class="entry-header">
-              <?php do_action( 'bootscore_before_title', 'archive' ); ?>
-              <?php the_archive_title('<h1 class="entry-title ' . esc_attr(apply_filters('bootscore/class/entry/title', '', 'archive')) . '">', '</h1>'); ?>
-              <?php do_action( 'bootscore_after_title', 'archive' ); ?>
-              <?php the_archive_description( '<div class="archive-description ' . esc_attr(apply_filters('bootscore/class/entry/archive-description', '')) . '">', '</div>' ); ?>
-            </div>
-            
-            <?php do_action( 'bootscore_before_loop', 'archive' ); ?>
+          <div class="entry-header">
+            <?php do_action('bootscore_before_title', 'archive'); ?>
+            <?php the_archive_title('<h1 class="entry-title ' . esc_attr(apply_filters('bootscore/class/entry/title', '', 'archive')) . '">', '</h1>'); ?>
+            <?php do_action('bootscore_after_title', 'archive'); ?>
+            <?php the_archive_description('<div class="archive-description ' . esc_attr(apply_filters('bootscore/class/entry/archive-description', '')) . '">', '</div>'); ?>
+          </div>
+          
+          <?php do_action('bootscore_before_loop', 'archive'); ?>
 
-            
-              <!-- Loop START -->  
-              <?php
-              // Set layout via filter (can be overridden by plugins)
-              $layout = apply_filters('bootscore/loop/layout', 'horizontal'); // or 'grid'
-              ?>
+          <!-- Loop START -->
+          <?php
+          // Set layout via filter (can be overridden by plugins)
+          $layout = apply_filters('bootscore/loop/layout', 'horizontal', 'archive'); // or 'grid'
 
-              <?php if (have_posts()) : ?>
+          // Default grid classes - context changed to 'archive'
+          $grid_classes = apply_filters('bootscore/class/loop/grid/col',
+            'row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 g-4 mb-4',
+            'archive' // Changed from 'index' to 'archive'
+          );
 
-                <?php if ($layout === 'grid') : ?>
-                  <!-- Grid layout needs row wrapper -->
-                  <div class="<?= esc_attr(apply_filters('bootscore/class/loop/grid/col', 'row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 g-4 mb-4', 'index')); ?>">
-                <?php endif; ?>
+          // Default horizontal classes - context changed to 'archive'
+          $horizontal_classes = apply_filters('bootscore/class/loop/horizontal/col',
+            'row row-cols-1 g-4 mb-4',
+            'archive' // Changed from 'index' to 'archive'
+          );
+          ?>
 
-                <?php while (have_posts()) : the_post(); ?>
+          <?php if (have_posts()) : ?>
+
+            <!-- Loop row wrapper -->
+            <div class="<?= $layout === 'grid' ? esc_attr($grid_classes) : esc_attr($horizontal_classes); ?>">
+
+              <?php while (have_posts()) : the_post(); ?>
+
+                <!-- Column wrapper for ALL layouts -->
+                <div class="col">
 
                   <?php if ($layout === 'grid') : ?>
-                    <!-- Add col wrapper for grid layout -->
-                    <div class="col">
-                      <?php get_template_part('template-parts/loop/cards'); ?>
-                    </div><!-- .col -->
+                    <!-- Grid card -->
+                    <?php get_template_part('template-parts/loop/cards'); ?>
                   <?php else : ?>
-                    <!-- Horizontal layout - no col wrapper -->
+                    <!-- Horizontal card -->
                     <?php get_template_part('template-parts/loop/cards-horizontal'); ?>
                   <?php endif; ?>
 
-                <?php endwhile; ?>
+                </div><!-- .col -->
 
-                <?php if ($layout === 'grid') : ?>
-                  </div><!-- .row -->
-                <?php endif; ?>
+              <?php endwhile; ?>
 
-              <?php else : ?>
-                <!-- No posts found -->
-                <?php get_template_part('template-parts/loop/loop-none'); ?>
-              <?php endif; ?>
-              <!-- Loop END -->            
+            </div><!-- .row (loop row) -->
+
+          <?php else : ?>
+            <!-- No posts found -->
+            <?php get_template_part('template-parts/loop/loop-none'); ?>
+          <?php endif; ?>
+          <!-- Loop END -->            
+
+          <?php do_action('bootscore_after_loop', 'archive'); ?>
+
+          <div class="entry-footer">
+    
+            <?php do_action('bootscore_before_pagination', 'archive'); ?>
             
+            <?php bootscore_pagination(); ?>
             
-            
-            
-            <?php do_action('bootscore_after_loop', 'archive'); ?>
+          </div>
 
-            <div class="entry-footer">
-      
-              <?php do_action( 'bootscore_before_pagination', 'archive' ); ?>
-              
-              <?php bootscore_pagination(); ?>
-              
-            </div>
+        </main>
 
-          </main>
+      </div><!-- .col -->
+      <?php get_sidebar(); ?>
+    </div><!-- .row -->
 
-        </div>
-        <?php get_sidebar(); ?>
-      </div>
-
-    </div>
-  </div>
+  </div><!-- #primary -->
+</div><!-- #content -->
 
 <?php
 get_footer();
-
 
 ```
 </details>
@@ -161,11 +178,6 @@ get_footer();
  * The main template file
  * Template Version: 7.0.0
  *
- * This is the most generic template file in a WordPress theme
- * and one of the two required files for a theme (the other being style.css).
- * It is used to display a page when nothing more specific matches a query.
- * E.g., it puts together the home page when no home.php file exists.
- *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
  * @package Bootscore
@@ -176,78 +188,90 @@ defined('ABSPATH') || exit;
 
 get_header();
 ?>
-  <div id="content" class="site-content <?= esc_attr(apply_filters('bootscore/class/container', 'container', 'index')); ?> <?= esc_attr(apply_filters('bootscore/class/content/spacer', 'pt-4 pb-5', 'index')); ?>">
-      <div id="primary" class="content-area">
+<div id="content" class="site-content <?= esc_attr(apply_filters('bootscore/class/container', 'container', 'index')); ?> <?= esc_attr(apply_filters('bootscore/class/content/spacer', 'pt-4 pb-5', 'index')); ?>">
+  <div id="primary" class="content-area">
 
-        <?php do_action('bootscore_after_primary_open', 'index'); ?>
+    <?php do_action('bootscore_after_primary_open', 'index'); ?>
 
-        <main id="main" class="site-main">
+    <main id="main" class="site-main">
 
-          <!-- Header -->
-          <div class="p-5 text-center bg-body-tertiary rounded mb-4">
-            <?php do_action( 'bootscore_before_title', 'index' ); ?>
-            <h1 class="entry-title <?= esc_attr(apply_filters('bootscore/class/entry/title', '', 'index')); ?>"><?= esc_html(get_bloginfo('name')); ?></h1>
-            <?php do_action( 'bootscore_after_title', 'index' ); ?>
-            <p class="lead mb-0"><?= esc_html(get_bloginfo('description')); ?></p>
-          </div>
+      <!-- Header -->
+      <div class="p-5 text-center bg-body-tertiary rounded mb-4">
+        <?php do_action('bootscore_before_title', 'index'); ?>
+        <h1 class="entry-title <?= esc_attr(apply_filters('bootscore/class/entry/title', '', 'index')); ?>"><?= esc_html(get_bloginfo('name')); ?></h1>
+        <?php do_action('bootscore_after_title', 'index'); ?>
+        <p class="lead mb-0"><?= esc_html(get_bloginfo('description')); ?></p>
+      </div>
 
-          <!-- Post List -->
-          <div class="row">
-            <div class="<?= esc_attr(apply_filters('bootscore/class/main/col', 'col')); ?>">
-              
-              <!-- Loop START -->  
-              <?php
-              // Set layout via filter (can be overridden by plugins)
-              $layout = apply_filters('bootscore/loop/layout', 'horizontal'); // or 'grid'
-              ?>
+      <!-- Main content row with sidebar -->
+      <div class="row">
+        <div class="<?= esc_attr(apply_filters('bootscore/class/main/col', 'col', 'index')); ?>">
 
-              <?php if (have_posts()) : ?>
+          <!-- Loop START -->
+          <?php
+          // Set layout via filter (can be overridden by plugins)
+          $layout = apply_filters('bootscore/loop/layout', 'horizontal', 'index'); // or 'grid'
 
-                <?php if ($layout === 'grid') : ?>
-                  <!-- Grid layout needs row wrapper -->
-                  <div class="<?= esc_attr(apply_filters('bootscore/class/loop/grid/col', 'row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 g-4 mb-4', 'index')); ?>">
-                <?php endif; ?>
+          // Default grid classes
+          $grid_classes = apply_filters('bootscore/class/loop/grid/col',
+            'row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 g-4 mb-4',
+            'index'
+          );
 
-                <?php while (have_posts()) : the_post(); ?>
+          // Default horizontal classes
+          $horizontal_classes = apply_filters('bootscore/class/loop/horizontal/col',
+            'row row-cols-1 g-4 mb-4',
+            'index'
+          );
+          ?>
+
+          <?php if (have_posts()) : ?>
+
+            <!-- Loop row wrapper -->
+            <div class="<?= $layout === 'grid' ? esc_attr($grid_classes) : esc_attr($horizontal_classes); ?>">
+
+              <?php while (have_posts()) : the_post(); ?>
+
+                <!-- Column wrapper for ALL layouts -->
+                <div class="col">
 
                   <?php if ($layout === 'grid') : ?>
-                    <!-- Add col wrapper for grid layout -->
-                    <div class="col">
-                      <?php get_template_part('template-parts/loop/cards'); ?>
-                    </div><!-- .col -->
+                    <!-- Grid card -->
+                    <?php get_template_part('template-parts/loop/cards'); ?>
                   <?php else : ?>
-                    <!-- Horizontal layout - no col wrapper -->
+                    <!-- Horizontal card -->
                     <?php get_template_part('template-parts/loop/cards-horizontal'); ?>
                   <?php endif; ?>
 
-                <?php endwhile; ?>
+                </div><!-- .col -->
 
-                <?php if ($layout === 'grid') : ?>
-                  </div><!-- .row -->
-                <?php endif; ?>
+              <?php endwhile; ?>
 
-              <?php else : ?>
-                <!-- No posts found -->
-                <?php get_template_part('template-parts/loop/loop-none'); ?>
-              <?php endif; ?>
-              <!-- Loop END -->
-              
-              <?php do_action('bootscore_after_loop', 'index'); ?>
+            </div><!-- .row (loop row) -->
 
-              <div class="entry-footer">
-                
-                <?php do_action( 'bootscore_before_pagination', 'index' ); ?>
-                
-                <?php bootscore_pagination(); ?>
-                
-              </div>
-              
-            </div>
-            <?php get_sidebar(); ?>
+          <?php else : ?>
+            <!-- No posts found -->
+            <?php get_template_part('template-parts/loop/loop-none'); ?>
+          <?php endif; ?>
+          <!-- Loop END -->
+
+          <?php do_action('bootscore_after_loop', 'index'); ?>
+
+          <div class="entry-footer">
+            <?php do_action('bootscore_before_pagination', 'index'); ?>
+            <?php bootscore_pagination(); ?>
           </div>
-      </main>
-    </div>
-  </div>
+
+        </div><!-- .col (main content) -->
+        
+        <?php get_sidebar(); ?>
+      </div><!-- .row (main content row) -->
+
+    </main><!-- #main -->
+
+  </div><!-- #primary -->
+</div><!-- #content -->
+
 <?php
 get_footer();
 ```
@@ -273,92 +297,101 @@ get_footer();
 defined('ABSPATH') || exit;
 
 get_header();
-
-// Get layout from filter (default to 'horizontal' for search)
-$layout = apply_filters('bootscore/loop/layout', 'horizontal', 'search');
 ?>
-  <div id="content" class="site-content <?= esc_attr(apply_filters('bootscore/class/container', 'container', 'search')); ?> <?= esc_attr(apply_filters('bootscore/class/content/spacer', 'pt-4 pb-5', 'search')); ?>">
-    <div id="primary" class="content-area">
-      
-      <?php do_action( 'bootscore_after_primary_open', 'search' ); ?>
+<div id="content" class="site-content <?= esc_attr(apply_filters('bootscore/class/container', 'container', 'search')); ?> <?= esc_attr(apply_filters('bootscore/class/content/spacer', 'pt-4 pb-5', 'search')); ?>">
+  <div id="primary" class="content-area">
+    
+    <?php do_action('bootscore_after_primary_open', 'search'); ?>
 
-      <div class="row">
-        <div class="<?= esc_attr(apply_filters('bootscore/class/main/col', 'col')); ?>">
+    <div class="row">
+      <div class="<?= esc_attr(apply_filters('bootscore/class/main/col', 'col', 'search')); ?>">
 
-          <main id="main" class="site-main">
+        <main id="main" class="site-main">
+
+          <?php if (have_posts()) : ?>
+
+            <div class="entry-header">
+              <?php do_action('bootscore_before_title', 'search'); ?>
+              <h1 class="entry-title <?= esc_attr(apply_filters('bootscore/class/entry/title', '', 'search')); ?>">
+                <?php
+                /* translators: %s: search query. */
+                printf(esc_html__('Search Results for: %s', 'bootscore'), '<span class="text-body-secondary">' . esc_html(get_search_query()) . '</span>');
+                ?>
+              </h1>
+              <?php do_action('bootscore_after_title', 'search'); ?>
+            </div>
+          
+            <?php do_action('bootscore_before_loop', 'search'); ?>
+
+            <!-- Loop START -->
+            <?php
+            // Set layout via filter (can be overridden by plugins)
+            $layout = apply_filters('bootscore/loop/layout', 'horizontal', 'search'); // or 'grid'
+
+            // Default grid classes
+            $grid_classes = apply_filters('bootscore/class/loop/grid/col',
+              'row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 g-4 mb-4',
+              'search'
+            );
+
+            // Default horizontal classes
+            $horizontal_classes = apply_filters('bootscore/class/loop/horizontal/col',
+              'row row-cols-1 g-4 mb-4',
+              'search'
+            );
+            ?>
 
             <?php if (have_posts()) : ?>
 
-              <div class="entry-header">
-                <?php do_action( 'bootscore_before_title', 'search' ); ?>
-                <h1 class="entry-title <?= esc_attr(apply_filters('bootscore/class/entry/title', '', 'search')); ?>">
-                  <?php
-                  /* translators: %s: search query. */
-                  printf(esc_html__('Search Results for: %s', 'bootscore'), '<span class="text-body-secondary">' . esc_html(get_search_query()) . '</span>');
-                  ?>
-                </h1>
-                <?php do_action( 'bootscore_after_title', 'search' ); ?>
-              </div>
-            
-              <?php do_action( 'bootscore_before_loop', 'search' ); ?>
-
-              <!-- Loop START -->
-              <?php
-              // Set layout via filter (can be overridden by plugins)
-              $layout = apply_filters('bootscore/loop/layout', 'horizontal', 'search'); // or 'grid'
-              ?>
-
-              <?php if (have_posts()) : ?>
-
-                <?php if ($layout === 'grid') : ?>
-                  <!-- Grid layout needs row wrapper -->
-                  <div class="<?= esc_attr(apply_filters('bootscore/class/loop/grid/col', 'row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 g-4 mb-4', 'search')); ?>">
-                <?php endif; ?>
+              <!-- Loop row wrapper -->
+              <div class="<?= $layout === 'grid' ? esc_attr($grid_classes) : esc_attr($horizontal_classes); ?>">
 
                 <?php while (have_posts()) : the_post(); ?>
 
-                  <?php if ($layout === 'grid') : ?>
-                    <!-- Add col wrapper for grid layout -->
-                    <div class="col">
+                  <!-- Column wrapper for ALL layouts -->
+                  <div class="col">
+
+                    <?php if ($layout === 'grid') : ?>
+                      <!-- Grid card -->
                       <?php get_template_part('template-parts/loop/cards'); ?>
-                    </div><!-- .col -->
-                  <?php else : ?>
-                    <!-- Horizontal layout - no col wrapper -->
-                    <?php get_template_part('template-parts/loop/cards-horizontal'); ?>
-                  <?php endif; ?>
+                    <?php else : ?>
+                      <!-- Horizontal card -->
+                      <?php get_template_part('template-parts/loop/cards-horizontal'); ?>
+                    <?php endif; ?>
+
+                  </div><!-- .col -->
 
                 <?php endwhile; ?>
 
-                <?php if ($layout === 'grid') : ?>
-                  </div><!-- .row -->
-                <?php endif; ?>
-
-              <?php else : ?>
-                <!-- No posts found -->
-                <?php get_template_part('template-parts/loop/loop-none'); ?>
-              <?php endif; ?>
-              <!-- Loop END -->
-
-              <?php do_action( 'bootscore_after_loop', 'search' ); ?>
-              
-              <?php do_action( 'bootscore_before_pagination', 'search' ); ?>
-
-              <?php bootscore_pagination(); ?>
+              </div><!-- .row (loop row) -->
 
             <?php else : ?>
-
-              <?php get_template_part('template-parts/loop/content', 'none'); ?>
-
+              <!-- No posts found -->
+              <?php get_template_part('template-parts/loop/loop-none'); ?>
             <?php endif; ?>
+            <!-- Loop END -->
+
+            <?php do_action('bootscore_after_loop', 'search'); ?>
             
-          </main>
+            <?php do_action('bootscore_before_pagination', 'search'); ?>
 
-        </div>
-        <?php get_sidebar(); ?>
-      </div>
+            <?php bootscore_pagination(); ?>
 
-    </div>
-  </div>
+          <?php else : ?>
+
+            <?php get_template_part('template-parts/loop/content', 'none'); ?>
+
+          <?php endif; ?>
+          
+        </main>
+
+      </div><!-- .col -->
+      <?php get_sidebar(); ?>
+    </div><!-- .row -->
+
+  </div><!-- #primary -->
+</div><!-- #content -->
+
 <?php
 get_footer();
 ```
@@ -395,6 +428,26 @@ function change_loop_grid_layout_columns() {
 add_filter('bootscore/class/loop/grid/col', 'change_loop_grid_layout_columns', 10, 2);
 ```
 
+```php
+/**
+ * Customize horizontal grid classes in context
+ */
+add_filter('bootscore/class/loop/horizontal/col', function($classes, $context) {
+    if ($context === 'archive') {
+        // 2 columns on tablet, 3 on desktop
+        return 'row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 mb-4 bg-danger';
+    }
+    if ($context === 'index') {
+        // Keep default for blog page
+        return 'row row-cols-2 g-4 mb-4 bg-success';
+    }
+    if ($context === 'search') {
+        // Keep default for blog page
+        return 'row row-cols-2 g-4 mb-4 bg-info';
+    }
+    return $classes;
+}, 10, 2);
+```
 #### Deleted
 
 - `bootscore/class/loop/card/title/link`
