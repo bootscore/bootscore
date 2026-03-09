@@ -28,7 +28,7 @@ $context = 'cards-overlay';
     
   <?php if ( has_post_thumbnail() ) : ?>
     <a href="<?php the_permalink(); ?>" aria-hidden="true" tabindex="-1">
-      <?php the_post_thumbnail('medium', array('class' => esc_attr(apply_filters('bootscore/class/loop/card/image', 'card-img', 'cards-overlay')))); ?>
+      <?php the_post_thumbnail('full', array('class' => esc_attr(apply_filters('bootscore/class/loop/card/image', 'card-img', 'cards-overlay')))); ?>
     </a>
   <?php endif; ?>
 
