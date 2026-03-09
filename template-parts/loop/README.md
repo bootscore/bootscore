@@ -406,6 +406,7 @@ get_footer();
 - `bootscore/thumbnail/archive/class` (location) - template-tags.php
 - `bootscore/thumbnail/archive/size` (location) - template-tags.php
 - `bootscore/class/loop/grid/col` (location) - archive.php, index.php, search.php
+- `bootscore/icon/map-pin` - replaces the sticky post star with a pin icon
 
 ##### Usage
 
@@ -447,6 +448,16 @@ add_filter('bootscore/class/loop/horizontal/col', function($classes, $context) {
     }
     return $classes;
 }, 10, 2);
+
+
+/**
+ * Change sticky post pin icon
+ */
+function change_pin_icon() {
+  return '<i class="fa-solid fa-star"></i>';
+}
+add_filter('bootscore/icon/map-pin', 'change_pin_icon');
+
 ```
 #### Deleted
 
