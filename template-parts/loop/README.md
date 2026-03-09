@@ -9,7 +9,7 @@
 <!-- Loop START -->
 <?php
 // Set layout via filter (can be overridden by plugins)
-$layout = apply_filters('bootscore/loop/layout', 'horizontal', 'index'); // or 'grid'
+$layout = apply_filters('bootscore/loop/layout', 'horizontal', 'index'); // 'horizontal', 'grid', or 'overlay'
 
 // Default grid classes
 $grid_classes = apply_filters('bootscore/class/loop/grid/col',
@@ -17,7 +17,7 @@ $grid_classes = apply_filters('bootscore/class/loop/grid/col',
   'index'
 );
 
-// Default horizontal classes
+// Default horizontal/overlay classes (both use same grid structure)
 $horizontal_classes = apply_filters('bootscore/class/loop/horizontal/col',
   'row row-cols-1 g-4 mb-4',
   'index'
@@ -26,7 +26,7 @@ $horizontal_classes = apply_filters('bootscore/class/loop/horizontal/col',
 
 <?php if (have_posts()) : ?>
 
-  <!-- Loop row wrapper -->
+  <!-- Loop row wrapper - use horizontal classes for both horizontal and overlay -->
   <div class="<?= $layout === 'grid' ? esc_attr($grid_classes) : esc_attr($horizontal_classes); ?>">
 
     <?php while (have_posts()) : the_post(); ?>
@@ -37,6 +37,11 @@ $horizontal_classes = apply_filters('bootscore/class/loop/horizontal/col',
         <?php if ($layout === 'grid') : ?>
           <!-- Grid card -->
           <?php get_template_part('template-parts/loop/cards'); ?>
+
+        <?php elseif ($layout === 'overlay') : ?>
+          <!-- Overlay card -->
+          <?php get_template_part('template-parts/loop/cards-overlay'); ?>
+
         <?php else : ?>
           <!-- Horizontal card -->
           <?php get_template_part('template-parts/loop/cards-horizontal'); ?>
@@ -98,24 +103,24 @@ get_header();
           <!-- Loop START -->
           <?php
           // Set layout via filter (can be overridden by plugins)
-          $layout = apply_filters('bootscore/loop/layout', 'horizontal', 'archive'); // or 'grid'
+          $layout = apply_filters('bootscore/loop/layout', 'horizontal', 'archive'); // 'horizontal', 'grid', or 'overlay'
 
-          // Default grid classes - context changed to 'archive'
+          // Default grid classes
           $grid_classes = apply_filters('bootscore/class/loop/grid/col',
             'row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 g-4 mb-4',
-            'archive' // Changed from 'index' to 'archive'
+            'archive'
           );
 
-          // Default horizontal classes - context changed to 'archive'
+          // Default horizontal/overlay classes (both use same grid structure)
           $horizontal_classes = apply_filters('bootscore/class/loop/horizontal/col',
             'row row-cols-1 g-4 mb-4',
-            'archive' // Changed from 'index' to 'archive'
+            'archive'
           );
           ?>
 
           <?php if (have_posts()) : ?>
 
-            <!-- Loop row wrapper -->
+            <!-- Loop row wrapper - use horizontal classes for both horizontal and overlay -->
             <div class="<?= $layout === 'grid' ? esc_attr($grid_classes) : esc_attr($horizontal_classes); ?>">
 
               <?php while (have_posts()) : the_post(); ?>
@@ -126,6 +131,11 @@ get_header();
                   <?php if ($layout === 'grid') : ?>
                     <!-- Grid card -->
                     <?php get_template_part('template-parts/loop/cards'); ?>
+                    
+                  <?php elseif ($layout === 'overlay') : ?>
+                    <!-- Overlay card -->
+                    <?php get_template_part('template-parts/loop/cards-overlay'); ?>
+                    
                   <?php else : ?>
                     <!-- Horizontal card -->
                     <?php get_template_part('template-parts/loop/cards-horizontal'); ?>
@@ -210,7 +220,7 @@ get_header();
           <!-- Loop START -->
           <?php
           // Set layout via filter (can be overridden by plugins)
-          $layout = apply_filters('bootscore/loop/layout', 'horizontal', 'index'); // or 'grid'
+          $layout = apply_filters('bootscore/loop/layout', 'horizontal', 'index'); // 'horizontal', 'grid', or 'overlay'
 
           // Default grid classes
           $grid_classes = apply_filters('bootscore/class/loop/grid/col',
@@ -218,7 +228,7 @@ get_header();
             'index'
           );
 
-          // Default horizontal classes
+          // Default horizontal/overlay classes (both use same grid structure)
           $horizontal_classes = apply_filters('bootscore/class/loop/horizontal/col',
             'row row-cols-1 g-4 mb-4',
             'index'
@@ -227,7 +237,7 @@ get_header();
 
           <?php if (have_posts()) : ?>
 
-            <!-- Loop row wrapper -->
+            <!-- Loop row wrapper - use horizontal classes for both horizontal and overlay -->
             <div class="<?= $layout === 'grid' ? esc_attr($grid_classes) : esc_attr($horizontal_classes); ?>">
 
               <?php while (have_posts()) : the_post(); ?>
@@ -238,6 +248,11 @@ get_header();
                   <?php if ($layout === 'grid') : ?>
                     <!-- Grid card -->
                     <?php get_template_part('template-parts/loop/cards'); ?>
+                    
+                  <?php elseif ($layout === 'overlay') : ?>
+                    <!-- Overlay card -->
+                    <?php get_template_part('template-parts/loop/cards-overlay'); ?>
+                    
                   <?php else : ?>
                     <!-- Horizontal card -->
                     <?php get_template_part('template-parts/loop/cards-horizontal'); ?>
@@ -326,7 +341,7 @@ get_header();
             <!-- Loop START -->
             <?php
             // Set layout via filter (can be overridden by plugins)
-            $layout = apply_filters('bootscore/loop/layout', 'horizontal', 'search'); // or 'grid'
+            $layout = apply_filters('bootscore/loop/layout', 'horizontal', 'search'); // 'horizontal', 'grid', or 'overlay'
 
             // Default grid classes
             $grid_classes = apply_filters('bootscore/class/loop/grid/col',
@@ -334,7 +349,7 @@ get_header();
               'search'
             );
 
-            // Default horizontal classes
+            // Default horizontal/overlay classes (both use same grid structure)
             $horizontal_classes = apply_filters('bootscore/class/loop/horizontal/col',
               'row row-cols-1 g-4 mb-4',
               'search'
@@ -343,7 +358,7 @@ get_header();
 
             <?php if (have_posts()) : ?>
 
-              <!-- Loop row wrapper -->
+              <!-- Loop row wrapper - use horizontal classes for both horizontal and overlay -->
               <div class="<?= $layout === 'grid' ? esc_attr($grid_classes) : esc_attr($horizontal_classes); ?>">
 
                 <?php while (have_posts()) : the_post(); ?>
@@ -354,6 +369,11 @@ get_header();
                     <?php if ($layout === 'grid') : ?>
                       <!-- Grid card -->
                       <?php get_template_part('template-parts/loop/cards'); ?>
+                      
+                    <?php elseif ($layout === 'overlay') : ?>
+                      <!-- Overlay card -->
+                      <?php get_template_part('template-parts/loop/cards-overlay'); ?>
+                      
                     <?php else : ?>
                       <!-- Horizontal card -->
                       <?php get_template_part('template-parts/loop/cards-horizontal'); ?>
@@ -416,6 +436,14 @@ get_footer();
  */
 add_filter('bootscore/loop/layout', function($layout) {
   return 'grid'; // Override default 'horizontal'
+});
+
+
+/**
+ * Enable overlay (heroes, featured-image is required) layout
+ */
+add_filter('bootscore/loop/layout', function($layout) {
+  return 'overlay';
 });
 
 
@@ -517,7 +545,7 @@ endif;
   - [x] `cards-horizontal.php`
   - [x] `cards.php`
     - [x] Revisit the `card-img-top` in vertical loops
-  - [ ] `heroes.php`
+  - [x] `heroes.php` card-img-overlay.php
   - [ ] `custom.php` blank template with an action hook
 - [ ] Check for superfluous actions
 - [ ] Check filter names
