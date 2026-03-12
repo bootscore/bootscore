@@ -9,7 +9,7 @@
 <!-- Loop START -->
 <?php
 // Set layout via filter (can be overridden by plugins)
-$layout = apply_filters('bootscore/loop/layout', 'horizontal', 'index'); // 'horizontal', 'grid', or 'overlay'
+$layout = apply_filters('bootscore/loop/layout', 'horizontal', 'index'); // 'horizontal', 'grid', 'overlay', or 'custom'
 
 // Default grid classes
 $grid_classes = apply_filters('bootscore/class/loop/grid/col',
@@ -26,32 +26,40 @@ $horizontal_classes = apply_filters('bootscore/class/loop/horizontal/col',
 
 <?php if (have_posts()) : ?>
 
-  <!-- Loop row wrapper - use horizontal classes for both horizontal and overlay -->
-  <div class="<?= $layout === 'grid' ? esc_attr($grid_classes) : esc_attr($horizontal_classes); ?>">
-
+  <?php if ($layout === 'custom') : ?>
+    <!-- Custom layout - NO GRID WRAPPER, just loop through posts -->
     <?php while (have_posts()) : the_post(); ?>
-
-      <!-- Column wrapper for ALL layouts -->
-      <div class="col">
-
-        <?php if ($layout === 'grid') : ?>
-          <!-- Grid card -->
-          <?php get_template_part('template-parts/loop/cards'); ?>
-
-        <?php elseif ($layout === 'overlay') : ?>
-          <!-- Overlay card -->
-          <?php get_template_part('template-parts/loop/cards-overlay'); ?>
-
-        <?php else : ?>
-          <!-- Horizontal card -->
-          <?php get_template_part('template-parts/loop/cards-horizontal'); ?>
-        <?php endif; ?>
-
-      </div><!-- .col -->
-
+      <?php get_template_part('template-parts/loop/custom'); ?>
     <?php endwhile; ?>
 
-  </div><!-- .row (loop row) -->
+  <?php else : ?>
+    <!-- Grid or horizontal layout with wrapper -->
+    <div class="<?= $layout === 'grid' ? esc_attr($grid_classes) : esc_attr($horizontal_classes); ?>">
+
+      <?php while (have_posts()) : the_post(); ?>
+
+        <!-- Column wrapper for ALL layouts -->
+        <div class="col">
+
+          <?php if ($layout === 'grid') : ?>
+            <!-- Grid card -->
+            <?php get_template_part('template-parts/loop/cards'); ?>
+
+          <?php elseif ($layout === 'overlay') : ?>
+            <!-- Overlay card -->
+            <?php get_template_part('template-parts/loop/cards-overlay'); ?>
+
+          <?php else : ?>
+            <!-- Horizontal card -->
+            <?php get_template_part('template-parts/loop/cards-horizontal'); ?>
+          <?php endif; ?>
+
+        </div><!-- .col -->
+
+      <?php endwhile; ?>
+
+    </div><!-- .row (loop row) -->
+  <?php endif; ?>
 
 <?php else : ?>
   <!-- No posts found -->
@@ -103,7 +111,7 @@ get_header();
           <!-- Loop START -->
           <?php
           // Set layout via filter (can be overridden by plugins)
-          $layout = apply_filters('bootscore/loop/layout', 'horizontal', 'archive'); // 'horizontal', 'grid', or 'overlay'
+          $layout = apply_filters('bootscore/loop/layout', 'horizontal', 'archive'); // 'horizontal', 'grid', 'overlay', or 'custom'
 
           // Default grid classes
           $grid_classes = apply_filters('bootscore/class/loop/grid/col',
@@ -120,32 +128,40 @@ get_header();
 
           <?php if (have_posts()) : ?>
 
-            <!-- Loop row wrapper - use horizontal classes for both horizontal and overlay -->
-            <div class="<?= $layout === 'grid' ? esc_attr($grid_classes) : esc_attr($horizontal_classes); ?>">
-
+            <?php if ($layout === 'custom') : ?>
+              <!-- Custom layout - NO GRID WRAPPER, just loop through posts -->
               <?php while (have_posts()) : the_post(); ?>
-
-                <!-- Column wrapper for ALL layouts -->
-                <div class="col">
-
-                  <?php if ($layout === 'grid') : ?>
-                    <!-- Grid card -->
-                    <?php get_template_part('template-parts/loop/cards'); ?>
-                    
-                  <?php elseif ($layout === 'overlay') : ?>
-                    <!-- Overlay card -->
-                    <?php get_template_part('template-parts/loop/cards-overlay'); ?>
-                    
-                  <?php else : ?>
-                    <!-- Horizontal card -->
-                    <?php get_template_part('template-parts/loop/cards-horizontal'); ?>
-                  <?php endif; ?>
-
-                </div><!-- .col -->
-
+                <?php get_template_part('template-parts/loop/custom'); ?>
               <?php endwhile; ?>
 
-            </div><!-- .row (loop row) -->
+            <?php else : ?>
+              <!-- Grid or horizontal layout with wrapper -->
+              <div class="<?= $layout === 'grid' ? esc_attr($grid_classes) : esc_attr($horizontal_classes); ?>">
+
+                <?php while (have_posts()) : the_post(); ?>
+
+                  <!-- Column wrapper for ALL layouts -->
+                  <div class="col">
+
+                    <?php if ($layout === 'grid') : ?>
+                      <!-- Grid card -->
+                      <?php get_template_part('template-parts/loop/cards'); ?>
+                      
+                    <?php elseif ($layout === 'overlay') : ?>
+                      <!-- Overlay card -->
+                      <?php get_template_part('template-parts/loop/cards-overlay'); ?>
+                      
+                    <?php else : ?>
+                      <!-- Horizontal card -->
+                      <?php get_template_part('template-parts/loop/cards-horizontal'); ?>
+                    <?php endif; ?>
+
+                  </div><!-- .col -->
+
+                <?php endwhile; ?>
+
+              </div><!-- .row (loop row) -->
+            <?php endif; ?>
 
           <?php else : ?>
             <!-- No posts found -->
@@ -216,11 +232,13 @@ get_header();
       <!-- Main content row with sidebar -->
       <div class="row">
         <div class="<?= esc_attr(apply_filters('bootscore/class/main/col', 'col', 'index')); ?>">
+          
+          <?php do_action('bootscore_before_loop', 'index'); ?>
 
           <!-- Loop START -->
           <?php
           // Set layout via filter (can be overridden by plugins)
-          $layout = apply_filters('bootscore/loop/layout', 'horizontal', 'index'); // 'horizontal', 'grid', or 'overlay'
+          $layout = apply_filters('bootscore/loop/layout', 'horizontal', 'index'); // 'horizontal', 'grid', 'overlay', or 'custom'
 
           // Default grid classes
           $grid_classes = apply_filters('bootscore/class/loop/grid/col',
@@ -237,32 +255,40 @@ get_header();
 
           <?php if (have_posts()) : ?>
 
-            <!-- Loop row wrapper - use horizontal classes for both horizontal and overlay -->
-            <div class="<?= $layout === 'grid' ? esc_attr($grid_classes) : esc_attr($horizontal_classes); ?>">
-
+            <?php if ($layout === 'custom') : ?>
+              <!-- Custom layout - NO GRID WRAPPER, just loop through posts -->
               <?php while (have_posts()) : the_post(); ?>
-
-                <!-- Column wrapper for ALL layouts -->
-                <div class="col">
-
-                  <?php if ($layout === 'grid') : ?>
-                    <!-- Grid card -->
-                    <?php get_template_part('template-parts/loop/cards'); ?>
-                    
-                  <?php elseif ($layout === 'overlay') : ?>
-                    <!-- Overlay card -->
-                    <?php get_template_part('template-parts/loop/cards-overlay'); ?>
-                    
-                  <?php else : ?>
-                    <!-- Horizontal card -->
-                    <?php get_template_part('template-parts/loop/cards-horizontal'); ?>
-                  <?php endif; ?>
-
-                </div><!-- .col -->
-
+                <?php get_template_part('template-parts/loop/custom'); ?>
               <?php endwhile; ?>
 
-            </div><!-- .row (loop row) -->
+            <?php else : ?>
+              <!-- Grid or horizontal layout with wrapper -->
+              <div class="<?= $layout === 'grid' ? esc_attr($grid_classes) : esc_attr($horizontal_classes); ?>">
+
+                <?php while (have_posts()) : the_post(); ?>
+
+                  <!-- Column wrapper for ALL layouts -->
+                  <div class="col">
+
+                    <?php if ($layout === 'grid') : ?>
+                      <!-- Grid card -->
+                      <?php get_template_part('template-parts/loop/cards'); ?>
+                      
+                    <?php elseif ($layout === 'overlay') : ?>
+                      <!-- Overlay card -->
+                      <?php get_template_part('template-parts/loop/cards-overlay'); ?>
+                      
+                    <?php else : ?>
+                      <!-- Horizontal card -->
+                      <?php get_template_part('template-parts/loop/cards-horizontal'); ?>
+                    <?php endif; ?>
+
+                  </div><!-- .col -->
+
+                <?php endwhile; ?>
+
+              </div><!-- .row (loop row) -->
+            <?php endif; ?>
 
           <?php else : ?>
             <!-- No posts found -->
@@ -341,7 +367,7 @@ get_header();
             <!-- Loop START -->
             <?php
             // Set layout via filter (can be overridden by plugins)
-            $layout = apply_filters('bootscore/loop/layout', 'horizontal', 'search'); // 'horizontal', 'grid', or 'overlay'
+            $layout = apply_filters('bootscore/loop/layout', 'horizontal', 'search'); // 'horizontal', 'grid', 'overlay', or 'custom'
 
             // Default grid classes
             $grid_classes = apply_filters('bootscore/class/loop/grid/col',
@@ -358,32 +384,40 @@ get_header();
 
             <?php if (have_posts()) : ?>
 
-              <!-- Loop row wrapper - use horizontal classes for both horizontal and overlay -->
-              <div class="<?= $layout === 'grid' ? esc_attr($grid_classes) : esc_attr($horizontal_classes); ?>">
-
+              <?php if ($layout === 'custom') : ?>
+                <!-- Custom layout - NO GRID WRAPPER, just loop through posts -->
                 <?php while (have_posts()) : the_post(); ?>
-
-                  <!-- Column wrapper for ALL layouts -->
-                  <div class="col">
-
-                    <?php if ($layout === 'grid') : ?>
-                      <!-- Grid card -->
-                      <?php get_template_part('template-parts/loop/cards'); ?>
-                      
-                    <?php elseif ($layout === 'overlay') : ?>
-                      <!-- Overlay card -->
-                      <?php get_template_part('template-parts/loop/cards-overlay'); ?>
-                      
-                    <?php else : ?>
-                      <!-- Horizontal card -->
-                      <?php get_template_part('template-parts/loop/cards-horizontal'); ?>
-                    <?php endif; ?>
-
-                  </div><!-- .col -->
-
+                  <?php get_template_part('template-parts/loop/custom'); ?>
                 <?php endwhile; ?>
 
-              </div><!-- .row (loop row) -->
+              <?php else : ?>
+                <!-- Grid or horizontal layout with wrapper -->
+                <div class="<?= $layout === 'grid' ? esc_attr($grid_classes) : esc_attr($horizontal_classes); ?>">
+
+                  <?php while (have_posts()) : the_post(); ?>
+
+                    <!-- Column wrapper for ALL layouts -->
+                    <div class="col">
+
+                      <?php if ($layout === 'grid') : ?>
+                        <!-- Grid card -->
+                        <?php get_template_part('template-parts/loop/cards'); ?>
+                        
+                      <?php elseif ($layout === 'overlay') : ?>
+                        <!-- Overlay card -->
+                        <?php get_template_part('template-parts/loop/cards-overlay'); ?>
+                        
+                      <?php else : ?>
+                        <!-- Horizontal card -->
+                        <?php get_template_part('template-parts/loop/cards-horizontal'); ?>
+                      <?php endif; ?>
+
+                    </div><!-- .col -->
+
+                  <?php endwhile; ?>
+
+                </div><!-- .row (loop row) -->
+              <?php endif; ?>
 
             <?php else : ?>
               <!-- No posts found -->
@@ -491,6 +525,97 @@ add_filter('bootscore/icon/map-pin', 'change_pin_icon');
 
 - `bootscore/class/loop/card/title/link`
 - `bootscore/class/loop/card-text/excerpt/link`
+
+
+#### Custom Loop
+```php
+/**
+ * Enable custom layout on archive, index and search pages
+ */
+add_filter('bootscore/loop/layout', function($layout, $context) {
+    
+    // Enable on archive pages
+    if ($context === 'archive') {
+        return 'custom';
+    }
+    
+    // Enable on blog index page
+    if ($context === 'index') {
+        return 'custom';
+    }
+    
+    // Enable on search results
+    if ($context === 'search') {
+        return 'custom';
+    }
+    
+    return $layout;
+}, 10, 2);
+
+
+/**
+ * Draw freely a custom loop items grid
+ */
+
+/**
+ * Before Loop, open row
+ */
+add_action('bootscore_before_loop', function($context) {
+  if ($context === 'archive' || $context === 'index' || $context === 'search') {
+    echo '<div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 mb-4">';
+  }
+});
+
+// Before Loop Item, open col
+add_action('bootscore_before_loop_item', function($context) {
+  echo '<div class="col">';
+});
+
+
+// Custom Loop Item with clean HTML/PHP mix
+add_action('bootscore_custom_loop_item', function($context) {
+    ?>
+    <article class="card shadow h-100 rounded-5">
+      
+      <?php if ( has_post_thumbnail() ) : ?>
+        <a class="pt-2 px-2" href="<?php the_permalink(); ?>" aria-hidden="true" tabindex="-1">
+          <?php the_post_thumbnail('medium', array('class' => 'rounded-5')); ?>
+        </a>
+      <?php endif; ?>
+      
+      <div class="card-body p-4 d-flex flex-column">
+        
+        <?php the_title('<h2 class="h5">', '</h2>'); ?>
+
+        <p class="card-text small fw-lighter">
+          <?= esc_html(wp_strip_all_tags(get_the_excerpt())); ?>
+        </p>
+
+        <p class="card-text mt-auto">
+          <a class="btn btn-dark btn-sm rounded-pill shadow px-3 d-block" href="<?php the_permalink(); ?>">
+            Learn more <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </p>
+
+      </div>
+      
+    </article>
+    <?php
+});
+
+
+// After Loop Item, close col
+add_action('bootscore_after_loop_item', function($context) {
+  echo '</div>';
+});
+
+// After Loop, close row
+add_action('bootscore_after_loop', function($context) {
+  if ($context === 'archive' || $context === 'index' || $context === 'search') {
+    echo '</div>';
+  }
+});
+```
 
 </details>
 
