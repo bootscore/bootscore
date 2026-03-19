@@ -4,7 +4,7 @@
  * WooCommerce Single Product Reviews
  *
  * @package Bootscore 
- * @version 6.3.1
+ * @version 6.4.0
  */
 
 
@@ -23,14 +23,20 @@ add_action('woocommerce_after_single_product_summary', function () {
   $output = ob_get_clean();
 
   if ($output) {
-    // 1. Replace <div id="comments"> with <div id="woo-comments">
-    $output = str_replace('<div id="comments"', '<div id="woo-comments"', $output);
-
-    // 2. Replace <ol class="commentlist"> with <ul class="comment-list">
+    // First replace the opening tag
     $output = str_replace('<ol class="commentlist">', '<ul class="comment-list">', $output);
-    $output = str_replace('</ol>', '</ul>', $output);
-
-    // 3. Add 'woocommerce-info' class to the verification required message
+    
+    // Use regex to find the commentlist and its matching closing tag
+    // This looks for the commentlist and replaces its closing ol only
+    $output = preg_replace_callback(
+      '/(<ul class="comment-list">.*?)<\/ol>/s',
+      function($matches) {
+        return $matches[1] . '</ul>';
+      },
+      $output
+    );
+    
+    // Add woocommerce-info class to verification message
     $output = str_replace(
       '<p class="woocommerce-verification-required">',
       '<p class="woocommerce-verification-required woocommerce-info">',
