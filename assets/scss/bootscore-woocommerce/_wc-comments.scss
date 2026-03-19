@@ -1,25 +1,25 @@
 /*--------------------------------------------------------------
-WooCommerce Comments - Bootscore v6.2.2
+WooCommerce Comments - Bootscore v6.4.0
 --------------------------------------------------------------*/
 
-#woo-comments {
-
-  // Nested comments, allow only 1 depth
-  .comment-list > li > .children:first-of-type {
-    padding-left: 96px;
-  }
-
-  // Star rating
-  .star-rating {
-    float: right;
-    margin: 0;
-  }
-}
-
-
-// WC 10.0.0 review rating stars
-// https://github.com/bootscore/bootscore/pull/1053
 .woocommerce {
+
+  #comments {
+
+    // Nested comments, allow only 1 depth
+    .comment-list > li > .children:first-of-type {
+      padding-left: 96px;
+    }
+
+    // Star rating
+    .star-rating {
+      float: right;
+      margin: 0;
+    }
+  }
+
+  // WC 10.0.0 - leave a review rating stars
+  // https://github.com/bootscore/bootscore/pull/1053
   p.stars a {
     font-size: inherit;
   }
