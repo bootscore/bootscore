@@ -672,7 +672,7 @@ if (!function_exists('bootscore_post_thumbnail')) :
 endif;
 ``` 
 - [ ] Check `the_excerpt`
-- [ ] Add templates
+- [x] Add templates
   - [x] `cards-horizontal.php`
   - [x] `cards.php`
     - [x] Revisit the `card-img-top` in vertical loops
