@@ -690,6 +690,6 @@ endif;
   - [ ] bs Isotope
   - [ ] bs Swiper
 - [ ] Delete folder `template-parts/search`  
-- [ ] Documentation
+- [x] Documentation https://bootscore.me/documentation/theme/loop-templates/
 - [ ] Delete this .md file
 
