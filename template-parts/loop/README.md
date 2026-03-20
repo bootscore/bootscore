@@ -677,16 +677,16 @@ endif;
   - [x] `cards.php`
     - [x] Revisit the `card-img-top` in vertical loops
   - [x] `heroes.php` card-img-overlay.php
-  - [ ] `custom.php` blank template with an action hook
+  - [x] `custom.php` blank template with an action hook
 - [ ] Check for superfluous actions
 - [ ] Check filter names
 - [ ] Link templates in files
   - [ ] Call the loop via function `<?php bootscore_loop() ?>`?
-  - [ ] `archive.php`
-  - [ ] `index.php`
-  - [ ] `search.php`
+  - [x] `archive.php`
+  - [x] `index.php`
+  - [x] `search.php`
 - [ ] Develop loop plugins
-  - [ ] bs Grid > bs Loop?
+  - [x] bs Grid > bs Loop? https://github.com/bootscore/bs-loop
   - [ ] bs Isotope
   - [ ] bs Swiper
 - [ ] Delete folder `template-parts/search`  
