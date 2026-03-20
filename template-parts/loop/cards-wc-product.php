@@ -6,6 +6,8 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
+ * Deprecated: Refactor the woocommerce/content-product.php loop to use this template instead in the bs Loop plugins
+ *
  * @package Bootscore
  */
 
