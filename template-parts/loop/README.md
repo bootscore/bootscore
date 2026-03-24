@@ -43,7 +43,7 @@ $horizontal_classes = apply_filters('bootscore/class/loop/horizontal/col',
 
           <?php if ($layout === 'grid') : ?>
             <!-- Grid card -->
-            <?php get_template_part('template-parts/loop/cards'); ?>
+            <?php get_template_part('template-parts/loop/cards-grid'); ?>
 
           <?php elseif ($layout === 'overlay') : ?>
             <!-- Overlay card -->
@@ -148,7 +148,7 @@ get_header();
 
                     <?php if ($layout === 'grid') : ?>
                       <!-- Grid card -->
-                      <?php get_template_part('template-parts/loop/cards'); ?>
+                      <?php get_template_part('template-parts/loop/cards-grid'); ?>
                       
                     <?php elseif ($layout === 'overlay') : ?>
                       <!-- Overlay card -->
@@ -278,7 +278,7 @@ get_header();
 
                     <?php if ($layout === 'grid') : ?>
                       <!-- Grid card -->
-                      <?php get_template_part('template-parts/loop/cards'); ?>
+                      <?php get_template_part('template-parts/loop/cards-grid'); ?>
                       
                     <?php elseif ($layout === 'overlay') : ?>
                       <!-- Overlay card -->
@@ -410,7 +410,7 @@ get_header();
 
                       <?php if ($layout === 'grid') : ?>
                         <!-- Grid card -->
-                        <?php get_template_part('template-parts/loop/cards'); ?>
+                        <?php get_template_part('template-parts/loop/cards-grid'); ?>
                         
                       <?php elseif ($layout === 'overlay') : ?>
                         <!-- Overlay card -->
