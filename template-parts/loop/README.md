@@ -535,6 +535,63 @@ add_filter('bootscore/icon/map-pin', 'change_pin_icon');
 - `bootscore/class/loop/card/title/link`
 - `bootscore/class/loop/card-text/excerpt/link`
 
+#### Modified card-overlay
+
+```
+[bs-loop layout="overlay" context="custom-overlay-cards" type="post" id="9318, 9326, 9328, 9405" row-cols"1" row-cols-md="2" gap="3" mb="3"]
+```
+
+```php
+/**
+ * Hide category badge when context contains 'custom-overlay-cards'
+ */
+add_filter('bootscore/loop/category', function($show, $context) {
+  // Check shortcode context
+  if (isset($GLOBALS['bs_loop_contexts']) && in_array('custom-overlay-cards', $GLOBALS['bs_loop_contexts'])) {
+    return false; // Hide category badge
+  }
+  
+  return $show; // Keep original for others
+}, 10, 2);
+
+/**
+ * Hide meta when context contains 'custom-overlay-cards'
+ */
+add_filter('bootscore/loop/meta', function($show, $context) {
+  // Check shortcode context
+  if (isset($GLOBALS['bs_loop_contexts']) && in_array('custom-overlay-cards', $GLOBALS['bs_loop_contexts'])) {
+    return false; // Hide meta
+  }
+  
+  return $show; // Keep original for others
+}, 10, 2);
+
+/**
+ * Hide read-more when context contains 'custom-overlay-cards'
+ */
+add_filter('bootscore/loop/read-more', function($show, $context) {
+  // Check shortcode context
+  if (isset($GLOBALS['bs_loop_contexts']) && in_array('custom-overlay-cards', $GLOBALS['bs_loop_contexts'])) {
+    return false; // Hide read-more
+  }
+  
+  return $show; // Keep original for others
+}, 10, 2);
+
+/**
+ * Hide tags badge when context contains 'custom-overlay-cards'
+ */
+add_filter('bootscore/loop/tags', function($show, $context) {
+  // Check shortcode context
+  if (isset($GLOBALS['bs_loop_contexts']) && in_array('custom-overlay-cards', $GLOBALS['bs_loop_contexts'])) {
+    return false; // Hide tags
+  }
+  
+  return $show; // Keep original for others
+}, 10, 2);
+```
+
+
 
 #### Custom Loop
 ```php
@@ -581,8 +638,11 @@ add_action('bootscore_custom_loop_item', function($context) {
     <article class="card shadow h-100 rounded-5">
       
       <?php if ( has_post_thumbnail() ) : ?>
-        <a class="pt-3 px-3" href="<?php the_permalink(); ?>" aria-hidden="true" tabindex="-1">
-          <?php the_post_thumbnail('medium', array('class' => 'rounded-4')); ?>
+        <a class="pt-2 px-2" href="<?php the_permalink(); ?>" aria-hidden="true" tabindex="-1">
+          <?php the_post_thumbnail('medium', array(
+            'class' => 'card-img',
+            'style' => 'border-radius: calc(var(--bs-border-radius-xxl) - 0.5rem);' // border-radius-xxl - inner-padding p-2
+          )); ?>
         </a>
       <?php endif; ?>
       

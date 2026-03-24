@@ -22,7 +22,7 @@ $context = 'cards-overlay';
 <?php do_action( 'bootscore_before_loop_item', 'cards-overlay' ); ?>
 
 <!-- Default Post/CPT Card -->
-<article id="post-<?php the_ID(); ?>" <?php post_class( esc_attr(apply_filters('bootscore/class/loop/card', 'card', 'cards-overlay')) ); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class( esc_attr(apply_filters('bootscore/class/loop/card', 'card rounded-4 overflow-hidden', 'cards-overlay')) ); ?>>
 
   <?php do_action('bootscore_before_loop_thumbnail', 'cards-overlay'); ?>
     
@@ -36,7 +36,7 @@ $context = 'cards-overlay';
 
   <div class="<?= esc_attr(apply_filters('bootscore/class/loop/card/img-overlay', 'card-img-overlay d-flex flex-column', 'cards-overlay')); ?>">
 
-    <div class="<?= esc_attr(apply_filters('bootscore/class/loop/card/img-overlay/content/wrapper', 'bg-white bg-opacity-75 rounded-1 p-3 mt-auto', 'cards-overlay')); ?>">
+    <div class="<?= esc_attr(apply_filters('bootscore/class/loop/card/img-overlay/content/wrapper', 'bg-body bg-opacity-50 backdrop-blur-10 rounded-3 p-3 mt-auto', 'cards-overlay')); ?>">
       
       <div class="<?= esc_attr(apply_filters('bootscore/class/loop/card/content/meta-wrapper', 'position-relative z-2 d-flex justify-content-between gap-3', 'cards-overlay')); ?>">
 
