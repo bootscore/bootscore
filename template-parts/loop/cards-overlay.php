@@ -21,7 +21,6 @@ $context = 'cards-overlay';
 
 <?php do_action( 'bootscore_before_loop_item', 'cards-overlay' ); ?>
 
-<!-- Default Post/CPT Card -->
 <article id="post-<?php the_ID(); ?>" <?php post_class( esc_attr(apply_filters('bootscore/class/loop/card', 'card rounded-4 overflow-hidden', 'cards-overlay')) ); ?>>
 
   <?php do_action('bootscore_before_loop_thumbnail', 'cards-overlay'); ?>
