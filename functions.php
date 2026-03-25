@@ -42,7 +42,6 @@ require_once get_template_directory() . '/inc/enable-html.php';             // E
 require_once get_template_directory() . '/inc/enqueue.php';                 // Enqueue scripts and styles
 require_once get_template_directory() . '/inc/excerpt.php';                 // Adds excerpt to pages
 require_once get_template_directory() . '/inc/fontawesome.php';             // Adds shortcode for inserting Font Awesome icons
-require_once get_template_directory() . '/inc/hooks.php';                   // Custom hooks
 require_once get_template_directory() . '/inc/navwalker.php';               // Register the Bootstrap 5 navwalker
 require_once get_template_directory() . '/inc/navmenu.php';                 // Register the nav menus
 require_once get_template_directory() . '/inc/pagination.php';              // Pagination for loop and single posts
