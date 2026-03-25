@@ -56,3 +56,34 @@ body {
     }
   }
 }
+
+
+
+// Loop https://github.com/bootscore/bootscore/pull/1188
+
+// Horizontal card images
+
+// category.php, archive.php, author.php and search results
+@include media-breakpoint-down(lg) {
+  .card-img-lg-start {
+    border-top-left-radius: var(--#{$prefix}card-inner-border-radius);
+    border-top-right-radius: var(--#{$prefix}card-inner-border-radius);
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  .card-img-lg-start {
+    border-top-left-radius: var(--#{$prefix}card-inner-border-radius);
+    border-bottom-left-radius: var(--#{$prefix}card-inner-border-radius);
+    object-fit: cover;
+    height: 100%;
+  }
+}
+
+
+// Check if Bootstrap v6 will have a backdrop-blur utility https://github.com/orgs/twbs/discussions/42187
+
+.backdrop-blur-10 {
+  backdrop-filter: blur(10px) saturate(180%);
+  -webkit-backdrop-filter: blur(10px) saturate(180%);
+}
