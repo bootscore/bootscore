@@ -71,13 +71,7 @@ $context = 'cards-overlay';
       <?php if (apply_filters('bootscore/loop/excerpt', true, 'cards-overlay')) : ?>
         <p class="<?= esc_attr(apply_filters('bootscore/class/loop/card-text/excerpt', 'card-text', 'cards-overlay')); ?>">
           <a class="<?= esc_attr(apply_filters('bootscore/class/loop/card-text/excerpt/link', 'text-body text-decoration-none', 'cards-overlay')); ?>" href="<?php the_permalink(); ?>">                
-            <?php
-            $excerpt = get_post_field( 'post_excerpt', get_the_ID() );
-            echo esc_html( wp_trim_words(
-              strip_shortcodes( ! empty( $excerpt ) ? $excerpt : get_post_field( 'post_content', get_the_ID() ) ),
-              55
-            ) );
-            ?>
+            <?php bootscore_excerpt(); ?>
           </a>
         </p>
       <?php endif; ?>
