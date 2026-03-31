@@ -302,3 +302,33 @@ if (!function_exists('bootscore_post_thumbnail')) :
     endif; // End is_singular().
   }
 endif;
+
+
+/**
+ * Loop excerpt
+ *
+ * Display post excerpt with fallback to content
+ * 
+ * @param int $post_id Post ID (optional, uses current post if not set)
+ * @param int $word_count Number of words to trim to (default: 55)
+ */
+if (!function_exists('bootscore_excerpt')) {
+  function bootscore_excerpt($post_id = null, $word_count = 55) {
+    // Get post ID
+    $post_id = $post_id ?: get_the_ID();
+    
+    // Get excerpt or fallback to content
+    $excerpt = get_post_field('post_excerpt', $post_id);
+    if (empty($excerpt)) {
+      $excerpt = get_post_field('post_content', $post_id);
+    }
+    
+    // Clean and trim
+    $excerpt = strip_shortcodes($excerpt);
+    $excerpt = wp_trim_words($excerpt, $word_count);
+    
+    // Output
+    echo esc_html($excerpt);
+  }
+}
+
