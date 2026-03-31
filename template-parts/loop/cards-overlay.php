@@ -67,10 +67,16 @@ $context = 'cards-overlay';
           </p>
         <?php endif; ?>
       <?php endif; ?>
-
+      
       <?php if (apply_filters('bootscore/loop/excerpt', true, 'cards-overlay')) : ?>
         <p class="<?= esc_attr(apply_filters('bootscore/class/loop/card-text/excerpt', 'card-text', 'cards-overlay')); ?>">
-          <?= esc_html(wp_strip_all_tags(get_the_excerpt())); ?>
+          <?php
+          $excerpt = get_post_field( 'post_excerpt', get_the_ID() );
+          echo esc_html( wp_trim_words(
+            strip_shortcodes( ! empty( $excerpt ) ? $excerpt : get_post_field( 'post_content', get_the_ID() ) ),
+            20
+          ) );
+          ?>
         </p>
       <?php endif; ?>
 
