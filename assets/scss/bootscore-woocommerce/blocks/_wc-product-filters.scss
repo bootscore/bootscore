@@ -1,0 +1,85 @@
+/*--------------------------------------------------------------
+WooCommerce Product Filter Block - Bootscore v6.4.0
+--------------------------------------------------------------*/
+
+// Block styles are evil, !important is required everywheree.
+
+.wc-block-product-filters {
+
+  // Chips
+  .badge {
+    .btn-close {
+      font-size: 0.75em;
+    }
+  }
+}
+
+
+.wc-block-product-filter-price-slider {
+
+  &__range {
+    z-index: 1; // Thumb in iOS
+
+    &::before {
+      --range-color: transparent;
+    }
+
+    // Fake Range
+    .range-bar {
+      background: var(--#{$prefix}secondary-bg) !important;
+      border-radius: $form-range-track-border-radius !important;
+      height: $form-range-track-height !important;
+    }
+
+
+    input[type=range] {
+      
+      // Webkit and Firefox cannot be combined
+
+      // WebKit
+      &::-webkit-slider-thumb {
+        width: $form-range-thumb-width !important;
+        height: $form-range-thumb-height !important;
+        background: $form-range-thumb-bg !important;
+        border: none !important;
+        margin: -.25rem 0 0 !important;
+      }
+
+      // Firefox
+      &::-moz-range-thumb {
+        width: $form-range-thumb-width !important;
+        height: $form-range-thumb-height !important;
+        background: $form-range-thumb-bg !important;
+        border: none !important;
+        // No margin: unsupported in Firefox
+        transform: translate(0, .25rem) !important;
+      }
+
+      input[type=range] {
+        &.min::-webkit-slider-thumb {
+          margin-left: 0 !important;
+        }
+
+        &.max::-webkit-slider-thumb {
+          margin-left: 0 !important;
+        }
+      }
+    }
+  }
+
+  // Fake form-control
+  .text input[type=text] {
+    border: $input-border-width solid;
+    border-color: var(--#{$prefix}border-color) !important;
+    border-radius: $input-border-radius !important;
+    background-color: $input-bg !important;
+    font-size: $input-font-size !important;
+    padding: $input-padding-y $input-padding-x !important;
+
+    &:focus {
+      box-shadow: $input-focus-box-shadow;
+      outline: 0;
+      border-color: $input-focus-border-color;
+    }
+  }
+}
