@@ -7,6 +7,7 @@
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
  * The `overflow-hidden` class is used in cards to create responsive border radius in the image.
+ * The `h-100` class is used to create equal height cards when changing the `row-cols-*`.
  *
  * @package Bootscore
  */
@@ -21,16 +22,16 @@ $context = 'cards-horizontal';
 
 <?php do_action( 'bootscore_before_loop_item', 'cards-horizontal' ); ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class( esc_attr(apply_filters('bootscore/class/loop/card', 'card horizontal overflow-hidden', 'cards-horizontal')) ); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class( esc_attr(apply_filters('bootscore/class/loop/card', 'card horizontal overflow-hidden h-100', 'cards-horizontal')) ); ?>>
 
-  <div class="<?= esc_attr(apply_filters('bootscore/class/loop/card/row', 'row g-0', 'cards-horizontal')); ?>">
+  <div class="<?= esc_attr(apply_filters('bootscore/class/loop/card/row', 'row g-0 h-100', 'cards-horizontal')); ?>">
 
     <?php do_action('bootscore_before_loop_thumbnail', 'cards-horizontal'); ?>
 
     <?php if (has_post_thumbnail()) : ?>
       <div class="<?= esc_attr(apply_filters('bootscore/class/loop/card/image/col', 'col-md-5 col-lg-6 col-xl-5 col-xxl-4', 'cards-horizontal')); ?>">
         <a href="<?php the_permalink(); ?>" aria-hidden="true" tabindex="-1">
-          <?php the_post_thumbnail('medium', array('class' => esc_attr(apply_filters('bootscore/class/loop/card/image', 'h-100 object-fit-cover', 'cards-horizontal')))); ?>
+          <?php the_post_thumbnail('medium', array('class' => esc_attr(apply_filters('bootscore/class/loop/card/image', 'h-md-100 object-fit-cover', 'cards-horizontal')))); ?>
         </a>
       </div>
     <?php endif; ?>
@@ -38,7 +39,7 @@ $context = 'cards-horizontal';
     <?php do_action('bootscore_after_loop_thumbnail', 'cards-horizontal'); ?>
 
     <div class="<?= esc_attr(apply_filters('bootscore/class/loop/card/content/col', 'col', 'cards-horizontal')); ?>">
-      <div class="<?= esc_attr(apply_filters('bootscore/class/loop/card/body', 'card-body', 'cards-horizontal')); ?>">
+      <div class="<?= esc_attr(apply_filters('bootscore/class/loop/card/body', 'card-body h-100 d-flex flex-column', 'cards-horizontal')); ?>">
 
         <div class="<?= esc_attr(apply_filters('bootscore/class/loop/card/content/meta-wrapper', 'd-flex justify-content-between gap-3', 'cards-horizontal')); ?>">
 
@@ -82,7 +83,7 @@ $context = 'cards-horizontal';
         <?php endif; ?>
         
         <?php if (apply_filters('bootscore/loop/read-more', true, 'cards-horizontal')) : ?>
-          <p class="<?= esc_attr(apply_filters('bootscore/class/loop/card-text/read-more', 'card-text', 'cards-horizontal')); ?>">
+          <p class="<?= esc_attr(apply_filters('bootscore/class/loop/card-text/read-more', 'card-text mt-auto', 'cards-horizontal')); ?>">
             <a class="<?= esc_attr(apply_filters('bootscore/class/loop/read-more', 'read-more', 'cards-horizontal')); ?>" href="<?php the_permalink(); ?>">
               <?= wp_kses_post(apply_filters('bootscore/loop/read-more/text', __('Read more »', 'bootscore'), 'cards-horizontal')); ?>
             </a>
