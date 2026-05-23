@@ -24,7 +24,7 @@ $context = 'cards-horizontal';
 
 <article id="post-<?php the_ID(); ?>" <?php post_class( esc_attr(apply_filters('bootscore/class/loop/card', 'card horizontal overflow-hidden h-100', 'cards-horizontal')) ); ?>>
 
-  <div class="<?= esc_attr(apply_filters('bootscore/class/loop/card/row', 'row g-0 h-100', 'cards-horizontal')); ?>">
+  <div class="<?= esc_attr(apply_filters('bootscore/class/loop/card/row', 'row g-0 h-100 flex-column flex-md-row', 'cards-horizontal')); ?>">
 
     <?php do_action('bootscore_before_loop_thumbnail', 'cards-horizontal'); ?>
 
