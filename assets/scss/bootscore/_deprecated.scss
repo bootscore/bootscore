@@ -82,7 +82,6 @@ body {
 
 // Responsive image height in (new) cards-horizontal.php loop card template
 // Class h-100 creates issue with bs Swiper v6 in mobile view
-// Class object-fit-cover has no impact
 // Recheck this in v7. If we keep it, move it to utilities.scss
 @include media-breakpoint-up(md) {
   .h-md-100 {
