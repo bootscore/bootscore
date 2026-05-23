@@ -31,7 +31,7 @@ $context = 'cards-horizontal';
     <?php if (has_post_thumbnail()) : ?>
       <div class="<?= esc_attr(apply_filters('bootscore/class/loop/card/image/col', 'col-md-5 col-lg-6 col-xl-5 col-xxl-4', 'cards-horizontal')); ?>">
         <a href="<?php the_permalink(); ?>" aria-hidden="true" tabindex="-1">
-          <?php the_post_thumbnail('medium', array('class' => esc_attr(apply_filters('bootscore/class/loop/card/image', 'h-md-100 object-fit-cover', 'cards-horizontal')))); ?>
+          <?php the_post_thumbnail('medium', array('class' => esc_attr(apply_filters('bootscore/class/loop/card/image', 'h-md-100 object-fit-md-cover', 'cards-horizontal')))); ?>
         </a>
       </div>
     <?php endif; ?>
