@@ -32,9 +32,10 @@
     $thumbnail = apply_filters('woocommerce_cart_item_thumbnail', $_product->get_image(), $cart_item, $cart_item_key);
     $product_price = apply_filters('woocommerce_cart_item_price', WC()->cart->get_product_price($_product), $cart_item, $cart_item_key);
     $product_permalink = apply_filters('woocommerce_cart_item_permalink', $_product->is_visible() ? $_product->get_permalink($cart_item) : '', $cart_item, $cart_item_key);
+    $product_subtotal = apply_filters('woocommerce_cart_item_subtotal', WC()->cart->get_product_subtotal($_product, $cart_item['quantity']), $cart_item, $cart_item_key);
     ?>
       <div class="woocommerce-mini-cart-item list-group-item py-3 <?php echo esc_attr(apply_filters('woocommerce_mini_cart_item_class', 'mini_cart_item', $cart_item, $cart_item_key)); ?>"
-           data-bootscore_product_id="<?php echo esc_attr($product_id); ?>" data-key="<?= esc_attr($cart_item_key); ?>">
+           data-bootscore_product_id="<?php echo esc_attr($product_id); ?>" data-key="<?php echo esc_attr($cart_item_key); ?>">
 
         <div class="row g-3">
 
@@ -94,8 +95,11 @@
           <div class="remove col-3 text-end">
 
             <div class="bootscore-custom-render-total h6 mb-4">
-              <?php echo WC()->cart->get_product_subtotal($_product, $cart_item['quantity']); // PHPCS: XSS ok.
+
+                <span>
+              <?php echo $product_subtotal; // PHPCS: XSS ok.
               ?>
+                </span>
             </div>
 
             <?php echo apply_filters( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
