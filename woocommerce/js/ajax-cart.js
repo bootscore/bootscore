@@ -1,5 +1,5 @@
 /**
- * AJAX Cart JS - Bootscore v6.3.1
+ * AJAX Cart JS - Bootscore v6.4.0
  *
  * Consists of 4 parts
  * 1. Handle Ajax Add to cart
