@@ -13,7 +13,7 @@
  * @WooCommerce 10.0.0
  *
  * @package Bootscore
- * @version 6.3.1
+ * @version 6.4.0
  */
 
   // Exit if accessed directly
