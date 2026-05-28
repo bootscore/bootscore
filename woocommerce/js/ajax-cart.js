@@ -1,5 +1,5 @@
 /**
- * AJAX Cart JS - Bootscore v6.3.1
+ * AJAX Cart JS - Bootscore v6.4.0
  *
  * Consists of 4 parts
  * 1. Handle Ajax Add to cart
@@ -351,14 +351,12 @@ jQuery(function ($) {
   });
 
   // 4. Browser Fixes
-  // Chromium-specific fix for browser back button
-  if (window.chrome) {
-    $(window).on('pageshow', function (e) {
-      if (e.originalEvent.persisted) {
-        setTimeout(function () {
-          $(document.body).trigger('wc_fragment_refresh');
-        }, 100);
-      }
-    });
-  }
+  // Refresh fragments when restoring from back-forward cache (BFCache)
+  $(window).on('pageshow', function (e) {
+    if (e.originalEvent && true === e.originalEvent.persisted) {
+      setTimeout(function () {
+        $(document.body).trigger('wc_fragment_refresh');
+      }, 100);
+    }
+  });
 });
