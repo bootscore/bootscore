@@ -71,28 +71,6 @@ jQuery(function ($) {
   $('.single_add_to_cart_button').prepend('<div class="btn-loader"><span class="spinner-border spinner-border-sm"></span></div>');
 
   // 1.2 Enable AJAX add to cart on loop items
-  // Re-add loader to loop buttons after WooCommerce Product Filter Block reloads the grid
-  // https://github.com/bootscore/bootscore/pull/1140
-  function addLoopButtonLoader() {
-    $('.add_to_cart_button:not(.product_type_variable):not(.loader-added)').each(function () {
-      $(this).addClass('loader-added');
-      $(this).prepend('<div class="btn-loader"><span class="spinner-border spinner-border-sm"></span></div>');
-    });
-  }
-
-  // Initial load
-  addLoopButtonLoader();
-
-  // Product Grid refreshed by WC Filter Block
-  document.addEventListener('wc_blocks_product_grid_updated', function () {
-    addLoopButtonLoader();
-  });
-
-  // Fallback for older versions
-  document.addEventListener('wc-blocks-render-product-grid', function () {
-    addLoopButtonLoader();
-  });  
-  
   $('a.ajax_add_to_cart[href*="?add-to-cart"]').on('click', function (e) {
     e.preventDefault();
 
@@ -373,14 +351,12 @@ jQuery(function ($) {
   });
 
   // 4. Browser Fixes
-  // Chromium-specific fix for browser back button
-  if (window.chrome) {
-    $(window).on('pageshow', function (e) {
-      if (e.originalEvent.persisted) {
-        setTimeout(function () {
-          $(document.body).trigger('wc_fragment_refresh');
-        }, 100);
-      }
-    });
-  }
+  // Refresh fragments when restoring from back-forward cache (BFCache)
+  $(window).on('pageshow', function (e) {
+    if (e.originalEvent && true === e.originalEvent.persisted) {
+      setTimeout(function () {
+        $(document.body).trigger('wc_fragment_refresh');
+      }, 100);
+    }
+  });
 });
