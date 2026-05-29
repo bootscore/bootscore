@@ -52,7 +52,7 @@
         // Implement btn-loader element directly on the loop items without js
         // Helps to decrease computing on client devices on page load and makes it cacheable
         $replacement = '$1<div class="btn-loader"><span class="spinner-border spinner-border-sm"></span></div>';
-        $return_html .= preg_replace('/(<a href=\"[^?]*\?add-to-cart=[^>]+>)/', $replacement, $html);
+		$return_html .= preg_replace('/(<a\b[^>]*\bhref="[^"]*add-to-cart=[^"]*"[^>]*>)/', $replacement, $html);
       } else {
         // If the product is not purchasable, we return the original HTML without the btn-loader
         $return_html .= $html;
