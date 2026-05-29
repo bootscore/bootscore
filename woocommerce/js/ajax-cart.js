@@ -71,7 +71,21 @@ jQuery(function ($) {
   $('.single_add_to_cart_button').prepend('<div class="btn-loader"><span class="spinner-border spinner-border-sm"></span></div>');
 
   // 1.2 Enable AJAX add to cart on loop items
-  $('a.ajax_add_to_cart[href*="?add-to-cart"]').on('click', function (e) {
+  // Function allows readding the handler also on dynamic elements after initial pageload
+  // if a target is a jQuery object, use it directly, otherwise find it within the context
+  function bootscoreInitLoopAjaxAddToCart(target, context = null) {
+    const contextTarget = (context && context.jquery) ? context : $(context);
+    let buttonTarget;
+
+    if (target && target.jquery) {
+      buttonTarget = target;
+    } else if (typeof target === 'string' && context) {
+      buttonTarget = contextTarget.find(target);
+    } else {
+      buttonTarget = $(target);
+    }
+
+    buttonTarget.not('.bs-ajax-cart-btn-initialized').addClass('bs-ajax-cart-btn-initialized').on('click.bootscoreAjaxAddToCart', function (e) {
     e.preventDefault();
 
     // Add new 'should_send_ajax_request.adding_to_cart' event to prevent standard WooCommerce Add To Cart AJAX request
@@ -80,12 +94,12 @@ jQuery(function ($) {
     });
 
     let button = $(this);
-    let product_id = button.attr('href').split('=')[1];
-    //parse as float
-    let quantity = parseInt(button.attr('data-quantity')) || 1;
+
+      const product_id = parseInt((button.attr('href') || '').match(/[?&]add-to-cart=(\d+)/)?.[1], 10) || null;      //parse as float
+      let quantity = parseInt(button.attr('data-quantity'), 10) || 1;
     let data = {
-      "add-to-cart": product_id,
-      "quantity": quantity,
+        'add-to-cart': product_id,
+        'quantity': quantity,
     };
 
     // Interesting section here. it seems that the 'adding_to_cart' event removes the loading class from the button.
@@ -125,6 +139,11 @@ jQuery(function ($) {
       }
     });
   });
+  }
+
+  window.bootscoreAjaxCart = window.bootscoreAjaxCart || {};
+  window.bootscoreAjaxCart.initLoopAjaxAddToCart = bootscoreInitLoopAjaxAddToCart;
+  window.bootscoreAjaxCart.initLoopAjaxAddToCart('a.ajax_add_to_cart[href*="?add-to-cart"]');
 
   // 2. Quantity Update Buttons
 
