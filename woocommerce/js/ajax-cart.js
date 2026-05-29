@@ -143,7 +143,7 @@ jQuery(function ($) {
 
   window.bootscoreAjaxCart = window.bootscoreAjaxCart || {};
   window.bootscoreAjaxCart.initLoopAjaxAddToCart = bootscoreInitLoopAjaxAddToCart;
-  window.bootscoreAjaxCart.initLoopAjaxAddToCart('a.ajax_add_to_cart[href*="?add-to-cart"]');
+  window.bootscoreAjaxCart.initLoopAjaxAddToCart('a.ajax_add_to_cart[href*="add-to-cart="]');
 
   // 2. Quantity Update Buttons
 
