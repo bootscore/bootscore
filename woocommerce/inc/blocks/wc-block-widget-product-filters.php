@@ -25,9 +25,6 @@ if (!function_exists('bootscore_wc_block_widget_product_filter_classes')) {
    */
   function bootscore_wc_block_widget_product_filter_classes($block_content, $block) {
     
-
-    
-    
     // Auxiliary function for class replacement
     $replace_class = function($html, $search, $replace) {
       return preg_replace_callback('/class="([^"]+)"/', function($matches) use ($search, $replace) {
@@ -48,13 +45,13 @@ if (!function_exists('bootscore_wc_block_widget_product_filter_classes')) {
       'wp-block-woocommerce-product-filters' => 'wp-block-woocommerce-product-filters hide-wp-block-classes hide-wp-block-inline-styles',
       
       // Mobile stuff
-      'wc-block-product-filters__open-overlay' => 'd-none',   // Open button
-      'wc-block-product-filters__overlay-header' => 'd-none', // Close button
-      'wc-block-product-filters__overlay' => 'test',          // Overlay
-      'wc-block-product-filters__overlay-wrapper' => 'test',  // Overlay wrapper
-      'wc-block-product-filters__overlay-dialog' => 'test',   // Overlay modal
-      'wc-block-product-filters__overlay-content' => 'test',  // Overlay content
-      'wc-block-product-filters__overlay-footer' => 'd-none', // Apply button
+      'wc-block-product-filters__open-overlay' => 'd-none',                             // Open button
+      'wc-block-product-filters__overlay-header' => 'd-none',                           // Close button
+      'wc-block-product-filters__overlay' => 'product-filters-overlay',                 // Overlay
+      'wc-block-product-filters__overlay-wrapper' => 'product-filters-overlay-wrapper', // Overlay wrapper
+      'wc-block-product-filters__overlay-dialog' => 'product-filters-overlay-dialog',   // Overlay modal
+      'wc-block-product-filters__overlay-content' => 'product-filters-overlay-content', // Overlay content
+      'wc-block-product-filters__overlay-footer' => 'd-none',                           // Apply button
       
 
       // Chips
@@ -65,13 +62,12 @@ if (!function_exists('bootscore_wc_block_widget_product_filter_classes')) {
 
       // Clear filters button
       'wp-block-button__link' => '',
-      'btn-outline-primary' => 'btn btn-link p-0',
+      'btn-outline-primary' => 'btn-link link-danger btn-sm p-0',
       
       // Price range
       //'text' => 's',
       //'min' => 'min form-control',
       
-
       // Checks
       'wc-block-product-filter-checkbox-list__item' => 'form-check',
       'wc-block-product-filter-checkbox-list__label' => 'form-check-label d-block cursor-pointer',
