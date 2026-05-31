@@ -62,7 +62,7 @@ if (!function_exists('bootscore_wc_block_widget_product_filter_classes')) {
 
       // Clear filters button
       'wp-block-button__link' => '',
-      'btn-outline-primary' => 'btn-link link-danger btn-sm p-0',
+      'btn-outline-primary' => 'btn-sm btn-outline-danger',
       
       // Price range
       //'text' => 's',
