@@ -52,7 +52,6 @@ if (!function_exists('bootscore_wc_block_widget_product_filter_classes')) {
       'wc-block-product-filters__overlay-dialog' => 'product-filters-overlay-dialog',   // Overlay modal
       'wc-block-product-filters__overlay-content' => 'product-filters-overlay-content', // Overlay content
       'wc-block-product-filters__overlay-footer' => 'd-none',                           // Apply button
-      
 
       // Chips
       'wc-block-product-filter-removable-chips__items' => 'list-unstyled d-flex flex-wrap gap-2',
@@ -64,9 +63,10 @@ if (!function_exists('bootscore_wc_block_widget_product_filter_classes')) {
       'wp-block-button__link' => '',
       'btn-outline-primary' => 'btn-sm btn-outline-danger',
       
-      // Price range
-      //'text' => 's',
+      // Price range forms
+      // Styles are generic, so adding `form-control` has no effect, solved by SCSS
       //'min' => 'min form-control',
+      //'max' => 'max form-control',
       
       // Checks
       'wc-block-product-filter-checkbox-list__item' => 'form-check',
