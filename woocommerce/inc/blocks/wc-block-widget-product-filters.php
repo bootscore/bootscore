@@ -75,21 +75,24 @@ if (!function_exists('bootscore_wc_block_widget_product_filter_classes')) {
       'wc-block-product-filter-checkbox-list__input' => 'form-check-input',
       'wc-block-product-filter-checkbox-list__text-wrapper' => 'd-flex align-items-center',
       
+      // Product count
       'wc-block-product-filter-checkbox-list__count' => 'badge bg-primary-subtle text-primary-emphasis ms-auto',
       
     ];
 
     foreach ($class_replacements as $search => $replace) {
-        $block_content = $replace_class($block_content, $search, $replace);
+      $block_content = $replace_class($block_content, $search, $replace);
     }
     
-    // Remove parentheses inside Bootstrap-styled count spans
-    $block_content = preg_replace(
-      '/(<span[^>]*badge[^>]*>)[\s()]*([0-9]+)[\s()]*(<\/span>)/',
-      '$1$2$3',
+    // Remove parentheses that directly wrap spans inside badge elements (WooCommerce 10.9+)
+    $block_content = preg_replace_callback(
+      '/(<span[^>]*class="[^"]*badge[^>]*>)\s*\(\s*(<span[^>]*>.*?<\/span>)\s*\)\s*(<\/span>)/',
+      function($matches) {
+        return $matches[1] . $matches[2] . $matches[3];
+      },
       $block_content
     );
-
+    
     return apply_filters('bootscore/block/product/filters/content', $block_content, $block);
   }
 }
