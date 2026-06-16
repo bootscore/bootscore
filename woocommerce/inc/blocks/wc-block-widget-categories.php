@@ -4,7 +4,7 @@
  * WooCommerce Categories Block Widget
  *
  * @package Bootscore
- * @version 6.0.0
+ * @version 6.4.0
  */
 
 
@@ -45,8 +45,8 @@ if (!function_exists('bootscore_wc_block_widget_categories_classes')) {
         'has-image',
         '',
         'wc-cat-img d-inline-block me-2',
-        'wp-post-image border rounded',
-        'attachment-woocommerce_thumbnail border rounded'
+        'wp-post-image border rounded-1',
+        'attachment-woocommerce_thumbnail border rounded-1'
       );
 
       $block_content = str_replace($search, $replace, $block_content);
