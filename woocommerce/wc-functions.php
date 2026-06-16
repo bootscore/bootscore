@@ -31,7 +31,8 @@ require_once get_template_directory() . '/woocommerce/inc/wc-tabs.php';
 require_once get_template_directory() . '/woocommerce/inc/wc-deprecated.php'; 
 
 // Blocks
-require_once get_template_directory() . '/woocommerce/inc/blocks/wc-block-widget-categories.php'; 
+require_once get_template_directory() . '/woocommerce/inc/blocks/wc-block-widget-categories.php';
+require_once get_template_directory() . '/woocommerce/inc/blocks/wc-block-widget-product-filters.php';
 
 
 /**
