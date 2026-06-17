@@ -14,10 +14,10 @@
    *
    * @see     https://docs.woocommerce.com/document/template-structure/
    * @package WooCommerce\Templates
-   * @version 10.0.0
+   * @version 11.0.0
    *
    * @package Bootscore
-   * @version 6.3.0
+   * @version 6.4.0
    */
 
   defined('ABSPATH') || exit;
