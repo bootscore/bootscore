@@ -6,7 +6,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
- * Deprecated: Refactor the woocommerce/content-product.php loop to use this template instead in the bs Loop plugins
+ * Deprecated: Refactor the woocommerce/content-product.php loop to use this template instead in the bs Loop plugins in Bootscore 7.
  *
  * @package Bootscore
  */
