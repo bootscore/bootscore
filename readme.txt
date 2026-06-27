@@ -9,9 +9,9 @@ Fabien Ninollet, Foaly, MarkusKab, Goяo!, neralex, yurii-shchur, amansarwar
 Tags: featured-images, threaded-comments, translation-ready
 
 Requires at least: 5.0
-Tested up to: 6.9
+Tested up to: 7.0
 Requires PHP: 7.4
-Stable tag: 6.3.1
+Stable tag: 6.4.0
 License: MIT License
 License URI: https://github.com/bootscore/bootscore/blob/main/LICENSE
 
