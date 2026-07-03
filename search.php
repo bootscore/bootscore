@@ -60,54 +60,48 @@ get_header();
             );
             ?>
 
-            <?php if (have_posts()) : ?>
-
-              <?php if ($layout === 'custom') : ?>
-                <!-- Custom layout - NO GRID WRAPPER, just loop through posts -->
-                <?php while (have_posts()) : the_post(); ?>
-                  <?php get_template_part('template-parts/loop/custom'); ?>
-                <?php endwhile; ?>
-
-              <?php else : ?>
-                <!-- Grid or horizontal layout with wrapper -->
-                <div class="<?= $layout === 'grid' ? esc_attr($grid_classes) : esc_attr($horizontal_classes); ?>">
-
-                  <?php while (have_posts()) : the_post(); ?>
-
-                    <!-- Column wrapper for ALL layouts -->
-                    <div class="col">
-
-                      <?php if ($layout === 'grid') : ?>
-                        <!-- Grid card -->
-                        <?php get_template_part('template-parts/loop/cards-grid'); ?>
-                        
-                      <?php elseif ($layout === 'overlay') : ?>
-                        <!-- Overlay card -->
-                        <?php get_template_part('template-parts/loop/cards-overlay'); ?>
-                        
-                      <?php else : ?>
-                        <!-- Horizontal card -->
-                        <?php get_template_part('template-parts/loop/cards-horizontal'); ?>
-                      <?php endif; ?>
-
-                    </div><!-- .col -->
-
-                  <?php endwhile; ?>
-
-                </div><!-- .row (loop row) -->
-              <?php endif; ?>
+            <?php if ($layout === 'custom') : ?>
+              <!-- Custom layout - NO GRID WRAPPER, just loop through posts -->
+              <?php while (have_posts()) : the_post(); ?>
+                <?php get_template_part('template-parts/loop/custom'); ?>
+              <?php endwhile; ?>
 
             <?php else : ?>
-              <!-- No posts found -->
-              <?php get_template_part('template-parts/loop/loop-none'); ?>
+              <!-- Grid or horizontal layout with wrapper -->
+              <div class="<?= $layout === 'grid' ? esc_attr($grid_classes) : esc_attr($horizontal_classes); ?>">
+
+                <?php while (have_posts()) : the_post(); ?>
+
+                  <!-- Column wrapper for ALL layouts -->
+                  <div class="col">
+
+                    <?php if ($layout === 'grid') : ?>
+                      <!-- Grid card -->
+                      <?php get_template_part('template-parts/loop/cards-grid'); ?>
+                      
+                    <?php elseif ($layout === 'overlay') : ?>
+                      <!-- Overlay card -->
+                      <?php get_template_part('template-parts/loop/cards-overlay'); ?>
+                      
+                    <?php else : ?>
+                      <!-- Horizontal card -->
+                      <?php get_template_part('template-parts/loop/cards-horizontal'); ?>
+                    <?php endif; ?>
+
+                  </div><!-- .col -->
+
+                <?php endwhile; ?>
+
+              </div><!-- .row (loop row) -->
             <?php endif; ?>
             <!-- Loop END -->
 
             <?php do_action('bootscore_after_loop', 'search'); ?>
-            
-            <?php do_action('bootscore_before_pagination', 'search'); ?>
 
-            <?php bootscore_pagination(); ?>
+            <div class="entry-footer">
+              <?php do_action('bootscore_before_pagination', 'search'); ?>
+              <?php bootscore_pagination(); ?>
+            </div>
 
           <?php else : ?>
 
