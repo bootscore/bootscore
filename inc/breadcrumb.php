@@ -4,7 +4,7 @@
  * Breadcrumb
  *
  * @package Bootscore
- * @version 6.4.0
+ * @version 6.5.0
  */
 
 
@@ -141,14 +141,16 @@ endif; // End of the_breadcrumb() function
  * Displays the breadcrumb navigation within content areas.
  * Useful for widget areas or the Page Blank template where breadcrumbs cannot be added via action hook.
  */
-function bootscore_breadcrumb_shortcode($atts) {
-  // Skip in admin to prevent JSON errors during editor saves
-  if (is_admin()) {
-    return '';
+if (!function_exists('bootscore_breadcrumb_shortcode')) {
+  function bootscore_breadcrumb_shortcode($atts) {
+    // Skip in admin to prevent JSON errors during editor saves
+    if (is_admin()) {
+      return '';
+    }
+    
+    ob_start();
+    the_breadcrumb();
+    return ob_get_clean();
   }
-  
-  ob_start();
-  the_breadcrumb();
-  return ob_get_clean();
+  add_shortcode('bs-breadcrumb', 'bootscore_breadcrumb_shortcode');
 }
-add_shortcode('bs-breadcrumb', 'bootscore_breadcrumb_shortcode');
