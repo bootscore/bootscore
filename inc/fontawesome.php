@@ -20,13 +20,11 @@ function bsfaCode($atts) {
   $atts = (array) $atts;
   $vstr = "";
   foreach ($atts as $value) {
-    $vstr = $vstr . " " . sanitize_html_class($value);
+    $vstr .= " " . sanitize_html_class($value);
   }
 
   return '<i class="' . esc_attr(trim($vstr)) . '"></i>';
 }
-
-;
 add_shortcode('bsfa', 'bsfaCode');
 
 
