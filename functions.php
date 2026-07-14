@@ -20,6 +20,7 @@ defined('ABSPATH') || exit;
  * 
  * Deprecated, the PUC will be replaced in v7 by the new Bootscore updater
  */
+/*
 require 'inc/update/plugin-update-checker.php';
 use YahnisElsts\PluginUpdateChecker\v5\PucFactory;
 
@@ -31,7 +32,7 @@ $myUpdateChecker = PucFactory::buildUpdateChecker(
 
 // Set the branch that contains the stable release.
 $myUpdateChecker->setBranch('main');
-
+*/
 
 /**
  * Load required files
@@ -103,4 +104,4 @@ if (!class_exists('Bootscore_Update_Checker')) {
 }
 
 // Load theme's own update configuration
-//require_once get_template_directory() . '/inc/updater/updater-config.php';
+require_once get_template_directory() . '/inc/updater/updater-config.php';
