@@ -20,7 +20,6 @@ defined('ABSPATH') || exit;
  * 
  * Deprecated, the PUC will be replaced in v7 by the new Bootscore updater
  */
-/*
 require 'inc/update/plugin-update-checker.php';
 use YahnisElsts\PluginUpdateChecker\v5\PucFactory;
 
@@ -32,7 +31,7 @@ $myUpdateChecker = PucFactory::buildUpdateChecker(
 
 // Set the branch that contains the stable release.
 $myUpdateChecker->setBranch('main');
-*/
+
 
 /**
  * Load required files
@@ -54,6 +53,7 @@ require_once get_template_directory() . '/inc/template-functions.php';      // F
 require_once get_template_directory() . '/inc/widgets.php';                 // Register widget area and disables Gutenberg in widgets
 require_once get_template_directory() . '/inc/deprecated.php';              // Fallback functions being dropped in v6
 require_once get_template_directory() . '/inc/tinymce-editor.php';          // Fix body margin and font-family in backend if classic editor is used
+//require_once get_template_directory() . '/inc/updater/updater-config.php'; // Load theme's own update configuration
 
 // Blocks
 // Patterns
@@ -93,15 +93,3 @@ if (class_exists('WooCommerce')) {
 if (defined('JETPACK__VERSION')) {
   require_once get_template_directory() . '/inc/jetpack.php';
 }
-
-
-/**
- * Load the shared updater library
- */
-// Enable the new updater in v7
-if (!class_exists('Bootscore_Update_Checker')) {
-  require_once get_template_directory() . '/inc/updater/class-update-checker.php';
-}
-
-// Load theme's own update configuration
-require_once get_template_directory() . '/inc/updater/updater-config.php';
