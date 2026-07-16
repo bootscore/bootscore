@@ -4,7 +4,7 @@
  * Enqueue styles & scripts
  *
  * @package Bootscore 
- * @version 6.3.1
+ * @version 6.5.0
  */
 
 
@@ -85,13 +85,18 @@ add_action('admin_enqueue_scripts', 'bootscore_enqueue_editor_and_pattern_librar
 
 
 /**
- * Preload Font Awesome
+ * Preload Font Awesome stylesheet
  */
-add_filter('style_loader_tag', 'bootscore_fa_preload');
+function bootscore_fa_preload( $html, $handle, $href, $media ) {
 
-function bootscore_fa_preload($tag) {
+	if ( 'fontawesome' !== $handle ) {
+		return $html;
+	}
 
-  $tag = preg_replace("/id='fontawesome-css'/", "id='fontawesome-css' onload=\"if(media!='all')media='all'\"", $tag);
-
-  return $tag;
+	return sprintf(
+		'<link rel="preload" href="%1$s" as="style" onload="this.onload=null;this.rel=\'stylesheet\'">' .
+		'<noscript><link rel="stylesheet" href="%1$s"></noscript>',
+		esc_url( $href )
+	);
 }
+add_filter( 'style_loader_tag', 'bootscore_fa_preload', 10, 4 );
