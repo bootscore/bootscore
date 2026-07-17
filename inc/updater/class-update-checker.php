@@ -53,6 +53,10 @@ if (!class_exists('Bootscore_Update_Checker')) {
      *     @type string 'info_url'        Full URL to info.json (for 'custom' source)
      *     @type string 'github_repo'     GitHub repo 'owner/repo' (for 'github' source)
      *     @type string 'name'            Product name
+     *     @type string 'requires'        Optional min WP version override (GitHub source only;
+     *                                     'custom' source always reads this from info.json)
+     *     @type string 'tested'          Optional "tested up to" WP version override (GitHub source only)
+     *     @type string 'requires_php'    Optional min PHP version override (GitHub source only)
      * }
      */
     public function register_product($product) {
@@ -65,6 +69,9 @@ if (!class_exists('Bootscore_Update_Checker')) {
         'info_url' => '',
         'github_repo' => '',
         'name' => '',
+        'requires' => '',
+        'tested' => '',
+        'requires_php' => '',
       );
 
       $product = wp_parse_args($product, $defaults);
@@ -232,6 +239,8 @@ if (!class_exists('Bootscore_Update_Checker')) {
       }
 
       // GitHub API - NO TOKEN NEEDED for public repos!
+      // Note: /releases/latest already excludes draft and pre-release releases automatically,
+      // so beta/rc tags won't trigger an update unless explicitly published as the latest release.
       $url = "https://api.github.com/repos/{$product->github_repo}/releases/latest";
 
       $response = wp_remote_get($url, array(
@@ -261,6 +270,196 @@ if (!class_exists('Bootscore_Update_Checker')) {
     }
 
     /**
+     * Split a GitHub release body into 'description' and 'changelog' sections,
+     * based on '## Description' / '## Changelog' headings. Falls back to
+     * treating the whole body as the description if no headings are found.
+     *
+     * @param string $body Raw release body (Markdown)
+     * @return array{description: string, changelog: string}
+     */
+    private function parse_release_sections($body) {
+      if (empty($body)) {
+        return array('description' => '', 'changelog' => '');
+      }
+
+      $sections = array();
+
+      if (preg_match_all('/^##\s*(description|changelog)\s*$/im', $body, $matches, PREG_OFFSET_CAPTURE)) {
+        $count = count($matches[0]);
+
+        for ($i = 0; $i < $count; $i++) {
+          $label = strtolower($matches[1][$i][0]);
+          $start = $matches[0][$i][1] + strlen($matches[0][$i][0]);
+          $end = ($i + 1 < $count) ? $matches[0][$i + 1][1] : strlen($body);
+          $sections[$label] = trim(substr($body, $start, $end - $start));
+        }
+      }
+
+      // No recognized headings at all - treat the whole body as the description
+      if (empty($sections)) {
+        return array('description' => trim($body), 'changelog' => '');
+      }
+
+      return array(
+        'description' => $sections['description'] ?? '',
+        'changelog' => $sections['changelog'] ?? '',
+      );
+    }
+
+    /**
+     * Very small Markdown-lite to HTML converter for release note sections.
+     * Handles paragraphs and '- ' / '* ' bullet lists; escapes everything else.
+     *
+     * @param string $text Plain/lite-Markdown text
+     * @return string HTML
+     */
+    private function markdown_lite_to_html($text) {
+      if (empty($text)) {
+        return '';
+      }
+
+      $lines = preg_split('/\r\n|\r|\n/', trim($text));
+      $html = '';
+      $in_list = false;
+
+      foreach ($lines as $line) {
+        $trimmed = trim($line);
+
+        if ($trimmed === '') {
+          continue;
+        }
+
+        // '= Version - Date =' changelog entry heading
+        if (preg_match('/^=\s*(.+?)\s*=$/', $trimmed, $m)) {
+          if ($in_list) {
+            $html .= '</ul>';
+            $in_list = false;
+          }
+          $html .= '<h4>' . esc_html($m[1]) . '</h4>';
+          continue;
+        }
+
+        // '#### Sub heading' style
+        if (preg_match('/^#{2,4}\s*(.+)$/', $trimmed, $m)) {
+          if ($in_list) {
+            $html .= '</ul>';
+            $in_list = false;
+          }
+          $html .= '<h5>' . esc_html($m[1]) . '</h5>';
+          continue;
+        }
+
+        if (preg_match('/^[-*]\s+(.+)$/', $trimmed, $m)) {
+          if (!$in_list) {
+            $html .= '<ul>';
+            $in_list = true;
+          }
+          $html .= '<li>' . esc_html($m[1]) . '</li>';
+          continue;
+        }
+
+        if ($in_list) {
+          $html .= '</ul>';
+          $in_list = false;
+        }
+
+        $html .= '<p>' . esc_html($trimmed) . '</p>';
+      }
+
+      if ($in_list) {
+        $html .= '</ul>';
+      }
+
+      return $html;
+    }
+
+    /**
+     * Fetch a public repo's readme.txt at the exact release tag (not 'main'),
+     * so the docs shown always match the version being offered as an update.
+     *
+     * @param object $product  Product object
+     * @param string $tag_name Raw GitHub tag name (e.g. 'v0.4.0')
+     * @return string|null Raw readme.txt content, or null if unavailable
+     */
+    private function fetch_github_readme($product, $tag_name) {
+      $url = "https://raw.githubusercontent.com/{$product->github_repo}/{$tag_name}/readme.txt";
+
+      $response = wp_remote_get($url, array('timeout' => 10));
+
+      if (is_wp_error($response) || 200 !== wp_remote_retrieve_response_code($response)) {
+        return null;
+      }
+
+      $body = wp_remote_retrieve_body($response);
+
+      return !empty($body) ? $body : null;
+    }
+
+    /**
+     * Parse a standard WordPress-format readme.txt into header fields
+     * (Tested up to / Requires at least / Requires PHP) and sections
+     * (Description / Installation / Changelog).
+     *
+     * @param string|null $readme Raw readme.txt content
+     * @return array|null
+     */
+    private function parse_readme($readme) {
+      if (empty($readme)) {
+        return null;
+      }
+
+      $result = array(
+        'requires' => '',
+        'tested' => '',
+        'requires_php' => '',
+        'sections' => array(
+          'description' => '',
+          'installation' => '',
+          'changelog' => '',
+        ),
+      );
+
+      // '== Section ==' headings only - excludes '=== Title ===' and
+      // '= Changelog entry =' via the [^=] guard right after the opening '=='
+      $heading_pattern = '/^==\s*([^=].*?)\s*==$/m';
+
+      // Header fields (Tested up to, Requires at least, Requires PHP) live
+      // before the first section heading
+      $header = $readme;
+      if (preg_match($heading_pattern, $readme, $first_match, PREG_OFFSET_CAPTURE)) {
+        $header = substr($readme, 0, $first_match[0][1]);
+      }
+
+      if (preg_match('/^\s*Tested up to:\s*(.+)$/im', $header, $m)) {
+        $result['tested'] = trim($m[1]);
+      }
+      if (preg_match('/^\s*Requires at least:\s*(.+)$/im', $header, $m)) {
+        $result['requires'] = trim($m[1]);
+      }
+      if (preg_match('/^\s*Requires PHP:\s*(.+)$/im', $header, $m)) {
+        $result['requires_php'] = trim($m[1]);
+      }
+
+      // Sections
+      if (preg_match_all($heading_pattern, $readme, $matches, PREG_OFFSET_CAPTURE)) {
+        $count = count($matches[0]);
+
+        for ($i = 0; $i < $count; $i++) {
+          $label = strtolower(trim($matches[1][$i][0]));
+          $start = $matches[0][$i][1] + strlen($matches[0][$i][0]);
+          $end = ($i + 1 < $count) ? $matches[0][$i + 1][1] : strlen($readme);
+          $content = trim(substr($readme, $start, $end - $start));
+
+          if (isset($result['sections'][$label])) {
+            $result['sections'][$label] = $content;
+          }
+        }
+      }
+
+      return $result;
+    }
+
+    /**
      * Format GitHub release data to our standard format
      *
      * @param object $github_data GitHub API response
@@ -268,40 +467,85 @@ if (!class_exists('Bootscore_Update_Checker')) {
      * @return object
      */
     private function format_github_data($github_data, $product) {
-      // Remove 'v' prefix from version if present
-      $tag = ltrim($github_data->tag_name, 'v');
+      // Strip a single leading 'v' or 'V' prefix, only when followed by a digit
+      // (e.g. 'v1.2.3' -> '1.2.3', but leaves oddly-named tags alone)
+      $tag = preg_replace('/^[vV](?=\d)/', '', $github_data->tag_name);
 
-      // Build download URL - look for a .zip asset
+      // Build download URL - prefer an asset matching the exact plugin slug,
+      // fall back to the first .zip asset if no exact match is found
       $download_url = '';
       if (!empty($github_data->assets)) {
+        $expected_name = $product->slug . '.zip';
+
         foreach ($github_data->assets as $asset) {
-          if (strpos($asset->name, '.zip') !== false) {
+          if ($asset->name === $expected_name) {
             $download_url = $asset->browser_download_url;
             break;
+          }
+        }
+
+        if (empty($download_url)) {
+          foreach ($github_data->assets as $asset) {
+            if (substr($asset->name, -4) === '.zip') {
+              $download_url = $asset->browser_download_url;
+              break;
+            }
           }
         }
       }
 
       // If no asset found, build standard GitHub download URL
+      // (uses the original, unstripped tag_name, since that's the real tag path)
       if (empty($download_url)) {
         $download_url = "https://github.com/{$product->github_repo}/releases/download/{$github_data->tag_name}/{$product->slug}.zip";
       }
 
-      // Extract description from release body
-      $description = $github_data->body ?? 'No description provided.';
-      $changelog = $github_data->body ?? '';
+      // Prefer the repo's readme.txt at the exact release tag - it's the
+      // standard WP format, includes Installation, and gives real
+      // Tested up to / Requires at least / Requires PHP values.
+      // Falls back to parsing the release notes body if no readme.txt is found.
+      $readme = $this->parse_readme($this->fetch_github_readme($product, $github_data->tag_name));
+
+      if ($readme) {
+        $description = !empty($readme['sections']['description'])
+          ? $this->markdown_lite_to_html($readme['sections']['description'])
+          : 'No description provided.';
+        $installation = !empty($readme['sections']['installation'])
+          ? $this->markdown_lite_to_html($readme['sections']['installation'])
+          : '';
+        $changelog = !empty($readme['sections']['changelog'])
+          ? $this->markdown_lite_to_html($readme['sections']['changelog'])
+          : '';
+        $tested = $product->tested ?: ($readme['tested'] ?: get_bloginfo('version'));
+        $requires = $product->requires ?: ($readme['requires'] ?: '5.0');
+        $requires_php = $product->requires_php ?: ($readme['requires_php'] ?: '7.4');
+      } else {
+        // Split release notes into description/changelog based on ## headings
+        $sections = $this->parse_release_sections($github_data->body ?? '');
+        $description = !empty($sections['description'])
+          ? $this->markdown_lite_to_html($sections['description'])
+          : 'No description provided.';
+        $installation = '';
+        $changelog = !empty($sections['changelog'])
+          ? $this->markdown_lite_to_html($sections['changelog'])
+          : '';
+        $tested = $product->tested ?: get_bloginfo('version');
+        $requires = $product->requires ?: '5.0';
+        $requires_php = $product->requires_php ?: '7.4';
+      }
 
       return (object) array(
         'name' => $product->name,
         'slug' => $product->slug,
         'version' => $tag,
         'download_url' => $download_url,
-        'tested' => '6.4', // GitHub doesn't provide this, use default
-        'requires' => '5.0', // GitHub doesn't provide this, use default
-        'requires_php' => '7.4', // GitHub doesn't provide this, use default
+        'tested' => $tested,
+        'requires' => $requires,
+        'requires_php' => $requires_php,
         'last_updated' => $github_data->published_at ?? date('Y-m-d H:i:s'),
-        'sections' => array(
+        'sections' => (object) array(
           'description' => $description,
+          'installation' => $installation,
           'changelog' => $changelog,
         ),
         'banners' => array(),
