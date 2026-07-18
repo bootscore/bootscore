@@ -12,6 +12,7 @@
 // Exit if accessed directly
 defined('ABSPATH') || exit;
 
+
 if (!class_exists('Bootscore_Update_Checker')) {
 
   class Bootscore_Update_Checker {
@@ -209,6 +210,10 @@ if (!class_exists('Bootscore_Update_Checker')) {
 
       $data = json_decode(wp_remote_retrieve_body($response));
 
+      if (!empty($data) && isset($data->tested)) {
+        $data->tested = $this->normalize_tested_version($data->tested);
+      }
+
       if (!empty($data)) {
         set_transient($cache_key, $data, $this->cache_time);
       }
@@ -374,6 +379,45 @@ if (!class_exists('Bootscore_Update_Checker')) {
     }
 
     /**
+     * Get the site's WP version truncated to major.minor (e.g. '7.0.1' -> '7.0'),
+     * matching the WordPress convention used for 'Tested up to' declarations.
+     *
+     * @return string
+     */
+    private function get_wp_major_minor() {
+      $version = get_bloginfo('version');
+      $parts = explode('.', $version);
+      return implode('.', array_slice($parts, 0, 2));
+    }
+
+    /**
+     * Pad a major.minor-only 'tested' value (e.g. '7.0') with a high patch
+     * number (e.g. '7.0.9'). WordPress core's own compatibility badge does a
+     * literal version_compare() against the site's full running version, so
+     * a bare '7.0' fails against a running '7.0.1' even though the developer
+     * meant "compatible with the whole 7.0.x line". wp.org's plugin API does
+     * this same padding server-side before core ever sees the value; since
+     * we're not going through wp.org, we do it here instead.
+     *
+     * @param string $tested Raw 'tested' value (e.g. from readme.txt or info.json)
+     * @return string
+     */
+    private function normalize_tested_version($tested) {
+      if (empty($tested)) {
+        return $tested;
+      }
+
+      $parts = explode('.', trim($tested));
+
+      if (count($parts) === 2) {
+        $parts[] = '9';
+        return implode('.', $parts);
+      }
+
+      return $tested;
+    }
+
+    /**
      * Fetch a public repo's readme.txt at the exact release tag (not 'main'),
      * so the docs shown always match the version being offered as an update.
      *
@@ -516,7 +560,7 @@ if (!class_exists('Bootscore_Update_Checker')) {
         $changelog = !empty($readme['sections']['changelog'])
           ? $this->markdown_lite_to_html($readme['sections']['changelog'])
           : '';
-        $tested = $product->tested ?: ($readme['tested'] ?: get_bloginfo('version'));
+        $tested = $product->tested ?: ($readme['tested'] ?: $this->get_wp_major_minor());
         $requires = $product->requires ?: ($readme['requires'] ?: '5.0');
         $requires_php = $product->requires_php ?: ($readme['requires_php'] ?: '7.4');
       } else {
@@ -529,10 +573,12 @@ if (!class_exists('Bootscore_Update_Checker')) {
         $changelog = !empty($sections['changelog'])
           ? $this->markdown_lite_to_html($sections['changelog'])
           : '';
-        $tested = $product->tested ?: get_bloginfo('version');
+        $tested = $product->tested ?: $this->get_wp_major_minor();
         $requires = $product->requires ?: '5.0';
         $requires_php = $product->requires_php ?: '7.4';
       }
+
+      $tested = $this->normalize_tested_version($tested);
 
       return (object) array(
         'name' => $product->name,
