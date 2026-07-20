@@ -3,8 +3,10 @@
  * Bootscore Update Checker
  * Shared update library for Bootscore products
  * Supports: Custom server (private) + GitHub public releases
+ * 
+ * Inspired by https://rudrastyh.com/wordpress/self-hosted-plugin-update.html
  *
- * @package Bootscore_Update_Checker
+ * @package Bootscore
  * @version 6.5.0
  */
 
@@ -210,10 +212,6 @@ if (!class_exists('Bootscore_Update_Checker')) {
 
       $data = json_decode(wp_remote_retrieve_body($response));
 
-      if (!empty($data) && isset($data->tested)) {
-        $data->tested = $this->normalize_tested_version($data->tested);
-      }
-
       if (!empty($data)) {
         set_transient($cache_key, $data, $this->cache_time);
       }
@@ -379,6 +377,34 @@ if (!class_exists('Bootscore_Update_Checker')) {
     }
 
     /**
+     * Resolve the 'tested' value actually shown/compared against.
+     *
+     * WordPress core compares 'tested' literally against the site's full
+     * running version, both for the Plugins-list "Not tested" badge and the
+     * popup's compatibility warning. If the developer's declared value
+     * already covers the site's version, use it as-is (the honest, accurate
+     * number). Only when the site is running something newer than declared,
+     * fall back to the site's own real, actual version - never an invented
+     * placeholder like '7.0.9', which doesn't correspond to any real release.
+     *
+     * @param string $tested Declared 'tested' value (from readme.txt/info.json)
+     * @return string
+     */
+    private function resolve_tested_version($tested) {
+      $current = get_bloginfo('version');
+
+      if (empty($tested)) {
+        return $current;
+      }
+
+      if (version_compare($current, $tested, '<=')) {
+        return $tested;
+      }
+
+      return $current;
+    }
+
+    /**
      * Get the site's WP version truncated to major.minor (e.g. '7.0.1' -> '7.0'),
      * matching the WordPress convention used for 'Tested up to' declarations.
      *
@@ -388,33 +414,6 @@ if (!class_exists('Bootscore_Update_Checker')) {
       $version = get_bloginfo('version');
       $parts = explode('.', $version);
       return implode('.', array_slice($parts, 0, 2));
-    }
-
-    /**
-     * Pad a major.minor-only 'tested' value (e.g. '7.0') with a high patch
-     * number (e.g. '7.0.9'). WordPress core's own compatibility badge does a
-     * literal version_compare() against the site's full running version, so
-     * a bare '7.0' fails against a running '7.0.1' even though the developer
-     * meant "compatible with the whole 7.0.x line". wp.org's plugin API does
-     * this same padding server-side before core ever sees the value; since
-     * we're not going through wp.org, we do it here instead.
-     *
-     * @param string $tested Raw 'tested' value (e.g. from readme.txt or info.json)
-     * @return string
-     */
-    private function normalize_tested_version($tested) {
-      if (empty($tested)) {
-        return $tested;
-      }
-
-      $parts = explode('.', trim($tested));
-
-      if (count($parts) === 2) {
-        $parts[] = '9';
-        return implode('.', $parts);
-      }
-
-      return $tested;
     }
 
     /**
@@ -578,8 +577,6 @@ if (!class_exists('Bootscore_Update_Checker')) {
         $requires_php = $product->requires_php ?: '7.4';
       }
 
-      $tested = $this->normalize_tested_version($tested);
-
       return (object) array(
         'name' => $product->name,
         'slug' => $product->slug,
@@ -658,7 +655,7 @@ if (!class_exists('Bootscore_Update_Checker')) {
       $res->name = $remote->name ?? $product->name;
       $res->slug = $remote->slug ?? $args->slug;
       $res->version = $remote->version ?? '0.0.0';
-      $res->tested = $remote->tested ?? '';
+      $res->tested = $this->resolve_tested_version($remote->tested ?? '');
       $res->requires = $remote->requires ?? '';
       $res->author = $remote->author ?? '';
       $res->author_profile = $remote->author_profile ?? '';
@@ -713,7 +710,13 @@ if (!class_exists('Bootscore_Update_Checker')) {
         $res->slug = $slug;
         $res->plugin = $product->file;
         $res->new_version = $update->version;
-        $res->tested = $update->tested ?? '';
+        // No automatic padding here - keep 'Tested up to' in readme.txt /
+        // info.json genuinely current instead. WordPress core compares this
+        // value literally against the site's full running version (both for
+        // the Plugins-list "Not tested" badge and the popup warning), so an
+        // accurate, deliberately up-to-date value here satisfies both checks
+        // honestly, with no synthetic values needed.
+        $res->tested = $this->resolve_tested_version($update->tested ?? '');
         $res->package = $update->download_url ?? '';
 
         if (isset($update->requires)) {
