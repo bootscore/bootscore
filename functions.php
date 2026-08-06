@@ -6,7 +6,7 @@
  * @link https://developer.wordpress.org/themes/basics/theme-functions/
  *
  * @package Bootscore
- * @version 6.4.0
+ * @version 6.5.0
  */
 
 
@@ -17,6 +17,8 @@ defined('ABSPATH') || exit;
 /**
  * Update Checker
  * https://github.com/YahnisElsts/plugin-update-checker
+ * 
+ * Deprecated, the PUC will be replaced in v7 by the new Bootscore updater
  */
 require 'inc/update/plugin-update-checker.php';
 use YahnisElsts\PluginUpdateChecker\v5\PucFactory;
@@ -51,6 +53,7 @@ require_once get_template_directory() . '/inc/template-functions.php';      // F
 require_once get_template_directory() . '/inc/widgets.php';                 // Register widget area and disables Gutenberg in widgets
 require_once get_template_directory() . '/inc/deprecated.php';              // Fallback functions being dropped in v6
 require_once get_template_directory() . '/inc/tinymce-editor.php';          // Fix body margin and font-family in backend if classic editor is used
+//require_once get_template_directory() . '/inc/updater/updater-config.php'; // Load theme's own update configuration
 
 // Blocks
 // Patterns
