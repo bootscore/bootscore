@@ -2,7 +2,7 @@
 
 /**
  * The sidebar containing the main widget area
- * Template Version: 6.3.1
+ * Template Version: 6.5.0
  *
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
@@ -14,7 +14,7 @@
 defined('ABSPATH') || exit;
 
 
-if (!is_active_sidebar('sidebar-1')) {
+if (!apply_filters('bootscore/sidebar/has_widgets', is_active_sidebar('sidebar-1'), 'sidebar-1')) {
   return;
 }
 ?>
