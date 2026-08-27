@@ -1,5 +1,5 @@
 /*--------------------------------------------------------------
-Utilities - Bootscore v6.4.0
+Utilities - Bootscore v7.0.0
 --------------------------------------------------------------*/
 
 
@@ -60,21 +60,5 @@ Utilities - Bootscore v6.4.0
 
   &::-webkit-scrollbar {
     display: none;
-  }
-}
-
-// Hide elements based on [data-bs-theme=""]
-.d-tl-none {
-  display: none;
-}
-
-[data-bs-theme="dark"] {
-
-  .d-td-none {
-    display: none;
-  }
-
-  .d-tl-none {
-    display: block;
   }
 }

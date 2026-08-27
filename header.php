@@ -2,7 +2,7 @@
 
 /**
  * The header for our theme
- * Template Version: 6.3.1
+ * Template Version: 7.0.0
  *
  * This is the template that displays all of the <head> section and everything up until <div id="content">
  *
@@ -54,8 +54,11 @@ defined('ABSPATH') || exit;
         
         <!-- Navbar Brand -->
         <a class="<?= esc_attr(apply_filters('bootscore/class/header/navbar-brand', 'navbar-brand')); ?>" href="<?= esc_url(home_url()); ?>">
-          <img src="<?= esc_url(apply_filters('bootscore/logo', get_stylesheet_directory_uri() . '/assets/img/logo/logo.svg', 'default')); ?>" alt="<?= esc_attr(get_bloginfo('name')); ?> Logo" class="d-td-none">
-          <img src="<?= esc_url(apply_filters('bootscore/logo', get_stylesheet_directory_uri() . '/assets/img/logo/logo-theme-dark.svg', 'theme-dark')); ?>" alt="<?= esc_attr(get_bloginfo('name')); ?> Logo" class="d-tl-none">
+          <picture>
+            <source srcset="<?= esc_url(apply_filters('bootscore/logo', get_stylesheet_directory_uri() . '/assets/img/logo/logo-theme-dark.svg', 'theme-dark')); ?>"  media="(prefers-color-scheme: dark)"/>
+            <!-- Add a filter to width & height -->
+            <img src="<?= esc_url(apply_filters('bootscore/logo', get_stylesheet_directory_uri() . '/assets/img/logo/logo.svg', 'default')); ?>" alt="<?= esc_attr(get_bloginfo('name')); ?> Logo" width="30" height="30"/>
+          </picture>
         </a>  
         
         <?php do_action( 'bootscore_after_navbar_brand' ); ?>
