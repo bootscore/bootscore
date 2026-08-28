@@ -2,7 +2,7 @@
 
 /**
  * Template part for displaying the top-nav searchform collapse widget
- * Template Version: 6.3.1
+ * Template Version: 7.0.0
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
@@ -17,7 +17,7 @@ defined('ABSPATH') || exit;
 
 
 <!-- Collapse Search Mobile -->
-<?php if (is_active_sidebar('top-nav-search')) : ?>
+<?php if (apply_filters('bootscore/sidebar/has_widgets', is_active_sidebar('top-nav-search'), 'top-nav-search')) : ?>
   <div class="collapse <?= esc_attr(apply_filters('bootscore/class/header/collapse', 'bg-body-tertiary position-absolute start-0 end-0')); ?> d-<?= esc_attr(apply_filters('bootscore/class/header/search/breakpoint', 'lg')); ?>-none" id="collapse-search">
     <div class="<?= esc_attr(apply_filters('bootscore/class/container', 'container', 'collapse-search')); ?> pb-2">
       <?php dynamic_sidebar('top-nav-search'); ?>
