@@ -1,14 +1,8 @@
 /*--------------------------------------------------------------
-WooCommerce Deprecated - Bootscore v6.4.0
+WooCommerce Deprecated - Bootscore v7.0.0
 --------------------------------------------------------------*/
 
 
-// Checkout coupon message
-// The message will be deleted in WC 9.8 and this can be removed after WC 9.8 release
-// This makes sure that coupon will work in WC 9.7 and 9.8 with or without the message
-.woocommerce form.checkout_coupon p:first-child:not(.form-row-first) {
-  width: 100%;
-}
 
 
 // Show password icon 
@@ -17,16 +11,3 @@ WooCommerce Deprecated - Bootscore v6.4.0
   --wc-form-color-text: var(--#{$prefix}body-color);
 }
 
-
-// Default woocommerce_breadcrumb
-// https://github.com/bootscore/bootscore/pull/1152
-.wc-breadcrumb {
-
-  // Additional code for WC breadcrumbs, 
-  // as the WC breadcrumb function does not allow for custom 
-  // class for last child
-  .breadcrumb-item:last-child {
-    color: var(--#{$prefix}breadcrumb-item-active-color);
-    padding-right: $spacer;
-  }
-}
