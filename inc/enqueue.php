@@ -4,7 +4,7 @@
  * Enqueue styles & scripts
  *
  * @package Bootscore 
- * @version 6.5.0
+ * @version 7.0.0
  */
 
 
@@ -21,10 +21,9 @@ function bootscore_scripts() {
   $modificated_bootscoreCss   = (file_exists(get_template_directory() . '/assets/css/main.css')) ? date('YmdHi', filemtime(get_template_directory() . '/assets/css/main.css')) : 1;
   $modificated_styleCss       = date('YmdHi', filemtime(get_stylesheet_directory() . '/style.css'));
   $modificated_fontawesomeCss = date('YmdHi', filemtime(get_template_directory() . '/assets/fontawesome/css/all.min.css'));
-  $modificated_bootstrapJs    = date('YmdHi', filemtime(get_template_directory() . '/assets/js/lib/bootstrap.bundle.min.js'));
-  $modificated_themeJs        = date('YmdHi', filemtime(get_template_directory() . '/assets/js/theme.js'));
+  $modificated_bootscoreJs    = date('YmdHi', filemtime(get_template_directory() . '/assets/js/bootscore.min.js'));
 
-  // Bootscore
+  // Bootscore CSS
   $bootscore_disable_compiler = apply_filters('bootscore/scss/disable_compiler', (defined('BOOTSCORE_SCSS_DISABLE_COMPILER') && BOOTSCORE_SCSS_DISABLE_COMPILER));
   if ( ! $bootscore_disable_compiler ) {
     require_once 'scss-compiler.php';
@@ -40,11 +39,8 @@ function bootscore_scripts() {
     wp_enqueue_style('fontawesome', get_template_directory_uri() . '/assets/fontawesome/css/all.min.css', array(), $modificated_fontawesomeCss);
   }
 
-  // Bootstrap JS
-  wp_enqueue_script('bootstrap', get_template_directory_uri() . '/assets/js/lib/bootstrap.bundle.min.js', array(), $modificated_bootstrapJs, true);
-
-  // Theme JS
-  wp_enqueue_script('bootscore-script', get_template_directory_uri() . '/assets/js/theme.js', array('jquery'), $modificated_themeJs, true);
+  // Bootscore JS
+  wp_enqueue_script('bootstrap', get_template_directory_uri() . '/assets/js/bootscore.min.js', array(), $modificated_bootscoreJs, true);
 
   if (is_singular() && comments_open() && get_option('thread_comments')) {
     wp_enqueue_script('comment-reply');
