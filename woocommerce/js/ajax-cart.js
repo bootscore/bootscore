@@ -16,7 +16,9 @@ jQuery(function ($) {
   // 1 Handle AJAX Add To Cart
 
   // 1.1 Enable AJAX for single product pages
-  $('form.cart').on('submit', function (e) {
+  // The handler is namespaced so third parties can unbind it in a supported way:
+  // $('form.cart').off('submit.bootscoreAjaxAddToCart');
+  $('form.cart').on('submit.bootscoreAjaxAddToCart', function (e) {
     // Only apply to single product pages, not external products
     if (!$(this).closest('.product-type-external').length) {
       e.preventDefault();
