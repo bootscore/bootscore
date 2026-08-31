@@ -30,7 +30,7 @@ if (apply_filters('bootscore/enable_account', true)) {
   // Do nothing
   } else { ?>
     <button class="<?= esc_attr(apply_filters('bootscore/class/header/button', 'btn btn-outline-secondary', 'account-toggler')); ?> <?= esc_attr(apply_filters('bootscore/class/header/action/spacer', 'ms-1 ms-md-2', 'account-toggler')); ?> account-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas-user" aria-controls="offcanvas-user" aria-label="<?php esc_attr_e( 'Account toggler', 'bootscore' ); ?>">
-      <?= wp_kses_post(apply_filters('bootscore/icon/user', '<i class="fa-solid fa-user"></i>')); ?> <span class="visually-hidden-focusable">Account</span>
+      <?= wp_kses( apply_filters('bootscore/icon/user', '<svg class="bs-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512l388.6 0c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304l-91.4 0z"/></svg>'), bootscore_kses_allowed_svg( wp_kses_allowed_html( 'post' ) )); ?>
     </button>
   <?php } 
  }
