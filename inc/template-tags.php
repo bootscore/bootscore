@@ -6,7 +6,7 @@
  * Eventually, some of the functionality here could be replaced by core features.
  *
  * @package Bootscore
- * @version 6.4.0
+ * @version 7.0.0
  */
 
 
@@ -75,7 +75,15 @@ if (!function_exists('bootscore_date')) :
       if (!$show_updated_time) {
         $time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time>';
       } else {
-        $time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time> <span class="time-updated-separator">/</span> <time class="updated" datetime="%3$s">%4$s</time>';
+        $icon = wp_kses(
+          apply_filters(
+            'bootscore/icon/arrow-rotate',
+            '<svg class="bs-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" aria-hidden="true"><path d="M105.1 202.6c7.7-21.8 20.2-42.3 37.8-59.8c62.5-62.5 163.8-62.5 226.3 0L386.3 160 352 160c-17.7 0-32 14.3-32 32s14.3 32 32 32l111.5 0c0 0 0 0 0 0l.4 0c17.7 0 32-14.3 32-32l0-112c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 35.2L414.4 97.6c-87.5-87.5-229.3-87.5-316.8 0C73.2 122 55.6 150.7 44.8 181.4c-5.9 16.7 2.9 34.9 19.5 40.8s34.9-2.9 40.8-19.5zM39 289.3c-5 1.5-9.8 4.2-13.7 8.2c-4 4-6.7 8.8-8.1 14c-.3 1.2-.6 2.5-.8 3.8c-.3 1.7-.4 3.4-.4 5.1L16 432c0 17.7 14.3 32 32 32s32-14.3 32-32l0-35.1 17.6 17.5c0 0 0 0 0 0c87.5 87.4 229.3 87.4 316.7 0c24.4-24.4 42.1-53.1 52.9-83.8c5.9-16.7-2.9-34.9-19.5-40.8s-34.9 2.9-40.8 19.5c-7.7 21.8-20.2 42.3-37.8 59.8c-62.5 62.5-163.8 62.5-226.3 0l-.1-.1L125.6 352l34.4 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L48.4 288c-1.6 0-3.2 .1-4.8 .3s-3.1 .5-4.6 1z"/></svg>'
+          ),
+          bootscore_kses_allowed_svg( wp_kses_allowed_html( 'post' ) )
+        );
+
+        $time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time> <span class="time-updated-separator">/</span> ' . $icon . ' <time class="updated" datetime="%3$s">%4$s</time>';
       }
     }
 
@@ -145,7 +153,7 @@ if (!function_exists('bootscore_comments')) :
   function bootscore_comments() {
 
     if (!is_single() && !post_password_required() && (comments_open() || get_comments_number())) {
-      echo ' <span class="comment-divider">|</span> ' . wp_kses_post(apply_filters('bootscore/icon/comments', '<i class="fa-regular fa-comments"></i>')) . ' <span class="comments-link">';
+      echo ' <span class="comment-divider">|</span> ' . wp_kses( apply_filters('bootscore/icon/comments', '<svg class="bs-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" aria-hidden="true"><path d="M123.6 391.3c12.9-9.4 29.6-11.8 44.6-6.4c26.5 9.6 56.2 15.1 87.8 15.1c124.7 0 208-80.5 208-160s-83.3-160-208-160S48 160.5 48 240c0 32 12.4 62.8 35.7 89.2c8.6 9.7 12.8 22.5 11.8 35.5c-1.4 18.1-5.7 34.7-11.3 49.4c17-7.9 31.1-16.7 39.4-22.7zM21.2 431.9c1.8-2.7 3.5-5.4 5.1-8.1c10-16.6 19.5-38.4 21.4-62.9C17.7 326.8 0 285.1 0 240C0 125.1 114.6 32 256 32s256 93.1 256 208s-114.6 208-256 208c-37.1 0-72.3-6.4-104.1-17.9c-11.9 8.7-31.3 20.6-54.3 30.6c-15.1 6.6-32.3 12.6-50.1 16.1c-.8 .2-1.6 .3-2.4 .5c-4.4 .8-8.7 1.5-13.2 1.9c-.2 0-.5 .1-.7 .1c-5.1 .5-10.2 .8-15.3 .8c-6.5 0-12.3-3.9-14.8-9.9c-2.5-6-1.1-12.8 3.4-17.4c4.1-4.2 7.8-8.7 11.3-13.5c1.7-2.3 3.3-4.6 4.8-6.9l.3-.5z"/></svg>'), bootscore_kses_allowed_svg( wp_kses_allowed_html( 'post' ) ) ) . ' <span class="comments-link">';
       comments_popup_link(
         sprintf(
           wp_kses(
@@ -204,13 +212,10 @@ if (!function_exists('bootscore_comment_count')) :
    */
   function bootscore_comment_count() {
     if (!post_password_required() && (comments_open() || get_comments_number())) {
-      echo ' <span class="comment-divider">|</span> ' . wp_kses_post(apply_filters('bootscore/icon/comments', '<i class="fa-regular fa-comments"></i>')) . ' <span class="comments-link">';
-
+      echo ' <span class="comment-divider">|</span> ' . wp_kses( apply_filters('bootscore/icon/comments', '<svg class="bs-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" aria-hidden="true"><path d="M123.6 391.3c12.9-9.4 29.6-11.8 44.6-6.4c26.5 9.6 56.2 15.1 87.8 15.1c124.7 0 208-80.5 208-160s-83.3-160-208-160S48 160.5 48 240c0 32 12.4 62.8 35.7 89.2c8.6 9.7 12.8 22.5 11.8 35.5c-1.4 18.1-5.7 34.7-11.3 49.4c17-7.9 31.1-16.7 39.4-22.7zM21.2 431.9c1.8-2.7 3.5-5.4 5.1-8.1c10-16.6 19.5-38.4 21.4-62.9C17.7 326.8 0 285.1 0 240C0 125.1 114.6 32 256 32s256 93.1 256 208s-114.6 208-256 208c-37.1 0-72.3-6.4-104.1-17.9c-11.9 8.7-31.3 20.6-54.3 30.6c-15.1 6.6-32.3 12.6-50.1 16.1c-.8 .2-1.6 .3-2.4 .5c-4.4 .8-8.7 1.5-13.2 1.9c-.2 0-.5 .1-.7 .1c-5.1 .5-10.2 .8-15.3 .8c-6.5 0-12.3-3.9-14.8-9.9c-2.5-6-1.1-12.8 3.4-17.4c4.1-4.2 7.8-8.7 11.3-13.5c1.7-2.3 3.3-4.6 4.8-6.9l.3-.5z"/></svg>'), bootscore_kses_allowed_svg( wp_kses_allowed_html( 'post' ) ) ) . ' <span class="comments-link">';
       /* translators: %s: Name of current post. Only visible to screen readers. */
       // comments_popup_link( sprintf( __( 'Leave a comment<span class="screen-reader-text"> on %s</span>', 'bootscore' ), get_the_title() ) );
       comments_popup_link(sprintf(__('Leave a comment', 'bootscore'), get_the_title()));
-
-
       echo '</span>';
     }
   }
@@ -250,7 +255,7 @@ if (!function_exists('bootscore_tags')) :
 
     // Check if icon should be shown
     if (apply_filters('bootscore/show/tag/icon', true)) {
-      $icon = wp_kses_post(apply_filters('bootscore/icon/tag', '<i class="fa-solid fa-tag"></i>')) . ' ';
+      $icon = wp_kses( apply_filters('bootscore/icon/tag', '<svg class="bs-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" aria-hidden="true"><path d="M0 80L0 229.5c0 17 6.7 33.3 18.7 45.3l176 176c25 25 65.5 25 90.5 0L418.7 317.3c25-25 25-65.5 0-90.5l-176-176c-12-12-28.3-18.7-45.3-18.7L48 32C21.5 32 0 53.5 0 80zm112 32a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"/></svg>'), bootscore_kses_allowed_svg( wp_kses_allowed_html( 'post' ) ) ) . ' ';
     } else {
       $icon = '';
     }
