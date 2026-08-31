@@ -2,7 +2,7 @@
 
 /**
  * The sidebar containing the main widget area
- * Template Version: 6.5.0
+ * Template Version: 7.0.0
  *
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
@@ -22,7 +22,7 @@ if (!apply_filters('bootscore/sidebar/has_widgets', is_active_sidebar('sidebar-1
   <aside id="secondary" class="widget-area">
 
     <button class="<?= esc_attr(apply_filters('bootscore/class/sidebar/button', 'd-lg-none btn btn-outline-primary w-100 mb-4 d-flex justify-content-between align-items-center')); ?>" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebar" aria-controls="sidebar">
-      <?= esc_html(apply_filters('bootscore/offcanvas/sidebar/button/text', __('Open side menu', 'bootscore'))); ?> <?= wp_kses_post(apply_filters('bootscore/icon/ellipsis-vertical', '<i class="fa-solid fa-ellipsis-vertical"></i>')); ?>
+      <?= esc_html(apply_filters('bootscore/offcanvas/sidebar/button/text', __('Open side menu', 'bootscore'))); ?> <?= wp_kses( apply_filters('bootscore/icon/ellipsis-vertical', '<svg class="bs-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 512"><!--!Font Awesome Free v6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.--><path d="M64 360a56 56 0 1 0 0 112 56 56 0 1 0 0-112zm0-160a56 56 0 1 0 0 112 56 56 0 1 0 0-112zM120 96A56 56 0 1 0 8 96a56 56 0 1 0 112 0z"/></svg>'), bootscore_kses_allowed_svg( wp_kses_allowed_html( 'post' ) )); ?>
     </button>
 
     <div class="<?= esc_attr(apply_filters('bootscore/class/sidebar/offcanvas', 'offcanvas-lg offcanvas-end')); ?>" tabindex="-1" id="sidebar" aria-labelledby="sidebarLabel">
