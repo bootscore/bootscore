@@ -2,7 +2,7 @@
 
 /**
  * The template for displaying the footer
- * Template Version: 6.3.1
+ * Template Version: 7.0.0
  *
  * Contains the closing of the #content div and all content after.
  *
@@ -93,7 +93,7 @@ defined('ABSPATH') || exit;
 </footer>
 
 <!-- To top button -->
-<a href="#" class="<?= esc_attr(apply_filters('bootscore/class/footer/to_top_button', 'btn btn-primary shadow')); ?> position-fixed zi-1000 top-button" role="button" aria-label="<?php esc_attr_e('Return to top', 'bootscore' ); ?>"><?= wp_kses_post(apply_filters('bootscore/icon/chevron-up', '<i class="fa-solid fa-chevron-up" aria-hidden="true"></i>')); ?></a>
+<a href="#" class="<?= esc_attr(apply_filters('bootscore/class/footer/to_top_button', 'btn btn-primary shadow')); ?> position-fixed zi-1000 top-button" role="button" aria-label="<?php esc_attr_e('Return to top', 'bootscore' ); ?>"><?= wp_kses( apply_filters('bootscore/icon/chevron-up', '<svg class="bs-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" aria-hidden="true"><path d="M233.4 105.4c12.5-12.5 32.8-12.5 45.3 0l192 192c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L256 173.3 86.6 342.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l192-192z"/></svg>'), bootscore_kses_allowed_svg( wp_kses_allowed_html( 'post' ) )); ?></a>
 
 </div><!-- #page -->
 

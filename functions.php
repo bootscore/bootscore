@@ -24,7 +24,7 @@ require_once get_template_directory() . '/inc/comments.php';                // C
 require_once get_template_directory() . '/inc/enable-html.php';             // Enable HTML in category and author description
 require_once get_template_directory() . '/inc/enqueue.php';                 // Enqueue scripts and styles
 require_once get_template_directory() . '/inc/excerpt.php';                 // Adds excerpt to pages
-require_once get_template_directory() . '/inc/fontawesome.php';             // Adds shortcode for inserting Font Awesome icons
+require_once get_template_directory() . '/inc/icons.php';                   // Allowed HTML for inline SVG icons output via bootscore/icon/* filters
 require_once get_template_directory() . '/inc/navwalker.php';               // Register the Bootstrap 5 navwalker
 require_once get_template_directory() . '/inc/navmenu.php';                 // Register the nav menus
 require_once get_template_directory() . '/inc/pagination.php';              // Pagination for loop and single posts

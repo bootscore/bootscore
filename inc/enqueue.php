@@ -20,7 +20,6 @@ function bootscore_scripts() {
   // Get modification time. Enqueue files with modification date to prevent browser from loading cached scripts and styles when file content changes.
   $modificated_bootscoreCss   = (file_exists(get_template_directory() . '/assets/css/main.css')) ? date('YmdHi', filemtime(get_template_directory() . '/assets/css/main.css')) : 1;
   $modificated_styleCss       = date('YmdHi', filemtime(get_stylesheet_directory() . '/style.css'));
-  $modificated_fontawesomeCss = date('YmdHi', filemtime(get_template_directory() . '/assets/fontawesome/css/all.min.css'));
   $modificated_bootscoreJs    = date('YmdHi', filemtime(get_template_directory() . '/assets/js/bootscore.min.js'));
 
   // Bootscore CSS
@@ -33,11 +32,6 @@ function bootscore_scripts() {
 
   // Style CSS
   wp_enqueue_style('bootscore-style', get_stylesheet_uri(), array(), $modificated_styleCss);
-
-  // Fontawesome
-  if (apply_filters('bootscore/load_fontawesome', true)) {
-    wp_enqueue_style('fontawesome', get_template_directory_uri() . '/assets/fontawesome/css/all.min.css', array(), $modificated_fontawesomeCss);
-  }
 
   // Bootscore JS
   wp_enqueue_script('bootstrap', get_template_directory_uri() . '/assets/js/bootscore.min.js', array(), $modificated_bootscoreJs, true);
@@ -78,21 +72,3 @@ function bootscore_enqueue_editor_and_pattern_library_styles($hook_suffix) {
   }
 }
 add_action('admin_enqueue_scripts', 'bootscore_enqueue_editor_and_pattern_library_styles');
-
-
-/**
- * Preload Font Awesome stylesheet
- */
-function bootscore_fa_preload( $html, $handle, $href, $media ) {
-
-	if ( 'fontawesome' !== $handle ) {
-		return $html;
-	}
-
-	return sprintf(
-		'<link rel="preload" href="%1$s" as="style" onload="this.onload=null;this.rel=\'stylesheet\'">' .
-		'<noscript><link rel="stylesheet" href="%1$s"></noscript>',
-		esc_url( $href )
-	);
-}
-add_filter( 'style_loader_tag', 'bootscore_fa_preload', 10, 4 );

@@ -4,7 +4,7 @@
  * Search Block Widget
  *
  * @package Bootscore
- * @version 6.3.1
+ * @version 7.0.0
  */
 
 
@@ -25,6 +25,10 @@ if (!function_exists('bootscore_block_widget_search_classes')) {
    */
   function bootscore_block_widget_search_classes($block_content, $block) {
 
+    // Input needs trailing margin when the button sits outside the input wrapper.
+    $button_position = $block['attrs']['buttonPosition'] ?? 'button-outside';
+    $input_spacer    = ('button-inside' !== $button_position) ? ' ' . esc_attr(apply_filters('bootscore/class/widget/search/input/spacer', 'me-2')) : '';
+
     $search  = array(
       '<form ',
       'wp-block-search__input ',
@@ -36,10 +40,16 @@ if (!function_exists('bootscore_block_widget_search_classes')) {
     );
     $replace = array(
       '<form novalidate="novalidate" ',
-      'wp-block-search__input form-control ',
-      'wp-block-search__input form-control"',
-      'wp-block-search__button ' . esc_attr(apply_filters('bootscore/class/widget/search/button', 'btn btn-outline-secondary')) . ' ',
-      wp_kses_post(apply_filters('bootscore/icon/search', '<i class="fa-solid fa-magnifying-glass"></i>'))
+      'wp-block-search__input form-control' . $input_spacer . ' ',
+      'wp-block-search__input form-control' . $input_spacer . '"',
+      'wp-block-search__btn ' . esc_attr(apply_filters('bootscore/class/widget/search/button', 'btn btn-outline-secondary')) . ' ',
+      wp_kses(
+        apply_filters(
+          'bootscore/icon/search',
+          '<svg class="bs-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" aria-hidden="true"><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"/></svg>'
+        ),
+        bootscore_kses_allowed_svg( wp_kses_allowed_html( 'post' ) )
+      )
     );
 
     if (isset($block['attrs']['buttonPosition']) && 'button-inside' === $block['attrs']['buttonPosition']) {
