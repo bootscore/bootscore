@@ -4,7 +4,7 @@
  * Navwalker
  *
  * @package Bootscore
- * @version 6.4.0
+ * @version 7.0.0
  */
 
 
@@ -163,7 +163,7 @@ if (!function_exists('bootscore_register_navwalker')) :
 
         $item_output = $args->before;
         $item_output .= '<a' . $attributes . '>';
-        $item_output .= $args->link_before . wp_kses_post(apply_filters('the_title', $item->title, $item->ID)) . $args->link_after;
+        $item_output .= $args->link_before . wp_kses( apply_filters('the_title', $item->title, $item->ID), bootscore_kses_allowed_svg( wp_kses_allowed_html( 'post' ) ) ) . $args->link_after;
         $item_output .= '</a>';
         $item_output .= $args->after;
 
