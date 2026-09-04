@@ -217,17 +217,17 @@ class BootscoreScssCompiler {
  * @return boolean True when child theme has scss files.
  */
 function bootscore_child_has_scss() {
-  return file_exists(get_stylesheet_directory() . '/assets/scss/main.scss');
+  return file_exists(get_stylesheet_directory() . '/assets/scss/bootscore.scss');
 }
 
 function bootscore_compile_scss() {
-  // Compile the main.scss file
-  $scss_compiler_main = new BootscoreScssCompiler();
-  $scss_compiler_main->scssFile('/assets/scss/main.scss')
-                     ->cssFile('/assets/css/main.css')
-                     ->addModifiedCheckTheme()
-                     ->addModifiedCheck(get_template_directory() . '/assets/scss/bootstrap/bootstrap.scss', false)
-                     ->compile();
+  // Compile the bootscore.min.scss file
+  $scss_compiler_bootscore = new BootscoreScssCompiler();
+  $scss_compiler_bootscore->scssFile('/assets/scss/bootscore.scss')
+                          ->cssFile('/assets/css/bootscore.min.css')
+                          ->addModifiedCheckTheme()
+                          ->addModifiedCheck(get_template_directory() . '/assets/scss/bootstrap/bootstrap.scss', false)
+                          ->compile();
 
   // Compile the editor.scss file
   $scss_compiler_editor = new BootscoreScssCompiler();
