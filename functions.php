@@ -21,6 +21,7 @@ require_once get_template_directory() . '/inc/theme-setup.php';             // T
 require_once get_template_directory() . '/inc/breadcrumb.php';              // Breadcrumb
 require_once get_template_directory() . '/inc/columns.php';                 // Main/sidebar column width and breakpoints
 require_once get_template_directory() . '/inc/comments.php';                // Comments
+require_once get_template_directory() . '/inc/picosass-compiler-integration.php';                // Picosass compiler
 require_once get_template_directory() . '/inc/enable-html.php';             // Enable HTML in category and author description
 require_once get_template_directory() . '/inc/enqueue.php';                 // Enqueue scripts and styles
 require_once get_template_directory() . '/inc/excerpt.php';                 // Adds excerpt to pages
