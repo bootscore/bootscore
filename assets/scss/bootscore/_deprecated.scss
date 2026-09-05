@@ -1,5 +1,5 @@
 /*--------------------------------------------------------------
-Deprecated - Bootscore v6.4.0. This code will be removed in v7.
+Deprecated - Bootscore v7.0.0. This code will be removed in v7.
 --------------------------------------------------------------*/
 
 
@@ -14,15 +14,6 @@ Deprecated - Bootscore v6.4.0. This code will be removed in v7.
   p:not(:last-child) {
     margin-block-end: $spacer;
   }
-}
-
-
-//Add width-100 class to element to stretch it to the entire width of the screen when element is wrapped inside .container.
-.width-100 {
-  position: relative;
-  width: 100vw;
-  margin-left: -50vw;
-  left: 50%;
 }
 
 
@@ -57,28 +48,6 @@ body {
   }
 }
 
-
-
-// Loop https://github.com/bootscore/bootscore/pull/1188
-
-// Horizontal card images
-
-// category.php, archive.php, author.php and search results
-@include media-breakpoint-down(lg) {
-  .card-img-lg-start {
-    border-top-left-radius: var(--#{$prefix}card-inner-border-radius);
-    border-top-right-radius: var(--#{$prefix}card-inner-border-radius);
-  }
-}
-
-@include media-breakpoint-up(lg) {
-  .card-img-lg-start {
-    border-top-left-radius: var(--#{$prefix}card-inner-border-radius);
-    border-bottom-left-radius: var(--#{$prefix}card-inner-border-radius);
-    object-fit: cover;
-    height: 100%;
-  }
-}
 
 // Responsive image height in (new) cards-horizontal.php loop card template
 // Class h-100 creates issue with bs Swiper v6 in mobile view

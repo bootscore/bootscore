@@ -2,7 +2,7 @@
 
 /**
  * The sidebar containing the main widget area
- * Template Version: 6.5.0
+ * Template Version: 7.0.0
  *
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
@@ -22,7 +22,7 @@ if (!apply_filters('bootscore/sidebar/has_widgets', is_active_sidebar('sidebar-1
   <aside id="secondary" class="widget-area">
 
     <button class="<?= esc_attr(apply_filters('bootscore/class/sidebar/button', 'd-lg-none btn btn-outline-primary w-100 mb-4 d-flex justify-content-between align-items-center')); ?>" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebar" aria-controls="sidebar">
-      <?= esc_html(apply_filters('bootscore/offcanvas/sidebar/button/text', __('Open side menu', 'bootscore'))); ?> <?= wp_kses_post(apply_filters('bootscore/icon/ellipsis-vertical', '<i class="fa-solid fa-ellipsis-vertical"></i>')); ?>
+      <?= esc_html(apply_filters('bootscore/offcanvas/sidebar/button/text', __('Open side menu', 'bootscore'))); ?> <?php bootscore_icon('ellipsis-vertical'); ?>
     </button>
 
     <div class="<?= esc_attr(apply_filters('bootscore/class/sidebar/offcanvas', 'offcanvas-lg offcanvas-end')); ?>" tabindex="-1" id="sidebar" aria-labelledby="sidebarLabel">

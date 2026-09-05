@@ -2,7 +2,7 @@
 
 /**
  * The main template file
- * Template Version: 6.4.0
+ * Template Version: 7.0.0
  *
  * This is the most generic template file in a WordPress theme
  * and one of the two required files for a theme (the other being style.css).
@@ -17,135 +17,109 @@
 // Exit if accessed directly
 defined('ABSPATH') || exit;
 
+// Set global template context for custom layout hooks
+$GLOBALS['bootscore_template_context'] = 'index';
+
 get_header();
 ?>
-  <div id="content" class="site-content <?= esc_attr(apply_filters('bootscore/class/container', 'container', 'index')); ?> <?= esc_attr(apply_filters('bootscore/class/content/spacer', 'pt-4 pb-5', 'index')); ?>">
-      <div id="primary" class="content-area">
+<div id="content" class="site-content <?= esc_attr(apply_filters('bootscore/class/container', 'container', 'index')); ?> <?= esc_attr(apply_filters('bootscore/class/content/spacer', 'pt-4 pb-5', 'index')); ?>">
+  <div id="primary" class="content-area">
 
-        <?php do_action('bootscore_after_primary_open', 'index'); ?>
+    <?php do_action('bootscore_after_primary_open', 'index'); ?>
 
-        <main id="main" class="site-main">
+    <main id="main" class="site-main">
 
-          <!-- Header -->
-          <div class="p-5 text-center bg-body-tertiary rounded mb-4">
-            <?php do_action( 'bootscore_before_title', 'index' ); ?>
-            <h1 class="entry-title <?= esc_attr(apply_filters('bootscore/class/entry/title', '', 'index')); ?>"><?= esc_html(get_bloginfo('name')); ?></h1>
-            <?php do_action( 'bootscore_after_title', 'index' ); ?>
-            <p class="lead mb-0"><?= esc_html(get_bloginfo('description')); ?></p>
-          </div>
+      <!-- Header -->
+      <div class="p-5 text-center bg-body-tertiary rounded mb-4">
+        <?php do_action('bootscore_before_title', 'index'); ?>
+        <h1 class="entry-title <?= esc_attr(apply_filters('bootscore/class/entry/title', '', 'index')); ?>"><?= esc_html(get_bloginfo('name')); ?></h1>
+        <?php do_action('bootscore_after_title', 'index'); ?>
+        <p class="lead mb-0"><?= esc_html(get_bloginfo('description')); ?></p>
+      </div>
 
-          <!-- Post List -->
-          <div class="row">
-            <div class="<?= esc_attr(apply_filters('bootscore/class/main/col', 'col')); ?>">
+      <!-- Main content row with sidebar -->
+      <div class="row">
+        <div class="<?= esc_attr(apply_filters('bootscore/class/main/col', 'col', 'index')); ?>">
+          
+          <?php do_action('bootscore_before_loop', 'index'); ?>
 
-                <?php do_action( 'bootscore_before_loop', 'index' ); ?>
+          <!-- Loop START -->
+          <?php
+          // Set layout via filter (can be overridden by plugins)
+          $layout = apply_filters('bootscore/loop/layout', 'horizontal', 'index'); // 'horizontal', 'grid', 'overlay', or 'custom'
 
-                <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+          // Default grid classes
+          $grid_classes = apply_filters('bootscore/class/loop/grid/col',
+            'row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 g-4 mb-4',
+            'index'
+          );
 
-                  <?php do_action( 'bootscore_before_loop_item', 'index' ); ?>
+          // Default horizontal/overlay classes (both use same grid structure)
+          $horizontal_classes = apply_filters('bootscore/class/loop/horizontal/col',
+            'row row-cols-1 g-4 mb-4',
+            'index'
+          );
+          ?>
 
-                  <article id="post-<?php the_ID(); ?>" <?php post_class( esc_attr(apply_filters('bootscore/class/loop/card', 'card horizontal mb-4', 'index')) ); ?>>
+          <?php if (have_posts()) : ?>
 
-                    <div class="<?= esc_attr(apply_filters('bootscore/class/loop/card/row', 'row g-0', 'index')); ?>">
+            <?php if ($layout === 'custom') : ?>
+              <!-- Custom layout - NO GRID WRAPPER, just loop through posts -->
+              <?php while (have_posts()) : the_post(); ?>
+                <?php get_template_part('template-parts/loop/custom'); ?>
+              <?php endwhile; ?>
 
-                      <?php do_action('bootscore_before_loop_thumbnail', 'index'); ?>
+            <?php else : ?>
+              <!-- Grid or horizontal layout with wrapper -->
+              <div class="<?= $layout === 'grid' ? esc_attr($grid_classes) : esc_attr($horizontal_classes); ?>">
+
+                <?php while (have_posts()) : the_post(); ?>
+
+                  <!-- Column wrapper for ALL layouts -->
+                  <div class="col">
+
+                    <?php if ($layout === 'grid') : ?>
+                      <!-- Grid card -->
+                      <?php get_template_part('template-parts/loop/cards-grid'); ?>
                       
-                      <?php if (has_post_thumbnail()) : ?>
-                        <div class="<?= esc_attr(apply_filters('bootscore/class/loop/card/image/col', 'col-lg-6 col-xl-5 col-xxl-4', 'index')); ?>">
-                          <a href="<?php the_permalink(); ?>">
-                            <?php the_post_thumbnail('medium', array('class' => esc_attr(apply_filters('bootscore/class/loop/card/image', 'card-img-lg-start', 'index')))); ?>
-                          </a>
-                        </div>
-                      <?php endif; ?>
+                    <?php elseif ($layout === 'overlay') : ?>
+                      <!-- Overlay card -->
+                      <?php get_template_part('template-parts/loop/cards-overlay'); ?>
                       
-                      <?php do_action('bootscore_after_loop_thumbnail', 'index'); ?>
+                    <?php else : ?>
+                      <!-- Horizontal card -->
+                      <?php get_template_part('template-parts/loop/cards-horizontal'); ?>
+                    <?php endif; ?>
 
-                      <div class="<?= esc_attr(apply_filters('bootscore/class/loop/card/content/col', 'col', 'index')); ?>">
-                        <div class="<?= esc_attr(apply_filters('bootscore/class/loop/card/body', 'card-body', 'index')); ?>">
-                          
-                          <div class="<?= esc_attr(apply_filters('bootscore/class/loop/card/content/meta-wrapper', 'd-flex justify-content-between gap-3')); ?>">
-
-                            <?php if (apply_filters('bootscore/loop/category', true, 'index')) : ?>
-                              <?php bootscore_category_badge(); ?>
-                            <?php endif; ?>
-
-                            <?php if (is_sticky() ) { ?>
-                              <p class="sticky-badge"><span class="<?= esc_attr(apply_filters('bootscore/class/loop/card/content/sticky-post-badge', 'badge text-bg-danger')); ?>"><?= wp_kses_post(apply_filters('bootscore/icon/star', '<i class="fa-solid fa-star"></i>')); ?></span></p>
-                            <?php } ?>
-                            
-                          </div>
-                          
-                          <?php do_action('bootscore_before_loop_title', 'index'); ?>
-                          
-                          <a class="<?= esc_attr(apply_filters('bootscore/class/loop/card/title/link', 'text-body text-decoration-none', 'index')); ?>" href="<?php the_permalink(); ?>">
-                            <?php the_title('<h2 class="' . esc_attr(apply_filters('bootscore/class/loop/card/title', 'blog-post-title h5', 'index')) . '">', '</h2>'); ?>
-                          </a>
-                          
-                          <?php do_action('bootscore_after_loop_title', 'index'); ?>
-
-                          <?php if (apply_filters('bootscore/loop/meta', true, 'index')) : ?>
-                            <?php if ('post' === get_post_type()) : ?>
-                              <p class="meta small mb-2 text-body-secondary">
-                                <?php
-                                bootscore_date();
-                                bootscore_author();
-                                bootscore_comments();
-                                bootscore_edit();
-                                ?>
-                              </p>
-                            <?php endif; ?>
-                          <?php endif; ?>
-
-                          <?php if (apply_filters('bootscore/loop/excerpt', true, 'index')) : ?>
-                            <p class="<?= esc_attr(apply_filters('bootscore/class/loop/card-text/excerpt', 'card-text', 'index')); ?>">
-                              <a class="<?= esc_attr(apply_filters('bootscore/class/loop/card-text/excerpt/link', 'text-body text-decoration-none', 'index')); ?>" href="<?php the_permalink(); ?>">
-                                <?= esc_html(wp_strip_all_tags(get_the_excerpt())); ?>
-                              </a>
-                            </p>
-                          <?php endif; ?>
-
-                          <?php if (apply_filters('bootscore/loop/read-more', true, 'index')) : ?>
-                            <p class="<?= esc_attr(apply_filters('bootscore/class/loop/card-text/read-more', 'card-text', 'index')); ?>">
-                              <a class="<?= esc_attr(apply_filters('bootscore/class/loop/read-more', 'read-more', 'index')); ?>" href="<?php the_permalink(); ?>">
-                                <?= wp_kses_post(apply_filters('bootscore/loop/read-more/text', __('Read more »', 'bootscore', 'index'))); ?>
-                              </a>
-                            </p>
-                          <?php endif; ?>
-
-                          <?php if (apply_filters('bootscore/loop/tags', true, 'index')) : ?>
-                            <?php bootscore_tags(); ?>
-                          <?php endif; ?>
-                          
-                          <?php do_action('bootscore_after_loop_tags', 'index'); ?>
-
-                        </div>
-
-                        <?php do_action('bootscore_loop_item_after_card_body', 'index'); ?>
-
-                      </div><!-- col -->
-                    </div><!-- row -->
-                  </article><!-- article -->
-
-                  <?php do_action('bootscore_after_loop_item', 'index'); ?>
+                  </div><!-- .col -->
 
                 <?php endwhile; ?>
-                <?php endif; ?>
 
-                <?php do_action('bootscore_after_loop', 'index'); ?>
+              </div><!-- .row (loop row) -->
+            <?php endif; ?>
 
-              <div class="entry-footer">
-                
-                <?php do_action( 'bootscore_before_pagination', 'index' ); ?>
-                
-                <?php bootscore_pagination(); ?>
-                
-              </div>
-              
-            </div><!-- col -->
-            <?php get_sidebar(); ?>
-          </div><!-- row -->
-      </main><!-- #main -->
-    </div><!-- #primary -->
-  </div><!-- #content -->
+          <?php else : ?>
+            <!-- No posts found -->
+            <?php get_template_part('template-parts/loop/loop-none'); ?>
+          <?php endif; ?>
+          <!-- Loop END -->
+
+          <?php do_action('bootscore_after_loop', 'index'); ?>
+
+          <div class="entry-footer">
+            <?php do_action('bootscore_before_pagination', 'index'); ?>
+            <?php bootscore_pagination(); ?>
+          </div>
+
+        </div><!-- .col (main content) -->
+        
+        <?php get_sidebar(); ?>
+      </div><!-- .row (main content row) -->
+
+    </main><!-- #main -->
+
+  </div><!-- #primary -->
+</div><!-- #content -->
+
 <?php
 get_footer();
