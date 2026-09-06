@@ -8,6 +8,23 @@
 
 defined('ABSPATH') || exit;
 
+
+/**
+ * Check if the active child theme has its own bootscore.scss.
+ * Used to decide whether the PicoSASS baseurl/fallback_baseurl should
+ * point at the child theme (with the parent as fallback) or just the
+ * parent theme directly.
+ *
+ * NOTE: This used to live in the old scssphp-based scss-compiler.php.
+ * Keep it defined here now that that file is no longer required -
+ * is_child_theme() short-circuits around it on the main theme, so a
+ * missing definition only breaks child-theme installs, silently.
+ */
+function bootscore_child_has_scss() {
+  return file_exists(get_stylesheet_directory() . '/assets/scss/bootscore.scss');
+}
+
+
 // Where Bootscore's own SCSS lives, with child-theme fallback support
 // (matches the `shouldProcessChild()` logic in your existing scss-compiler.php)
 function bootscore_picosass_scss_dir() {
