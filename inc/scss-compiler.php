@@ -137,7 +137,7 @@ add_action('wp_ajax_bootscore_save_css_bundle', function () {
   $compiled_css = stripslashes($_POST['css']);
 
   if (isset($_POST['sourceMap']) && $_POST['sourceMap'] !== "") {
-    if (apply_filters('bootscore/picosass/enable_sourcemap_comment', true)) {
+    if (apply_filters('bootscore/compiler/enable_sourcemap', false)) {
       $compiled_css .= "\n/*# sourceMappingURL=bootscore.min.css.map */";
     }
   }
