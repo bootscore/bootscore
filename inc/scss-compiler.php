@@ -48,6 +48,23 @@ function bootscore_picosass_scss_uri() {
     : get_template_directory_uri() . '/assets/scss/';
 }
 
+// Where the compiled CSS ends up - reuses the same child/parent logic as
+// the SCSS dir, just swapping the folder name.
+function bootscore_picosass_css_file() {
+  $css_dir = str_replace('/assets/scss/', '/assets/css/', bootscore_picosass_scss_dir());
+  return $css_dir . 'bootscore.min.css';
+}
+
+// TESTING: should the compiler run on this page load?
+// True if explicitly requested via ?compile_sass=1, OR if an admin is
+// viewing the frontend and bootscore.min.css doesn't exist yet (e.g. right
+// after activation, or after deleting the css folder to test this).
+function bootscore_picosass_should_compile() {
+  if (!current_user_can('administrator')) return false;
+  if (isset($_GET['compile_sass'])) return true;
+  return !file_exists(bootscore_picosass_css_file());
+}
+
 // Raw SCSS source fed into the <template id="the-scss"> element.
 // No customizer variable injection needed (Bootscore has none) -
 // just the real bootscore.scss content, verbatim.
@@ -58,9 +75,9 @@ function bootscore_get_main_sass() {
 }
 
 // ADD SCRIPT + SCSS SOURCE TO <head> - admin only, only when triggered
+// (explicitly via admin bar, or automatically when bootscore.min.css is missing)
 add_action('wp_head', function () {
-  if (!current_user_can('administrator')) return;
-  if (!isset($_GET['compile_sass'])) return;
+  if (!bootscore_picosass_should_compile()) return;
   ?>
     <script type="module" src="<?php echo get_template_directory_uri() ?>/assets/js/compiler/picosass.js"></script>
 
@@ -73,8 +90,7 @@ add_action('wp_head', function () {
 
 // CHECK ONLINE CONNECTION (compiler needs the CDN)
 add_action('wp_footer', function () {
-  if (!current_user_can('administrator')) return;
-  if (!isset($_GET['compile_sass'])) return;
+  if (!bootscore_picosass_should_compile()) return;
   ?>
     <script>
       if (!navigator.onLine) { alert("You need to be online to use the SCSS compiler (it loads Dart Sass from a CDN)."); throw new Error("No network"); }
@@ -84,8 +100,7 @@ add_action('wp_footer', function () {
 
 // RUN THE COMPILER + SAVE RESULT VIA AJAX
 add_action('wp_footer', function () {
-  if (!current_user_can('administrator')) return;
-  if (!isset($_GET['compile_sass'])) return;
+  if (!bootscore_picosass_should_compile()) return;
   ?>
     <script>
       let lastCssBundle = '';
@@ -151,9 +166,8 @@ add_action('wp_ajax_bootscore_save_css_bundle', function () {
     WP_Filesystem();
   }
 
-  $css_dir  = bootscore_picosass_scss_dir(); // reuse same child/parent logic
-  $css_dir  = str_replace('/assets/scss/', '/assets/css/', $css_dir);
-  $css_file = $css_dir . 'bootscore.min.css';
+  $css_file = bootscore_picosass_css_file();
+  $css_dir  = dirname($css_file);
 
   if (!file_exists($css_dir)) {
     wp_mkdir_p($css_dir);
