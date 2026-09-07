@@ -136,10 +136,13 @@ add_action('wp_ajax_bootscore_save_css_bundle', function () {
 
   $compiled_css = stripslashes($_POST['css']);
 
-  if (isset($_POST['sourceMap']) && $_POST['sourceMap'] !== "") {
-    if (apply_filters('bootscore/compiler/enable_sourcemap', false)) {
-      $compiled_css .= "\n/*# sourceMappingURL=bootscore.min.css.map */";
-    }
+  // Off by default - enable with:
+  // add_filter('bootscore/compiler/enable_sourcemap', '__return_true');
+  $enable_sourcemap = apply_filters('bootscore/compiler/enable_sourcemap', false);
+  $has_sourcemap    = $enable_sourcemap && isset($_POST['sourceMap']) && $_POST['sourceMap'] !== "";
+
+  if ($has_sourcemap) {
+    $compiled_css .= "\n/*# sourceMappingURL=bootscore.min.css.map */";
   }
 
   global $wp_filesystem;
@@ -158,7 +161,7 @@ add_action('wp_ajax_bootscore_save_css_bundle', function () {
 
   $saved = $wp_filesystem->put_contents($css_file, $compiled_css, FS_CHMOD_FILE);
 
-  if ($saved && isset($_POST['sourceMap']) && $_POST['sourceMap'] !== "") {
+  if ($saved && $has_sourcemap) {
     $wp_filesystem->put_contents($css_file . '.map', stripslashes($_POST['sourceMap']), FS_CHMOD_FILE);
   }
 
