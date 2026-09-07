@@ -71,7 +71,7 @@ function bootscore_picosass_should_compile() {
 function bootscore_get_main_sass() {
   $entry_file = bootscore_picosass_scss_dir() . 'bootscore.scss';
   $sass = file_exists($entry_file) ? file_get_contents($entry_file) : '';
-  return apply_filters('bootscore/picosass/main_sass', $sass);
+  return apply_filters('bootscore/compiler/main_sass', $sass);
 }
 
 // ADD SCRIPT + SCSS SOURCE TO <head> - admin only, only when triggered
