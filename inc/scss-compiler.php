@@ -62,7 +62,7 @@ add_action('wp_head', function () {
   if (!current_user_can('administrator')) return;
   if (!isset($_GET['compile_sass'])) return;
   ?>
-    <script type="module" src="<?php echo get_template_directory_uri() ?>/inc/compiler/picosass.js"></script>
+    <script type="module" src="<?php echo get_template_directory_uri() ?>/assets/js/compiler/picosass.js"></script>
 
     <template id="the-scss" class="prevent-autocompile" baseurl="<?php echo bootscore_picosass_scss_uri() ?>"
       <?php if (is_child_theme()): ?> fallback_baseurl="<?php echo get_template_directory_uri() . '/assets/scss/' ?>" <?php endif ?> >
