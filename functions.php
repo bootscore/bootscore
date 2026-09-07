@@ -21,7 +21,6 @@ require_once get_template_directory() . '/inc/theme-setup.php';             // T
 require_once get_template_directory() . '/inc/breadcrumb.php';              // Breadcrumb
 require_once get_template_directory() . '/inc/columns.php';                 // Main/sidebar column width and breakpoints
 require_once get_template_directory() . '/inc/comments.php';                // Comments
-require_once get_template_directory() . '/inc/picosass-compiler-integration.php';                // Picosass compiler
 require_once get_template_directory() . '/inc/enable-html.php';             // Enable HTML in category and author description
 require_once get_template_directory() . '/inc/enqueue.php';                 // Enqueue scripts and styles
 require_once get_template_directory() . '/inc/excerpt.php';                 // Adds excerpt to pages
@@ -35,6 +34,7 @@ require_once get_template_directory() . '/inc/template-functions.php';      // F
 require_once get_template_directory() . '/inc/widgets.php';                 // Register widget area and disables Gutenberg in widgets
 require_once get_template_directory() . '/inc/deprecated.php';              // Fallback functions being dropped in v6
 require_once get_template_directory() . '/inc/tinymce-editor.php';          // Fix body margin and font-family in backend if classic editor is used
+require_once get_template_directory() . '/inc/scss-compiler.php';           // Picosass compiler
 require_once get_template_directory() . '/inc/updater/updater-config.php';  // Load theme's own update configuration
 
 // Blocks

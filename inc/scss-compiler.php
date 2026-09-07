@@ -1,11 +1,20 @@
 <?php
 
-//// PICOSASS JS INTEGRATION FOR BOOTSCORE ////
-// Ported from picostrap5's inc/picosass-compiler-integration.php.
-// Compiles bootscore.scss client-side using real Dart Sass (loaded from
-// a CDN in the admin's browser), then AJAX-saves the result to
-// assets/css/bootscore.min.css.
+/**
+ * Class with functions to compile SCSS files.
+ *
+ * PICOSASS JS INTEGRATION FOR BOOTSCORE
+ * Ported from picostrap5's inc/scss-compiler.
+ * Compiles bootscore.scss client-side using real Dart Sass (loaded from
+ * a CDN in the admin's browser), then AJAX-saves the result to
+ * assets/css/bootscore.min.css.
+ * 
+ * @package Bootscore
+ * @version 7.0.0
+ */
 
+
+// Exit if accessed directly
 defined('ABSPATH') || exit;
 
 
@@ -53,7 +62,7 @@ add_action('wp_head', function () {
   if (!current_user_can('administrator')) return;
   if (!isset($_GET['compile_sass'])) return;
   ?>
-    <script type="module" src="<?php echo get_template_directory_uri() ?>/inc/picosass/picosass.js"></script>
+    <script type="module" src="<?php echo get_template_directory_uri() ?>/inc/compiler/picosass.js"></script>
 
     <template id="the-scss" class="prevent-autocompile" baseurl="<?php echo bootscore_picosass_scss_uri() ?>"
       <?php if (is_child_theme()): ?> fallback_baseurl="<?php echo get_template_directory_uri() . '/assets/scss/' ?>" <?php endif ?> >
