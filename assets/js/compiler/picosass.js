@@ -1,4 +1,13 @@
-/// Picosass.js ///
+/**
+ * Picosass.js
+ * Client-side SCSS compiler for Bootscore, using Dart Sass loaded in the
+ * browser. Ported and adapted from picostrap5.
+ *
+ * @package Bootscore
+ * @version 7.0.0
+ */
+
+
 import * as sass from 'https://cdn.jsdelivr.net/npm/sass@1.104.0/sass.default.js'; //import SASS module (raw, unbundled - needs the importmap for "immutable" declared in scss-compiler.php)
 
 //console.log(sass.compileStringAsync(` .box {width: 10px + 15px;} `)); //just a quick example of compilation
