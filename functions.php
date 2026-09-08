@@ -34,6 +34,7 @@ require_once get_template_directory() . '/inc/template-functions.php';      // F
 require_once get_template_directory() . '/inc/widgets.php';                 // Register widget area and disables Gutenberg in widgets
 require_once get_template_directory() . '/inc/deprecated.php';              // Fallback functions being dropped in v6
 require_once get_template_directory() . '/inc/tinymce-editor.php';          // Fix body margin and font-family in backend if classic editor is used
+require_once get_template_directory() . '/inc/scss-compiler.php';           // Picosass compiler
 require_once get_template_directory() . '/inc/updater/updater-config.php';  // Load theme's own update configuration
 
 // Blocks
