@@ -40,14 +40,16 @@ add_action('wp_enqueue_scripts', 'bootscore_scripts');
 
 
 /**
- * Register editor styles.
+ * Register editor styles — block editor only.
+ * enqueue_block_editor_assets never fires for the classic editor /
+ * WooCommerce product screens, so bootscore.min.css is simply never
+ * registered there at all (no mce_css involvement, nothing to filter).
  */
 function bootscore_add_editor_styles() {
-  // Add support for editor styles and bootscore.min.css for the editor
   add_theme_support('editor-styles');
   add_editor_style('assets/css/bootscore.min.css');
 }
-add_action('after_setup_theme', 'bootscore_add_editor_styles');
+add_action('enqueue_block_editor_assets', 'bootscore_add_editor_styles');
 
 
 /**
