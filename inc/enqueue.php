@@ -59,9 +59,11 @@ function bootscore_enqueue_editor_and_pattern_library_styles($hook_suffix) {
   $screen = get_current_screen();
   
   // Enqueue editor.css only in the block editor
+  /*
   if ($screen && $screen->is_block_editor) {
     wp_enqueue_style('editor-style', get_stylesheet_directory_uri() . '/assets/css/editor.css');
   }
+  */
 
   // Enqueue bootscore.min.css only in the Pattern Library
   if ('appearance_page_edit-wp-patterns' === $hook_suffix) {
