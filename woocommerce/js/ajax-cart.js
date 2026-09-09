@@ -95,12 +95,16 @@ jQuery(function ($) {
 
       let button = $(this);
 
-      const product_id = parseInt((button.attr('href') || '').match(/[?&]add-to-cart=(\d+)/)?.[1], 10) || null;      //parse as float
-      let quantity = parseInt(button.attr('data-quantity'), 10) || 1;
-      let data = {
-        'add-to-cart': product_id,
-        'quantity': quantity,
-      };
+      // Match WooCommerce core: https://github.com/woocommerce/woocommerce/blob/trunk/plugins/woocommerce/client/legacy/js/frontend/add-to-cart.js
+      // Prefer live data attributes because JavaScript can modify them directly.
+      let data = { ...button.data(), ...button[0].dataset };
+
+      const urlProductId = parseInt((button.attr('href') || '').match(/[?&]add-to-cart=(\d+)/)?.[1], 10) || null;
+      const productId = parseInt(data['product_id'], 10) || urlProductId;
+      const quantity = parseInt(data['quantity'], 10) || 1;
+
+      data['add-to-cart'] = productId;
+      data['quantity'] = quantity;
 
       // Interesting section here. it seems that the 'adding_to_cart' event removes the loading class from the button.
       // Therefore this approach is needed because it adds the loading after the removal. I'm not sure if this is the best way to do it.'
