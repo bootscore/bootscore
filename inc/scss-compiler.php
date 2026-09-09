@@ -102,21 +102,6 @@ add_action('wp_head', function () {
   <?php
 });
 
-
-// ADD SCRIPT + SCSS SOURCE TO <head> - admin only, only when triggered
-// (explicitly via admin bar, or automatically when bootscore.min.css is missing)
-add_action('wp_head', function () {
-  if (!bootscore_picosass_should_compile()) return;
-  ?>
-    <script type="module" src="<?php echo get_template_directory_uri() ?>/assets/js/compiler/picosass.js"></script>
-
-    <template id="the-scss" class="prevent-autocompile" baseurl="<?php echo bootscore_picosass_scss_uri() ?>"
-      <?php if (is_child_theme()): ?> fallback_baseurl="<?php echo get_template_directory_uri() . '/assets/scss/' ?>" <?php endif ?> >
-      <?php echo bootscore_get_main_sass() ?>
-    </template>
-  <?php
-});
-
 // CHECK ONLINE CONNECTION (compiler needs the CDN)
 add_action('wp_footer', function () {
   if (!bootscore_picosass_should_compile()) return;
