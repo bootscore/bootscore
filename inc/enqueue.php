@@ -40,7 +40,7 @@ add_action('wp_enqueue_scripts', 'bootscore_scripts');
 
 
 /**
- * Register editor styles.
+ * Enqueue editor styles.
  */
 function bootscore_add_editor_styles() {
   // Add support for editor styles and bootscore.min.css for the editor
@@ -51,19 +51,39 @@ add_action('after_setup_theme', 'bootscore_add_editor_styles');
 
 
 /**
- * Enqueue styles for block editor and Pattern Library.
+ * Enqueue only the :root CSS custom properties (colors) from bootscore.min.css
+ * on admin pages, so theme.json's var(--bs-*) references resolve for swatches
+ * and color pickers rendered outside the block editor's content iframe.
  */
-function bootscore_enqueue_editor_and_pattern_library_styles($hook_suffix) {
+function bootscore_enqueue_editor_color_vars() {
   $screen = get_current_screen();
-  
-  // Enqueue editor.css only in the block editor
-  if ($screen && $screen->is_block_editor) {
-    wp_enqueue_style('editor-style', get_stylesheet_directory_uri() . '/assets/css/editor.css');
+
+  if ( ! $screen || ! $screen->is_block_editor() ) {
+    return;
   }
 
-  // Enqueue bootscore.min.css only in the Pattern Library
-  if ('appearance_page_edit-wp-patterns' === $hook_suffix) {
-    wp_enqueue_style('bootscore-pattern-library-styles', get_stylesheet_directory_uri() . '/assets/css/bootscore.min.css');
+  $css_path = get_stylesheet_directory() . '/assets/css/bootscore.min.css';
+
+  if ( ! file_exists( $css_path ) ) {
+    return;
+  }
+
+  $css = file_get_contents( $css_path );
+
+  preg_match_all( '/([^\{\}]+)\{([^\{\}]*)\}/', $css, $rules, PREG_SET_ORDER );
+
+  $inline_css = '';
+
+  foreach ( $rules as $rule ) {
+    if ( strpos( $rule[1], ':root' ) !== false ) {
+      $inline_css .= $rule[0] . ' ';
+    }
+  }
+
+  if ( '' !== $inline_css ) {
+    wp_register_style( 'bootscore-editor-color-vars', false );
+    wp_enqueue_style( 'bootscore-editor-color-vars' );
+    wp_add_inline_style( 'bootscore-editor-color-vars', $inline_css );
   }
 }
-add_action('admin_enqueue_scripts', 'bootscore_enqueue_editor_and_pattern_library_styles');
+add_action( 'admin_enqueue_scripts', 'bootscore_enqueue_editor_color_vars' );
