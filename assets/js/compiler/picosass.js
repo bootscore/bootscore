@@ -1,5 +1,14 @@
-/// Picosass.js ///
-import * as sass from 'https://jspm.dev/sass'; //import SASS module
+/**
+ * Picosass.js
+ * Client-side SCSS compiler for Bootscore, using Dart Sass loaded in the
+ * browser. Ported and adapted from picostrap5.
+ *
+ * @package Bootscore
+ * @version 7.0.0
+ */
+
+
+import * as sass from 'https://cdn.jsdelivr.net/npm/sass@1.104.0/sass.default.js'; //import SASS module (raw, unbundled - needs the importmap for "immutable" declared in scss-compiler.php)
 
 //console.log(sass.compileStringAsync(` .box {width: 10px + 15px;} `)); //just a quick example of compilation
 
@@ -57,8 +66,32 @@ function basicGzip(inputBytes) {
     return new Uint8Array(compressedBytes);
 }
 
+//cache of resolved fetches, keyed by canonical URL - populated by canonicalize()'s
+//probing so load() doesn't have to fetch the same file twice
+const resolvedFileCache = new Map();
+
+//try fetching a URL, falling back to fallback_baseurl (child theme -> parent theme) on 404
+async function fetchWithThemeFallback(url, options) {
+    let response = await fetch(url, options);
+    let actualUrl = url;
+
+    if (!response.ok && document.querySelector(theScssSelector).hasAttribute("fallback_baseurl")) {
+        const urlFallback = url.href.replace(
+            (document.querySelector(theScssSelector).getAttribute("baseurl")),
+            (document.querySelector(theScssSelector).getAttribute("fallback_baseurl")
+            ));
+        console.log('Since ' + url.href + ' cannot be found, we look for ' + urlFallback);
+        response = await fetch(urlFallback, options);
+        if (response.ok) {
+            actualUrl = new URL(urlFallback);
+        }
+    }
+
+    return { response, actualUrl };
+}
+
 //FUNCTIONS TO ALLOW COMPILER TO READ FILES FROM THE WEB 
-function canonicalize(url) {
+async function canonicalize(url) {
     //console.log('canonicalize ' + url);
 
     //if it's not the main file, or the main bs file, add underscores in front of scss file names
@@ -71,43 +104,61 @@ function canonicalize(url) {
         }
     }
 
-    //create URL object to be consumed by the compiler, adding .scss to filename
+    //build the request options: if nocache parameter is set, declare it, or just have an empty one.
+    const options = (((new URL(document.location)).searchParams).get("sass_nocache")) ? { cache: "no-cache" } : {}
+
     const base = document.querySelector(theScssSelector).getAttribute("baseurl") ?? window.location.toString();
-    return new URL(url + '.scss', base);
+    const primaryUrl = new URL(url + '.scss', base);
+
+    //show some feedback about the file being resolved
+    if (document.querySelector("#picosass-output-feedback span")) {
+        document.querySelector("#picosass-output-feedback span").innerHTML = `Importing file: <br>${primaryUrl}`;
+    }
+
+    //try the plain file first (child theme, then parent theme fallback)
+    let { response, actualUrl } = await fetchWithThemeFallback(primaryUrl, options);
+    let canonicalUrl = primaryUrl;
+
+    //if that 404s, this might be a directory-style module (e.g. "content" resolving
+    //to a directory's index file instead of a plain _content.scss file) - try both
+    //_index.scss and index.scss (real Sass resolves either), each with the same
+    //child/parent theme fallback. Whichever one actually resolves becomes the real
+    //canonical URL, so further relative @use/@forward inside it resolve against the
+    //correct directory instead of the shallower, non-existent flat-file location.
+    if (!response.ok) {
+        const dirIndexCandidates = [
+            primaryUrl.href.replace(/\/_([^/]+)\.scss$/, '/$1/_index.scss'),
+            primaryUrl.href.replace(/\/_([^/]+)\.scss$/, '/$1/index.scss'),
+        ];
+        for (const candidateHref of dirIndexCandidates) {
+            if (candidateHref === primaryUrl.href) continue;
+            const candidateUrl = new URL(candidateHref);
+            ({ response, actualUrl } = await fetchWithThemeFallback(candidateUrl, options));
+            if (response.ok) {
+                canonicalUrl = candidateUrl;
+                break;
+            }
+        }
+    }
+
+    //cache whatever we found (success or failure) so load() doesn't re-fetch;
+    //on failure this still lets load() produce the same clear error as before
+    resolvedFileCache.set(canonicalUrl.href, { response, actualUrl, originalRequestUrl: primaryUrl });
+
+    return canonicalUrl;
 }
 
 async function load(canonicalUrl) {
 
     //console.log(`Importing ${canonicalUrl} (async)`);
 
-    //show some feedback about the file that is loaded
-    if (document.querySelector("#picosass-output-feedback span")) {
-        document.querySelector("#picosass-output-feedback span").innerHTML = `Importing file: <br>${canonicalUrl}`;
-    }
+    const cached = resolvedFileCache.get(canonicalUrl.href);
+    const { response, actualUrl, originalRequestUrl } = cached ?? {};
 
-    //build the request options: if nocache parameter is set, declare it, or just have an empty one. Seems like default browser is no cache anyway.
-    const options = (((new URL(document.location)).searchParams).get("sass_nocache")) ? { cache: "no-cache" } : {}
-
-    //fetch the URL
-    let response = await fetch(canonicalUrl, options);
-    let actualUrl = canonicalUrl;
-
-    //if file is not found, let's see in the fallback folder
-    if (!response.ok && document.querySelector(theScssSelector).hasAttribute("fallback_baseurl")) {
-        const canonicalUrlFallback = canonicalUrl.href.replace(
-            (document.querySelector(theScssSelector).getAttribute("baseurl")),
-            (document.querySelector(theScssSelector).getAttribute("fallback_baseurl")
-            ));
-        console.log('Since ' + canonicalUrl.href + ' cannot be found, we look for ' + canonicalUrlFallback);
-        response = await fetch(canonicalUrlFallback, options);
-        if (response.ok) {
-            actualUrl = new URL(canonicalUrlFallback);
-        }
-    }
-
-    if (!response.ok) {
-        document.querySelector("#picosass-output-feedback").innerHTML = `Error reading   SCSS file:  ${canonicalUrl} <span>${response.status} (${response.statusText})</span>`;
-        throw new Error(`Failed to fetch ${canonicalUrl}: ${response.status} (${response.statusText})`);
+    if (!response || !response.ok) {
+        const shownUrl = originalRequestUrl ?? canonicalUrl;
+        document.querySelector("#picosass-output-feedback").innerHTML = `Error reading   SCSS file:  ${shownUrl} <span>${response ? `${response.status} (${response.statusText})` : 'not found'}</span>`;
+        throw new Error(`Failed to fetch ${shownUrl}${response ? `: ${response.status} (${response.statusText})` : ''}`);
     }
     const contents = await response.text()
 

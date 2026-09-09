@@ -74,11 +74,25 @@ function bootscore_get_main_sass() {
   return apply_filters('bootscore/compiler/main_sass', $sass);
 }
 
+
 // ADD SCRIPT + SCSS SOURCE TO <head> - admin only, only when triggered
 // (explicitly via admin bar, or automatically when bootscore.min.css is missing)
+//
+// The import map maps the bare "immutable" specifier to a real URL. picosass.js
+// loads Dart Sass directly from jsdelivr as a raw, unbundled file (sass.default.js)
+// rather than through a bundling CDN like esm.sh - that file has one real
+// dependency, "immutable", which the browser can't resolve on its own without
+// this map. Must be declared before the picosass.js <script> tag below.
 add_action('wp_head', function () {
   if (!bootscore_picosass_should_compile()) return;
   ?>
+    <script type="importmap">
+    {
+      "imports": {
+        "immutable": "https://cdn.jsdelivr.net/npm/immutable@5.1.5/dist/immutable.es.js"
+      }
+    }
+    </script>
     <script type="module" src="<?php echo get_template_directory_uri() ?>/assets/js/compiler/picosass.js"></script>
 
     <template id="the-scss" class="prevent-autocompile" baseurl="<?php echo bootscore_picosass_scss_uri() ?>"
