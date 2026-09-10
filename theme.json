@@ -36,14 +36,14 @@
           "name":"Danger"
         },
         {
-          "slug":"light",
-          "color":"var(--bs-light)",
-          "name":"Light"
+          "slug":"accent",
+          "color":"var(--accent-base)",
+          "name":"Accent"
         },
         {
-          "slug":"dark",
-          "color":"var(--bs-dark)",
-          "name":"Dark"
+          "slug":"inverse",
+          "color":"var(--inverse-base)",
+          "name":"Inverse"
         }
       ]
     },
