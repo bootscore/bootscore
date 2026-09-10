@@ -17,19 +17,6 @@ Deprecated - Bootscore v7.0.0. This code will be removed in v7.
 }
 
 
-body {
-  // Prevent horizontal scrollbars on Windows Chrome & Firefox when using width-100 class
-  overflow-x: hidden;
-  
-  // This is mandatory for the WP Theme Unit Test Data
-  // https://dev.bootscore.me/about/page-markup-and-formatting/
-  // Breaks responsive tables
-  word-break: break-word;
-  
-  // If we keep both, we can just use Bootstrap classes
-  // <?= esc_attr(apply_filters('bootscore/class/body', 'overflow-x-hidden text-break')); ?>
-  // And check responsive tables
-}
 
 // Responsive Tables
 // Theme uses word-break: break-word; on body as recommended by WordPress to handle edge cases.
