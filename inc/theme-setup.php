@@ -4,7 +4,7 @@
  * Theme setup
  *
  * @package Bootscore 
- * @version 6.2.0
+ * @version 7.0.0
  */
 
 
@@ -70,11 +70,6 @@ if (!function_exists('bootscore_setup')) :
      * Add theme support for selective refresh for widgets.
     */
     add_theme_support('customize-selective-refresh-widgets');
-    
-    /*
-     * Add theme support for block template-parts.
-    */
-    add_theme_support( 'block-template-parts' );
   }
 endif;
 add_action('after_setup_theme', 'bootscore_setup');
