@@ -93,7 +93,7 @@ add_action('wp_head', function () {
       }
     }
     </script>
-    <script type="module" src="<?php echo get_template_directory_uri() ?>/assets/js/compiler/picosass.js"></script>
+    <script type="module" src="<?php echo get_template_directory_uri() ?>/assets/js/scss-compiler/picosass.js"></script>
 
     <template id="the-scss" class="prevent-autocompile" baseurl="<?php echo bootscore_picosass_scss_uri() ?>"
       <?php if (is_child_theme()): ?> fallback_baseurl="<?php echo get_template_directory_uri() . '/assets/scss/' ?>" <?php endif ?> >
