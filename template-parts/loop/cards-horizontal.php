@@ -59,7 +59,7 @@ $context = 'cards-horizontal';
 
         <?php if (apply_filters('bootscore/loop/meta', true, 'cards-horizontal')) : ?>
           <?php if ('post' === get_post_type()) : ?>
-            <p class="meta small mb-2 text-body-secondary z-3">
+            <p class="meta small mb-2 text-body-secondary z-2">
               <?php
               bootscore_date();
               bootscore_author();
