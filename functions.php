@@ -6,7 +6,7 @@
  * @link https://developer.wordpress.org/themes/basics/theme-functions/
  *
  * @package Bootscore
- * @version 6.5.0
+ * @version 7.0.0
  */
 
 
@@ -15,36 +15,18 @@ defined('ABSPATH') || exit;
 
 
 /**
- * Update Checker
- * https://github.com/YahnisElsts/plugin-update-checker
- * 
- * Deprecated, the PUC will be replaced in v7 by the new Bootscore updater
- */
-require 'inc/update/plugin-update-checker.php';
-use YahnisElsts\PluginUpdateChecker\v5\PucFactory;
-
-$myUpdateChecker = PucFactory::buildUpdateChecker(
-	'https://github.com/bootscore/bootscore/',
-	__FILE__,
-	'bootscore'
-);
-
-// Set the branch that contains the stable release.
-$myUpdateChecker->setBranch('main');
-
-
-/**
  * Load required files
  */
 require_once get_template_directory() . '/inc/theme-setup.php';             // Theme setup and custom theme supports
+require_once get_template_directory() . '/inc/body.php';                    // Required WP body classes
 require_once get_template_directory() . '/inc/breadcrumb.php';              // Breadcrumb
 require_once get_template_directory() . '/inc/columns.php';                 // Main/sidebar column width and breakpoints
 require_once get_template_directory() . '/inc/comments.php';                // Comments
 require_once get_template_directory() . '/inc/enable-html.php';             // Enable HTML in category and author description
 require_once get_template_directory() . '/inc/enqueue.php';                 // Enqueue scripts and styles
 require_once get_template_directory() . '/inc/excerpt.php';                 // Adds excerpt to pages
-require_once get_template_directory() . '/inc/fontawesome.php';             // Adds shortcode for inserting Font Awesome icons
-require_once get_template_directory() . '/inc/navwalker.php';               // Register the Bootstrap 5 navwalker
+require_once get_template_directory() . '/inc/icons.php';                   // Allowed HTML for inline SVG icons output via bootscore/icon/* filters
+require_once get_template_directory() . '/inc/class-navwalker.php';         // Register the Bootstrap 5 navwalker
 require_once get_template_directory() . '/inc/navmenu.php';                 // Register the nav menus
 require_once get_template_directory() . '/inc/pagination.php';              // Pagination for loop and single posts
 require_once get_template_directory() . '/inc/password-protected-form.php'; // Form if post or page is protected by password
@@ -53,11 +35,12 @@ require_once get_template_directory() . '/inc/template-functions.php';      // F
 require_once get_template_directory() . '/inc/widgets.php';                 // Register widget area and disables Gutenberg in widgets
 require_once get_template_directory() . '/inc/deprecated.php';              // Fallback functions being dropped in v6
 require_once get_template_directory() . '/inc/tinymce-editor.php';          // Fix body margin and font-family in backend if classic editor is used
-//require_once get_template_directory() . '/inc/updater/updater-config.php'; // Load theme's own update configuration
+require_once get_template_directory() . '/inc/scss-compiler.php';           // Picosass compiler
+require_once get_template_directory() . '/inc/updater/updater-config.php';  // Load theme's own update configuration
 
 // Blocks
 // Patterns
-require_once get_template_directory() . '/inc/blocks/patterns.php';         // Register pattern category and script to hide wp-block classes
+require_once get_template_directory() . '/inc/blocks/patterns.php'; // Register pattern category and script to hide wp-block classes
 
 // Widgets
 require_once get_template_directory() . '/inc/blocks/block-widget-archives.php';        // Archive block

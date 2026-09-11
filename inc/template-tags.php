@@ -6,7 +6,7 @@
  * Eventually, some of the functionality here could be replaced by core features.
  *
  * @package Bootscore
- * @version 6.4.0
+ * @version 7.0.0
  */
 
 
@@ -75,7 +75,9 @@ if (!function_exists('bootscore_date')) :
       if (!$show_updated_time) {
         $time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time>';
       } else {
-        $time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time> <span class="time-updated-separator">/</span> <time class="updated" datetime="%3$s">%4$s</time>';
+        $icon = bootscore_icon('arrow-rotate', false);
+
+        $time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time> <span class="time-updated-separator">/</span> ' . $icon . ' <time class="updated" datetime="%3$s">%4$s</time>';
       }
     }
 
@@ -145,7 +147,7 @@ if (!function_exists('bootscore_comments')) :
   function bootscore_comments() {
 
     if (!is_single() && !post_password_required() && (comments_open() || get_comments_number())) {
-      echo ' <span class="comment-divider">|</span> ' . wp_kses_post(apply_filters('bootscore/icon/comments', '<i class="fa-regular fa-comments"></i>')) . ' <span class="comments-link">';
+      echo ' <span class="comment-divider">|</span> ' . bootscore_icon('comments', false) . ' <span class="comments-link">';
       comments_popup_link(
         sprintf(
           wp_kses(
@@ -204,13 +206,10 @@ if (!function_exists('bootscore_comment_count')) :
    */
   function bootscore_comment_count() {
     if (!post_password_required() && (comments_open() || get_comments_number())) {
-      echo ' <span class="comment-divider">|</span> ' . wp_kses_post(apply_filters('bootscore/icon/comments', '<i class="fa-regular fa-comments"></i>')) . ' <span class="comments-link">';
-
+      echo ' <span class="comment-divider">|</span> ' . bootscore_icon('comments', false) . ' <span class="comments-link">';
       /* translators: %s: Name of current post. Only visible to screen readers. */
       // comments_popup_link( sprintf( __( 'Leave a comment<span class="screen-reader-text"> on %s</span>', 'bootscore' ), get_the_title() ) );
       comments_popup_link(sprintf(__('Leave a comment', 'bootscore'), get_the_title()));
-
-
       echo '</span>';
     }
   }
@@ -250,7 +249,7 @@ if (!function_exists('bootscore_tags')) :
 
     // Check if icon should be shown
     if (apply_filters('bootscore/show/tag/icon', true)) {
-      $icon = wp_kses_post(apply_filters('bootscore/icon/tag', '<i class="fa-solid fa-tag"></i>')) . ' ';
+      $icon = bootscore_icon('tag', false) . ' ';
     } else {
       $icon = '';
     }

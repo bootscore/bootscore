@@ -2,7 +2,7 @@
 
 /**
  * Template part for displaying loop items in horizontal cards (default)
- * Template Version: 6.4.0
+ * Template Version: 7.0.0
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
@@ -48,7 +48,7 @@ $context = 'cards-horizontal';
           <?php endif; ?>
 
           <?php if (is_sticky() ) { ?>
-            <p class="sticky-badge"><span class="<?= esc_attr(apply_filters('bootscore/class/loop/card/content/sticky-post-badge', 'badge bg-danger-subtle text-danger-emphasis')); ?>"><?= wp_kses_post(apply_filters('bootscore/icon/map-pin', '<i class="fa-solid fa-map-pin"></i>')); ?></span></p>
+            <p class="sticky-badge"><span class="<?= esc_attr(apply_filters('bootscore/class/loop/card/content/sticky-post-badge', 'badge bg-danger-subtle text-danger-emphasis')); ?>"><?php bootscore_icon('thumbtack'); ?></span></p>
           <?php } ?>
 
         </div>
