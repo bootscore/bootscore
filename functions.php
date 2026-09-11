@@ -18,6 +18,7 @@ defined('ABSPATH') || exit;
  * Load required files
  */
 require_once get_template_directory() . '/inc/theme-setup.php';             // Theme setup and custom theme supports
+require_once get_template_directory() . '/inc/body.php';                    // Required WP body classes
 require_once get_template_directory() . '/inc/breadcrumb.php';              // Breadcrumb
 require_once get_template_directory() . '/inc/columns.php';                 // Main/sidebar column width and breakpoints
 require_once get_template_directory() . '/inc/comments.php';                // Comments

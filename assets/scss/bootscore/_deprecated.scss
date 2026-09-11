@@ -1,5 +1,5 @@
 /*--------------------------------------------------------------
-Deprecated - Bootscore v7.0.0. This code will be removed in v7.
+Deprecated - Bootscore v7.0.0. This code will be removed.
 --------------------------------------------------------------*/
 
 
@@ -17,38 +17,6 @@ Deprecated - Bootscore v7.0.0. This code will be removed in v7.
 }
 
 
-body {
-  // Prevent horizontal scrollbars on Windows Chrome & Firefox when using width-100 class
-  overflow-x: hidden;
-  
-  // This is mandatory for the WP Theme Unit Test Data
-  // https://dev.bootscore.me/about/page-markup-and-formatting/
-  // Breaks responsive tables
-  word-break: break-word;
-  
-  // If we keep both, we can just use Bootstrap classes
-  // <?= esc_attr(apply_filters('bootscore/class/body', 'overflow-x-hidden text-break')); ?>
-  // And check responsive tables
-}
-
-// Responsive Tables
-// Theme uses word-break: break-word; on body as recommended by WordPress to handle edge cases.
-// See https://dev.bootscore.me/2009/10/05/title-should-not-overflow-the-content-area/
-// As result, words break in tables and responsive tables aren't responsive.
-// Adding white-space: nowrap; to tables to each breakpoint solves this.
-@each $breakpoint in map-keys($grid-breakpoints) {
-  $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
-
-  @include media-breakpoint-down($breakpoint) {
-    .table-responsive#{$infix} {
-      .table {
-        white-space: nowrap;
-      }
-    }
-  }
-}
-
-
 // Responsive image height in (new) cards-horizontal.php loop card template
 // Class h-100 creates issue with bs Swiper v6 in mobile view
 // Recheck this in v7. If we keep it, move it to utilities.scss
@@ -60,7 +28,6 @@ body {
 
 
 // Check if Bootstrap v6 will have a backdrop-blur utility https://github.com/orgs/twbs/discussions/42187
-
 .backdrop-blur-10 {
   backdrop-filter: blur(10px) saturate(180%);
   -webkit-backdrop-filter: blur(10px) saturate(180%);
