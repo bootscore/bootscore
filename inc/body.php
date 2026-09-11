@@ -15,11 +15,6 @@ defined('ABSPATH') || exit;
 /**
  * word-break: break-word is required for the WP Theme Unit Test Data
  * https://dev.bootscore.me/about/page-markup-and-formatting/
- *
- * Change class:
- * add_filter( 'bootscore/class/body', function( $class ) {
- *   return 'my-custom-class';
- * });
  */
 function bootscore_wp_body_class( $classes ) {
 
