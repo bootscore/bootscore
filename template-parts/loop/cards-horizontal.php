@@ -30,9 +30,7 @@ $context = 'cards-horizontal';
 
     <?php if (has_post_thumbnail()) : ?>
       <div class="<?= esc_attr(apply_filters('bootscore/class/loop/card/image/col', 'col-md-5 col-lg-6 col-xl-5 col-xxl-4', 'cards-horizontal')); ?>">
-        <a href="<?php the_permalink(); ?>" aria-hidden="true" tabindex="-1">
-          <?php the_post_thumbnail('medium', array('class' => esc_attr(apply_filters('bootscore/class/loop/card/image', 'h-md-100 object-fit-md-cover', 'cards-horizontal')))); ?>
-        </a>
+        <?php the_post_thumbnail('medium', array('class' => esc_attr(apply_filters('bootscore/class/loop/card/image', 'h-md-100 object-fit-md-cover', 'cards-horizontal')))); ?>
       </div>
     <?php endif; ?>
 
@@ -55,15 +53,13 @@ $context = 'cards-horizontal';
 
         <?php do_action('bootscore_before_loop_title', 'cards-horizontal'); ?>
 
-        <a class="<?= esc_attr(apply_filters('bootscore/class/loop/card/title/link', 'text-body text-decoration-none', 'cards-horizontal')); ?>" href="<?php the_permalink(); ?>">
-          <?php the_title('<h2 class="' . esc_attr(apply_filters('bootscore/class/loop/card/title', 'h5', 'cards-horizontal')) . '">', '</h2>'); ?>
-        </a>
+        <?php the_title('<h2 class="' . esc_attr(apply_filters('bootscore/class/loop/card/title', 'h5', 'cards-horizontal')) . '">', '</h2>'); ?>
         
         <?php do_action('bootscore_after_loop_title', 'cards-horizontal'); ?>
 
         <?php if (apply_filters('bootscore/loop/meta', true, 'cards-horizontal')) : ?>
           <?php if ('post' === get_post_type()) : ?>
-            <p class="meta small mb-2 text-body-secondary">
+            <p class="meta small mb-2 text-body-secondary z-3">
               <?php
               bootscore_date();
               bootscore_author();
@@ -76,19 +72,15 @@ $context = 'cards-horizontal';
         
         <?php if (apply_filters('bootscore/loop/excerpt', true, 'cards-horizontal')) : ?>
           <p class="<?= esc_attr(apply_filters('bootscore/class/loop/card-text/excerpt', 'card-text', 'cards-horizontal')); ?>">
-            <a class="<?= esc_attr(apply_filters('bootscore/class/loop/card-text/excerpt/link', 'text-body text-decoration-none', 'cards-horizontal')); ?>" href="<?php the_permalink(); ?>">                
-              <?php bootscore_excerpt(); ?>
-            </a>
+            <?php bootscore_excerpt(); ?>
           </p>
         <?php endif; ?>
         
-        <?php if (apply_filters('bootscore/loop/read-more', true, 'cards-horizontal')) : ?>
-          <p class="<?= esc_attr(apply_filters('bootscore/class/loop/card-text/read-more', 'card-text mt-auto', 'cards-horizontal')); ?>">
-            <a class="<?= esc_attr(apply_filters('bootscore/class/loop/read-more', 'read-more', 'cards-horizontal')); ?>" href="<?php the_permalink(); ?>">
-              <?= wp_kses_post(apply_filters('bootscore/loop/read-more/text', __('Read more »', 'bootscore'), 'cards-horizontal')); ?>
-            </a>
-          </p>
-        <?php endif; ?>
+        <p class="<?= esc_attr(apply_filters('bootscore/class/loop/card-text/read-more', 'card-text mt-auto', 'cards-horizontal')); ?>">
+          <a class="read-more <?= esc_attr(apply_filters('bootscore/class/loop/read-more', 'stretched-link', 'cards-horizontal')); ?>" href="<?php the_permalink(); ?>">
+            <?= wp_kses_post(apply_filters('bootscore/loop/read-more/text', __('Read more »', 'bootscore'), 'cards-horizontal')); ?>
+          </a>
+        </p>
 
         <?php if (apply_filters('bootscore/loop/tags', true, 'cards-horizontal') && has_tag()) : ?>
           <?php bootscore_tags(); ?>
