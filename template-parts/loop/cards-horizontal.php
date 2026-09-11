@@ -39,7 +39,7 @@ $context = 'cards-horizontal';
     <div class="<?= esc_attr(apply_filters('bootscore/class/loop/card/content/col', 'col', 'cards-horizontal')); ?>">
       <div class="<?= esc_attr(apply_filters('bootscore/class/loop/card/body', 'card-body h-100 d-flex flex-column', 'cards-horizontal')); ?>">
 
-        <div class="<?= esc_attr(apply_filters('bootscore/class/loop/card/content/meta-wrapper', 'd-flex justify-content-between gap-3', 'cards-horizontal')); ?>">
+        <div class="<?= esc_attr(apply_filters('bootscore/class/loop/card/content/meta-wrapper', 'd-flex justify-content-between gap-3 z-2', 'cards-horizontal')); ?>">
 
           <?php if (apply_filters('bootscore/loop/category', true, 'cards-horizontal')) : ?>
             <?php bootscore_category_badge(); ?>
@@ -83,7 +83,9 @@ $context = 'cards-horizontal';
         </p>
 
         <?php if (apply_filters('bootscore/loop/tags', true, 'cards-horizontal') && has_tag()) : ?>
-          <?php bootscore_tags(); ?>
+          <div class="z-2">
+            <?php bootscore_tags(); ?>
+          </div>
         <?php endif; ?>
 
         <?php do_action('bootscore_after_loop_tags', 'cards-horizontal'); ?>

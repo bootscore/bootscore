@@ -32,7 +32,7 @@ $context = 'cards-grid';
 
   <div class="<?= esc_attr(apply_filters('bootscore/class/loop/card/body', 'card-body h-100 d-flex flex-column', 'cards-grid')); ?>">
 
-    <div class="<?= esc_attr(apply_filters('bootscore/class/loop/card/content/meta-wrapper', 'd-flex justify-content-between gap-3', 'cards-grid')); ?>">
+    <div class="<?= esc_attr(apply_filters('bootscore/class/loop/card/content/meta-wrapper', 'd-flex justify-content-between gap-3 z-2', 'cards-grid')); ?>">
 
       <?php if (apply_filters('bootscore/loop/category', true, 'cards-grid')) : ?>
         <?php bootscore_category_badge(); ?>
@@ -69,16 +69,16 @@ $context = 'cards-grid';
       </p>
     <?php endif; ?>
 
-    <?php if (apply_filters('bootscore/loop/read-more', true, 'cards-grid')) : ?>
-      <p class="<?= esc_attr(apply_filters('bootscore/class/loop/card-text/read-more', 'card-text mt-auto', 'cards-grid')); ?>">
-        <a class="read-more <?= esc_attr(apply_filters('bootscore/class/loop/read-more', 'stretched-link', 'cards-grid')); ?>" href="<?php the_permalink(); ?>">
-          <?= wp_kses_post(apply_filters('bootscore/loop/read-more/text', __('Read more »', 'bootscore'), 'cards-grid')); ?>
-        </a>
-      </p>
-    <?php endif; ?>
+    <p class="<?= esc_attr(apply_filters('bootscore/class/loop/card-text/read-more', 'card-text mt-auto', 'cards-grid')); ?>">
+      <a class="read-more <?= esc_attr(apply_filters('bootscore/class/loop/read-more', 'stretched-link', 'cards-grid')); ?>" href="<?php the_permalink(); ?>">
+        <?= wp_kses_post(apply_filters('bootscore/loop/read-more/text', __('Read more »', 'bootscore'), 'cards-grid')); ?>
+      </a>
+    </p>
 
     <?php if (apply_filters('bootscore/loop/tags', true, 'cards-grid') && has_tag()) : ?>
-      <?php bootscore_tags(); ?>
+      <div class="z-2">
+        <?php bootscore_tags(); ?>
+      </div>
     <?php endif; ?>
 
     <?php do_action('bootscore_after_loop_tags', 'cards-grid'); ?>
