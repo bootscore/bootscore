@@ -101,11 +101,8 @@ get_header();
           <?php do_action('bootscore_after_loop', 'archive'); ?>
 
           <div class="entry-footer">
-    
             <?php do_action('bootscore_before_pagination', 'archive'); ?>
-            
-            <?php bootscore_pagination(); ?>
-            
+            <?php do_action('bootscore_loop_pagination'); ?>            
           </div>
 
         </main>

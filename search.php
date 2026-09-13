@@ -100,7 +100,7 @@ get_header();
 
             <div class="entry-footer">
               <?php do_action('bootscore_before_pagination', 'search'); ?>
-              <?php bootscore_pagination(); ?>
+              <?php do_action('bootscore_loop_pagination'); ?>  
             </div>
 
           <?php else : ?>
