@@ -49,13 +49,13 @@ get_header();
 
             // Default grid classes
             $grid_classes = apply_filters('bootscore/class/loop/grid/col',
-              'row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 g-4 mb-4',
+              'row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 g-4 mb-4 bs-loop-grid',
               'search'
             );
 
             // Default horizontal/overlay classes (both use same grid structure)
             $horizontal_classes = apply_filters('bootscore/class/loop/horizontal/col',
-              'row row-cols-1 g-4 mb-4',
+              'row row-cols-1 g-4 mb-4 bs-loop-grid',
               'search'
             );
             ?>
@@ -99,8 +99,8 @@ get_header();
             <?php do_action('bootscore_after_loop', 'search'); ?>
 
             <div class="entry-footer">
-              <?php do_action('bootscore_before_pagination', 'search'); ?>
-              <?php bootscore_pagination(); ?>
+              <?php do_action('bootscore_before_loop_pagination', 'search'); ?>
+              <?php do_action('bootscore_loop_pagination'); ?>  
             </div>
 
           <?php else : ?>

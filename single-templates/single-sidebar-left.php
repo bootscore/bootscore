@@ -2,7 +2,7 @@
 /**
  * Template Name: Sidebar left
  * Template Post Type: post
- * Template Version: 6.4.0
+ * Template Version: 7.0.0
  *
  * @package Bootscore
  */
@@ -63,7 +63,7 @@ get_header();
                 if (function_exists('bootscore_related_posts')) bootscore_related_posts(); 
               ?>
               
-              <?php do_action( 'bootscore_before_pagination', 'single-sidebar-left' ); ?>
+              <?php do_action( 'bootscore_before_single_pagination', 'single-sidebar-left' ); ?>
               
               <nav aria-label="bs page navigation">
                 <ul class="pagination justify-content-center">
