@@ -4,7 +4,7 @@
  * WooCommerce functions and definitions
  *
  * @package Bootscore
- * @version 6.4.0
+ * @version 6.5.0
  */
 
 
@@ -20,6 +20,7 @@ require_once get_template_directory() . '/woocommerce/inc/wc-enqueue.php';
 require_once get_template_directory() . '/woocommerce/inc/wc-forms.php';
 require_once get_template_directory() . '/woocommerce/inc/wc-loop.php';
 require_once get_template_directory() . '/woocommerce/inc/wc-mini-cart.php';
+require_once get_template_directory() . '/woocommerce/inc/wc-pagination.php';
 require_once get_template_directory() . '/woocommerce/inc/wc-qty-btn.php'; 
 require_once get_template_directory() . '/woocommerce/inc/wc-redirects.php'; 
 require_once get_template_directory() . '/woocommerce/inc/wc-result-count.php';
