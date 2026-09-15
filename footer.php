@@ -2,7 +2,7 @@
 
 /**
  * The template for displaying the footer
- * Template Version: 6.3.1
+ * Template Version: 7.0.0
  *
  * Contains the closing of the #content div and all content after.
  *
@@ -93,7 +93,7 @@ defined('ABSPATH') || exit;
 </footer>
 
 <!-- To top button -->
-<a href="#" class="<?= esc_attr(apply_filters('bootscore/class/footer/to_top_button', 'btn btn-primary shadow')); ?> position-fixed zi-1000 top-button" role="button" aria-label="<?php esc_attr_e('Return to top', 'bootscore' ); ?>"><?= wp_kses_post(apply_filters('bootscore/icon/chevron-up', '<i class="fa-solid fa-chevron-up" aria-hidden="true"></i>')); ?></a>
+<a href="#" class="<?= esc_attr(apply_filters('bootscore/class/footer/to_top_button', 'btn btn-primary shadow')); ?> position-fixed zi-1000 top-button" role="button" aria-label="<?php esc_attr_e('Return to top', 'bootscore' ); ?>"><?php bootscore_icon('chevron-up'); ?></a>
 
 </div><!-- #page -->
 

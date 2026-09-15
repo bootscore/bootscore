@@ -4,7 +4,7 @@
  * Breadcrumb
  *
  * @package Bootscore
- * @version 6.5.0
+ * @version 7.0.0
  */
 
 
@@ -26,7 +26,7 @@ if (!function_exists('the_breadcrumb')) :
     echo '<ol class="breadcrumb ' . esc_attr(apply_filters('bootscore/class/breadcrumb/ol', 'flex-nowrap mb-0')) . '">' . PHP_EOL;
 
     // Home link
-    echo '<li class="breadcrumb-item"><a aria-label="' . esc_attr__('Home', 'bootscore') . '" class="' . esc_attr(apply_filters('bootscore/class/breadcrumb/item/link', '')) . '" href="' . esc_url(home_url()) . '">' . wp_kses_post(apply_filters('bootscore/icon/home', '<i class="fa-solid fa-house" aria-hidden="true"></i>')) . '<span class="visually-hidden">' . esc_html__('Home', 'bootscore') . '</span></a></li>' . PHP_EOL;
+    echo '<li class="breadcrumb-item"><a aria-label="' . esc_attr__('Home', 'bootscore') . '" class="' . esc_attr(apply_filters('bootscore/class/breadcrumb/item/link', '')) . '" href="' . esc_url(home_url()) . '">' . bootscore_icon('home', false) . '<span class="visually-hidden">' . esc_html__('Home', 'bootscore') . '</span></a></li>' . PHP_EOL;
     
     // Hook for custom breadcrumb handlers (WooCommerce, other CPTs, etc.)
     // If any handler returns true, it means it handled the breadcrumb and we should stop

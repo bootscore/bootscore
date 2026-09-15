@@ -2,7 +2,7 @@
 
 /**
  * The header for our theme
- * Template Version: 6.3.1
+ * Template Version: 7.0.0
  *
  * This is the template that displays all of the <head> section and everything up until <div id="content">
  *
@@ -52,10 +52,9 @@ defined('ABSPATH') || exit;
         
         <?php do_action( 'bootscore_before_navbar_brand' ); ?>
         
-        <!-- Navbar Brand -->
         <a class="<?= esc_attr(apply_filters('bootscore/class/header/navbar-brand', 'navbar-brand')); ?>" href="<?= esc_url(home_url()); ?>">
-          <img src="<?= esc_url(apply_filters('bootscore/logo', get_stylesheet_directory_uri() . '/assets/img/logo/logo.svg', 'default')); ?>" alt="<?= esc_attr(get_bloginfo('name')); ?> Logo" class="d-td-none">
-          <img src="<?= esc_url(apply_filters('bootscore/logo', get_stylesheet_directory_uri() . '/assets/img/logo/logo-theme-dark.svg', 'theme-dark')); ?>" alt="<?= esc_attr(get_bloginfo('name')); ?> Logo" class="d-tl-none">
+          <img src="<?= esc_url(apply_filters('bootscore/logo', get_stylesheet_directory_uri() . '/assets/img/logo/logo.svg', 'default')); ?>" alt="<?= esc_attr(get_bloginfo('name')); ?> Logo" class="d-td-none" width="<?= esc_attr(apply_filters('bootscore/logo/width', '30')); ?>" height="<?= esc_attr(apply_filters('bootscore/logo/height', '30')); ?>">
+          <img src="<?= esc_url(apply_filters('bootscore/logo', get_stylesheet_directory_uri() . '/assets/img/logo/logo-theme-dark.svg', 'theme-dark')); ?>" alt="<?= esc_attr(get_bloginfo('name')); ?> Logo" class="d-tl-none" width="<?= esc_attr(apply_filters('bootscore/logo/width', '30')); ?>" height="<?= esc_attr(apply_filters('bootscore/logo/height', '30')); ?>">
         </a>  
         
         <?php do_action( 'bootscore_after_navbar_brand' ); ?>
@@ -96,7 +95,7 @@ defined('ABSPATH') || exit;
 
           <!-- Navbar Toggler -->
           <button class="<?= esc_attr(apply_filters('bootscore/class/header/button', 'btn btn-outline-secondary', 'nav-toggler')); ?> <?= esc_attr(apply_filters('bootscore/class/header/navbar/toggler/breakpoint', 'd-lg-none')); ?> <?= esc_attr(apply_filters('bootscore/class/header/action/spacer', 'ms-1 ms-md-2', 'nav-toggler')); ?> nav-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas-navbar" aria-controls="offcanvas-navbar" aria-label="<?php esc_attr_e( 'Toggle main menu', 'bootscore' ); ?>">
-            <?= wp_kses_post(apply_filters('bootscore/icon/menu', '<i class="fa-solid fa-bars"></i>')); ?> <span class="visually-hidden-focusable">Menu</span>
+            <?php bootscore_icon('bars'); ?>
           </button>
           
           <?php do_action( 'bootscore_after_nav_toggler' ); ?>

@@ -3,239 +3,230 @@
 /**
  * Class with functions to compile SCSS files.
  *
+ * PICOSASS JS INTEGRATION FOR BOOTSCORE
+ * Ported from picostrap5's inc/scss-compiler.
+ * Compiles bootscore.scss client-side using real Dart Sass (loaded from
+ * a CDN in the admin's browser), then AJAX-saves the result to
+ * assets/css/bootscore.min.css.
+ * 
  * @package Bootscore
- * @version 6.3.1
+ * @version 7.0.0
  */
 
 
 // Exit if accessed directly
 defined('ABSPATH') || exit;
 
-require_once "scssphp/scss.inc.php";
-
-use ScssPhp\ScssPhp\Compiler;
-
-class BootscoreScssCompiler {
-  private $compiler;
-  private bool $should_compile = false;
-  private string $scss_file;
-  private string $css_file;
-  private string $theme_directory;
-  private bool $skip_environment_check = false;
-  private array $file_mtime_check = [];
-  private int $files_mtime;
-  private bool $is_environment_dev;
-  private string $file_id;
-
-  public function __construct() {
-    $this->compiler               = new Compiler();
-    $this->theme_directory        = ($this->shouldProcessChild()) ? get_stylesheet_directory() : get_template_directory();
-    $this->skip_environment_check = apply_filters('bootscore/scss/skip_environment_check', (defined('BOOTSCORE_SCSS_SKIP_ENVIRONMENT_CHECK') && BOOTSCORE_SCSS_SKIP_ENVIRONMENT_CHECK));
-    $this->is_environment_dev     = in_array(wp_get_environment_type(), array('development', 'local'), true);
-  }
-
-  public function scssFile(string $scss_file, $auto_set_css_file = true) {
-    $this->scss_file = $scss_file;
-
-    if ($auto_set_css_file) {
-      $this->css_file = str_replace('scss', 'css', $scss_file);
-    }
-
-    return $this;
-  }
-
-  public function cssFile(string $css_file) {
-    $this->css_file = $css_file;
-
-    return $this;
-  }
-
-  public function getScssFile() {
-    return $this->theme_directory . $this->scss_file;
-  }
-
-  public function getCssFile() {
-    return $this->theme_directory . $this->css_file;
-  }
-
-  public function addImportPath(string $import_path) {
-    $this->compiler->addImportPath($import_path);
-
-    return $this;
-  }
-
-  public function addModifiedCheck($file, $prefix_theme_directory = true) {
-    $this->file_mtime_check[] = ($prefix_theme_directory) ? $this->theme_directory . $file : $file;
-
-    return $this;
-  }
-
-  public function addModifiedSelf() {
-    $this->addModifiedCheck($this->scss_file);
-
-    return $this;
-  }
-
-  public function addModifiedCheckDir($dir, $prefix_theme_directory = true) {
-    $dir   = ($prefix_theme_directory) ? $this->theme_directory . $dir : $dir;
-    $files = glob($dir . '/*');
-    foreach ($files as $file) {
-      // check if file is a scss file
-      if (pathinfo($file, PATHINFO_EXTENSION) !== 'scss') {
-        continue;
-      }
-      $this->addModifiedCheck($file, false);
-    }
-
-    return $this;
-  }
-
-  public function addModifiedCheckTheme() {
-    $this->addModifiedCheckDir('/assets/scss');
-
-    return $this;
-  }
-
-  public function skipEnvironmentCheck($skip = true) {
-    $this->skip_environment_check = $skip;
-
-    return $this;
-  }
-
-  private function generateId($input, $length = 8) {
-    return substr(md5($input), 0, $length);
-  }
-
-  private function shouldProcessChild() {
-    return is_child_theme() && bootscore_child_has_scss();
-  }
-
-  private function addImportPaths() {
-    $this->compiler->setImportPaths(dirname($this->theme_directory . $this->scss_file));
-
-    if ($this->shouldProcessChild()) {
-      $this->compiler->addImportPath(get_template_directory() . '/assets/scss/');
-    }
-  }
-
-  private function setOutputStyle() {
-    if ($this->is_environment_dev) {
-      $source_map_url = site_url('', 'relative') . '/' . ltrim(str_replace(ABSPATH, '', $this->getCssFile()), '/');
-      $source_map_url .= '.map';
-
-      $this->compiler->setSourceMap(Compiler::SOURCE_MAP_FILE);
-      $this->compiler->setSourceMapOptions([
-        'sourceMapURL'      => $source_map_url,
-        'sourceMapBasepath' => rtrim(str_replace('\\', '/', ABSPATH), '/'),
-        'sourceRoot'        => site_url('', 'relative') . '/',
-      ]);
-      $this->compiler->setOutputStyle(\ScssPhp\ScssPhp\OutputStyle::EXPANDED);
-    } else {
-      $this->compiler->setOutputStyle(\ScssPhp\ScssPhp\OutputStyle::COMPRESSED);
-    }
-  }
-
-  private function getModifiedTime() {
-    $this->files_mtime = 0;
-    foreach ($this->file_mtime_check as $file) {
-      $this->files_mtime = max($this->files_mtime, filemtime($file));
-    }
-  }
-
-  private function processModifiedCheck() {
-    $this->getModifiedTime();
-
-    $stored_modified = get_theme_mod('bootscore_scss_modified_timestamp_' . $this->file_id, 0);
-
-    if ($this->files_mtime > $stored_modified) {
-      $this->should_compile = true;
-    }
-  }
-
-  private function extraChecks() {
-    if ($this->is_environment_dev && !$this->skip_environment_check) {
-      $this->should_compile = true;
-    }
-
-    if (!file_exists($this->getCssFile())) {
-      $this->should_compile = true;
-    }
-
-    if (apply_filters('bootscore/scss/disable_compiler', (defined('BOOTSCORE_SCSS_DISABLE_COMPILER') && BOOTSCORE_SCSS_DISABLE_COMPILER))) {
-      $this->should_compile = false;
-    }
-  }
-
-  public function compile() {
-    if (apply_filters('bootscore/scss/disable_compiler', (defined('BOOTSCORE_SCSS_DISABLE_COMPILER') && BOOTSCORE_SCSS_DISABLE_COMPILER))) {
-        return;
-    }
-    $this->addImportPaths();
-    $this->setOutputStyle();
-    $this->file_id = $this->generateId($this->scss_file);
-    $this->addModifiedSelf();
-    if (!empty($this->file_mtime_check)) {
-      $this->processModifiedCheck();
-    }
-    $this->extraChecks();
-
-    if (!$this->should_compile) {
-      return;
-    }
-
-    $this->compiler = apply_filters('bootscore/scss/compiler', $this->compiler);
-
-    try {
-      $compiled = $this->compiler->compileString(file_get_contents($this->getScssFile()));
-
-      if (!file_exists(dirname($this->getCssFile()))) {
-        mkdir(dirname($this->getCssFile()), 0755, true);
-      }
-
-      file_put_contents($this->getCssFile(), $compiled->getCss());
-      if ($this->is_environment_dev) {
-        file_put_contents($this->getCssFile() . '.map', $compiled->getSourceMap());
-      }
-
-      if (!empty($this->file_mtime_check)) {
-        set_theme_mod('bootscore_scss_modified_timestamp_' . $this->file_id, $this->files_mtime);
-      }
-    } catch (Exception $e) {
-      if ($this->is_environment_dev) {
-        wp_die('<b>Bootscore SCSS Compiler - Caught exception:</b><br><br> ' . $e->getMessage());
-      } else {
-        wp_die('Something went wrong with the SCSS compiler.');
-      }
-    }
-  }
-}
-
 
 /**
- * Check if the child theme has scss files included.
+ * Check if the active child theme has its own bootscore.scss.
+ * Used to decide whether the PicoSASS baseurl/fallback_baseurl should
+ * point at the child theme (with the parent as fallback) or just the
+ * parent theme directly.
  *
- * @return boolean True when child theme has scss files.
+ * NOTE: This used to live in the old scssphp-based scss-compiler.php.
+ * Keep it defined here now that that file is no longer required -
+ * is_child_theme() short-circuits around it on the main theme, so a
+ * missing definition only breaks child-theme installs, silently.
  */
 function bootscore_child_has_scss() {
-  return file_exists(get_stylesheet_directory() . '/assets/scss/main.scss');
+  return file_exists(get_stylesheet_directory() . '/assets/scss/bootscore.scss');
 }
 
-function bootscore_compile_scss() {
-  // Compile the main.scss file
-  $scss_compiler_main = new BootscoreScssCompiler();
-  $scss_compiler_main->scssFile('/assets/scss/main.scss')
-                     ->cssFile('/assets/css/main.css')
-                     ->addModifiedCheckTheme()
-                     ->addModifiedCheck(get_template_directory() . '/assets/scss/bootstrap/bootstrap.scss', false)
-                     ->compile();
 
-  // Compile the editor.scss file
-  $scss_compiler_editor = new BootscoreScssCompiler();
-  $scss_compiler_editor->scssFile('/assets/scss/editor.scss')
-                       ->cssFile('/assets/css/editor.css')
-                       ->addModifiedSelf()
-                       ->addModifiedCheck(get_template_directory() . '/assets/scss/bootstrap/bootstrap.scss', false)
-                       ->addModifiedCheck('/assets/scss/_bootscore-variables.scss')
-                       ->skipEnvironmentCheck()
-                       ->compile();
+// Where Bootscore's own SCSS lives, with child-theme fallback support
+// (matches the `shouldProcessChild()` logic in your existing scss-compiler.php)
+function bootscore_picosass_scss_dir() {
+  return (is_child_theme() && bootscore_child_has_scss())
+    ? get_stylesheet_directory() . '/assets/scss/'
+    : get_template_directory() . '/assets/scss/';
 }
+
+function bootscore_picosass_scss_uri() {
+  return (is_child_theme() && bootscore_child_has_scss())
+    ? get_stylesheet_directory_uri() . '/assets/scss/'
+    : get_template_directory_uri() . '/assets/scss/';
+}
+
+// Where the compiled CSS ends up - reuses the same child/parent logic as
+// the SCSS dir, just swapping the folder name.
+function bootscore_picosass_css_file() {
+  $css_dir = str_replace('/assets/scss/', '/assets/css/', bootscore_picosass_scss_dir());
+  return $css_dir . 'bootscore.min.css';
+}
+
+// TESTING: should the compiler run on this page load?
+// True if explicitly requested via ?compile_sass=1, OR if an admin is
+// viewing the frontend and bootscore.min.css doesn't exist yet (e.g. right
+// after activation, or after deleting the css folder to test this).
+function bootscore_picosass_should_compile() {
+  if (!current_user_can('administrator')) return false;
+  if (isset($_GET['compile_sass'])) return true;
+  return !file_exists(bootscore_picosass_css_file());
+}
+
+// Raw SCSS source fed into the <template id="the-scss"> element.
+// No customizer variable injection needed (Bootscore has none) -
+// just the real bootscore.scss content, verbatim.
+function bootscore_get_main_sass() {
+  $entry_file = bootscore_picosass_scss_dir() . 'bootscore.scss';
+  $sass = file_exists($entry_file) ? file_get_contents($entry_file) : '';
+  return apply_filters('bootscore/compiler/main_sass', $sass);
+}
+
+
+// ADD SCRIPT + SCSS SOURCE TO <head> - admin only, only when triggered
+// (explicitly via admin bar, or automatically when bootscore.min.css is missing)
+//
+// The import map maps the bare "immutable" specifier to a real URL. picosass.js
+// loads Dart Sass directly from jsdelivr as a raw, unbundled file (sass.default.js)
+// rather than through a bundling CDN like esm.sh - that file has one real
+// dependency, "immutable", which the browser can't resolve on its own without
+// this map. Must be declared before the picosass.js <script> tag below.
+add_action('wp_head', function () {
+  if (!bootscore_picosass_should_compile()) return;
+  ?>
+    <script type="importmap">
+    {
+      "imports": {
+        "immutable": "https://cdn.jsdelivr.net/npm/immutable@5.1.5/dist/immutable.es.js"
+      }
+    }
+    </script>
+    <script type="module" src="<?php echo get_template_directory_uri() ?>/assets/js/scss-compiler/picosass.js"></script>
+
+    <template id="the-scss" class="prevent-autocompile" baseurl="<?php echo bootscore_picosass_scss_uri() ?>"
+      <?php if (is_child_theme()): ?> fallback_baseurl="<?php echo get_template_directory_uri() . '/assets/scss/' ?>" <?php endif ?> >
+      <?php echo bootscore_get_main_sass() ?>
+    </template>
+  <?php
+});
+
+// CHECK ONLINE CONNECTION (compiler needs the CDN)
+add_action('wp_footer', function () {
+  if (!bootscore_picosass_should_compile()) return;
+  ?>
+    <script>
+      if (!navigator.onLine) { alert("You need to be online to use the SCSS compiler (it loads Dart Sass from a CDN)."); throw new Error("No network"); }
+    </script>
+  <?php
+});
+
+// RUN THE COMPILER + SAVE RESULT VIA AJAX
+add_action('wp_footer', function () {
+  if (!bootscore_picosass_should_compile()) return;
+  ?>
+    <script>
+      let lastCssBundle = '';
+
+      function bootscoreCompilingFinished(compiled) {
+        if (lastCssBundle !== compiled.css) {
+          const formdata = new FormData();
+          formdata.append("nonce", "<?php echo wp_create_nonce("bootscore_save_css_bundle") ?>");
+          formdata.append("action", "bootscore_save_css_bundle");
+          formdata.append("css", compiled.css);
+          formdata.append("sourceMap", compiled.sourceMap ? JSON.stringify(compiled.sourceMap) : "");
+          fetch("<?php echo admin_url('admin-ajax.php') ?>", {
+            method: "POST",
+            credentials: "same-origin",
+            headers: { "Cache-Control": "no-cache" },
+            body: formdata
+          }).then(r => r.text()).then(r => console.log("Saved: " + r))
+            .catch(err => console.log("bootscore_save_css_bundle error: " + err));
+
+          lastCssBundle = compiled.css;
+        }
+
+        <?php if (isset($_GET['autorecompile'])) { ?>
+        setTimeout(function () {
+          window.Picosass.Compile({}, bootscoreCompilingFinished);
+        }, 7000);
+        <?php } else { ?>
+        setTimeout(function () {
+          const url = new URL(window.location.href);
+          url.search = "";
+          window.location.href = url.href;
+        }, 3000);
+        <?php } ?>
+      }
+
+      window.addEventListener("DOMContentLoaded", () => {
+        window.Picosass.Compile({}, bootscoreCompilingFinished);
+      });
+    </script>
+  <?php
+});
+
+// AJAX HANDLER: SAVE COMPILED CSS TO assets/css/bootscore.min.css
+add_action('wp_ajax_bootscore_save_css_bundle', function () {
+  if (!is_user_logged_in() || !current_user_can('administrator')) return;
+
+  check_ajax_referer('bootscore_save_css_bundle', 'nonce');
+
+  $compiled_css = stripslashes($_POST['css']);
+
+  // Off by default - enable with:
+  // add_filter('bootscore/compiler/enable_sourcemap', '__return_true');
+  $enable_sourcemap = apply_filters('bootscore/compiler/enable_sourcemap', false);
+  $has_sourcemap    = $enable_sourcemap && isset($_POST['sourceMap']) && $_POST['sourceMap'] !== "";
+
+  if ($has_sourcemap) {
+    $compiled_css .= "\n/*# sourceMappingURL=bootscore.min.css.map */";
+  }
+
+  global $wp_filesystem;
+  if (empty($wp_filesystem)) {
+    require_once ABSPATH . 'wp-admin/includes/file.php';
+    WP_Filesystem();
+  }
+
+  $css_file = bootscore_picosass_css_file();
+  $css_dir  = dirname($css_file);
+
+  if (!file_exists($css_dir)) {
+    wp_mkdir_p($css_dir);
+  }
+
+  $saved = $wp_filesystem->put_contents($css_file, $compiled_css, FS_CHMOD_FILE);
+
+  if ($saved && $has_sourcemap) {
+    $wp_filesystem->put_contents($css_file . '.map', stripslashes($_POST['sourceMap']), FS_CHMOD_FILE);
+  }
+
+  echo $saved ? "New CSS bundle successfully saved." : "Error writing CSS file.";
+
+  wp_die();
+});
+
+// ADMIN BAR TRIGGER
+add_action('admin_bar_menu', function ($admin_bar) {
+  if (!current_user_can('administrator')) return;
+
+  $base_args = array('compile_sass' => '1', 'sass_nocache' => '1');
+
+  if (!isset($_GET['autorecompile'])) {
+    $admin_bar->add_node(array(
+      'id'    => 'bootscore-recompile-sass',
+      'title' => __('SCSS Compiler', 'bootscore'),
+      'href'  => add_query_arg($base_args),
+    ));
+    $admin_bar->add_node(array(
+      'id'     => 'bootscore-recompile-sass-once',
+      'parent' => 'bootscore-recompile-sass',
+      'title'  => __('Recompile Once', 'bootscore'),
+      'href'   => add_query_arg($base_args),
+    ));
+    $admin_bar->add_node(array(
+      'id'     => 'bootscore-recompile-sass-auto',
+      'parent' => 'bootscore-recompile-sass',
+      'title'  => __('Recompile Continuously', 'bootscore'),
+      'href'   => add_query_arg(array_merge($base_args, array('autorecompile' => '1'))),
+    ));
+  } else {
+    $admin_bar->add_node(array(
+      'id'    => 'bootscore-recompile-sass',
+      'title' => __('Stop SCSS Compiler', 'bootscore'),
+      'href'  => add_query_arg(array('compile_sass' => false, 'sass_nocache' => false, 'autorecompile' => false)),
+    ));
+  }
+}, 100);
