@@ -79,14 +79,8 @@ function bootscore_wc_pagination() {
   <?php
 }
 
-
-/**
- * Remove default WooCommerce pagination
- */
+// Remove default WooCommerce pagination
 remove_action( 'woocommerce_after_shop_loop', 'woocommerce_pagination', 10 );
 
-
-/**
- * Add custom pagination
- */
+// Add custom pagination
 add_action( 'woocommerce_after_shop_loop', 'bootscore_wc_pagination', 10 );
