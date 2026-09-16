@@ -1,10 +1,10 @@
 <?php
 
 /**
- * WooCommerce Archive Result Count ans Orderby
+ * WooCommerce Archive Result Count and Orderby
  *
  * @package Bootscore
- * @version 6.1.0
+ * @version 6.5.0
  */
 
 
