@@ -11,15 +11,20 @@
  * happen. When this occurs the version of the template file will be bumped and
  * the readme will list any important changes.
  *
- * @see 	    https://docs.woocommerce.com/document/template-structure/
- * @package 	WooCommerce/Templates
- * @version     3.3.0
+ * @see     https://docs.woocommerce.com/document/template-structure/
+ * @package WooCommerce/Templates
+ * @version 3.3.0
  */
 
 if (!defined('ABSPATH')) {
   exit;
 }
+
+$row_classes = apply_filters(
+  'bootscore/class/woocommerce/loop/row',
+  'row g-4 mb-4 products row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xxl-4'
+);
 ?>
 
-<div class="row g-4 mb-4 products">
+<div class="<?= esc_attr($row_classes); ?>">
   <!-- End in loop-end.php -->
