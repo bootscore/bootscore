@@ -7,43 +7,43 @@
       "palette":[
         {
           "slug":"primary",
-          "color":"var(--bs-primary)",
+          "color":"var(--primary-base)",
           "name":"Primary"
         },
         {
           "slug":"secondary",
-          "color":"var(--bs-secondary)",
+          "color":"var(--secondary-base)",
           "name":"Secondary"
         },
         {
           "slug":"success",
-          "color":"var(--bs-success)",
+          "color":"var(--success-base)",
           "name":"Success"
         },
         {
           "slug":"info",
-          "color":"var(--bs-info)",
+          "color":"var(--info-base)",
           "name":"Info"
         },
         {
           "slug":"warning",
-          "color":"var(--bs-warning)",
+          "color":"var(--warning-base)",
           "name":"Warning"
         },
         {
           "slug":"danger",
-          "color":"var(--bs-danger)",
+          "color":"var(--danger-base)",
           "name":"Danger"
         },
         {
-          "slug":"light",
-          "color":"var(--bs-light)",
-          "name":"Light"
+          "slug":"accent",
+          "color":"var(--accent-base)",
+          "name":"Accent"
         },
         {
-          "slug":"dark",
-          "color":"var(--bs-dark)",
-          "name":"Dark"
+          "slug":"inverse",
+          "color":"var(--inverse-base)",
+          "name":"Inverse"
         }
       ]
     },

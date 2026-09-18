@@ -4,7 +4,7 @@
  * Search Block Widget
  *
  * @package Bootscore
- * @version 6.3.1
+ * @version 7.0.0
  */
 
 
@@ -25,6 +25,10 @@ if (!function_exists('bootscore_block_widget_search_classes')) {
    */
   function bootscore_block_widget_search_classes($block_content, $block) {
 
+    // Input needs trailing margin when the button sits outside the input wrapper.
+    $button_position = $block['attrs']['buttonPosition'] ?? 'button-outside';
+    $input_spacer    = ('button-inside' !== $button_position) ? ' ' . esc_attr(apply_filters('bootscore/class/widget/search/input/spacer', 'me-2')) : '';
+
     $search  = array(
       '<form ',
       'wp-block-search__input ',
@@ -36,10 +40,10 @@ if (!function_exists('bootscore_block_widget_search_classes')) {
     );
     $replace = array(
       '<form novalidate="novalidate" ',
-      'wp-block-search__input form-control ',
-      'wp-block-search__input form-control"',
-      'wp-block-search__button ' . esc_attr(apply_filters('bootscore/class/widget/search/button', 'btn btn-outline-secondary')) . ' ',
-      wp_kses_post(apply_filters('bootscore/icon/search', '<i class="fa-solid fa-magnifying-glass"></i>'))
+      'wp-block-search__input form-control' . $input_spacer . ' ',
+      'wp-block-search__input form-control' . $input_spacer . '"',
+      'wp-block-search__btn ' . esc_attr(apply_filters('bootscore/class/widget/search/button', 'btn btn-outline-secondary')) . ' ',
+      bootscore_icon('search', false)
     );
 
     if (isset($block['attrs']['buttonPosition']) && 'button-inside' === $block['attrs']['buttonPosition']) {

@@ -8,10 +8,10 @@ Fabien Ninollet, Foaly, MarkusKab, Goяo!, neralex, yurii-shchur, amansarwar
 
 Tags: featured-images, threaded-comments, translation-ready
 
-Requires at least: 5.0
-Tested up to: 7.0
-Requires PHP: 7.4
-Stable tag: 6.4.0
+Requires at least: 7.0
+Tested up to: 7.1
+Requires PHP: 8.1
+Stable tag: 7.0.0-dev
 License: MIT License
 License URI: https://github.com/bootscore/bootscore/blob/main/LICENSE
 
@@ -55,8 +55,7 @@ Bootscore includes support for WooCommerce and Infinite Scroll in Jetpack.
 * Bootstrap 5 Wordpress Navbar Walker by AlexWebLab: https://github.com/AlexWebLab/bootstrap-5-wordpress-navbar-walker
 * Comments Section Script by wp-bootstrap-starter https://github.com/afterimagedesigns/wp-bootstrap-starter
 * Font Awesome https://fontawesome.com/license/free
-* Plugin Update Checker by YahnisElsts, MIT License https://github.com/YahnisElsts/plugin-update-checker/blob/master/license.txt
-* scssphp by Leaf Corcoran, MIT License https://github.com/scssphp/scssphp/blob/master/LICENSE.md
+* Picosass by LiveCanvas Team, GPL v2 or later https://github.com/livecanvas-team/picostrap5#license
 
 
 == Changelog ==

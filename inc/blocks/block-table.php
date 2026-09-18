@@ -4,7 +4,7 @@
  * Block Table
  *
  * @package Bootscore
- * @version 6.3.1
+ * @version 7.0.0
  */
 
 
@@ -30,7 +30,7 @@ if (!function_exists('bootscore_block_table_classes')) {
       '<table'
     );
     $replace = array(
-      'table-responsive',
+      'table-responsive text-nowrap', // text-nowrap because tables inherits text-wrap from <body>
       '<table class="table ' . esc_attr(apply_filters('bootscore/class/block/table', '')) . '"'
     );
     
