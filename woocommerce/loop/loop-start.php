@@ -22,7 +22,7 @@ if (!defined('ABSPATH')) {
 
 $row_classes = apply_filters(
   'bootscore/class/woocommerce/loop/row',
-  'row g-4 mb-4 products row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xxl-4'
+  'row g-4 bs-loop-grid mb-4 products row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xxl-4'
 );
 ?>
 

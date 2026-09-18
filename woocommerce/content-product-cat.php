@@ -19,9 +19,29 @@
 if (!defined('ABSPATH')) {
   exit;
 }
+
+// When called from bs Loop shortcode, the term is passed via $args['term'].
+// When called from the native WooCommerce loop, $category is set by WooCommerce.
+if (!empty($args['term']) && $args['term'] instanceof WP_Term) {
+  $category = $args['term'];
+}
+
+if (empty($category)) {
+  return;
+}
+
+// When called from bs Loop shortcode, $GLOBALS['bs_loop_atts'] is set.
+// In that case the col wrapper is handled by the shortcode's own row/col dispatch.
+// When called from the native WooCommerce loop, we add the col wrapper here.
+$in_bs_loop = isset($GLOBALS['bs_loop_atts']);
 ?>
-<div <?php wc_product_cat_class(esc_attr(apply_filters('bootscore/class/woocommerce/col', 'col-md-6 col-lg-4 col-xxl-3')), $category); ?>>
-  <div class="<?= esc_attr(apply_filters('bootscore/class/woocommerce/product/card', 'card h-100 text-center')); ?>">
+
+<?php if (!$in_bs_loop) : ?>
+<div class="col bs-loop-grid-item">
+<?php endif; ?>
+
+  <div <?php wc_product_cat_class(esc_attr(apply_filters('bootscore/class/woocommerce/product/card', 'card h-100 text-center')), $category); ?>>
+
     <?php
     /**
      * The woocommerce_before_subcategory hook.
@@ -36,11 +56,10 @@ if (!defined('ABSPATH')) {
      * @hooked woocommerce_subcategory_thumbnail - 10
      */
     do_action('woocommerce_before_subcategory_title', $category);
-
     ?>
+
     <div class="<?= esc_attr(apply_filters('bootscore/class/woocommerce/product/card/card-body', 'card-body d-flex flex-column')); ?>">
       <?php
-
       /**
        * The woocommerce_shop_loop_subcategory_title hook.
        *
@@ -61,5 +80,9 @@ if (!defined('ABSPATH')) {
       do_action('woocommerce_after_subcategory', $category);
       ?>
     </div>
+
   </div>
-</div>
+
+<?php if (!$in_bs_loop) : ?>
+</div><!-- .col -->
+<?php endif; ?>
