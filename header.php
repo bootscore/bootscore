@@ -42,11 +42,11 @@ defined('ABSPATH') || exit;
   
   <?php do_action( 'bootscore_before_masthead' ); ?>
 
-  <header id="masthead" class="<?= esc_attr(apply_filters('bootscore/class/header', 'sticky-top bg-body-tertiary')); ?> site-header">
+  <header id="masthead" class="<?= esc_attr(apply_filters('bootscore/class/header', 'sticky-top bg-1')); ?> site-header">
 
     <?php do_action( 'bootscore_after_masthead_open' ); ?>
     
-    <nav id="nav-main" class="navbar <?= esc_attr(apply_filters('bootscore/class/header/navbar/breakpoint', 'navbar-expand-lg')); ?>">
+    <nav id="nav-main" class="navbar <?= esc_attr(apply_filters('bootscore/class/header/navbar/breakpoint', 'md:navbar-expand')); ?>">
 
       <div class="<?= esc_attr(apply_filters('bootscore/class/container', 'container', 'header')); ?>">
         
@@ -60,12 +60,12 @@ defined('ABSPATH') || exit;
         <?php do_action( 'bootscore_after_navbar_brand' ); ?>
 
         <!-- Offcanvas Navbar -->
-        <div class="offcanvas offcanvas-<?= esc_attr(apply_filters('bootscore/class/header/offcanvas/direction', 'end', 'menu')); ?>" tabindex="-1" id="offcanvas-navbar">
-          <div class="offcanvas-header <?= esc_attr(apply_filters('bootscore/class/offcanvas/header', '', 'menu')); ?>">
-            <span class="h5 offcanvas-title"><?= esc_html(apply_filters('bootscore/offcanvas/navbar/title', __('Menu', 'bootscore'))); ?></span>
-            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        <dialog class="drawer drawer-translucent drawer-<?= esc_attr(apply_filters('bootscore/class/header/offcanvas/direction', 'end', 'menu')); ?>" tabindex="-1" id="offcanvas-navbar">
+          <div class="drawer-header <?= esc_attr(apply_filters('bootscore/class/offcanvas/header', '', 'menu')); ?>">
+            <span class="h5 drawer-title"><?= esc_html(apply_filters('bootscore/offcanvas/navbar/title', __('Menu', 'bootscore'))); ?></span>
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="drawer" aria-label="Close"></button>
           </div>
-          <div class="offcanvas-body <?= esc_attr(apply_filters('bootscore/class/offcanvas/body', '', 'menu')); ?>">
+          <div class="drawer-body <?= esc_attr(apply_filters('bootscore/class/offcanvas/body', '', 'menu')); ?>">
 
             <!-- Bootstrap 5 Nav Walker Main Menu -->
             <?php get_template_part('template-parts/header/main-menu'); ?>
@@ -76,7 +76,7 @@ defined('ABSPATH') || exit;
             <?php endif; ?>
 
           </div>
-        </div>
+        </dialog>
 
         <div class="header-actions <?= esc_attr(apply_filters('bootscore/class/header-actions', 'd-flex align-items-center')); ?>">
 
@@ -94,7 +94,7 @@ defined('ABSPATH') || exit;
           ?>
 
           <!-- Navbar Toggler -->
-          <button class="<?= esc_attr(apply_filters('bootscore/class/header/button', 'btn btn-outline-secondary', 'nav-toggler')); ?> <?= esc_attr(apply_filters('bootscore/class/header/navbar/toggler/breakpoint', 'd-lg-none')); ?> <?= esc_attr(apply_filters('bootscore/class/header/action/spacer', 'ms-1 ms-md-2', 'nav-toggler')); ?> nav-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas-navbar" aria-controls="offcanvas-navbar" aria-label="<?php esc_attr_e( 'Toggle main menu', 'bootscore' ); ?>">
+          <button class="<?= esc_attr(apply_filters('bootscore/class/header/button', 'btn', 'nav-toggler')); ?> <?= esc_attr(apply_filters('bootscore/class/header/navbar/toggler/breakpoint', 'lg:d-none')); ?> <?= esc_attr(apply_filters('bootscore/class/header/action/spacer', 'ms-1 ms-md-2', 'nav-toggler')); ?> nav-toggler" type="button" data-bs-toggle="drawer" data-bs-target="#offcanvas-navbar" aria-controls="offcanvas-navbar" aria-label="<?php esc_attr_e( 'Toggle main menu', 'bootscore' ); ?>">
             <?php bootscore_icon('bars'); ?>
           </button>
           
