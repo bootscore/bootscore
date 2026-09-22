@@ -1,0 +1,328 @@
+/**
+ * --------------------------------------------------------------------------
+ * Bootstrap dialog-base.ts
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
+ * --------------------------------------------------------------------------
+ */
+
+import BaseComponent from './base-component.js'
+import Data from './dom/data.js'
+import EventHandler, { type BootstrapEvent } from './dom/event-handler.js'
+import SelectorEngine from './dom/selector-engine.js'
+
+/**
+ * Constants
+ */
+
+const CLASS_NAME_OPEN = 'dialog-open'
+
+type DialogBaseConfig = {
+  backdrop: boolean | string
+  keyboard: boolean
+}
+
+/**
+ * Class definition
+ *
+ * Shared base class for Dialog and Drawer components that use
+ * the native <dialog> element. Provides common behavior for:
+ * - Show/hide/toggle lifecycle with events
+ * - Opening/closing via showModal()/show()/close()
+ * - Escape key handling (modal and non-modal)
+ * - Backdrop click handling
+ * - Static backdrop transition ("bounce")
+ * - Body scroll prevention
+ * - Transition coordination
+ * - Child component cleanup (tooltips, popovers, toasts)
+ */
+
+class DialogBase extends BaseComponent {
+  protected declare _element: HTMLDialogElement
+  protected declare _config: DialogBaseConfig
+  protected declare _isTransitioning: boolean
+  protected declare _openedAsModal: boolean
+  protected declare _cancelHandler: (event: BootstrapEvent) => void
+
+  constructor(element?: string | Element | null, config?: Partial<DialogBaseConfig> | null) {
+    super(element, config)
+
+    this._isTransitioning = false
+    this._openedAsModal = false
+    this._addDialogListeners()
+  }
+
+  // Getters — subclasses override NAME with their own component name.
+  static override get NAME(): string {
+    return 'dialogbase'
+  }
+
+  // Public — shared lifecycle methods
+
+  toggle(relatedTarget?: HTMLElement): Promise<void> {
+    return this._element.open ? this.hide() : this.show(relatedTarget)
+  }
+
+  async show(relatedTarget?: HTMLElement): Promise<void> {
+    if (this._element.open || this._isTransitioning) {
+      return
+    }
+
+    const showEvent = EventHandler.trigger(
+      this._element,
+      this.constructor.eventName('show'),
+      { relatedTarget }
+    )
+
+    if (showEvent.defaultPrevented) {
+      return
+    }
+
+    this._isTransitioning = true
+    this._onBeforeShow()
+
+    const { modal, preventBodyScroll } = this._getShowOptions()
+    this._showElement({ modal, preventBodyScroll })
+
+    await this._queueCallback(() => {
+      this._isTransitioning = false
+      EventHandler.trigger(
+        this._element,
+        this.constructor.eventName('shown'),
+        { relatedTarget }
+      )
+    }, this._element, this._isAnimated())
+  }
+
+  async hide(): Promise<void> {
+    if (!this._element.open || this._isTransitioning) {
+      return
+    }
+
+    const hideEvent = EventHandler.trigger(
+      this._element,
+      this.constructor.eventName('hide')
+    )
+
+    if (hideEvent.defaultPrevented) {
+      return
+    }
+
+    this._isTransitioning = true
+    this._hideElement()
+
+    await this._queueCallback(() => {
+      // For subclasses that defer close() until the exit transition ends
+      // (so the dialog stays in the top layer with its ::backdrop), close()
+      // happens here instead of in _hideElement().
+      if (this._element.open) {
+        this._closeAndCleanup()
+      }
+
+      this._element.classList.remove('hiding')
+      this._onAfterHide()
+      this._isTransitioning = false
+      EventHandler.trigger(
+        this._element,
+        this.constructor.eventName('hidden')
+      )
+    }, this._element, this._isAnimated())
+  }
+
+  override dispose(): void {
+    // If disposed while still open, close the native <dialog> and restore body
+    // scroll. Otherwise `dialog-open` (overflow: hidden) would stay stuck on the
+    // body — e.g. when an SPA tears the component down mid-navigation.
+    if (this._element.open) {
+      this._closeAndCleanup()
+    }
+
+    // The `cancel` listener is unnamespaced, so super.dispose()'s EVENT_KEY
+    // teardown misses it — remove this instance's own handler here.
+    EventHandler.off(this._element, 'cancel', this._cancelHandler)
+
+    super.dispose()
+  }
+
+  // Protected — hooks for subclasses to override
+
+  protected _getShowOptions(): { modal: boolean, preventBodyScroll: boolean } {
+    return { modal: true, preventBodyScroll: true }
+  }
+
+  protected _onBeforeShow(): void {
+    // No-op by default — Dialog overrides to add nonmodal class
+  }
+
+  protected _onAfterHide(): void {
+    // No-op by default — Dialog overrides to remove nonmodal class
+  }
+
+  protected _isAnimated(): boolean {
+    return !this._element.classList.contains(this._getInstantClassName())
+  }
+
+  protected _getInstantClassName(): string {
+    return 'dialog-instant'
+  }
+
+  protected _getStaticClassName(): string {
+    return 'dialog-static'
+  }
+
+  protected _onCancel(): void {
+    // No-op by default — Dialog overrides to fire cancel event
+  }
+
+  // Protected — shared mechanics
+
+  protected _showElement({ modal = true, preventBodyScroll = true }: { modal?: boolean, preventBodyScroll?: boolean } = {}): void {
+    this._openedAsModal = modal
+
+    if (modal) {
+      this._element.showModal()
+    } else {
+      this._element.show()
+    }
+
+    if (preventBodyScroll) {
+      // Lock scroll on the root element (not <body>) so it lands on the same
+      // element that carries `scrollbar-gutter: stable`. Co-locating them keeps
+      // the gutter reserved while the scrollbar is hidden, so the page doesn't
+      // shift (and the ::backdrop covers the gutter instead of leaving a strip).
+      document.documentElement.classList.add(CLASS_NAME_OPEN)
+    }
+  }
+
+  protected _hideElement(): void {
+    this._hideChildComponents()
+
+    // Add .hiding before close() so CSS exit transitions can play.
+    // Without this, the navbar's `:not([open])` transition-kill rule
+    // would prevent the slide-out animation.
+    this._element.classList.add('hiding')
+
+    // Subclasses can defer close() until after the exit transition by
+    // returning true from _shouldDeferClose(). This is needed for the
+    // native modal <dialog> centered case: close() removes the dialog
+    // from the top layer immediately, which strips its auto-centering
+    // and the ::backdrop, breaking the exit animation.
+    if (!this._shouldDeferClose()) {
+      this._closeAndCleanup()
+    }
+  }
+
+  // Closes the native <dialog> and tears down scroll prevention.
+  // Safe to call multiple times — close() is a no-op on a closed dialog.
+  protected _closeAndCleanup(): void {
+    this._element.close()
+    this._openedAsModal = false
+
+    // Only restore scroll if no other modal dialogs are open
+    if (!document.querySelector('dialog[open]:modal')) {
+      document.documentElement.classList.remove(CLASS_NAME_OPEN)
+    }
+  }
+
+  // Hook: return true to keep the dialog in the top layer (i.e., delay
+  // calling close()) until the exit transition completes. The base class
+  // closes synchronously; Dialog overrides this for animated modal cases.
+  protected _shouldDeferClose(): boolean {
+    return false
+  }
+
+  protected _triggerBackdropTransition(): void {
+    const hidePreventedEvent = EventHandler.trigger(
+      this._element,
+      this.constructor.eventName('hidePrevented')
+    )
+
+    if (hidePreventedEvent.defaultPrevented) {
+      return
+    }
+
+    const staticClass = this._getStaticClassName()
+    this._element.classList.add(staticClass)
+    this._queueCallback(() => {
+      this._element.classList.remove(staticClass)
+    }, this._element)
+  }
+
+  // Hide any tooltips, popovers, or toasts inside the dialog before closing.
+  // These components append to the dialog (for top-layer rendering) and would
+  // otherwise persist visibly after close().
+  protected _hideChildComponents(): void {
+    const selector = '[data-bs-toggle="tooltip"], [data-bs-toggle="popover"]'
+
+    for (const el of SelectorEngine.find(selector, this._element)) {
+      const instance = Data.getAny(el)
+      if (instance && typeof instance.hide === 'function') {
+        instance.hide()
+      }
+    }
+
+    // Hide any visible toasts
+    for (const el of SelectorEngine.find('.toast.show', this._element)) {
+      const instance = Data.getAny(el)
+      if (instance && typeof instance.hide === 'function') {
+        instance.hide()
+      }
+    }
+  }
+
+  // Private
+
+  protected _addDialogListeners(): void {
+    const eventKey = this.constructor.EVENT_KEY
+
+    // Handle native cancel event (Escape key) — only fires for modal dialogs.
+    // Bound unnamespaced because `cancel` is a real native event, not one of
+    // our namespaced custom events. Keep a per-instance handler so dispose()
+    // removes only this listener, not a consumer's own `cancel` listener.
+    this._cancelHandler = event => {
+      event.preventDefault()
+
+      if (!this._config.keyboard) {
+        this._triggerBackdropTransition()
+        return
+      }
+
+      this._onCancel()
+      this.hide()
+    }
+
+    EventHandler.on(this._element, 'cancel', this._cancelHandler)
+
+    // Handle Escape key for non-modal dialogs (native cancel doesn't fire for show())
+    EventHandler.on(this._element, `keydown${eventKey}`, event => {
+      if (event.key !== 'Escape' || this._openedAsModal) {
+        return
+      }
+
+      event.preventDefault()
+
+      if (!this._config.keyboard) {
+        return
+      }
+
+      this._onCancel()
+      this.hide()
+    })
+
+    // Handle backdrop clicks — only applies to modal dialogs
+    EventHandler.on(this._element, `click${eventKey}`, event => {
+      if (event.target !== this._element || !this._openedAsModal) {
+        return
+      }
+
+      if (this._config.backdrop === 'static') {
+        this._triggerBackdropTransition()
+        return
+      }
+
+      this.hide()
+    })
+  }
+}
+
+export default DialogBase
+export type { DialogBaseConfig }
