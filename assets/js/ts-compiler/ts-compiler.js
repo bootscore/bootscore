@@ -77,6 +77,23 @@ async function fetchWithThemeFallback(url, options) {
   return { response, actualUrl };
 }
 
+//pull Bootstrap's own version constant out of base-component.ts, so the banner
+//always matches whatever .ts source is currently pasted into assets/ts/ - no
+//manual bump needed on version updates
+async function getBootstrapVersion() {
+  try {
+    const base = document.querySelector(theTsSelector).getAttribute("baseurl") ?? window.location.toString();
+    const url = new URL('bootstrap/base-component.ts', base);
+    const { response } = await fetchWithThemeFallback(url, {});
+    if (!response.ok) return null;
+    const contents = await response.text();
+    const match = contents.match(/const VERSION = ['"]([^'"]+)['"]/);
+    return match ? match[1] : null;
+  } catch (e) {
+    return null;
+  }
+}
+
 //resolve an import specifier to an absolute URL, swapping the trailing .js -> .ts
 //(Bootstrap 6's TS source imports sibling files as "./alert.js" even though the
 //real file on disk is "alert.ts" - standard TS+ESM convention, resolved at compile time)
@@ -198,10 +215,9 @@ async function runTsCompiler(theCode, esbuildParams) {
   if (esbuildParams.minify === undefined) esbuildParams.minify = true;
   if (esbuildParams.sourcemap === undefined) esbuildParams.sourcemap = 'external';
 
-  // Strips Bootstrap's/dependencies' MIT license banners entirely rather than
-  // keeping or relocating them - decided not needed for this bundled, non-redistributed
-  // build. (Not legal advice - worth a second look if bootscore.min.js is ever
-  // distributed standalone rather than bundled inside the theme.)
+  // Strips Bootstrap's/dependencies' own scattered MIT license banners entirely -
+  // Compile() injects one clean canonical banner instead (see getBootstrapVersion()
+  // and the banner block below), so nothing is lost, just consolidated.
   if (!esbuildParams.legalComments) esbuildParams.legalComments = 'none';
 
   if (!esbuildParams.outfile) esbuildParams.outfile = 'bootscore.min.js';
@@ -217,7 +233,7 @@ async function runTsCompiler(theCode, esbuildParams) {
   return await esbuild.build(esbuildParams);
 }
 
-export function Compile(esbuildParams = {}, theCallback = () => { }) {
+export async function Compile(esbuildParams = {}, theCallback = () => { }) {
 
   console.log("Bootscore TS Compiler launched");
 
@@ -248,6 +264,16 @@ export function Compile(esbuildParams = {}, theCallback = () => { }) {
 
   document.querySelector("#ts-compiler-output-feedback").innerHTML = `Compiling TS... <span></span>`;
   console.log("Compiling TS...");
+
+  if (!esbuildParams.banner) {
+    const bootstrapVersion = await getBootstrapVersion();
+    if (bootstrapVersion) {
+      const copyrightYear = `2011-${new Date().getFullYear()}`;
+      esbuildParams.banner = {
+        js: `/*!\n * Bootstrap v${bootstrapVersion} (https://getbootstrap.com/)\n * Copyright ${copyrightYear} The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)\n * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)\n */`
+      };
+    }
+  }
 
   const timeStart = Date.now();
 
