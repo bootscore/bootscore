@@ -197,6 +197,13 @@ async function runTsCompiler(theCode, esbuildParams) {
   if (!esbuildParams.target) esbuildParams.target = 'es2018';
   if (esbuildParams.minify === undefined) esbuildParams.minify = true;
   if (esbuildParams.sourcemap === undefined) esbuildParams.sourcemap = 'external';
+
+  // Strips Bootstrap's/dependencies' MIT license banners entirely rather than
+  // keeping or relocating them - decided not needed for this bundled, non-redistributed
+  // build. (Not legal advice - worth a second look if bootscore.min.js is ever
+  // distributed standalone rather than bundled inside the theme.)
+  if (!esbuildParams.legalComments) esbuildParams.legalComments = 'none';
+
   if (!esbuildParams.outfile) esbuildParams.outfile = 'bootscore.min.js';
   if (!esbuildParams.plugins) esbuildParams.plugins = [bootscoreTsPlugin];
 
