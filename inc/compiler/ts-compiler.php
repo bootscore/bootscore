@@ -74,10 +74,10 @@ function bootscore_get_main_ts() {
 add_action('wp_head', function () {
   if (!bootscore_ts_compiler_should_compile()) return;
 
-  $ts_compiler_file = get_template_directory() . '/assets/js/ts-compiler/ts-compiler.js';
+  $ts_compiler_file = get_template_directory() . '/assets/js/compiler/ts-compiler.js';
   $ts_compiler_ver  = file_exists($ts_compiler_file) ? filemtime($ts_compiler_file) : '7.0.0';
   ?>
-    <script type="module" src="<?php echo get_template_directory_uri() ?>/assets/js/ts-compiler/ts-compiler.js?v=<?php echo $ts_compiler_ver ?>"></script>
+    <script type="module" src="<?php echo get_template_directory_uri() ?>/assets/js/compiler/ts-compiler.js?v=<?php echo $ts_compiler_ver ?>"></script>
 
     <template id="the-ts" class="prevent-autocompile" baseurl="<?php echo bootscore_ts_compiler_uri() ?>"
       <?php if (is_child_theme()): ?> fallback_baseurl="<?php echo get_template_directory_uri() . '/assets/ts/' ?>" <?php endif ?> >
