@@ -5,5 +5,4 @@ package-lock.json
 .vscode/
 assets/css/bootscore.min.css
 assets/css/bootscore.min.css.map
-assets/css/editor.css
-assets/css/editor.css.map
+bootscore.min.js
