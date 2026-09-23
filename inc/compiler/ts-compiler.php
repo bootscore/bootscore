@@ -5,7 +5,7 @@
  *
  * ESBUILD-WASM JS INTEGRATION FOR BOOTSCORE
  * Parallel to inc/scss-compiler.php's PicoSASS integration.
- * Compiles assets/ts/index.ts client-side using esbuild-wasm (loaded from
+ * Compiles assets/ts/bootscore.ts client-side using esbuild-wasm (loaded from
  * a CDN in the admin's browser), then AJAX-saves the result to
  * assets/js/bootscore.min.js.
  *
@@ -19,7 +19,7 @@ defined('ABSPATH') || exit;
 
 
 /**
- * Check if the active child theme has its own assets/ts/index.ts.
+ * Check if the active child theme has its own assets/ts/bootscore.ts.
  * Used to decide whether the compiler's baseurl/fallback_baseurl should
  * point at the child theme (with the parent as fallback) or just the
  * parent theme directly.
@@ -27,7 +27,7 @@ defined('ABSPATH') || exit;
  * Mirrors bootscore_child_has_scss() in scss-compiler.php.
  */
 function bootscore_child_has_ts() {
-  return file_exists(get_stylesheet_directory() . '/assets/ts/index.ts');
+  return file_exists(get_stylesheet_directory() . '/assets/ts/bootscore.ts');
 }
 
 
@@ -61,10 +61,10 @@ function bootscore_ts_compiler_should_compile() {
 }
 
 // Raw TS source fed into the <template id="the-ts"> element.
-// Just the real index.ts content, verbatim - esbuild-wasm's resolver
+// Just the real bootscore.ts content, verbatim - esbuild-wasm's resolver
 // plugin fetches everything it imports from there.
 function bootscore_get_main_ts() {
-  $entry_file = bootscore_ts_compiler_dir() . 'index.ts';
+  $entry_file = bootscore_ts_compiler_dir() . 'bootscore.ts';
   $ts = file_exists($entry_file) ? file_get_contents($entry_file) : '';
   return apply_filters('bootscore/compiler/main_ts', $ts);
 }
