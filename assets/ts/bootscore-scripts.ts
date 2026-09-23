@@ -35,6 +35,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 // Scroll to top Button
+// Refactor to scroll-driven CSS?
 var topButton = document.querySelector('.top-button');
 if (topButton) {
   window.addEventListener('scroll', function () {

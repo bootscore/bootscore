@@ -93,7 +93,7 @@ defined('ABSPATH') || exit;
 </footer>
 
 <!-- To top button -->
-<a href="#" class="<?= esc_attr(apply_filters('bootscore/class/footer/to_top_button', 'btn btn-primary shadow')); ?> position-fixed zi-1000 top-button" role="button" aria-label="<?php esc_attr_e('Return to top', 'bootscore' ); ?>"><?php bootscore_icon('chevron-up'); ?></a>
+<a href="#" class="<?= esc_attr(apply_filters('bootscore/class/footer/to_top_button', 'btn-solid theme-primary shadow')); ?> position-fixed zi-1000 top-button" role="button" aria-label="<?php esc_attr_e('Return to top', 'bootscore' ); ?>"><?php bootscore_icon('chevron-up'); ?></a>
 
 </div><!-- #page -->
 

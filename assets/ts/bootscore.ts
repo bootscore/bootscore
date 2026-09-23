@@ -5,6 +5,7 @@
  * --------------------------------------------------------------------------
  */
 
+// Bootstrap
 export { default as Alert } from './bootstrap/alert.js'
 export { default as Button } from './bootstrap/button.js'
 export { default as Carousel } from './bootstrap/carousel.js'
@@ -25,3 +26,6 @@ export { default as Tab } from './bootstrap/tab.js'
 export { default as Toast } from './bootstrap/toast.js'
 export { default as Toggler } from './bootstrap/toggler.js'
 export { default as Tooltip } from './bootstrap/tooltip.js'
+
+// Bootscore
+export { default as Bootscore } from './bootscore-scripts.js'
