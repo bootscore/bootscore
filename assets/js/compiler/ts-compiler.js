@@ -240,7 +240,7 @@ export async function Compile(esbuildParams = {}, theCallback = () => { }) {
   if (!document.querySelector("#ts-compiler-output-feedback")) document.querySelector("html").insertAdjacentHTML("afterbegin", `
         <div id='ts-compiler-output-feedback'></div>
         <style>
-            #ts-compiler-output-feedback { position:fixed; right:1rem; bottom:4.5rem; left:1rem; z-index: 9999; font-size:1.25rem; background:#CBF2FF; color:#212529; font-family:courier; border:1px solid #42D6FD; border-radius: .5rem; padding:1rem; display:block; word-wrap: break-word; }
+            #ts-compiler-output-feedback { position:fixed; right:1rem; bottom:9.5rem; left:1rem; z-index: 9999; font-size:1.25rem; background:#CBF2FF; color:#212529; font-family:courier; border:1px solid #42D6FD; border-radius: .5rem; padding:1rem; display:block; word-wrap: break-word; }
             #ts-compiler-output-feedback span{display:block; font-size:1rem; z-index:0; margin-top: .5rem}
             #ts-compiler-output-feedback:empty {display:none}
         </style>

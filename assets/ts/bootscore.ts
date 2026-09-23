@@ -1,8 +1,8 @@
 /**
- * --------------------------------------------------------------------------
- * Bootstrap index.ts
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
- * --------------------------------------------------------------------------
+ * Collector for all .ts files
+ *
+ * @package Bootscore
+ * @version 7.0.0
  */
 
 // Bootstrap
