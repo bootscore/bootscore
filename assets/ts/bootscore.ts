@@ -29,3 +29,4 @@ export { default as Tooltip } from './bootstrap/tooltip.js'
 
 // Bootscore
 export { default as Bootscore } from './bootscore-scripts.js'
+export { default as BootscoreCustom } from './bootscore-custom.js'
