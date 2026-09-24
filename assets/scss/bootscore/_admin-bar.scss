@@ -3,7 +3,9 @@ Admin bar
 --------------------------------------------------------------*/
 
 // Mobile
-@include media-breakpoint-down(md) {
+
+// @include media-breakpoint-down(md) {
+@media (max-width: 1023px) { // What is the new mixin?
   #wpadminbar {
     position: fixed;
   }
@@ -13,16 +15,11 @@ Admin bar
 
   // Push content down when WP admin-bar is visible
   .fixed-top,
-  .sticky-top,
-  .offcanvas:not(.offcanvas-bottom),
-  .offcanvas-md,
-  .offcanvas-lg,
-  .offcanvas-xl,
-  .offcanvas-xxl,
-  .modal-dialog {
+  .sticky-top, {
     top: var(--wp-admin--admin-bar--height, 32px);
   }
 
+  /*
   // Adjust modal height
   .modal-fullscreen,
   .modal-fullscreen-sm-down,
@@ -32,4 +29,5 @@ Admin bar
   .modal-fullscreen-xxl-down {
     height: calc(100% - var(--wp-admin--admin-bar--height, 32px));
   }
+    */
 }
