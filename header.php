@@ -42,11 +42,11 @@ defined('ABSPATH') || exit;
   
   <?php do_action( 'bootscore_before_masthead' ); ?>
 
-  <header id="masthead" class="<?= esc_attr(apply_filters('bootscore/class/header', 'sticky-top bg-1')); ?> site-header">
+  <header id="masthead" class="<?= esc_attr(apply_filters('bootscore/class/header', 'sticky-top')); ?> site-header">
 
     <?php do_action( 'bootscore_after_masthead_open' ); ?>
     
-    <nav id="nav-main" class="navbar <?= esc_attr(apply_filters('bootscore/class/header/navbar/breakpoint', 'md:navbar-expand')); ?>">
+    <nav id="nav-main" class="navbar-translucent navbar <?= esc_attr(apply_filters('bootscore/class/header/navbar/breakpoint', 'lg:navbar-expand')); ?>">
 
       <div class="<?= esc_attr(apply_filters('bootscore/class/container', 'container', 'header')); ?>">
         

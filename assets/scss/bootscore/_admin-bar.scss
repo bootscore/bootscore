@@ -3,13 +3,14 @@ Admin bar
 --------------------------------------------------------------*/
 
 // Mobile
+@use "../bootstrap/layout/breakpoints" as *;
 
-// @include media-breakpoint-down(md) {
-@media (max-width: 1023px) { // What is the new mixin?
+@include media-breakpoint-down(md) {
   #wpadminbar {
     position: fixed;
   }
 }
+
 
 .logged-in.admin-bar {
 
