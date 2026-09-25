@@ -2,8 +2,7 @@
 node_modules/
 package-lock.json
 .prettierrc
-.vscode/
 assets/css/bootscore.min.css
 assets/css/bootscore.min.css.map
 assets/js/bootscore.min.js
-
+assets/js/bootscore.min.js.map
