@@ -59,13 +59,12 @@ defined('ABSPATH') || exit;
         
         <?php do_action( 'bootscore_after_navbar_brand' ); ?>
 
-        <!-- Offcanvas Navbar -->
-        <dialog class="drawer drawer-translucent drawer-<?= esc_attr(apply_filters('bootscore/class/header/offcanvas/direction', 'end', 'menu')); ?>" tabindex="-1" id="offcanvas-navbar">
-          <div class="drawer-header <?= esc_attr(apply_filters('bootscore/class/offcanvas/header', '', 'menu')); ?>">
-            <span class="h5 drawer-title"><?= esc_html(apply_filters('bootscore/offcanvas/navbar/title', __('Menu', 'bootscore'))); ?></span>
+        <dialog class="drawer drawer-translucent drawer-<?= esc_attr(apply_filters('bootscore/class/header/navbar/drawer/direction', 'end', 'menu')); ?>" tabindex="-1" id="drawer-navbar">
+          <div class="drawer-header <?= esc_attr(apply_filters('bootscore/class/header/navbar/drawer/header', '', 'menu')); ?>">
+            <span class="h5 drawer-title"><?= esc_html(apply_filters('bootscore/header/navbar/drawer/title', __('Menu', 'bootscore'))); ?></span>
             <button type="button" class="btn-close text-reset" data-bs-dismiss="drawer" aria-label="Close"></button>
           </div>
-          <div class="drawer-body <?= esc_attr(apply_filters('bootscore/class/offcanvas/body', '', 'menu')); ?>">
+          <div class="drawer-body <?= esc_attr(apply_filters('bootscore/class/header/navbar/drawer/body', '', 'menu')); ?>">
 
             <!-- Bootstrap 5 Nav Walker Main Menu -->
             <?php get_template_part('template-parts/header/main-menu'); ?>
@@ -94,7 +93,7 @@ defined('ABSPATH') || exit;
           ?>
 
           <!-- Navbar Toggler -->
-          <button class="<?= esc_attr(apply_filters('bootscore/class/header/button', 'btn', 'nav-toggler')); ?> <?= esc_attr(apply_filters('bootscore/class/header/navbar/toggler/breakpoint', 'lg:d-none')); ?> <?= esc_attr(apply_filters('bootscore/class/header/action/spacer', 'ms-1 ms-md-2', 'nav-toggler')); ?> nav-toggler" type="button" data-bs-toggle="drawer" data-bs-target="#offcanvas-navbar" aria-controls="offcanvas-navbar" aria-label="<?php esc_attr_e( 'Toggle main menu', 'bootscore' ); ?>">
+          <button class="<?= esc_attr(apply_filters('bootscore/class/header/button', 'btn', 'nav-toggler')); ?> <?= esc_attr(apply_filters('bootscore/class/header/navbar/toggler/breakpoint', 'lg:d-none')); ?> <?= esc_attr(apply_filters('bootscore/class/header/action/spacer', 'ms-1 ms-md-2', 'nav-toggler')); ?> nav-toggler" type="button" data-bs-toggle="drawer" data-bs-target="#drawer-navbar" aria-controls="drawer-navbar" aria-label="<?php esc_attr_e( 'Toggle main menu', 'bootscore' ); ?>">
             <?php bootscore_icon('bars'); ?>
           </button>
           
@@ -114,7 +113,7 @@ defined('ABSPATH') || exit;
     endif;
     ?>
 
-    <!-- Offcanvas User and Cart -->
+    <!-- Drawer User and Cart -->
     <?php
     if (class_exists('WooCommerce')) :
       get_template_part('template-parts/header/offcanvas', 'woocommerce');

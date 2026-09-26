@@ -4,7 +4,7 @@
  * Columns
  *
  * @package Bootscore
- * @version 6.0.0
+ * @version 7.0.0
  */
 
 
@@ -21,7 +21,7 @@ defined('ABSPATH') || exit;
 function bootscore_main_col_class_sidebar($string) {
   if (is_active_sidebar('sidebar-1')) {
     // Sidebar is not empty
-    return "col-lg-9";
+    return "lg:col-9";
   }
 
   return $string;

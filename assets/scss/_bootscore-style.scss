@@ -9,7 +9,7 @@
 //@import "bootscore/breadcrumb";
 //@import "bootscore/colors";
 //@import "bootscore/comments";
-//@import "bootscore/deprecated";
+//@use "bootscore/deprecated";
 //@import "bootscore/footer";
 //@import "bootscore/forms";
 //@import "bootscore/header";
@@ -18,7 +18,7 @@
 //@import "bootscore/pw-protected-form";
 //@import "bootscore/single";
 @use "bootscore/top-button";
-//@import "bootscore/utilities";
+@use "bootscore/utilities";
 //@import "bootscore/widgets";
 
 //@import "bootscore/blocks/blocks";
