@@ -93,7 +93,7 @@ defined('ABSPATH') || exit;
           ?>
 
           <!-- Navbar Toggler -->
-          <button class="<?= esc_attr(apply_filters('bootscore/class/header/button', 'btn', 'nav-toggler')); ?> <?= esc_attr(apply_filters('bootscore/class/header/navbar/toggler/breakpoint', 'lg:d-none')); ?> <?= esc_attr(apply_filters('bootscore/class/header/action/spacer', 'ms-1 ms-md-2', 'nav-toggler')); ?> nav-toggler" type="button" data-bs-toggle="drawer" data-bs-target="#drawer-navbar" aria-controls="drawer-navbar" aria-label="<?php esc_attr_e( 'Toggle main menu', 'bootscore' ); ?>">
+          <button class="<?= esc_attr(apply_filters('bootscore/class/header/button', 'btn', 'nav-toggler')); ?> <?= esc_attr(apply_filters('bootscore/class/header/navbar/toggler/breakpoint', 'lg:d-none')); ?> <?= esc_attr(apply_filters('bootscore/class/header/action/spacer', 'ms-1 md:ms-3', 'nav-toggler')); ?> nav-toggler" type="button" data-bs-toggle="drawer" data-bs-target="#drawer-navbar" aria-controls="drawer-navbar" aria-label="<?php esc_attr_e( 'Toggle main menu', 'bootscore' ); ?>">
             <?php bootscore_icon('bars'); ?>
           </button>
           
