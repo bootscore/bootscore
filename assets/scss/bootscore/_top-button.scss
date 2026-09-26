@@ -2,6 +2,8 @@
 To top button 
 --------------------------------------------------------------*/
 
+
+// Refactor to scroll-driven CSS?
 .top-button {
   right: 5%;
   bottom: 30px;
@@ -11,6 +13,7 @@ To top button
 
   &.visible {
     opacity: 1;
+    visibility: visible;
     transition: visibility 0s linear 0s, opacity .3s;
   }
 }

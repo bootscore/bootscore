@@ -6,7 +6,7 @@
  * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
  *
  * @package Bootscore 
- * @version 6.3.1
+ * @version 7.0.0
  */
 
 
@@ -49,7 +49,7 @@ if (!function_exists('bootscore_widgets_init')) :
       'name'          => esc_html__('Top Nav 2', 'bootscore'),
       'id'            => 'top-nav-2',
       'description'   => esc_html__('Add widgets here.', 'bootscore'),
-      'before_widget' => '<div class="widget top-nav-widget-2 ' . esc_attr(apply_filters('bootscore/class/header/top-nav-widget-2', 'd-lg-flex align-items-lg-center mt-2 mt-lg-0 ms-lg-2')) . '">',
+      'before_widget' => '<div class="widget top-nav-widget-2 ' . esc_attr(apply_filters('bootscore/class/header/top-nav-widget-2', 'd-lg-flex align-items-lg-center mt-2 lg:mt-0 lg:ms-3')) . '">',
       'after_widget'  => '</div>',
       'before_title'  => '<div class="widget-title d-none">',
       'after_title'   => '</div>'
@@ -71,7 +71,7 @@ if (!function_exists('bootscore_widgets_init')) :
       'name'          => esc_html__('Sidebar', 'bootscore'),
       'id'            => 'sidebar-1',
       'description'   => esc_html__('Add widgets here.', 'bootscore'),
-      'before_widget' => '<section id="%1$s" class="widget mb-4">',
+      'before_widget' => '<section id="%1$s" class="widget">',
       'after_widget'  => '</section>',
       'before_title'  => '<h2 class="widget-title h5">',
       'after_title'   => '</h2>',

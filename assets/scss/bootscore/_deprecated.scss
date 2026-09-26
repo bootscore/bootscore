@@ -2,6 +2,7 @@
 Deprecated - Bootscore v7.0.0. This code will be removed.
 --------------------------------------------------------------*/
 
+//@use "../bootstrap/layout/breakpoints" as *;
 
 // Reset .is-layout-flow group block margins
 // Use hide-wp-block-classes instead
@@ -20,6 +21,8 @@ Deprecated - Bootscore v7.0.0. This code will be removed.
 // Responsive image height in (new) cards-horizontal.php loop card template
 // Class h-100 creates issue with bs Swiper v6 in mobile view
 // Recheck this in v7. If we keep it, move it to utilities.scss
+
+
 @include media-breakpoint-up(md) {
   .h-md-100 {
     height: 100% !important;
