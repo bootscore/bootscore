@@ -31,6 +31,7 @@ if (!function_exists('bootscore_block_widget_search_classes')) {
 
     $search  = array(
       '<form ',
+      'wp-block-search__label ',
       'wp-element-button',
       'wp-block-search__input ',
       'wp-block-search__input"',
@@ -41,6 +42,7 @@ if (!function_exists('bootscore_block_widget_search_classes')) {
     );
     $replace = array(
       '<form novalidate="novalidate" ',
+      '',
       '',
       'form-control' . $input_spacer . ' ',
       'form-control' . $input_spacer . '"',
