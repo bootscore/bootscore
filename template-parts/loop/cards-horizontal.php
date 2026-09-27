@@ -24,14 +24,14 @@ $context = 'cards-horizontal';
 
 <article id="post-<?php the_ID(); ?>" <?php post_class( esc_attr(apply_filters('bootscore/class/loop/card', 'card horizontal overflow-hidden h-100', 'cards-horizontal')) ); ?>>
 
-  <div class="<?= esc_attr(apply_filters('bootscore/class/loop/card/row', 'row g-0 h-100 flex-column flex-md-row', 'cards-horizontal')); ?>">
+  <div class="<?= esc_attr(apply_filters('bootscore/class/loop/card/row', 'row g-0 h-100 flex-column md:flex-row', 'cards-horizontal')); ?>">
 
     <?php do_action('bootscore_before_loop_thumbnail', 'cards-horizontal'); ?>
 
     <?php if (has_post_thumbnail()) : ?>
       <div class="<?= esc_attr(apply_filters('bootscore/class/loop/card/image/col', 'md:col-5 lg:col-6 xl:col-5 2xl:col-4', 'cards-horizontal')); ?>">
         <a href="<?php the_permalink(); ?>" aria-hidden="true" tabindex="-1">
-          <?php the_post_thumbnail('medium', array('class' => esc_attr(apply_filters('bootscore/class/loop/card/image', 'h-md-100 object-fit-md-cover', 'cards-horizontal')))); ?>
+          <?php the_post_thumbnail('medium', array('class' => esc_attr(apply_filters('bootscore/class/loop/card/image', 'h-100 md:object-fit-cover', 'cards-horizontal')))); ?>
         </a>
       </div>
     <?php endif; ?>
@@ -56,14 +56,14 @@ $context = 'cards-horizontal';
         <?php do_action('bootscore_before_loop_title', 'cards-horizontal'); ?>
 
         <a class="<?= esc_attr(apply_filters('bootscore/class/loop/card/title/link', 'fg-body text-decoration-none', 'cards-horizontal')); ?>" href="<?php the_permalink(); ?>">
-          <?php the_title('<h2 class="' . esc_attr(apply_filters('bootscore/class/loop/card/title', 'h4', 'cards-horizontal')) . '">', '</h2>'); ?>
+          <?php the_title('<h2 class="' . esc_attr(apply_filters('bootscore/class/loop/card/title', 'h4 card-title', 'cards-horizontal')) . '">', '</h2>'); ?>
         </a>
         
         <?php do_action('bootscore_after_loop_title', 'cards-horizontal'); ?>
 
         <?php if (apply_filters('bootscore/loop/meta', true, 'cards-horizontal')) : ?>
           <?php if ('post' === get_post_type()) : ?>
-            <p class="meta small mb-2 fg-secondary">
+            <p class="card-subtitle fs-xs fg-secondary">
               <?php
               bootscore_date();
               bootscore_author();

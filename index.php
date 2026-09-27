@@ -30,11 +30,11 @@ get_header();
     <main id="main" class="site-main">
 
       <!-- Header -->
-      <div class="p-5 text-center bg-body-tertiary rounded mb-4">
+      <div class="p-7 text-center bg-1 rounded mb-7">
         <?php do_action('bootscore_before_title', 'index'); ?>
         <h1 class="entry-title <?= esc_attr(apply_filters('bootscore/class/entry/title', '', 'index')); ?>"><?= esc_html(get_bloginfo('name')); ?></h1>
         <?php do_action('bootscore_after_title', 'index'); ?>
-        <p class="lead mb-0"><?= esc_html(get_bloginfo('description')); ?></p>
+        <p class="fs-lg mb-0"><?= esc_html(get_bloginfo('description')); ?></p>
       </div>
 
       <!-- Main content row with sidebar -->
