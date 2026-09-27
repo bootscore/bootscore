@@ -31,6 +31,7 @@ if (!function_exists('bootscore_block_widget_search_classes')) {
 
     $search  = array(
       '<form ',
+      'wp-element-button',
       'wp-block-search__input ',
       'wp-block-search__input"',
       'wp-block-search__button ',
@@ -40,9 +41,10 @@ if (!function_exists('bootscore_block_widget_search_classes')) {
     );
     $replace = array(
       '<form novalidate="novalidate" ',
-      'wp-block-search__input form-control' . $input_spacer . ' ',
-      'wp-block-search__input form-control' . $input_spacer . '"',
-      'wp-block-search__btn ' . esc_attr(apply_filters('bootscore/class/widget/search/button', 'btn btn-outline-secondary')) . ' ',
+      '',
+      'form-control' . $input_spacer . ' ',
+      'form-control' . $input_spacer . '"',
+      'wp-block-search__btn ' . esc_attr(apply_filters('bootscore/class/widget/search/button', 'btn')) . ' ',
       bootscore_icon('search', false)
     );
 
