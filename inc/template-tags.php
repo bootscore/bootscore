@@ -21,18 +21,18 @@ if (!function_exists('bootscore_category_badge')) :
   function bootscore_category_badge() {
     // Hide category and tag text for pages.
     if ('post' === get_post_type()) {
-      echo '<p class="category-badge">';
+      echo '<span class="category-badge">';
       $thelist = '';
       $i       = 0;
       foreach (get_the_category() as $category) {
         if (0 < $i) $thelist .= ' ';
         // Apply a filter to modify the class name
-        $class = apply_filters('bootscore/class/badge/category', 'badge bg-primary-subtle text-primary-emphasis text-decoration-none');
+        $class = apply_filters('bootscore/class/badge/category', 'badge');
         $thelist .= '<a href="' . esc_url(get_category_link($category->term_id)) . '" class="' . esc_attr($class) . '">' . esc_html($category->name) . '</a>';
         $i ++;
       }
       echo wp_kses_post($thelist);
-      echo '</p>';
+      echo '</span>';
     }
   }
 endif;
@@ -229,7 +229,7 @@ if (!function_exists('bootscore_tags')) :
 
       $tags_list = get_the_tag_list('', ' ');
       if ($tags_list) {
-        echo '<div class="tags-links">';
+        echo '<p class="tags-links z-1">';
 
         // Show 'Tagged' heading only on singular post pages
         if (is_singular('post') && get_the_ID() === get_queried_object_id()) {
@@ -237,7 +237,7 @@ if (!function_exists('bootscore_tags')) :
         }
 
         echo get_the_tag_list();
-        echo '</div>';
+        echo '</p>';
       }
     }
   }
@@ -245,7 +245,7 @@ if (!function_exists('bootscore_tags')) :
   add_filter("term_links-post_tag", 'add_tag_class');
 
   function add_tag_class($links) {
-    $class = apply_filters('bootscore/class/badge/tag', 'badge bg-primary-subtle text-primary-emphasis text-decoration-none');
+    $class = apply_filters('bootscore/class/badge/tag', 'badge');
 
     // Check if icon should be shown
     if (apply_filters('bootscore/show/tag/icon', true)) {
