@@ -32,17 +32,19 @@ $context = 'cards-grid';
 
   <div class="<?= esc_attr(apply_filters('bootscore/class/loop/card/body', 'card-body', 'cards-grid')); ?>">
 
-    <p class="<?= esc_attr(apply_filters('bootscore/class/loop/card/content/meta-wrapper', 'd-flex justify-content-between gap-3 z-2', 'cards-grid')); ?>">
+    <?php if ('post' === get_post_type() && apply_filters('bootscore/loop/meta-wrapper', true, 'cards-grid')) : ?>
+      <p class="<?= esc_attr(apply_filters('bootscore/class/loop/card/content/meta-wrapper', 'd-flex justify-content-between gap-3 z-2', 'cards-grid')); ?>">
 
-      <?php if (apply_filters('bootscore/loop/category', true, 'cards-grid')) : ?>
-        <?php bootscore_category_badge(); ?>
-      <?php endif; ?>
+        <?php if (apply_filters('bootscore/loop/category', true, 'cards-grid')) : ?>
+          <?php bootscore_category_badge(); ?>
+        <?php endif; ?>
 
-      <?php if (is_sticky() ) { ?>
-        <span class="sticky-badge"><span class="<?= esc_attr(apply_filters('bootscore/class/loop/card/content/sticky-post-badge', 'badge badge-subtle theme-danger', 'cards-grid')); ?>"><?php bootscore_icon('thumbtack'); ?></span></span>
-      <?php } ?>
+        <?php if (is_sticky()) : ?>
+          <span class="sticky-badge"><span class="<?= esc_attr(apply_filters('bootscore/class/loop/card/content/sticky-post-badge', 'badge badge-subtle theme-danger', 'cards-grid')); ?>"><?php bootscore_icon('thumbtack'); ?></span></span>
+        <?php endif; ?>
 
       </p>
+    <?php endif; ?>
 
     <?php do_action('bootscore_before_loop_title', 'cards-grid'); ?>
 
@@ -68,7 +70,9 @@ $context = 'cards-grid';
     <?php endif; ?>
 
     <?php if (apply_filters('bootscore/loop/excerpt', true, 'cards-grid')) : ?>
-      <?php the_excerpt(); ?>
+      <p class="<?= esc_attr(apply_filters('bootscore/class/loop/excerpt', 'card-text', 'cards-grid')); ?>">
+        <?= wp_kses_post(get_the_excerpt()); ?>
+      </p>
     <?php endif; ?>
 
     <?php if (apply_filters('bootscore/loop/read-more', true, 'cards-grid')) : ?>
