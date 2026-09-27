@@ -46,7 +46,7 @@ if (!function_exists('bootscore_block_widget_search_classes')) {
       '',
       'form-control' . $input_spacer . ' ',
       'form-control' . $input_spacer . '"',
-      'wp-block-search__btn ' . esc_attr(apply_filters('bootscore/class/widget/search/button', 'btn')) . ' ',
+      'wp-block-search__btn ' . esc_attr(apply_filters('bootscore/class/widget/search/button', 'btn-outline theme-secondary')) . ' ',
       bootscore_icon('search', false)
     );
 
