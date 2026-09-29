@@ -4,7 +4,7 @@
  * Block Code
  *
  * @package Bootscore
- * @version 6.2.2
+ * @version 7.0.0
  */
 
 
@@ -29,7 +29,7 @@ if (!function_exists('bootscore_block_code_classes')) {
       'wp-block-code'
     );
     $replace = array(
-      'border rounded bg-body-tertiary p-3'
+      'code-block bg-95 fg-2 border border-60 rounded fs-xs p-5'
     );
     
     $block_content = str_replace($search, $replace, $block_content);
