@@ -26,10 +26,12 @@ if (!function_exists('bootscore_block_code_classes')) {
   function bootscore_block_code_classes($block_content, $block) {
     
     $search  = array(
+      '<pre',
       'wp-block-code'
     );
     $replace = array(
-      'code-block bg-95 fg-2 border border-60 rounded fs-xs p-5'
+      '<pre data-bs-theme="dark"',
+      'code-block bg-1 fg-1 border rounded fs-xs p-5'
     );
     
     $block_content = str_replace($search, $replace, $block_content);
