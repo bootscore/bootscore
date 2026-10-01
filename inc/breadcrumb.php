@@ -162,4 +162,3 @@ if (!function_exists('bootscore_breadcrumb_shortcode')) {
   }
   add_shortcode('bs-breadcrumb', 'bootscore_breadcrumb_shortcode');
 }
-
