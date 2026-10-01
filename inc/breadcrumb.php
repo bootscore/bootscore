@@ -50,7 +50,7 @@ if (!function_exists('bootscore_breadcrumb')) :
 
     // Home link, first item, no divider
     $home_link_class = trim('breadcrumb-link ' . apply_filters('bootscore/class/breadcrumb/item/link', ''));
-    echo '<li class="breadcrumb-item"><a aria-label="' . esc_attr__('Home', 'bootscore') . '" class="' . esc_attr($home_link_class) . '" href="' . esc_url(home_url()) . '">' . bootscore_icon('home', false) . '<span class="visually-hidden">' . esc_html__('Home', 'bootscore') . '</span></a></li>' . PHP_EOL;
+    echo '<li class="breadcrumb-item"><a aria-label="' . esc_attr__('Home', 'bootscore') . '" class="' . esc_attr($home_link_class) . '" href="' . esc_url(home_url()) . '">' . bootscore_icon('home', false) . '</a></li>' . PHP_EOL;
 
     // Hook for custom breadcrumb handlers (WooCommerce, other CPTs, etc.)
     // If any handler returns true, it means it handled the breadcrumb and we should stop
