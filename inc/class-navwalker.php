@@ -48,7 +48,12 @@ if (!function_exists('bootscore_register_navwalker')) :
         // WordPress adds .menu-item to every <li>, which now collides with Bootstrap 6 .menu-item styles
         $classes = array_diff($classes, ['menu-item']);
 
-        $classes[] = 'nav-item';
+        // Top-level items are nav items, nested items with children are Bootstrap 6 submenu wrappers
+        if ($depth === 0) {
+          $classes[] = 'nav-item';
+        } elseif ($args->walker->has_children) {
+          $classes[] = 'submenu';
+        }
         $classes[] = 'nav-item-' . $item->ID;
 
         $class_names = join(' ', apply_filters('nav_menu_css_class', array_filter($classes), $item, $args, $depth));
@@ -140,9 +145,10 @@ if (!function_exists('bootscore_register_navwalker')) :
 
         $link_class = ($depth > 0) ? 'menu-item' : 'nav-link';
 
-        if ($args->walker->has_children) {
+        if ($args->walker->has_children && $depth === 0) {
+          // Top-level toggle opens the menu
           $attributes .= ' class="' . $link_class . $active_class . '" data-bs-toggle="menu" aria-expanded="false"';
-
+                
           // Optional placement via menu item CSS class, e.g. menu-placement-bottom-end
           foreach ($item->classes as $class) {
             if (isset($this->menu_placement_values[$class])) {
