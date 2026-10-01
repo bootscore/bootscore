@@ -17,7 +17,7 @@ get_header();
       
       <?php do_action( 'bootscore_after_primary_open', 'single' ); ?>
 
-      <?php the_breadcrumb(); ?>
+      <?php bootscore_breadcrumb(); ?>
 
       <div class="row">
         <div class="<?= esc_attr(apply_filters('bootscore/class/main/col', 'col')); ?>">

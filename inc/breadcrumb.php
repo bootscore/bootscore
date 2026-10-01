@@ -38,8 +38,8 @@ endif;
 /**
  * Breadcrumb
  */
-if (!function_exists('the_breadcrumb')) :
-  function the_breadcrumb() {
+if (!function_exists('bootscore_breadcrumb')) :
+  function bootscore_breadcrumb() {
 
     if (is_home()) {
       return;
@@ -139,7 +139,7 @@ if (!function_exists('the_breadcrumb')) :
     echo '</nav>' . PHP_EOL;
   }
 
-endif; // End of the_breadcrumb() function
+endif; // End of bootscore_breadcrumb() function
 
 
 /**
@@ -157,8 +157,9 @@ if (!function_exists('bootscore_breadcrumb_shortcode')) {
     }
 
     ob_start();
-    the_breadcrumb();
+    bootscore_breadcrumb();
     return ob_get_clean();
   }
   add_shortcode('bs-breadcrumb', 'bootscore_breadcrumb_shortcode');
 }
+

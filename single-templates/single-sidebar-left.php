@@ -18,7 +18,7 @@ get_header();
       
       <?php do_action( 'bootscore_after_primary_open', 'single-sidebar-left' ); ?>
 
-      <?php the_breadcrumb(); ?>
+      <?php bootscore_breadcrumb(); ?>
 
       <div class="row">
         <?php get_sidebar(); ?>
