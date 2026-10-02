@@ -17,7 +17,7 @@ defined('ABSPATH') || exit;
 
 
 <!-- Searchform large -->
-<?php if (is_active_sidebar('top-nav-search')) : ?>
+<?php if (apply_filters('bootscore/sidebar/has_widgets', is_active_sidebar('top-nav-search'), 'top-nav-search')) : ?>
   <div class="d-none <?= esc_attr(apply_filters('bootscore/class/header/search/breakpoint', 'lg')); ?>:d-block <?= esc_attr(apply_filters('bootscore/class/header/action/spacer', 'ms-1 md:ms-3', 'searchform')); ?> nav-search-lg">
     <?php dynamic_sidebar('top-nav-search'); ?>
   </div>
