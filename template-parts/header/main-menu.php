@@ -2,7 +2,7 @@
 
 /**
  * Template part to initialize the navbar menu
- * Template Version: 6.3.1
+ * Template Version: 7.0.0
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
@@ -17,14 +17,14 @@ defined('ABSPATH') || exit;
 
 
 <?php
-// Bootstrap 5 Nav Walker
+// Bootstrap 6 Nav Walker
 wp_nav_menu(array(
   'theme_location' => 'main-menu',
   'container'      => false,
   'menu_class'     => '',
   'fallback_cb'    => '__return_false',
-  'items_wrap'     => '<ul id="bootscore-navbar" class="navbar-nav ' . esc_attr(apply_filters('bootscore/class/header/navbar-nav', 'ms-auto')) . ' %2$s">%3$s</ul>',
-  'depth'          => 2,
-  'walker'         => new bootstrap_5_wp_nav_menu_walker()
+  'items_wrap'     => '<ul id="bootscore-navbar" class="navbar-nav ' . esc_attr(apply_filters('bootscore/class/header/navbar-nav', 'lg:ms-auto')) . ' %2$s">%3$s</ul>',
+  'depth'          => 0,
+  'walker'         => new bootstrap_6_wp_nav_menu_walker()
 ));
 ?>

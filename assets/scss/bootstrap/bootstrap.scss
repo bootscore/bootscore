@@ -1,52 +1,56 @@
-@import "mixins/banner";
-@include bsBanner("");
-
-
 // scss-docs-start import-stack
-// Configuration
-@import "functions";
-@import "variables";
-@import "variables-dark";
-@import "maps";
-@import "mixins";
-@import "utilities";
+@forward "banner";
 
-// Layout & components
-@import "root";
-@import "reboot";
-@import "type";
-@import "images";
-@import "containers";
-@import "grid";
-@import "tables";
-@import "forms";
-@import "buttons";
-@import "transitions";
-@import "dropdown";
-@import "button-group";
-@import "nav";
-@import "navbar";
-@import "card";
-@import "accordion";
-@import "breadcrumb";
-@import "pagination";
-@import "badge";
-@import "alert";
-@import "progress";
-@import "list-group";
-@import "close";
-@import "toasts";
-@import "modal";
-@import "tooltip";
-@import "popover";
-@import "carousel";
-@import "spinners";
-@import "offcanvas";
-@import "placeholders";
+// Configuration variables and maps, such as $utilities. Forwarding config makes
+// them configurable from this entrypoint with `@use ... with (...)`. Emits no CSS.
+@forward "config";
+
+@forward "colors";
+
+// Theme color maps ($theme-colors, $theme-bgs, etc.). Forwarding makes them
+// configurable from this entrypoint with `@use ... with (...)`. Emits no CSS.
+@forward "theme";
+
+// Global CSS variables, layer definitions, and configuration
+@forward "root";
+
+// Subdir imports
+@forward "content";
+@forward "layout";
+@forward "forms";
+@forward "buttons";
+
+// Components
+@forward "accordion";
+@forward "alert";
+@forward "avatar";
+@forward "badge";
+@forward "breadcrumb";
+@forward "calendar";
+@forward "chip";
+@forward "card";
+@forward "carousel";
+@forward "datepicker";
+@forward "dialog";
+@forward "menu";
+@forward "list-group";
+@forward "nav";
+@forward "nav-overflow";
+@forward "navbar";
+@forward "drawer";
+@forward "pagination";
+@forward "placeholder";
+@forward "popover";
+@forward "progress";
+@forward "spinner";
+@forward "stepper";
+@forward "toasts";
+@forward "tooltip";
+@forward "transitions";
 
 // Helpers
-@import "helpers";
+@forward "helpers";
 
 // Utilities
-@import "utilities/api";
+@forward "utilities/api";
 // scss-docs-end import-stack

@@ -21,18 +21,18 @@ if (!function_exists('bootscore_category_badge')) :
   function bootscore_category_badge() {
     // Hide category and tag text for pages.
     if ('post' === get_post_type()) {
-      echo '<p class="category-badge">';
+      echo '<span class="category-badge">';
       $thelist = '';
       $i       = 0;
       foreach (get_the_category() as $category) {
         if (0 < $i) $thelist .= ' ';
         // Apply a filter to modify the class name
-        $class = apply_filters('bootscore/class/badge/category', 'badge bg-primary-subtle text-primary-emphasis text-decoration-none');
+        $class = apply_filters('bootscore/class/badge/category', 'badge');
         $thelist .= '<a href="' . esc_url(get_category_link($category->term_id)) . '" class="' . esc_attr($class) . '">' . esc_html($category->name) . '</a>';
         $i ++;
       }
       echo wp_kses_post($thelist);
-      echo '</p>';
+      echo '</span>';
     }
   }
 endif;
@@ -229,7 +229,7 @@ if (!function_exists('bootscore_tags')) :
 
       $tags_list = get_the_tag_list('', ' ');
       if ($tags_list) {
-        echo '<div class="tags-links">';
+        echo '<p class="tags-links z-1">';
 
         // Show 'Tagged' heading only on singular post pages
         if (is_singular('post') && get_the_ID() === get_queried_object_id()) {
@@ -237,7 +237,7 @@ if (!function_exists('bootscore_tags')) :
         }
 
         echo get_the_tag_list();
-        echo '</div>';
+        echo '</p>';
       }
     }
   }
@@ -245,7 +245,7 @@ if (!function_exists('bootscore_tags')) :
   add_filter("term_links-post_tag", 'add_tag_class');
 
   function add_tag_class($links) {
-    $class = apply_filters('bootscore/class/badge/tag', 'badge bg-primary-subtle text-primary-emphasis text-decoration-none');
+    $class = apply_filters('bootscore/class/badge/tag', 'badge');
 
     // Check if icon should be shown
     if (apply_filters('bootscore/show/tag/icon', true)) {
@@ -262,72 +262,4 @@ if (!function_exists('bootscore_tags')) :
   }
 endif;
 
-
-/**
- * Featured image
- */
-if (!function_exists('bootscore_post_thumbnail')) :
-  /**
-   * Displays an optional post thumbnail.
-   *
-   * Wraps the post thumbnail in an anchor element on index views, or a div
-   * element when on single views.
-   */
-  function bootscore_post_thumbnail() {
-    if (post_password_required() || is_attachment() || !has_post_thumbnail()) {
-      return;
-    }
-
-    if (is_singular()) :
-      ?>
-
-      <div class="post-thumbnail">
-        <?php the_post_thumbnail('full', array('class' => 'rounded mb-3')); ?>
-      </div><!-- .post-thumbnail -->
-
-    <?php else : ?>
-
-      <a class="post-thumbnail" href="<?php the_permalink(); ?>" aria-hidden="true" tabindex="-1">
-        <?php
-        the_post_thumbnail('post-thumbnail', array(
-          'alt' => the_title_attribute(array(
-            'echo' => false,
-          )),
-        ));
-        ?>
-      </a>
-
-    <?php
-    endif; // End is_singular().
-  }
-endif;
-
-
-/**
- * Loop excerpt
- *
- * Display post excerpt with fallback to content
- * 
- * @param int $post_id Post ID (optional, uses current post if not set)
- * @param int $word_count Number of words to trim to (default: 55)
- */
-if (!function_exists('bootscore_excerpt')) {
-  function bootscore_excerpt($post_id = null, $word_count = 55) {
-    // Get post ID
-    $post_id = $post_id ?: get_the_ID();
-    
-    // Get excerpt or fallback to content
-    $excerpt = get_post_field('post_excerpt', $post_id);
-    if (empty($excerpt)) {
-      $excerpt = get_post_field('post_content', $post_id);
-    }
-    
-    // Clean and trim
-    $excerpt = strip_shortcodes($excerpt);
-    $excerpt = wp_trim_words($excerpt, $word_count);
-    
-    // Output
-    echo esc_html($excerpt);
-  }
-}
 
