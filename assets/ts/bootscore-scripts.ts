@@ -4,33 +4,23 @@
   * @version 7.0.0
   */
 
-// Search
-document.addEventListener('DOMContentLoaded', function () {
 
-  var collapseSearch = document.getElementById('collapse-search');
+// Search menu: focus the input directly in the tap, so mobile browsers (iOS) open the keyboard
+window.addEventListener('click', (event) => {
+  const toggle = (event.target as Element).closest<HTMLElement>('.search-toggler');
+  if (!toggle || toggle.getAttribute('aria-expanded') !== 'true') return;
 
-  if (collapseSearch) {
+  const input = toggle.parentElement?.querySelector<HTMLInputElement>('.search-menu input:not([type="hidden"])');
+  input?.focus({ preventScroll: true });
+});
 
-    // Searchform focus
-    collapseSearch.addEventListener('shown.bs.collapse', function () {
-      var input = collapseSearch.querySelector('.top-nav-search input:first-of-type');
-      setTimeout(function () {
-        input.focus();
-      }, 0);
-    });
+// Fallback for menus opened without a click (e.g. keyboard)
+document.addEventListener('shown.bs.menu', (event) => {
+  const toggle = event.target as HTMLElement;
+  if (!toggle.classList.contains('search-toggler')) return;
 
-    // Close collapse if click outside searchform
-    document.addEventListener('click', function (event) {
-      if (!event.target.closest('#collapse-search')) {
-        var bsCollapse = bootstrap.Collapse.getInstance(collapseSearch);
-        if (bsCollapse) {
-          bsCollapse.hide();
-        }
-      }
-    });
-
-  }
-
+  const input = toggle.parentElement?.querySelector<HTMLInputElement>('.search-menu input:not([type="hidden"])');
+  input?.focus();
 });
 
 

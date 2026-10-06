@@ -46,7 +46,7 @@ defined('ABSPATH') || exit;
 
     <?php do_action( 'bootscore_after_masthead_open' ); ?>
     
-    <nav id="nav-main" class="navbar <?= esc_attr(apply_filters('bootscore/class/header/navbar/breakpoint', 'lg:navbar-expand')); ?>">
+    <div id="nav-main" class="navbar <?= esc_attr(apply_filters('bootscore/class/header/navbar/breakpoint', 'lg:navbar-expand')); ?>">
 
       <div class="<?= esc_attr(apply_filters('bootscore/class/container', 'container', 'header')); ?>">
         
@@ -59,14 +59,14 @@ defined('ABSPATH') || exit;
         
         <?php do_action( 'bootscore_after_navbar_brand' ); ?>
 
-        <dialog class="drawer drawer-<?= esc_attr(apply_filters('bootscore/class/drawer/direction', 'end', 'menu')); ?>" tabindex="-1" id="drawer-navbar">
+        <dialog class="drawer drawer-<?= esc_attr(apply_filters('bootscore/class/drawer/direction', 'end', 'menu')); ?>" tabindex="-1" id="drawer-navbar" aria-labelledby="drawer-navbar-label">
           <div class="drawer-header <?= esc_attr(apply_filters('bootscore/class/drawer/header', '', 'menu')); ?>">
-            <span class="h5 drawer-title"><?= esc_html(apply_filters('bootscore/header/navbar/drawer/title', __('Menu', 'bootscore'))); ?></span>
-            <button type="button" class="btn-close text-reset" data-bs-dismiss="drawer" aria-label="Close"></button>
+            <span class="h5 drawer-title" id="drawer-navbar-label"><?= esc_html(apply_filters('bootscore/header/navbar/drawer/title', __('Menu', 'bootscore'))); ?></span>
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="drawer" aria-label="<?php esc_attr_e('Close', 'bootscore'); ?>"></button>
           </div>
           <div class="drawer-body <?= esc_attr(apply_filters('bootscore/class/drawer/body', '', 'menu')); ?>">
 
-            <!-- Bootstrap 5 Nav Walker Main Menu -->
+            <!-- Main Menu -->
             <?php get_template_part('template-parts/header/main-menu'); ?>
 
             <!-- Top Nav 2 Widget -->
@@ -103,15 +103,7 @@ defined('ABSPATH') || exit;
 
       </div><!-- .container -->
 
-    </nav><!-- .navbar -->
-
-    <?php
-    if (class_exists('WooCommerce')) :
-      get_template_part('template-parts/header/collapse-search', 'woocommerce');
-    else :
-      get_template_part('template-parts/header/collapse-search');
-    endif;
-    ?>
+    </div><!-- .navbar -->    
 
     <!-- Drawer User and Cart -->
     <?php
