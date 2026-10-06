@@ -46,7 +46,7 @@ defined('ABSPATH') || exit;
 
     <?php do_action( 'bootscore_after_masthead_open' ); ?>
     
-    <nav id="nav-main" class="navbar-translucent navbar <?= esc_attr(apply_filters('bootscore/class/header/navbar/breakpoint', 'lg:navbar-expand')); ?>">
+    <nav id="nav-main" class="navbar <?= esc_attr(apply_filters('bootscore/class/header/navbar/breakpoint', 'lg:navbar-expand')); ?>">
 
       <div class="<?= esc_attr(apply_filters('bootscore/class/container', 'container', 'header')); ?>">
         
@@ -59,7 +59,7 @@ defined('ABSPATH') || exit;
         
         <?php do_action( 'bootscore_after_navbar_brand' ); ?>
 
-        <dialog class="drawer drawer-translucent drawer-<?= esc_attr(apply_filters('bootscore/class/drawer/direction', 'end', 'menu')); ?>" tabindex="-1" id="drawer-navbar">
+        <dialog class="drawer drawer-<?= esc_attr(apply_filters('bootscore/class/drawer/direction', 'end', 'menu')); ?>" tabindex="-1" id="drawer-navbar">
           <div class="drawer-header <?= esc_attr(apply_filters('bootscore/class/drawer/header', '', 'menu')); ?>">
             <span class="h5 drawer-title"><?= esc_html(apply_filters('bootscore/header/navbar/drawer/title', __('Menu', 'bootscore'))); ?></span>
             <button type="button" class="btn-close text-reset" data-bs-dismiss="drawer" aria-label="Close"></button>
