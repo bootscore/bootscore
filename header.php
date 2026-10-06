@@ -105,14 +105,6 @@ defined('ABSPATH') || exit;
 
     </nav><!-- .navbar -->
 
-    <?php
-    if (class_exists('WooCommerce')) :
-      get_template_part('template-parts/header/collapse-search', 'woocommerce');
-    else :
-      get_template_part('template-parts/header/collapse-search');
-    endif;
-    ?>
-
     <!-- Drawer User and Cart -->
     <?php
     if (class_exists('WooCommerce')) :
