@@ -3,7 +3,6 @@ To top button
 --------------------------------------------------------------*/
 
 
-// Refactor to scroll-driven CSS?
 .top-button {
   opacity: 0;
   visibility: hidden;
@@ -15,3 +14,27 @@ To top button
     transition: visibility 0s linear 0s, opacity .3s;
   }
 }
+
+
+// Refactor to scroll-driven CSS?
+// Delete script in bootscore-scripts
+// Not supported by older browsers
+/*
+.top-button {
+  opacity: 0;
+  visibility: hidden;
+
+  @supports (animation-timeline: scroll()) {
+    animation: top-button-show linear both;
+    animation-timeline: scroll(root);
+    animation-range: 500px 600px;
+  }
+}
+
+@keyframes top-button-show {
+  to {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+*/
