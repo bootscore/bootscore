@@ -4,7 +4,7 @@
  * Comments
  *
  * @package Bootscore 
- * @version 6.3.1
+ * @version 7.0.0
  */
 
 
@@ -39,7 +39,7 @@ if (!function_exists('bootscore_comment')) :
 
     if ('pingback' == $comment->comment_type || 'trackback' == $comment->comment_type) : ?>
 
-      <li id="comment-<?php comment_ID(); ?>" <?php comment_class('media alert alert-info'); ?>>
+      <li id="comment-<?php comment_ID(); ?>" <?php comment_class('media alert theme-info'); ?>>
       <div class="comment-body">
         <?php _e('Pingback:', 'bootscore'); ?><?php comment_author_link(); ?><?php edit_comment_link(__('Edit', 'bootscore'), '<span class="edit-link">', '</span>'); ?>
       </div>
@@ -48,47 +48,45 @@ if (!function_exists('bootscore_comment')) :
 
       <li id="comment-<?php comment_ID(); ?>" <?php comment_class(empty($args['has_children']) ? '' : 'parent'); ?>>
 
-        <article id="div-comment-<?php comment_ID(); ?>" class="comment-body mb-4 d-flex">
+        <article id="div-comment-<?php comment_ID(); ?>" class="comment-body d-flex mb-5">
 
-          <div class="flex-shrink-0 me-3">
-            <?php echo get_avatar($comment, 80, '', '', array('class' => esc_attr(apply_filters('bootscore/class/comment/avatar', 'img-thumbnail rounded-circle')))); ?> 
-          </div>
+          <span class="avatar avatar-lg me-4">
+            <?php echo get_avatar($comment, 80, '', '', array('class' => esc_attr(apply_filters('bootscore/class/comment/avatar', 'avatar-img')))); ?> 
+          </span>
 
-          <div class="comment-content">
-            <div class="card">
-              <div class="card-body">
+          <div class="comment-content card flex-grow-1">
+            <div class="card-body">
 
-                <?php printf('<h3 class="h5">%s</h3>', get_comment_author_link()); ?>
+              <?php printf('<h3 class="h5 card-text">%s</h3>', get_comment_author_link()); ?>
 
-                <p class="small comment-meta text-body-secondary">
-                  <time datetime="<?php comment_time('c'); ?>">
-                    <?php printf(_x('%1$s at %2$s', '1: date, 2: time', 'bootscore'), get_comment_date(), get_comment_time()); ?>
-                  </time>
-                  <?php edit_comment_link(__('Edit', 'bootscore'), '<span class="edit-link">', '</span>'); ?>
-                </p>
+              <p class="comment-meta card-subtitle fg-secondary fs-sm">
+                <time datetime="<?php comment_time('c'); ?>">
+                  <?php printf(_x('%1$s at %2$s', '1: date, 2: time', 'bootscore'), get_comment_date(), get_comment_time()); ?>
+                </time>
+                <?php edit_comment_link(__('Edit', 'bootscore'), '<span class="edit-link">', '</span>'); ?>
+              </p>
 
 
-                <?php if ('0' == $comment->comment_approved) : ?>
-                  <p class="comment-awaiting-moderation alert alert-info"><?php _e('Your comment is awaiting moderation.', 'bootscore'); ?></p>
-                <?php endif; ?>
+              <?php if ('0' == $comment->comment_approved) : ?>
+                <p class="comment-awaiting-moderation alert theme-info"><?php _e('Your comment is awaiting moderation.', 'bootscore'); ?></p>
+              <?php endif; ?>
 
-                <?php comment_text(); ?>
+              <?php comment_text(); ?>
 
-                <?php comment_reply_link(
-                  array_merge(
-                    $args,
-                    array(
-                      'add_below' => 'div-comment',
-                      'depth'     => $depth,
-                      'max_depth' => $args['max_depth'],
-                      'before'    => '<p class="reply comment-reply">',
-                      'after'     => '</p>'
-                    )
+              <?php comment_reply_link(
+                array_merge(
+                  $args,
+                  array(
+                    'add_below' => 'div-comment',
+                    'depth'     => $depth,
+                    'max_depth' => $args['max_depth'],
+                    'before'    => '<p class="reply comment-reply">',
+                    'after'     => '</p>'
                   )
-                ); ?>
-              </div> <!-- card-body -->
-            </div><!-- card -->
-          </div><!-- .comment-content -->
+                )
+              ); ?>
+            </div> <!-- card-body -->
+          </div><!-- card -->
 
         </article><!-- .comment-body -->
       </li><!-- #comment -->

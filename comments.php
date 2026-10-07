@@ -2,7 +2,7 @@
 
 /**
  * The template for displaying comments
- * Template Version: 6.4.0
+ * Template Version: 7.0.0
  *
  * This is the template that displays the area of the page that contains both the current comments
  * and the comment form.
@@ -31,7 +31,7 @@ if (post_password_required()) {
   // You can start editing here -- including this comment!
   if (have_comments()) : ?>
 
-    <h2 class="comments-title mb-4">
+    <h2 class="comments-title h4 mb-5">
       <?php
       $comments_number = get_comments_number();
       if ('1' === $comments_number) {
@@ -69,7 +69,7 @@ if (post_password_required()) {
     <?php endif; // Check for comment navigation. 
     ?>
 
-    <ul class="comment-list">
+    <ul class="comment-list list-unstyled">
       <?php
       wp_list_comments(array('callback' => 'bootscore_comment', 'avatar_size' => 128));
       ?>
