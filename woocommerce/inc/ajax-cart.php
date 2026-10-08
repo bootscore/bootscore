@@ -4,7 +4,7 @@
    * WooCommerce AJAX cart
    *
    * @package Bootscore
-   * @version 6.4.0
+   * @version 6.5.0
    */
 
 
@@ -189,11 +189,24 @@
 
           // First is the stock validation filter of woocommerce, to also implement third party checks here this is also implemented
           $passed_validation_wc_standard = apply_filters('woocommerce_update_cart_validation', true, $cart_item_key, $cart_content_before[$cart_item_key], $qty);
+
+          // WooCommerce 11.2+ Store API equivalent of the filter above, used by the Cart block. Extensions targeting the Cart block may only hook this one.
+          // Only a WP_Error rejects the quantity, any other return value (including false) means accepted. Notices are not read by WC, so we add the error message ourselves.
+          // Skipped if the legacy filter already failed (prevents duplicate messages from extensions hooking both) and on removal (qty 0), as removal is not a quantity change in the Store API.
+          $passed_validation_store_api = true;
+          if ($passed_validation_wc_standard && $qty > 0) {
+            $store_api_validation = apply_filters('woocommerce_store_api_cart_item_quantity_validation', true, (int) $qty, $cart_content_before[$cart_item_key]['data'], $cart_content_before[$cart_item_key]);
+            if (is_wp_error($store_api_validation)) {
+              wc_add_notice($store_api_validation->get_error_message(), 'error');
+              $passed_validation_store_api = false;
+            }
+          }
+
           // To not interfere with other areas of woocommerce we also implement our own filter here. Users can decide if they want to apply the filter everywhere or just on the qty update in the mini cart
           $passed_validation_qty_update = apply_filters('bootscore/woocommerce/ajax-cart/update-qty/validate-update', true, $cart_item_key, $cart_content_before[$cart_item_key], $qty);
 
           // If one check fails. we return and append all the errors in the session to the notices.
-          if (!($passed_validation_wc_standard && $passed_validation_qty_update)) {
+          if (!($passed_validation_wc_standard && $passed_validation_store_api && $passed_validation_qty_update)) {
             $response_item['fragments_replace'] = apply_filters('bootscore/woocommerce/ajax-cart/update-qty/fragments/replace', $response_item['fragments_replace'], 'error');
             wp_send_json_error($response_item);
           }
@@ -349,3 +362,4 @@
       return $output;
     }
   }
+  
