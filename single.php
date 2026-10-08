@@ -63,16 +63,8 @@ get_header();
               
               <?php do_action( 'bootscore_before_single_pagination', 'single' ); ?>
               
-              <nav aria-label="bs page navigation">
-                <ul class="pagination justify-content-center">
-                  <li class="page-item">
-                    <?php previous_post_link('%link'); ?>
-                  </li>
-                  <li class="page-item">
-                    <?php next_post_link('%link'); ?>
-                  </li>
-                </ul>
-              </nav>
+              <?php bootscore_single_pagination(); ?>
+
               <?php comments_template(); ?>
             </div>
 

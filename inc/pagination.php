@@ -69,13 +69,34 @@ add_action('bootscore_loop_pagination', 'bootscore_pagination_render');
 
 
 /**
- * Pagination Single Posts
+ * Single post pagination
  */
-add_filter('next_post_link', 'post_link_attributes');
-add_filter('previous_post_link', 'post_link_attributes');
+if (!function_exists('bootscore_single_pagination')) :
+  function bootscore_single_pagination() {
 
-function post_link_attributes($output) {
-  $code = 'class="page-link"';
+    $prev = get_previous_post_link('%link', '&laquo; %title');
+    $next = get_next_post_link('%link', '%title &raquo;');
 
-  return str_replace('<a href=', '<a ' . $code . ' href=', $output);
-}
+    if (!$prev && !$next) {
+      return;
+    }
+
+    $link_class = apply_filters('bootscore/class/single/pagination/link', 'page-link');
+    $prev       = str_replace('<a ', '<a class="' . esc_attr($link_class) . '" ', $prev);
+    $next       = str_replace('<a ', '<a class="' . esc_attr($link_class) . '" ', $next);
+    ?>
+
+    <nav aria-label="<?php esc_attr_e('Post navigation', 'bootscore'); ?>">
+      <ul class="pagination <?= esc_attr(apply_filters('bootscore/class/single/pagination', 'justify-content-center')); ?>">
+        <?php if ($prev) : ?>
+          <li class="page-item"><?= $prev; ?></li>
+        <?php endif; ?>
+        <?php if ($next) : ?>
+          <li class="page-item"><?= $next; ?></li>
+        <?php endif; ?>
+      </ul>
+    </nav>
+
+    <?php
+  }
+endif;
