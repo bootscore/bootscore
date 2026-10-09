@@ -52,7 +52,7 @@ if (!function_exists('bootscore_block_widget_archives_classes')) {
       $replace = array(
         'wp-block-archives-list bs-list-group list-group',
         '<li class="list-group-item list-group-item-action d-flex justify-content-between align-items-center"',
-        '<a class="stretched-link text-decoration-none fg-body"',
+        '<a class="stretched-link text-decoration-none fg-reset"',
         '<span class="badge badge-subtle theme-primary">',
         '</span>'
       );
