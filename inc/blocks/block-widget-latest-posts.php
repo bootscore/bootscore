@@ -25,7 +25,8 @@ if (!function_exists('bootscore_block_widget_latest_posts_classes')) {
    */
   function bootscore_block_widget_latest_posts_classes($block_content, $block) {
 
-    $tags = new WP_HTML_Tag_Processor($block_content);
+    $tags        = new WP_HTML_Tag_Processor($block_content);
+    $in_featured = false;
 
     while ($tags->next_tag()) {
       $tag = $tags->get_tag();
@@ -34,8 +35,11 @@ if (!function_exists('bootscore_block_widget_latest_posts_classes')) {
         $tags->add_class('bs-list-group list-group');
       } elseif ('LI' === $tag) {
         $tags->add_class('list-group-item list-group-item-action');
-      } elseif ('IMG' === $tag && $tags->has_class('wp-post-image')) {
+      } elseif ('DIV' === $tag && $tags->has_class('wp-block-latest-posts__featured-image')) {
+        $in_featured = true;
+      } elseif ('IMG' === $tag && $in_featured) {
         $tags->add_class('rounded mb-5');
+        $in_featured = false;
       } elseif ($tags->has_class('wp-block-latest-posts__post-title')) {
         $tags->add_class('stretched-link text-decoration-none fg-reset');
       } elseif ($tags->has_class('wp-block-latest-posts__post-author')) {
