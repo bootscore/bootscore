@@ -24,15 +24,15 @@ if (!function_exists('bootscore_block_code_classes')) {
    * @return string The filtered block content.
    */
   function bootscore_block_code_classes($block_content, $block) {
-    
-    $search  = array(
-      'wp-block-code'
-    );
-    $replace = array(
-      'color-scheme-dark bg-1 fg-1 border rounded fs-xs p-5'
-    );
-    
-    $block_content = str_replace($search, $replace, $block_content);
+
+    $tags = new WP_HTML_Tag_Processor($block_content);
+
+    if ($tags->next_tag(array('tag_name' => 'PRE', 'class_name' => 'wp-block-code'))) {
+      $tags->remove_class('wp-block-code');
+      $tags->add_class('color-scheme-dark bg-1 fg-1 border rounded fs-xs p-5');
+    }
+
+    $block_content = $tags->get_updated_html();
 
     return apply_filters('bootscore/block/code/content', $block_content, $block);
   }
