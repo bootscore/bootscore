@@ -7,6 +7,7 @@
 
 import {
   Calendar,
+  months,
   type DateAny,
   type DateMode,
   type DatesArr,
@@ -35,6 +36,8 @@ const EVENT_SHOWN = `shown${EVENT_KEY}`
 const EVENT_HIDE = `hide${EVENT_KEY}`
 const EVENT_HIDDEN = `hidden${EVENT_KEY}`
 const EVENT_FOCUSIN = `focusin${EVENT_KEY}`
+const EVENT_POINTERDOWN = `pointerdown${EVENT_KEY}`
+const EVENT_CLICK = `click${EVENT_KEY}`
 const EVENT_CLICK_DATA_API = `click${EVENT_KEY}${DATA_API_KEY}`
 const EVENT_FOCUSIN_DATA_API = `focusin${EVENT_KEY}${DATA_API_KEY}`
 
@@ -112,7 +115,9 @@ class Datepicker extends BaseComponent {
   protected declare _positionElement: HTMLElement
   protected declare _displayElement: HTMLElement | false | null
   protected declare _themeObserver: MutationObserver | null
-  protected declare _onFocusIn: (event: Event) => void
+  protected declare _themeAncestor: Element | null | undefined
+  protected declare _onOutside: (event: Event) => void
+  protected declare _onTriggerClick: () => void
 
   constructor(element?: string | Element | null, config?: Partial<DatepickerConfig> | null) {
     super(element, config)
@@ -191,8 +196,13 @@ class Datepicker extends BaseComponent {
       this._themeObserver = null
     }
 
-    if (this._onFocusIn) {
-      EventHandler.off(document, EVENT_FOCUSIN, this._onFocusIn)
+    if (this._onOutside) {
+      EventHandler.off(document, EVENT_FOCUSIN, this._onOutside)
+      EventHandler.off(document, EVENT_POINTERDOWN, this._onOutside)
+    }
+
+    if (this._onTriggerClick) {
+      EventHandler.off(this._positionElement, EVENT_CLICK, this._onTriggerClick)
     }
 
     if (this._calendar) {
@@ -211,6 +221,7 @@ class Datepicker extends BaseComponent {
   setSelectedDates(dates: DatesArr): void {
     if (this._calendar) {
       this._calendar.set({ selectedDates: dates })
+      this._syncSelectedDates([...this._calendar.context.selectedDates])
     }
   }
 
@@ -237,7 +248,7 @@ class Datepicker extends BaseComponent {
     // Watch for theme changes on ancestor elements (for live theme switching)
     this._setupThemeObserver()
 
-    this._setupDismissOnFocus()
+    this._setupDismiss()
 
     // Set initial value if input has a value
     if (this._isInput && this._element.value) {
@@ -249,13 +260,15 @@ class Datepicker extends BaseComponent {
   }
 
   protected _updateDisplayWithSelectedDates(): void {
-    const { selectedDates } = this._config
-    if (!selectedDates || selectedDates.length === 0) {
-      return
+    const calendarDates = [...(this._calendar?.context.selectedDates || [])]
+    const selectedDates = calendarDates.length > 0 ? calendarDates : this._config.selectedDates
+    if (selectedDates.length > 0) {
+      this._syncSelectedDates(selectedDates)
     }
+  }
 
+  protected _syncSelectedDates(selectedDates: string[]): void {
     const formattedDate = this._formatDateForInput(selectedDates)
-
     if (this._isInput) {
       this._element.value = formattedDate
     }
@@ -304,7 +317,14 @@ class Datepicker extends BaseComponent {
   }
 
   protected _getThemeAncestor(): Element | null {
-    return this._element.closest('[data-bs-theme]')
+    // Cache on first lookup: for an inline calendar, `_syncThemeAttribute` writes
+    // `data-bs-theme` onto this same element (it doubles as VCP's main element), which
+    // would make a later `closest()` match itself instead of the real ancestor.
+    if (this._themeAncestor === undefined) {
+      this._themeAncestor = this._element.closest('[data-bs-theme]')
+    }
+
+    return this._themeAncestor
   }
 
   protected _getEffectiveTheme(): string | null {
@@ -352,28 +372,41 @@ class Datepicker extends BaseComponent {
     })
   }
 
-  // VCP ignores focus and mounts the popup on `<body>`.
-  protected _setupDismissOnFocus(): void {
+  // VCP hides on outside `click` itself, but skips Bootstrap's hide events and
+  // ignores focus moves. Bootstrap closes the popup first instead. `focusin`
+  // covers keyboard moves and focusable targets. `pointerdown` covers presses on
+  // non-focusable elements (empty page area, a plain `<div>`, text). Use
+  // `pointerdown`, not `click`, so the target is read before the calendar
+  // re-renders on click (e.g. month or year navigation) and detaches the node.
+  protected _setupDismiss(): void {
     if (this._isInline) {
       return
     }
 
-    this._onFocusIn = event => {
-      if (!this._isShown) {
-        return
+    // VCP schedules a show on every click of its trigger, after the data API
+    // toggle runs. When that toggle closed the popup, cancel the reopen.
+    // `hide()` on VCP clears its pending show even when already hidden.
+    if (!this._isInput) {
+      this._onTriggerClick = () => {
+        if (!this._isShown) {
+          this._calendar?.hide()
+        }
       }
 
-      const { target } = event
-      const mainElement = this._calendar?.context?.mainElement
-
-      if (target instanceof Node && (this._element.contains(target) || mainElement?.contains(target))) {
-        return
-      }
-
-      this.hide()
+      EventHandler.on(this._positionElement, EVENT_CLICK, this._onTriggerClick)
     }
 
-    EventHandler.on(document, EVENT_FOCUSIN, this._onFocusIn)
+    this._onOutside = ({ target }) => {
+      const mainElement = this._calendar?.context?.mainElement
+      const isOutside = !(target instanceof Node) || (!this._element.contains(target) && !mainElement?.contains(target))
+
+      if (this._isShown && isOutside) {
+        this.hide()
+      }
+    }
+
+    EventHandler.on(document, EVENT_FOCUSIN, this._onOutside)
+    EventHandler.on(document, EVENT_POINTERDOWN, this._onOutside)
   }
 
   protected _buildCalendarOptions(): Options {
@@ -384,6 +417,9 @@ class Datepicker extends BaseComponent {
 
     const calendarOptions: Options = {
       ...this._config.vcpOptions,
+      // Vanilla Calendar Pro v3.4+ ships optional features as extensions. Bootstrap
+      // supports only `months`, which `displayMonthsCount` needs.
+      extensions: [months],
       inputMode: !this._isInline,
       positionToInput: this._config.placement,
       firstWeekday: this._config.firstWeekday,
@@ -432,22 +468,7 @@ class Datepicker extends BaseComponent {
 
   protected _handleDateClick(self: Calendar, event: MouseEvent): void {
     const selectedDates = [...self.context.selectedDates]
-
-    if (selectedDates.length > 0) {
-      const formattedDate = this._formatDateForInput(selectedDates)
-
-      if (this._isInput) {
-        this._element.value = formattedDate
-      }
-
-      if (this._boundInput) {
-        this._boundInput.value = selectedDates.join(',')
-      }
-
-      if (this._displayElement) {
-        this._displayElement.textContent = formattedDate
-      }
-    }
+    this._syncSelectedDates(selectedDates)
 
     EventHandler.trigger(this._element, EVENT_CHANGE, {
       dates: selectedDates,
@@ -516,7 +537,11 @@ class Datepicker extends BaseComponent {
       return
     }
 
-    const date = new Date(value)
+    const dateOnlyMatch = /^(\d{4})-(\d{2})-(\d{2})$/.exec(value)
+    const date = dateOnlyMatch ?
+      new Date(Number(dateOnlyMatch[1]), Number(dateOnlyMatch[2]) - 1, Number(dateOnlyMatch[3])) :
+      new Date(value)
+
     if (!Number.isNaN(date.getTime())) {
       const year = date.getFullYear()
       const month = String(date.getMonth() + 1).padStart(2, '0')
