@@ -13,12 +13,3 @@ Single page-*.php and post-*.php
   background-position: center;
   background-repeat: no-repeat;
 }
-
-// Pagination
-[rel="prev"]:before {
-  content: "« ";
-}
-
-[rel="next"]:after {
-  content: " »";
-}

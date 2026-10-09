@@ -24,17 +24,25 @@ if (!function_exists('bootscore_block_table_classes')) {
    * @return string The filtered block content.
    */
   function bootscore_block_table_classes($block_content, $block) {
-    
-    $search  = array(
-      'wp-block-table',
-      '<table'
-    );
-    $replace = array(
-      'table-responsive text-nowrap', // text-nowrap because tables inherits text-wrap from <body>
-      '<table class="table ' . esc_attr(apply_filters('bootscore/class/block/table', '')) . '"'
-    );
-    
-    $block_content = str_replace($search, $replace, $block_content);
+
+    $tags    = new WP_HTML_Tag_Processor($block_content);
+    $striped = false;
+
+    // <figure class="wp-block-table">
+    if ($tags->next_tag(array('tag_name' => 'FIGURE', 'class_name' => 'wp-block-table'))) {
+      $striped = $tags->has_class('is-style-stripes');
+
+      $tags->remove_class('wp-block-table');
+      $tags->remove_class('is-style-stripes');
+      $tags->add_class('table-responsive text-nowrap'); // text-nowrap because tables inherit text-wrap from <body>
+    }
+
+    // <table>
+    if ($tags->next_tag('table')) {
+      $tags->add_class(trim('table ' . ($striped ? 'table-striped ' : '') . apply_filters('bootscore/class/block/table', '')));
+    }
+
+    $block_content = $tags->get_updated_html();
 
     return apply_filters('bootscore/block/table/content', $block_content, $block);
   }

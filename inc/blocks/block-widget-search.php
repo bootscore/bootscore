@@ -25,33 +25,59 @@ if (!function_exists('bootscore_block_widget_search_classes')) {
    */
   function bootscore_block_widget_search_classes($block_content, $block) {
 
-    // Input needs trailing margin when the button sits outside the input wrapper.
-    $button_position = $block['attrs']['buttonPosition'] ?? 'button-outside';
-    $input_spacer    = ('button-inside' !== $button_position) ? ' ' . esc_attr(apply_filters('bootscore/class/widget/search/input/spacer', 'me-2')) : '';
+    $inside = 'button-inside' === ($block['attrs']['buttonPosition'] ?? 'button-outside');
 
-    $search  = array(
-      '<form ',
-      'wp-block-search__input ',
-      'wp-block-search__input"',
-      'wp-block-search__button ',
-      '<svg class="search-icon" viewBox="0 0 24 24" width="24" height="24">
-					<path d="M13 5c-3.3 0-6 2.7-6 6 0 1.4.5 2.7 1.3 3.7l-3.8 3.8 1.1 1.1 3.8-3.8c1 .8 2.3 1.3 3.7 1.3 3.3 0 6-2.7 6-6S16.3 5 13 5zm0 10.5c-2.5 0-4.5-2-4.5-4.5s2-4.5 4.5-4.5 4.5 2 4.5 4.5-2 4.5-4.5 4.5z"></path>
-				</svg>'
-    );
-    $replace = array(
-      '<form novalidate="novalidate" ',
-      'wp-block-search__input form-control' . $input_spacer . ' ',
-      'wp-block-search__input form-control' . $input_spacer . '"',
-      'wp-block-search__btn ' . esc_attr(apply_filters('bootscore/class/widget/search/button', 'btn btn-outline-secondary')) . ' ',
-      bootscore_icon('search', false)
-    );
+    $tags = new WP_HTML_Tag_Processor($block_content);
 
-    if (isset($block['attrs']['buttonPosition']) && 'button-inside' === $block['attrs']['buttonPosition']) {
-      $search[]  = 'wp-block-search__inside-wrapper';
-      $replace[] = 'wp-block-search input-group';
+    // Form: no browser validation bubble on empty search
+    if ($tags->next_tag('form')) {
+      $tags->set_attribute('novalidate', true);
     }
-    
-    $block_content = str_replace($search, $replace, $block_content);
+
+    while ($tags->next_tag()) {
+
+      if ($tags->has_class('wp-block-search__label')) {
+        $tags->remove_class('wp-block-search__label');
+      }
+
+      // Button inside: wrapper becomes an input group
+      elseif ($inside && $tags->has_class('wp-block-search__inside-wrapper')) {
+        $tags->remove_class('wp-block-search__inside-wrapper');
+        $tags->add_class('input-group');
+      }
+
+      elseif ($tags->has_class('wp-block-search__input')) {
+        $tags->remove_class('wp-block-search__input');
+        $tags->add_class('form-control');
+
+        // Input needs trailing margin when the button sits outside the input wrapper
+        if (!$inside) {
+          $tags->add_class(apply_filters('bootscore/class/widget/search/input/spacer', 'me-3'));
+        }
+      }
+
+      elseif ($tags->has_class('wp-block-search__button')) {
+        $tags->remove_class('wp-block-search__button');
+        $tags->remove_class('wp-element-button');
+        $tags->add_class('wp-block-search__btn ' . apply_filters('bootscore/class/widget/search/button', 'btn-outline theme-secondary'));
+
+        if ($inside) {
+          $tags->add_class('input-group-btn');
+        }
+      }
+    }
+
+    $block_content = $tags->get_updated_html();
+
+    // Replace core search icon, independent of its whitespace
+    $block_content = preg_replace_callback(
+      '#<svg class="search-icon".*?</svg>#s',
+      function () {
+        return bootscore_icon('search', false);
+      },
+      $block_content,
+      1
+    );
 
     return apply_filters('bootscore/block/search/content', $block_content, $block);
   }

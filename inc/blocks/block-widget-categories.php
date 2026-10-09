@@ -4,7 +4,7 @@
  * Categories Block Widget
  *
  * @package Bootscore
- * @version 6.0.0
+ * @version 7.0.0
  */
 
 
@@ -24,9 +24,24 @@ if (!function_exists('bootscore_block_widget_categories_classes')) {
    * @return string The filtered block content.
    */
   function bootscore_block_widget_categories_classes($block_content, $block) {
-    
-    // Check if the block contains the 'wp-block-categories-list' class, exclude the dropdown.
-    if (strpos($block_content, 'wp-block-categories-list') !== false) {
+
+    // Dropdown: add classes to <label> and <select>
+    if (!empty($block['attrs']['displayAsDropdown'])) {
+      $tags = new WP_HTML_Tag_Processor($block_content);
+
+      if ($tags->next_tag('label')) {
+        $tags->add_class(apply_filters('bootscore/class/block/categories/dropdown/label', 'form-label'));
+      }
+
+      if ($tags->next_tag('select')) {
+        $tags->add_class(apply_filters('bootscore/class/block/categories/dropdown', 'form-control'));
+      }
+
+      $block_content = $tags->get_updated_html();
+    }
+
+    // List: list group
+    elseif (strpos($block_content, 'wp-block-categories-list') !== false) {
       $search  = array(
         'wp-block-categories-list',
         'cat-item',
@@ -39,8 +54,8 @@ if (!function_exists('bootscore_block_widget_categories_classes')) {
         'wp-block-categories-list bs-list-group list-group',
         'cat-item list-group-item list-group-item-action d-flex justify-content-between align-items-center',
         'current-cat active',
-        '<a class="stretched-link text-decoration-none"',
-        '<span class="badge bg-primary-subtle text-primary-emphasis">',
+        '<a class="stretched-link text-decoration-none fg-reset"',
+        '<span class="badge badge-subtle theme-primary">',
         '</span>'
       );
 

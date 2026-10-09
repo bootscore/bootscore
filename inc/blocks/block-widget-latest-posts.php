@@ -4,7 +4,7 @@
  * Latest Posts Block Widget
  *
  * @package Bootscore
- * @version 6.0.0
+ * @version 7.0.0
  */
 
 
@@ -25,26 +25,33 @@ if (!function_exists('bootscore_block_widget_latest_posts_classes')) {
    */
   function bootscore_block_widget_latest_posts_classes($block_content, $block) {
 
-    $search  = array(
-      'wp-block-latest-posts__list',
-      '<li',
-      'wp-post-image',
-      '<a',
-      'wp-block-latest-posts__post-author',
-      'wp-block-latest-posts__post-date',
-      'wp-block-latest-posts__post-excerpt',
-    );
-    $replace = array(
-      'wp-block-latest-posts__list bs-list-group list-group',
-      '<li class="list-group-item list-group-item-action"',
-      'wp-post-image rounded mb-3',
-      '<a class="stretched-link text-decoration-none"',
-      'small text-body-secondary',
-      'small text-body-secondary d-block',
-      'wp-block-latest-posts__post-excerpt mb-0',
-    );
+    $tags        = new WP_HTML_Tag_Processor($block_content);
+    $in_featured = false;
 
-    $block_content = str_replace($search, $replace, $block_content);
+    while ($tags->next_tag()) {
+      $tag = $tags->get_tag();
+
+      if ('UL' === $tag && $tags->has_class('wp-block-latest-posts__list')) {
+        $tags->add_class('bs-list-group list-group');
+      } elseif ('LI' === $tag) {
+        $tags->add_class('list-group-item list-group-item-action');
+      } elseif ('DIV' === $tag && $tags->has_class('wp-block-latest-posts__featured-image')) {
+        $in_featured = true;
+      } elseif ('IMG' === $tag && $in_featured) {
+        $tags->add_class('rounded mb-5');
+        $in_featured = false;
+      } elseif ($tags->has_class('wp-block-latest-posts__post-title')) {
+        $tags->add_class('stretched-link text-decoration-none fg-reset');
+      } elseif ($tags->has_class('wp-block-latest-posts__post-author')) {
+        $tags->add_class('small fg-secondary');
+      } elseif ($tags->has_class('wp-block-latest-posts__post-date')) {
+        $tags->add_class('small fg-secondary d-block');
+      } elseif ($tags->has_class('wp-block-latest-posts__post-excerpt')) {
+        $tags->remove_class('wp-block-latest-posts__post-excerpt');
+      }
+    }
+
+    $block_content = $tags->get_updated_html();
 
     return apply_filters('bootscore/block/latest-posts/content', $block_content, $block);
   }

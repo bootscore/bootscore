@@ -4,7 +4,7 @@
  * Block Quote
  *
  * @package Bootscore
- * @version 6.1.0
+ * @version 7.0.0
  */
 
 
@@ -24,17 +24,23 @@ if (!function_exists('bootscore_block_quote_classes')) {
    * @return string The filtered block content.
    */
   function bootscore_block_quote_classes($block_content, $block) {
-    
-    $search  = array(
-      '<blockquote',
-      '<cite'
-    );
-    $replace = array(
-      '<blockquote class="blockquote"',
-      '<cite class="blockquote-footer"'
-    );
-    
-    $block_content = str_replace($search, $replace, $block_content);
+
+    $tags = new WP_HTML_Tag_Processor($block_content);
+
+    while ($tags->next_tag()) {
+      $tag = $tags->get_tag();
+
+      if ('BLOCKQUOTE' === $tag) {
+        $tags->remove_class('wp-block-quote');
+        $tags->remove_class('is-layout-flow');
+        $tags->remove_class('wp-block-quote-is-layout-flow');
+        $tags->add_class('blockquote');
+      } elseif ('CITE' === $tag) {
+        $tags->add_class('blockquote-footer');
+      }
+    }
+
+    $block_content = $tags->get_updated_html();
 
     return apply_filters('bootscore/block/quote/content', $block_content, $block);
   }

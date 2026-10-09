@@ -1,44 +1,11 @@
 /*--------------------------------------------------------------
-Utilities - Bootscore v6.4.0
+Utilities - Bootscore v7.0.0
 --------------------------------------------------------------*/
 
 
 // Clearfix
 .clear-both {
   clear: both;
-}
-
-// z-index
-.zi-1000 {
-  z-index: 1000 !important;
-}
-
-.zi-1020 {
-  z-index: 1020 !important;
-}
-
-.zi-1030 {
-  z-index: 1030 !important;
-}
-
-.zi-1040 {
-  z-index: 1040 !important;
-}
-
-.zi-1050 {
-  z-index: 1050 !important;
-}
-
-.zi-1060 {
-  z-index: 1060 !important;
-}
-
-.zi-1070 {
-  z-index: 1070 !important;
-}
-
-.zi-n1 {
-  z-index: -1 !important;
 }
 
 // Cursor
@@ -48,8 +15,8 @@ Utilities - Bootscore v6.4.0
 
 // Focus
 .focus-none {
-  box-shadow: none !important;
-  outline: 0 !important;
+  box-shadow: none;
+  outline: 0;
 }
 
 // Hide scrollbars
