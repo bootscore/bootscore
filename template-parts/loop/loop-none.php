@@ -15,6 +15,5 @@ defined('ABSPATH') || exit;
 
 
 <div class="alert theme-info align-items-center" role="alert">
-  <?php bootscore_icon('circle-info'); ?>
   <?php esc_html_e('No content found.', 'bootscore'); ?>
 </div>
