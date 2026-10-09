@@ -47,7 +47,7 @@ if (!function_exists('bootscore_block_widget_latest_posts_classes')) {
       } elseif ($tags->has_class('wp-block-latest-posts__post-date')) {
         $tags->add_class('small fg-secondary d-block');
       } elseif ($tags->has_class('wp-block-latest-posts__post-excerpt')) {
-        $tags->add_class('mb-0');
+        $tags->remove_class('wp-block-latest-posts__post-excerpt');
       }
     }
 
