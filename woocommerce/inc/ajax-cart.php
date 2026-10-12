@@ -95,8 +95,26 @@
     add_action('wc_ajax_ace_add_to_cart', 'bootscore_ajax_add_to_cart_handler');
     add_action('wc_ajax_nopriv_ace_add_to_cart', 'bootscore_ajax_add_to_cart_handler');
 
-    // Remove WC Core add to cart handler to prevent double-add
-    remove_action('wp_loaded', array('WC_Form_Handler', 'add_to_cart_action'), 20);
+    /**
+     * Remove the WooCommerce core add to cart handler to prevent a double-add,
+     * but only while our own AJAX endpoint is the one being served.
+     *
+     * WC_AJAX::do_wc_ajax() runs on template_redirect (priority 0), while
+     * WC_Form_Handler::add_to_cart_action() runs on wp_loaded (priority 20), so the
+     * decision can be deferred until the requested endpoint is known. Removing it
+     * unconditionally would also disable the native (non-AJAX) form POST, leaving no
+     * working fallback for forms that opt out of the JS handler.
+     */
+    function bootscore_maybe_remove_wc_add_to_cart_action() {
+      // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Only reads the endpoint name, no data is processed here.
+      $wc_ajax_endpoint = isset($_GET['wc-ajax']) ? sanitize_text_field(wp_unslash($_GET['wc-ajax'])) : '';
+
+      if ('ace_add_to_cart' === $wc_ajax_endpoint) {
+        remove_action('wp_loaded', array('WC_Form_Handler', 'add_to_cart_action'), 20);
+      }
+    }
+
+    add_action('wp_loaded', 'bootscore_maybe_remove_wc_add_to_cart_action', 19);
 
 
     /**
