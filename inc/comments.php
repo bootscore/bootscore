@@ -4,7 +4,7 @@
  * Comments
  *
  * @package Bootscore 
- * @version 6.3.1
+ * @version 7.0.0
  */
 
 
@@ -26,6 +26,28 @@ add_action('wp_enqueue_scripts', 'bootscore_reply');
 
 
 /**
+ * Comment walker with filterable class on the replies list
+ */
+if (!class_exists('Bootscore_Walker_Comment')) :
+  class Bootscore_Walker_Comment extends Walker_Comment {
+
+    public function start_lvl(&$output, $depth = 0, $args = array()) {
+      $GLOBALS['comment_depth'] = $depth + 1;
+
+      if ('div' === $args['style']) {
+        return;
+      }
+
+      $tag   = ('ol' === $args['style']) ? 'ol' : 'ul';
+      $class = trim('children ' . apply_filters('bootscore/class/comment/children', '', $depth));
+
+      $output .= '<' . $tag . ' class="' . esc_attr($class) . '">' . "\n";
+    }
+  }
+endif;
+
+
+/**
  * Comments
  */
 if (!function_exists('bootscore_comment')) :
@@ -33,13 +55,14 @@ if (!function_exists('bootscore_comment')) :
    * Template for comments and pingbacks.
    *
    * Used as a callback by wp_list_comments() for displaying the comments.
+   * The <li> is left open on purpose: WordPress outputs the replies list
+   * and then closes the <li> itself in Walker_Comment::end_el().
    */
   function bootscore_comment($comment, $args, $depth) {
-    // $GLOBALS['comment'] = $comment;
 
     if ('pingback' == $comment->comment_type || 'trackback' == $comment->comment_type) : ?>
 
-      <li id="comment-<?php comment_ID(); ?>" <?php comment_class('media alert alert-info'); ?>>
+      <li id="comment-<?php comment_ID(); ?>" <?php comment_class('media alert theme-info'); ?>>
       <div class="comment-body">
         <?php _e('Pingback:', 'bootscore'); ?><?php comment_author_link(); ?><?php edit_comment_link(__('Edit', 'bootscore'), '<span class="edit-link">', '</span>'); ?>
       </div>
@@ -48,55 +71,59 @@ if (!function_exists('bootscore_comment')) :
 
       <li id="comment-<?php comment_ID(); ?>" <?php comment_class(empty($args['has_children']) ? '' : 'parent'); ?>>
 
-        <article id="div-comment-<?php comment_ID(); ?>" class="comment-body mb-4 d-flex">
+        <article id="div-comment-<?php comment_ID(); ?>" class="comment-body d-flex mb-5">
 
-          <div class="flex-shrink-0 me-3">
-            <?php echo get_avatar($comment, 80, '', '', array('class' => esc_attr(apply_filters('bootscore/class/comment/avatar', 'img-thumbnail rounded-circle')))); ?> 
-          </div>
+          <span class="avatar me-3">
+            <?php echo get_avatar($comment, 80, '', '', array('class' => esc_attr(apply_filters('bootscore/class/comment/avatar', 'avatar-img')))); ?> 
+          </span>
 
-          <div class="comment-content">
-            <div class="card">
-              <div class="card-body">
+          <div class="comment-content card flex-grow-1">
+            <div class="card-body">
 
-                <?php printf('<h3 class="h5">%s</h3>', get_comment_author_link()); ?>
+              <?php printf('<h3 class="h5 card-text">%s</h3>', get_comment_author_link()); ?>
 
-                <p class="small comment-meta text-body-secondary">
-                  <time datetime="<?php comment_time('c'); ?>">
-                    <?php printf(_x('%1$s at %2$s', '1: date, 2: time', 'bootscore'), get_comment_date(), get_comment_time()); ?>
-                  </time>
-                  <?php edit_comment_link(__('Edit', 'bootscore'), '<span class="edit-link">', '</span>'); ?>
-                </p>
+              <p class="comment-meta card-subtitle fg-secondary fs-sm">
+                <time datetime="<?php comment_time('c'); ?>">
+                  <?php printf(_x('%1$s at %2$s', '1: date, 2: time', 'bootscore'), get_comment_date(), get_comment_time()); ?>
+                </time>
+                <?php edit_comment_link(__('Edit', 'bootscore'), '<span class="edit-link">', '</span>'); ?>
+              </p>
 
+              <?php if ('0' == $comment->comment_approved) : ?>
+                <p class="comment-awaiting-moderation alert theme-info"><?php _e('Your comment is awaiting moderation.', 'bootscore'); ?></p>
+              <?php endif; ?>
 
-                <?php if ('0' == $comment->comment_approved) : ?>
-                  <p class="comment-awaiting-moderation alert alert-info"><?php _e('Your comment is awaiting moderation.', 'bootscore'); ?></p>
-                <?php endif; ?>
+              <?php comment_text(); ?>
 
-                <?php comment_text(); ?>
-
-                <?php comment_reply_link(
-                  array_merge(
-                    $args,
-                    array(
-                      'add_below' => 'div-comment',
-                      'depth'     => $depth,
-                      'max_depth' => $args['max_depth'],
-                      'before'    => '<p class="reply comment-reply">',
-                      'after'     => '</p>'
-                    )
+              <?php comment_reply_link(
+                array_merge(
+                  $args,
+                  array(
+                    'add_below' => 'div-comment',
+                    'depth'     => $depth,
+                    'max_depth' => $args['max_depth'],
+                    'before'    => '<p class="reply comment-reply">',
+                    'after'     => '</p>'
                   )
-                ); ?>
-              </div> <!-- card-body -->
-            </div><!-- card -->
-          </div><!-- .comment-content -->
+                )
+              ); ?>
+            </div> <!-- card-body -->
+          </div><!-- card -->
 
         </article><!-- .comment-body -->
-      </li><!-- #comment -->
 
     <?php
     endif;
   }
 endif;
+
+
+/**
+ * Nested comments <ul>
+ */
+add_filter('bootscore/class/comment/children', function ($class) {
+  return 'list-unstyled ms-12';
+});
 
 
 /**
@@ -120,9 +147,9 @@ function bootscore_change_comment_form_cookies_consent($fields) {
   if (get_option('show_comments_cookies_opt_in')) {
     $commenter         = wp_get_current_commenter();
     $consent           = empty($commenter['comment_author_email']) ? '' : ' checked="checked"';
-    $fields['cookies'] = '<p class="comment-form-cookies-consent form-check mb-3">' .
-                         '<input id="wp-comment-cookies-consent" name="wp-comment-cookies-consent" type="checkbox" value="yes" class="form-check-input"' . $consent . ' />' .
-                         '<label for="wp-comment-cookies-consent" class="form-check-label">' . esc_html__('Save my name, email, and website in this browser for the next time I comment.', 'bootscore') . '</label>' .
+    $fields['cookies'] = '<p class="comment-form-cookies-consent form-field">' .
+                         '<input id="wp-comment-cookies-consent" name="wp-comment-cookies-consent" type="checkbox" value="yes" class="check"' . $consent . ' />' .
+                         '<label for="wp-comment-cookies-consent">' . esc_html__('Save my name, email, and website in this browser for the next time I comment.', 'bootscore') . '</label>' .
                          '</p>';
   } else {
     // Remove the 'cookies' field if the setting is disabled
@@ -148,7 +175,7 @@ function open_comment_author_link_in_new_window($author_link) {
  */
 if (!function_exists('bs_comment_links_in_new_tab')) :
   function bs_comment_links_in_new_tab($text) {
-    return str_replace('<a', '<a target="_blank" rel=”nofollow”', $text);
+    return str_replace('<a', '<a target="_blank" rel="nofollow"', $text);
   }
 
   add_filter('comment_text', 'bs_comment_links_in_new_tab');
@@ -156,11 +183,21 @@ endif;
 
 
 /**
+ * Cancel reply link class
+ */
+add_filter('cancel_comment_reply_link', function ($link_html) {
+  $class = apply_filters('bootscore/class/comment/cancel-reply-link', 'btn-outline theme-danger btn-xs ms-3');
+
+  return str_replace('<a ', '<a class="' . esc_attr($class) . '" ', $link_html);
+});
+
+
+/**
  * Comment Button
  */
 if (!function_exists('bootscore_comment_button')) :
   function bootscore_comment_button($args) {
-    $args['class_submit'] = 'btn btn-outline-primary'; // since WP 4.1
+    $args['class_submit'] = 'btn-solid theme-primary'; // since WP 4.1
 
     return $args;
   }

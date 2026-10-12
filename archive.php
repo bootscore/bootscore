@@ -44,7 +44,7 @@ get_header();
 
           // Default grid classes
           $grid_classes = apply_filters('bootscore/class/loop/grid/col',
-            'row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 g-4 mb-4 bs-loop-grid',
+            'row row-cols-1 sm:row-cols-1 md:row-cols-2 lg:row-cols-3 xl:row-cols-4 2xl:row-cols-4 g-7 mb-7 bs-loop-grid',
             'archive'
           );
 

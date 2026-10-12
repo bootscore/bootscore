@@ -1,0 +1,61 @@
+@use "sass:map";
+
+// Test @use with token map configuration syntax using a single module instance
+@use "../../alert" as * with (
+  $alert-tokens: (
+    --alert-gap: .75rem,
+    --alert-bg: var(--theme-bg-subtle, var(--bg-1)),
+    --alert-padding-x: 1rem,
+    --alert-padding-y: 1rem,
+    --alert-color: var(--theme-fg, inherit),
+    --alert-border-color: var(--theme-border, var(--border-color)),
+    --alert-border: var(--border-width) solid var(--alert-border-color),
+    --alert-border-radius: var(--radius-2),
+    --alert-link-color: #0a58ca,
+    --hr-border-color: var(--theme-border, var(--border-color)),
+  )
+);
+
+$true-terminal-output: false;
+
+@include describe("Bootstrap module configuration") {
+  @include describe("@use with configuration syntax") {
+    @include it("should allow configuring alert tokens with @use ... with") {
+      @include assert() {
+        @include output() {
+          .test {
+            color: map.get($alert-tokens, --alert-link-color);
+          }
+        }
+
+        @include expect() {
+          .test {
+            color: #0a58ca;
+          }
+        }
+      }
+    }
+
+    @include it("should maintain other alert tokens with configured values") {
+      @include assert() {
+        @include output() {
+          .test {
+            padding-y: map.get($alert-tokens, --alert-padding-y);
+            padding-x: map.get($alert-tokens, --alert-padding-x);
+            // stylelint-disable-next-line property-disallowed-list
+            border-radius: map.get($alert-tokens, --alert-border-radius);
+          }
+        }
+
+        @include expect() {
+          .test {
+            padding-y: 1rem;
+            padding-x: 1rem;
+            // stylelint-disable-next-line property-disallowed-list
+            border-radius: var(--radius-2);
+          }
+        }
+      }
+    }
+  }
+}

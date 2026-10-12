@@ -36,7 +36,7 @@ get_header();
           
           <?php do_action( 'bootscore_after_featured_image', 'single-full-width-image' ); ?>
           
-          <?php the_breadcrumb(); ?>
+          <?php bootscore_breadcrumb(); ?>
 
           <div class="row">
             <div class="<?= esc_attr(apply_filters('bootscore/class/main/col', 'col')); ?>">
@@ -70,16 +70,8 @@ get_header();
                 
                 <?php do_action( 'bootscore_before_single_pagination', 'single-full-width-image' ); ?>
                 
-                <nav aria-label="bs page navigation">
-                  <ul class="pagination justify-content-center">
-                    <li class="page-item">
-                      <?php previous_post_link('%link'); ?>
-                    </li>
-                    <li class="page-item">
-                      <?php next_post_link('%link'); ?>
-                    </li>
-                  </ul>
-                </nav>
+                <?php bootscore_single_pagination(); ?>
+
                 <?php comments_template(); ?>
               </div>
 

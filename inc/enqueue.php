@@ -18,15 +18,11 @@ defined('ABSPATH') || exit;
 function bootscore_scripts() {
 
   // Get modification time. Enqueue files with modification date to prevent browser from loading cached scripts and styles when file content changes.
-  $modificated_bootscoreCss   = (file_exists(get_template_directory() . '/assets/css/bootscore.min.css')) ? date('YmdHi', filemtime(get_template_directory() . '/assets/css/bootscore.min.css')) : 1;
-  $modificated_styleCss       = date('YmdHi', filemtime(get_stylesheet_directory() . '/style.css'));
-  $modificated_bootscoreJs    = date('YmdHi', filemtime(get_template_directory() . '/assets/js/bootscore.min.js'));
+  $modificated_bootscoreCss = (file_exists(get_template_directory() . '/assets/css/bootscore.min.css')) ? date('YmdHi', filemtime(get_template_directory() . '/assets/css/bootscore.min.css')) : 1;
+  $modificated_bootscoreJs  = date('YmdHi', filemtime(get_template_directory() . '/assets/js/bootscore.min.js'));
 
   // Bootscore CSS
   wp_enqueue_style('bootscore-main', get_template_directory_uri() . '/assets/css/bootscore.min.css', array(), $modificated_bootscoreCss);
-
-  // Style CSS
-  wp_enqueue_style('bootscore-style', get_stylesheet_uri(), array(), $modificated_styleCss);
 
   // Bootscore JS
   wp_enqueue_script('bootscore-script', get_template_directory_uri() . '/assets/js/bootscore.min.js', array(), $modificated_bootscoreJs, true);

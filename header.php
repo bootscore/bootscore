@@ -42,11 +42,11 @@ defined('ABSPATH') || exit;
   
   <?php do_action( 'bootscore_before_masthead' ); ?>
 
-  <header id="masthead" class="<?= esc_attr(apply_filters('bootscore/class/header', 'sticky-top bg-body-tertiary')); ?> site-header">
+  <header id="masthead" class="<?= esc_attr(apply_filters('bootscore/class/header', 'sticky-top')); ?> site-header">
 
     <?php do_action( 'bootscore_after_masthead_open' ); ?>
     
-    <nav id="nav-main" class="navbar <?= esc_attr(apply_filters('bootscore/class/header/navbar/breakpoint', 'navbar-expand-lg')); ?>">
+    <div id="nav-main" class="navbar <?= esc_attr(apply_filters('bootscore/class/header/navbar/breakpoint', 'lg:navbar-expand')); ?>">
 
       <div class="<?= esc_attr(apply_filters('bootscore/class/container', 'container', 'header')); ?>">
         
@@ -59,15 +59,14 @@ defined('ABSPATH') || exit;
         
         <?php do_action( 'bootscore_after_navbar_brand' ); ?>
 
-        <!-- Offcanvas Navbar -->
-        <div class="offcanvas offcanvas-<?= esc_attr(apply_filters('bootscore/class/header/offcanvas/direction', 'end', 'menu')); ?>" tabindex="-1" id="offcanvas-navbar">
-          <div class="offcanvas-header <?= esc_attr(apply_filters('bootscore/class/offcanvas/header', '', 'menu')); ?>">
-            <span class="h5 offcanvas-title"><?= esc_html(apply_filters('bootscore/offcanvas/navbar/title', __('Menu', 'bootscore'))); ?></span>
-            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        <dialog class="drawer drawer-<?= esc_attr(apply_filters('bootscore/class/drawer/direction', 'end', 'menu')); ?>" tabindex="-1" id="drawer-navbar" aria-labelledby="drawer-navbar-label">
+          <div class="drawer-header <?= esc_attr(apply_filters('bootscore/class/drawer/header', '', 'menu')); ?>">
+            <span class="h5 drawer-title" id="drawer-navbar-label"><?= esc_html(apply_filters('bootscore/header/navbar/drawer/title', __('Menu', 'bootscore'))); ?></span>
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="drawer" aria-label="<?php esc_attr_e('Close', 'bootscore'); ?>"></button>
           </div>
-          <div class="offcanvas-body <?= esc_attr(apply_filters('bootscore/class/offcanvas/body', '', 'menu')); ?>">
+          <div class="drawer-body <?= esc_attr(apply_filters('bootscore/class/drawer/body', '', 'menu')); ?>">
 
-            <!-- Bootstrap 5 Nav Walker Main Menu -->
+            <!-- Main Menu -->
             <?php get_template_part('template-parts/header/main-menu'); ?>
 
             <!-- Top Nav 2 Widget -->
@@ -76,7 +75,7 @@ defined('ABSPATH') || exit;
             <?php endif; ?>
 
           </div>
-        </div>
+        </dialog>
 
         <div class="header-actions <?= esc_attr(apply_filters('bootscore/class/header-actions', 'd-flex align-items-center')); ?>">
 
@@ -94,7 +93,7 @@ defined('ABSPATH') || exit;
           ?>
 
           <!-- Navbar Toggler -->
-          <button class="<?= esc_attr(apply_filters('bootscore/class/header/button', 'btn btn-outline-secondary', 'nav-toggler')); ?> <?= esc_attr(apply_filters('bootscore/class/header/navbar/toggler/breakpoint', 'd-lg-none')); ?> <?= esc_attr(apply_filters('bootscore/class/header/action/spacer', 'ms-1 ms-md-2', 'nav-toggler')); ?> nav-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas-navbar" aria-controls="offcanvas-navbar" aria-label="<?php esc_attr_e( 'Toggle main menu', 'bootscore' ); ?>">
+          <button class="<?= esc_attr(apply_filters('bootscore/class/header/button', 'btn', 'nav-toggler')); ?> <?= esc_attr(apply_filters('bootscore/class/header/navbar/toggler/breakpoint', 'lg:d-none')); ?> <?= esc_attr(apply_filters('bootscore/class/header/action/spacer', 'ms-1 md:ms-3', 'nav-toggler')); ?> nav-toggler" type="button" data-bs-toggle="drawer" data-bs-target="#drawer-navbar" aria-controls="drawer-navbar" aria-label="<?php esc_attr_e( 'Toggle main menu', 'bootscore' ); ?>">
             <?php bootscore_icon('bars'); ?>
           </button>
           
@@ -104,17 +103,9 @@ defined('ABSPATH') || exit;
 
       </div><!-- .container -->
 
-    </nav><!-- .navbar -->
+    </div><!-- .navbar -->    
 
-    <?php
-    if (class_exists('WooCommerce')) :
-      get_template_part('template-parts/header/collapse-search', 'woocommerce');
-    else :
-      get_template_part('template-parts/header/collapse-search');
-    endif;
-    ?>
-
-    <!-- Offcanvas User and Cart -->
+    <!-- Drawer User and Cart -->
     <?php
     if (class_exists('WooCommerce')) :
       get_template_part('template-parts/header/offcanvas', 'woocommerce');

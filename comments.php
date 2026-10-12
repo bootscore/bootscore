@@ -2,7 +2,7 @@
 
 /**
  * The template for displaying comments
- * Template Version: 6.4.0
+ * Template Version: 7.0.0
  *
  * This is the template that displays the area of the page that contains both the current comments
  * and the comment form.
@@ -31,7 +31,7 @@ if (post_password_required()) {
   // You can start editing here -- including this comment!
   if (have_comments()) : ?>
 
-    <h2 class="comments-title mb-4">
+    <h2 class="comments-title h3 mb-5">
       <?php
       $comments_number = get_comments_number();
       if ('1' === $comments_number) {
@@ -69,11 +69,15 @@ if (post_password_required()) {
     <?php endif; // Check for comment navigation. 
     ?>
 
-    <ul class="comment-list">
-      <?php
-      wp_list_comments(array('callback' => 'bootscore_comment', 'avatar_size' => 128));
-      ?>
-    </ul><!-- .comment-list -->
+<ul class="comment-list list-unstyled">
+  <?php
+  wp_list_comments(array(
+    'callback'    => 'bootscore_comment',
+    'avatar_size' => 128,
+    'walker'      => new Bootscore_Walker_Comment(),
+  ));
+  ?>
+</ul><!-- .comment-list -->
 
     <?php if (get_comment_pages_count() > 1 && get_option('page_comments')) : // Are there comments to navigate through? 
       ?>
@@ -95,7 +99,7 @@ if (post_password_required()) {
   // If comments are closed and there are comments, let's leave a little note, shall we?
   if (!comments_open() && get_comments_number() && post_type_supports(get_post_type(), 'comments')) : ?>
 
-  <p class="no-comments <?= esc_attr(apply_filters('bootscore/class/comments/closed/alert', 'alert alert-info')); ?>">
+  <p class="no-comments <?= esc_attr(apply_filters('bootscore/class/comments/closed/alert', 'alert theme-info')); ?>">
     <?php echo wp_kses_post(apply_filters('bootscore/comments/closed/text', esc_html__('Comments are closed.', 'bootscore'))); ?>
   </p>
   
@@ -114,7 +118,7 @@ if (post_password_required()) {
 
     /*'comment_notes_after' => '<p class="form-allowed-tags">' .
             __( 'You may use these <abbr title="HyperText Markup Language">HTML</abbr> tags and attributes:', 'bootscore' ) .
-            '</p><div class="alert alert-info">' . allowed_tags() . '</div>'*/
+            '</p><div class="alert theme-info">' . allowed_tags() . '</div>'*/
 
     // So, that was the needed stuff to have bootstrap basic styles for the form elements and buttons
 

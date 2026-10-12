@@ -2,6 +2,7 @@
 Deprecated - Bootscore v7.0.0. This code will be removed.
 --------------------------------------------------------------*/
 
+@use "../bootstrap/layout/breakpoints" as *;
 
 // Reset .is-layout-flow group block margins
 // Use hide-wp-block-classes instead
@@ -12,7 +13,7 @@ Deprecated - Bootscore v7.0.0. This code will be removed.
   }
 
   p:not(:last-child) {
-    margin-block-end: $spacer;
+    margin-block-end: 1rem;
   }
 }
 
@@ -31,4 +32,18 @@ Deprecated - Bootscore v7.0.0. This code will be removed.
 .backdrop-blur-10 {
   backdrop-filter: blur(10px) saturate(180%);
   -webkit-backdrop-filter: blur(10px) saturate(180%);
+}
+
+
+// bg-*, fg-* and border-* do not work yet, used in code-block for gray values that do not switch in dark mode
+.bg-95 {
+  background-color: var(--gray-950);
+}
+
+.border-60 {
+  border-color: var(--gray-600);
+}
+
+.fg-2 {
+  color: var(--gray-200);
 }

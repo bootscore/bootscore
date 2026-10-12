@@ -2,7 +2,7 @@
 
 /**
  * Template part to initialize the footer menu
- * Template Version: 6.3.1
+ * Template Version: 7.0.0
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
@@ -25,6 +25,6 @@ wp_nav_menu(array(
   'fallback_cb'    => '__return_false',
   'items_wrap'     => '<ul id="footer-menu" class="nav %2$s">%3$s</ul>',
   'depth'          => 1,
-  'walker'         => new bootstrap_5_wp_nav_menu_walker()
+  'walker'         => new bootstrap_6_wp_nav_menu_walker()
 ));
 ?>
