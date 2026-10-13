@@ -208,46 +208,33 @@ endif;
  * Tags
  */
 if (!function_exists('bootscore_tags')) :
-  /**
-   * Prints HTML with meta information for the tags.
-   */
-  function bootscore_tags() {
-    // Hide category and tag text for pages.
-    if ('post' === get_post_type()) {
+  function bootscore_tags($context = '') {
 
-      $tags_list = get_the_tag_list('', ' ');
-      if ($tags_list) {
-        echo '<div class="tags-badge d-flex flex-wrap gap-1 z-1">';
-
-        // Show 'Tagged' heading only on singular post pages
-        if (is_singular('post') && get_the_ID() === get_queried_object_id()) {
-          echo '<p class="tags-heading h6">' . esc_html__('Tagged', 'bootscore') . '</p>';
-        }
-
-        echo get_the_tag_list();
-        echo '</div>';
-      }
-    }
-  }
-
-  add_filter("term_links-post_tag", 'add_tag_class');
-
-  function add_tag_class($links) {
-    $class = apply_filters('bootscore/class/badge/tag', 'badge');
-
-    // Check if icon should be shown
-    if (apply_filters('bootscore/show/tag/icon', true)) {
-      $icon = bootscore_icon('tag', false) . ' ';
-    } else {
-      $icon = '';
+    // Hide tag badges for pages and other post types
+    if ('post' !== get_post_type()) {
+      return;
     }
 
-    return str_replace(
-      ['<a href="', '">', '</a>'],
-      ['<a class="' . esc_attr($class) . '" href="', '">' . $icon, '</a> '],
-      $links
-    );
+    $tags = get_the_tags();
+    if (empty($tags) || is_wp_error($tags)) {
+      return;
+    }
+
+    // Show 'Tagged' heading only on the single post itself
+    if (is_singular('post') && get_the_ID() === get_queried_object_id()) {
+      echo '<p class="tags-heading h5">' . esc_html__('Tagged', 'bootscore') . '</p>';
+    }
+
+    $class = apply_filters('bootscore/class/badge/tag', 'badge', $context);
+    $icon  = apply_filters('bootscore/show/tag/icon', true) ? bootscore_icon('tag', false) . ' ' : '';
+
+    echo '<p class="' . esc_attr(apply_filters('bootscore/class/badge/tag/wrapper', 'tags-badge d-flex flex-wrap gap-1', $context)) . '">';
+
+    foreach ($tags as $tag) {
+      // z-2 keeps each badge clickable above a card's stretched link
+      echo '<a href="' . esc_url(get_tag_link($tag->term_id)) . '" class="' . esc_attr($class . ' z-2') . '" rel="tag">' . $icon . esc_html($tag->name) . '</a>';
+    }
+
+    echo '</p>';
   }
 endif;
-
-
