@@ -82,3 +82,27 @@ if (!function_exists('bootscore_excerpt')) {
     echo esc_html($excerpt);
   }
 }
+
+
+
+
+/**
+ * Category
+ *
+ * @deprecated 7.0.0 Use bootscore_category_badge() instead.
+ */
+if (!function_exists('bootscore_category')) :
+  function bootscore_category() {
+    _deprecated_function(__FUNCTION__, '7.0.0', 'bootscore_category_badge()');
+
+    if ('post' !== get_post_type()) {
+      return;
+    }
+
+    $categories_list = get_the_category_list(esc_html__(', ', 'bootscore'));
+
+    if ($categories_list) {
+      printf('<span class="cat-links">%s</span>', $categories_list); // WPCS: XSS OK.
+    }
+  }
+endif;

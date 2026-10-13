@@ -55,7 +55,7 @@ $context = 'cards-horizontal';
 
         <?php if (apply_filters('bootscore/loop/meta', true, 'cards-horizontal')) : ?>
           <?php if ('post' === get_post_type()) : ?>
-            <p class="card-subtitle fg-secondary fs-sm z-1">
+            <p class="card-subtitle fg-secondary align-self-start fs-sm z-1">
               <?php
               bootscore_date();
               bootscore_author();

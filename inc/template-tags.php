@@ -18,40 +18,28 @@ defined('ABSPATH') || exit;
  * Category Badge
  */
 if (!function_exists('bootscore_category_badge')) :
-  function bootscore_category_badge() {
-    // Hide category and tag text for pages.
-    if ('post' === get_post_type()) {
-      echo '<p class="category-badge d-flex flex-wrap gap-1 z-2">';
-      $thelist = '';
-      $i       = 0;
-      foreach (get_the_category() as $category) {
-        if (0 < $i) $thelist .= ' ';
-        // Apply a filter to modify the class name
-        $class = apply_filters('bootscore/class/badge/category', 'badge');
-        $thelist .= '<a href="' . esc_url(get_category_link($category->term_id)) . '" class="' . esc_attr($class) . '">' . esc_html($category->name) . '</a>';
-        $i ++;
-      }
-      echo wp_kses_post($thelist);
-      echo '</p>';
-    }
-  }
-endif;
+  function bootscore_category_badge($context = '') {
 
-
-/**
- * Category
- */
-if (!function_exists('bootscore_category')) :
-  function bootscore_category() {
-    // Hide category and tag text for pages.
-    if ('post' === get_post_type()) {
-      /* translators: used between list items, there is a space after the comma */
-      $categories_list = get_the_category_list(esc_html__(', ', 'bootscore'));
-      if ($categories_list) {
-        /* translators: 1: list of categories. */
-        printf('<span class="cat-links">%s</span>', $categories_list); // WPCS: XSS OK.	
-      }
+    // Hide category badges for pages and other post types
+    if ('post' !== get_post_type()) {
+      return;
     }
+
+    $categories = get_the_category();
+    if (empty($categories)) {
+      return;
+    }
+
+    $class = apply_filters('bootscore/class/badge/category', 'badge', $context);
+
+    echo '<p class="' . esc_attr(apply_filters('bootscore/class/badge/category/wrapper', 'category-badge d-flex flex-wrap gap-1', $context)) . '">';
+
+    foreach ($categories as $category) {
+      // z-2 keeps each badge clickable above a card's stretched link
+      echo '<a href="' . esc_url(get_category_link($category->term_id)) . '" class="' . esc_attr($class . ' z-2') . '">' . esc_html($category->name) . '</a>';
+    }
+
+    echo '</p>';
   }
 endif;
 
