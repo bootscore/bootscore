@@ -21,7 +21,7 @@ if (!function_exists('bootscore_category_badge')) :
   function bootscore_category_badge() {
     // Hide category and tag text for pages.
     if ('post' === get_post_type()) {
-      echo '<div class="category-badge d-flex flex-wrap gap-1 z-2">';
+      echo '<p class="category-badge d-flex flex-wrap gap-1 z-2">';
       $thelist = '';
       $i       = 0;
       foreach (get_the_category() as $category) {
@@ -32,7 +32,7 @@ if (!function_exists('bootscore_category_badge')) :
         $i ++;
       }
       echo wp_kses_post($thelist);
-      echo '</div>';
+      echo '</p>';
     }
   }
 endif;
@@ -229,7 +229,7 @@ if (!function_exists('bootscore_tags')) :
 
       $tags_list = get_the_tag_list('', ' ');
       if ($tags_list) {
-        echo '<p class="tags-badge d-flex flex-wrap gap-1 z-1">';
+        echo '<div class="tags-badge d-flex flex-wrap gap-1 z-1">';
 
         // Show 'Tagged' heading only on singular post pages
         if (is_singular('post') && get_the_ID() === get_queried_object_id()) {
@@ -237,7 +237,7 @@ if (!function_exists('bootscore_tags')) :
         }
 
         echo get_the_tag_list();
-        echo '</p>';
+        echo '</div>';
       }
     }
   }
