@@ -38,7 +38,7 @@ $context = 'cards-overlay';
       <div class="<?= esc_attr(apply_filters('bootscore/class/loop/card/content/meta-wrapper', 'd-flex justify-content-between gap-3', 'cards-overlay')); ?>">
 
         <?php if (apply_filters('bootscore/loop/category', true, 'cards-overlay')) : ?>
-          <?php bootscore_category_badge(); ?>
+          <?php bootscore_categories(); ?>
         <?php endif; ?>
 
         <?php if (is_sticky() ) { ?>

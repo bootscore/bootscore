@@ -17,8 +17,8 @@ defined('ABSPATH') || exit;
 /**
  * Category Badge
  */
-if (!function_exists('bootscore_category_badge')) :
-  function bootscore_category_badge($context = '') {
+if (!function_exists('bootscore_categories')) :
+  function bootscore_categories($context = '') {
 
     // Hide category badges for pages and other post types
     if ('post' !== get_post_type()) {

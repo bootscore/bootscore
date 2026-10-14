@@ -33,7 +33,7 @@ $context = 'cards-grid';
   <div class="<?= esc_attr(apply_filters('bootscore/class/loop/card/body', 'card-body', 'cards-grid')); ?>">
 
     <?php if (apply_filters('bootscore/loop/category', true, 'cards-grid')) : ?>
-      <?php bootscore_category_badge(); ?>
+      <?php bootscore_categories(); ?>
     <?php endif; ?>
 
     <?php do_action('bootscore_before_loop_title', 'cards-grid'); ?>

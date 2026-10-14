@@ -42,7 +42,7 @@ get_header();
             <div class="<?= esc_attr(apply_filters('bootscore/class/main/col', 'col')); ?>">
 
               <div class="entry-content">
-                <?php bootscore_category_badge(); ?>
+                <?php bootscore_categories(); ?>
                 <p class="entry-meta">
                   <small class="text-body-secondary">
                     <?php
