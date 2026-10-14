@@ -30,18 +30,31 @@ if (!function_exists('bootscore_category_badge')) :
       return;
     }
 
-    $class = apply_filters('bootscore/class/badge/category', 'badge', $context);
+    // Sticky post badge in loops only (not on the sticky post's own single page)
+    $is_sticky = is_sticky() && get_the_ID() !== get_queried_object_id();
 
-    echo '<p class="' . esc_attr(apply_filters('bootscore/class/badge/category/wrapper', 'category-badge d-flex flex-wrap gap-1', $context)) . '">';
+    $class         = apply_filters('bootscore/class/badge/category', 'badge', $context);
+    $wrapper_class = 'category-badge d-flex flex-wrap gap-1' . ($is_sticky ? ' position-relative pe-9' : '');
+
+    echo '<p class="' . esc_attr(apply_filters('bootscore/class/badge/category/wrapper', $wrapper_class, $context)) . '">';
 
     foreach ($categories as $category) {
       // z-2 keeps each badge clickable above a card's stretched link
       echo '<a href="' . esc_url(get_category_link($category->term_id)) . '" class="' . esc_attr($class . ' z-2') . '">' . esc_html($category->name) . '</a>';
     }
 
+    // Sticky post badge, pinned top right of the badge row
+    if ($is_sticky) {
+      echo '<span class="' . esc_attr(apply_filters('bootscore/class/loop/card/content/sticky-post-badge', 'sticky-badge badge badge-subtle theme-danger position-absolute top-0 end-0', $context)) . '">'
+        . bootscore_icon('thumbtack', false)
+        . '<span class="visually-hidden">' . esc_html__('Sticky post', 'bootscore') . '</span>'
+        . '</span>';
+    }
+
     echo '</p>';
   }
 endif;
+
 
 
 /**
