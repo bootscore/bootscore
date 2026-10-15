@@ -4,7 +4,7 @@
  * Template part for displaying taxonomy TERM loop items in grid cards.
  * Counterpart to cards-grid.php (posts), used by bs-loop when 'type=""'
  * is a taxonomy rather than a post type (e.g. type="category" layout="grid").
- * Template Version: 6.5.0
+ * Template Version: 7.0.0
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
@@ -57,13 +57,13 @@ $term_count_label = apply_filters(
 
   <?php do_action('bootscore_after_loop_thumbnail', 'cards-grid'); ?>
 
-  <div class="<?= esc_attr(apply_filters('bootscore/class/loop/card/body', 'card-body h-100 d-flex flex-column', 'cards-grid')); ?>">
+  <div class="<?= esc_attr(apply_filters('bootscore/class/loop/card/body', 'card-body', 'cards-grid')); ?>">
 
     <?php do_action('bootscore_before_loop_title', 'cards-grid'); ?>
 
     <?php if ($term_link) : ?>
-      <a class="<?= esc_attr(apply_filters('bootscore/class/loop/card/title/link', 'text-body text-decoration-none', 'cards-grid')); ?>" href="<?= esc_url($term_link); ?>">
-        <h2 class="<?= esc_attr(apply_filters('bootscore/class/loop/card/title', 'h5', 'cards-grid')); ?>"><?= esc_html($term->name); ?></h2>
+      <a class="<?= esc_attr(apply_filters('bootscore/class/loop/card/title/link', 'fg-body text-decoration-none stretched-link', 'cards-grid')); ?>" href="<?= esc_url($term_link); ?>">
+        <h2 class="<?= esc_attr(apply_filters('bootscore/class/loop/card/title', 'h4 card-title', 'cards-grid')); ?>"><?= esc_html($term->name); ?></h2>
       </a>
     <?php else : ?>
       <h2 class="<?= esc_attr(apply_filters('bootscore/class/loop/card/title', 'h5', 'cards-grid')); ?>"><?= esc_html($term->name); ?></h2>
@@ -72,13 +72,13 @@ $term_count_label = apply_filters(
     <?php do_action('bootscore_after_loop_title', 'cards-grid'); ?>
 
     <?php if (apply_filters('bootscore/loop/meta', true, 'cards-grid') && $term->count > 0) : ?>
-      <p class="meta small mb-2 text-body-secondary">
+      <p class="meta card-subtitle fg-secondary align-self-start fs-sm">
         <?= esc_html($term->count . ' ' . $term_count_label); ?>
       </p>
     <?php endif; ?>
 
     <?php if (apply_filters('bootscore/loop/excerpt', true, 'cards-grid') && !empty($term->description)) : ?>
-      <p class="<?= esc_attr(apply_filters('bootscore/class/loop/card-text/excerpt', 'card-text', 'cards-grid')); ?>">
+      <p class="<?= esc_attr(apply_filters('bootscore/class/loop/card-text/excerpt', 'excerpt', 'cards-grid')); ?>">
         <?= esc_html(wp_trim_words(wp_strip_all_tags($term->description), 20)); ?>
       </p>
     <?php endif; ?>
