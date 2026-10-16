@@ -4,7 +4,7 @@
  * Template part for displaying taxonomy TERM loop items in horizontal cards.
  * Counterpart to cards-horizontal.php (posts), used by bs-loop when 'type=""'
  * is a taxonomy rather than a post type (e.g. type="category").
- * Template Version: 6.5.0
+ * Template Version: 7.0.0
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
@@ -49,12 +49,12 @@ $term_count_label = apply_filters(
 
 <div id="term-<?= esc_attr($term->term_id); ?>" class="<?= esc_attr(apply_filters('bootscore/class/loop/card', 'card horizontal overflow-hidden h-100', 'cards-horizontal')); ?>">
 
-  <div class="<?= esc_attr(apply_filters('bootscore/class/loop/card/row', 'row g-0 h-100 flex-column flex-md-row', 'cards-horizontal')); ?>">
+  <div class="<?= esc_attr(apply_filters('bootscore/class/loop/card/row', 'row g-0 h-100 flex-column md:flex-row', 'cards-horizontal')); ?>">
 
     <?php do_action('bootscore_before_loop_thumbnail', 'cards-horizontal'); ?>
 
     <?php if ($term_thumbnail_id) : ?>
-      <div class="<?= esc_attr(apply_filters('bootscore/class/loop/card/image/col', 'col-md-5 col-lg-6 col-xl-5 col-xxl-4', 'cards-horizontal')); ?>">
+      <div class="<?= esc_attr(apply_filters('bootscore/class/loop/card/image/col', 'md:col-5 lg:col-6 xl:col-5 2xl:col-4', 'cards-horizontal')); ?>">
         <?php if ($term_link) : ?><a href="<?= esc_url($term_link); ?>" aria-hidden="true" tabindex="-1"><?php endif; ?>
           <?= wp_get_attachment_image($term_thumbnail_id, 'medium', false, array('class' => esc_attr(apply_filters('bootscore/class/loop/card/image', 'h-md-100 object-fit-md-cover', 'cards-horizontal')))); ?>
         <?php if ($term_link) : ?></a><?php endif; ?>
@@ -64,13 +64,13 @@ $term_count_label = apply_filters(
     <?php do_action('bootscore_after_loop_thumbnail', 'cards-horizontal'); ?>
 
     <div class="<?= esc_attr(apply_filters('bootscore/class/loop/card/content/col', 'col', 'cards-horizontal')); ?>">
-      <div class="<?= esc_attr(apply_filters('bootscore/class/loop/card/body', 'card-body h-100 d-flex flex-column', 'cards-horizontal')); ?>">
+      <div class="<?= esc_attr(apply_filters('bootscore/class/loop/card/body', 'card-body h-100', 'cards-horizontal')); ?>">
 
         <?php do_action('bootscore_before_loop_title', 'cards-horizontal'); ?>
 
         <?php if ($term_link) : ?>
-          <a class="<?= esc_attr(apply_filters('bootscore/class/loop/card/title/link', 'text-body text-decoration-none', 'cards-horizontal')); ?>" href="<?= esc_url($term_link); ?>">
-            <h2 class="<?= esc_attr(apply_filters('bootscore/class/loop/card/title', 'h5', 'cards-horizontal')); ?>"><?= esc_html($term->name); ?></h2>
+          <a class="<?= esc_attr(apply_filters('bootscore/class/loop/card/title/link', 'fg-body text-decoration-none stretched-link', 'cards-horizontal')); ?>" href="<?= esc_url($term_link); ?>">
+            <h2 class="<?= esc_attr(apply_filters('bootscore/class/loop/card/title', 'h4 card-title', 'cards-horizontal')); ?>"><?= esc_html($term->name); ?></h2>
           </a>
         <?php else : ?>
           <h2 class="<?= esc_attr(apply_filters('bootscore/class/loop/card/title', 'h5', 'cards-horizontal')); ?>"><?= esc_html($term->name); ?></h2>
@@ -79,7 +79,7 @@ $term_count_label = apply_filters(
         <?php do_action('bootscore_after_loop_title', 'cards-horizontal'); ?>
 
         <?php if (apply_filters('bootscore/loop/meta', true, 'cards-horizontal') && $term->count > 0) : ?>
-          <p class="meta small mb-2 text-body-secondary">
+          <p class="meta card-subtitle fg-secondary align-self-start fs-sm">
             <?= esc_html($term->count . ' ' . $term_count_label); ?>
           </p>
         <?php endif; ?>

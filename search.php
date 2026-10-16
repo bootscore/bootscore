@@ -55,7 +55,7 @@ get_header();
 
             // Default horizontal/overlay classes (both use same grid structure)
             $horizontal_classes = apply_filters('bootscore/class/loop/horizontal/col',
-              'row row-cols-1 g-4 mb-4 bs-loop-grid',
+              'row row-cols-1 g-7 mb-7 bs-loop-grid',
               'search'
             );
             ?>

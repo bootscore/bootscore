@@ -19,45 +19,43 @@ $context = 'cards-overlay';
 
 <?php do_action( 'bootscore_before_loop_item', 'cards-overlay' ); ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class( esc_attr(apply_filters('bootscore/class/loop/card', 'card rounded-4 overflow-hidden', 'cards-overlay')) ); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class( esc_attr(apply_filters('bootscore/class/loop/card', 'card overflow-hidden', 'cards-overlay')) ); ?>>
 
   <?php do_action('bootscore_before_loop_thumbnail', 'cards-overlay'); ?>
     
   <?php if ( has_post_thumbnail() ) : ?>
     <a href="<?php the_permalink(); ?>" aria-hidden="true" tabindex="-1">
-      <?php the_post_thumbnail('full', array('class' => esc_attr(apply_filters('bootscore/class/loop/card/image', 'card-img', 'cards-overlay')))); ?>
+      <?php the_post_thumbnail('full', array('class' => esc_attr(apply_filters('bootscore/class/loop/card/image', 'img-card-overlay', 'cards-overlay')))); ?>
     </a>
   <?php endif; ?>
 
   <?php do_action('bootscore_after_loop_thumbnail', 'cards-overlay'); ?>
 
-  <div class="<?= esc_attr(apply_filters('bootscore/class/loop/card/img-overlay', 'card-img-overlay d-flex flex-column', 'cards-overlay')); ?>">
+  <div class="<?= esc_attr(apply_filters('bootscore/class/loop/card/img-overlay', 'card-img-overlay d-flex flex-column p-0', 'cards-overlay')); ?>">
 
-    <div class="<?= esc_attr(apply_filters('bootscore/class/loop/card/img-overlay/content/wrapper', 'bg-body bg-opacity-50 backdrop-blur-10 rounded-3 p-3 mt-auto', 'cards-overlay')); ?>">
-      
-      <div class="<?= esc_attr(apply_filters('bootscore/class/loop/card/content/meta-wrapper', 'd-flex justify-content-between gap-3', 'cards-overlay')); ?>">
+  <!--
+    <div class="<?= esc_attr(apply_filters('bootscore/class/loop/card/img-overlay/content/wrapper', 'bg-body bg-50 backdrop-blur-10 rounded-3 p-3 mt-auto', 'cards-overlay')); ?>">
+  -->
+    <div class="card-body bg-body bg-50 backdrop-blur-10 rounded-5 p-5 m-5 mt-auto flex-grow-0">
 
-        <?php if (apply_filters('bootscore/loop/category', true, 'cards-overlay')) : ?>
-          <?php bootscore_category_badge(); ?>
-        <?php endif; ?>
+      <?php if (apply_filters('bootscore/loop/category', true, 'cards-overlay')) : ?>
+        <?php bootscore_categories(); ?>
+      <?php endif; ?>
 
-        <?php if (is_sticky() ) { ?>
-          <p class="sticky-badge"><span class="<?= esc_attr(apply_filters('bootscore/class/loop/card/content/sticky-post-badge', 'badge bg-danger-subtle text-danger-emphasis', 'cards-overlay')); ?>"><?php bootscore_icon('thumbtack'); ?></span></p>
-        <?php } ?>
-
-      </div>
 
       <?php do_action('bootscore_before_loop_title', 'cards-overlay'); ?>
 
-      <a class="<?= esc_attr(apply_filters('bootscore/class/loop/card/title/link', 'text-body text-decoration-none', 'cards-overlay')); ?>" href="<?php the_permalink(); ?>">
-        <?php the_title('<h2 class="' . esc_attr(apply_filters('bootscore/class/loop/card/title', 'h5', 'cards-overlay')) . '">', '</h2>'); ?>
-      </a>
+      <h2 class="<?= esc_attr(apply_filters('bootscore/class/loop/card/title', 'h4 card-title', 'cards-overlay')); ?>"">
+        <a class="<?= esc_attr(apply_filters('bootscore/class/loop/card/title/link', 'fg-body text-decoration-none stretched-link', 'cards-overlay')); ?>" href="<?php the_permalink(); ?>">  
+          <?php the_title(); ?>
+        </a>
+      </h2>
       
       <?php do_action('bootscore_after_loop_title', 'cards-overlay'); ?>
 
       <?php if (apply_filters('bootscore/loop/meta', true, 'cards-overlay')) : ?>
         <?php if ('post' === get_post_type()) : ?>
-          <p class="meta small mb-2 text-body-secondary">
+          <p class="card-subtitle fg-secondary align-self-start fs-sm z-1">
             <?php
             bootscore_date();
             bootscore_author();
@@ -69,15 +67,13 @@ $context = 'cards-overlay';
       <?php endif; ?>
       
       <?php if (apply_filters('bootscore/loop/excerpt', true, 'cards-overlay')) : ?>
-        <p class="<?= esc_attr(apply_filters('bootscore/class/loop/card-text/excerpt', 'card-text', 'cards-overlay')); ?>">
-          <a class="<?= esc_attr(apply_filters('bootscore/class/loop/card-text/excerpt/link', 'text-body text-decoration-none', 'cards-overlay')); ?>" href="<?php the_permalink(); ?>">                
-            <?php bootscore_excerpt(); ?>
-          </a>
+        <p class="<?= esc_attr(apply_filters('bootscore/class/loop/excerpt', 'excerpt', 'cards-overlay')); ?>">
+          <?= wp_kses_post(get_the_excerpt()); ?>
         </p>
       <?php endif; ?>
 
       <?php if (apply_filters('bootscore/loop/read-more', true, 'cards-overlay')) : ?>
-        <p class="<?= esc_attr(apply_filters('bootscore/class/loop/card-text/read-more', 'card-text mt-auto', 'cards-overlay')); ?>">
+        <p class="<?= esc_attr(apply_filters('bootscore/class/loop/card-text/read-more', 'mt-auto', 'cards-overlay')); ?>">
           <a class="<?= esc_attr(apply_filters('bootscore/class/loop/read-more', 'read-more', 'cards-overlay')); ?>" href="<?php the_permalink(); ?>">
             <?= wp_kses_post(apply_filters('bootscore/loop/read-more/text', __('Read more »', 'bootscore'), 'cards-overlay')); ?>
           </a>
@@ -90,8 +86,10 @@ $context = 'cards-overlay';
 
       <?php do_action('bootscore_after_loop_tags', 'cards-overlay'); ?>
 
+      <!--
     </div>
-  
+      -->
+      </div>
   </div>
 
   <?php do_action('bootscore_loop_item_after_card_img_overlay', 'cards-overlay'); ?>
