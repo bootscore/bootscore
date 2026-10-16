@@ -1,37 +1,32 @@
 /* Styles apply only in the block editor */
 
 /* Code */
-/*
 .wp-block-code code {
-    background: #101214;
-    padding: 1rem;
-    border-radius: .5rem;
-    border: var(--border-width) var(--border-style) var(--border-color);
-}
-*/
-
-.wp-block-code code {
-    background: #101214;
-    color: #C6CBCF;
-    padding: 1rem;
-    border-radius: .5rem;
-    border: var(--border-width) var(--border-style) var(--border-color);
-    font-size: .875rem;
-    margin-bottom: 1rem;
-}
-
-/* Make collapse visible in the editor (Accordion) */
-.block-editor-block-list__block .collapse:not(.show) {
-  display: block;
+  background: #101214;
+  color: #C6CBCF;
+  padding: 1rem;
+  border-radius: .5rem;
+  border: var(--border-width) var(--border-style) var(--border-color);
+  font-size: .875rem;
+  margin-bottom: 1rem;
 }
 
 /* Tabs */
-.block-editor-block-list__block .tab-content > .tab-pane {
+.tab-pane {
   display: block;
-  border: var(--bs-border-width) var(--bs-border-style) var(--bs-border-color);
+  border-radius: .5rem;
+  border: var(--border-width) var(--border-style) var(--border-color);
   padding: 1rem;
+  margin-bottom: 1rem;
 }
 
 .block-editor-block-list__block .fade:not(.show) {
   opacity: 1;
 }
+
+/* Make collapse visible in the editor (Accordion) */
+/*
+.block-editor-block-list__block .collapse:not(.show) {
+  display: block;
+}
+*/
