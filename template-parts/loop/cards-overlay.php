@@ -33,9 +33,6 @@ $context = 'cards-overlay';
 
   <div class="<?= esc_attr(apply_filters('bootscore/class/loop/card/img-overlay', 'card-img-overlay d-flex flex-column p-0', 'cards-overlay')); ?>">
 
-  <!--
-    <div class="<?= esc_attr(apply_filters('bootscore/class/loop/card/img-overlay/content/wrapper', 'bg-body bg-50 backdrop-blur-10 rounded-3 p-3 mt-auto', 'cards-overlay')); ?>">
-  -->
     <div class="card-body bg-body bg-50 backdrop-blur-10 rounded-5 p-5 m-5 mt-auto flex-grow-0">
 
       <?php if (apply_filters('bootscore/loop/category', true, 'cards-overlay')) : ?>
@@ -86,10 +83,7 @@ $context = 'cards-overlay';
 
       <?php do_action('bootscore_after_loop_tags', 'cards-overlay'); ?>
 
-      <!--
     </div>
-      -->
-      </div>
   </div>
 
   <?php do_action('bootscore_loop_item_after_card_img_overlay', 'cards-overlay'); ?>
