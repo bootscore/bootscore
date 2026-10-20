@@ -38,9 +38,9 @@ $context = 'cards-grid';
 
     <?php do_action('bootscore_before_loop_title', 'cards-grid'); ?>
 
-    <h2 class="<?= esc_attr(apply_filters('bootscore/class/loop/card/title', 'h4 card-title', 'cards-grid')); ?>"">
-      <a class="<?= esc_attr(apply_filters('bootscore/class/loop/card/title/link', 'fg-body text-decoration-none stretched-link', 'cards-grid')); ?>" href="<?php the_permalink(); ?>">  
-        <?php the_title(); ?>
+    <h2 class="<?= esc_attr(apply_filters('bootscore/class/loop/card/title', 'h4 card-title', 'cards-grid')); ?>">
+      <a class="<?= esc_attr(apply_filters('bootscore/class/loop/card/title/link', 'fg-body text-decoration-none stretched-link', 'cards-grid')); ?>" href="<?php the_permalink(); ?>">
+        <?php if (is_sticky() && apply_filters('bootscore/loop/sticky-pin', true, 'cards-grid')) : ?><small class="<?= esc_attr(apply_filters('bootscore/class/loop/card/sticky/pin', 'sticky-badge fg-secondary me-2', 'cards-grid')); ?>"><?php bootscore_icon('thumbtack'); ?><span class="visually-hidden"><?php esc_html_e('Sticky post:', 'bootscore'); ?></span></small><?php endif; ?><?php the_title(); ?>
       </a>
     </h2>
    
