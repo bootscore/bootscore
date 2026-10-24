@@ -1,6 +1,4 @@
-
-//@import "bootscore-variables";
-
+@forward "bootscore-config";
 
 // scss-docs-start import-stack
 @forward "bootstrap/banner";
@@ -58,9 +56,8 @@
 @forward "bootstrap/utilities/api";
 // scss-docs-end import-stack
 
-
-
 @forward "bootscore-style";
-//@import "bootscore-woocommerce"; // Comment or delete this line if WooCommerce styles are not needed
 
-//@import "bootscore-custom";
+//@import "bootscore-woocommerce";
+
+@forward "bootscore-custom";

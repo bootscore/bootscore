@@ -1,0 +1,15 @@
+// Bootscore config
+// https://bootscore.me/documentation/theme/scss-compiler/#bootscore-config-scss
+//
+// Configures Bootstrap before any Bootstrap module loads.
+// Keep this file first in bootscore.scss.
+//
+// - Settings: set any `!default` variable from bootstrap/scss/_config.scss.
+// - Maps ($radii, $spacers, …): your keys merge over the defaults.
+// - Utilities:
+//   - Override: copy the full group from bootstrap/scss/_utilities.scss.
+//   - Add: use a new key.
+//   - Remove: set the group to `null`.
+//
+// Note: Bootstrap allows only one `with()` per module.
+// Do not load bootstrap/config anywhere else before this file.
