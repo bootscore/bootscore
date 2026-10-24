@@ -2,7 +2,7 @@
 
 /**
  * The template for displaying 404 pages (not found)
- * Template Version: 6.3.1
+ * Template Version: 7.0.0
  *
  * @link https://codex.wordpress.org/Creating_an_Error_404_Page
  *
@@ -14,7 +14,7 @@ defined('ABSPATH') || exit;
 
 get_header();
 ?>
-  <div id="content" class="site-content <?= esc_attr(apply_filters('bootscore/class/container', 'container', '404')); ?> <?= esc_attr(apply_filters('bootscore/class/content/spacer', 'pt-4 pb-5', '404')); ?>">
+  <div id="content" class="site-content <?= esc_attr(apply_filters('bootscore/class/container', 'container', '404')); ?> <?= esc_attr(apply_filters('bootscore/class/content/spacer', 'pt-7 pb-12', '404')); ?>">
     <div id="primary" class="content-area">
       
       <?php do_action( 'bootscore_after_primary_open', '404' ); ?>
@@ -30,12 +30,12 @@ get_header();
               <?php do_action( 'bootscore_after_title', '404' ); ?>
             </div>
             <!-- Remove this line and place some widgets -->
-            <p class="alert alert-info mb-4"><?php esc_html_e('Page not found.', 'bootscore'); ?></p>
+            <p class="alert theme-info mb-5"><?php esc_html_e('Page not found.', 'bootscore'); ?></p>
             <!-- 404 Widget -->
             <?php if (is_active_sidebar('404-page')) : ?>
               <div><?php dynamic_sidebar('404-page'); ?></div>
             <?php endif; ?>
-            <a class="btn btn-outline-primary" href="<?= esc_url(home_url()); ?>" role="button"><?php esc_html_e('Back Home &raquo;', 'bootscore'); ?></a>
+            <a class="btn-outline theme-primary" href="<?= esc_url(home_url()); ?>" role="button"><?php esc_html_e('Back Home &raquo;', 'bootscore'); ?></a>
           </div>
         </section><!-- .error-404 -->
 
