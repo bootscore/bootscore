@@ -22,7 +22,7 @@ $GLOBALS['bootscore_template_context'] = 'index';
 
 get_header();
 ?>
-<div id="content" class="site-content <?= esc_attr(apply_filters('bootscore/class/container', 'container', 'index')); ?> <?= esc_attr(apply_filters('bootscore/class/content/spacer', 'pt-4 pb-5', 'index')); ?>">
+<div id="content" class="site-content <?= esc_attr(apply_filters('bootscore/class/container', 'container', 'index')); ?> <?= esc_attr(apply_filters('bootscore/class/content/spacer', 'pt-7 pb-12', 'index')); ?>">
   <div id="primary" class="content-area">
 
     <?php do_action('bootscore_after_primary_open', 'index'); ?>
@@ -56,7 +56,7 @@ get_header();
 
           // Default horizontal/overlay classes (both use same grid structure)
           $horizontal_classes = apply_filters('bootscore/class/loop/horizontal/col',
-            'row row-cols-1 g-4 mb-4 bs-loop-grid',
+            'row row-cols-1 g-7 mb-7 bs-loop-grid',
             'index'
           );
           ?>

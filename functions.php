@@ -67,10 +67,11 @@ if (apply_filters('bootscore/disable/unsupported/blocks', false)) {
 /**
  * Load WooCommerce scripts if plugin is activated
  */
+/*
 if (class_exists('WooCommerce')) {
   require_once get_template_directory() . '/woocommerce/wc-functions.php';
 }
-
+*/
 
 /**
  * Load Jetpack compatibility file

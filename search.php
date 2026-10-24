@@ -17,7 +17,7 @@ $GLOBALS['bootscore_template_context'] = 'search';
 
 get_header();
 ?>
-<div id="content" class="site-content <?= esc_attr(apply_filters('bootscore/class/container', 'container', 'search')); ?> <?= esc_attr(apply_filters('bootscore/class/content/spacer', 'pt-4 pb-5', 'search')); ?>">
+<div id="content" class="site-content <?= esc_attr(apply_filters('bootscore/class/container', 'container', 'search')); ?> <?= esc_attr(apply_filters('bootscore/class/content/spacer', 'pt-7 pb-12', 'search')); ?>">
   <div id="primary" class="content-area">
     
     <?php do_action('bootscore_after_primary_open', 'search'); ?>
@@ -34,7 +34,7 @@ get_header();
               <h1 class="entry-title <?= esc_attr(apply_filters('bootscore/class/entry/title', '', 'search')); ?>">
                 <?php
                 /* translators: %s: search query. */
-                printf(esc_html__('Search Results for: %s', 'bootscore'), '<span class="text-body-secondary">' . esc_html(get_search_query()) . '</span>');
+                printf(esc_html__('Search Results for: %s', 'bootscore'), '<span class="fg-secondary">' . esc_html(get_search_query()) . '</span>');
                 ?>
               </h1>
               <?php do_action('bootscore_after_title', 'search'); ?>
@@ -55,7 +55,7 @@ get_header();
 
             // Default horizontal/overlay classes (both use same grid structure)
             $horizontal_classes = apply_filters('bootscore/class/loop/horizontal/col',
-              'row row-cols-1 g-4 mb-4 bs-loop-grid',
+              'row row-cols-1 g-7 mb-7 bs-loop-grid',
               'search'
             );
             ?>

@@ -30,9 +30,7 @@ $context = 'cards-horizontal';
 
     <?php if (has_post_thumbnail()) : ?>
       <div class="<?= esc_attr(apply_filters('bootscore/class/loop/card/image/col', 'md:col-5 lg:col-6 xl:col-5 2xl:col-4', 'cards-horizontal')); ?>">
-        <a href="<?php the_permalink(); ?>" aria-hidden="true" tabindex="-1">
-          <?php the_post_thumbnail('medium', array('class' => esc_attr(apply_filters('bootscore/class/loop/card/image', 'h-100 md:object-fit-cover', 'cards-horizontal')))); ?>
-        </a>
+        <?php the_post_thumbnail('medium', array('class' => esc_attr(apply_filters('bootscore/class/loop/card/image', 'md:h-100 md:object-fit-cover', 'cards-horizontal')))); ?>
       </div>
     <?php endif; ?>
 
@@ -40,30 +38,24 @@ $context = 'cards-horizontal';
 
     <div class="<?= esc_attr(apply_filters('bootscore/class/loop/card/content/col', 'col', 'cards-horizontal')); ?>">
       <div class="<?= esc_attr(apply_filters('bootscore/class/loop/card/body', 'card-body h-100', 'cards-horizontal')); ?>">
-
-        <div class="<?= esc_attr(apply_filters('bootscore/class/loop/card/content/meta-wrapper', 'd-flex justify-content-between gap-3', 'cards-horizontal')); ?>">
-
-          <?php if (apply_filters('bootscore/loop/category', true, 'cards-horizontal')) : ?>
-            <?php bootscore_category_badge(); ?>
-          <?php endif; ?>
-
-          <?php if (is_sticky() ) { ?>
-            <p class="sticky-badge"><span class="<?= esc_attr(apply_filters('bootscore/class/loop/card/content/sticky-post-badge', 'badge bg-danger-subtle text-danger-emphasis')); ?>"><?php bootscore_icon('thumbtack'); ?></span></p>
-          <?php } ?>
-
-        </div>
+       
+        <?php if (apply_filters('bootscore/loop/category', true, 'cards-horizontal')) : ?>
+          <?php bootscore_categories(); ?>
+        <?php endif; ?>
 
         <?php do_action('bootscore_before_loop_title', 'cards-horizontal'); ?>
 
-        <a class="<?= esc_attr(apply_filters('bootscore/class/loop/card/title/link', 'fg-body text-decoration-none', 'cards-horizontal')); ?>" href="<?php the_permalink(); ?>">
-          <?php the_title('<h2 class="' . esc_attr(apply_filters('bootscore/class/loop/card/title', 'h4 card-title', 'cards-horizontal')) . '">', '</h2>'); ?>
-        </a>
+        <h2 class="<?= esc_attr(apply_filters('bootscore/class/loop/card/title', 'h4 card-title', 'cards-horizontal')); ?>">
+          <a class="<?= esc_attr(apply_filters('bootscore/class/loop/card/title/link', 'fg-body text-decoration-none stretched-link', 'cards-horizontal')); ?>" href="<?php the_permalink(); ?>">
+            <?php if (is_sticky() && apply_filters('bootscore/loop/sticky-pin', true, 'cards-horizontal')) : ?><small class="<?= esc_attr(apply_filters('bootscore/class/loop/card/sticky/pin', 'sticky-badge fg-secondary me-2', 'cards-horizontal')); ?>"><?php bootscore_icon('thumbtack'); ?><span class="visually-hidden"><?php esc_html_e('Sticky post:', 'bootscore'); ?></span></small><?php endif; ?><?php the_title(); ?>
+          </a>
+        </h2>
         
         <?php do_action('bootscore_after_loop_title', 'cards-horizontal'); ?>
 
         <?php if (apply_filters('bootscore/loop/meta', true, 'cards-horizontal')) : ?>
           <?php if ('post' === get_post_type()) : ?>
-            <p class="card-subtitle fs-xs fg-secondary">
+            <p class="card-subtitle fg-secondary align-self-start fs-sm z-1">
               <?php
               bootscore_date();
               bootscore_author();
@@ -75,10 +67,8 @@ $context = 'cards-horizontal';
         <?php endif; ?>
         
         <?php if (apply_filters('bootscore/loop/excerpt', true, 'cards-horizontal')) : ?>
-          <p class="<?= esc_attr(apply_filters('bootscore/class/loop/card-text/excerpt', 'card-text', 'cards-horizontal')); ?>">
-            <a class="<?= esc_attr(apply_filters('bootscore/class/loop/card-text/excerpt/link', 'fg-body text-decoration-none', 'cards-horizontal')); ?>" href="<?php the_permalink(); ?>">                
-              <?php bootscore_excerpt(); ?>
-            </a>
+          <p class="<?= esc_attr(apply_filters('bootscore/class/loop/excerpt', 'excerpt', 'cards-horizontal')); ?>">
+            <?= wp_kses_post(get_the_excerpt()); ?>
           </p>
         <?php endif; ?>
         
