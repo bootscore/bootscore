@@ -2,7 +2,7 @@
 
 /**
  * Template Name: No Sidebar
- * Template Version: 6.3.1
+ * Template Version: 7.0.0
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
@@ -15,7 +15,7 @@ defined('ABSPATH') || exit;
 get_header();
 ?>
 
-  <div id="content" class="site-content <?= esc_attr(apply_filters('bootscore/class/container', 'container', 'page-sidebar-none')); ?> <?= esc_attr(apply_filters('bootscore/class/content/spacer', 'pt-4 pb-5', 'page-sidebar-none')); ?>">
+  <div id="content" class="site-content <?= esc_attr(apply_filters('bootscore/class/container', 'container', 'page-sidebar-none')); ?> <?= esc_attr(apply_filters('bootscore/class/content/spacer', 'pt-7 pb-12', 'page-sidebar-none')); ?>">
     <div id="primary" class="content-area">
       
       <?php do_action( 'bootscore_after_primary_open', 'page-sidebar-none' ); ?>

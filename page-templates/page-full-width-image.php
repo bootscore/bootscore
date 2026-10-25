@@ -2,7 +2,7 @@
 
 /**
  * Template Name: Full Width Image
- * Template Version: 6.3.1
+ * Template Version: 7.0.0
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
@@ -33,7 +33,7 @@ get_header();
           </div>
         </div>
 
-        <div class="<?= esc_attr(apply_filters('bootscore/class/container', 'container', 'page-full-width-image')); ?> <?= esc_attr(apply_filters('bootscore/class/content/spacer', 'pb-5', 'page-full-width-image')); ?>">
+        <div class="<?= esc_attr(apply_filters('bootscore/class/container', 'container', 'page-full-width-image')); ?> <?= esc_attr(apply_filters('bootscore/class/content/spacer', 'pb-12', 'page-full-width-image')); ?>">
           
           <?php do_action( 'bootscore_after_featured_image', 'page-full-width-image' ); ?>
           

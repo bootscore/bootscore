@@ -32,7 +32,7 @@ get_header();
           </div>
         </div>
 
-        <div class="<?= esc_attr(apply_filters('bootscore/class/container', 'container', 'single-full-width-image')); ?> <?= esc_attr(apply_filters('bootscore/class/content/spacer', 'pt-3 pb-5', 'single-full-width-image')); ?>">
+        <div class="<?= esc_attr(apply_filters('bootscore/class/container', 'container', 'single-full-width-image')); ?> <?= esc_attr(apply_filters('bootscore/class/content/spacer', 'pt-7 pb-12', 'single-full-width-image')); ?>">
           
           <?php do_action( 'bootscore_after_featured_image', 'single-full-width-image' ); ?>
           
