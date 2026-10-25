@@ -42,7 +42,6 @@ get_header();
             <div class="<?= esc_attr(apply_filters('bootscore/class/main/col', 'col')); ?>">
 
               <div class="entry-content d-flow-root">
-                <?php bootscore_categories(); ?>
                 <p class="entry-meta fg-secondary fs-sm">
                   <?php
                   bootscore_date();

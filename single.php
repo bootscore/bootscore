@@ -26,7 +26,6 @@ get_header();
 
             <div class="entry-header">
               <?php the_post(); ?>
-              <?php bootscore_categories(); ?>
               <?php do_action( 'bootscore_before_title', 'single' ); ?>
               <?php the_title('<h1 class="entry-title ' . esc_attr(apply_filters('bootscore/class/entry/title', '', 'single')) . '">', '</h1>'); ?>
               <?php do_action( 'bootscore_after_title', 'single' ); ?>
