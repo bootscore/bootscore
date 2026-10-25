@@ -36,7 +36,7 @@ get_header();
                 bootscore_comment_count();
                 ?>
               </p>
-              <?php bootscore_post_thumbnail(); ?>
+              <?php if (!post_password_required()) the_post_thumbnail('full', array('class' => esc_attr(apply_filters('bootscore/class/featured-image', 'rounded mb-5', 'single')))); ?>
             </div>
             
             <?php do_action( 'bootscore_after_featured_image', 'single' ); ?>

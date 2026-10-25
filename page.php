@@ -35,7 +35,7 @@ get_header();
               <?php do_action( 'bootscore_before_title', 'page' ); ?>
               <?php the_title('<h1 class="entry-title ' . esc_attr(apply_filters('bootscore/class/entry/title', '', 'page')) . '">', '</h1>'); ?>
               <?php do_action( 'bootscore_after_title', 'page' ); ?>
-              <?php bootscore_post_thumbnail(); ?>
+              <?php if (!post_password_required()) the_post_thumbnail('full', array('class' => esc_attr(apply_filters('bootscore/class/featured-image', 'rounded mb-5', 'page')))); ?>
             </div>
             
             <?php do_action( 'bootscore_after_featured_image', 'page' ); ?>
