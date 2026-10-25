@@ -41,7 +41,7 @@ get_header();
           <div class="row">
             <div class="<?= esc_attr(apply_filters('bootscore/class/main/col', 'col')); ?>">
 
-              <div class="entry-content">
+              <div class="entry-content d-flow-root">
                 <?php bootscore_categories(); ?>
                 <p class="entry-meta">
                   <small class="text-body-secondary">
@@ -57,7 +57,7 @@ get_header();
               
               <?php do_action( 'bootscore_before_entry_footer', 'single-full-width-image' ); ?>
 
-              <div class="entry-footer clear-both">
+              <div class="entry-footer">
                 <div class="mb-4">
                   <?php bootscore_tags(); ?>
                 </div>

@@ -6,13 +6,38 @@ Utilities - Bootscore v7.0.0
 // Map only, no Bootstrap imports.
 // Merged into Bootstrap's $utilities in _bootscore-config.scss.
 
-// Re-add !important to display
 $utilities: (
+
+  // Re-add !important to display
   "display": (
     responsive: true,
     property: display,
     class: d,
     values: inline inline-block block grid inline-grid table table-row table-cell flex inline-flex contents flow-root none,
     important: true,
+  ),
+
+  // Cursor
+  "cursor": (
+    property: cursor,
+    class: cursor,
+    values: (pointer: pointer),
+  ),
+
+  // Focus
+  "focus": (
+    property: (
+      "box-shadow": none,
+      "outline": 0,
+    ),
+    class: focus,
+    values: (none: none),
+  ),
+
+  // Hide scrollbars
+  "scrollbar": (
+    property: scrollbar-width,
+    class: scrollbar,
+    values: (none: none),
   ),
 );

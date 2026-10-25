@@ -3,26 +3,11 @@ Utilities - Bootscore v7.0.0
 --------------------------------------------------------------*/
 
 
-// Clearfix
-.clear-both {
-  clear: both;
-}
 
-// Cursor
-.cursor-pointer {
-  cursor: pointer;
-}
 
-// Focus
-.focus-none {
-  box-shadow: none;
-  outline: 0;
-}
 
 // Hide scrollbars
 .scrollbar-none {
-  -ms-overflow-style: none;
-  overflow: -moz-scrollbars-none;
   scrollbar-width: none;
 
   &::-webkit-scrollbar {
@@ -30,18 +15,31 @@ Utilities - Bootscore v7.0.0
   }
 }
 
-// Hide elements based on [data-bs-theme=""]
-.d-tl-none {
-  display: none;
-}
 
-[data-bs-theme="dark"] {
+// Hide elements in light or dark mode
+// .d-tl-none: hidden in light mode
+// .d-td-none: hidden in dark mode
+@layer utilities {
 
-  .d-td-none {
-    display: none;
+  // Forced with data-bs-theme
+  [data-bs-theme="light"] .d-tl-none {
+    display: none !important;
   }
 
-  .d-tl-none {
-    display: block;
+  [data-bs-theme="dark"] .d-td-none {
+    display: none !important;
+  }
+
+  // No data-bs-theme: follow the OS setting
+  @media (prefers-color-scheme: light) {
+    .d-tl-none:not([data-bs-theme="dark"] *) {
+      display: none !important;
+    }
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .d-td-none:not([data-bs-theme="light"] *) {
+      display: none !important;
+    }
   }
 }
