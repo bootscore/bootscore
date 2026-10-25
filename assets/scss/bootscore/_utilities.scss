@@ -2,46 +2,83 @@
 Utilities - Bootscore v7.0.0
 --------------------------------------------------------------*/
 
+// Bootscore utilities
+// Map only, no Bootstrap imports.
+// Merged into Bootstrap's $utilities in _bootscore-config.scss.
 
-// Clearfix
-.clear-both {
-  clear: both;
-}
+$utilities: (
 
-// Cursor
-.cursor-pointer {
-  cursor: pointer;
-}
+  // Re-add !important to display
+  "display": (
+    responsive: true,
+    property: display,
+    class: d,
+    values: inline inline-block block grid inline-grid table table-row table-cell flex inline-flex contents flow-root none,
+    important: true,
+  ),
 
-// Focus
-.focus-none {
-  box-shadow: none;
-  outline: 0;
-}
+  // Min viewport height: add 75
+  "min-viewport-height": (
+    property: min-height,
+    class: min-vh,
+    values: (
+      75: 75vh,
+      100: 100vh,
+    ),
+  ),
 
-// Hide scrollbars
-.scrollbar-none {
-  -ms-overflow-style: none;
-  overflow: -moz-scrollbars-none;
-  scrollbar-width: none;
+  // Cursor
+  "cursor": (
+    property: cursor,
+    class: cursor,
+    values: (pointer: pointer),
+  ),
 
-  &::-webkit-scrollbar {
-    display: none;
-  }
-}
+  // Focus
+  "focus": (
+    property: (
+      "box-shadow": none,
+      "outline": 0,
+    ),
+    class: focus,
+    values: (none: none),
+  ),
 
-// Hide elements based on [data-bs-theme=""]
-.d-tl-none {
-  display: none;
-}
+  // Hide scrollbars
+  "scrollbar": (
+    property: scrollbar-width,
+    class: scrollbar,
+    values: (none: none),
+  ),
 
-[data-bs-theme="dark"] {
+  // Backdrop blur
+  "bd-blur": (
+    property: (
+      "--bd-blur": null,
+      "backdrop-filter": blur(var(--bd-blur)) saturate(var(--bd-saturate, 100%)),
+    ),
+    class: bd-blur,
+    values: (
+      null: 8px,
+      sm: 4px,
+      md: 12px,
+      lg: 16px,
+      xl: 24px,
+      2xl: 40px,
+    ),
+  ),
 
-  .d-td-none {
-    display: none;
-  }
-
-  .d-tl-none {
-    display: block;
-  }
-}
+  // Backdrop saturate
+  "bd-saturate": (
+    property: (
+      "--bd-saturate": null,
+      "backdrop-filter": blur(var(--bd-blur, 0)) saturate(var(--bd-saturate)),
+    ),
+    class: bd-saturate,
+    values: (
+      50: 50%,
+      150: 150%,
+      200: 200%,
+    ),
+  ),
+);

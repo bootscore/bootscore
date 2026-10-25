@@ -63,7 +63,7 @@ $term_count_label = apply_filters(
 
   <div class="<?= esc_attr(apply_filters('bootscore/class/loop/card/img-overlay', 'card-img-overlay d-flex flex-column', 'cards-overlay')); ?>">
 
-    <div class="<?= esc_attr(apply_filters('bootscore/class/loop/card/img-overlay/content/wrapper', 'bg-body bg-opacity-50 backdrop-blur-10 rounded-3 p-3 mt-auto', 'cards-overlay')); ?>">
+    <div class="<?= esc_attr(apply_filters('bootscore/class/loop/card/img-overlay/content/wrapper', 'bg-body bg-opacity-50 bd-blur bd-saturate-150 rounded-3 p-3 mt-auto', 'cards-overlay')); ?>">
 
       <?php do_action('bootscore_before_loop_title', 'cards-overlay'); ?>
 

@@ -27,23 +27,10 @@ Deprecated - Bootscore v7.0.0. This code will be removed.
   }
 }
 
-
+/*
 // Check if Bootstrap v6 will have a backdrop-blur utility https://github.com/orgs/twbs/discussions/42187
 .backdrop-blur-10 {
   backdrop-filter: blur(10px) saturate(180%);
   -webkit-backdrop-filter: blur(10px) saturate(180%);
 }
-
-
-// bg-*, fg-* and border-* do not work yet, used in code-block for gray values that do not switch in dark mode
-.bg-95 {
-  background-color: var(--gray-950);
-}
-
-.border-60 {
-  border-color: var(--gray-600);
-}
-
-.fg-2 {
-  color: var(--gray-200);
-}
+*/

@@ -44,13 +44,13 @@ get_header();
             
             <?php do_action( 'bootscore_after_featured_image', 'single' ); ?>
 
-            <div class="entry-content">
+            <div class="entry-content d-flow-root">
               <?php the_content(); ?>
             </div>
             
             <?php do_action( 'bootscore_before_entry_footer', 'single' ); ?>
 
-            <div class="entry-footer clear-both">
+            <div class="entry-footer">
               <div class="mb-4">
                 <?php bootscore_tags(); ?>
               </div>

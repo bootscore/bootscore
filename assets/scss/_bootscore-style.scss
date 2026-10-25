@@ -6,6 +6,7 @@
 
 @use "bootscore/admin-bar";
 @use "bootscore/alerts";
+@use "bootscore/color-mode";
 @use "bootscore/selection";
 @use "bootscore/deprecated";
 //@import "bootscore/footer";
@@ -15,7 +16,8 @@
 @use "bootscore/markup";
 //@use "bootscore/single";
 @use "bootscore/top-button";
-@use "bootscore/utilities";
+
 
 //@import "bootscore/blocks/blocks";
 //@import "bootscore/blocks/block-patterns";
+

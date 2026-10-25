@@ -33,7 +33,7 @@ $context = 'cards-overlay';
 
   <div class="<?= esc_attr(apply_filters('bootscore/class/loop/card/img-overlay', 'card-img-overlay d-flex flex-column p-0', 'cards-overlay')); ?>">
 
-    <div class="card-body bg-body bg-50 backdrop-blur-10 rounded-5 p-5 m-5 mt-auto flex-grow-0">
+    <div class="card-body bg-body bg-50 bd-blur bd-saturate-150 rounded-5 p-5 m-5 mt-auto flex-grow-0">
 
       <?php if (apply_filters('bootscore/loop/category', true, 'cards-overlay')) : ?>
         <?php bootscore_categories(); ?>
