@@ -21,15 +21,20 @@ get_header();
       <main id="main" class="site-main">
 
         <?php the_post(); ?>
-        <?php $thumb = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'full'); ?>
-        <div class="entry-header <?= esc_attr(apply_filters('bootscore/class/featured-full-width-img', 'featured-full-width-img min-vh-75 bg-dark text-light mb-4', 'single-full-width-image')); ?>" style="background-image: url('<?= esc_url($thumb['0']); ?>')">
-          <div class="<?= esc_attr(apply_filters('bootscore/class/container', 'container', 'single-full-width-image')); ?> <?= esc_attr(apply_filters('bootscore/class/featured-full-width-img/container', 'h-100 d-flex align-items-end pb-3', 'single-full-width-image')); ?>">
-            <div class="<?= esc_attr(apply_filters('bootscore/class/full-width-img-title-wrapper', 'full-width-img-title-wrapper', 'single-full-width-image')); ?>">
-              <?php do_action( 'bootscore_before_title', 'single-full-width-image' ); ?>
-              <?php the_title('<h1 class="entry-title ' . esc_attr(apply_filters('bootscore/class/entry/title', '', 'single-full-width-image')) . '">', '</h1>'); ?>
-              <?php do_action( 'bootscore_after_title', 'single-full-width-image' ); ?>
-            </div>
+        <div class="entry-header <?= esc_attr(apply_filters('bootscore/class/featured-full-width-img', 'position-relative d-flex align-items-end min-vh-75 bg-black mb-5', 'single-full-width-image')); ?>" data-bs-theme="dark">
+
+          <?php the_post_thumbnail('full', array(
+            'class'         => 'position-absolute top-0 start-0 w-100 h-100 object-fit-cover',
+            'loading'       => 'eager',
+            'fetchpriority' => 'high',
+          )); ?>
+
+          <div class="<?= esc_attr(apply_filters('bootscore/class/container', 'container', 'single-full-width-image')); ?> <?= esc_attr(apply_filters('bootscore/class/featured-full-width-img/container', 'position-relative pb-5', 'single-full-width-image')); ?>">
+            <?php do_action( 'bootscore_before_title', 'single-full-width-image' ); ?>
+            <?php the_title('<h1 class="entry-title ' . esc_attr(apply_filters('bootscore/class/entry/title', '', 'single-full-width-image')) . '">', '</h1>'); ?>
+            <?php do_action( 'bootscore_after_title', 'single-full-width-image' ); ?>
           </div>
+
         </div>
 
         <div class="<?= esc_attr(apply_filters('bootscore/class/container', 'container', 'single-full-width-image')); ?> <?= esc_attr(apply_filters('bootscore/class/content/spacer', 'pt-7 pb-12', 'single-full-width-image')); ?>">
