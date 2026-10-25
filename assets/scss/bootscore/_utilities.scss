@@ -40,4 +40,35 @@ $utilities: (
     class: scrollbar,
     values: (none: none),
   ),
+
+  // Backdrop blur
+  "bd-blur": (
+    property: (
+      "--bd-blur": null,
+      "backdrop-filter": blur(var(--bd-blur)) saturate(var(--bd-saturate, 100%)),
+    ),
+    class: bd-blur,
+    values: (
+      null: 8px,
+      sm: 4px,
+      md: 12px,
+      lg: 16px,
+      xl: 24px,
+      2xl: 40px,
+    ),
+  ),
+
+  // Backdrop saturate
+  "bd-saturate": (
+    property: (
+      "--bd-saturate": null,
+      "backdrop-filter": blur(var(--bd-blur, 0)) saturate(var(--bd-saturate)),
+    ),
+    class: bd-saturate,
+    values: (
+      50: 50%,
+      150: 150%,
+      200: 200%,
+    ),
+  ),
 );
