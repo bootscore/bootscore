@@ -13,3 +13,12 @@
 //
 // Note: Bootstrap allows only one `with()` per module.
 // Do not load bootstrap/config anywhere else before this file.
+
+@use "sass:map";
+@use "bootscore/utilities" as bootscore;
+
+@use "bootstrap/config" with (
+  $utilities: map.merge(bootscore.$utilities, (
+    // Your utilities here
+  )),
+);

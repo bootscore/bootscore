@@ -2,46 +2,17 @@
 Utilities - Bootscore v7.0.0
 --------------------------------------------------------------*/
 
+// Bootscore utilities
+// Map only, no Bootstrap imports.
+// Merged into Bootstrap's $utilities in _bootscore-config.scss.
 
-// Clearfix
-.clear-both {
-  clear: both;
-}
-
-// Cursor
-.cursor-pointer {
-  cursor: pointer;
-}
-
-// Focus
-.focus-none {
-  box-shadow: none;
-  outline: 0;
-}
-
-// Hide scrollbars
-.scrollbar-none {
-  -ms-overflow-style: none;
-  overflow: -moz-scrollbars-none;
-  scrollbar-width: none;
-
-  &::-webkit-scrollbar {
-    display: none;
-  }
-}
-
-// Hide elements based on [data-bs-theme=""]
-.d-tl-none {
-  display: none;
-}
-
-[data-bs-theme="dark"] {
-
-  .d-td-none {
-    display: none;
-  }
-
-  .d-tl-none {
-    display: block;
-  }
-}
+// Re-add !important to display
+$utilities: (
+  "display": (
+    responsive: true,
+    property: display,
+    class: d,
+    values: inline inline-block block grid inline-grid table table-row table-cell flex inline-flex contents flow-root none,
+    important: true,
+  ),
+);

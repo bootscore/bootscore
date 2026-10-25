@@ -1,0 +1,47 @@
+/*--------------------------------------------------------------
+Utilities - Bootscore v7.0.0
+--------------------------------------------------------------*/
+
+
+// Clearfix
+.clear-both {
+  clear: both;
+}
+
+// Cursor
+.cursor-pointer {
+  cursor: pointer;
+}
+
+// Focus
+.focus-none {
+  box-shadow: none;
+  outline: 0;
+}
+
+// Hide scrollbars
+.scrollbar-none {
+  -ms-overflow-style: none;
+  overflow: -moz-scrollbars-none;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+// Hide elements based on [data-bs-theme=""]
+.d-tl-none {
+  display: none;
+}
+
+[data-bs-theme="dark"] {
+
+  .d-td-none {
+    display: none;
+  }
+
+  .d-tl-none {
+    display: block;
+  }
+}
