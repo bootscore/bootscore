@@ -22,7 +22,7 @@ get_header();
 
       <div class="row">
         <?php get_sidebar(); ?>
-        <div class="<?= esc_attr(apply_filters('bootscore/class/main/col', 'col')); ?> order-first order-md-last">
+        <div class="<?= esc_attr(apply_filters('bootscore/class/main/col', 'col')); ?> order-first lg:order-last">
 
           <main id="main" class="site-main">
 
