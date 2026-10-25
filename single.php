@@ -30,14 +30,12 @@ get_header();
               <?php do_action( 'bootscore_before_title', 'single' ); ?>
               <?php the_title('<h1 class="entry-title ' . esc_attr(apply_filters('bootscore/class/entry/title', '', 'single')) . '">', '</h1>'); ?>
               <?php do_action( 'bootscore_after_title', 'single' ); ?>
-              <p class="entry-meta">
-                <small class="text-body-secondary">
-                  <?php
-                  bootscore_date();
-                  bootscore_author();
-                  bootscore_comment_count();
-                  ?>
-                </small>
+              <p class="entry-meta fg-secondary fs-sm">
+                <?php
+                bootscore_date();
+                bootscore_author();
+                bootscore_comment_count();
+                ?>
               </p>
               <?php bootscore_post_thumbnail(); ?>
             </div>

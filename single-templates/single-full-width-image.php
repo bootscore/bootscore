@@ -43,14 +43,12 @@ get_header();
 
               <div class="entry-content d-flow-root">
                 <?php bootscore_categories(); ?>
-                <p class="entry-meta">
-                  <small class="text-body-secondary">
-                    <?php
-                    bootscore_date();
-                    bootscore_author();
-                    bootscore_comment_count();
-                    ?>
-                  </small>
+                <p class="entry-meta fg-secondary fs-sm">
+                  <?php
+                  bootscore_date();
+                  bootscore_author();
+                  bootscore_comment_count();
+                  ?>
                 </p>
                 <?php the_content(); ?>
               </div>
