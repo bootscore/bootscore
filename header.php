@@ -53,9 +53,9 @@ defined('ABSPATH') || exit;
         <?php do_action( 'bootscore_before_navbar_brand' ); ?>
         
         <a class="<?= esc_attr(apply_filters('bootscore/class/header/navbar-brand', 'navbar-brand')); ?>" href="<?= esc_url(home_url()); ?>">
-          <img src="<?= esc_url(apply_filters('bootscore/logo', get_stylesheet_directory_uri() . '/assets/img/logo/logo.svg', 'default')); ?>" alt="<?= esc_attr(get_bloginfo('name')); ?> Logo" class="d-td-none" width="<?= esc_attr(apply_filters('bootscore/logo/width', '30')); ?>" height="<?= esc_attr(apply_filters('bootscore/logo/height', '30')); ?>">
-          <img src="<?= esc_url(apply_filters('bootscore/logo', get_stylesheet_directory_uri() . '/assets/img/logo/logo-theme-dark.svg', 'theme-dark')); ?>" alt="<?= esc_attr(get_bloginfo('name')); ?> Logo" class="d-tl-none" width="<?= esc_attr(apply_filters('bootscore/logo/width', '30')); ?>" height="<?= esc_attr(apply_filters('bootscore/logo/height', '30')); ?>">
-        </a>  
+          <img src="<?= esc_url(apply_filters('bootscore/logo', get_stylesheet_directory_uri() . '/assets/img/logo/logo.svg', 'default')); ?>" alt="<?= esc_attr(get_bloginfo('name')); ?> Logo" class="dark:d-none" width="<?= esc_attr(apply_filters('bootscore/logo/width', '30')); ?>" height="<?= esc_attr(apply_filters('bootscore/logo/height', '30')); ?>">
+          <img src="<?= esc_url(apply_filters('bootscore/logo', get_stylesheet_directory_uri() . '/assets/img/logo/logo-theme-dark.svg', 'theme-dark')); ?>" alt="<?= esc_attr(get_bloginfo('name')); ?> Logo" class="d-none dark:d-inline-block" width="<?= esc_attr(apply_filters('bootscore/logo/width', '30')); ?>" height="<?= esc_attr(apply_filters('bootscore/logo/height', '30')); ?>">
+        </a>
         
         <?php do_action( 'bootscore_after_navbar_brand' ); ?>
 
