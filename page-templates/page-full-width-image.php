@@ -23,7 +23,7 @@ get_header();
       <main id="main" class="site-main">
 
         <?php $thumb = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'full'); ?>
-        <div class="entry-header <?= esc_attr(apply_filters('bootscore/class/featured-full-width-img', 'featured-full-width-img height-75 bg-dark text-light mb-4', 'page-full-width-image')); ?>" style="background-image: url('<?= esc_url($thumb['0']); ?>')">
+        <div class="entry-header <?= esc_attr(apply_filters('bootscore/class/featured-full-width-img', 'featured-full-width-img min-vh-75 bg-dark text-light mb-4', 'page-full-width-image')); ?>" style="background-image: url('<?= esc_url($thumb['0']); ?>')">
           <div class="<?= esc_attr(apply_filters('bootscore/class/container', 'container', 'page-full-width-image')); ?> <?= esc_attr(apply_filters('bootscore/class/featured-full-width-img/container', 'h-100 d-flex align-items-end pb-3', 'page-full-width-image')); ?>">
             <div class="<?= esc_attr(apply_filters('bootscore/class/full-width-img-title-wrapper', 'full-width-img-title-wrapper', 'page-full-width-image')); ?>">
               <?php do_action( 'bootscore_before_title', 'page-full-width-image' ); ?>

@@ -17,6 +17,16 @@ $utilities: (
     important: true,
   ),
 
+  // Min viewport height: add 75
+  "min-viewport-height": (
+    property: min-height,
+    class: min-vh,
+    values: (
+      75: 75vh,
+      100: 100vh,
+    ),
+  ),
+
   // Cursor
   "cursor": (
     property: cursor,
