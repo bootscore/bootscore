@@ -23,7 +23,7 @@ get_header();
       <main id="main" class="site-main">
 
         <?php the_post(); ?>
-        <div class="entry-header <?= esc_attr(apply_filters('bootscore/class/featured-full-width-img', 'position-relative d-flex align-items-end min-vh-75 bg-black mb-5', 'page-full-width-image')); ?>" data-bs-theme="dark">
+        <div class="entry-header <?= esc_attr(apply_filters('bootscore/class/featured-full-width-img', 'position-relative d-flex align-items-end min-vh-75 bg-black mb-5', 'page-full-width-image')); ?>">
 
           <?php the_post_thumbnail('full', array(
             'class'         => 'position-absolute top-0 start-0 w-100 h-100 object-fit-cover',
@@ -33,7 +33,9 @@ get_header();
 
           <div class="<?= esc_attr(apply_filters('bootscore/class/container', 'container', 'page-full-width-image')); ?> <?= esc_attr(apply_filters('bootscore/class/featured-full-width-img/container', 'position-relative pb-5', 'page-full-width-image')); ?>">
             <?php do_action( 'bootscore_before_title', 'page-full-width-image' ); ?>
-            <?php the_title('<h1 class="entry-title ' . esc_attr(apply_filters('bootscore/class/entry/title', '', 'page-full-width-image')) . '">', '</h1>'); ?>
+            <div class="<?= esc_attr(apply_filters('bootscore/class/full-width-img-title-wrapper', 'full-width-img-title-wrapper card border-0 card-body bg-body bg-50 bd-blur bd-saturate-150 w-fit', 'page-full-width-image')); ?>">
+              <?php the_title('<h1 class="entry-title ' . esc_attr(apply_filters('bootscore/class/entry/title', '', 'page-full-width-image')) . '">', '</h1>'); ?>
+            </div>
             <?php do_action( 'bootscore_after_title', 'page-full-width-image' ); ?>
           </div>
 
