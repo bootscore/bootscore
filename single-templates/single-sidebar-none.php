@@ -10,6 +10,9 @@
 // Exit if accessed directly
 defined('ABSPATH') || exit;
 
+// Set global template context for custom layout hooks
+$GLOBALS['bootscore_template_context'] = 'single-sidebar-none';
+
 get_header();
 ?>
 
@@ -17,8 +20,6 @@ get_header();
     <div id="primary" class="content-area">
       
      <?php do_action( 'bootscore_after_primary_open', 'single-sidebar-none' ); ?>
-
-      <?php bootscore_breadcrumb(); ?>
 
       <main id="main" class="site-main">
 

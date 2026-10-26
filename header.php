@@ -117,4 +117,4 @@ defined('ABSPATH') || exit;
     
   </header><!-- #masthead -->
   
-  <?php do_action( 'bootscore_after_masthead' ); ?>
+  <?php do_action( 'bootscore_after_masthead', $GLOBALS['bootscore_template_context'] ?? '' ); ?>

@@ -10,6 +10,9 @@
 // Exit if accessed directly
 defined('ABSPATH') || exit;
 
+// Set global template context for custom layout hooks
+$GLOBALS['bootscore_template_context'] = 'single-full-width-image';
+
 get_header();
 ?>
 
@@ -33,6 +36,13 @@ get_header();
             <?php do_action( 'bootscore_before_title', 'single-full-width-image' ); ?>
             <div class="<?= esc_attr(apply_filters('bootscore/class/full-width-img-title-wrapper', 'full-width-img-title-wrapper card border-0 card-body bg-body bg-50 bd-blur bd-saturate-150 w-fit', 'single-full-width-image')); ?>">
               <?php the_title('<h1 class="entry-title ' . esc_attr(apply_filters('bootscore/class/entry/title', '', 'single-full-width-image')) . '">', '</h1>'); ?>
+              <p class="entry-meta fg-secondary fs-sm card-subtitle>
+                <?php
+                bootscore_date();
+                bootscore_author();
+                bootscore_comment_count();
+                ?>
+              </p>
             </div>
             <?php do_action( 'bootscore_after_title', 'single-full-width-image' ); ?>
           </div>
@@ -42,20 +52,11 @@ get_header();
         <div class="<?= esc_attr(apply_filters('bootscore/class/container', 'container', 'single-full-width-image')); ?> <?= esc_attr(apply_filters('bootscore/class/content/spacer', 'pt-7 pb-12', 'single-full-width-image')); ?>">
           
           <?php do_action( 'bootscore_after_featured_image', 'single-full-width-image' ); ?>
-          
-          <?php bootscore_breadcrumb(); ?>
 
           <div class="row">
             <div class="<?= esc_attr(apply_filters('bootscore/class/main/col', 'col')); ?>">
 
               <div class="entry-content d-flow-root">
-                <p class="entry-meta fg-secondary fs-sm">
-                  <?php
-                  bootscore_date();
-                  bootscore_author();
-                  bootscore_comment_count();
-                  ?>
-                </p>
                 <?php the_content(); ?>
               </div>
               

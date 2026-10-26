@@ -9,6 +9,9 @@
 // Exit if accessed directly
 defined('ABSPATH') || exit;
 
+// Set global template context for custom layout hooks
+$GLOBALS['bootscore_template_context'] = 'single';
+
 get_header();
 ?>
 
@@ -16,8 +19,6 @@ get_header();
     <div id="primary" class="content-area">
       
       <?php do_action( 'bootscore_after_primary_open', 'single' ); ?>
-
-      <?php bootscore_breadcrumb(); ?>
 
       <div class="row">
         <div class="<?= esc_attr(apply_filters('bootscore/class/main/col', 'col')); ?>">
