@@ -9,6 +9,9 @@
 // Exit if accessed directly
 defined('ABSPATH') || exit;
 
+// Set global template context for custom layout hooks
+$GLOBALS['bootscore_template_context'] = 'single';
+
 get_header();
 ?>
 
