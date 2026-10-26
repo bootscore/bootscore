@@ -45,7 +45,7 @@ if (!function_exists('bootscore_breadcrumb')) :
       return;
     }
 
-    echo '<nav aria-label="breadcrumb" class="' . esc_attr(apply_filters('bootscore/class/breadcrumb/nav', 'overflow-x-auto text-nowrap mb-6 mt-2 bg-1 rounded', $context)) . '">' . PHP_EOL;
+    echo '<nav aria-label="breadcrumb" class="' . esc_attr(apply_filters('bootscore/class/breadcrumb/nav', 'overflow-x-auto text-nowrap', $context)) . '">' . PHP_EOL;
     echo '<ol class="breadcrumb ' . esc_attr(apply_filters('bootscore/class/breadcrumb/ol', 'flex-nowrap', $context)) . '">' . PHP_EOL;
 
     // Home link, first item, no divider
@@ -142,6 +142,29 @@ if (!function_exists('bootscore_breadcrumb')) :
   }
 
 endif; // End of bootscore_breadcrumb() function
+
+
+/**
+ * Display the breadcrumb below the masthead
+ */
+if (!function_exists('bootscore_breadcrumb_after_masthead')) :
+  function bootscore_breadcrumb_after_masthead($context = '') {
+    // Default: all single templates (single, single-sidebar-left, single-full-width-image, …)
+    $show = str_starts_with($context, 'single');
+
+    if (!apply_filters('bootscore/breadcrumb/show', $show, $context)) {
+      return;
+    }
+    ?>
+    <div class="<?= esc_attr(apply_filters('bootscore/class/breadcrumb/wrapper', 'bs-breadcrumb bg-1 fs-sm', $context)); ?>">
+      <div class="<?= esc_attr(apply_filters('bootscore/class/breadcrumb/container', 'container', $context)); ?>">
+        <?php bootscore_breadcrumb($context); ?>
+      </div>
+    </div>
+    <?php
+  }
+endif;
+add_action('bootscore_after_masthead', 'bootscore_breadcrumb_after_masthead');
 
 
 /**

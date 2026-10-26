@@ -21,8 +21,6 @@ get_header();
       
      <?php do_action( 'bootscore_after_primary_open', 'single-sidebar-none' ); ?>
 
-      <?php bootscore_breadcrumb(); ?>
-
       <main id="main" class="site-main">
 
         <div class="entry-header">

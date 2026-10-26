@@ -21,8 +21,6 @@ get_header();
       
       <?php do_action( 'bootscore_after_primary_open', 'single-sidebar-left' ); ?>
 
-      <?php bootscore_breadcrumb(); ?>
-
       <div class="row">
         <?php get_sidebar(); ?>
         <div class="<?= esc_attr(apply_filters('bootscore/class/main/col', 'col')); ?> order-first lg:order-last">

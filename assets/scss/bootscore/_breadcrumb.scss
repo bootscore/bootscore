@@ -1,0 +1,20 @@
+/*--------------------------------------------------------------
+Breadcrumb - Bootscore v7.0.0
+--------------------------------------------------------------*/
+
+// Breadcrumb below the masthead
+@layer components {
+  .bs-breadcrumb {
+
+    // Align first and last link text with the container edge
+    .breadcrumb-item {
+      &:first-child .breadcrumb-link {
+        padding-inline-start: 0;
+      }
+
+      &:last-child .breadcrumb-link {
+        padding-inline-end: 0;
+      }
+    }
+  }
+}

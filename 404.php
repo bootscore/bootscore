@@ -12,6 +12,9 @@
 // Exit if accessed directly
 defined('ABSPATH') || exit;
 
+// Set global template context for custom layout hooks
+$GLOBALS['bootscore_template_context'] = '404';
+
 get_header();
 ?>
   <div id="content" class="site-content <?= esc_attr(apply_filters('bootscore/class/container', 'container', '404')); ?> <?= esc_attr(apply_filters('bootscore/class/content/spacer', 'pt-7 pb-12', '404')); ?>">
