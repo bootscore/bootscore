@@ -29,7 +29,8 @@ defined('ABSPATH') || exit;
 
 <?php wp_body_open(); ?>
 
-<div id="page" class="site">
+<?php $sticky_footer = apply_filters('bootscore/footer/sticky', true); ?>
+<div id="page" class="site<?= $sticky_footer ? ' d-flex flex-column min-vh-100' : ''; ?>">
   
   <!-- Skip Links -->
   <a class="skip-link visually-hidden-focusable" href="#primary"><?php esc_html_e( 'Skip to content', 'bootscore' ); ?></a>

@@ -19,7 +19,8 @@ defined('ABSPATH') || exit;
 
 <?php do_action( 'bootscore_before_footer' ); ?>
 
-<footer id="footer" class="bootscore-footer">
+<?php $sticky_footer = apply_filters('bootscore/footer/sticky', true); ?>
+<footer id="footer" class="bootscore-footer<?= $sticky_footer ? ' mt-auto' : ''; ?>">
 
   <?php if (is_active_sidebar('footer-top')) : ?>
     <div class="<?= esc_attr(apply_filters('bootscore/class/footer/top', 'bg-1 border-bottom py-12')); ?> bootscore-footer-top">
