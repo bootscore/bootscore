@@ -2,7 +2,7 @@
 
 /**
  * Template Name: Full Width Image
- * Template Version: 6.3.1
+ * Template Version: 7.0.0
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
@@ -22,18 +22,26 @@ get_header();
 
       <main id="main" class="site-main">
 
-        <?php $thumb = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'full'); ?>
-        <div class="entry-header <?= esc_attr(apply_filters('bootscore/class/featured-full-width-img', 'featured-full-width-img min-vh-75 bg-dark text-light mb-4', 'page-full-width-image')); ?>" style="background-image: url('<?= esc_url($thumb['0']); ?>')">
-          <div class="<?= esc_attr(apply_filters('bootscore/class/container', 'container', 'page-full-width-image')); ?> <?= esc_attr(apply_filters('bootscore/class/featured-full-width-img/container', 'h-100 d-flex align-items-end pb-3', 'page-full-width-image')); ?>">
-            <div class="<?= esc_attr(apply_filters('bootscore/class/full-width-img-title-wrapper', 'full-width-img-title-wrapper', 'page-full-width-image')); ?>">
-              <?php do_action( 'bootscore_before_title', 'page-full-width-image' ); ?>
+        <?php the_post(); ?>
+        <div class="entry-header <?= esc_attr(apply_filters('bootscore/class/featured-full-width-img', 'position-relative d-flex align-items-end min-vh-75 bg-black mb-5', 'page-full-width-image')); ?>">
+
+          <?php the_post_thumbnail('full', array(
+            'class'         => 'position-absolute top-0 start-0 w-100 h-100 object-fit-cover',
+            'loading'       => 'eager',
+            'fetchpriority' => 'high',
+          )); ?>
+
+          <div class="<?= esc_attr(apply_filters('bootscore/class/container', 'container', 'page-full-width-image')); ?> <?= esc_attr(apply_filters('bootscore/class/featured-full-width-img/container', 'position-relative pb-5', 'page-full-width-image')); ?>">
+            <?php do_action( 'bootscore_before_title', 'page-full-width-image' ); ?>
+            <div class="<?= esc_attr(apply_filters('bootscore/class/full-width-img-title-wrapper', 'full-width-img-title-wrapper card border-0 card-body bg-body bg-50 bd-blur bd-saturate-150 w-fit', 'page-full-width-image')); ?>">
               <?php the_title('<h1 class="entry-title ' . esc_attr(apply_filters('bootscore/class/entry/title', '', 'page-full-width-image')) . '">', '</h1>'); ?>
-              <?php do_action( 'bootscore_after_title', 'page-full-width-image' ); ?>
             </div>
+            <?php do_action( 'bootscore_after_title', 'page-full-width-image' ); ?>
           </div>
+
         </div>
 
-        <div class="<?= esc_attr(apply_filters('bootscore/class/container', 'container', 'page-full-width-image')); ?> <?= esc_attr(apply_filters('bootscore/class/content/spacer', 'pb-5', 'page-full-width-image')); ?>">
+        <div class="<?= esc_attr(apply_filters('bootscore/class/container', 'container', 'page-full-width-image')); ?> <?= esc_attr(apply_filters('bootscore/class/content/spacer', 'pt-7 pb-12', 'page-full-width-image')); ?>">
           
           <?php do_action( 'bootscore_after_featured_image', 'page-full-width-image' ); ?>
           

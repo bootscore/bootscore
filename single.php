@@ -12,7 +12,7 @@ defined('ABSPATH') || exit;
 get_header();
 ?>
 
-  <div id="content" class="site-content <?= esc_attr(apply_filters('bootscore/class/container', 'container', 'single')); ?> <?= esc_attr(apply_filters('bootscore/class/content/spacer', 'pt-3 pb-5', 'single')); ?>">
+  <div id="content" class="site-content <?= esc_attr(apply_filters('bootscore/class/container', 'container', 'single')); ?> <?= esc_attr(apply_filters('bootscore/class/content/spacer', 'pt-7 pb-12', 'single')); ?>">
     <div id="primary" class="content-area">
       
       <?php do_action( 'bootscore_after_primary_open', 'single' ); ?>
@@ -26,20 +26,17 @@ get_header();
 
             <div class="entry-header">
               <?php the_post(); ?>
-              <?php bootscore_categories(); ?>
               <?php do_action( 'bootscore_before_title', 'single' ); ?>
               <?php the_title('<h1 class="entry-title ' . esc_attr(apply_filters('bootscore/class/entry/title', '', 'single')) . '">', '</h1>'); ?>
               <?php do_action( 'bootscore_after_title', 'single' ); ?>
-              <p class="entry-meta">
-                <small class="text-body-secondary">
-                  <?php
-                  bootscore_date();
-                  bootscore_author();
-                  bootscore_comment_count();
-                  ?>
-                </small>
+              <p class="entry-meta fg-secondary fs-sm">
+                <?php
+                bootscore_date();
+                bootscore_author();
+                bootscore_comment_count();
+                ?>
               </p>
-              <?php bootscore_post_thumbnail(); ?>
+              <?php if (!post_password_required()) the_post_thumbnail('full', array('class' => esc_attr(apply_filters('bootscore/class/featured-image', 'rounded mb-5', 'single')))); ?>
             </div>
             
             <?php do_action( 'bootscore_after_featured_image', 'single' ); ?>

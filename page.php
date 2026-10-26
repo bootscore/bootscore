@@ -2,7 +2,7 @@
 
 /**
  * The template for displaying all pages
- * Template Version: 6.3.1
+ * Template Version: 7.0.0
  *
  * This is the template that displays all pages by default.
  * Please note that this is the WordPress construct of pages
@@ -20,7 +20,7 @@ defined('ABSPATH') || exit;
 get_header();
 ?>
 
-  <div id="content" class="site-content <?= esc_attr(apply_filters('bootscore/class/container', 'container', 'page')); ?> <?= esc_attr(apply_filters('bootscore/class/content/spacer', 'pt-4 pb-5', 'page')); ?>">
+  <div id="content" class="site-content <?= esc_attr(apply_filters('bootscore/class/container', 'container', 'page')); ?> <?= esc_attr(apply_filters('bootscore/class/content/spacer', 'pt-7 pb-12', 'page')); ?>">
     <div id="primary" class="content-area">
       
       <?php do_action( 'bootscore_after_primary_open', 'page' ); ?>
@@ -35,7 +35,7 @@ get_header();
               <?php do_action( 'bootscore_before_title', 'page' ); ?>
               <?php the_title('<h1 class="entry-title ' . esc_attr(apply_filters('bootscore/class/entry/title', '', 'page')) . '">', '</h1>'); ?>
               <?php do_action( 'bootscore_after_title', 'page' ); ?>
-              <?php bootscore_post_thumbnail(); ?>
+              <?php if (!post_password_required()) the_post_thumbnail('full', array('class' => esc_attr(apply_filters('bootscore/class/featured-image', 'rounded mb-5', 'page')))); ?>
             </div>
             
             <?php do_action( 'bootscore_after_featured_image', 'page' ); ?>

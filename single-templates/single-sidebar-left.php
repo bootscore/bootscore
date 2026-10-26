@@ -13,7 +13,7 @@ defined('ABSPATH') || exit;
 get_header();
 ?>
 
-  <div id="content" class="site-content <?= esc_attr(apply_filters('bootscore/class/container', 'container', 'single-sidebar-left')); ?> <?= esc_attr(apply_filters('bootscore/class/content/spacer', 'pt-3 pb-5', 'single-sidebar-left')); ?>">
+  <div id="content" class="site-content <?= esc_attr(apply_filters('bootscore/class/container', 'container', 'single-sidebar-left')); ?> <?= esc_attr(apply_filters('bootscore/class/content/spacer', 'pt-7 pb-12', 'single-sidebar-left')); ?>">
     <div id="primary" class="content-area">
       
       <?php do_action( 'bootscore_after_primary_open', 'single-sidebar-left' ); ?>
@@ -22,26 +22,23 @@ get_header();
 
       <div class="row">
         <?php get_sidebar(); ?>
-        <div class="<?= esc_attr(apply_filters('bootscore/class/main/col', 'col')); ?> order-first order-md-last">
+        <div class="<?= esc_attr(apply_filters('bootscore/class/main/col', 'col')); ?> order-first lg:order-last">
 
           <main id="main" class="site-main">
 
             <div class="entry-header">
               <?php the_post(); ?>
-              <?php bootscore_categories(); ?>
               <?php do_action( 'bootscore_before_title', 'single-sidebar-left' ); ?>
               <?php the_title('<h1 class="entry-title ' . esc_attr(apply_filters('bootscore/class/entry/title', '', 'single-sidebar-left')) . '">', '</h1>'); ?>
               <?php do_action( 'bootscore_after_title', 'single-sidebar-left' ); ?>
-              <p class="entry-meta">
-                <small class="text-body-secondary">
-                  <?php
-                  bootscore_date();
-                  bootscore_author();
-                  bootscore_comment_count();
-                  ?>
-                </small>
+              <p class="entry-meta fg-secondary fs-sm">
+                <?php
+                bootscore_date();
+                bootscore_author();
+                bootscore_comment_count();
+                ?>
               </p>
-              <?php bootscore_post_thumbnail(); ?>
+              <?php if (!post_password_required()) the_post_thumbnail('full', array('class' => esc_attr(apply_filters('bootscore/class/featured-image', 'rounded mb-5', 'single-sidebar-left')))); ?>
             </div>
             
             <?php do_action( 'bootscore_after_featured_image', 'single-sidebar-left' ); ?>
