@@ -22,17 +22,3 @@ document.addEventListener('shown.bs.menu', (event) => {
   const input = toggle.parentElement?.querySelector<HTMLInputElement>('.search-menu input:not([type="hidden"])');
   input?.focus();
 });
-
-
-// Scroll to top Button
-// Refactor to scroll-driven CSS?
-var topButton = document.querySelector('.top-button');
-if (topButton) {
-  window.addEventListener('scroll', function () {
-    if (window.scrollY >= 500) {
-      topButton.classList.add('visible');
-    } else {
-      topButton.classList.remove('visible');
-    }
-  });
-}
