@@ -1,25 +1,8 @@
 /*--------------------------------------------------------------
-To top button 
+To top button - Bootscore v7.0.0
 --------------------------------------------------------------*/
 
-
-.top-button {
-  opacity: 0;
-  visibility: hidden;
-  transition: visibility 0s linear .3s, opacity .3s;
-
-  &.visible {
-    opacity: 1;
-    visibility: visible;
-    transition: visibility 0s linear 0s, opacity .3s;
-  }
-}
-
-
-// Refactor to scroll-driven CSS?
-// Delete script in bootscore-scripts
-// Not supported by older browsers
-/*
+// Scroll-driven CSS, not supported by older browsers
 .top-button {
   opacity: 0;
   visibility: hidden;
@@ -37,4 +20,3 @@ To top button
     visibility: visible;
   }
 }
-*/
