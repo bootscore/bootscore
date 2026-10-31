@@ -3,11 +3,14 @@ Header - Bootscore v7.0.0
 --------------------------------------------------------------*/
 
 
-// Setting the scroll-margin to the <html> creates issues with offcanvas
+// Scroll offset for anchor links, so targets aren't hidden behind the sticky header.
+// Setting scroll-padding on <html> creates issues with offcanvas:
 // https://github.com/twbs/bootstrap/issues/41615
-
-// Using the [id] selector instead
+// Using the [id] selector instead:
 // https://piccalil.li/blog/add-scroll-margin-to-all-elements-which-can-be-targeted/
-[id] {
-  scroll-margin-top: var(--scroll-margin-top, 55px); // 55px default navbar height
+@layer reboot {
+  [id] {
+    // 55px default navbar height, plus the WP admin bar when it's visible
+    scroll-margin-block-start: calc(var(--scroll-margin-top, 55px) + var(--wp-admin--admin-bar--height, 0px));
+  }
 }

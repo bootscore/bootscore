@@ -53,10 +53,12 @@ require_once get_template_directory() . '/inc/blocks/block-widget-latest-posts.p
 require_once get_template_directory() . '/inc/blocks/block-widget-search.php';          // Searchform block
 
 // Contents
-require_once get_template_directory() . '/inc/blocks/block-buttons.php'; // Button block
-require_once get_template_directory() . '/inc/blocks/block-code.php';    // Code block
-require_once get_template_directory() . '/inc/blocks/block-quote.php';   // Quote block
-require_once get_template_directory() . '/inc/blocks/block-table.php';   // Table block
+require_once get_template_directory() . '/inc/blocks/block-buttons.php';     // Button block
+require_once get_template_directory() . '/inc/blocks/block-code.php';        // Code block
+require_once get_template_directory() . '/inc/blocks/block-quote.php';       // Quote block
+require_once get_template_directory() . '/inc/blocks/block-table.php';       // Table block
+require_once get_template_directory() . '/inc/blocks/block-separator.php';   // Separator block
+require_once get_template_directory() . '/inc/blocks/block-image.php';       // Image block
 
 // Disable unsupported blocks and patterns
 if (apply_filters('bootscore/disable/unsupported/blocks', false)) {

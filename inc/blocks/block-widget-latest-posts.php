@@ -33,8 +33,15 @@ if (!function_exists('bootscore_block_widget_latest_posts_classes')) {
 
       if ('UL' === $tag && $tags->has_class('wp-block-latest-posts__list')) {
         $tags->add_class('bs-list-group list-group');
+
+        // Remove the layout classes WordPress adds (is-layout-flow, wp-block-latest-posts-is-layout-flow)
+        foreach (iterator_to_array($tags->class_list()) as $class) {
+          if (str_starts_with($class, 'is-layout-') || str_contains($class, '-is-layout-')) {
+            $tags->remove_class($class);
+          }
+        }
       } elseif ('LI' === $tag) {
-        $tags->add_class('list-group-item list-group-item-action');
+        $tags->add_class('list-group-item list-group-item-action mt-0');
       } elseif ('DIV' === $tag && $tags->has_class('wp-block-latest-posts__featured-image')) {
         $in_featured = true;
       } elseif ('IMG' === $tag && $in_featured) {

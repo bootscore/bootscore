@@ -26,7 +26,7 @@ get_header();
       <main id="main" class="site-main">
 
         <?php the_post(); ?>
-        <div class="entry-header <?= esc_attr(apply_filters('bootscore/class/featured-full-width-img', 'position-relative d-flex align-items-end min-vh-75 bg-black mb-5', 'page-full-width-image')); ?>">
+        <div class="entry-header <?= esc_attr(apply_filters('bootscore/class/featured-full-width-img', 'position-relative d-flex align-items-end min-vh-60 bg-black mb-5', 'page-full-width-image')); ?>">
 
           <?php the_post_thumbnail('full', array(
             'class'         => 'position-absolute top-0 start-0 w-100 h-100 object-fit-cover',

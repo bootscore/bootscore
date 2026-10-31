@@ -2,9 +2,13 @@
 Icons - Bootscore v7.0.0
 --------------------------------------------------------------*/
 
-.bs-icon {
-  fill: currentColor;
-  width: 1em;
-  height: 1em;
-  vertical-align: -.125em;
+// Inline SVG icons: sized and colored by the surrounding text
+@layer content {
+  .bs-icon {
+    flex-shrink: 0;
+    width: 1em;
+    height: 1em;
+    vertical-align: -.125em;
+    fill: currentcolor;
+  }
 }

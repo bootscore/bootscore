@@ -2,8 +2,11 @@
 Selection - Bootscore v7.0.0
 --------------------------------------------------------------*/
 
-// Text selection
-::selection {
-  color: var(--primary-contrast);
-  background-color: var(--primary-bg);
+
+// Text selection in the primary color
+@layer reboot {
+  ::selection {
+    color: var(--primary-contrast);
+    background-color: var(--primary-bg);
+  }
 }
