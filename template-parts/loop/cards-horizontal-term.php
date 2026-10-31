@@ -56,7 +56,7 @@ $term_count_label = apply_filters(
     <?php if ($term_thumbnail_id) : ?>
       <div class="<?= esc_attr(apply_filters('bootscore/class/loop/card/image/col', 'md:col-5 lg:col-6 xl:col-5 2xl:col-4', 'cards-horizontal')); ?>">
         <?php if ($term_link) : ?><a href="<?= esc_url($term_link); ?>" aria-hidden="true" tabindex="-1"><?php endif; ?>
-          <?= wp_get_attachment_image($term_thumbnail_id, 'medium', false, array('class' => esc_attr(apply_filters('bootscore/class/loop/card/image', 'h-md-100 object-fit-md-cover', 'cards-horizontal')))); ?>
+          <?= wp_get_attachment_image($term_thumbnail_id, 'medium', false, array('class' => esc_attr(apply_filters('bootscore/class/loop/card/image', 'h-100 object-fit-cover', 'cards-horizontal')))); ?>
         <?php if ($term_link) : ?></a><?php endif; ?>
       </div>
     <?php endif; ?>

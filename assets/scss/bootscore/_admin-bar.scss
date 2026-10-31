@@ -1,29 +1,21 @@
 /*--------------------------------------------------------------
-Admin bar
+Admin bar - Bootscore v7.0.0
 --------------------------------------------------------------*/
 
-// Mobile
-@use "../bootstrap/layout/breakpoints" as *;
-
-@include media-breakpoint-down(md) {
+// WordPress makes the admin bar scroll away (position: absolute) at 600px and below.
+// Keep it fixed, so the offset for fixed and sticky elements below stays correct.
+@media (width <= 600px) {
   #wpadminbar {
     position: fixed;
   }
 }
 
-
 .logged-in.admin-bar {
 
-  // Push content down when WP admin-bar is visible
+  // Push fixed and sticky elements below the admin bar.
+  // [class*="sticky-top"] also covers the responsive variants (md:sticky-top, …).
   .fixed-top,
-  .sticky-top {
+  [class*="sticky-top"] {
     top: var(--wp-admin--admin-bar--height, 32px);
   }
-
-  /*
-  // Adjust overlays height
- .drawer {
-    height: calc(100% - var(--wp-admin--admin-bar--height, 32px));
-  }
-  */
 }

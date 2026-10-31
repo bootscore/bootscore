@@ -2,15 +2,18 @@
 To top button - Bootscore v7.0.0
 --------------------------------------------------------------*/
 
-// Scroll-driven CSS, not supported by older browsers
-.top-button {
-  opacity: 0;
-  visibility: hidden;
 
+// Fade in after 500px of scrolling (scroll-driven animation).
+// Browsers without support show the button all the time.
+@layer components {
   @supports (animation-timeline: scroll()) {
-    animation: top-button-show linear both;
-    animation-timeline: scroll(root);
-    animation-range: 500px 600px;
+    .top-button {
+      opacity: 0;
+      visibility: hidden;
+      animation: top-button-show linear both;
+      animation-timeline: scroll(root);
+      animation-range: 500px 600px;
+    }
   }
 }
 

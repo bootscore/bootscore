@@ -3,13 +3,13 @@ Markup - Bootscore v7.0.0
 --------------------------------------------------------------*/
 
 
-//HTML Markups (Theme Unit Test Data)
-
-// _markup.scss
+// Base styles for content from the editor (Theme Unit Test Data):
+// media never overflows its container
 @layer reboot {
-  img {
-    height: auto;
+  img,
+  video {
     max-width: 100%;
+    height: auto;
   }
 
   iframe {

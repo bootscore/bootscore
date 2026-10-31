@@ -3,8 +3,10 @@ Color mode - Bootscore v7.0.0
 --------------------------------------------------------------*/
 
 
-// Display in dark mode: dark:d-none, dark:d-inline, dark:d-flex, …
+// Display in dark mode: dark:d-none, dark:d-inline-block
 // Follows data-bs-theme (theme switcher) and the OS setting.
+// Example (logo switch): <img class="dark:d-none"> + <img class="d-none dark:d-inline-block">
+// Add values to the list below if needed, e.g. block, flex.
 $display-values: inline-block none;
 
 @layer utilities {
@@ -25,3 +27,4 @@ $display-values: inline-block none;
     }
   }
 }
+
