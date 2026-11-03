@@ -15,7 +15,7 @@ defined( 'ABSPATH' ) || exit;
 
 ?>
 
-<label class="dark-mode-switch switch">
+<label class="dark-mode-switch switch <?= esc_attr( apply_filters('bootscore/class/dark-mode/switch/label', '') ); ?>">
   <input class="bs-theme-switcher cursor-pointer" type="checkbox">
   <span class="visually-hidden"><?php esc_html_e('Toggle theme', 'bootscore'); ?></span>
 </label>
