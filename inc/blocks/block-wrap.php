@@ -1,11 +1,16 @@
 <?php
+
 /**
- * bs Wrapper block: a minimal semantic wrapper with tag, class and custom attributes.
+ * Bootscore wrapper block: a minimal semantic wrapper with tag, class and custom attributes.
+ *
+ * @package Bootscore
+ * @version 7.0.0
  */
 
-if ( ! defined( 'ABSPATH' ) ) {
-  exit;
-}
+
+// Exit if accessed directly
+defined('ABSPATH') || exit;
+
 
 add_action( 'init', 'bs_wrapper_register_block' );
 

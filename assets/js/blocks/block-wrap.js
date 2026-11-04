@@ -1,3 +1,10 @@
+/**
+ * Bootscore wrapper block: a minimal semantic wrapper with tag, class and custom attributes.
+ *
+ * @package Bootscore
+ * @version 7.0.0
+ */
+
 ( function ( blocks, element, blockEditor, components, i18n, data, plugins, editor ) {
   var el = element.createElement;
   var InnerBlocks = blockEditor.InnerBlocks;

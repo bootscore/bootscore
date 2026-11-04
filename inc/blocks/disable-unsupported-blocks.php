@@ -4,7 +4,7 @@
  * Disable unsupported blocks and patterns - Whitelist
  *
  * @package Bootscore
- * @version 6.4.0
+ * @version 7.0.0
  */
 
 
@@ -17,6 +17,9 @@ defined('ABSPATH') || exit;
  */
 add_filter('allowed_block_types_all', function ($allowed_blocks, $editor_context) {
   $supported_blocks = [
+
+    // Bootscore
+    'bootscore/wrapper',
 
     // Core
     'core/block',
