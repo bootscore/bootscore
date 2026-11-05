@@ -10,7 +10,7 @@
  *     variation_id: int
  * } $cart_item Cart item data
  *
- * @WooCommerce 11.2.0
+ * @WooCommerce 11.2.2
  *
  * @package Bootscore
  * @version 6.5.1
