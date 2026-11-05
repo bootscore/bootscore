@@ -10,7 +10,7 @@
  *     variation_id: int
  * } $cart_item Cart item data
  *
- * @WooCommerce 11.2.0
+ * @WooCommerce 11.2.2
  *
  * @package Bootscore
  * @version 7.0.0
@@ -94,12 +94,11 @@
               }
             ?>
 
-              <div class="item-quantity">
-                <?php echo wc_get_formatted_cart_item_data( $cart_item, false, $cart_item_name ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-                ?>
-                <?php echo apply_filters('woocommerce_widget_cart_item_quantity', '<span class="quantity">' . sprintf('<span class="qty_text">%s</span> &times; %s', $cart_item['quantity'], $product_price) . '</span>', $cart_item, $cart_item_key); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-                ?>
-              </div>
+            <div class="item-quantity">
+              <?php echo wc_get_formatted_cart_item_data( $cart_item, false, $cart_item_name ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+              <?php echo apply_filters('woocommerce_widget_cart_item_quantity', '<span class="quantity">' . sprintf('<span class="qty_text">%s</span> &times; %s', esc_html($cart_item['quantity']), $product_price) . '</span>', $cart_item, $cart_item_key); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+              ?>
+            </div>
 
           </div>
 
