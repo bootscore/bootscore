@@ -13,7 +13,7 @@
  * @WooCommerce 11.2.0
  *
  * @package Bootscore
- * @version 6.5.0
+ * @version 6.5.1
  */
 
   // Exit if accessed directly
@@ -95,8 +95,7 @@
             ?>
 
               <div class="item-quantity">
-                <?php echo wc_get_formatted_cart_item_data( $cart_item, false, $cart_item_name ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-                ?>
+                <?php echo wc_get_formatted_cart_item_data( $cart_item, false, $cart_item_name ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
                 <?php echo apply_filters('woocommerce_widget_cart_item_quantity', '<span class="quantity">' . sprintf('<span class="qty_text">%s</span> &times; %s', $cart_item['quantity'], $product_price) . '</span>', $cart_item, $cart_item_key); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
                 ?>
               </div>
