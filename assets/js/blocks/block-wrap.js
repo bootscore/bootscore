@@ -68,13 +68,10 @@
     } )
   );
 
-  // Recursively clone a block so originals aren't removed when wrapping.
-  function cloneBlock( block ) {
-    return createBlock(
-      block.name,
-      Object.assign( {}, block.attributes ),
-      block.innerBlocks.map( cloneBlock )
-    );
+  // Copy blocks with new client IDs by serializing and parsing them again.
+  // This keeps every block's saved content (including Custom HTML) intact.
+  function copyBlocks( blocksArray ) {
+    return blocks.parse( blocks.serialize( blocksArray ) );
   }
 
   // Replace a wrapper with its inner blocks.
@@ -90,7 +87,7 @@
     var ids = store.getSelectedBlockClientIds();
     if ( ! ids.length ) return;
     var selected = store.getBlocksByClientId( ids );
-    var wrapper = createBlock( 'bootscore/wrapper', {}, selected.map( cloneBlock ) );
+    var wrapper = createBlock( 'bootscore/wrapper', {}, copyBlocks( selected ) );
     dispatch( 'core/block-editor' ).replaceBlocks( ids, wrapper );
   }
 
@@ -130,8 +127,7 @@
           isMultiBlock: true,
           blocks: [ '*' ],
           __experimentalConvert: function ( blocksArray ) {
-            var innerBlocks = blocksArray.map( cloneBlock );
-            return createBlock( 'bootscore/wrapper', {}, innerBlocks );
+            return createBlock( 'bootscore/wrapper', {}, copyBlocks( blocksArray ) );
           }
         }
       ]
