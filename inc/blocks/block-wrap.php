@@ -31,6 +31,9 @@ if ( ! function_exists( 'bs_wrapper_register_block' ) ) {
       true
     );
 
+    // Editor strings, loaded from the theme's languages folder.
+    wp_set_script_translations( 'bs-wrapper-editor', 'bootscore', get_template_directory() . '/languages' );
+
     register_block_type( 'bootscore/wrapper', array(
       'editor_script'   => 'bs-wrapper-editor',
       'render_callback' => 'bs_wrapper_render',

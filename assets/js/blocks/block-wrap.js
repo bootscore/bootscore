@@ -96,8 +96,8 @@
 
   blocks.registerBlockType( 'bootscore/wrapper', {
     apiVersion: 2,
-    title: __( 'Wrap' ),
-    description: __( 'A flexible semantic wrapper block. Select any HTML tag, add classes and custom attributes - no layout bloat.' ),
+    title: __( 'Wrap', 'bootscore' ),
+    description: __( 'A flexible semantic wrapper block. Select any HTML tag, add classes and custom attributes - no layout bloat.', 'bootscore' ),
     icon: wrapIcon,
     category: 'layout',
 
@@ -186,7 +186,7 @@
             {},
             el( ToolbarButton, {
               icon: unwrapIcon,
-              label: __( 'Unwrap' ),
+              label: __( 'Unwrap', 'bootscore' ),
               onClick: function () {
                 unwrapBlock( clientId );
               }
@@ -200,9 +200,9 @@
           {},
           el(
             PanelBody,
-            { title: __( 'Wrapper Settings' ), initialOpen: true },
+            { title: __( 'Wrapper Settings', 'bootscore' ), initialOpen: true },
             el( SelectControl, {
-              label: __( 'HTML Tag' ),
+              label: __( 'HTML Tag', 'bootscore' ),
               value: attributes.tagName,
               options: TAG_OPTIONS,
               onChange: function ( value ) {
@@ -210,7 +210,7 @@
               }
             } ),
             el( TextControl, {
-              label: __( 'CSS Class' ),
+              label: __( 'CSS Class', 'bootscore' ),
               value: attributes.cssClass,
               onChange: function ( value ) {
                 setAttributes( { cssClass: value } );
@@ -219,7 +219,7 @@
           ),
           el(
             PanelBody,
-            { title: __( 'HTML Attributes' ), initialOpen: true },
+            { title: __( 'HTML Attributes', 'bootscore' ), initialOpen: true },
             extraAttributes.map( function ( attr, index ) {
               return el(
                 'div',
@@ -231,7 +231,7 @@
                   'div',
                   { style: { flex: 1 } },
                   el( TextControl, {
-                    label: index === 0 ? __( 'Attribute' ) : undefined,
+                    label: index === 0 ? __( 'Attribute', 'bootscore' ) : undefined,
                     placeholder: 'id',
                     value: attr.key,
                     onChange: function ( value ) {
@@ -243,7 +243,7 @@
                   'div',
                   { style: { flex: 1 } },
                   el( TextControl, {
-                    label: index === 0 ? __( 'Value' ) : undefined,
+                    label: index === 0 ? __( 'Value', 'bootscore' ) : undefined,
                     placeholder: 'my-id',
                     value: attr.value,
                     onChange: function ( value ) {
@@ -256,7 +256,7 @@
                   isSmall: true,
                   isDestructive: true,
                   style: { marginBottom: index === 0 ? '8px' : '0' },
-                  label: __( 'Remove' ),
+                  label: __( 'Remove', 'bootscore' ),
                   onClick: function () {
                     removeAttr( index );
                   }
@@ -270,7 +270,7 @@
                 isSmall: true,
                 onClick: addAttr
               },
-              __( '+ Add Attribute' )
+              __( '+ Add Attribute', 'bootscore' )
             )
           )
         ),
@@ -295,13 +295,13 @@
           {},
           el( PluginBlockSettingsMenuItem, {
             icon: wrapIcon,
-            label: __( 'Wrap' ),
+            label: __( 'Wrap', 'bootscore' ),
             onClick: wrapSelection
           } ),
           el( PluginBlockSettingsMenuItem, {
             allowedBlocks: [ 'bootscore/wrapper' ],
             icon: unwrapIcon,
-            label: __( 'Unwrap' ),
+            label: __( 'Unwrap', 'bootscore' ),
             onClick: function () {
               var id = select( 'core/block-editor' ).getSelectedBlockClientId();
               if ( id ) unwrapBlock( id );
