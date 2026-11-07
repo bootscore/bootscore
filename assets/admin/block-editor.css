@@ -30,3 +30,21 @@
   display: block;
 }
 */
+
+/* Editor only: show nav-overflow tabs without Bootstrap's JavaScript */
+.editor-styles-wrapper .nav-overflow,
+.editor-styles-wrapper .nav-overflow .nav {
+  display: flex;
+  flex-wrap: wrap;
+  overflow: visible !important;
+  visibility: visible !important;
+  height: auto !important;
+  opacity: 1 !important;
+}
+
+.editor-styles-wrapper .nav-overflow .nav-item {
+  display: block !important;
+  visibility: visible !important;
+  position: static !important;
+  opacity: 1 !important;
+}
