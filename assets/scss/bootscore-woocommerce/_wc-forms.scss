@@ -4,8 +4,8 @@ WooCommerce Forms - Bootscore v7.0.0
 
 @use "../bootstrap/forms";
 
-// Text inputs, textareas and selects, incl. the quantity input in the mini cart
-:is(.woocommerce, .widget_shopping_cart_content) :is(.input-text, select) {
+// Text inputs, textareas and selects. The quantity input gets .form-control in PHP (wc-forms.php)
+.woocommerce :is(.input-text, select) {
   @extend .form-control;
 }
 

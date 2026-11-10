@@ -5,7 +5,7 @@ WooCommerce Mini Cart - Bootscore v7.0.0
 @use "../bootstrap/alert";
 @use "../bootstrap/helpers";
 
-// Empty cart message
+// Empty cart message, no class filter in WooCommerce
 .woocommerce-mini-cart__empty-message {
   @extend .alert;
   @extend .theme-info;
@@ -40,22 +40,13 @@ WooCommerce Mini Cart - Bootscore v7.0.0
 
   .widget_shopping_cart_content {
 
-    // List
-    .woocommerce-mini-cart {
-      padding: 0;
-      margin: 0;
-      list-style: none;
-    }
-
-    // Item: image | name, details, quantity | subtotal, remove
+    // Item, .list-group-item from PHP (wc-mini-cart.php)
+    // Grid: image | name, details, quantity | subtotal, remove
     .woocommerce-mini-cart-item {
-      position: relative;
       display: grid;
       grid-template-columns: var(--mini-cart-image-width, 4.5rem) minmax(0, 1fr) auto;
       gap: var(--spacer-1) var(--spacer-5);
       align-items: start;
-      padding: var(--spacer-5);
-      border-block-end: var(--border-width) solid var(--border-color);
 
       // Link around image and name: image and name become grid items
       > a:not(.remove) {
@@ -136,7 +127,7 @@ WooCommerce Mini Cart - Bootscore v7.0.0
       }
     }
 
-    // Total and buttons
+    // Total and buttons, no hook to wrap them in a .drawer-footer
     .woocommerce-mini-cart__total,
     .woocommerce-mini-cart__buttons {
       padding: var(--spacer-5);

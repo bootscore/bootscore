@@ -3,7 +3,7 @@
 /**
  * WooCommerce forms
  *
- * Form fields are styled in SCSS (bootscore-woocommerce/_wc-forms.scss), no classes are added here.
+ * Form fields are styled in SCSS (bootscore-woocommerce/_wc-forms.scss), except where a filter is available.
  *
  * @package Bootscore
  * @version 7.0.0
@@ -27,3 +27,13 @@ function bootscore_wc_remove_select2() {
   wp_deregister_script('selectWoo');
 }
 add_action('wp_enqueue_scripts', 'bootscore_wc_remove_select2', 100);
+
+
+/**
+ * Quantity input, also used in the mini cart outside .woocommerce
+ */
+function bootscore_wc_quantity_input_classes($classes) {
+  $classes[] = 'form-control';
+  return $classes;
+}
+add_filter('woocommerce_quantity_input_classes', 'bootscore_wc_quantity_input_classes');

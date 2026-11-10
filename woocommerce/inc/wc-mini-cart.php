@@ -45,6 +45,53 @@ endif;
 
 
 /**
+ * Mini cart list classes
+ *
+ * woocommerce_mini_cart() is pluggable and loaded by WooCommerce after the theme (after_setup_theme, priority 11).
+ * The cart fragments call it without arguments, so the list classes are set here.
+ */
+if (!function_exists('woocommerce_mini_cart')) :
+  function woocommerce_mini_cart($args = array()) {
+    $args = wp_parse_args($args, array(
+      'list_class' => apply_filters('bootscore/class/woocommerce/mini-cart/list', 'list-group list-group-flush'),
+    ));
+
+    wc_get_template('cart/mini-cart.php', $args);
+  }
+endif;
+
+
+/**
+ * Mini cart item classes
+ */
+function bootscore_wc_mini_cart_item_class($class, $cart_item, $cart_item_key) {
+  return $class . ' ' . apply_filters('bootscore/class/woocommerce/mini-cart/item', 'list-group-item py-5');
+}
+add_filter('woocommerce_mini_cart_item_class', 'bootscore_wc_mini_cart_item_class', 10, 3);
+
+
+/**
+ * Mini cart buttons
+ *
+ * Replace the WooCommerce buttons (class .button) with Bootstrap buttons.
+ * Change classes via filter, 2nd argument is the button: 'view-cart' or 'checkout'.
+ */
+remove_action('woocommerce_widget_shopping_cart_buttons', 'woocommerce_widget_shopping_cart_button_view_cart', 10);
+add_action('woocommerce_widget_shopping_cart_buttons', 'bootscore_wc_mini_cart_button_view_cart', 10);
+
+function bootscore_wc_mini_cart_button_view_cart() {
+  echo '<a href="' . esc_url(wc_get_cart_url()) . '" class="wc-forward ' . esc_attr(apply_filters('bootscore/class/woocommerce/mini-cart/button', 'btn-outline theme-primary', 'view-cart')) . '">' . esc_html__('View cart', 'woocommerce') . '</a>';
+}
+
+remove_action('woocommerce_widget_shopping_cart_buttons', 'woocommerce_widget_shopping_cart_proceed_to_checkout', 20);
+add_action('woocommerce_widget_shopping_cart_buttons', 'bootscore_wc_mini_cart_button_checkout', 20);
+
+function bootscore_wc_mini_cart_button_checkout() {
+  echo '<a href="' . esc_url(wc_get_checkout_url()) . '" class="checkout wc-forward ' . esc_attr(apply_filters('bootscore/class/woocommerce/mini-cart/button', 'btn-solid theme-primary', 'checkout')) . '">' . esc_html__('Checkout', 'woocommerce') . '</a>';
+}
+
+
+/**
  * Remove link: trash icon instead of &times;
  */
 function bootscore_wc_cart_item_remove_link($link, $cart_item_key) {

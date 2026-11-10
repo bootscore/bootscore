@@ -9,18 +9,18 @@ WooCommerce Buttons - Bootscore v7.0.0
 // @extend adds the selectors to Bootstrap's own rules and layers (components, helpers),
 // so all states (hover, focus, active, disabled) work like on .btn.
 
-// Inside WooCommerce content and the mini cart (drawer and widget, outside .woocommerce)
+// Mini cart buttons get Bootstrap classes in PHP (wc-mini-cart.php)
 
-// Secondary actions, e.g. Update cart, Apply coupon, View cart
-:is(.woocommerce, .widget_shopping_cart_content) .button:not(.alt, .checkout) {
+// Secondary actions, e.g. Update cart, Apply coupon
+.woocommerce .button:not(.alt) {
   @extend .btn-outline;
 }
 
-// Primary actions, e.g. Add to cart, Proceed to checkout, Place order, Checkout in the mini cart
-:is(.woocommerce, .widget_shopping_cart_content) .button:is(.alt, .checkout) {
+// Primary actions, e.g. Add to cart, Proceed to checkout, Place order
+.woocommerce .button.alt {
   @extend .btn-solid;
 }
 
-:is(.woocommerce, .widget_shopping_cart_content) .button {
+.woocommerce .button {
   @extend .theme-primary;
 }
