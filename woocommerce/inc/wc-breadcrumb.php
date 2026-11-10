@@ -1,10 +1,13 @@
 <?php
 
 /**
- * WooCommerce Breadcrumb
+ * WooCommerce breadcrumb
  *
- * @package Bootscore 
- * @version 6.4.0
+ * Adds WooCommerce items to bootscore_breadcrumb() via the bootscore/breadcrumb/handler filter.
+ * Shown below the masthead on all WooCommerce templates (context 'woocommerce').
+ *
+ * @package Bootscore
+ * @version 7.0.0
  */
 
 
@@ -13,167 +16,135 @@ defined('ABSPATH') || exit;
 
 
 /**
- * Add WooCommerce breadcrumb support
+ * Show the breadcrumb below the masthead on WooCommerce templates
+ *
+ * Priority 5, so child themes can still hide it with the same filter.
  */
-function bootscore_woocommerce_breadcrumb_handler($handled) {
-  
-  // If already handled by another plugin, return
+function bootscore_wc_breadcrumb_show($show, $context) {
+  return 'woocommerce' === $context ? true : $show;
+}
+add_filter('bootscore/breadcrumb/show', 'bootscore_wc_breadcrumb_show', 5, 2);
+
+
+/**
+ * Shop page item
+ */
+function bootscore_wc_breadcrumb_shop_item($context, $current = false) {
+  $shop_page_id = wc_get_page_id('shop');
+
+  if ($shop_page_id > 0) {
+    bootscore_breadcrumb_item(esc_html(get_the_title($shop_page_id)), $current ? '' : get_permalink($shop_page_id), $context);
+  }
+}
+
+
+/**
+ * Ancestor term items
+ */
+function bootscore_wc_breadcrumb_ancestor_items($term, $context) {
+  $ancestors = array_reverse(get_ancestors($term->term_id, $term->taxonomy, 'taxonomy'));
+
+  foreach ($ancestors as $ancestor_id) {
+    $ancestor = get_term($ancestor_id, $term->taxonomy);
+    if ($ancestor && !is_wp_error($ancestor)) {
+      bootscore_breadcrumb_item(esc_html($ancestor->name), get_term_link($ancestor), $context);
+    }
+  }
+}
+
+
+/**
+ * WooCommerce breadcrumb handler
+ */
+function bootscore_wc_breadcrumb_handler($handled, $context = '') {
+
+  // Already handled by another handler
   if ($handled) {
     return $handled;
   }
-  
-  // Only handle WooCommerce pages
-  if (!class_exists('WooCommerce')) {
-    return $handled;
+
+  // Product search
+  if (is_search() && 'product' === get_query_var('post_type')) {
+    bootscore_wc_breadcrumb_shop_item($context);
+    bootscore_breadcrumb_item(
+      sprintf(
+        /* translators: %s: search query */
+        esc_html__('Search results for &ldquo;%s&rdquo;', 'woocommerce'),
+        esc_html(get_search_query())
+      ),
+      '',
+      $context
+    );
+    return true;
   }
-  
-  // WooCommerce search
-  if (is_search() && get_query_var('post_type') === 'product') {
-    $shop_page_id = wc_get_page_id('shop');
-    if ($shop_page_id && $shop_page_id > 0) {
-      echo '<li class="breadcrumb-item"><a class="' . esc_attr(apply_filters('bootscore/class/breadcrumb/item/link', '')) . '" href="' . esc_url(get_permalink($shop_page_id)) . '">' . esc_html(get_the_title($shop_page_id)) . '</a></li>' . PHP_EOL;
-    }
-    echo '<li class="breadcrumb-item active" aria-current="page">' . 
-         sprintf(
-           esc_html__('Search results for "%s"', 'woocommerce'),
-           esc_html(get_search_query())
-         ) . 
-         '</li>' . PHP_EOL;
-    
-    return true; // Mark as handled
-  }
-  
-  // Product category
-  elseif (is_product_category()) {
-    $current_term = get_queried_object();
-    
-    // Shop page link
-    $shop_page_id = wc_get_page_id('shop');
-    if ($shop_page_id && $shop_page_id > 0) {
-      echo '<li class="breadcrumb-item"><a class="' . esc_attr(apply_filters('bootscore/class/breadcrumb/item/link', '')) . '" href="' . esc_url(get_permalink($shop_page_id)) . '">' . esc_html(get_the_title($shop_page_id)) . '</a></li>' . PHP_EOL;
-    }
-    
-    // Parent categories
-    if ($current_term->parent) {
-      $ancestors = array_reverse(get_ancestors($current_term->term_id, 'product_cat'));
-      foreach ($ancestors as $ancestor_id) {
-        $ancestor = get_term($ancestor_id, 'product_cat');
-        if ($ancestor && !is_wp_error($ancestor)) {
-          echo '<li class="breadcrumb-item"><a class="' . esc_attr(apply_filters('bootscore/class/breadcrumb/item/link', '')) . '" href="' . esc_url(get_term_link($ancestor)) . '">' . esc_html($ancestor->name) . '</a></li>' . PHP_EOL;
-        }
-      }
-    }
-    
-    // Current category
-    echo '<li class="breadcrumb-item active" aria-current="page">' . esc_html($current_term->name) . '</li>' . PHP_EOL;
-    
-    return true; // Mark as handled
-  }
-  
-  // Product tag
-  elseif (is_product_tag()) {
-    $current_term = get_queried_object();
-    
-    // Shop page link
-    $shop_page_id = wc_get_page_id('shop');
-    if ($shop_page_id && $shop_page_id > 0) {
-      echo '<li class="breadcrumb-item"><a class="' . esc_attr(apply_filters('bootscore/class/breadcrumb/item/link', '')) . '" href="' . esc_url(get_permalink($shop_page_id)) . '">' . esc_html(get_the_title($shop_page_id)) . '</a></li>' . PHP_EOL;
-    }
-    
-    // Current tag - WooCommerce format with curly quotes
-    echo '<li class="breadcrumb-item active" aria-current="page">' . 
-         sprintf(
-           /* translators: %s: product tag name */
-           esc_html__('Products tagged &ldquo;%s&rdquo;', 'woocommerce'),
-           esc_html($current_term->name)
-         ) . 
-         '</li>' . PHP_EOL;
-    
-    return true; // Mark as handled
-  }
-  
-  // Product brand archive
-  elseif (is_tax(array('product_brand', 'brand', 'pa_brand', 'yith_product_brand', 'pwb-brand'))) {
-    $current_term = get_queried_object();
-    
-    // Shop page link
-    $shop_page_id = wc_get_page_id('shop');
-    if ($shop_page_id && $shop_page_id > 0) {
-      echo '<li class="breadcrumb-item"><a class="' . esc_attr(apply_filters('bootscore/class/breadcrumb/item/link', '')) . '" href="' . esc_url(get_permalink($shop_page_id)) . '">' . esc_html(get_the_title($shop_page_id)) . '</a></li>' . PHP_EOL;
-    }
-    
-    // Parent brands (if hierarchical)
-    if (isset($current_term->parent) && $current_term->parent) {
-      $ancestors = array_reverse(get_ancestors($current_term->term_id, $current_term->taxonomy));
-      foreach ($ancestors as $ancestor_id) {
-        $ancestor = get_term($ancestor_id, $current_term->taxonomy);
-        if ($ancestor && !is_wp_error($ancestor)) {
-          echo '<li class="breadcrumb-item"><a class="' . esc_attr(apply_filters('bootscore/class/breadcrumb/item/link', '')) . '" href="' . esc_url(get_term_link($ancestor)) . '">' . esc_html($ancestor->name) . '</a></li>' . PHP_EOL;
-        }
-      }
-    }
-    
-    // Current brand
-    echo '<li class="breadcrumb-item active" aria-current="page">' . 
-         sprintf(
-           /* translators: %s: brand name */
-           esc_html__('Brand: %s', 'woocommerce'),
-           esc_html($current_term->name)
-         ) . 
-         '</li>' . PHP_EOL;
-    
-    return true; // Mark as handled
-  }
-  
-  // Single product
-  elseif (is_product()) {
-    // Shop page link
-    $shop_page_id = wc_get_page_id('shop');
-    if ($shop_page_id && $shop_page_id > 0) {
-      echo '<li class="breadcrumb-item"><a class="' . esc_attr(apply_filters('bootscore/class/breadcrumb/item/link', '')) . '" href="' . esc_url(get_permalink($shop_page_id)) . '">' . esc_html(get_the_title($shop_page_id)) . '</a></li>' . PHP_EOL;
-    }
-    
-    // Product categories with hierarchy
-    $terms = wc_get_product_terms(get_the_ID(), 'product_cat', array(
-      'orderby' => 'parent',
-      'order' => 'DESC'
-    ));
-    
-    if ($terms && !is_wp_error($terms)) {
-      // Get the deepest category
-      $main_term = apply_filters('woocommerce_breadcrumb_main_term', $terms[0], $terms);
-      
-      if ($main_term) {
-        // Get ancestors
-        $ancestors = get_ancestors($main_term->term_id, 'product_cat');
-        $ancestors = array_reverse($ancestors);
-        
-        foreach ($ancestors as $ancestor_id) {
-          $ancestor = get_term($ancestor_id, 'product_cat');
-          if ($ancestor && !is_wp_error($ancestor)) {
-            echo '<li class="breadcrumb-item"><a class="' . esc_attr(apply_filters('bootscore/class/breadcrumb/item/link', '')) . '" href="' . esc_url(get_term_link($ancestor)) . '">' . esc_html($ancestor->name) . '</a></li>' . PHP_EOL;
-          }
-        }
-        
-        // Main category
-        echo '<li class="breadcrumb-item"><a class="' . esc_attr(apply_filters('bootscore/class/breadcrumb/item/link', '')) . '" href="' . esc_url(get_term_link($main_term)) . '">' . esc_html($main_term->name) . '</a></li>' . PHP_EOL;
-      }
-    }
-    
-    // Current product
-    echo '<li class="breadcrumb-item active" aria-current="page">' . esc_html(get_the_title()) . '</li>' . PHP_EOL;
-    
-    return true; // Mark as handled
-  }
-  
+
   // Shop page
-  elseif (is_shop()) {
-    echo '<li class="breadcrumb-item active" aria-current="page">' . esc_html(get_the_title(wc_get_page_id('shop'))) . '</li>' . PHP_EOL;
-    return true; // Mark as handled
+  if (is_shop()) {
+    bootscore_wc_breadcrumb_shop_item($context, true);
+    return true;
   }
-  
-  // Not a WooCommerce page we handle
+
+  // Product category
+  if (is_product_category()) {
+    $term = get_queried_object();
+    bootscore_wc_breadcrumb_shop_item($context);
+    bootscore_wc_breadcrumb_ancestor_items($term, $context);
+    bootscore_breadcrumb_item(esc_html($term->name), '', $context);
+    return true;
+  }
+
+  // Product tag
+  if (is_product_tag()) {
+    $term = get_queried_object();
+    bootscore_wc_breadcrumb_shop_item($context);
+    bootscore_breadcrumb_item(
+      sprintf(
+        /* translators: %s: product tag name */
+        esc_html__('Products tagged &ldquo;%s&rdquo;', 'woocommerce'),
+        esc_html($term->name)
+      ),
+      '',
+      $context
+    );
+    return true;
+  }
+
+  // Product brand, WooCommerce and common brand plugins
+  if (is_tax(['product_brand', 'brand', 'pa_brand', 'yith_product_brand', 'pwb-brand'])) {
+    $term = get_queried_object();
+    bootscore_wc_breadcrumb_shop_item($context);
+    bootscore_wc_breadcrumb_ancestor_items($term, $context);
+    bootscore_breadcrumb_item(
+      sprintf(
+        /* translators: %s: brand name */
+        esc_html__('Brand: %s', 'woocommerce'),
+        esc_html($term->name)
+      ),
+      '',
+      $context
+    );
+    return true;
+  }
+
+  // Single product: shop, main category with its parents, product
+  if (is_product()) {
+    bootscore_wc_breadcrumb_shop_item($context);
+
+    $terms = wc_get_product_terms(get_the_ID(), 'product_cat', ['orderby' => 'parent', 'order' => 'DESC']);
+
+    if ($terms && !is_wp_error($terms)) {
+      $main_term = apply_filters('woocommerce_breadcrumb_main_term', $terms[0], $terms);
+
+      if ($main_term) {
+        bootscore_wc_breadcrumb_ancestor_items($main_term, $context);
+        bootscore_breadcrumb_item(esc_html($main_term->name), get_term_link($main_term), $context);
+      }
+    }
+
+    bootscore_breadcrumb_item(esc_html(get_the_title()), '', $context);
+    return true;
+  }
+
   return $handled;
 }
-add_filter('bootscore/breadcrumb/handler', 'bootscore_woocommerce_breadcrumb_handler', 10, 1);
-
+add_filter('bootscore/breadcrumb/handler', 'bootscore_wc_breadcrumb_handler', 10, 2);
