@@ -42,6 +42,7 @@ defined('ABSPATH') || exit;
       <button type="button" class="btn-close text-reset" data-bs-dismiss="drawer" aria-label="<?php esc_attr_e('Close', 'bootscore'); ?>"></button>
     </div>
     <div class="drawer-body p-0 <?= esc_attr(apply_filters('bootscore/class/drawer/body', '', 'cart')); ?>">
+      <?php do_action('bootscore_before_drawer_cart'); ?>
       <div class="widget_shopping_cart_content"></div>
     </div>
   </dialog>
