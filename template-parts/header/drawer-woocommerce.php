@@ -1,8 +1,8 @@
 <?php
 
 /**
- * Template part for displaying the offcanvas user and cart if WooCommerce is installed
- * Template Version: 6.3.1
+ * Template part for displaying the drawer user and cart if WooCommerce is installed
+ * Template Version: 7.0.0
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *

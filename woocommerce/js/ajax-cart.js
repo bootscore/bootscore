@@ -333,10 +333,12 @@ jQuery(function ($) {
     }
   }
 
-  // Open offcanvas when product is added to cart
+  // Open drawer when product is added to cart
   $(document.body).on('added_to_cart', function () {
-    // This will throw an error if #offcanvas-cart doesn't exist
-    $('#offcanvas-cart').offcanvas('show');
+    const drawerCart = document.getElementById('drawer-cart');
+    if (drawerCart) {
+      bootstrap.Drawer.getOrCreateInstance(drawerCart).show();
+    }
   });
 
   // Handle offcanvas closing - remove notices, so the cart is always empty on "reopening"

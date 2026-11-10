@@ -4,7 +4,7 @@
    * WooCommerce AJAX cart
    *
    * @package Bootscore
-   * @version 6.5.0
+   * @version 7.0.0
    */
 
 
@@ -248,7 +248,7 @@
             $cart_total = WC()->cart->get_cart_total();
           }
           $response_item['fragments_replace']['.cart-toggler .woocommerce-Price-amount > bdi'] = $cart_total;
-          $response_item['fragments_replace']['.cart-content-count'] = '<span class="cart-content-count ' . esc_attr(apply_filters('bootscore/class/header/cart/badge', 'position-absolute top-0 start-100 translate-middle badge rounded-pill text-bg-danger')) .'">' . WC()->cart->get_cart_contents_count() . '</span>';
+          $response_item['fragments_replace']['.cart-content-count'] = '<span class="cart-content-count ' . esc_attr(apply_filters('bootscore/class/header/cart/badge', 'position-absolute top-0 start-100 translate-middle badge theme-danger')) .'">' . WC()->cart->get_cart_contents_count() . '</span>';
 
 		  // Even if the filter wouldn't be checked here it wouldn't change the output, BUT we save some calculations here at least.
 		  if ( apply_filters( 'bootscore/woocommerce/header/show_cart_total', true ) ) {
