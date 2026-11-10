@@ -5,8 +5,7 @@ WooCommerce Forms - Bootscore v7.0.0
 @use "../bootstrap/forms";
 
 // Text inputs, textareas and selects
-.woocommerce .input-text,
-.woocommerce select {
+.woocommerce :is(.input-text, select) {
   @extend .form-control;
 }
 
