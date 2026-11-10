@@ -56,7 +56,7 @@ add_filter('woocommerce_cart_item_remove_link', 'bootscore_wc_cart_item_remove_l
 /**
  * Mini cart item: excerpt and stock badge before the quantity, line subtotal after it
  *
- * Priority 20, after the quantity input from ajax-cart.php (priority 10), which replaces the default output.
+ * Priority 20, after the quantity input from wc-ajax-cart.php (priority 10), which replaces the default output.
  *
  * Disable via filter:
  * add_filter('bootscore/woocommerce/mini-cart/show_excerpt', '__return_false');

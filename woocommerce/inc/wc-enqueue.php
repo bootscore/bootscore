@@ -34,7 +34,7 @@ function bootscore_wc_scripts() {
     wp_set_script_translations('bootscore-ajax-login', 'bootscore', get_template_directory() . '/languages');
   }
 
-  // Ajax cart, same condition as ajax-cart.php in wc-functions.php
+  // Ajax cart, same condition as wc-ajax-cart.php in wc-functions.php
   if (apply_filters('bootscore/load_ajax_cart', true) && 'yes' === get_option('woocommerce_enable_ajax_add_to_cart')) {
     wp_enqueue_script('bootscore-ajax-cart', get_template_directory_uri() . '/woocommerce/js/ajax-cart.js', ['wc-add-to-cart', 'bootscore-script'], date('YmdHi', filemtime(__DIR__ . '/../js/ajax-cart.js')), true);
   }
