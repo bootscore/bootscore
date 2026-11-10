@@ -2,6 +2,8 @@
 Markup - Bootscore v7.0.0
 --------------------------------------------------------------*/
 
+@use "../bootstrap/helpers";
+
 
 // Base styles for content from the editor (Theme Unit Test Data):
 // media never overflows its container
@@ -15,4 +17,11 @@ Markup - Bootscore v7.0.0
   iframe {
     max-width: 100%;
   }
+}
+
+
+// WordPress and WooCommerce screen reader text, e.g. skip link, quantity labels.
+// Visible on focus, like .visually-hidden-focusable
+.screen-reader-text {
+  @extend .visually-hidden-focusable;
 }
