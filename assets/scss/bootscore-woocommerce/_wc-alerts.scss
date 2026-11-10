@@ -7,10 +7,7 @@ WooCommerce Alerts - Bootscore v7.0.0
 @use "../bootstrap/helpers";
 
 // WooCommerce notices get Bootstrap alert styles
-.woocommerce-error,
-.woocommerce-info,
-.woocommerce-message,
-.woocommerce-noreviews {
+:is(.woocommerce-error, .woocommerce-info, .woocommerce-message, .woocommerce-noreviews) {
   @extend .alert;
 }
 
@@ -18,8 +15,7 @@ WooCommerce Alerts - Bootscore v7.0.0
   @extend .theme-danger;
 }
 
-.woocommerce-info,
-.woocommerce-noreviews {
+:is(.woocommerce-info, .woocommerce-noreviews) {
   @extend .theme-info;
 }
 
