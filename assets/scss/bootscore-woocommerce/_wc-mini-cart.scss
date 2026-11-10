@@ -127,18 +127,15 @@ WooCommerce Mini Cart - Bootscore v7.0.0
       }
     }
 
-    // Total and buttons, no hook to wrap them in a .drawer-footer
+    // Total and buttons inside .drawer-footer from PHP (wc-mini-cart.php), no class filters for the <p>
     .woocommerce-mini-cart__total,
     .woocommerce-mini-cart__buttons {
-      padding: var(--spacer-5);
       margin: 0;
-      background-color: var(--bg-1);
     }
 
     .woocommerce-mini-cart__total {
       display: flex;
       justify-content: space-between;
-      padding-block-end: 0;
       font-size: var(--font-size-lg);
       font-weight: var(--font-weight-semibold);
     }

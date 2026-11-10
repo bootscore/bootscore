@@ -45,10 +45,13 @@ endif;
 
 
 /**
- * Mini cart list classes
+ * Mini cart list classes and footer
  *
  * woocommerce_mini_cart() is pluggable and loaded by WooCommerce after the theme (after_setup_theme, priority 11).
  * The cart fragments call it without arguments, so the list classes are set here.
+ *
+ * WooCommerce has no hook around total and buttons. The footer wraps everything from the total
+ * up to the end of woocommerce_widget_shopping_cart_after_buttons, incl. content from other plugins.
  */
 if (!function_exists('woocommerce_mini_cart')) :
   function woocommerce_mini_cart($args = array()) {
@@ -56,9 +59,25 @@ if (!function_exists('woocommerce_mini_cart')) :
       'list_class' => apply_filters('bootscore/class/woocommerce/mini-cart/list', 'list-group list-group-flush'),
     ));
 
+    ob_start();
     wc_get_template('cart/mini-cart.php', $args);
+    $html = ob_get_clean();
+
+    $marker = '<!-- bootscore-mini-cart-footer-end -->';
+    $footer = '<div class="woocommerce-mini-cart__footer ' . esc_attr(apply_filters('bootscore/class/woocommerce/mini-cart/footer', 'drawer-footer flex-column align-items-stretch')) . '">';
+
+    // Wrap only if both ends are found, otherwise keep the markup as it is
+    $html = preg_replace('/(<p class="woocommerce-mini-cart__total[\s\S]*?)' . preg_quote($marker, '/') . '/', $footer . '$1</div>', $html, 1);
+
+    echo str_replace($marker, '', $html); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
   }
 endif;
+
+// End marker for the footer, after all other after_buttons content
+function bootscore_wc_mini_cart_footer_end() {
+  echo '<!-- bootscore-mini-cart-footer-end -->';
+}
+add_action('woocommerce_widget_shopping_cart_after_buttons', 'bootscore_wc_mini_cart_footer_end', PHP_INT_MAX);
 
 
 /**
