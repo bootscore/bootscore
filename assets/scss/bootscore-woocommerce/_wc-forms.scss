@@ -1,272 +1,100 @@
 /*--------------------------------------------------------------
-WooCommerce Forms
+WooCommerce Forms - Bootscore v7.0.0
 --------------------------------------------------------------*/
 
-// Forms
-.woocommerce form .form-row {
-  padding: 0;
-  margin: 0 0 $spacer;
+@use "../bootstrap/forms";
 
-  label {
-    line-height: 1.5;
-    margin-bottom: $form-label-margin-bottom;
-  }
+// Text inputs, textareas and selects
+.woocommerce .input-text,
+.woocommerce select {
+  @extend .form-control;
 }
 
+// Checkboxes and radios
+.woocommerce input[type="checkbox"] {
+  @extend .check;
+}
 
-// Show password icon 
-// WC 9.8
-[data-bs-theme="dark"] {
+.woocommerce input[type="radio"] {
+  @extend .radio;
+}
 
-  .woocommerce,
-  .woocommerce-page {
-    
-    form {
-      .show-password-input::before {
-        filter: invert(1);
+// Field labels
+.woocommerce .form-row > label {
+  @extend .form-label;
+}
+
+@layer custom {
+  .woocommerce {
+
+    // Form rows, stacked like .form-field
+    .form-row {
+      display: grid;
+      gap: var(--spacer-3);
+      margin: 0 0 var(--spacer-5);
+
+      > label {
+        margin: 0;
       }
     }
-  }
-}
 
-
-// Reduce gap in horizontal forms
-.woocommerce form {
-  .form-row-first {
-    width: 50%;
-    padding-right: $spacer *.5;
-  }
-
-  .form-row-last {
-    width: 50%;
-    padding-left: $spacer *.5;
-  }
-}
-
-
-// Add missing .form-control
-.woocommerce form .form-row input.input-text,
-.woocommerce form .form-row textarea,
-.woocommerce-cart table.cart td.actions .coupon .input-text {
-  display: block;
-  width: 100%;
-  padding: $input-padding-y $input-padding-x;
-  font-family: $input-font-family;
-  @include font-size($input-font-size);
-  font-weight: $input-font-weight;
-  line-height: $input-line-height;
-  color: $input-color;
-  appearance: none; // Fix appearance for date inputs in Safari
-  background-color: $input-bg;
-  background-clip: padding-box;
-  border: $input-border-width solid $input-border-color;
-
-  // Note: This has no effect on <select>s in some browsers, due to the limited stylability of `<select>`s in CSS.
-  @include border-radius($input-border-radius, 0);
-
-  @include box-shadow($input-box-shadow);
-  @include transition($input-transition);
-
-  // Customize the `:focus` state to imitate native WebKit styles.
-  &:focus {
-    color: $input-focus-color;
-    background-color: $input-focus-bg;
-    border-color: $input-focus-border-color;
-    outline: 0;
-
-    @if $enable-shadows {
-      @include box-shadow($input-box-shadow, $input-focus-box-shadow);
+    // Wrapper around inputs
+    .woocommerce-input-wrapper {
+      display: block;
     }
 
-    @else {
-      box-shadow: $input-focus-box-shadow;
-    }
-  }
-}
+    // Two columns for .form-row-first and .form-row-last, all other children full width
+    :has(> .form-row-first) {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      column-gap: var(--spacer-5);
 
+      > :not(.form-row-first, .form-row-last) {
+        grid-column: 1 / -1;
+      }
 
-// Textarea
-.woocommerce {
-
-  // Fix checkout textarea focus
-  form .form-row textarea {
-    &:focus {
-      box-shadow: $input-focus-box-shadow;
-    }
-  }
-
-  // Height
-  form .form-row textarea,
-  textarea#order_comments,
-  // WC 9.7
-  #reviews #comment {
-    height: $spacer *7;
-  }
-}
-
-
-// Checks
-
-.woocommerce form .form-row .input-checkbox {
-  // Reset WC CSS
-  margin: .25em 0 0 0;
-}
-
-.checkbox,
-.woocommerce-form-login__rememberme,
-.comment-form-cookies-consent,
-.woocommerce-SavedPaymentMethods-saveNew {
-  display: block;
-  min-height: $form-check-min-height;
-  padding-left: $form-check-padding-start;
-  margin-bottom: $form-check-margin-bottom;
-
-  input {
-    float: left;
-    margin-left: $form-check-padding-start * -1;
-
-    --#{$prefix}form-check-bg: #{$form-check-input-bg};
-
-    flex-shrink: 0;
-    width: $form-check-input-width;
-    height: $form-check-input-width;
-    margin-top: ($line-height-base - $form-check-input-width) * .5; // line-height minus check height
-    vertical-align: top;
-    appearance: none;
-    background-color: var(--#{$prefix}form-check-bg);
-    background-image: var(--#{$prefix}form-check-bg-image);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
-    border: $form-check-input-border;
-    print-color-adjust: exact; // Keep themed appearance for print
-    @include transition($form-check-transition);
-
-    &[type="checkbox"] {
-      @include border-radius($form-check-input-border-radius);
-    }
-
-    &:active {
-      filter: $form-check-input-active-filter;
-    }
-
-    &:focus {
-      border-color: $form-check-input-focus-border;
-      outline: 0;
-      box-shadow: $form-check-input-focus-box-shadow;
-    }
-
-    &:checked {
-      background-color: $form-check-input-checked-bg-color;
-      border-color: $form-check-input-checked-border-color;
-
-      &[type="checkbox"] {
-        @if $enable-gradients {
-          --#{$prefix}form-check-bg-image: #{escape-svg($form-check-input-checked-bg-image)},
-          var(--#{$prefix}gradient);
-        }
-
-        @else {
-          --#{$prefix}form-check-bg-image: #{escape-svg($form-check-input-checked-bg-image)};
-        }
+      > .clear {
+        display: none;
       }
     }
-  }
-}
 
-
-// Radios
-ul.wc_payment_methods.payment_methods.methods li,
-.woocommerce-shipping-methods li,
-.shipping.recurring-total ul {
-
-  font-weight: normal;
-  display: block;
-  min-height: $form-check-min-height;
-  padding-left: $form-check-padding-start;
-  margin-bottom: $form-check-margin-bottom;
-
-  input {
-    float: left;
-    margin-left: $form-check-padding-start * -1;
-
-    --#{$prefix}form-check-bg: #{$form-check-input-bg};
-
-    flex-shrink: 0;
-    width: $form-check-input-width;
-    height: $form-check-input-width;
-    margin-top: ($line-height-base - $form-check-input-width) * .5; // line-height minus check height
-    vertical-align: top;
-    appearance: none;
-    background-color: var(--#{$prefix}form-check-bg);
-    background-image: var(--#{$prefix}form-check-bg-image);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
-    border: $form-check-input-border;
-    print-color-adjust: exact; // Keep themed appearance for print
-    @include transition($form-check-transition);
-
-    &[type="radio"] {
-      // stylelint-disable-next-line property-disallowed-list
-      border-radius: $form-check-radio-border-radius;
+    // Checkbox or radio inside its label
+    label:has(> input[type="checkbox"], > input[type="radio"]) {
+      display: flex;
+      gap: var(--spacer-3);
+      align-items: start;
     }
 
-    &:active {
-      filter: $form-check-input-active-filter;
+    // Radio next to its label in a list, e.g. shipping and payment methods
+    ul:has(> li > input[type="radio"]) {
+      padding-inline-start: 0;
+      list-style: none;
     }
 
-    &:focus {
-      border-color: $form-check-input-focus-border;
-      outline: 0;
-      box-shadow: $form-check-input-focus-box-shadow;
+    li:has(> input[type="radio"]) {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--spacer-3);
+      align-items: start;
     }
 
-    &:checked {
-      background-color: $form-check-input-checked-bg-color;
-      border-color: $form-check-input-checked-border-color;
+    // Required asterisk
+    .required {
+      color: var(--danger-fg);
+      text-decoration: none;
+      border: 0;
+    }
 
-      &[type="radio"] {
-        @if $enable-gradients {
-          --#{$prefix}form-check-bg-image: #{escape-svg($form-check-radio-checked-bg-image)},
-          var(--#{$prefix}gradient);
-        }
-
-        @else {
-          --#{$prefix}form-check-bg-image: #{escape-svg($form-check-radio-checked-bg-image)};
-        }
+    // Validation, WooCommerce adds .woocommerce-invalid to the .form-row
+    .woocommerce-invalid {
+      .input-text,
+      select {
+        --control-border-color: var(--danger-border);
       }
-    }
-  }
-}
 
-
-// Reset WC shipping CSS
-.woocommerce ul#shipping_method {
-
-  li {
-    padding-left: $form-check-padding-start;
-    margin-bottom: $form-check-margin-bottom;
-
-    input {
-      //margin-left: $form-check-padding-start * -1;
-      margin: 4px 0 0 $form-check-padding-start * -1;
-    }
-  }
-}
-
-
-// Reset subscription shipping CSS
-.shipping.recurring-total ul {
-  padding-left: 0;
-
-  li {
-    padding: 0 0 0 $form-check-padding-start;
-    margin-bottom: $form-check-margin-bottom;
-    text-indent: 0;
-
-    input {
-      margin: 4px 0 0 $form-check-padding-start * -1;
+      input[type="checkbox"] {
+        --check-border-color: var(--danger-border);
+      }
     }
   }
 }
