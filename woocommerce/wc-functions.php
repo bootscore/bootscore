@@ -47,7 +47,7 @@ function bootscore_register_ajax_cart() {
   if (apply_filters('bootscore/load_ajax_cart', true)) {
     $ajax_cart_en = 'yes' === get_option('woocommerce_enable_ajax_add_to_cart');
     if ($ajax_cart_en) {
-      require_once get_template_directory() . '/woocommerce/inc/ajax-cart.php';
+      require_once get_template_directory() . '/woocommerce/inc/wc-ajax-cart.php';
     }
   }
 }
