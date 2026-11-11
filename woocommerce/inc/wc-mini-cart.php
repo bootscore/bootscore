@@ -111,7 +111,11 @@ function bootscore_wc_mini_cart_item_thumbnail($thumbnail, $cart_item, $cart_ite
     return $thumbnail;
   }
 
-  return '<span class="mini-cart-item-image ' . esc_attr(apply_filters('bootscore/class/woocommerce/mini-cart/image', '')) . '">' . $thumbnail . '</span>';
+  // Add classes to the <img> (product image or placeholder)
+  $img_class = apply_filters('bootscore/class/woocommerce/mini-cart/image', 'img-fluid rounded align-text-top');
+  $thumbnail = preg_replace('/<img([^>]*?)class="/', '<img$1class="' . esc_attr($img_class) . ' ', $thumbnail, 1);
+
+  return '<span class="mini-cart-item-image">' . $thumbnail . '</span>';
 }
 add_filter('woocommerce_cart_item_thumbnail', 'bootscore_wc_mini_cart_item_thumbnail', 10, 3);
 

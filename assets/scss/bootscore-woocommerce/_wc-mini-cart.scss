@@ -59,12 +59,6 @@ WooCommerce Mini Cart - Bootscore v7.0.0
       .mini-cart-item-image {
         grid-row: 1 / span 6;
         grid-column: 1;
-
-        img {
-          width: 100%;
-          height: auto;
-          border-radius: var(--radius-5);
-        }
       }
 
       .mini-cart-item-title {
