@@ -81,8 +81,8 @@ jQuery(function ($) {
 
     if (inlineErrorMessage !== '') {
       $content.find('.woocommerce-notices-wrapper').html(
-        "<div class='woocommerce-error'>" + "<strong>" + __('Error:', 'bootscore') + "</strong> " +
-        inlineErrorMessage + "</div>");
+        bootscoreNotice('error', '<strong>' + __('Error:', 'bootscore') + '</strong> ' + inlineErrorMessage)
+      );
       return;
     } else {
       $content.find('.woocommerce-notices-wrapper').empty();
@@ -104,9 +104,7 @@ jQuery(function ($) {
         if (!response) return;
 
         if (response.data.isLoggedIn) {
-          accountContent(
-            "<div class='woocommerce-message'>" + response.data.message + "</div>"
-          );
+          accountContent(bootscoreNotice('success', response.data.message));
 
           setTimeout(function () {
             $(document.body).trigger('wc_fragment_refresh');
@@ -123,9 +121,7 @@ jQuery(function ($) {
         } else {
           outputHtml = __('Technical error', 'bootscore') + ' ' + '(' + response.status + ')';
         }
-        $content.find('.woocommerce-notices-wrapper').html(
-          "<div class='woocommerce-error'>" + outputHtml + "</div>"
-        );
+        $content.find('.woocommerce-notices-wrapper').html(bootscoreNotice('error', outputHtml));
 
         showLoader(false);
       }

@@ -33,7 +33,13 @@ WooCommerce Alerts - Bootscore v7.0.0
   .woocommerce-info,
   .woocommerce-message,
   .woocommerce-noreviews {
+    align-items: center;
     margin: 0 0 var(--spacer-5);
+
+    // Icon and text from wc-notices.php: icon | text | buttons
+    .wc-notice-text {
+      flex: 1 1 auto;
+    }
 
     // Buttons always at the end
     .button {
@@ -42,9 +48,16 @@ WooCommerce Alerts - Bootscore v7.0.0
     }
   }
 
-  // Error notices are a list
+  // Error notices are a list, each item gets icon | text
   ul.woocommerce-error {
     flex-direction: column;
+    align-items: stretch;
     list-style: none;
+
+    > li {
+      display: flex;
+      gap: var(--alert-gap);
+      align-items: center;
+    }
   }
 }

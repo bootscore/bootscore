@@ -21,13 +21,18 @@ function bootscore_wc_scripts() {
   // https://developer.woocommerce.com/2023/05/24/woocommerce-7-8-beta-1-released/
   wp_enqueue_script('wc-cart-fragments');
 
-  // admin-ajax.php URL for ajax cart and ajax login, icons for the password toggle
+  // admin-ajax.php URL for ajax cart and ajax login, icons for the password toggle and notices built in JS
   // https://github.com/bootscore/bootscore/pull/711
   wp_localize_script('bootscore', 'bootscoreTheme', [
     'ajaxurl' => admin_url('admin-ajax.php'),
     'icons'   => [
       'eye'      => bootscore_icon('eye', false),
       'eyeSlash' => bootscore_icon('eye-slash', false),
+      'notice'   => [
+        'success' => bootscore_wc_notice_icon('success'),
+        'error'   => bootscore_wc_notice_icon('error'),
+        'notice'  => bootscore_wc_notice_icon('notice'),
+      ],
     ],
   ]);
 
