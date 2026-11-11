@@ -124,7 +124,7 @@ function bootscore_wc_mini_cart_item_name($name, $cart_item, $cart_item_key) {
     return $name;
   }
 
-  return '<span class="mini-cart-item-title ' . esc_attr(apply_filters('bootscore/class/woocommerce/mini-cart/title', 'h6 text-truncate mb-0')) . '">' . $name . '</span>';
+  return '<span class="mini-cart-item-title ' . esc_attr(apply_filters('bootscore/class/woocommerce/mini-cart/title', 'fw-semibold text-truncate')) . '">' . $name . '</span>';
 }
 add_filter('woocommerce_cart_item_name', 'bootscore_wc_mini_cart_item_name', 10, 3);
 
@@ -139,7 +139,7 @@ remove_action('woocommerce_widget_shopping_cart_buttons', 'woocommerce_widget_sh
 add_action('woocommerce_widget_shopping_cart_buttons', 'bootscore_wc_mini_cart_button_view_cart', 10);
 
 function bootscore_wc_mini_cart_button_view_cart() {
-  echo '<a href="' . esc_url(wc_get_cart_url()) . '" class="wc-forward ' . esc_attr(apply_filters('bootscore/class/woocommerce/mini-cart/button', 'btn-outline theme-primary', 'view-cart')) . '">' . esc_html__('View cart', 'woocommerce') . '</a>';
+  echo '<a href="' . esc_url(wc_get_cart_url()) . '" class="wc-forward ' . esc_attr(apply_filters('bootscore/class/woocommerce/mini-cart/button', 'btn-solid theme-secondary', 'view-cart')) . '">' . esc_html__('View cart', 'woocommerce') . '</a>';
 }
 
 remove_action('woocommerce_widget_shopping_cart_buttons', 'woocommerce_widget_shopping_cart_proceed_to_checkout', 20);
