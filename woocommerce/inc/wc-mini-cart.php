@@ -124,7 +124,7 @@ function bootscore_wc_mini_cart_item_name($name, $cart_item, $cart_item_key) {
     return $name;
   }
 
-  return '<span class="mini-cart-item-title ' . esc_attr(apply_filters('bootscore/class/woocommerce/mini-cart/title', 'fw-semibold')) . '">' . $name . '</span>';
+  return '<span class="mini-cart-item-title ' . esc_attr(apply_filters('bootscore/class/woocommerce/mini-cart/title', 'h6 text-truncate mb-0')) . '">' . $name . '</span>';
 }
 add_filter('woocommerce_cart_item_name', 'bootscore_wc_mini_cart_item_name', 10, 3);
 
