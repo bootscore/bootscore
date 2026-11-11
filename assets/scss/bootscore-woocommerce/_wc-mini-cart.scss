@@ -36,6 +36,11 @@ WooCommerce Mini Cart - Bootscore v7.0.0
     .woocommerce-mini-cart__empty-message {
       margin: var(--spacer-5);
     }
+
+    // Notices: border-top from PHP (wc-ajax-cart.php) in the same color as the drawer footer border
+    .toast-container {
+      --border-color: var(--drawer-border-color);
+    }
   }
 
   .widget_shopping_cart_content {
