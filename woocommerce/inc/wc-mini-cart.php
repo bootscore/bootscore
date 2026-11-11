@@ -19,11 +19,12 @@ defined('ABSPATH') || exit;
  * Mini cart Header
  */
 if (!function_exists('bootscore_mini_cart')) :
+  // .d-contents: the wrapper is no flex item of the button, so the hidden total and the absolute badge add no gap
   function bootscore_mini_cart($fragments) {
 
     ob_start();
     $count = WC()->cart->cart_contents_count; ?>
-    <span class="cart-content">
+    <span class="cart-content d-contents">
       <?php if ($count > 0) { ?>
         <?php if(apply_filters('bootscore/woocommerce/header/show_cart_total', true)): ?>
           <span class="cart-content-count <?= esc_attr(apply_filters('bootscore/class/header/cart/badge', 'position-absolute top-0 start-100 translate-middle badge theme-danger')); ?>"><?= esc_html($count); ?></span><span class="cart-total <?= esc_attr(apply_filters('bootscore/class/header/cart/total', 'd-none md:d-inline')); ?>"><?= wp_kses_post(WC()->cart->get_cart_subtotal()); ?></span>

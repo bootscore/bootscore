@@ -51,6 +51,6 @@ defined('ABSPATH') || exit;
 <?php elseif (!is_cart()) : ?>
   <button class="<?= esc_attr(apply_filters('bootscore/class/header/button', 'btn-solid', 'cart-toggler')); ?> <?= esc_attr(apply_filters('bootscore/class/header/action/spacer', 'ms-1 md:ms-3', 'cart-toggler')); ?> position-relative cart-toggler" type="button" data-bs-toggle="drawer" data-bs-target="#drawer-cart" aria-controls="drawer-cart" aria-label="<?php esc_attr_e('Cart toggler', 'bootscore'); ?>">
     <?php bootscore_icon('cart'); ?>
-    <span class="cart-content"></span>
+    <span class="cart-content d-contents"></span>
   </button>
 <?php endif; ?>
