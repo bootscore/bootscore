@@ -19,7 +19,9 @@ defined('ABSPATH') || exit;
  * Remove the quantity input if the quantity can't be changed
  *
  * Sold individually, only 1 left in stock, out of stock (item in the cart) or min = max.
- * The input becomes a hidden input with its value, so forms still send it. No buttons are added.
+ * The input stays a readonly number input with class .qty-fixed, so forms still send it and the
+ * screen reader label still points to a labelable element (a hidden input is not labelable).
+ * The wrapper is hidden in SCSS (_wc-forms.scss). No buttons are added.
  * Variable products are handled in woocommerce.js, the variation is only known in the browser.
  */
 function bootscore_wc_quantity_input_args($args, $product = null) {
@@ -37,12 +39,18 @@ function bootscore_wc_quantity_input_args($args, $product = null) {
     'plus'  => !$limited || $value < $max,
   );
 
+  if ($fixed) {
+    $args['classes']   = array_merge((array) ($args['classes'] ?? array()), array('qty-fixed'));
+    $args['readonly']  = true;
+  }
+
   return $args;
 }
 add_filter('woocommerce_quantity_input_args', 'bootscore_wc_quantity_input_args', 10, 2);
 
+// WooCommerce uses a hidden input if min = max, keep it a number input
 function bootscore_wc_quantity_input_type($type) {
-  return empty($GLOBALS['bootscore_wc_quantity']['fixed']) ? $type : 'hidden';
+  return empty($GLOBALS['bootscore_wc_quantity']['fixed']) ? $type : 'number';
 }
 add_filter('woocommerce_quantity_input_type', 'bootscore_wc_quantity_input_type');
 

@@ -30,8 +30,9 @@ WooCommerce Forms - Bootscore v7.0.0
     --btn-min-height: 0;
   }
 
-  // Quantity wrapper with a hidden input (quantity can't be changed, wc-qty-btn.php), also in the mini cart
-  .quantity:has(> input[type="hidden"]) {
+  // Quantity can't be changed (.qty-fixed from wc-qty-btn.php), also in the mini cart.
+  // display: none keeps the readonly input in the form data
+  .quantity:has(> .qty-fixed) {
     display: none;
   }
 
