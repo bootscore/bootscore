@@ -149,6 +149,19 @@ add_filter('woocommerce_cart_item_name', 'bootscore_wc_mini_cart_item_name', 10,
 
 
 /**
+ * Mini cart subtotal
+ *
+ * WooCommerce wraps the label in <strong>. Replaced by a <span>, the weight comes from the total (SCSS).
+ */
+remove_action('woocommerce_widget_shopping_cart_total', 'woocommerce_widget_shopping_cart_subtotal', 10);
+add_action('woocommerce_widget_shopping_cart_total', 'bootscore_wc_mini_cart_subtotal', 10);
+
+function bootscore_wc_mini_cart_subtotal() {
+  echo '<span class="mini-cart-subtotal-label ' . esc_attr(apply_filters('bootscore/class/woocommerce/mini-cart/subtotal-label', '')) . '">' . esc_html__('Subtotal:', 'woocommerce') . '</span> ' . WC()->cart->get_cart_subtotal(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+}
+
+
+/**
  * Mini cart buttons
  *
  * Replace the WooCommerce buttons (class .button) with Bootstrap buttons.
