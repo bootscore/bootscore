@@ -107,7 +107,9 @@
       $notice_types  = apply_filters('woocommerce_notice_types', ['error', 'success', 'notice']);
 
       ob_start();
-      echo '<div class="toast-container ' . esc_attr(apply_filters('bootscore/class/woocommerce/toast-container', 'position-static w-100 overflow-hidden px-5')) . '">';
+      // Border only if there are notices, an empty container would double the footer border
+      $border = wc_notice_count() > 0 ? ' ' . apply_filters('bootscore/class/woocommerce/toast-container/border', 'border-top') : '';
+      echo '<div class="toast-container ' . esc_attr(apply_filters('bootscore/class/woocommerce/toast-container', 'position-static w-100 overflow-hidden px-5') . $border) . '">';
 
       $atLeastOneNotice = false;
       foreach ($notice_types as $notice_type) {
