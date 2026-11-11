@@ -1,12 +1,12 @@
 /**
- * AJAX Cart JS - Bootscore v6.4.0
+ * AJAX Cart JS - Bootscore v7.0.0
  *
  * Consists of 4 parts
  * 1. Handle Ajax Add to cart
  *   1.1 Single product page
  *   1.2 Product loop
- * 2. Quantity update Buttons
- * 3. General Offcanvas Cart behaviour
+ * 2. Quantity update in the mini cart
+ * 3. Drawer cart behaviour
  * 4. Browser fixes
  *
  */
@@ -145,184 +145,129 @@ jQuery(function ($) {
   window.bootscoreAjaxCart.initLoopAjaxAddToCart = bootscoreInitLoopAjaxAddToCart;
   window.bootscoreAjaxCart.initLoopAjaxAddToCart('a.ajax_add_to_cart[href*="add-to-cart="]');
 
-  // 2. Quantity Update Buttons
+  // 2. Quantity update in the mini cart
 
-  // Handling of quantity buttons in the ajax mini cart qty buttons
-  $(document.body).on('click', '.item-quantity .plus, .item-quantity .minus', function () {
-    let $qty = $(this).closest('.quantity').find('.qty'),
-      currentVal = parseInt($qty.val()),
-      max = parseInt($qty.attr('max')),
-      min = parseInt($qty.attr('min')),
-      step = $qty.attr('step'),
-      nonce = $('input[name="bootscore_update_cart_nonce"]').val(),
-      product_id = $(this).closest('.list-group-item').attr('data-bootscore_product_id');
+  // Cart item key and product ID come from the remove link, which WooCommerce outputs on every mini cart item
+  function bootscoreCartItem(el) {
+    const item = $(el).closest('.woocommerce-mini-cart-item');
+    const removeLink = item.find('.remove_from_cart_button');
 
-    // Format values
-    if (!currentVal || currentVal === '' || currentVal === 'NaN')
-      currentVal = 0;
-    if (max === '' || max === 'NaN') max = '';
-    if (min === '' || min === 'NaN') min = 0;
-    if (step === 'any' || step === '' || step === undefined || parseInt(step) === 'NaN') {
-      step = 1;
-    }
+    return {
+      item: item,
+      key: removeLink.data('cart_item_key'),
+      productId: removeLink.data('product_id'),
+      nonce: $('input[name="bootscore_update_cart_nonce"]').val(),
+    };
+  }
 
-    // Perform the Quantity Update for Increment.
-    if ($(this).is('.plus')) {
-      currentVal += parseInt(step);
-    } else {
-      currentVal -= parseInt(step);
-    }
+  // Plus and minus buttons
+  $(document.body).on('click', '.woocommerce-mini-cart-item .plus, .woocommerce-mini-cart-item .minus', function () {
+    const $qty = $(this).closest('.quantity').find('.qty');
+    let currentVal = parseInt($qty.val(), 10) || 0;
+    let step = parseInt($qty.attr('step'), 10) || 1;
 
-    let wrap = $($(this)).closest('.woocommerce-mini-cart-item');
-    bootscore_quantity_update(wrap, currentVal, nonce, product_id, max, step);
+    currentVal = $(this).is('.plus') ? currentVal + step : currentVal - step;
+
+    bootscore_quantity_update(bootscoreCartItem(this), currentVal);
   });
 
   // Capture the old value on focus
-  $('body').on('focus', '.item-quantity .quantity input', function () {
+  $(document.body).on('focus', '.woocommerce-mini-cart-item .qty', function () {
     $(this).data('prevValue', $(this).val());
   });
 
-  // Trigger the function when the input is blurred
-  $('body').on('blur', '.item-quantity .quantity input', function (e) {
-    e.preventDefault();
+  // Update on blur
+  $(document.body).on('blur', '.woocommerce-mini-cart-item .qty', function () {
+    const input = $(this);
+    const currentValue = input.val();
+    let intValue = Math.max(Math.ceil(parseInt(currentValue, 10)), 0);
 
-    var input = $(this),
-      max = input.attr('max'),
-      currentValue = input.val(),
-      intValue = Math.max(Math.ceil(parseInt(currentValue)), 0),
-      nonce = $('input[name="bootscore_update_cart_nonce"]').val(),
-      product_id = $(this).closest('.list-group-item').attr('data-bootscore_product_id');
-
-    input.val(intValue);
-
-    if (currentValue === '' || intValue === NaN) {
-      input.val(1);
+    if (currentValue === '' || Number.isNaN(intValue)) {
       intValue = 1;
     }
 
-    let prevValue = input.data('prevValue');
-    // If the new value is the same as the previous one, no need to re-render.
-    if (prevValue === currentValue) {
+    input.val(intValue);
+
+    // Same value as before, no update
+    if (input.data('prevValue') === currentValue) {
       return false;
     }
 
-    // Check if the submitted value is valid and return html error handling if not
+    // Invalid value, show the browser validation message
     if (!this.checkValidity()) {
       this.reportValidity();
       return false;
     }
 
-    // Update the previous value data attribute.
     input.data('prevValue', currentValue);
 
-    // Perform the Quantity Update.
-    let wrap = $(input).closest('.woocommerce-mini-cart-item');
-    bootscore_quantity_update(wrap, intValue, nonce, product_id, max);
+    bootscore_quantity_update(bootscoreCartItem(this), intValue);
   });
 
-  // Remove original handler:
+  // Remove item: replace the WooCommerce handler with a quantity update to 0
   $(document.body).off('click', '.remove_from_cart_button');
 
-  // Remove items with a modified update quantity method
-  $('body').on('click', '.remove_from_cart_button', function (e) {
+  $(document.body).on('click', '.remove_from_cart_button', function (e) {
     e.preventDefault();
 
-    var input = $(this),
-      nonce = $('input[name="bootscore_update_cart_nonce"]').val(),
-      product_id = $(this).closest('.list-group-item').attr('data-bootscore_product_id');
-
-    console.log('remove_from_cart_button');
-
-    // Perform the Quantity Update.
-    let wrap = $(input).closest('.woocommerce-mini-cart-item');
-    bootscore_quantity_update(wrap, 0, nonce, product_id);
+    bootscore_quantity_update(bootscoreCartItem(this), 0);
   });
 
-  function bootscore_quantity_update(wrap, number, nonce, product_id, max = -1, step = 1) {
-    let key = $(wrap).data('key');
-    let data = {
-      action: 'bootscore_qty_update',
-      key: key,
-      number: number,
-      step: step,
-      nonce: nonce,
-      product_id: product_id,
-      max: max,
-    };
-
+  function bootscore_quantity_update(cartItem, number) {
     $.ajax({
       url: bootscoreTheme.ajaxurl,
       type: 'POST',
-      data: data,
+      data: {
+        action: 'bootscore_qty_update',
+        key: cartItem.key,
+        number: number,
+        nonce: cartItem.nonce,
+      },
       beforeSend: function () {
-        // Loader HTML
-        let loader = `
-                <div class="blockUI blockOverlay" style="z-index: 1000; border: none; margin: 0px; padding: 0px; width: 100%; height: 100%; top: 0px; left: 0px; background-color: rgb(0, 0, 0); opacity: 0.6; cursor: wait; position: absolute;"></div>
-                <div class="blockUI blockMsg blockElement" style="z-index: 1011; display: none; position: absolute; left: 199px; top: 52px;"></div>
-                <div class="blockUI" style="display:none"></div>
-              `;
-
-        // Append the loader inside the item you click
-        wrap.append(loader);
+        // Loader on the item
+        cartItem.item.append('<div class="blockUI blockOverlay"></div>');
       },
       success: function (res) {
-        let cart_res = res.data;
-        if (cart_res['force_fragments_refresh']) {
+        const cart_res = res.data || {};
+
+        // Full refresh, e.g. after WPML replaced the cart item or the cart is empty
+        if (cart_res.force_fragments_refresh) {
           $(document.body).trigger('wc_fragment_refresh');
           return;
         }
 
-        if (res.success) {
-          console.log('in_update_js_sucess');
-          $('#offcanvas-cart .cart-content span.woocommerce-Price-amount.amount').html(
-            cart_res['total']
-          );
-
-          if (document.startViewTransition) {
-            document.startViewTransition(() => updateCartFragments(cart_res));
-          } else {
-            updateCartFragments(cart_res);
-          }
+        if (document.startViewTransition) {
+          document.startViewTransition(() => updateCartFragments(cart_res, res.success, number));
         } else {
-          wrap.find('.blockUI').remove();
-          if (document.startViewTransition) {
-            document.startViewTransition(() => updateCartFragments(cart_res, false));
-          } else {
-            updateCartFragments(cart_res, false);
-          }
+          updateCartFragments(cart_res, res.success, number);
         }
       },
       error: function (jqXHR, textStatus, errorThrown) {
-        setTimeout(function () {
-          wrap.find('.blockUI').remove();
-        }, 300);
-        console.error(
-          'AJAX request failed: ' + textStatus + ', ' + errorThrown
-        );
+        cartItem.item.find('.blockUI').remove();
+        console.error('AJAX request failed: ' + textStatus + ', ' + errorThrown);
       },
     });
   }
 
-  function updateCartFragments(cart_res, success = true) {
-    // Replace fragments
-    $.each(cart_res['fragments_replace'], function (selector, content) {
+  // Replace the fragments (mini cart, header badge, notices)
+  function updateCartFragments(cart_res, success, number) {
+    $.each(cart_res.fragments || {}, function (selector, content) {
       $(selector).replaceWith(content);
     });
 
-    // Append fragments
-    $.each(cart_res['fragments_append'], function (selector, content) {
-      $(selector).append(content);
-    });
-
-    // As startViewTransition executes the function asynchronously, we run the events here
-    if(success) {
+    // Run the events here, because startViewTransition runs the update asynchronously
+    if (success) {
+      // Item removed: same event as WooCommerce, also stores the fragments for the next page load
+      if (0 === number) {
+        $(document.body).trigger('removed_from_cart', [cart_res.fragments, cart_res.cart_hash]);
+      }
       $(document.body).trigger('qty_updated', [cart_res]);
     } else {
       $(document.body).trigger('qty_update_failed', [cart_res]);
     }
   }
 
-  // 3. General Offcanvas Cart behaviour
+  // 3. Drawer cart behaviour
 
   let toasts_to_be_hidden = null;
 
@@ -333,23 +278,28 @@ jQuery(function ($) {
     }
   }
 
-  // Open offcanvas when product is added to cart
+  // Open drawer when product is added to cart
   $(document.body).on('added_to_cart', function () {
-    // This will throw an error if #offcanvas-cart doesn't exist
-    $('#offcanvas-cart').offcanvas('show');
+    const drawerCart = document.getElementById('drawer-cart');
+    if (drawerCart) {
+      bootstrap.Drawer.getOrCreateInstance(drawerCart).show();
+    }
   });
 
-  // Handle offcanvas closing - remove notices, so the cart is always empty on "reopening"
-  // Use dispose to avoid flicker issues in navbar after closing the cart
-  $('#offcanvas-cart').on('hidden.bs.offcanvas', function () {
-    clearToastHideTimeout();
+  // Remove notices when the drawer is closed, so they are gone on reopening
+  // Bootstrap 6 events are native events, so addEventListener instead of jQuery .on()
+  const drawerCartEl = document.getElementById('drawer-cart');
+  if (drawerCartEl) {
+    drawerCartEl.addEventListener('hidden.bs.drawer', function () {
+      clearToastHideTimeout();
 
-    $('#offcanvas-cart .toast').each(function () {
-      $(this).toast('dispose');
+      drawerCartEl.querySelectorAll('.toast').forEach(function (toastEl) {
+        bootstrap.Toast.getInstance(toastEl)?.dispose();
+      });
     });
-  });
+  }
 
-  // That function is not "filtered" at the moment, but should have no impact if there are no toasts in the offcanvas cart.
+  // Show notices as toasts in the drawer cart, hide them after 5 seconds
   $(document.body).on('added_to_cart qty_updated qty_update_failed wc_fragments_refreshed removed_from_cart', function () {
     // Clear any existing timeouts waiting for toast hide
     clearToastHideTimeout();
@@ -357,7 +307,7 @@ jQuery(function ($) {
     // Timeout is needed because "on" the added_to_cart event the fragments are not yet updated.
     // wc_fragments_refreshed seems to not be triggered because the added_to_cart event already has the fragments retrieved by the ajax request.
     setTimeout(function () {
-      const toastElList = document.querySelectorAll('#offcanvas-cart .toast');
+      const toastElList = document.querySelectorAll('#drawer-cart .toast');
 
 
       const toasts = [...toastElList].map((toastEl) => {

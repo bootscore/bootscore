@@ -22,10 +22,10 @@ function bootscore_scripts() {
   $modificated_bootscoreJs  = date('YmdHi', filemtime(get_template_directory() . '/assets/js/bootscore.min.js'));
 
   // Bootscore CSS
-  wp_enqueue_style('bootscore-main', get_template_directory_uri() . '/assets/css/bootscore.min.css', array(), $modificated_bootscoreCss);
+  wp_enqueue_style('bootscore', get_template_directory_uri() . '/assets/css/bootscore.min.css', array(), $modificated_bootscoreCss);
 
   // Bootscore JS
-  wp_enqueue_script('bootscore-script', get_template_directory_uri() . '/assets/js/bootscore.min.js', array(), $modificated_bootscoreJs, true);
+  wp_enqueue_script('bootscore', get_template_directory_uri() . '/assets/js/bootscore.min.js', array(), $modificated_bootscoreJs, true);
 
   if (is_singular() && comments_open() && get_option('thread_comments')) {
     wp_enqueue_script('comment-reply');

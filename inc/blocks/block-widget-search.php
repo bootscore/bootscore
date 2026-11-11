@@ -59,7 +59,7 @@ if (!function_exists('bootscore_block_widget_search_classes')) {
       elseif ($tags->has_class('wp-block-search__button')) {
         $tags->remove_class('wp-block-search__button');
         $tags->remove_class('wp-element-button');
-        $tags->add_class('wp-block-search__btn ' . apply_filters('bootscore/class/widget/search/button', 'btn-outline theme-secondary'));
+        $tags->add_class('wp-block-search__btn ' . apply_filters('bootscore/class/widget/search/button', 'btn-solid'));
 
         if ($inside) {
           $tags->add_class('input-group-btn');

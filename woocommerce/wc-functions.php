@@ -4,7 +4,7 @@
  * WooCommerce functions and definitions
  *
  * @package Bootscore
- * @version 6.5.0
+ * @version 7.0.0
  */
 
 
@@ -18,22 +18,22 @@ defined('ABSPATH') || exit;
 require_once get_template_directory() . '/woocommerce/inc/wc-breadcrumb.php';
 require_once get_template_directory() . '/woocommerce/inc/wc-enqueue.php';
 require_once get_template_directory() . '/woocommerce/inc/wc-forms.php';
-require_once get_template_directory() . '/woocommerce/inc/wc-loop.php';
+//require_once get_template_directory() . '/woocommerce/inc/wc-loop.php';
 require_once get_template_directory() . '/woocommerce/inc/wc-mini-cart.php';
-require_once get_template_directory() . '/woocommerce/inc/wc-pagination.php';
+//require_once get_template_directory() . '/woocommerce/inc/wc-pagination.php';
 require_once get_template_directory() . '/woocommerce/inc/wc-qty-btn.php'; 
-require_once get_template_directory() . '/woocommerce/inc/wc-redirects.php'; 
-require_once get_template_directory() . '/woocommerce/inc/wc-result-count.php';
-require_once get_template_directory() . '/woocommerce/inc/wc-sale-flash.php'; 
-require_once get_template_directory() . '/woocommerce/inc/wc-stock-badge.php'; 
+//require_once get_template_directory() . '/woocommerce/inc/wc-redirects.php'; 
+//require_once get_template_directory() . '/woocommerce/inc/wc-result-count.php';
+//require_once get_template_directory() . '/woocommerce/inc/wc-sale-flash.php'; 
+//require_once get_template_directory() . '/woocommerce/inc/wc-stock-badge.php'; 
 require_once get_template_directory() . '/woocommerce/inc/wc-setup.php'; 
-require_once get_template_directory() . '/woocommerce/inc/wc-single-product-reviews.php';
-require_once get_template_directory() . '/woocommerce/inc/wc-tabs.php';
-require_once get_template_directory() . '/woocommerce/inc/wc-deprecated.php'; 
+//require_once get_template_directory() . '/woocommerce/inc/wc-single-product-reviews.php';
+//require_once get_template_directory() . '/woocommerce/inc/wc-tabs.php';
+//require_once get_template_directory() . '/woocommerce/inc/wc-deprecated.php'; 
 
 // Blocks
-require_once get_template_directory() . '/woocommerce/inc/blocks/wc-block-widget-categories.php';
-require_once get_template_directory() . '/woocommerce/inc/blocks/wc-block-widget-product-filters.php';
+//require_once get_template_directory() . '/woocommerce/inc/blocks/wc-block-widget-categories.php';
+//require_once get_template_directory() . '/woocommerce/inc/blocks/wc-block-widget-product-filters.php';
 
 
 /**
@@ -47,7 +47,7 @@ function bootscore_register_ajax_cart() {
   if (apply_filters('bootscore/load_ajax_cart', true)) {
     $ajax_cart_en = 'yes' === get_option('woocommerce_enable_ajax_add_to_cart');
     if ($ajax_cart_en) {
-      require_once get_template_directory() . '/woocommerce/inc/ajax-cart.php';
+      require_once get_template_directory() . '/woocommerce/inc/wc-ajax-cart.php';
     }
   }
 }
@@ -78,7 +78,7 @@ add_action('after_setup_theme', 'bootscore_register_cart_file');
 
 
 /**
- * Creates an ajax login for woocommerce in the offcanvas user account.
+ * Creates an ajax login for woocommerce in the account drawer.
  *
  * The implementation has 2 main goals
  * 1. Better user experience. Login happens immediately and the user can directly access his account

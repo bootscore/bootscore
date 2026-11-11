@@ -1,0 +1,23 @@
+/*--------------------------------------------------------------
+WooCommerce Columns - Bootscore v7.0.0
+--------------------------------------------------------------*/
+
+@use "../bootstrap/layout/breakpoints" as *;
+
+// .col2-set with .col-1 and .col-2, used in checkout, addresses and login/register.
+// .col-1 and .col-2 collide with the Bootstrap grid classes (width: 8.33% and 16.67%).
+@layer custom {
+  .col2-set {
+    display: grid;
+    gap: var(--spacer-7);
+
+    @include media-breakpoint-up(md) {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    > .col-1,
+    > .col-2 {
+      width: auto;
+    }
+  }
+}

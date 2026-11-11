@@ -1,0 +1,170 @@
+/*--------------------------------------------------------------
+WooCommerce Mini Cart - Bootscore v7.0.0
+--------------------------------------------------------------*/
+
+@use "../bootstrap/alert";
+@use "../bootstrap/helpers";
+
+// Empty cart message, no class filter in WooCommerce
+.woocommerce-mini-cart__empty-message {
+  @extend .alert;
+  @extend .theme-info;
+}
+
+@layer custom {
+
+  // Drawer: list scrolls, total and buttons stay at the bottom
+  #drawer-cart {
+    .drawer-body {
+      gap: 0;
+      overflow: hidden;
+    }
+
+    .widget_shopping_cart_content {
+      display: flex;
+      flex: 1 1 auto;
+      flex-direction: column;
+      min-height: 0;
+    }
+
+    .woocommerce-mini-cart {
+      flex: 1 1 auto;
+      min-height: 0;
+      overflow-y: auto;
+    }
+
+    .woocommerce-mini-cart__empty-message {
+      margin: var(--spacer-5);
+    }
+
+    // Notices: border-top from PHP (wc-ajax-cart.php) in the same color as the drawer footer border.
+    // Only while a toast is shown, toasts are hidden after 5 seconds and the container stays.
+    .toast-container {
+      --border-color: var(--drawer-border-color);
+
+      &:not(:has(.toast.show)) {
+        --border-width: 0;
+      }
+    }
+  }
+
+  .widget_shopping_cart_content {
+
+    // Item, .list-group-item from PHP (wc-mini-cart.php)
+    // Grid: image | name, details, quantity | subtotal, remove
+    .woocommerce-mini-cart-item {
+      display: grid;
+      grid-template-columns: var(--mini-cart-image-width, 4.5rem) minmax(0, 1fr) auto;
+      gap: var(--spacer-1) var(--spacer-5);
+      align-items: start;
+
+      // Product link around image and title (no class filter): image and title become grid items
+      > a:not(.remove) {
+        display: contents;
+        color: var(--fg-body);
+        text-decoration: none;
+      }
+
+      // Image and title, wrapped in PHP (wc-mini-cart.php)
+      .mini-cart-item-image {
+        grid-row: 1 / span 6;
+        grid-column: 1;
+      }
+
+      .mini-cart-item-title {
+        grid-row: 1;
+        grid-column: 2;
+      }
+
+      // Name and details in the middle column
+      > :not(a, .mini-cart-item-subtotal) {
+        grid-column: 2;
+      }
+
+      .mini-cart-item-subtotal {
+        grid-row: 1;
+        grid-column: 3;
+        text-align: end;
+      }
+
+      .remove {
+        grid-row: 2;
+        grid-column: 3;
+        justify-self: end;
+        color: var(--danger-fg);
+      }
+
+      .mini-cart-item-stock {
+        justify-self: start;
+      }
+
+      // Variation data
+      dl.variation {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        column-gap: var(--spacer-2);
+        margin: 0;
+        font-size: var(--font-size-sm);
+        color: var(--fg-3);
+
+        dt,
+        dd,
+        dd p {
+          margin: 0;
+          font-weight: inherit;
+        }
+      }
+
+      // Quantity text and price, e.g. 2 × 10,00 €
+      span.quantity {
+        font-size: var(--font-size-sm);
+        color: var(--fg-3);
+      }
+
+      // Quantity input with buttons
+      div.quantity {
+        max-width: 8rem;
+        margin-block-start: var(--spacer-2);
+
+        .qty {
+          text-align: center;
+          appearance: textfield;
+
+          &::-webkit-inner-spin-button,
+          &::-webkit-outer-spin-button {
+            appearance: none;
+            margin: 0;
+          }
+        }
+      }
+    }
+
+    // Total and buttons inside .drawer-footer from PHP (wc-mini-cart.php), no class filters for the <p>
+    .woocommerce-mini-cart__total,
+    .woocommerce-mini-cart__buttons {
+      margin: 0;
+    }
+
+    .woocommerce-mini-cart__total {
+      display: flex;
+      justify-content: space-between;
+      font-size: var(--font-size-lg);
+      font-weight: var(--font-weight-semibold);
+    }
+
+    .woocommerce-mini-cart__buttons {
+      display: grid;
+      gap: var(--spacer-3);
+    }
+  }
+
+  // Loader on an item while the quantity is updated
+  // z-index above the input group buttons (2) and their focus state (5)
+  .woocommerce-mini-cart-item .blockOverlay {
+    position: absolute;
+    inset: 0;
+    z-index: 6;
+    cursor: wait;
+    background-color: color-mix(in oklch, var(--bg-body) 60%, transparent);
+  }
+}

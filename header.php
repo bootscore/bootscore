@@ -109,7 +109,7 @@ defined('ABSPATH') || exit;
     <!-- Drawer User and Cart -->
     <?php
     if (class_exists('WooCommerce')) :
-      get_template_part('template-parts/header/offcanvas', 'woocommerce');
+      get_template_part('template-parts/header/drawer', 'woocommerce');
     endif;
     ?>
 

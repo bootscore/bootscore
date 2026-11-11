@@ -1,5 +1,5 @@
 /**
- * AJAX Login JS - Bootscore v6.3.0
+ * AJAX Login JS - Bootscore v7.0.0
  */
 
 
@@ -9,19 +9,25 @@ jQuery(function ($) {
     __
   } = wp.i18n;
 
-  let offcanvasUser = document.getElementById('offcanvas-user')
-  if (!offcanvasUser) return;
+  const drawerAccount = document.getElementById('drawer-account');
+  if (!drawerAccount) return;
 
-  offcanvasUser.addEventListener('show.bs.offcanvas', loadOffcanvasMyAccount);
+  const $content = $(drawerAccount).find('.drawer-account-content');
 
-  function loadOffcanvasMyAccount() {
-    // Add loader on initial load of the form / account menu
-    $("#offcanvas-user").addClass("ajax-login"); // 👉 Add class while loading
-
-    accountContent();
-    // Be sure to only load it once after opening the offcanvas
-    offcanvasUser.removeEventListener('show.bs.offcanvas', loadOffcanvasMyAccount);
+  // Loader from wc-ajax-login.php, toggled with the hidden attribute (no CSS needed)
+  function showLoader(show) {
+    const loader = drawerAccount.querySelector('.ajax-login-loader');
+    if (loader) {
+      loader.hidden = !show;
+    }
   }
+
+  // Load the account form or menu once, when the drawer opens for the first time
+  // Bootstrap 6 events are native events, so addEventListener instead of jQuery .on()
+  drawerAccount.addEventListener('show.bs.drawer', function () {
+    showLoader(true);
+    accountContent();
+  }, { once: true });
 
   // Function to load account menu content via AJAX
   function accountContent(successMessage = "") {
@@ -29,27 +35,26 @@ jQuery(function ($) {
       url: bootscoreTheme.ajaxurl,
       type: 'POST',
       data: {
-        action: 'load_account_menu_html',
+        action: 'bootscore_load_account',
       },
       complete: function (response) {
 
         response = response.responseJSON;
 
         if (!response) return;
-        let offCanvasWrapper = $(".my-offcanvas-account");
 
-        offCanvasWrapper.html(response.data['menu_html']);
+        $content.html(response.data.menu_html);
 
-        if (successMessage !== "") {
-          offCanvasWrapper.find(".woocommerce-notices-wrapper").html(successMessage);
+        if (successMessage !== '') {
+          $content.find('.woocommerce-notices-wrapper').html(successMessage);
         }
-        // Remove loader if retrieval of the account form/menu was successfull
-        $("#offcanvas-user").removeClass("ajax-login");
+
+        showLoader(false);
 
         // Initialize the login form if the user is not logged in
-        if(!response.data['is_logged_in']) {
-          offCanvasWrapper.find(".woocommerce-form-login__submit").on("click", (e) => ajax_submit_login(e));
-          init_pw_hide_show_toggle(offCanvasWrapper);
+        if (!response.data.isLoggedIn) {
+          $content.find('.woocommerce-form-login__submit').on('click', (e) => ajax_submit_login(e));
+          init_pw_hide_show_toggle($content);
         }
       }
     });
@@ -58,7 +63,7 @@ jQuery(function ($) {
   function ajax_submit_login(e) {
     e.preventDefault();
 
-    let form = $(".my-offcanvas-account form.login");
+    let form = $content.find('form.login');
     let username = form.find('#username').val().trim();
     let password = form.find('#password').val().trim();
     let nonce = form.find('input[name="woocommerce-login-nonce"]').val();
@@ -75,22 +80,21 @@ jQuery(function ($) {
     }
 
     if (inlineErrorMessage !== '') {
-      $(".my-offcanvas-account").find(".woocommerce-notices-wrapper").html(
+      $content.find('.woocommerce-notices-wrapper').html(
         "<div class='woocommerce-error'>" + "<strong>" + __('Error:', 'bootscore') + "</strong> " +
         inlineErrorMessage + "</div>");
       return;
     } else {
-      $(".my-offcanvas-account").find(".woocommerce-notices-wrapper").empty();
+      $content.find('.woocommerce-notices-wrapper').empty();
     }
 
-    // Add loader on submit of the form
-    $("#offcanvas-user").addClass("ajax-login");
+    showLoader(true);
 
     $.ajax({
       url: bootscoreTheme.ajaxurl,
       type: 'POST',
       data: {
-        action: 'ajax_login',
+        action: 'bootscore_ajax_login',
         username: username,
         password: password,
         woocommerceLoginNonce: nonce,
@@ -119,19 +123,18 @@ jQuery(function ($) {
         } else {
           outputHtml = __('Technical error', 'bootscore') + ' ' + '(' + response.status + ')';
         }
-        $(".my-offcanvas-account").find(".woocommerce-notices-wrapper").html(
+        $content.find('.woocommerce-notices-wrapper').html(
           "<div class='woocommerce-error'>" + outputHtml + "</div>"
         );
 
-        // Remove loader on error
-        $("#offcanvas-user").removeClass("ajax-login");
+        showLoader(false);
       }
     });
   }
 
-  function init_pw_hide_show_toggle( offCanvasWrapper ) {
+  function init_pw_hide_show_toggle($wrapper) {
 
-    offCanvasWrapper.find('.woocommerce-Input[type="password"]').each(function () {
+    $wrapper.find('.woocommerce-Input[type="password"]').each(function () {
       const describedBy = $(this).attr('id');
       const input = $(this);
 
@@ -147,7 +150,10 @@ jQuery(function ($) {
       input.parent().append(button);
     });
 
-    offCanvasWrapper.find('.show-password-input').on('click', function (event) {
+    // Form adorn classes and icon (woocommerce.js)
+    bootscorePasswordInputs($wrapper);
+
+    $wrapper.find('.show-password-input').on('click', function (event) {
       event.preventDefault();
 
       if ($(this).hasClass('display-password')) {

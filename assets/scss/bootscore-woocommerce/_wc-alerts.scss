@@ -1,51 +1,50 @@
 /*--------------------------------------------------------------
-WooCommerce Alerts
+WooCommerce Alerts - Bootscore v7.0.0
 --------------------------------------------------------------*/
 
-// Reset icon color in alerts
-.woocommerce-error::before,
-.woocommerce-info::before,
-.woocommerce-message::before,
-.wc-stripe-error::before {
-  color: inherit;
+@use "../bootstrap/alert";
+@use "../bootstrap/buttons";
+@use "../bootstrap/helpers";
+
+// WooCommerce notices get Bootstrap alert styles
+:is(.woocommerce-error, .woocommerce-info, .woocommerce-message, .woocommerce-noreviews) {
+  @extend .alert;
 }
 
-// Add alert styles to WooCommerce notices
 .woocommerce-error {
-  @extend .alert;
-  @extend .alert-danger;
-  @extend .alert-icon;
-  @extend .alert-danger-icon;
+  @extend .theme-danger;
 }
 
-.woocommerce-info,
-.woocommerce-noreviews {
-  @extend .alert;
-  @extend .alert-info;
-  @extend .alert-icon;
-  @extend .alert-info-icon;
+:is(.woocommerce-info, .woocommerce-noreviews) {
+  @extend .theme-info;
 }
 
-.woocommerce-message,
-.woocommerce-thankyou-order-details {
-  @extend .alert;
-  @extend .alert-success;
-  @extend .alert-icon;
-  @extend .alert-success-icon;
+.woocommerce-message {
+  @extend .theme-success;
 }
 
-// Add alert to stripe notice
-.wc-stripe-error {
-  @extend .alert;
-  @extend .alert-danger;
-  @extend .alert-icon;
-  @extend .alert-danger-icon;
-  margin-top: $spacer;
+// Small buttons in notices, e.g. View cart, Browse products
+.woocommerce :is(.woocommerce-error, .woocommerce-info, .woocommerce-message) .button {
+  @extend .btn-sm;
 }
 
-// Hide all buttons inside WC alerts
-.woocommerce-error a.woocommerce-Button.button,
-.woocommerce-info a.woocommerce-Button.button,
-.woocommerce-message a.woocommerce-Button.button {
-  display: none;
+@layer custom {
+  .woocommerce-error,
+  .woocommerce-info,
+  .woocommerce-message,
+  .woocommerce-noreviews {
+    margin: 0 0 var(--spacer-5);
+
+    // Buttons always at the end
+    .button {
+      order: 1;
+      margin-inline-start: auto;
+    }
+  }
+
+  // Error notices are a list
+  ul.woocommerce-error {
+    flex-direction: column;
+    list-style: none;
+  }
 }

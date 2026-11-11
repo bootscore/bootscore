@@ -1,87 +1,26 @@
 /*--------------------------------------------------------------
-WooCommerce Buttons
+WooCommerce Buttons - Bootscore v7.0.0
 --------------------------------------------------------------*/
 
-// Create buttons & sizes
+@use "../bootstrap/buttons";
+@use "../bootstrap/helpers";
 
-// .btn
-.woocommerce div.product form.cart .button,
-.woocommerce button.button,
-.woocommerce-cart .wc-proceed-to-checkout a.checkout-button,
-.woocommerce button.button.alt,
-.woocommerce a.button,
-.woocommerce a.button-alt,
-.woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) #respond input#submit,
-:where(body:not(.woocommerce-block-theme-has-button-styles)) .woocommerce a.button {
-  display: inline-block;
-  text-align: center;
-  vertical-align: middle;
-  cursor: pointer;
-  user-select: none;
-  text-decoration: none;
-  font-size: $btn-font-size;
-  font-weight: $btn-font-weight;
-  font-family: $btn-font-family;
-  line-height: $btn-line-height;
-  padding: $input-btn-padding-y $input-btn-padding-x;
-  border: $btn-border-width solid;
-  border-radius: $btn-border-radius;
-  transition: $btn-transition;
+// WooCommerce buttons get Bootstrap button styles.
+// @extend adds the selectors to Bootstrap's own rules and layers (components, helpers),
+// so all states (hover, focus, active, disabled) work like on .btn.
+
+// Mini cart buttons get Bootstrap classes in PHP (wc-mini-cart.php)
+
+// Secondary actions, e.g. Update cart, Apply coupon
+.woocommerce .button:not(.alt) {
+  @extend .btn-outline;
 }
 
-//.btn-lg
-.woocommerce-cart .wc-proceed-to-checkout a.checkout-button,
-.woocommerce button.button.alt{
-    padding: $btn-padding-y-lg $btn-padding-x-lg;
-    font-size: $btn-font-size-lg;
-    border-radius: $btn-border-radius-lg;
-  }
-
-//.btn-sm
-.woocommerce .shop_table a.button,
-.woocommerce .shop_table a.woocommerce-MyAccount-downloads-file.button.alt {
-    padding: $btn-padding-y-sm $btn-padding-x-sm;
-    font-size: $btn-font-size-sm;
-    border-radius: $btn-border-radius-sm;
-  }
-
-
-// Create btn variants
-
-// .btn-primary
-.woocommerce div.product form.cart .button,
-.woocommerce-cart .wc-proceed-to-checkout a.checkout-button,
-.woocommerce button.button.alt,
-:where(body:not(.woocommerce-block-theme-has-button-styles)) .woocommerce a.button {
-  color: color-contrast($primary);
-  background-color: var(--#{$prefix}primary);
-  border-color: var(--#{$prefix}primary);
-
-  &:hover {
-    color: color-contrast($primary);
-    background-color: #{shade-color($primary, 10%)};
-    border-color: #{shade-color($primary, 10%)};
-    text-decoration: none;
-  }
+// Primary actions, e.g. Add to cart, Proceed to checkout, Place order
+.woocommerce .button.alt {
+  @extend .btn-solid;
 }
 
-//.btn-outline-primary
-.woocommerce button.button,
-.woocommerce .shop_table a.button,
-.woocommerce .shop_table a.woocommerce-MyAccount-downloads-file.button.alt,
-.woocommerce:where(body:not(.woocommerce-block-theme-has-button-styles)) #respond input#submit {
-  color: var(--#{$prefix}primary);
-  background-color: transparent;
-  border-color: var(--#{$prefix}primary);
-
-  &:hover {
-    color: color-contrast($primary);
-    background-color: var(--#{$prefix}primary);
-  }
-}
-
-// Override WC styles for disabled update cart button
-.woocommerce button.button:disabled[disabled]:hover {
-  color: var(--#{$prefix}primary);
-  background: transparent;
+.woocommerce .button {
+  @extend .theme-primary;
 }
