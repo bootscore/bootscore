@@ -78,7 +78,7 @@ add_action('after_setup_theme', 'bootscore_register_cart_file');
 
 
 /**
- * Creates an ajax login for woocommerce in the offcanvas user account.
+ * Creates an ajax login for woocommerce in the account drawer.
  *
  * The implementation has 2 main goals
  * 1. Better user experience. Login happens immediately and the user can directly access his account

@@ -13,7 +13,7 @@ defined('ABSPATH') || exit;
  
  
 /**
- * Redirect to my-account if offcanvas login failed
+ * Redirect to my-account if the account drawer login failed
  */
 add_action('woocommerce_login_failed', 'bootscore_redirect_on_login_failed', 10, 0);
 function bootscore_redirect_on_login_failed() {
