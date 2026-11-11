@@ -225,7 +225,7 @@ jQuery(function ($) {
       },
       beforeSend: function () {
         // Loader on the item
-        cartItem.item.append('<div class="blockUI blockOverlay d-flex align-items-center justify-content-center"><span class="spinner-border fg-primary" role="status"><span class="visually-hidden">Loading...</span></span></div>');
+        cartItem.item.append('<div class="blockUI blockOverlay"></div>');
       },
       success: function (res) {
         const cart_res = res.data || {};

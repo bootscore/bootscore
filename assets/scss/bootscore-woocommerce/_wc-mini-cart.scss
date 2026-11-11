@@ -153,7 +153,7 @@ WooCommerce Mini Cart - Bootscore v7.0.0
     }
   }
 
-  // Loader on an item while the quantity is updated, spinner from ajax-cart.js
+  // Loader on an item while the quantity is updated
   // z-index above the input group buttons (2) and their focus state (5)
   .woocommerce-mini-cart-item .blockOverlay {
     position: absolute;
