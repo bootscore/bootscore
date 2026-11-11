@@ -3,8 +3,10 @@
 /**
  * WooCommerce AJAX login
  *
- * @package Bootscore 
- * @version 6.3.0
+ * Loads the login form or account menu into the account drawer and logs in without page reload.
+ *
+ * @package Bootscore
+ * @version 7.0.0
  */
 
 
@@ -12,9 +14,12 @@
 defined('ABSPATH') || exit;
 
 
-add_action('wp_ajax_load_account_menu_html', 'load_account_menu_html');
-add_action('wp_ajax_nopriv_load_account_menu_html', 'load_account_menu_html');
-function load_account_menu_html() {
+/**
+ * Account form or menu for the account drawer
+ */
+add_action('wp_ajax_bootscore_load_account', 'bootscore_load_account');
+add_action('wp_ajax_nopriv_bootscore_load_account', 'bootscore_load_account');
+function bootscore_load_account() {
   $response = [];
   $response['menu_html'] = do_shortcode('[woocommerce_my_account]');
   // Check if the user is logged in
@@ -71,8 +76,8 @@ function load_account_menu_html() {
 /**
  * Handles AJAX login for non-logged-in users.
  */
-add_action('wp_ajax_nopriv_ajax_login', 'ajax_login');
-function ajax_login() {
+add_action('wp_ajax_nopriv_bootscore_ajax_login', 'bootscore_ajax_login');
+function bootscore_ajax_login() {
   // Check if there is no IP address, just die
   if ( empty ($user_ip = bootscore_get_user_ip()) ) {
     die();
@@ -132,13 +137,16 @@ function ajax_login() {
 
 
 /**
- * Add a loader to offcanvas login
+ * Loader in the account drawer
+ *
+ * Hidden by default, shown and hidden by ajax-login.js with the hidden attribute.
+ * [hidden] has display: none !important in the reboot layer, which beats the d-flex utility.
  */
 function bootscore_add_loader_to_login() {
-  echo '<div class="ajax-login-loader position-absolute top-0 end-0 bottom-0 start-0 z-1 align-items-center justify-content-center bg-body">
-          <div class="spinner-border text-primary" role="status">
-            <span class="visually-hidden">Loading...</span>
+  echo '<div class="ajax-login-loader position-absolute top-0 end-0 bottom-0 start-0 z-1 d-flex align-items-center justify-content-center bg-body" hidden>
+          <div class="spinner-border fg-primary" role="status">
+            <span class="visually-hidden">' . esc_html__('Loading...', 'bootscore') . '</span>
           </div>
         </div>';
 }
-add_action('bootscore_before_my_offcanvas_account', 'bootscore_add_loader_to_login');
+add_action('bootscore_before_drawer_account', 'bootscore_add_loader_to_login');
