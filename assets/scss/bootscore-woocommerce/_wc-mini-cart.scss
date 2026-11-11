@@ -37,9 +37,14 @@ WooCommerce Mini Cart - Bootscore v7.0.0
       margin: var(--spacer-5);
     }
 
-    // Notices: border-top from PHP (wc-ajax-cart.php) in the same color as the drawer footer border
+    // Notices: border-top from PHP (wc-ajax-cart.php) in the same color as the drawer footer border.
+    // Only while a toast is shown, toasts are hidden after 5 seconds and the container stays.
     .toast-container {
       --border-color: var(--drawer-border-color);
+
+      &:not(:has(.toast.show)) {
+        --border-width: 0;
+      }
     }
   }
 
