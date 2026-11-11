@@ -228,12 +228,24 @@ add_filter('woocommerce_widget_cart_item_quantity', 'bootscore_wc_mini_cart_item
 
 
 /**
- * Remove the "View cart" button from the add to cart notice
+ * Remove the "View cart" button from notices
  *
  * The cart page is skipped by default, and if it is enabled, the mini cart footer has a "View cart" button.
- * Applies to all add to cart notices (mini cart toasts and page notices). "Continue shopping" stays.
+ * WooCommerce adds the button to the add to cart notice and to errors (e.g. sold individually, not enough stock).
+ * Applies to all notices (mini cart toasts and page notices). "Continue shopping" stays.
  */
-function bootscore_wc_add_to_cart_message_html($message, $products, $show_qty) {
+function bootscore_wc_remove_view_cart_button($message) {
+  if (!is_string($message) || false === strpos($message, 'wc-forward')) {
+    return $message;
+  }
+
   return preg_replace('/\s*<a href="' . preg_quote(esc_url(wc_get_cart_url()), '/') . '"[^>]*>.*?<\/a>\s*/s', '', $message);
 }
-add_filter('wc_add_to_cart_message_html', 'bootscore_wc_add_to_cart_message_html', 10, 3);
+
+// Notices added with wc_add_notice(), filter woocommerce_add_{$notice_type}
+add_filter('woocommerce_add_success', 'bootscore_wc_remove_view_cart_button');
+add_filter('woocommerce_add_error', 'bootscore_wc_remove_view_cart_button');
+add_filter('woocommerce_add_notice', 'bootscore_wc_remove_view_cart_button');
+
+// Add to cart message, also if it is returned instead of added as notice
+add_filter('wc_add_to_cart_message_html', 'bootscore_wc_remove_view_cart_button');
