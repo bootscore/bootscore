@@ -225,3 +225,15 @@ function bootscore_wc_mini_cart_item_details($html, $cart_item, $cart_item_key) 
   return $before . $html . $after;
 }
 add_filter('woocommerce_widget_cart_item_quantity', 'bootscore_wc_mini_cart_item_details', 20, 3);
+
+
+/**
+ * Remove the "View cart" button from the add to cart notice
+ *
+ * The cart page is skipped by default, and if it is enabled, the mini cart footer has a "View cart" button.
+ * Applies to all add to cart notices (mini cart toasts and page notices). "Continue shopping" stays.
+ */
+function bootscore_wc_add_to_cart_message_html($message, $products, $show_qty) {
+  return preg_replace('/\s*<a href="' . preg_quote(esc_url(wc_get_cart_url()), '/') . '"[^>]*>.*?<\/a>\s*/s', '', $message);
+}
+add_filter('wc_add_to_cart_message_html', 'bootscore_wc_add_to_cart_message_html', 10, 3);
