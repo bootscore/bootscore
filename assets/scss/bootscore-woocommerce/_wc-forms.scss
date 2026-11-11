@@ -24,6 +24,12 @@ WooCommerce Forms - Bootscore v7.0.0
 }
 
 @layer custom {
+
+  // Quantity wrapper with a hidden input (quantity can't be changed, wc-qty-btn.php), also in the mini cart
+  .quantity:has(> input[type="hidden"]) {
+    display: none;
+  }
+
   .woocommerce {
 
     // Form rows, stacked like .form-field

@@ -47,10 +47,6 @@ jQuery(function ($) {
       let newVal = currentVal;
       if ($(this).is('.plus')) {
         newVal += parseInt(step);
-        // As the value on page load is always 1 or the min value, the minus button will be disabled by default.
-        // As soon as we add some quantity, we enable the minus button. On further clicks you could go on 0 but
-        // would get notified immediatly by the html validation
-        $(this).closest('.quantity').find('.minus').attr('disabled', false);
       } else {
         newVal -= parseInt(step);
       }
@@ -60,5 +56,33 @@ jQuery(function ($) {
 
       // needed to enable refresh cart button on legacy cart page
       $qty.trigger('change');
+  });
+
+  // Button states, same rules as in wc-qty-btn.php: minus disabled at the minimum or 1, plus at the maximum
+  function bootscoreQtyButtons($input) {
+    const val = parseFloat($input.val()) || 0;
+    const min = parseFloat($input.attr('min')) || 0;
+    const max = parseFloat($input.attr('max'));
+    const $quantity = $input.closest('.quantity');
+
+    $quantity.find('.minus').prop('disabled', val <= Math.max(min, 1));
+    $quantity.find('.plus').prop('disabled', !Number.isNaN(max) && val >= max);
+  }
+
+  $(document.body).on('change', 'form.cart .qty, form.woocommerce-cart-form .qty', function () {
+    bootscoreQtyButtons($(this));
+  });
+
+  // Variable products: WooCommerce only hides the quantity if the variation is sold individually.
+  // Also hide it if only 1 can be bought, e.g. 1 left in stock.
+  $(document.body).on('show_variation', 'form.variations_form', function (event, variation) {
+    const max = parseFloat(variation.max_qty);
+    const min = parseFloat(variation.min_qty) || 0;
+
+    if (!Number.isNaN(max) && max <= Math.max(min, 1)) {
+      $(this).find('.quantity').hide();
+    }
+
+    bootscoreQtyButtons($(this).find('.qty'));
   });
 }); // jQuery End
