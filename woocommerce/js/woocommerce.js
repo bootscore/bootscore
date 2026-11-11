@@ -5,6 +5,16 @@
 
 jQuery(function ($) {
 
+  // Notice markup for notices built in JS, same as wc-notices.php: icon | text
+  // type: 'success', 'error' or 'notice'
+  window.bootscoreNotice = function (type, html) {
+    const classes = { success: 'woocommerce-message', error: 'woocommerce-error', notice: 'woocommerce-info' };
+
+    return '<div class="' + (classes[type] || classes.notice) + '" role="alert">' +
+      (bootscoreTheme.icons.notice[type] || '') +
+      '<span class="wc-notice-text">' + html + '</span></div>';
+  };
+
   // Password show/hide toggle as Bootstrap form adorn
   // WooCommerce wraps password inputs in span.password-input and adds button.show-password-input (woocommerce.js),
   // in the account drawer this is done by ajax-login.js. There is no PHP hook, so the classes are added here.
