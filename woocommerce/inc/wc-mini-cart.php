@@ -90,6 +90,42 @@ add_filter('woocommerce_mini_cart_item_class', 'bootscore_wc_mini_cart_item_clas
 
 
 /**
+ * Mini cart item image and title in their own tags
+ *
+ * Both filters are also used on the cart and checkout pages, so they only change the output
+ * between woocommerce_before_mini_cart_contents and woocommerce_mini_cart_contents (the item loop).
+ * Image and title stay inside the WooCommerce product link.
+ */
+function bootscore_wc_mini_cart_loop_start() {
+  $GLOBALS['bootscore_wc_in_mini_cart'] = true;
+}
+add_action('woocommerce_before_mini_cart_contents', 'bootscore_wc_mini_cart_loop_start');
+
+function bootscore_wc_mini_cart_loop_end() {
+  $GLOBALS['bootscore_wc_in_mini_cart'] = false;
+}
+add_action('woocommerce_mini_cart_contents', 'bootscore_wc_mini_cart_loop_end');
+
+function bootscore_wc_mini_cart_item_thumbnail($thumbnail, $cart_item, $cart_item_key) {
+  if (empty($GLOBALS['bootscore_wc_in_mini_cart'])) {
+    return $thumbnail;
+  }
+
+  return '<span class="mini-cart-item-image ' . esc_attr(apply_filters('bootscore/class/woocommerce/mini-cart/image', '')) . '">' . $thumbnail . '</span>';
+}
+add_filter('woocommerce_cart_item_thumbnail', 'bootscore_wc_mini_cart_item_thumbnail', 10, 3);
+
+function bootscore_wc_mini_cart_item_name($name, $cart_item, $cart_item_key) {
+  if (empty($GLOBALS['bootscore_wc_in_mini_cart'])) {
+    return $name;
+  }
+
+  return '<span class="mini-cart-item-title ' . esc_attr(apply_filters('bootscore/class/woocommerce/mini-cart/title', 'fw-semibold')) . '">' . $name . '</span>';
+}
+add_filter('woocommerce_cart_item_name', 'bootscore_wc_mini_cart_item_name', 10, 3);
+
+
+/**
  * Mini cart buttons
  *
  * Replace the WooCommerce buttons (class .button) with Bootstrap buttons.

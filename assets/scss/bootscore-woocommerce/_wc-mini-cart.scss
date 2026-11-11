@@ -48,20 +48,28 @@ WooCommerce Mini Cart - Bootscore v7.0.0
       gap: var(--spacer-1) var(--spacer-5);
       align-items: start;
 
-      // Link around image and name: image and name become grid items
+      // Product link around image and title (no class filter): image and title become grid items
       > a:not(.remove) {
         display: contents;
-        font-weight: var(--font-weight-semibold);
         color: var(--fg-body);
         text-decoration: none;
+      }
+
+      // Image and title, wrapped in PHP (wc-mini-cart.php)
+      .mini-cart-item-image {
+        grid-row: 1 / span 6;
+        grid-column: 1;
 
         img {
-          grid-row: 1 / span 6;
-          grid-column: 1;
           width: 100%;
           height: auto;
           border-radius: var(--radius-5);
         }
+      }
+
+      .mini-cart-item-title {
+        grid-row: 1;
+        grid-column: 2;
       }
 
       // Name and details in the middle column
