@@ -1,9 +1,30 @@
 /**
- * WooCommerce JS - Bootscore v6.3.1
+ * WooCommerce JS - Bootscore v7.0.0
  */
 
 
 jQuery(function ($) {
+
+  // Password show/hide toggle as Bootstrap form adorn
+  // WooCommerce wraps password inputs in span.password-input and adds button.show-password-input (woocommerce.js),
+  // in the account drawer this is done by ajax-login.js. There is no PHP hook, so the classes are added here.
+  window.bootscorePasswordInputs = function (context) {
+    $(context || document).find('.password-input:not(.form-adorn)').each(function () {
+      const $wrapper = $(this);
+      const $button = $wrapper.find('.show-password-input');
+
+      $wrapper.addClass('form-control form-adorn form-adorn-end');
+      $wrapper.find('input').addClass('form-ghost');
+      $button.addClass('btn-icon btn-text theme-secondary').html(bootscoreTheme.icons.eye);
+    });
+  };
+
+  bootscorePasswordInputs();
+
+  // Swap the icon, WooCommerce toggles .display-password, the input type and the aria-label
+  $(document.body).on('click', '.form-adorn .show-password-input', function () {
+    $(this).html($(this).hasClass('display-password') ? bootscoreTheme.icons.eyeSlash : bootscoreTheme.icons.eye);
+  });
 
   // Single-product Tabs
   // First item active

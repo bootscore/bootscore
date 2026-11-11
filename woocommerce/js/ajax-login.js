@@ -150,6 +150,9 @@ jQuery(function ($) {
       input.parent().append(button);
     });
 
+    // Form adorn classes and icon (woocommerce.js)
+    bootscorePasswordInputs($wrapper);
+
     $wrapper.find('.show-password-input').on('click', function (event) {
       event.preventDefault();
 

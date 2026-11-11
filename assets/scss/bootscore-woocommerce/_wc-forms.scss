@@ -5,7 +5,7 @@ WooCommerce Forms - Bootscore v7.0.0
 @use "../bootstrap/forms";
 
 // Text inputs, textareas and selects. The quantity input gets .form-control in PHP (wc-forms.php)
-.woocommerce :is(.input-text, select) {
+.woocommerce :is(.input-text:not(.form-ghost), select) {
   @extend .form-control;
 }
 
@@ -24,6 +24,11 @@ WooCommerce Forms - Bootscore v7.0.0
 }
 
 @layer custom {
+
+  // Password toggle in the form adorn (woocommerce.js): no button min-height, so the field keeps the input height
+  .form-adorn > .show-password-input {
+    --btn-min-height: 0;
+  }
 
   // Quantity wrapper with a hidden input (quantity can't be changed, wc-qty-btn.php), also in the mini cart
   .quantity:has(> input[type="hidden"]) {
@@ -44,7 +49,7 @@ WooCommerce Forms - Bootscore v7.0.0
     }
 
     // Wrapper around inputs
-    .woocommerce-input-wrapper {
+    .woocommerce-input-wrapper:not(.form-adorn) {
       display: block;
     }
 

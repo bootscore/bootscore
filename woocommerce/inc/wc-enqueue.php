@@ -21,16 +21,22 @@ function bootscore_wc_scripts() {
   // https://developer.woocommerce.com/2023/05/24/woocommerce-7-8-beta-1-released/
   wp_enqueue_script('wc-cart-fragments');
 
-  // admin-ajax.php URL for ajax cart and ajax login
+  // admin-ajax.php URL for ajax cart and ajax login, icons for the password toggle
   // https://github.com/bootscore/bootscore/pull/711
-  wp_localize_script('bootscore', 'bootscoreTheme', ['ajaxurl' => admin_url('admin-ajax.php')]);
+  wp_localize_script('bootscore', 'bootscoreTheme', [
+    'ajaxurl' => admin_url('admin-ajax.php'),
+    'icons'   => [
+      'eye'      => bootscore_icon('eye', false),
+      'eyeSlash' => bootscore_icon('eye-slash', false),
+    ],
+  ]);
 
-  // WooCommerce
-  wp_enqueue_script('bootscore-woocommerce', get_template_directory_uri() . '/woocommerce/js/woocommerce.js', ['jquery'], date('YmdHi', filemtime(__DIR__ . '/../js/woocommerce.js')), true);
+  // WooCommerce, after WooCommerce's own woocommerce.js (password toggle)
+  wp_enqueue_script('bootscore-woocommerce', get_template_directory_uri() . '/woocommerce/js/woocommerce.js', ['jquery', 'woocommerce', 'bootscore'], date('YmdHi', filemtime(__DIR__ . '/../js/woocommerce.js')), true);
 
   // Ajax login
   if (apply_filters('bootscore/wc_ajax_login', true)) {
-    wp_enqueue_script('bootscore-ajax-login', get_template_directory_uri() . '/woocommerce/js/ajax-login.js', ['jquery', 'bootscore'], date('YmdHi', filemtime(__DIR__ . '/../js/ajax-login.js')), true);
+    wp_enqueue_script('bootscore-ajax-login', get_template_directory_uri() . '/woocommerce/js/ajax-login.js', ['jquery', 'bootscore', 'bootscore-woocommerce'], date('YmdHi', filemtime(__DIR__ . '/../js/ajax-login.js')), true);
     wp_set_script_translations('bootscore-ajax-login', 'bootscore', get_template_directory() . '/languages');
   }
 
