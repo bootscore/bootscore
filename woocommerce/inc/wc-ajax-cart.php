@@ -107,13 +107,13 @@
       $notice_types  = apply_filters('woocommerce_notice_types', ['error', 'success', 'notice']);
 
       ob_start();
-      echo '<div class="toast-container ' . esc_attr(apply_filters('bootscore/class/woocommerce/toast-container', 'position-static w-100 bg-1 overflow-hidden px-3 py-0')) . '">';
+      echo '<div class="toast-container ' . esc_attr(apply_filters('bootscore/class/woocommerce/toast-container', 'position-static w-100 overflow-hidden px-5')) . '">';
 
       $atLeastOneNotice = false;
       foreach ($notice_types as $notice_type) {
         if (wc_notice_count($notice_type) > 0) {
           // Shadow and bg is hidden because that would produce a faulty looking appearance. Solvable with a rewrite of notice.php or adding special notice files for toasts.
-          echo '<div class="toast bg-transparent shadow-none w-100 border-0 mb-0 ' . ($atLeastOneNotice ? 'mt-2' : 'mt-3') . '" role="alert" aria-live="assertive" aria-atomic="true">';
+          echo '<div class="toast bg-transparent shadow-none w-100 border-0 mb-5' . ($atLeastOneNotice ? '' : ' mt-5') . '" role="alert" aria-live="assertive" aria-atomic="true">';
           echo '<div class="toast-body p-0">';
           wc_get_template("notices/{$notice_type}.php", [
             'notices' => array_filter($all_notices[$notice_type] ?? []),
@@ -132,12 +132,7 @@
       echo '</div>';
 
       $notices_html = '<div class="woocommerce-messages">' . ob_get_clean() . '</div>';
-      $notices_html = preg_replace('/class="woocommerce-(message|info|error)"/', 'class="woocommerce-$1 m-0 mb-2"', $notices_html);
-
-      if ($atLeastOneNotice) {
-        // Add a hr element inside the last toast if at least one notice is present
-        $notices_html = preg_replace('/(<\/div>\s*){3}$/', '<hr class="mb-0">$1$1$1', $notices_html);
-      }
+      $notices_html = preg_replace('/class="woocommerce-(message|info|error)"/', 'class="woocommerce-$1 m-0"', $notices_html);
 
       $fragments['notices_html'] = $notices_html;
       $fragments['.woocommerce-messages'] = $notices_html;
@@ -279,12 +274,14 @@
     }
 
     /**
-     * Notices container in the cart drawer, outside the fragments
+     * Notices container above the mini cart footer
+     *
+     * Part of the mini cart fragment. The notices fragment (.woocommerce-messages) is applied after it.
      */
     function bootscore_ajax_cart_messages_container() {
       echo '<div class="woocommerce-messages-container"><div class="woocommerce-messages"><div></div></div></div>'; // Inner div is replaced by the notices fragment
     }
-    add_action('bootscore_before_drawer_cart', 'bootscore_ajax_cart_messages_container');
+    add_action('bootscore_before_mini_cart_footer', 'bootscore_ajax_cart_messages_container');
 
     /**
      * Nonce for the quantity update, once per mini cart

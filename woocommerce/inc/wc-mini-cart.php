@@ -52,6 +52,9 @@ endif;
  *
  * WooCommerce has no hook around total and buttons. The footer wraps everything from the total
  * up to the end of woocommerce_widget_shopping_cart_after_buttons, incl. content from other plugins.
+ *
+ * Action bootscore_before_mini_cart_footer outputs content above the footer, e.g. the ajax cart notices.
+ * If there is no footer (empty cart), it is added at the end.
  */
 if (!function_exists('woocommerce_mini_cart')) :
   function woocommerce_mini_cart($args = array()) {
@@ -66,8 +69,24 @@ if (!function_exists('woocommerce_mini_cart')) :
     $marker = '<!-- bootscore-mini-cart-footer-end -->';
     $footer = '<div class="woocommerce-mini-cart__footer ' . esc_attr(apply_filters('bootscore/class/woocommerce/mini-cart/footer', 'drawer-footer flex-column align-items-stretch')) . '">';
 
+    ob_start();
+    do_action('bootscore_before_mini_cart_footer');
+    $before_footer = ob_get_clean();
+
     // Wrap only if both ends are found, otherwise keep the markup as it is
-    $html = preg_replace('/(<p class="woocommerce-mini-cart__total[\s\S]*?)' . preg_quote($marker, '/') . '/', $footer . '$1</div>', $html, 1);
+    $html = preg_replace_callback(
+      '/(<p class="woocommerce-mini-cart__total[\s\S]*?)' . preg_quote($marker, '/') . '/',
+      function ($matches) use ($before_footer, $footer) {
+        return $before_footer . $footer . $matches[1] . '</div>';
+      },
+      $html,
+      1,
+      $count
+    );
+
+    if (!$count) {
+      $html .= $before_footer;
+    }
 
     echo str_replace($marker, '', $html); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
   }
