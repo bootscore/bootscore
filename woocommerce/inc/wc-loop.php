@@ -4,7 +4,7 @@
  * WooCommerce Loop
  *
  * @package Bootscore 
- * @version 6.3.1
+ * @version 7.0.0
  */
 
 
@@ -18,12 +18,12 @@ defined('ABSPATH') || exit;
 if (!function_exists('woocommerce_template_loop_category_title')) :
   function woocommerce_template_loop_category_title($category) {
     ?>
-    <h2 class="woocommerce-loop-category__title btn btn-primary w-100 mb-0">
+    <h2 class="woocommerce-loop-category__title btn-solid theme-primary w-100 mb-0">
       <?php
       echo esc_html($category->name);
 
       if ($category->count > 0) {
-        echo wp_kses_post(apply_filters('woocommerce_subcategory_count_html', ' <mark class="count badge bg-white text-dark">' . esc_html($category->count) . '</mark>', $category));
+        echo wp_kses_post(apply_filters('woocommerce_subcategory_count_html', ' <mark class="count badge bg-white fg-black">' . esc_html($category->count) . '</mark>', $category));
       }
       ?>
     </h2>
@@ -109,10 +109,10 @@ function bootscore_loop_add_to_cart_args( $args ) {
     }
 
     // Apply filter for button classes
-    $custom_classes = apply_filters('bootscore/class/woocommerce/loop/add-to-cart/button', 'btn btn-primary d-block');
+    $custom_classes = apply_filters('bootscore/class/woocommerce/loop/add-to-cart/button', 'btn-solid theme-primary d-block');
     $args['class'] .= ' ' . $custom_classes;
   } else {
-    $args['class'] = apply_filters('bootscore/class/woocommerce/loop/add-to-cart/button', 'btn btn-primary d-block');
+    $args['class'] = apply_filters('bootscore/class/woocommerce/loop/add-to-cart/button', 'btn-solid theme-primary d-block');
   }
 
   return $args;

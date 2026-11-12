@@ -57,7 +57,7 @@ $in_bs_loop = isset($GLOBALS['bs_loop_atts']);
     do_action('woocommerce_before_shop_loop_item_title');
     ?>
 
-    <div class="<?= esc_attr(apply_filters('bootscore/class/woocommerce/product/card/card-body', 'card-body d-flex flex-column')); ?>">
+    <div class="<?= esc_attr(apply_filters('bootscore/class/woocommerce/product/card/card-body', 'card-body')); ?>">
       <?php
       /**
        * Hook: woocommerce_shop_loop_item_title.
