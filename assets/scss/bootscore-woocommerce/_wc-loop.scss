@@ -1,43 +1,6 @@
 /*--------------------------------------------------------------
-WooCommerce Loop - v7.0.0
+WooCommerce Loop - Bootscore v7.0.0
 --------------------------------------------------------------*/
 
-// Products
-.woocommerce .card {
-
-  // Product link
-  a.woocommerce-LoopProduct-link.woocommerce-loop-product__link {
-    text-decoration: none;
-
-    &:hover {
-      text-decoration: none;
-    }
-  }
-
-  // Product title
-  .woocommerce-loop-product__title {
-    font-size: 1.25rem;
-  }
-
-  // Star ratings
-  .star-rating {
-    float: none;
-    margin: 1rem auto;
-
-    span::before {
-      text-align: left;
-    }
-  }
-
-  // Price
-  .price {
-    display: block;
-    margin-bottom: 1rem;
-  }
-}
-
-
-// Category buttons
-.product-category .card-body a {
-  margin-top: auto;
-}
+// Row, col, card, title and button classes come from PHP (wc-loop.php).
+// Star rating and sale badge follow with their own step.
