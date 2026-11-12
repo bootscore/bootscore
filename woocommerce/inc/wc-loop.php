@@ -196,7 +196,7 @@ add_filter('woocommerce_format_sale_price', 'bootscore_wc_format_sale_price', 10
  * Bootstrap button classes for the add to cart button
  */
 function bootscore_loop_add_to_cart_args($args) {
-  $button = apply_filters('bootscore/class/woocommerce/loop/add-to-cart/button', 'btn-solid theme-primary w-100');
+  $button = apply_filters('bootscore/class/woocommerce/loop/add-to-cart/button', 'btn-solid theme-primary w-100 position-relative');
 
   if (empty($args['class']) || !is_string($args['class'])) {
     $args['class'] = $button;

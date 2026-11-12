@@ -74,7 +74,7 @@ jQuery(function ($) {
   });
 
   // Spinner for the single product button, loop buttons get it in PHP (wc-ajax-cart.php)
-  $('.single_add_to_cart_button').prepend('<span class="btn-loader spinner-border" role="status" hidden><span class="visually-hidden">Loading...</span></span>');
+  $('.single_add_to_cart_button').addClass('position-relative').prepend('<span class="btn-loader spinner-border position-absolute top-0 bottom-0 start-0 end-0 m-auto" role="status" hidden><span class="visually-hidden">Loading...</span></span>');
 
   // 1.2 Enable AJAX add to cart on loop items
   // Function allows readding the handler also on dynamic elements after initial pageload

@@ -45,7 +45,7 @@
      * 3. Adds a badge with the woocommecerce out of stock message that is removeable via filter
      */
     function bootscore_ajax_cart_btn_loader() {
-      return '<span class="btn-loader ' . esc_attr(apply_filters('bootscore/class/woocommerce/btn-loader', 'spinner-border')) . '" role="status" hidden><span class="visually-hidden">' . esc_html__('Loading...', 'bootscore') . '</span></span>';
+      return '<span class="btn-loader ' . esc_attr(apply_filters('bootscore/class/woocommerce/btn-loader', 'spinner-border position-absolute top-0 bottom-0 start-0 end-0 m-auto')) . '" role="status" hidden><span class="visually-hidden">' . esc_html__('Loading...', 'bootscore') . '</span></span>';
     }
 
     function bootscore_add_btn_loader_to_loop($html, $product, $args) {
