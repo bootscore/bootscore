@@ -31,6 +31,14 @@ jQuery(function ($) {
 
   bootscorePasswordInputs();
 
+  // Remove the "View cart" link WooCommerce adds after the add to cart button.
+  // The cart page is skipped by default, and if enabled, the mini cart footer has a "View cart" button.
+  $(document.body).on('added_to_cart', function (event, fragments, cartHash, $button) {
+    if ($button && $button.length) {
+      $button.siblings('.added_to_cart').remove();
+    }
+  });
+
   // Swap the icon, WooCommerce toggles .display-password, the input type and the aria-label
   $(document.body).on('click', '.form-adorn .show-password-input', function () {
     $(this).html($(this).hasClass('display-password') ? bootscoreTheme.icons.eyeSlash : bootscoreTheme.icons.eye);

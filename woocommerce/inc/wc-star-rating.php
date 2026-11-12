@@ -27,6 +27,6 @@ function bootscore_wc_star_rating_html($html, $rating, $count) {
   $stars .= str_repeat(bootscore_icon('star-half', false), $half);
   $stars .= str_repeat(bootscore_icon('star-empty', false), max(0, $empty));
 
-  return '<span class="' . esc_attr(apply_filters('bootscore/class/woocommerce/star-rating', 'd-inline-flex gap-1 fg-warning')) . '" aria-hidden="true">' . $stars . '</span>';
+  return '<span class="' . esc_attr(apply_filters('bootscore/class/woocommerce/star-rating', 'd-inline-flex gap-1 fg-body')) . '" aria-hidden="true">' . $stars . '</span>';
 }
 add_filter('woocommerce_get_star_rating_html', 'bootscore_wc_star_rating_html', 10, 3);

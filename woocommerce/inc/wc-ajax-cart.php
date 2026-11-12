@@ -44,6 +44,10 @@
      * 2. Adds a filter to remove the "Add to cart" button if the item is out of stock
      * 3. Adds a badge with the woocommecerce out of stock message that is removeable via filter
      */
+    function bootscore_ajax_cart_btn_loader() {
+      return '<span class="btn-loader ' . esc_attr(apply_filters('bootscore/class/woocommerce/btn-loader', 'spinner-border')) . '" role="status" hidden><span class="visually-hidden">' . esc_html__('Loading...', 'bootscore') . '</span></span>';
+    }
+
     function bootscore_add_btn_loader_to_loop($html, $product, $args) {
 
       $return_html = '';
@@ -51,7 +55,8 @@
       if ( $product->is_in_stock() && $product->supports('ajax_add_to_cart') && $product->is_purchasable() ) {
         // Implement btn-loader element directly on the loop items without js
         // Helps to decrease computing on client devices on page load and makes it cacheable
-        $replacement = '$1<div class="btn-loader"><span class="spinner-border spinner-border-sm"></span></div>';
+        // Hidden by default, ajax-cart.js toggles the hidden attribute while loading
+        $replacement = '$1' . bootscore_ajax_cart_btn_loader();
 		$return_html .= preg_replace('/(<a\b[^>]*\bhref="[^"]*add-to-cart=[^"]*"[^>]*>)/', $replacement, $html);
       } else {
         // If the product is not purchasable, we return the original HTML without the btn-loader

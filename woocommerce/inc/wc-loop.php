@@ -184,10 +184,19 @@ add_filter('woocommerce_loop_add_to_cart_link', 'bootscore_loop_add_to_cart_link
 
 
 /**
+ * Sale price: no underline on the new price (<ins>)
+ */
+function bootscore_wc_format_sale_price($price, $regular_price, $sale_price) {
+  return str_replace('<ins', '<ins class="' . esc_attr(apply_filters('bootscore/class/woocommerce/sale-price', 'text-decoration-none')) . '"', $price);
+}
+add_filter('woocommerce_format_sale_price', 'bootscore_wc_format_sale_price', 10, 3);
+
+
+/**
  * Bootstrap button classes for the add to cart button
  */
 function bootscore_loop_add_to_cart_args($args) {
-  $button = apply_filters('bootscore/class/woocommerce/loop/add-to-cart/button', 'btn-solid theme-primary d-block');
+  $button = apply_filters('bootscore/class/woocommerce/loop/add-to-cart/button', 'btn-solid theme-primary w-100');
 
   if (empty($args['class']) || !is_string($args['class'])) {
     $args['class'] = $button;
