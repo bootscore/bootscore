@@ -26,6 +26,7 @@ require_once get_template_directory() . '/woocommerce/inc/wc-qty-btn.php';
 //require_once get_template_directory() . '/woocommerce/inc/wc-redirects.php'; 
 require_once get_template_directory() . '/woocommerce/inc/wc-result-count.php';
 require_once get_template_directory() . '/woocommerce/inc/wc-sale-flash.php';
+require_once get_template_directory() . '/woocommerce/inc/wc-star-rating.php';
 require_once get_template_directory() . '/woocommerce/inc/wc-stock-badge.php'; 
 require_once get_template_directory() . '/woocommerce/inc/wc-setup.php'; 
 //require_once get_template_directory() . '/woocommerce/inc/wc-single-product-reviews.php';
