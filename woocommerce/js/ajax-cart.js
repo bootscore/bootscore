@@ -13,6 +13,13 @@
 
 
 jQuery(function ($) {
+
+  // Loading state of add to cart buttons: .loading class and the .btn-loader spinner (hidden attribute, no CSS needed)
+  function bootscoreButtonLoading(button, loading) {
+    button.toggleClass('loading', loading);
+    button.find('.btn-loader').prop('hidden', !loading);
+  }
+
   // 1 Handle AJAX Add To Cart
 
   // 1.1 Enable AJAX for single product pages
@@ -31,8 +38,7 @@ jQuery(function ($) {
       var formData = new FormData(form[0]);
       formData.append('add-to-cart', form.find('[name=add-to-cart]').val());
 
-      // Add loading class
-      button.addClass('loading');
+      bootscoreButtonLoading(button, true);
 
       // Ajax action
       $.ajax({
@@ -42,7 +48,7 @@ jQuery(function ($) {
         processData: false,
         contentType: false,
         complete: function (response) {
-          button.removeClass('loading');
+          bootscoreButtonLoading(button, false);
         },
         success: function (response) {
           if (response.error && response.product_url) {
@@ -67,8 +73,8 @@ jQuery(function ($) {
     }
   });
 
-  // Add loading spinner to add_to_cart_button // loop buttons are via a php filter in ajax-cart.php
-  $('.single_add_to_cart_button').prepend('<div class="btn-loader"><span class="spinner-border spinner-border-sm"></span></div>');
+  // Spinner for the single product button, loop buttons get it in PHP (wc-ajax-cart.php)
+  $('.single_add_to_cart_button').addClass('position-relative').prepend('<span class="btn-loader spinner-border position-absolute top-0 bottom-0 start-0 end-0 m-auto" role="status" hidden><span class="visually-hidden">Loading...</span></span>');
 
   // 1.2 Enable AJAX add to cart on loop items
   // Function allows readding the handler also on dynamic elements after initial pageload
@@ -106,7 +112,7 @@ jQuery(function ($) {
       // Therefore this approach is needed because it adds the loading after the removal. I'm not sure if this is the best way to do it.'
       // Function to add the 'loading' class to the a.ajax_add_to_cart button
       function addLoadingClass(e, fragments, cart_hash, button) {
-        button.addClass('loading');
+        bootscoreButtonLoading(button, true);
       }
 
       // Add new 'ajax_request_not_sent.adding_to_cart' event to trigger 'addLoadingClass' function
@@ -119,7 +125,7 @@ jQuery(function ($) {
         url: wc_add_to_cart_params.wc_ajax_url.toString().replace('%%endpoint%%', 'ace_add_to_cart'),
         data: data,
         complete: function (response) {
-          button.addClass('added').removeClass('loading');
+          bootscoreButtonLoading(button.addClass('added'), false);
 
           // Remove 'should_send_ajax_request.adding_to_cart' and 'ajax_request_not_sent.adding_to_cart' events so they don't accumulate
           $(document.body).off('should_send_ajax_request.adding_to_cart');

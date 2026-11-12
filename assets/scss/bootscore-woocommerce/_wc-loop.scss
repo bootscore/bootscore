@@ -1,0 +1,13 @@
+/*--------------------------------------------------------------
+WooCommerce Loop - Bootscore v7.0.0
+--------------------------------------------------------------*/
+
+// Row, col, card, title, button and toolbar classes come from PHP (wc-loop.php, wc-result-count.php).
+
+@layer custom {
+
+  // Result count (no class filter): no paragraph margin in the toolbar
+  .woocommerce-result-count {
+    margin-bottom: 0;
+  }
+}

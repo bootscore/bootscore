@@ -4,7 +4,7 @@
  * WooCommerce Archive Result Count and Orderby
  *
  * @package Bootscore
- * @version 6.5.0
+ * @version 7.0.0
  */
 
 
@@ -13,34 +13,17 @@ defined('ABSPATH') || exit;
 
 
 /**
- * Add grid
+ * Result count and catalog ordering in one flex row
+ *
+ * WooCommerce outputs both on woocommerce_before_shop_loop (result count 20, ordering 30).
+ * The wrapper opens before (15) and closes after them (32). On small screens they wrap.
  */
-add_action( 'woocommerce_before_shop_loop', 'bootscore_add_opening_row_wrapper', 15 );
-function bootscore_add_opening_row_wrapper() {
-  echo '<div class="row mb-4">';
+function bootscore_wc_before_shop_loop_open() {
+  echo '<div class="' . esc_attr(apply_filters('bootscore/class/woocommerce/loop/before', 'd-flex flex-wrap align-items-baseline justify-content-between gap-5 mb-7')) . '">';
 }
+add_action('woocommerce_before_shop_loop', 'bootscore_wc_before_shop_loop_open', 15);
 
-add_action( 'woocommerce_before_shop_loop', 'bootscore_add_opening_result_count_col_wrapper', 18 );
-function bootscore_add_opening_result_count_col_wrapper() {
-  echo '<div class="col-md-6 col-lg-8 col-xxl-9">';
-}
-
-add_action( 'woocommerce_before_shop_loop', 'bootscore_close_result_count_col_wrapper', 22 );
-function bootscore_close_result_count_col_wrapper() {
+function bootscore_wc_before_shop_loop_close() {
   echo '</div>';
 }
-
-add_action( 'woocommerce_before_shop_loop', 'bootscore_add_opening_orderby_col_wrapper', 29 );
-function bootscore_add_opening_orderby_col_wrapper() {
-  echo '<div class="col-md-6 col-lg-4 col-xxl-3">';
-}
-
-add_action( 'woocommerce_before_shop_loop', 'bootscore_close_orderby_col_wrapper', 31 );
-function bootscore_close_orderby_col_wrapper() {
-  echo '</div>';
-}
-
-add_action( 'woocommerce_before_shop_loop', 'bootscore_close_row_wrapper', 32 );
-function bootscore_close_row_wrapper() {
-  echo '</div>';
-}
+add_action('woocommerce_before_shop_loop', 'bootscore_wc_before_shop_loop_close', 32);

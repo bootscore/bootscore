@@ -24,3 +24,14 @@ WooCommerce Buttons - Bootscore v7.0.0
 .woocommerce .button {
   @extend .theme-primary;
 }
+
+@layer custom {
+
+  // Add to cart button while loading: text hidden, spinner centered on top.
+  // .btn-loader with position utilities from wc-ajax-cart.php and ajax-cart.js, centered with inset 0 and
+  // margin auto (translate-middle would be overwritten by the spinner's rotate animation).
+  // text-fill-color hides the text but keeps color, which the spinner border uses (currentcolor).
+  .loading:has(> .btn-loader:not([hidden])) {
+    -webkit-text-fill-color: transparent;
+  }
+}

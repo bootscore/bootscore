@@ -3,8 +3,8 @@
 /**
  * WooCommerce Stock Badge
  *
- * @package Bootscore 
- * @version 6.3.0
+ * @package Bootscore
+ * @version 7.0.0
  */
 
 
@@ -13,19 +13,27 @@ defined('ABSPATH') || exit;
 
 
 /**
- * Stock Badge in single-product page
+ * Stock badge on the single product page
+ *
+ * Change classes via filter, 2nd argument is the WooCommerce availability class
+ * ('in-stock', 'available-on-backorder', 'out-of-stock').
  */
-add_filter('woocommerce_get_stock_html', function($html, $product) {
+function bootscore_wc_stock_badge($html, $product) {
   $availability = $product->get_availability();
-  $class = $availability['class'];
-  $message = $availability['availability'];
+  $class        = $availability['class'];
+  $message      = $availability['availability'];
 
-  // Define badge class based on stock status
-  if ($class === 'in-stock') {
-    $badge_class = 'stock-badge badge text-bg-success mb-3';
-  } else {
-    $badge_class = 'stock-badge badge text-bg-danger mb-3';
+  if ('' === $message) {
+    return $html;
   }
 
-  return '<span class="' . esc_attr($badge_class) . '">' . esc_html($message) . '</span>';
-}, 10, 2);
+  $themes = array(
+    'in-stock'               => 'theme-success',
+    'available-on-backorder' => 'theme-warning',
+  );
+
+  $classes = apply_filters('bootscore/class/woocommerce/stock-badge', 'badge ' . ($themes[$class] ?? 'theme-danger') . ' mb-5', $class);
+
+  return '<p class="stock ' . esc_attr($class) . '"><span class="' . esc_attr($classes) . '">' . esc_html($message) . '</span></p>';
+}
+add_filter('woocommerce_get_stock_html', 'bootscore_wc_stock_badge', 10, 2);
