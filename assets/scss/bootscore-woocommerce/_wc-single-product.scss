@@ -87,10 +87,14 @@ table.variations label {
     }
   }
 
-  // Additional information: values come as paragraphs (wpautop)
+  // Additional information: labels as wide as their content, values take the rest and wrap.
+  // Without nowrap, .text-break on body lets the labels break anywhere and the columns share the width.
+  // Values come as paragraphs (wpautop)
   .shop_attributes {
     th {
+      width: 1%;
       text-align: start;
+      white-space: nowrap;
     }
 
     td p {
