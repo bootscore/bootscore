@@ -34,8 +34,9 @@ function bootscore_wc_stock_badge($html, $product) {
   );
 
   $context = empty($GLOBALS['bootscore_wc_in_grouped_list']) ? 'single' : 'grouped';
-  $spacing = 'grouped' === $context ? 'mt-2' : 'mb-5';
-  $classes = apply_filters('bootscore/class/woocommerce/stock-badge', 'badge ' . ($themes[$class] ?? 'theme-danger') . ' ' . $spacing, $class, $context);
+  // Single: spacing from the paragraph margin. Grouped: below the price, paragraph without margin
+  $spacing = 'grouped' === $context ? ' mt-2' : '';
+  $classes = apply_filters('bootscore/class/woocommerce/stock-badge', 'badge ' . ($themes[$class] ?? 'theme-danger') . $spacing, $class, $context);
 
   return '<p class="stock ' . esc_attr($class) . ('grouped' === $context ? ' mb-0' : '') . '"><span class="' . esc_attr($classes) . '">' . esc_html($message) . '</span></p>';
 }
