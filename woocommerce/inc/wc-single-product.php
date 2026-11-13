@@ -113,3 +113,17 @@ add_action('woocommerce_grouped_product_list_before', function () {
 add_action('woocommerce_grouped_product_list_after', function () {
   $GLOBALS['bootscore_wc_in_grouped_list'] = false;
 });
+
+
+/**
+ * Variation price, shown below the selects when the variations have different prices.
+ * Same classes as the product price (woocommerce_product_price_class, fs-lg from above).
+ */
+function bootscore_wc_variation_price_class($data) {
+  if (!empty($data['price_html'])) {
+    $data['price_html'] = str_replace('<span class="price">', '<span class="' . esc_attr(apply_filters('woocommerce_product_price_class', 'price')) . '">', $data['price_html']);
+  }
+
+  return $data;
+}
+add_filter('woocommerce_available_variation', 'bootscore_wc_variation_price_class');

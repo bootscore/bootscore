@@ -23,6 +23,12 @@ WooCommerce Alerts - Bootscore v7.0.0
   @extend .theme-success;
 }
 
+// "Sorry, this product is unavailable…" for a variation combination that doesn't exist, from a JS template without classes
+.single_variation > p[role="alert"] {
+  @extend .alert;
+  @extend .theme-warning;
+}
+
 // Small buttons in notices, e.g. View cart, Browse products
 .woocommerce :is(.woocommerce-error, .woocommerce-info, .woocommerce-message) .button {
   @extend .btn-sm;
@@ -32,7 +38,8 @@ WooCommerce Alerts - Bootscore v7.0.0
   .woocommerce-error,
   .woocommerce-info,
   .woocommerce-message,
-  .woocommerce-noreviews {
+  .woocommerce-noreviews,
+  .single_variation > p[role="alert"] {
     align-items: center;
     margin: 0 0 var(--spacer-5);
 
