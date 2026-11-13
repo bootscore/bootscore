@@ -1,0 +1,45 @@
+<?php
+
+/**
+ * WooCommerce single product
+ *
+ * Two columns without a template override: the sale badge and gallery (woocommerce_before_single_product_summary)
+ * go into the first column, the summary into the second. Tabs, up-sells and related products stay full width.
+ *
+ * @package Bootscore
+ * @version 7.0.0
+ */
+
+
+// Exit if accessed directly
+defined('ABSPATH') || exit;
+
+
+/**
+ * Open row and gallery column, the gallery column is position: relative for the sale badge
+ */
+function bootscore_wc_single_product_row_open() {
+  echo '<div class="' . esc_attr(apply_filters('bootscore/class/woocommerce/single-product/row', 'row g-7 mb-12')) . '">';
+  echo '<div class="' . esc_attr(apply_filters('bootscore/class/woocommerce/single-product/gallery-col', 'md:col-6 position-relative')) . '">';
+}
+add_action('woocommerce_before_single_product_summary', 'bootscore_wc_single_product_row_open', 1);
+
+
+/**
+ * Close gallery column, open summary column
+ */
+function bootscore_wc_single_product_summary_col_open() {
+  echo '</div>';
+  echo '<div class="' . esc_attr(apply_filters('bootscore/class/woocommerce/single-product/summary-col', 'md:col-6')) . '">';
+}
+add_action('woocommerce_before_single_product_summary', 'bootscore_wc_single_product_summary_col_open', 99);
+
+
+/**
+ * Close summary column and row
+ */
+function bootscore_wc_single_product_row_close() {
+  echo '</div>';
+  echo '</div>';
+}
+add_action('woocommerce_after_single_product_summary', 'bootscore_wc_single_product_row_close', 1);

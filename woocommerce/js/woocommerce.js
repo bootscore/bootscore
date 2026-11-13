@@ -44,25 +44,12 @@ jQuery(function ($) {
     $(this).html($(this).hasClass('display-password') ? bootscoreTheme.icons.eyeSlash : bootscoreTheme.icons.eye);
   });
 
-  // Single-product Tabs
-  // First item active
-  $('.wc-tabs .nav-item:first-child a').addClass('active');
-  $('.wc-tab').hide().first().show();
-
-  // Tab switching
-  $('body').on('click', '.wc-tabs li a', function (e) {
-    e.preventDefault();
-
-    var $tab = $(this);
-    var $tabs_wrapper = $tab.closest('.wc-tabs-wrapper, .woocommerce-tabs');
-
-    // Remove active classes and hide all tab panels
-    $tabs_wrapper.find('.wc-tabs li a').removeClass('active');
-    $tabs_wrapper.find('.wc-tab').hide();
-
-    // Activate clicked tab and show corresponding panel
-    $tab.addClass('active');
-    $tabs_wrapper.find($tab.attr('href')).show();
+  // Single product tabs
+  // WooCommerce (single-product.js) shows the panel and sets aria-selected, .nav-tabs needs .active.
+  // Delegated jQuery handler, so it also runs when WooCommerce triggers a click (URL hash, review link).
+  $(document.body).on('click', '.wc-tabs .nav-link', function () {
+    $(this).closest('.wc-tabs').find('.nav-link').removeClass('active');
+    $(this).addClass('active');
   });
 
   // WC Quantity Input
