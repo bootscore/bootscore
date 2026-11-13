@@ -16,19 +16,24 @@ defined('ABSPATH') || exit;
 
 
 /**
- * Open row and gallery column, the gallery column is position: relative for the sale badge
+ * Open row, gallery column and gallery wrapper
+ *
+ * The wrapper is position: relative for the sale badge and the zoom trigger. It has no padding,
+ * so both are placed from the image edges and not from the column gutter.
  */
 function bootscore_wc_single_product_row_open() {
   echo '<div class="' . esc_attr(apply_filters('bootscore/class/woocommerce/single-product/row', 'row g-7 mb-12')) . '">';
-  echo '<div class="' . esc_attr(apply_filters('bootscore/class/woocommerce/single-product/gallery-col', 'md:col-6 position-relative')) . '">';
+  echo '<div class="' . esc_attr(apply_filters('bootscore/class/woocommerce/single-product/gallery-col', 'md:col-6')) . '">';
+  echo '<div class="' . esc_attr(apply_filters('bootscore/class/woocommerce/single-product/gallery-wrapper', 'position-relative')) . '">';
 }
 add_action('woocommerce_before_single_product_summary', 'bootscore_wc_single_product_row_open', 1);
 
 
 /**
- * Close gallery column, open summary column
+ * Close gallery wrapper and column, open summary column
  */
 function bootscore_wc_single_product_summary_col_open() {
+  echo '</div>';
   echo '</div>';
   echo '<div class="' . esc_attr(apply_filters('bootscore/class/woocommerce/single-product/summary-col', 'md:col-6')) . '">';
 }
@@ -76,10 +81,11 @@ add_filter('woocommerce_reset_variations_link', 'bootscore_wc_reset_variations_l
 
 /**
  * Gallery images
+ *
+ * Classes on the image wrapper instead of the img, so the hover zoom (an enlarged copy inside the wrapper)
+ * is clipped to the rounded corners as well.
  */
-function bootscore_wc_gallery_image_class($params) {
-  $params['class'] = trim(($params['class'] ?? '') . ' ' . apply_filters('bootscore/class/woocommerce/single-product/gallery/img', 'rounded'));
-
-  return $params;
+function bootscore_wc_gallery_image_class($html) {
+  return str_replace('class="woocommerce-product-gallery__image"', 'class="woocommerce-product-gallery__image ' . esc_attr(apply_filters('bootscore/class/woocommerce/single-product/gallery/image', 'rounded overflow-hidden')) . '"', $html);
 }
-add_filter('woocommerce_gallery_image_html_attachment_image_params', 'bootscore_wc_gallery_image_class');
+add_filter('woocommerce_single_product_image_thumbnail_html', 'bootscore_wc_gallery_image_class');

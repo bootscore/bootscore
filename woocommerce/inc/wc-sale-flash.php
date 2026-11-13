@@ -15,7 +15,7 @@ defined('ABSPATH') || exit;
 /**
  * Sale badge in the loop and on the single product page
  *
- * Positioned on the card image (.card is position: relative) and on the gallery (gallery column is position: relative, wc-single-product.php).
+ * Positioned on the card image (.card is position: relative) and on the gallery (gallery wrapper is position: relative, wc-single-product.php).
  * z-1 keeps it above the gallery slider, which is positioned. Keeps the WooCommerce class .onsale.
  */
 function bootscore_wc_sale_flash($html, $post, $product) {
