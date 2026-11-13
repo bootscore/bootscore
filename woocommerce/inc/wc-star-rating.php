@@ -30,3 +30,13 @@ function bootscore_wc_star_rating_html($html, $rating, $count) {
   return '<span class="' . esc_attr(apply_filters('bootscore/class/woocommerce/star-rating', 'd-inline-flex gap-1 fg-body')) . '" aria-hidden="true">' . $stars . '</span>';
 }
 add_filter('woocommerce_get_star_rating_html', 'bootscore_wc_star_rating_html', 10, 3);
+
+
+/**
+ * Wrapper div.star-rating from wc_get_rating_html() as flex container.
+ * Otherwise the inline-flex stars sit on the text baseline of a line box and look too high next to text.
+ */
+function bootscore_wc_star_rating_wrapper($html) {
+  return str_replace('class="star-rating"', 'class="star-rating ' . esc_attr(apply_filters('bootscore/class/woocommerce/star-rating/wrapper', 'd-flex')) . '"', $html);
+}
+add_filter('woocommerce_product_get_rating_html', 'bootscore_wc_star_rating_wrapper');
