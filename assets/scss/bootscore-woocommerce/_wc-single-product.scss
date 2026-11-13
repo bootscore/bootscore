@@ -2,13 +2,9 @@
 WooCommerce Single Product - Bootscore v7.0.0
 --------------------------------------------------------------*/
 
-@use "../bootstrap/forms";
+@use "../bootstrap/forms/floating-labels";
+@use "../bootstrap/mixins/tokens" as *;
 @use "../bootstrap/layout/breakpoints" as *;
-
-// Variation labels, the template has no class filter for them
-table.variations label {
-  @extend .form-label;
-}
 
 @layer custom {
 
@@ -49,35 +45,71 @@ table.variations label {
     }
   }
 
-  // Variations table, stacked: label above select.
-  // WooCommerce prints the Clear button after the last select and hides it with visibility: hidden,
-  // positioned top end on the first label line it takes no space and the selects keep the same width.
+  // Variations table, one floating label select per row: the label sits small at the top inside the select.
+  // A select always has a value, so the label is always floated, no states needed.
+  // Values from the Bootstrap .form-floating tokens.
   table.variations {
     &,
     tbody,
     tr,
-    th,
     td {
       display: block;
       padding: 0;
     }
 
-    position: relative;
-
+    // Floating label tokens only, the .form-floating child rules don't apply:
+    // WooCommerce has the label in th and the select in td
     tr {
+      @include tokens(floating-labels.$form-floating-tokens);
+
+      position: relative;
       margin-block-end: var(--spacer-5);
     }
 
-    // Space to the select from .form-label
+    // Label over the select, clicks go through to the select (label[for] stays for screen readers)
     th {
+      position: absolute;
+      inset-block-start: 0;
+      inset-inline-start: 0;
+      z-index: 2;
+      max-width: 100%;
+      padding: var(--form-floating-padding-y) var(--form-floating-padding-x);
+      overflow: hidden;
       font-weight: inherit;
+      color: color-mix(in oklch, var(--fg-body) var(--form-floating-label-opacity), transparent);
       text-align: start;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      pointer-events: none;
+      border: var(--border-width) solid transparent;
+      transform: var(--form-floating-label-transform);
+      transform-origin: 0 0;
+
+      label {
+        margin: 0;
+      }
+    }
+
+    select {
+      height: var(--form-floating-height);
+      min-height: var(--form-floating-height);
+      padding-block: var(--form-floating-input-padding-t) var(--form-floating-input-padding-b);
+      padding-inline-start: var(--form-floating-padding-x);
+      line-height: var(--form-floating-line-height);
+    }
+
+    // WooCommerce prints the Clear button after the last select and hides it with visibility: hidden.
+    // Inside the last select before the caret it takes no space, the select keeps room for it.
+    tr:has(.reset_variations) select {
+      padding-inline-end: 7rem;
     }
 
     .reset_variations {
       position: absolute;
-      inset-block-start: 0;
-      inset-inline-end: 0;
+      inset-block-start: 50%;
+      inset-inline-end: 2.75rem;
+      z-index: 3;
+      transform: translateY(-50%);
     }
   }
 
