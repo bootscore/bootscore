@@ -101,3 +101,15 @@ function bootscore_wc_gallery_img_class($params) {
   return $params;
 }
 add_filter('woocommerce_gallery_image_html_attachment_image_params', 'bootscore_wc_gallery_img_class');
+
+
+/**
+ * Grouped product list, flag while it renders (stock badge spacing in wc-stock-badge.php)
+ */
+add_action('woocommerce_grouped_product_list_before', function () {
+  $GLOBALS['bootscore_wc_in_grouped_list'] = true;
+});
+
+add_action('woocommerce_grouped_product_list_after', function () {
+  $GLOBALS['bootscore_wc_in_grouped_list'] = false;
+});

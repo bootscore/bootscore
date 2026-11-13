@@ -3,10 +3,16 @@ WooCommerce Single Product - Bootscore v7.0.0
 --------------------------------------------------------------*/
 
 @use "../bootstrap/forms";
+@use "../bootstrap/content";
 
 // Variation labels, the template has no class filter for them
 table.variations label {
   @extend .form-label;
+}
+
+// Grouped product list, the template has no class filter for the table
+.group_table {
+  @extend .table;
 }
 
 @layer custom {
@@ -78,6 +84,24 @@ table.variations label {
         flex: 1 1 auto;
       }
     }
+  }
+
+  // Grouped product list: quantity | name | price and stock
+  .group_table {
+    vertical-align: middle;
+
+    // Quantity input, checkbox (sold individually) or a loop button (variable, out of stock)
+    .woocommerce-grouped-product-list-item__quantity {
+      width: 9rem;
+    }
+
+    .woocommerce-grouped-product-list-item__price {
+      text-align: end;
+    }
+  }
+
+  .grouped_form .single_add_to_cart_button {
+    width: 100%;
   }
 
   // Price, stock and description of the selected variation, loaded by WooCommerce
