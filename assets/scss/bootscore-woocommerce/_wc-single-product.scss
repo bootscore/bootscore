@@ -4,6 +4,12 @@ WooCommerce Single Product - Bootscore v7.0.0
 
 @use "../bootstrap/forms";
 @use "../bootstrap/layout/breakpoints" as *;
+@use "../bootstrap/content";
+
+// Additional information tab, attributes table without class filter
+.shop_attributes {
+  @extend .table;
+}
 
 // Variation labels, the template has no class filter for them
 table.variations label {
@@ -78,6 +84,17 @@ table.variations label {
       position: absolute;
       inset-block-start: 0;
       inset-inline-end: 0;
+    }
+  }
+
+  // Additional information: values come as paragraphs (wpautop)
+  .shop_attributes {
+    th {
+      text-align: start;
+    }
+
+    td p {
+      margin-block-end: 0;
     }
   }
 

@@ -233,3 +233,22 @@ if (!function_exists('woocommerce_template_single_meta')) :
     remove_filter('term_links-product_tag', $tag_badge);
   }
 endif;
+
+
+/**
+ * Tab headings off, the active tab already names the content
+ */
+add_filter('woocommerce_product_description_heading', '__return_empty_string');
+add_filter('woocommerce_product_additional_information_heading', '__return_empty_string');
+
+
+/**
+ * Additional information: attributes table (wc_display_product_attributes, priority 10) in a responsive wrapper
+ */
+add_action('woocommerce_product_additional_information', function () {
+  echo '<div class="' . esc_attr(apply_filters('bootscore/class/woocommerce/single-product/attributes/wrapper', 'table-responsive')) . '">';
+}, 9);
+
+add_action('woocommerce_product_additional_information', function () {
+  echo '</div>';
+}, 11);
