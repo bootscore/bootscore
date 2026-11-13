@@ -89,3 +89,15 @@ function bootscore_wc_gallery_image_class($html) {
   return str_replace('class="woocommerce-product-gallery__image"', 'class="woocommerce-product-gallery__image ' . esc_attr(apply_filters('bootscore/class/woocommerce/single-product/gallery/image', 'rounded overflow-hidden')) . '"', $html);
 }
 add_filter('woocommerce_single_product_image_thumbnail_html', 'bootscore_wc_gallery_image_class');
+
+
+/**
+ * Gallery images fill the gallery width, also when the image size (woocommerce_single) is smaller than the column.
+ * Otherwise the zoom trigger, placed from the gallery edge, sits outside the image.
+ */
+function bootscore_wc_gallery_img_class($params) {
+  $params['class'] = trim(($params['class'] ?? '') . ' ' . apply_filters('bootscore/class/woocommerce/single-product/gallery/img', 'w-100 h-auto'));
+
+  return $params;
+}
+add_filter('woocommerce_gallery_image_html_attachment_image_params', 'bootscore_wc_gallery_img_class');
