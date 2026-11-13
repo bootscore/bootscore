@@ -127,3 +127,109 @@ function bootscore_wc_variation_price_class($data) {
   return $data;
 }
 add_filter('woocommerce_available_variation', 'bootscore_wc_variation_price_class');
+
+
+/**
+ * Rating in the summary: stars and review link in one row
+ *
+ * Pluggable woocommerce_template_single_rating() instead of single-product/rating.php.
+ * WooCommerce's single-product.js opens the reviews tab on a click on .woocommerce-review-link.
+ */
+if (!function_exists('woocommerce_template_single_rating')) :
+  function woocommerce_template_single_rating() {
+    global $product;
+
+    if (!post_type_supports('product', 'comments') || !is_a($product, \WC_Product::class) || !wc_review_ratings_enabled()) {
+      return;
+    }
+
+    $rating_count = $product->get_rating_count();
+
+    if ($rating_count < 1) {
+      return;
+    }
+
+    $review_count = $product->get_review_count();
+    ?>
+    <div class="woocommerce-product-rating <?= esc_attr(apply_filters('bootscore/class/woocommerce/single-product/rating', 'd-flex flex-wrap align-items-center gap-3 mb-5')); ?>">
+      <?= wc_get_rating_html($product->get_average_rating(), $rating_count); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+      <?php if (comments_open()) : ?>
+        <a href="#reviews" class="woocommerce-review-link <?= esc_attr(apply_filters('bootscore/class/woocommerce/single-product/rating/link', 'fs-sm')); ?>" rel="nofollow">
+          <?php
+          /* translators: %s: review count */
+          printf(_n('%s customer review', '%s customer reviews', $review_count, 'woocommerce'), '<span class="count">' . esc_html($review_count) . '</span>'); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+          ?>
+        </a>
+      <?php endif; ?>
+    </div>
+    <?php
+  }
+endif;
+
+
+/**
+ * Product meta: SKU, categories and tags, each on its own line. Categories and tags as badges like in the blog.
+ *
+ * Pluggable woocommerce_template_single_meta() instead of single-product/meta.php.
+ * Keeps .sku_wrapper and .sku, WooCommerce's variation script updates the SKU there.
+ * Badge classes use the blog filters bootscore/class/badge/category and /tag with context 'woocommerce'.
+ */
+if (!function_exists('woocommerce_template_single_meta')) :
+  function woocommerce_template_single_meta() {
+    global $product;
+
+    if (!is_a($product, \WC_Product::class)) {
+      return;
+    }
+
+    $row = apply_filters('bootscore/class/woocommerce/single-product/meta/row', 'd-flex flex-wrap align-items-center gap-1');
+
+    // Badge classes for the term links, only while the meta renders. No separator, the row has a gap
+    $badge = function ($class, $icon = '') {
+      return function ($links) use ($class, $icon) {
+        return array_map(function ($link) use ($class, $icon) {
+          return preg_replace('/<a /', '<a class="' . esc_attr($class) . '" ', preg_replace('/(<a [^>]*>)/', '$1' . $icon, $link, 1), 1);
+        }, $links);
+      };
+    };
+    $cat_badge = $badge(apply_filters('bootscore/class/badge/category', 'badge', 'woocommerce'));
+    $tag_badge = $badge(apply_filters('bootscore/class/badge/tag', 'badge', 'woocommerce'), apply_filters('bootscore/show/tag/icon', true) ? bootscore_icon('tag', false) . ' ' : '');
+
+    add_filter('term_links-product_cat', $cat_badge);
+    add_filter('term_links-product_tag', $tag_badge);
+    ?>
+    <div class="product_meta <?= esc_attr(apply_filters('bootscore/class/woocommerce/single-product/meta', 'd-flex flex-column gap-3 fs-sm')); ?>">
+
+      <?php do_action('woocommerce_product_meta_start'); ?>
+
+      <?php if (wc_product_sku_enabled() && ($product->get_sku() || $product->is_type('variable'))) : ?>
+        <span class="sku_wrapper"><?php esc_html_e('SKU:', 'woocommerce'); ?> <span class="sku"><?= ($sku = $product->get_sku()) ? esc_html($sku) : esc_html__('N/A', 'woocommerce'); ?></span></span>
+      <?php endif; ?>
+
+      <?php
+      $orderby = apply_filters('woocommerce_product_meta_category_orderby', 'breadcrumb', $product);
+
+      echo wc_get_product_category_list( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+        $product->get_id(),
+        '',
+        '<span class="posted_in ' . esc_attr($row) . '">' . _n('Category:', 'Categories:', count($product->get_category_ids()), 'woocommerce') . ' ',
+        '</span>',
+        is_string($orderby) ? $orderby : ''
+      );
+
+      echo wc_get_product_tag_list( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+        $product->get_id(),
+        '',
+        '<span class="tagged_as ' . esc_attr($row) . '">' . _n('Tag:', 'Tags:', count($product->get_tag_ids()), 'woocommerce') . ' ',
+        '</span>'
+      );
+      ?>
+
+      <?php do_action('woocommerce_product_meta_end'); ?>
+
+    </div>
+    <?php
+    remove_filter('term_links-product_cat', $cat_badge);
+    remove_filter('term_links-product_tag', $tag_badge);
+  }
+endif;
