@@ -23,6 +23,8 @@ function bootscore_wc_scripts() {
 
   // admin-ajax.php URL for ajax cart and ajax login, icons for the password toggle and notices built in JS
   // https://github.com/bootscore/bootscore/pull/711
+  $thumb_cols = absint(apply_filters('woocommerce_product_thumbnails_columns', 4));
+
   wp_localize_script('bootscore', 'bootscoreTheme', [
     'ajaxurl' => admin_url('admin-ajax.php'),
     'icons'   => [
@@ -40,7 +42,9 @@ function bootscore_wc_scripts() {
     'classes' => [
       'galleryTrigger' => apply_filters('bootscore/class/woocommerce/single-product/gallery-trigger', 'btn-solid btn-sm btn-icon position-absolute top-0 end-0 z-2 mt-5 me-5'),
       'starRating'     => apply_filters('bootscore/class/woocommerce/star-rating', 'd-inline-flex gap-1 fg-body'),
-      'galleryThumbs'  => apply_filters('bootscore/class/woocommerce/single-product/gallery/thumbs', 'list-unstyled row row-cols-' . absint(apply_filters('woocommerce_product_thumbnails_columns', 4)) . ' g-3 mt-3'),
+      // Columns from woocommerce_product_thumbnails_columns, 2 more on large screens so the thumbnails stay small.
+      // mt-0 replaces the negative row margin, so the space above the first row is the gutter, same as between the thumbnails
+      'galleryThumbs'  => apply_filters('bootscore/class/woocommerce/single-product/gallery/thumbs', 'list-unstyled row row-cols-' . $thumb_cols . ' lg:row-cols-' . ($thumb_cols + 2) . ' g-3 mt-0'),
       'galleryThumb'   => apply_filters('bootscore/class/woocommerce/single-product/gallery/thumb', 'rounded w-100'),
     ],
   ]);
