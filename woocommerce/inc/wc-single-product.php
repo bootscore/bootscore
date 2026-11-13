@@ -43,3 +43,32 @@ function bootscore_wc_single_product_row_close() {
   echo '</div>';
 }
 add_action('woocommerce_after_single_product_summary', 'bootscore_wc_single_product_row_close', 1);
+
+
+/**
+ * Price
+ */
+function bootscore_wc_single_product_price_class($class) {
+  return $class . ' ' . apply_filters('bootscore/class/woocommerce/single-product/price', 'fs-lg');
+}
+add_filter('woocommerce_product_price_class', 'bootscore_wc_single_product_price_class');
+
+
+/**
+ * Variation selects
+ */
+function bootscore_wc_variation_select_class($args) {
+  $args['class'] = trim(($args['class'] ?? '') . ' ' . apply_filters('bootscore/class/woocommerce/single-product/variation-select', 'form-control'));
+
+  return $args;
+}
+add_filter('woocommerce_dropdown_variation_attribute_options_args', 'bootscore_wc_variation_select_class');
+
+
+/**
+ * Clear variations link
+ */
+function bootscore_wc_reset_variations_link($link) {
+  return str_replace('class="reset_variations"', 'class="reset_variations ' . esc_attr(apply_filters('bootscore/class/woocommerce/single-product/reset-variations', 'btn-outline theme-secondary btn-sm')) . '"', $link);
+}
+add_filter('woocommerce_reset_variations_link', 'bootscore_wc_reset_variations_link');

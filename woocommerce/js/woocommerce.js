@@ -89,6 +89,17 @@ jQuery(function ($) {
     wrapper.addEventListener('overflow.bs.navoverflow', fixCopies);
   });
 
+  // Gallery zoom trigger, built by WooCommerce (single-product.js) with an emoji.
+  // aria-label stays, classes from wc-enqueue.php
+  $('.woocommerce-product-gallery__trigger').addClass(bootscoreTheme.classes.galleryTrigger).html(bootscoreTheme.icons.search);
+
+  // Review rating, WooCommerce (single-product.js) replaces the select with text links "1 of 5 stars" etc.
+  // Each link gets a star icon, the text stays for screen readers. Hover and selected state in SCSS
+  $('#respond p.stars > span').addClass(bootscoreTheme.classes.starRating).find('a').each(function () {
+    const label = $('<span class="visually-hidden"></span>').text($(this).text());
+    $(this).empty().append(bootscoreTheme.icons.star, label);
+  });
+
   // WC Quantity Input
   // Quantity "plus" and "minus" buttons
   $(document.body).on('click', 'form.cart .plus, form.cart .minus,' + // for single product page

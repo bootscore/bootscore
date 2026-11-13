@@ -28,16 +28,28 @@ function bootscore_wc_scripts() {
     'icons'   => [
       'eye'      => bootscore_icon('eye', false),
       'eyeSlash' => bootscore_icon('eye-slash', false),
+      'search'   => bootscore_icon('search', false),
+      'star'     => bootscore_icon('star', false),
       'notice'   => [
         'success' => bootscore_wc_notice_icon('success'),
         'error'   => bootscore_wc_notice_icon('error'),
         'notice'  => bootscore_wc_notice_icon('notice'),
       ],
     ],
+    // Classes for markup built by WooCommerce's single-product.js, set in woocommerce.js
+    'classes' => [
+      'galleryTrigger' => apply_filters('bootscore/class/woocommerce/single-product/gallery-trigger', 'btn-solid theme-secondary btn-icon position-absolute top-0 end-0 z-2 mt-5 me-5'),
+      'starRating'     => apply_filters('bootscore/class/woocommerce/star-rating', 'd-inline-flex gap-1 fg-body'),
+    ],
   ]);
 
   // WooCommerce, after WooCommerce's own woocommerce.js (password toggle)
-  wp_enqueue_script('bootscore-woocommerce', get_template_directory_uri() . '/woocommerce/js/woocommerce.js', ['jquery', 'woocommerce', 'bootscore'], date('YmdHi', filemtime(__DIR__ . '/../js/woocommerce.js')), true);
+  // and on product pages after single-product.js, which builds the tabs, gallery trigger and review stars on DOM ready
+  $deps = ['jquery', 'woocommerce', 'bootscore'];
+  if (is_product()) {
+    $deps[] = 'wc-single-product';
+  }
+  wp_enqueue_script('bootscore-woocommerce', get_template_directory_uri() . '/woocommerce/js/woocommerce.js', $deps, date('YmdHi', filemtime(__DIR__ . '/../js/woocommerce.js')), true);
 
   // Ajax login
   if (apply_filters('bootscore/wc_ajax_login', true)) {
