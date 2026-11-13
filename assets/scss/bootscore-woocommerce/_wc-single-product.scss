@@ -49,7 +49,9 @@ table.variations label {
     }
   }
 
-  // Variations table, stacked: label above select, the Clear button next to the last select
+  // Variations table, stacked: label above select.
+  // WooCommerce prints the Clear button after the last select and hides it with visibility: hidden,
+  // positioned top end on the first label line it takes no space and the selects keep the same width.
   table.variations {
     &,
     tbody,
@@ -59,6 +61,8 @@ table.variations label {
       display: block;
       padding: 0;
     }
+
+    position: relative;
 
     tr {
       margin-block-end: var(--spacer-5);
@@ -70,14 +74,10 @@ table.variations label {
       text-align: start;
     }
 
-    td {
-      display: flex;
-      gap: var(--spacer-3);
-      align-items: center;
-
-      select {
-        flex: 1 1 auto;
-      }
+    .reset_variations {
+      position: absolute;
+      inset-block-start: 0;
+      inset-inline-end: 0;
     }
   }
 

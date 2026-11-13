@@ -74,7 +74,7 @@ add_filter('woocommerce_dropdown_variation_attribute_options_args', 'bootscore_w
  * Clear variations link
  */
 function bootscore_wc_reset_variations_link($link) {
-  return str_replace('class="reset_variations"', 'class="reset_variations ' . esc_attr(apply_filters('bootscore/class/woocommerce/single-product/reset-variations', 'btn-outline theme-secondary btn-sm')) . '"', $link);
+  return str_replace('class="reset_variations"', 'class="reset_variations ' . esc_attr(apply_filters('bootscore/class/woocommerce/single-product/reset-variations', 'btn-outline theme-secondary btn-xs')) . '"', $link);
 }
 add_filter('woocommerce_reset_variations_link', 'bootscore_wc_reset_variations_link');
 
