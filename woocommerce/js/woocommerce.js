@@ -46,10 +46,47 @@ jQuery(function ($) {
 
   // Single product tabs
   // WooCommerce (single-product.js) shows the panel and sets aria-selected, .nav-tabs needs .active.
-  // Delegated jQuery handler, so it also runs when WooCommerce triggers a click (URL hash, review link).
-  $(document.body).on('click', '.wc-tabs .nav-link', function () {
-    $(this).closest('.wc-tabs').find('.nav-link').removeClass('active');
-    $(this).addClass('active');
+  // Tabs that don't fit are copied into the Nav Overflow menu as .menu-item, .active is synced to both
+  // and to the "More" toggle.
+  function bootscoreTabsActive($tabs, id) {
+    $tabs.find('a[aria-controls]').removeClass('active');
+    $tabs.find('a[aria-controls="' + id + '"]').addClass('active');
+    $tabs.find('.nav-overflow-toggle').toggleClass('active', $tabs.find('.menu-item[aria-controls="' + id + '"]').length > 0);
+  }
+
+  // Delegated jQuery handler, so it also runs when WooCommerce triggers a click (URL hash, review link)
+  $(document.body).on('click', '.wc-tabs .nav-link[role="tab"]', function () {
+    bootscoreTabsActive($(this).closest('.wc-tabs'), $(this).attr('aria-controls'));
+  });
+
+  // A copy in the menu clicks the original tab, so WooCommerce handles it as usual, then closes the menu.
+  // Runs before WooCommerce's handler on body, stopPropagation keeps WooCommerce away from the copy.
+  $('.wc-tabs').on('click', '.menu-item[aria-controls]', function (e) {
+    e.preventDefault();
+    e.stopPropagation();
+
+    const $tabs = $(this).closest('.wc-tabs');
+    $tabs.find('.nav-link[aria-controls="' + $(this).attr('aria-controls') + '"]').trigger('click');
+
+    const toggle = $tabs.find('.nav-overflow-toggle')[0];
+    if (toggle) {
+      bootstrap.Menu.getInstance(toggle)?.hide();
+    }
+  });
+
+  // Copies are menu items, not tabs. Nav Overflow rebuilds them on every resize and may have run before this script.
+  // .active follows aria-selected, WooCommerce may have opened a tab from the URL hash before this script.
+  $('.wc-tabs-wrapper [data-bs-toggle="nav-overflow"]').each(function () {
+    const wrapper = this;
+
+    function fixCopies() {
+      const $tabs = $(wrapper).find('.wc-tabs');
+      $tabs.find('.menu-item[aria-controls]').removeAttr('role aria-selected tabindex');
+      bootscoreTabsActive($tabs, $tabs.find('.nav-link[aria-selected="true"]').attr('aria-controls'));
+    }
+
+    fixCopies();
+    wrapper.addEventListener('overflow.bs.navoverflow', fixCopies);
   });
 
   // WC Quantity Input

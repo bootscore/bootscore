@@ -6,6 +6,7 @@
  * Bootstrap .nav-tabs via the pluggable woocommerce_output_product_data_tabs().
  * WooCommerce (single-product.js) still does the switching: it shows the panel, sets aria-selected,
  * handles the URL hash, the review link and keyboard navigation. woocommerce.js only syncs .active.
+ * Tabs that don't fit go into a "More" menu (Bootstrap Nav Overflow).
  *
  * @package Bootscore
  * @version 7.0.0
@@ -28,8 +29,8 @@ if (!function_exists('woocommerce_output_product_data_tabs')) :
     ?>
     <div class="woocommerce-tabs wc-tabs-wrapper <?= esc_attr(apply_filters('bootscore/class/woocommerce/tabs', 'mb-12')); ?>">
 
-      <div class="overflow-x-auto mb-5">
-        <ul class="tabs wc-tabs <?= esc_attr(apply_filters('bootscore/class/woocommerce/tabs/nav', 'nav nav-tabs flex-nowrap')); ?>" role="tablist">
+      <div class="<?= esc_attr(apply_filters('bootscore/class/woocommerce/tabs/nav-wrapper', 'mb-5')); ?>" data-bs-toggle="nav-overflow" data-bs-more-text="<?= esc_attr__('More', 'bootscore'); ?>">
+        <ul class="tabs wc-tabs <?= esc_attr(apply_filters('bootscore/class/woocommerce/tabs/nav', 'nav nav-tabs')); ?>" role="tablist">
           <?php foreach ($product_tabs as $key => $product_tab) : ?>
             <li role="presentation" class="<?= esc_attr($key); ?>_tab nav-item" id="tab-title-<?= esc_attr($key); ?>">
               <a class="nav-link<?= $key === $first ? ' active' : ''; ?>" href="#tab-<?= esc_attr($key); ?>" role="tab" aria-controls="tab-<?= esc_attr($key); ?>" aria-selected="<?= $key === $first ? 'true' : 'false'; ?>"<?= $key === $first ? '' : ' tabindex="-1"'; ?>>
