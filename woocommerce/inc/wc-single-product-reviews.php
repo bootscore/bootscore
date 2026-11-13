@@ -105,7 +105,7 @@ endif;
 
 
 /**
- * Stars below the date instead of above the author
+ * Stars below the date instead of above the author, spacing from the .card-body gap
  */
 if (!function_exists('woocommerce_review_display_rating')) :
   function woocommerce_review_display_rating() {
@@ -117,12 +117,23 @@ if (!function_exists('woocommerce_review_display_rating')) :
       return;
     }
 
-    echo '<div class="' . esc_attr(apply_filters('bootscore/class/woocommerce/review/rating', 'mb-5')) . '">' . wc_get_rating_html($rating) . '</div>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+    echo wc_get_rating_html($rating); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
   }
 endif;
 
 remove_action('woocommerce_review_before_comment_meta', 'woocommerce_review_display_rating', 10);
 add_action('woocommerce_review_before_comment_text', 'woocommerce_review_display_rating', 10);
+
+
+/**
+ * Review text without the div.description wrapper, so the paragraphs are .card-body children
+ * and get its margin reset and gap like in the blog comments
+ */
+if (!function_exists('woocommerce_review_display_comment_text')) :
+  function woocommerce_review_display_comment_text() {
+    comment_text();
+  }
+endif;
 
 
 /**
@@ -149,7 +160,7 @@ function bootscore_wc_review_form_args($args) {
   $add_classes = function ($html) {
     return str_replace(
       ['<p class="comment-form-', '<div class="comment-form-', '<label ', '<input ', '<select ', '<textarea '],
-      ['<p class="form-field comment-form-', '<div class="form-field mb-5 comment-form-', '<label class="form-label" ', '<input class="form-control" ', '<select class="form-control" ', '<textarea class="form-control" '],
+      ['<p class="form-field comment-form-', '<div class="form-field comment-form-', '<label class="form-label" ', '<input class="form-control" ', '<select class="form-control" ', '<textarea class="form-control" '],
       $html
     );
   };
