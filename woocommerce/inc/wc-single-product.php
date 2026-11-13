@@ -246,7 +246,7 @@ add_filter('woocommerce_product_additional_information_heading', '__return_empty
  * Additional information: attributes table (wc_display_product_attributes, priority 10) in a responsive wrapper
  */
 add_action('woocommerce_product_additional_information', function () {
-  echo '<div class="' . esc_attr(apply_filters('bootscore/class/woocommerce/single-product/attributes/wrapper', 'table-responsive')) . '">';
+  echo '<div class="' . esc_attr(apply_filters('bootscore/class/woocommerce/single-product/attributes/wrapper', 'table-responsive text-nowrap')) . '">';
 }, 9);
 
 add_action('woocommerce_product_additional_information', function () {
