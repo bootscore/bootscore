@@ -75,6 +75,68 @@ endif;
 
 
 /**
+ * Author, date and approval note like in the blog comments (bootscore_comment() in inc/comments.php)
+ */
+if (!function_exists('woocommerce_review_display_meta')) :
+  function woocommerce_review_display_meta() {
+    global $comment;
+
+    $verified = 'yes' === get_option('woocommerce_review_rating_verification_label') && wc_review_is_from_verified_owner($comment->comment_ID);
+    ?>
+    <h3 class="woocommerce-review__author h5 card-text">
+      <?php comment_author(); ?>
+      <?php if ($verified) : ?>
+        <span class="woocommerce-review__verified verified <?= esc_attr(apply_filters('bootscore/class/woocommerce/review/verified', 'badge badge-subtle theme-success align-middle')); ?>"><?php esc_html_e('verified owner', 'woocommerce'); ?></span>
+      <?php endif; ?>
+    </h3>
+
+    <p class="comment-meta card-subtitle fg-secondary fs-sm">
+      <time class="woocommerce-review__published-date" datetime="<?php comment_time('c'); ?>">
+        <?php printf(_x('%1$s at %2$s', '1: date, 2: time', 'bootscore'), get_comment_date(), get_comment_time()); ?>
+      </time>
+      <?php edit_comment_link(__('Edit', 'bootscore'), '<span class="edit-link">', '</span>'); ?>
+    </p>
+
+    <?php if ('0' === $comment->comment_approved) : ?>
+      <p class="woocommerce-review__awaiting-approval <?= esc_attr(apply_filters('bootscore/class/woocommerce/review/awaiting-approval', 'alert theme-info')); ?>"><?php esc_html_e('Your review is awaiting approval', 'woocommerce'); ?></p>
+    <?php endif;
+  }
+endif;
+
+
+/**
+ * Stars below the date instead of above the author
+ */
+if (!function_exists('woocommerce_review_display_rating')) :
+  function woocommerce_review_display_rating() {
+    global $comment;
+
+    $rating = intval(get_comment_meta($comment->comment_ID, 'rating', true));
+
+    if (!post_type_supports('product', 'comments') || !$rating || !wc_review_ratings_enabled()) {
+      return;
+    }
+
+    echo '<div class="' . esc_attr(apply_filters('bootscore/class/woocommerce/review/rating', 'mb-5')) . '">' . wc_get_rating_html($rating) . '</div>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+  }
+endif;
+
+remove_action('woocommerce_review_before_comment_meta', 'woocommerce_review_display_rating', 10);
+add_action('woocommerce_review_before_comment_text', 'woocommerce_review_display_rating', 10);
+
+
+/**
+ * Replies to reviews with the theme comment walker, same ul.children as in the blog
+ */
+function bootscore_wc_review_list_args($args) {
+  $args['walker'] = new Bootscore_Walker_Comment();
+
+  return $args;
+}
+add_filter('woocommerce_product_review_list_args', 'bootscore_wc_review_list_args');
+
+
+/**
  * Review form
  *
  * WooCommerce builds the fields as HTML strings, so the classes are added to these strings.
