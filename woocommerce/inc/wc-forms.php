@@ -34,6 +34,7 @@ add_action('wp_enqueue_scripts', 'bootscore_wc_remove_select2', 100);
  */
 function bootscore_wc_quantity_input_classes($classes) {
   $classes[] = 'form-control';
+  $classes[] = 'text-center';
   return $classes;
 }
 add_filter('woocommerce_quantity_input_classes', 'bootscore_wc_quantity_input_classes');

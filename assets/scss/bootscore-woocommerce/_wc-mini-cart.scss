@@ -125,17 +125,6 @@ WooCommerce Mini Cart - Bootscore v7.0.0
       div.quantity {
         max-width: 8rem;
         margin-block-start: var(--spacer-2);
-
-        .qty {
-          text-align: center;
-          appearance: textfield;
-
-          &::-webkit-inner-spin-button,
-          &::-webkit-outer-spin-button {
-            appearance: none;
-            margin: 0;
-          }
-        }
       }
     }
 

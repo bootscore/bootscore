@@ -2,6 +2,13 @@
 WooCommerce Single Product - Bootscore v7.0.0
 --------------------------------------------------------------*/
 
+@use "../bootstrap/forms";
+
+// Variation labels, the template has no class filter for them
+table.variations label {
+  @extend .form-label;
+}
+
 @layer custom {
 
   // Gallery thumbnails, classes from woocommerce.js. FlexSlider moves .flex-active to the current one
@@ -17,5 +24,64 @@ WooCommerce Single Product - Bootscore v7.0.0
     @media (prefers-reduced-motion: no-preference) {
       transition: opacity .15s ease-in-out;
     }
+  }
+
+  // Add to cart form
+  form.cart {
+    margin-block-end: var(--spacer-5);
+  }
+
+  // Quantity and button in one row: simple products and the variation button wrapper.
+  // PHP can't wrap them, the grouped product fires the same quantity hooks inside its table cells.
+  // External products only have the button, the quantity is hidden when it can't change (.qty-fixed).
+  :is(form.cart:not(.variations_form, .grouped_form), .woocommerce-variation-add-to-cart) {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacer-3);
+
+    .quantity {
+      flex: 0 0 8rem;
+    }
+
+    .single_add_to_cart_button {
+      flex: 1 1 auto;
+    }
+  }
+
+  // Variations table, stacked: label above select, the Clear button next to the last select
+  table.variations {
+    &,
+    tbody,
+    tr,
+    th,
+    td {
+      display: block;
+      padding: 0;
+    }
+
+    tr {
+      margin-block-end: var(--spacer-5);
+    }
+
+    // Space to the select from .form-label
+    th {
+      font-weight: inherit;
+      text-align: start;
+    }
+
+    td {
+      display: flex;
+      gap: var(--spacer-3);
+      align-items: center;
+
+      select {
+        flex: 1 1 auto;
+      }
+    }
+  }
+
+  // Price, stock and description of the selected variation, loaded by WooCommerce
+  .single_variation:not(:empty) {
+    margin-block-end: var(--spacer-5);
   }
 }
