@@ -72,3 +72,14 @@ function bootscore_wc_reset_variations_link($link) {
   return str_replace('class="reset_variations"', 'class="reset_variations ' . esc_attr(apply_filters('bootscore/class/woocommerce/single-product/reset-variations', 'btn-outline theme-secondary btn-sm')) . '"', $link);
 }
 add_filter('woocommerce_reset_variations_link', 'bootscore_wc_reset_variations_link');
+
+
+/**
+ * Gallery images
+ */
+function bootscore_wc_gallery_image_class($params) {
+  $params['class'] = trim(($params['class'] ?? '') . ' ' . apply_filters('bootscore/class/woocommerce/single-product/gallery/img', 'rounded'));
+
+  return $params;
+}
+add_filter('woocommerce_gallery_image_html_attachment_image_params', 'bootscore_wc_gallery_image_class');

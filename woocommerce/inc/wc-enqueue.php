@@ -38,7 +38,7 @@ function bootscore_wc_scripts() {
     ],
     // Classes for markup built by WooCommerce's single-product.js, set in woocommerce.js
     'classes' => [
-      'galleryTrigger' => apply_filters('bootscore/class/woocommerce/single-product/gallery-trigger', 'btn-solid theme-secondary btn-icon position-absolute top-0 end-0 z-2 mt-5 me-5'),
+      'galleryTrigger' => apply_filters('bootscore/class/woocommerce/single-product/gallery-trigger', 'btn-solid btn-icon position-absolute top-0 end-0 z-2 mt-5 me-5'),
       'starRating'     => apply_filters('bootscore/class/woocommerce/star-rating', 'd-inline-flex gap-1 fg-body'),
     ],
   ]);
