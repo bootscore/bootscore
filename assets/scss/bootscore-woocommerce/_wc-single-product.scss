@@ -3,16 +3,11 @@ WooCommerce Single Product - Bootscore v7.0.0
 --------------------------------------------------------------*/
 
 @use "../bootstrap/forms";
-@use "../bootstrap/content";
+@use "../bootstrap/layout/breakpoints" as *;
 
 // Variation labels, the template has no class filter for them
 table.variations label {
   @extend .form-label;
-}
-
-// Grouped product list, the template has no class filter for the table
-.group_table {
-  @extend .table;
 }
 
 @layer custom {
@@ -86,17 +81,54 @@ table.variations label {
     }
   }
 
-  // Grouped product list: quantity | name | price and stock
+  // Grouped product list. WooCommerce's table has role="presentation", so it's styled as a list:
+  // each row is a grid, quantity | name | price and stock. Below sm the price goes under the name.
+  // The quantity cell holds the quantity input, a checkbox (sold individually) or a loop button (variable, out of stock)
   .group_table {
-    vertical-align: middle;
+    &,
+    tbody,
+    td {
+      display: block;
+      padding: 0;
+    }
 
-    // Quantity input, checkbox (sold individually) or a loop button (variable, out of stock)
+    margin-block-end: var(--spacer-5);
+
+    tr {
+      display: grid;
+      grid-template-areas:
+        "quantity label"
+        "quantity price";
+      grid-template-columns: 9rem minmax(0, 1fr);
+      gap: var(--spacer-2) var(--spacer-5);
+      align-items: center;
+      padding-block: var(--spacer-4);
+      border-block-end: var(--border-width) solid var(--border-color);
+
+      &:first-child {
+        border-block-start: var(--border-width) solid var(--border-color);
+      }
+
+      @include media-breakpoint-up(sm) {
+        grid-template-areas: "quantity label price";
+        grid-template-columns: 9rem minmax(0, 1fr) auto;
+      }
+    }
+
     .woocommerce-grouped-product-list-item__quantity {
-      width: 9rem;
+      grid-area: quantity;
+    }
+
+    .woocommerce-grouped-product-list-item__label {
+      grid-area: label;
     }
 
     .woocommerce-grouped-product-list-item__price {
-      text-align: end;
+      grid-area: price;
+
+      @include media-breakpoint-up(sm) {
+        text-align: end;
+      }
     }
   }
 
