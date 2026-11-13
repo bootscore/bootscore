@@ -93,6 +93,10 @@ jQuery(function ($) {
   // aria-label stays, classes from wc-enqueue.php
   $('.woocommerce-product-gallery__trigger').addClass(bootscoreTheme.classes.galleryTrigger).html(bootscoreTheme.icons.search);
 
+  // Gallery thumbnails, built by FlexSlider (single-product.js) as ol.flex-control-thumbs > li > img.
+  // Columns from woocommerce_product_thumbnails_columns, active state (.flex-active) in SCSS
+  $('.woocommerce-product-gallery .flex-control-thumbs').addClass(bootscoreTheme.classes.galleryThumbs).find('img').addClass(bootscoreTheme.classes.galleryThumb);
+
   // Review rating, WooCommerce (single-product.js) replaces the select with text links "1 of 5 stars" etc.
   // Each link gets a star icon, the text stays for screen readers. Hover and selected state in SCSS
   $('#respond p.stars > span').addClass(bootscoreTheme.classes.starRating).find('a').each(function () {

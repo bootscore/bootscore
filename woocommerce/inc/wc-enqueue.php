@@ -40,6 +40,8 @@ function bootscore_wc_scripts() {
     'classes' => [
       'galleryTrigger' => apply_filters('bootscore/class/woocommerce/single-product/gallery-trigger', 'btn-solid btn-sm btn-icon position-absolute top-0 end-0 z-2 mt-5 me-5'),
       'starRating'     => apply_filters('bootscore/class/woocommerce/star-rating', 'd-inline-flex gap-1 fg-body'),
+      'galleryThumbs'  => apply_filters('bootscore/class/woocommerce/single-product/gallery/thumbs', 'list-unstyled row row-cols-' . absint(apply_filters('woocommerce_product_thumbnails_columns', 4)) . ' g-3 mt-3'),
+      'galleryThumb'   => apply_filters('bootscore/class/woocommerce/single-product/gallery/thumb', 'rounded'),
     ],
   ]);
 

@@ -1,0 +1,21 @@
+/*--------------------------------------------------------------
+WooCommerce Single Product - Bootscore v7.0.0
+--------------------------------------------------------------*/
+
+@layer custom {
+
+  // Gallery thumbnails, classes from woocommerce.js. FlexSlider moves .flex-active to the current one
+  .flex-control-thumbs img {
+    cursor: pointer;
+    opacity: .5;
+
+    &:hover,
+    &.flex-active {
+      opacity: 1;
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+      transition: opacity .15s ease-in-out;
+    }
+  }
+}
