@@ -11,16 +11,18 @@ WooCommerce Columns - Bootscore v7.0.0
     display: grid;
     gap: var(--spacer-7);
 
-    // Two columns from md, not in the account drawer: it is narrow while md follows the viewport
     @include media-breakpoint-up(md) {
-      &:not(.drawer *) {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
+      grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
     > .col-1,
     > .col-2 {
       width: auto;
     }
+  }
+
+  // Login and register in the account drawer: one column, the drawer is narrow while md follows the viewport
+  .drawer .col2-set {
+    grid-template-columns: minmax(0, 1fr);
   }
 }
