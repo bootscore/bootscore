@@ -87,9 +87,9 @@ add_action('woocommerce_before_account_orders_pagination', function () {
  * Order status as badge
  *
  * Theme per status via filter, 2nd argument is the status (pending, processing, on-hold, completed, cancelled, refunded, failed, checkout-draft or a custom one).
+ * Used in the orders table and in the status sentence of the single order view.
  */
-function bootscore_wc_order_status_badge($order) {
-  $status = $order->get_status();
+function bootscore_wc_order_status_badge_html($status) {
   $themes = [
     'completed'  => 'theme-success',
     'processing' => 'theme-info',
@@ -99,7 +99,11 @@ function bootscore_wc_order_status_badge($order) {
   ];
   $classes = apply_filters('bootscore/class/woocommerce/my-account/order-status', 'badge badge-subtle ' . ($themes[$status] ?? 'theme-secondary'), $status);
 
-  echo '<span class="' . esc_attr($classes) . '">' . esc_html(wc_get_order_status_name($status)) . '</span>';
+  return '<span class="order-status ' . esc_attr($classes) . '">' . esc_html(wc_get_order_status_name($status)) . '</span>';
+}
+
+function bootscore_wc_order_status_badge($order) {
+  echo bootscore_wc_order_status_badge_html($order->get_status()); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 }
 add_action('woocommerce_my_account_my_orders_column_order-status', 'bootscore_wc_order_status_badge');
 
@@ -125,3 +129,18 @@ function bootscore_wc_download_file_button($download) {
   echo '<a href="' . esc_url($download['download_url']) . '" class="woocommerce-MyAccount-downloads-file ' . esc_attr(apply_filters('bootscore/class/woocommerce/download/button', 'btn-solid theme-primary btn-sm')) . '">' . esc_html($download['download_name']) . '</a>';
 }
 add_action('woocommerce_account_downloads_column_download-file', 'bootscore_wc_download_file_button');
+
+
+/**
+ * Single order view: "Order #123 was placed on … and is currently …"
+ *
+ * WooCommerce wraps number, date and status in <mark> (yellow highlight). Number and date become <strong>,
+ * the status the same badge as in the orders table. woocommerce_order_details_status exists since WooCommerce 10.1.
+ */
+function bootscore_wc_order_details_status($text, $order) {
+  $text = preg_replace('/<mark class="order-(number|date)">(.*?)<\/mark>/', '<strong class="order-$1">$2</strong>', $text);
+  $text = preg_replace('/<mark class="order-status">.*?<\/mark>/', bootscore_wc_order_status_badge_html($order->get_status()), $text);
+
+  return $text;
+}
+add_filter('woocommerce_order_details_status', 'bootscore_wc_order_details_status', 10, 2);

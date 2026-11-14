@@ -38,6 +38,13 @@ WooCommerce My Account - Bootscore v7.0.0
     }
   }
 
+  // Order downloads on the single order view, WooCommerce prints them without hooks around,
+  // so the section scrolls like .table-responsive text-nowrap (the account downloads page has the wrapper in PHP)
+  .woocommerce-order-downloads {
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
   // Previous and next buttons below the orders, next at the end also without previous
   .woocommerce-MyAccount-content .woocommerce-pagination--without-numbers {
     display: flex;
