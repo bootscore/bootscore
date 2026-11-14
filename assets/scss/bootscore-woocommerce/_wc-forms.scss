@@ -35,6 +35,13 @@ WooCommerce Forms - Bootscore v7.0.0
 
 @layer custom {
 
+  // Loading overlay from WooCommerce's blockUI (checkout, cart, variations, add payment method).
+  // WooCommerce sets a white background as inline style, the body background follows the color mode.
+  // The mini cart items have their own overlay (_wc-mini-cart.scss)
+  .blockUI.blockOverlay:not(.woocommerce-mini-cart-item *) {
+    background-color: var(--bg-body) !important;
+  }
+
   // Password toggle in the form adorn (woocommerce.js): no button min-height, so the field keeps the input height
   .form-adorn > .show-password-input {
     --btn-min-height: 0;
