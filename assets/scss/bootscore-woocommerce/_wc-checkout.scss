@@ -1,0 +1,106 @@
+/*--------------------------------------------------------------
+WooCommerce Checkout - Bootscore v7.0.0
+--------------------------------------------------------------*/
+
+@use "../bootstrap/content";
+
+// Section headings (Billing details, Additional information, Your order), no class filters in the templates
+.woocommerce-checkout :is(.woocommerce-billing-fields, .woocommerce-shipping-fields, .woocommerce-additional-fields) > h3,
+#order_review_heading {
+  @extend .h4;
+}
+
+// Review table, like the account tables
+.woocommerce-checkout-review-order-table {
+  @extend .table;
+}
+
+@layer custom {
+
+  // Coupon form: input and button in one row, the button as wide as its text
+  .woocommerce .checkout_coupon {
+    grid-template-columns: minmax(0, 1fr) auto;
+    margin-block-end: var(--spacer-7);
+  }
+
+  // Billing, shipping and additional information stacked in the left column (#customer_details is a .col2-set)
+  #customer_details {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  // "Ship to a different address?" is a h3 with the checkbox inside, as large as a label
+  #ship-to-different-address {
+    margin-block-end: var(--spacer-5);
+    font-size: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+  }
+
+  // Review table: amounts at the end
+  .woocommerce-checkout-review-order-table {
+    :is(.product-total, tfoot td) {
+      text-align: end;
+    }
+
+    th,
+    td {
+      vertical-align: top;
+    }
+
+    // Shipping methods, radio and label at the end
+    #shipping_method {
+      margin: 0;
+
+      li {
+        flex-wrap: nowrap;
+        justify-content: end;
+      }
+    }
+
+    .includes_tax {
+      display: block;
+      font-weight: normal;
+      color: var(--fg-3);
+    }
+  }
+
+  // Payment methods as a card with the chosen method's box below its radio
+  #payment {
+    padding: var(--spacer-6);
+    background-color: var(--bg-1);
+    border-radius: var(--radius-7);
+
+    .payment_methods {
+      display: grid;
+      gap: var(--spacer-3);
+      margin-block-end: var(--spacer-5);
+    }
+
+    .payment_box {
+      flex-basis: 100%;
+      padding: var(--spacer-4) var(--spacer-5);
+      font-size: var(--font-size-sm);
+      background-color: var(--bg-body);
+      border-radius: var(--radius-5);
+
+      > :last-child {
+        margin-block-end: 0;
+      }
+    }
+
+    .place-order {
+      margin-block-end: 0;
+    }
+  }
+
+  // Terms checkbox: text and required asterisk flow inline next to the checkbox
+  .woocommerce-terms-and-conditions-wrapper label:has(> input[type="checkbox"]) {
+    display: block;
+    padding-inline-start: calc(1em + var(--spacer-3));
+
+    > input[type="checkbox"] {
+      float: inline-start;
+      margin-inline-start: calc(-1em - var(--spacer-3));
+    }
+  }
+}
