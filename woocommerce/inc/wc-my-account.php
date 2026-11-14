@@ -64,3 +64,41 @@ function bootscore_wc_my_account_columns($output, $tag) {
   return $output;
 }
 add_filter('do_shortcode_tag', 'bootscore_wc_my_account_columns', 10, 2);
+
+
+/**
+ * Orders table in a responsive wrapper
+ *
+ * Opens before the table and closes before the pagination, only when there are orders
+ * (without orders WooCommerce prints a notice and no pagination hook).
+ */
+add_action('woocommerce_before_account_orders', function ($has_orders) {
+  if ($has_orders) {
+    echo '<div class="' . esc_attr(apply_filters('bootscore/class/woocommerce/my-account/orders/wrapper', 'table-responsive text-nowrap')) . '">';
+  }
+});
+
+add_action('woocommerce_before_account_orders_pagination', function () {
+  echo '</div>';
+});
+
+
+/**
+ * Order status as badge
+ *
+ * Theme per status via filter, 2nd argument is the status (pending, processing, on-hold, completed, cancelled, refunded, failed, checkout-draft or a custom one).
+ */
+function bootscore_wc_order_status_badge($order) {
+  $status = $order->get_status();
+  $themes = [
+    'completed'  => 'theme-success',
+    'processing' => 'theme-info',
+    'on-hold'    => 'theme-warning',
+    'cancelled'  => 'theme-danger',
+    'failed'     => 'theme-danger',
+  ];
+  $classes = apply_filters('bootscore/class/woocommerce/my-account/order-status', 'badge badge-subtle ' . ($themes[$status] ?? 'theme-secondary'), $status);
+
+  echo '<span class="' . esc_attr($classes) . '">' . esc_html(wc_get_order_status_name($status)) . '</span>';
+}
+add_action('woocommerce_my_account_my_orders_column_order-status', 'bootscore_wc_order_status_badge');

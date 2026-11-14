@@ -2,11 +2,47 @@
 WooCommerce My Account - Bootscore v7.0.0
 --------------------------------------------------------------*/
 
+@use "../bootstrap/content";
+@use "../bootstrap/buttons";
+
+// Account tables (orders, downloads, order details), no class filters in WooCommerce's templates
+.woocommerce-MyAccount-content .shop_table {
+  @extend .table;
+}
+
+// Order actions (Pay, View, Cancel). Same specificity as .woocommerce .button:not(.alt) (_wc-buttons.scss),
+// so the size tokens of .btn-sm, which come later, win
+.woocommerce .woocommerce-orders-table .button {
+  @extend .btn-sm;
+}
+
 @layer custom {
 
   // No margin after the last element of the content column, e.g. the dashboard paragraphs.
   // Below md the content sits above the navigation, the row gutter is the space between them
   .woocommerce-MyAccount-content > :last-child {
     margin-block-end: 0;
+  }
+
+  .woocommerce-orders-table {
+    th,
+    td {
+      vertical-align: middle;
+    }
+
+    // WooCommerce prints the action buttons without whitespace between them
+    .button + .button {
+      margin-inline-start: var(--spacer-2);
+    }
+  }
+
+  // Previous and next buttons below the orders, next at the end also without previous
+  .woocommerce-MyAccount-content .woocommerce-pagination--without-numbers {
+    display: flex;
+    gap: var(--spacer-3);
+
+    .woocommerce-button--next {
+      margin-inline-start: auto;
+    }
   }
 }
