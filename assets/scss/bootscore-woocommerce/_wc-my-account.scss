@@ -24,12 +24,14 @@ WooCommerce My Account - Bootscore v7.0.0
     margin-block-end: 0;
   }
 
-  .woocommerce-orders-table {
+  .woocommerce-MyAccount-content .shop_table {
     th,
     td {
       vertical-align: middle;
     }
+  }
 
+  .woocommerce-orders-table {
     // WooCommerce prints the action buttons without whitespace between them
     .button + .button {
       margin-inline-start: var(--spacer-2);

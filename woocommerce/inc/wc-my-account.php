@@ -102,3 +102,26 @@ function bootscore_wc_order_status_badge($order) {
   echo '<span class="' . esc_attr($classes) . '">' . esc_html(wc_get_order_status_name($status)) . '</span>';
 }
 add_action('woocommerce_my_account_my_orders_column_order-status', 'bootscore_wc_order_status_badge');
+
+
+/**
+ * Downloads table in a responsive wrapper (account downloads page, only with downloads)
+ */
+add_action('woocommerce_before_available_downloads', function () {
+  echo '<div class="' . esc_attr(apply_filters('bootscore/class/woocommerce/my-account/downloads/wrapper', 'table-responsive text-nowrap')) . '">';
+});
+
+add_action('woocommerce_after_available_downloads', function () {
+  echo '</div>';
+});
+
+
+/**
+ * Download button with Bootstrap classes instead of .button.alt
+ *
+ * Column hook of order/order-downloads.php, so it applies to the account downloads and the order downloads.
+ */
+function bootscore_wc_download_file_button($download) {
+  echo '<a href="' . esc_url($download['download_url']) . '" class="woocommerce-MyAccount-downloads-file ' . esc_attr(apply_filters('bootscore/class/woocommerce/download/button', 'btn-solid theme-primary btn-sm')) . '">' . esc_html($download['download_name']) . '</a>';
+}
+add_action('woocommerce_account_downloads_column_download-file', 'bootscore_wc_download_file_button');
