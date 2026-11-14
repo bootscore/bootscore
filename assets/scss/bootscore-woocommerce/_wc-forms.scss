@@ -68,6 +68,11 @@ WooCommerce Forms - Bootscore v7.0.0
       > label {
         margin: 0;
       }
+
+      // Buttons as wide as their text, the grid would stretch them (log in, register, reset password)
+      > .button {
+        justify-self: start;
+      }
     }
 
     // Wrapper around inputs
@@ -75,13 +80,15 @@ WooCommerce Forms - Bootscore v7.0.0
       display: block;
     }
 
-    // Two columns for .form-row-first and .form-row-last, all other children full width
+    // Two columns for .form-row-first and .form-row-last, all other children full width.
+    // A .form-row-first without .form-row-last after it (lost password) is full width too
     :has(> .form-row-first) {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
       column-gap: var(--spacer-5);
 
-      > :not(.form-row-first, .form-row-last) {
+      > :not(.form-row-first, .form-row-last),
+      > .form-row-first:not(:has(+ .form-row-last)) {
         grid-column: 1 / -1;
       }
 

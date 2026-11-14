@@ -98,11 +98,6 @@ WooCommerce My Account - Bootscore v7.0.0
     font-style: normal;
   }
 
-  // Log in and Register as wide as their text, like the other form buttons (form rows are a grid)
-  :is(.woocommerce-form-login__submit, .woocommerce-form-register__submit) {
-    justify-self: start;
-  }
-
   // Order downloads on the single order view, WooCommerce prints them without hooks around,
   // so the section scrolls like .table-responsive text-nowrap (the account downloads page has the wrapper in PHP)
   .woocommerce-order-downloads {

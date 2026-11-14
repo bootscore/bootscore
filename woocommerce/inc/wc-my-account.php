@@ -15,6 +15,24 @@ defined('ABSPATH') || exit;
 
 
 /**
+ * My account in the account drawer (template-parts/header/drawer-woocommerce.php and wc-ajax-login.php)
+ *
+ * Same shortcode, but stacked: no row and columns, the drawer is narrow while the md and lg breakpoints follow the viewport.
+ */
+function bootscore_wc_account_drawer_content() {
+  $GLOBALS['bootscore_wc_account_drawer'] = true;
+  $html = do_shortcode('[woocommerce_my_account]');
+  $GLOBALS['bootscore_wc_account_drawer'] = false;
+
+  return $html;
+}
+
+function bootscore_wc_is_account_drawer() {
+  return !empty($GLOBALS['bootscore_wc_account_drawer']);
+}
+
+
+/**
  * Navigation as list group
  *
  * Pluggable woocommerce_account_navigation() instead of myaccount/navigation.php. Keeps WooCommerce's
@@ -24,7 +42,7 @@ if (!function_exists('woocommerce_account_navigation')) :
   function woocommerce_account_navigation() {
     do_action('woocommerce_before_account_navigation');
     ?>
-    <nav class="woocommerce-MyAccount-navigation <?= esc_attr(apply_filters('bootscore/class/woocommerce/my-account/navigation', 'md:col-4 lg:col-3')); ?>" aria-label="<?php esc_attr_e('Account pages', 'woocommerce'); ?>">
+    <nav class="woocommerce-MyAccount-navigation <?= esc_attr(bootscore_wc_is_account_drawer() ? '' : apply_filters('bootscore/class/woocommerce/my-account/navigation', 'md:col-4 lg:col-3')); ?>" aria-label="<?php esc_attr_e('Account pages', 'woocommerce'); ?>">
       <div class="<?= esc_attr(apply_filters('bootscore/class/woocommerce/my-account/navigation/list', 'list-group')); ?>">
         <?php foreach (wc_get_account_menu_items() as $endpoint => $label) :
           $current = wc_is_current_account_menu_item($endpoint);
@@ -51,7 +69,7 @@ endif;
  * Below md the content comes first, so the page just opened is visible without scrolling past the navigation.
  */
 function bootscore_wc_my_account_columns($output, $tag) {
-  if ('woocommerce_my_account' !== $tag || false === strpos($output, 'woocommerce-MyAccount-navigation')) {
+  if ('woocommerce_my_account' !== $tag || bootscore_wc_is_account_drawer() || false === strpos($output, 'woocommerce-MyAccount-navigation')) {
     return $output;
   }
 

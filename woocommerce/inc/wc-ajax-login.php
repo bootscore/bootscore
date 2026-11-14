@@ -21,7 +21,7 @@ add_action('wp_ajax_bootscore_load_account', 'bootscore_load_account');
 add_action('wp_ajax_nopriv_bootscore_load_account', 'bootscore_load_account');
 function bootscore_load_account() {
   $response = [];
-  $response['menu_html'] = do_shortcode('[woocommerce_my_account]');
+  $response['menu_html'] = bootscore_wc_account_drawer_content();
   // Check if the user is logged in
   if (is_user_logged_in()) {
     $response['isLoggedIn'] = true;

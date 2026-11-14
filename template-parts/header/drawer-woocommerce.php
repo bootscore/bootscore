@@ -27,7 +27,7 @@ defined('ABSPATH') || exit;
       <?php do_action('bootscore_before_drawer_account'); ?>
       <div class="drawer-account-content">
         <?php if (!apply_filters('bootscore/wc_ajax_login', true)) : ?>
-          <?= do_shortcode('[woocommerce_my_account]'); ?>
+          <?= bootscore_wc_account_drawer_content(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
         <?php endif; ?>
       </div>
     </div>

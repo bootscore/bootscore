@@ -20,4 +20,9 @@ WooCommerce Columns - Bootscore v7.0.0
       width: auto;
     }
   }
+
+  // Login and register in the account drawer: one column, the drawer is narrow while md follows the viewport
+  .drawer .col2-set {
+    grid-template-columns: minmax(0, 1fr);
+  }
 }
