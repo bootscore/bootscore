@@ -1,0 +1,117 @@
+/*--------------------------------------------------------------
+WooCommerce My Account - Bootscore v7.0.0
+--------------------------------------------------------------*/
+
+@use "../bootstrap/content";
+@use "../bootstrap/buttons";
+@use "../bootstrap/card";
+@use "../bootstrap/forms";
+
+// Account tables (orders, downloads, order details), no class filters in WooCommerce's templates
+.woocommerce-MyAccount-content .shop_table {
+  @extend .table;
+}
+
+// Order actions (Pay, View, Cancel). Same specificity as .woocommerce .button:not(.alt) (_wc-buttons.scss),
+// so the size tokens of .btn-sm, which come later, win
+.woocommerce .woocommerce-orders-table .button {
+  @extend .btn-sm;
+}
+
+// Address overview and login/register: each as card, no class filters in my-address.php and form-login.php
+:is(.woocommerce-Address, #customer_login > :is(.col-1, .col-2)) {
+  @extend .card;
+}
+
+.woocommerce-Address-title h2 {
+  @extend .h5;
+}
+
+#customer_login h2 {
+  @extend .h4;
+}
+
+// Help text below the display name in the account details
+#account_display_name_description {
+  @extend .form-text;
+}
+
+@layer custom {
+
+  // No margin after the last element of the content column, e.g. the dashboard paragraphs.
+  // Below md the content sits above the navigation, the row gutter is the space between them
+  .woocommerce-MyAccount-content > :last-child {
+    margin-block-end: 0;
+  }
+
+  .woocommerce-MyAccount-content .shop_table {
+    th,
+    td {
+      vertical-align: middle;
+    }
+  }
+
+  .woocommerce-orders-table {
+    // WooCommerce prints the action buttons without whitespace between them
+    .button + .button {
+      margin-inline-start: var(--spacer-2);
+    }
+  }
+
+  // Address and login/register cards, spacing like .card-body
+  :is(.woocommerce-Address, #customer_login > :is(.col-1, .col-2)) {
+    gap: var(--card-body-gap);
+    padding: var(--card-spacer-y) var(--card-spacer-x);
+
+    > * {
+      margin-block: 0;
+    }
+
+    address {
+      font-style: normal;
+    }
+  }
+
+  // Title and Edit link in one row
+  .woocommerce-Address-title {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacer-2) var(--spacer-5);
+    align-items: baseline;
+    justify-content: space-between;
+
+    h2 {
+      margin: 0;
+    }
+
+    .edit {
+      font-size: var(--font-size-sm);
+    }
+  }
+
+  // No space after the last form row in the login/register cards
+  #customer_login form > :last-child {
+    margin-block-end: 0;
+  }
+
+  #account_display_name_description em {
+    font-style: normal;
+  }
+
+  // Order downloads on the single order view, WooCommerce prints them without hooks around,
+  // so the section scrolls like .table-responsive text-nowrap (the account downloads page has the wrapper in PHP)
+  .woocommerce-order-downloads {
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  // Previous and next buttons below the orders, next at the end also without previous
+  .woocommerce-MyAccount-content .woocommerce-pagination--without-numbers {
+    display: flex;
+    gap: var(--spacer-3);
+
+    .woocommerce-button--next {
+      margin-inline-start: auto;
+    }
+  }
+}

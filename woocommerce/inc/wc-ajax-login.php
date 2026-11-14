@@ -21,7 +21,7 @@ add_action('wp_ajax_bootscore_load_account', 'bootscore_load_account');
 add_action('wp_ajax_nopriv_bootscore_load_account', 'bootscore_load_account');
 function bootscore_load_account() {
   $response = [];
-  $response['menu_html'] = do_shortcode('[woocommerce_my_account]');
+  $response['menu_html'] = bootscore_wc_account_drawer_content();
   // Check if the user is logged in
   if (is_user_logged_in()) {
     $response['isLoggedIn'] = true;
@@ -144,7 +144,7 @@ function bootscore_ajax_login() {
  */
 function bootscore_add_loader_to_login() {
   echo '<div class="ajax-login-loader position-absolute top-0 end-0 bottom-0 start-0 z-1 d-flex align-items-center justify-content-center bg-body" hidden>
-          <div class="spinner-border fg-primary" role="status">
+          <div class="spinner-border fg-primary fs-2xl" role="status">
             <span class="visually-hidden">' . esc_html__('Loading...', 'bootscore') . '</span>
           </div>
         </div>';

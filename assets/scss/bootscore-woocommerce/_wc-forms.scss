@@ -23,6 +23,16 @@ WooCommerce Forms - Bootscore v7.0.0
   @extend .form-label;
 }
 
+// Password strength text and hint from WooCommerce, below the Bootstrap strength segments (woocommerce.js).
+// The text color follows the segments via --strength-color
+.woocommerce-password-strength {
+  @extend .strength-text;
+}
+
+.woocommerce-password-hint {
+  @extend .form-text;
+}
+
 @layer custom {
 
   // Password toggle in the form adorn (woocommerce.js): no button min-height, so the field keeps the input height
@@ -58,6 +68,11 @@ WooCommerce Forms - Bootscore v7.0.0
       > label {
         margin: 0;
       }
+
+      // Buttons as wide as their text, the grid would stretch them (log in, register, reset password)
+      > .button {
+        justify-self: start;
+      }
     }
 
     // Wrapper around inputs
@@ -65,13 +80,15 @@ WooCommerce Forms - Bootscore v7.0.0
       display: block;
     }
 
-    // Two columns for .form-row-first and .form-row-last, all other children full width
+    // Two columns for .form-row-first and .form-row-last, all other children full width.
+    // A .form-row-first without .form-row-last after it (lost password) is full width too
     :has(> .form-row-first) {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
       column-gap: var(--spacer-5);
 
-      > :not(.form-row-first, .form-row-last) {
+      > :not(.form-row-first, .form-row-last),
+      > .form-row-first:not(:has(+ .form-row-last)) {
         grid-column: 1 / -1;
       }
 

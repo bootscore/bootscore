@@ -44,6 +44,53 @@ jQuery(function ($) {
     $(this).html($(this).hasClass('display-password') ? bootscoreTheme.icons.eyeSlash : bootscoreTheme.icons.eye);
   });
 
+  // Password strength with the Bootstrap Strength segments
+  // WooCommerce (password-strength-meter.js) keeps the check: WordPress's zxcvbn, the text below the field,
+  // the hint and the disabled submit button below the minimum strength. The segments use the same zxcvbn score,
+  // so they always match what WooCommerce allows. Added when WooCommerce adds its text, placed before it.
+  const bootscoreStrengthColors = {weak: 'danger', fair: 'warning', good: 'info', strong: 'success'};
+
+  $(document.body).on('wc-password-strength-added', function () {
+    if (typeof wp === 'undefined' || !wp.passwordStrength) {
+      return;
+    }
+
+    $('.woocommerce-password-strength').each(function () {
+      const $meter = $(this);
+
+      if ($meter.prev('.strength').length) {
+        return;
+      }
+
+      const input = $meter.prevAll('.password-input').first().find('input')[0] || $meter.prev('input')[0];
+      if (!input) {
+        return;
+      }
+
+      const $strength = $('<div class="strength" aria-hidden="true">' + '<div class="strength-segment"></div>'.repeat(4) + '</div>');
+      $meter.before($strength);
+
+      // zxcvbn 0 and 1 weak, 2 fair, 3 good, 4 strong (default thresholds 2, 4, 6). -1 while zxcvbn loads
+      const scores = {0: 1, 1: 1, 2: 3, 3: 5, 4: 7};
+
+      $strength[0].addEventListener('strengthChange.bs.strength', function (event) {
+        $meter[0].style.setProperty('--strength-color', event.strength ? 'var(--' + bootscoreStrengthColors[event.strength] + '-fg)' : '');
+      });
+
+      new bootstrap.Strength($strength[0], {
+        input: input,
+        scorer: function (password) {
+          return scores[wp.passwordStrength.meter(password, wp.passwordStrength.userInputDisallowedList())] || 0;
+        }
+      });
+    });
+  });
+
+  // WooCommerce hides its text when the field is empty, the segments follow
+  $(document.body).on('wc-password-strength-hide wc-password-strength-show', function (event) {
+    $('.woocommerce-password-strength').prev('.strength').prop('hidden', event.type === 'wc-password-strength-hide');
+  });
+
   // Single product tabs
   // WooCommerce (single-product.js) shows the panel and sets aria-selected, .nav-tabs needs .active.
   // Tabs that don't fit are copied into the Nav Overflow menu as .menu-item, .active is synced to both
