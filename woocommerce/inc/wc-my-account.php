@@ -18,17 +18,17 @@ defined('ABSPATH') || exit;
  * My account in the account drawer (template-parts/header/drawer-woocommerce.php and wc-ajax-login.php)
  *
  * Same shortcode, but stacked: no row and columns, the drawer is narrow while the md and lg breakpoints follow the viewport.
- * Logged in, the content is only the greeting instead of the endpoint content (dashboard): its links are built from the
- * current URL, which is admin-ajax.php when the drawer loads via AJAX, and the navigation already links all account pages.
+ * Logged in, no endpoint content (dashboard): its links are built from the current URL, which is admin-ajax.php when
+ * the drawer loads via AJAX, and the navigation already links all account pages. The greeting goes above the navigation.
  */
 function bootscore_wc_account_drawer_content() {
   $GLOBALS['bootscore_wc_account_drawer'] = true;
   $content = remove_action('woocommerce_account_content', 'woocommerce_account_content');
-  add_action('woocommerce_account_content', 'bootscore_wc_account_drawer_greeting');
+  add_action('woocommerce_before_account_navigation', 'bootscore_wc_account_drawer_greeting');
 
   $html = do_shortcode('[woocommerce_my_account]');
 
-  remove_action('woocommerce_account_content', 'bootscore_wc_account_drawer_greeting');
+  remove_action('woocommerce_before_account_navigation', 'bootscore_wc_account_drawer_greeting');
   if ($content) {
     add_action('woocommerce_account_content', 'woocommerce_account_content');
   }
@@ -39,7 +39,7 @@ function bootscore_wc_account_drawer_content() {
 
 
 /**
- * Greeting in the account drawer, WooCommerce's first dashboard sentence: "Hello basti (not basti? Log out)"
+ * Greeting above the navigation in the account drawer, WooCommerce's first dashboard sentence: "Hello basti (not basti? Log out)"
  */
 function bootscore_wc_account_drawer_greeting() {
   $user = wp_get_current_user();
