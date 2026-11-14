@@ -3,8 +3,8 @@ WooCommerce Checkout - Bootscore v7.0.0
 --------------------------------------------------------------*/
 
 @use "../bootstrap/content";
-@use "../bootstrap/list-group";
-@use "../bootstrap/helpers";
+@use "../bootstrap/card";
+@use "../bootstrap/mixins/tokens" as *;
 
 // Section headings (Billing details, Additional information, Your order), no class filters in the templates
 .woocommerce-checkout :is(.woocommerce-billing-fields, .woocommerce-shipping-fields, .woocommerce-additional-fields) > h3,
@@ -12,14 +12,6 @@ WooCommerce Checkout - Bootscore v7.0.0
   @extend .h4;
 }
 
-// Review table as list group: one item per product and total, the column headings are only for screen readers
-.woocommerce-checkout-review-order-table {
-  @extend .list-group;
-}
-
-.woocommerce-checkout-review-order-table thead {
-  @extend .visually-hidden;
-}
 
 @layer custom {
 
@@ -42,15 +34,31 @@ WooCommerce Checkout - Bootscore v7.0.0
     line-height: inherit;
   }
 
-  // Review table: rows as list group items, name at the start, amount at the end
+  // Review table as card: column headings like a card header, products and totals like a flush list group,
+  // name at the start, amount at the end. Card tokens only (an @extend of .card pulls in all its child rules).
+  // Padding from the card header, so the columns line up with Product and Subtotal
   .woocommerce-checkout-review-order-table {
+    @include tokens(card.$card-tokens);
+
+    display: flex;
+    flex-direction: column;
     margin-block-end: var(--spacer-7);
     overflow: hidden;
-    border: var(--list-group-border-width) solid var(--list-group-border-color);
+    color: var(--fg-body);
+    background-color: var(--card-bg);
+    border: var(--card-border-width) solid var(--card-border-color);
+    border-radius: var(--card-border-radius);
+    border-collapse: separate;
 
     tbody,
     tfoot {
       display: block;
+    }
+
+    thead {
+      display: block;
+      background-color: var(--card-cap-bg);
+      border-block-end: var(--card-border-width) solid var(--card-border-color);
     }
 
     tr {
@@ -58,12 +66,14 @@ WooCommerce Checkout - Bootscore v7.0.0
       gap: var(--spacer-5);
       align-items: start;
       justify-content: space-between;
-      padding: var(--list-group-item-padding-y) var(--list-group-item-padding-x);
-      color: var(--list-group-color);
-      background-color: var(--list-group-bg);
-      border-block-start: var(--list-group-border-width) solid var(--list-group-border-color);
+      padding: var(--card-cap-padding-y) var(--card-cap-padding-x);
     }
 
+    :is(tbody, tfoot) tr {
+      border-block-start: var(--card-border-width) solid var(--card-border-color);
+    }
+
+    // The card header draws the line above the first product
     tbody tr:first-child {
       border-block-start: 0;
     }
@@ -72,6 +82,10 @@ WooCommerce Checkout - Bootscore v7.0.0
     td {
       display: block;
       padding: 0;
+    }
+
+    thead th:last-child {
+      text-align: end;
     }
 
     :is(.product-total, tfoot td) {
@@ -87,8 +101,9 @@ WooCommerce Checkout - Bootscore v7.0.0
       white-space: nowrap;
     }
 
+    // Total like a card footer
     .order-total {
-      background-color: var(--bg-1);
+      background-color: var(--card-cap-bg);
     }
 
     // Shipping methods, radio and label at the end
