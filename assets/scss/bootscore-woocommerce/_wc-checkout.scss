@@ -129,10 +129,17 @@ WooCommerce Checkout - Bootscore v7.0.0
     background-color: var(--bg-1);
     border-radius: var(--radius-7);
 
+    // Unstyled also without radios, e.g. with only the "no available payment methods" notice
     .payment_methods {
       display: grid;
       gap: var(--spacer-3);
+      padding-inline-start: 0;
       margin-block-end: var(--spacer-5);
+      list-style: none;
+
+      > li > .woocommerce-info {
+        margin-block-end: 0;
+      }
     }
 
     .payment_box {
