@@ -44,25 +44,64 @@ jQuery(function ($) {
     $(this).html($(this).hasClass('display-password') ? bootscoreTheme.icons.eyeSlash : bootscoreTheme.icons.eye);
   });
 
-  // Single-product Tabs
-  // First item active
-  $('.wc-tabs .nav-item:first-child a').addClass('active');
-  $('.wc-tab').hide().first().show();
+  // Single product tabs
+  // WooCommerce (single-product.js) shows the panel and sets aria-selected, .nav-tabs needs .active.
+  // Tabs that don't fit are copied into the Nav Overflow menu as .menu-item, .active is synced to both
+  // and to the "More" toggle.
+  function bootscoreTabsActive($tabs, id) {
+    $tabs.find('a[aria-controls]').removeClass('active');
+    $tabs.find('a[aria-controls="' + id + '"]').addClass('active');
+    $tabs.find('.nav-overflow-toggle').toggleClass('active', $tabs.find('.menu-item[aria-controls="' + id + '"]').length > 0);
+  }
 
-  // Tab switching
-  $('body').on('click', '.wc-tabs li a', function (e) {
+  // Delegated jQuery handler, so it also runs when WooCommerce triggers a click (URL hash, review link)
+  $(document.body).on('click', '.wc-tabs .nav-link[role="tab"]', function () {
+    bootscoreTabsActive($(this).closest('.wc-tabs'), $(this).attr('aria-controls'));
+  });
+
+  // A copy in the menu clicks the original tab, so WooCommerce handles it as usual, then closes the menu.
+  // Runs before WooCommerce's handler on body, stopPropagation keeps WooCommerce away from the copy.
+  $('.wc-tabs').on('click', '.menu-item[aria-controls]', function (e) {
     e.preventDefault();
+    e.stopPropagation();
 
-    var $tab = $(this);
-    var $tabs_wrapper = $tab.closest('.wc-tabs-wrapper, .woocommerce-tabs');
+    const $tabs = $(this).closest('.wc-tabs');
+    $tabs.find('.nav-link[aria-controls="' + $(this).attr('aria-controls') + '"]').trigger('click');
 
-    // Remove active classes and hide all tab panels
-    $tabs_wrapper.find('.wc-tabs li a').removeClass('active');
-    $tabs_wrapper.find('.wc-tab').hide();
+    const toggle = $tabs.find('.nav-overflow-toggle')[0];
+    if (toggle) {
+      bootstrap.Menu.getInstance(toggle)?.hide();
+    }
+  });
 
-    // Activate clicked tab and show corresponding panel
-    $tab.addClass('active');
-    $tabs_wrapper.find($tab.attr('href')).show();
+  // Copies are menu items, not tabs. Nav Overflow rebuilds them on every resize and may have run before this script.
+  // .active follows aria-selected, WooCommerce may have opened a tab from the URL hash before this script.
+  $('.wc-tabs-wrapper [data-bs-toggle="nav-overflow"]').each(function () {
+    const wrapper = this;
+
+    function fixCopies() {
+      const $tabs = $(wrapper).find('.wc-tabs');
+      $tabs.find('.menu-item[aria-controls]').removeAttr('role aria-selected tabindex');
+      bootscoreTabsActive($tabs, $tabs.find('.nav-link[aria-selected="true"]').attr('aria-controls'));
+    }
+
+    fixCopies();
+    wrapper.addEventListener('overflow.bs.navoverflow', fixCopies);
+  });
+
+  // Gallery zoom trigger, built by WooCommerce (single-product.js) with an emoji.
+  // aria-label stays, classes from wc-enqueue.php
+  $('.woocommerce-product-gallery__trigger').addClass(bootscoreTheme.classes.galleryTrigger).html(bootscoreTheme.icons.search);
+
+  // Gallery thumbnails, built by FlexSlider (single-product.js) as ol.flex-control-thumbs > li > img.
+  // Columns from woocommerce_product_thumbnails_columns, active state (.flex-active) in SCSS
+  $('.woocommerce-product-gallery .flex-control-thumbs').addClass(bootscoreTheme.classes.galleryThumbs).find('img').addClass(bootscoreTheme.classes.galleryThumb);
+
+  // Review rating, WooCommerce (single-product.js) replaces the select with text links "1 of 5 stars" etc.
+  // Each link gets a star icon, the text stays for screen readers. Hover and selected state in SCSS
+  $('#respond p.stars > span').addClass(bootscoreTheme.classes.starRating).find('a').each(function () {
+    const label = $('<span class="visually-hidden"></span>').text($(this).text());
+    $(this).empty().append(bootscoreTheme.icons.star, label);
   });
 
   // WC Quantity Input

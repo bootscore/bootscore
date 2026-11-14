@@ -36,6 +36,17 @@ WooCommerce Forms - Bootscore v7.0.0
     display: none;
   }
 
+  // Quantity input between the minus and plus buttons, no browser spin buttons. Centered via .text-center (wc-forms.php)
+  .quantity .qty {
+    appearance: textfield;
+
+    &::-webkit-inner-spin-button,
+    &::-webkit-outer-spin-button {
+      margin: 0;
+      appearance: none;
+    }
+  }
+
   .woocommerce {
 
     // Form rows, stacked like .form-field

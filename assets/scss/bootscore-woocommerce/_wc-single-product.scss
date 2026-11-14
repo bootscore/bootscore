@@ -1,0 +1,205 @@
+/*--------------------------------------------------------------
+WooCommerce Single Product - Bootscore v7.0.0
+--------------------------------------------------------------*/
+
+@use "../bootstrap/forms";
+@use "../bootstrap/layout/breakpoints" as *;
+@use "../bootstrap/content";
+
+// Additional information tab, attributes table without class filter
+.shop_attributes {
+  @extend .table;
+}
+
+// Reviews title and list like the blog comments (comments.php), no class filters in WooCommerce's template
+.woocommerce-Reviews-title {
+  @extend .h3;
+}
+
+.commentlist {
+  @extend .list-unstyled;
+}
+
+// Variation labels, the template has no class filter for them
+table.variations label {
+  @extend .form-label;
+}
+
+@layer custom {
+
+  // Gallery thumbnails, classes from woocommerce.js. FlexSlider moves .flex-active to the current one
+  .flex-control-thumbs img {
+    cursor: pointer;
+    opacity: .5;
+
+    &:hover,
+    &.flex-active {
+      opacity: 1;
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+      transition: opacity .15s ease-in-out;
+    }
+  }
+
+  // Add to cart form
+  form.cart {
+    margin-block-end: var(--spacer-5);
+  }
+
+  // Quantity and button in one row: simple products and the variation button wrapper.
+  // PHP can't wrap them, the grouped product fires the same quantity hooks inside its table cells.
+  // External products only have the button, the quantity is hidden when it can't change (.qty-fixed).
+  :is(form.cart:not(.variations_form, .grouped_form), .woocommerce-variation-add-to-cart) {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacer-3);
+
+    .quantity {
+      flex: 0 0 8rem;
+    }
+
+    .single_add_to_cart_button {
+      flex: 1 1 auto;
+    }
+  }
+
+  // Variations table, stacked: label above select.
+  // WooCommerce prints the Clear button after the last select and hides it with visibility: hidden,
+  // positioned top end on the first label line it takes no space and the selects keep the same width.
+  table.variations {
+    &,
+    tbody,
+    tr,
+    th,
+    td {
+      display: block;
+      padding: 0;
+    }
+
+    position: relative;
+
+    tr {
+      margin-block-end: var(--spacer-5);
+    }
+
+    // Space to the select from .form-label
+    th {
+      font-weight: inherit;
+      text-align: start;
+    }
+
+    .reset_variations {
+      position: absolute;
+      inset-block-start: 0;
+      inset-inline-end: 0;
+    }
+  }
+
+  // Additional information: labels as wide as their content, values take the rest and wrap.
+  // Without nowrap, .text-break on body lets the labels break anywhere and the columns share the width.
+  // Values come as paragraphs (wpautop)
+  .shop_attributes {
+    th {
+      width: 1%;
+      text-align: start;
+      white-space: nowrap;
+    }
+
+    td p {
+      margin-block-end: 0;
+    }
+  }
+
+  .woocommerce-Reviews-title {
+    margin-block-end: var(--spacer-5);
+  }
+
+  // Review form rating, WooCommerce (single-product.js) builds p.stars with a link per star,
+  // woocommerce.js adds the star icons. Stars up to the hovered or selected one are full, the rest muted.
+  // WooCommerce sets .selected on p.stars and .active on the clicked link
+  .comment-form-rating {
+    :where(p.stars a) {
+      color: inherit;
+      text-decoration: none;
+      opacity: .25;
+    }
+
+    :where(p.stars.selected a) {
+      opacity: 1;
+    }
+
+    :where(p.stars.selected a.active) ~ a {
+      opacity: .25;
+    }
+
+    // Hover wins over the selection
+    p.stars span:hover a {
+      opacity: 1;
+    }
+
+    p.stars span a:hover ~ a {
+      opacity: .25;
+    }
+  }
+
+  // Grouped product list. WooCommerce's table has role="presentation", so it's styled as a list:
+  // each row is a grid, quantity | name | price and stock. Below sm the price goes under the name.
+  // The quantity cell holds the quantity input, a checkbox (sold individually) or a loop button (variable, out of stock)
+  .group_table {
+    &,
+    tbody,
+    td {
+      display: block;
+      padding: 0;
+    }
+
+    margin-block-end: var(--spacer-5);
+
+    tr {
+      display: grid;
+      grid-template-areas:
+        "quantity label"
+        "quantity price";
+      grid-template-columns: 9rem minmax(0, 1fr);
+      gap: var(--spacer-2) var(--spacer-5);
+      align-items: center;
+      padding-block: var(--spacer-4);
+      border-block-end: var(--border-width) solid var(--border-color);
+
+      &:first-child {
+        border-block-start: var(--border-width) solid var(--border-color);
+      }
+
+      @include media-breakpoint-up(sm) {
+        grid-template-areas: "quantity label price";
+        grid-template-columns: 9rem minmax(0, 1fr) auto;
+      }
+    }
+
+    .woocommerce-grouped-product-list-item__quantity {
+      grid-area: quantity;
+    }
+
+    .woocommerce-grouped-product-list-item__label {
+      grid-area: label;
+    }
+
+    .woocommerce-grouped-product-list-item__price {
+      grid-area: price;
+
+      @include media-breakpoint-up(sm) {
+        text-align: end;
+      }
+    }
+  }
+
+  .grouped_form .single_add_to_cart_button {
+    width: 100%;
+  }
+
+  // Price, stock and description of the selected variation, loaded by WooCommerce
+  .single_variation:not(:empty) {
+    margin-block-end: var(--spacer-5);
+  }
+}

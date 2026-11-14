@@ -7,7 +7,7 @@ WooCommerce Alerts - Bootscore v7.0.0
 @use "../bootstrap/helpers";
 
 // WooCommerce notices get Bootstrap alert styles
-:is(.woocommerce-error, .woocommerce-info, .woocommerce-message, .woocommerce-noreviews) {
+:is(.woocommerce-error, .woocommerce-info, .woocommerce-message, .woocommerce-noreviews, .woocommerce-verification-required) {
   @extend .alert;
 }
 
@@ -15,12 +15,18 @@ WooCommerce Alerts - Bootscore v7.0.0
   @extend .theme-danger;
 }
 
-:is(.woocommerce-info, .woocommerce-noreviews) {
+:is(.woocommerce-info, .woocommerce-noreviews, .woocommerce-verification-required) {
   @extend .theme-info;
 }
 
 .woocommerce-message {
   @extend .theme-success;
+}
+
+// "Sorry, this product is unavailable…" for a variation combination that doesn't exist, from a JS template without classes
+.single_variation > p[role="alert"] {
+  @extend .alert;
+  @extend .theme-warning;
 }
 
 // Small buttons in notices, e.g. View cart, Browse products
@@ -32,7 +38,9 @@ WooCommerce Alerts - Bootscore v7.0.0
   .woocommerce-error,
   .woocommerce-info,
   .woocommerce-message,
-  .woocommerce-noreviews {
+  .woocommerce-noreviews,
+  .woocommerce-verification-required,
+  .single_variation > p[role="alert"] {
     align-items: center;
     margin: 0 0 var(--spacer-5);
 
