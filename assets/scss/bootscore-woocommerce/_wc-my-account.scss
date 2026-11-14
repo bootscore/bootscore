@@ -4,6 +4,7 @@ WooCommerce My Account - Bootscore v7.0.0
 
 @use "../bootstrap/content";
 @use "../bootstrap/buttons";
+@use "../bootstrap/card";
 
 // Account tables (orders, downloads, order details), no class filters in WooCommerce's templates
 .woocommerce-MyAccount-content .shop_table {
@@ -14,6 +15,15 @@ WooCommerce My Account - Bootscore v7.0.0
 // so the size tokens of .btn-sm, which come later, win
 .woocommerce .woocommerce-orders-table .button {
   @extend .btn-sm;
+}
+
+// Address overview: each address as card with its title, no class filters in my-address.php
+.woocommerce-Address {
+  @extend .card;
+}
+
+.woocommerce-Address-title h2 {
+  @extend .h5;
 }
 
 @layer custom {
@@ -35,6 +45,37 @@ WooCommerce My Account - Bootscore v7.0.0
     // WooCommerce prints the action buttons without whitespace between them
     .button + .button {
       margin-inline-start: var(--spacer-2);
+    }
+  }
+
+  // Address card, spacing like .card-body
+  .woocommerce-Address {
+    gap: var(--card-body-gap);
+    padding: var(--card-spacer-y) var(--card-spacer-x);
+
+    > * {
+      margin-block: 0;
+    }
+
+    address {
+      font-style: normal;
+    }
+  }
+
+  // Title and Edit link in one row
+  .woocommerce-Address-title {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacer-2) var(--spacer-5);
+    align-items: baseline;
+    justify-content: space-between;
+
+    h2 {
+      margin: 0;
+    }
+
+    .edit {
+      font-size: var(--font-size-sm);
     }
   }
 
