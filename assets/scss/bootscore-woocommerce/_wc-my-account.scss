@@ -1,0 +1,12 @@
+/*--------------------------------------------------------------
+WooCommerce My Account - Bootscore v7.0.0
+--------------------------------------------------------------*/
+
+@layer custom {
+
+  // No margin after the last element of the content column, e.g. the dashboard paragraphs.
+  // Below md the content sits above the navigation, the row gutter is the space between them
+  .woocommerce-MyAccount-content > :last-child {
+    margin-block-end: 0;
+  }
+}
