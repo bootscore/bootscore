@@ -17,16 +17,25 @@ defined('ABSPATH') || exit;
 /**
  * Remove Select2 (selectWoo), use native selects instead
  *
+ * Also before the footer scripts print: the Classic Checkout block (and other blocks or shortcodes rendered in the content)
+ * enqueue WooCommerce's scripts while the page renders, after wp_enqueue_scripts. country-select.js only uses Select2
+ * when selectWoo is loaded, otherwise the selects stay native.
+ *
  * @link https://gist.github.com/ontiuk/72f6ac868d397678fb8b31df2b22e32a?permalink_comment_id=5320497#gistcomment-5320497
  */
 function bootscore_wc_remove_select2() {
-  wp_dequeue_style('select2');
-  wp_deregister_style('select2');
+  foreach (['select2'] as $style) {
+    wp_dequeue_style($style);
+    wp_deregister_style($style);
+  }
 
-  wp_dequeue_script('selectWoo');
-  wp_deregister_script('selectWoo');
+  foreach (['selectWoo', 'select2', 'wc-select2'] as $script) {
+    wp_dequeue_script($script);
+    wp_deregister_script($script);
+  }
 }
 add_action('wp_enqueue_scripts', 'bootscore_wc_remove_select2', 100);
+add_action('wp_footer', 'bootscore_wc_remove_select2', 1);
 
 
 /**
