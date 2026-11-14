@@ -3,6 +3,8 @@ WooCommerce Checkout - Bootscore v7.0.0
 --------------------------------------------------------------*/
 
 @use "../bootstrap/content";
+@use "../bootstrap/list-group";
+@use "../bootstrap/helpers";
 
 // Section headings (Billing details, Additional information, Your order), no class filters in the templates
 .woocommerce-checkout :is(.woocommerce-billing-fields, .woocommerce-shipping-fields, .woocommerce-additional-fields) > h3,
@@ -10,9 +12,13 @@ WooCommerce Checkout - Bootscore v7.0.0
   @extend .h4;
 }
 
-// Review table, like the account tables
+// Review table as list group: one item per product and total, the column headings are only for screen readers
 .woocommerce-checkout-review-order-table {
-  @extend .table;
+  @extend .list-group;
+}
+
+.woocommerce-checkout-review-order-table thead {
+  @extend .visually-hidden;
 }
 
 @layer custom {
@@ -36,15 +42,53 @@ WooCommerce Checkout - Bootscore v7.0.0
     line-height: inherit;
   }
 
-  // Review table: amounts at the end
+  // Review table: rows as list group items, name at the start, amount at the end
   .woocommerce-checkout-review-order-table {
-    :is(.product-total, tfoot td) {
-      text-align: end;
+    margin-block-end: var(--spacer-7);
+    overflow: hidden;
+    border: var(--list-group-border-width) solid var(--list-group-border-color);
+
+    tbody,
+    tfoot {
+      display: block;
+    }
+
+    tr {
+      display: flex;
+      gap: var(--spacer-5);
+      align-items: start;
+      justify-content: space-between;
+      padding: var(--list-group-item-padding-y) var(--list-group-item-padding-x);
+      color: var(--list-group-color);
+      background-color: var(--list-group-bg);
+      border-block-start: var(--list-group-border-width) solid var(--list-group-border-color);
+    }
+
+    tbody tr:first-child {
+      border-block-start: 0;
     }
 
     th,
     td {
-      vertical-align: top;
+      display: block;
+      padding: 0;
+    }
+
+    :is(.product-total, tfoot td) {
+      text-align: end;
+    }
+
+    // Amounts don't break (.text-break on body), the product name wraps instead
+    .product-total {
+      flex-shrink: 0;
+    }
+
+    .amount {
+      white-space: nowrap;
+    }
+
+    .order-total {
+      background-color: var(--bg-1);
     }
 
     // Shipping methods, radio and label at the end
