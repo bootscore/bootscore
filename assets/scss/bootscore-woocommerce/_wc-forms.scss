@@ -23,6 +23,16 @@ WooCommerce Forms - Bootscore v7.0.0
   @extend .form-label;
 }
 
+// Password strength text and hint from WooCommerce, below the Bootstrap strength segments (woocommerce.js).
+// The text color follows the segments via --strength-color
+.woocommerce-password-strength {
+  @extend .strength-text;
+}
+
+.woocommerce-password-hint {
+  @extend .form-text;
+}
+
 @layer custom {
 
   // Password toggle in the form adorn (woocommerce.js): no button min-height, so the field keeps the input height
