@@ -48,6 +48,7 @@ endif;
  * my-account.php prints the navigation and div.woocommerce-MyAccount-content directly into the shortcode
  * wrapper div.woocommerce, without a hook after the content and without class filters.
  * Logged in, the wrapper becomes the row and the content div the second column.
+ * Below md the content comes first, so the page just opened is visible without scrolling past the navigation.
  */
 function bootscore_wc_my_account_columns($output, $tag) {
   if ('woocommerce_my_account' !== $tag || false === strpos($output, 'woocommerce-MyAccount-navigation')) {
@@ -55,7 +56,7 @@ function bootscore_wc_my_account_columns($output, $tag) {
   }
 
   $row     = apply_filters('bootscore/class/woocommerce/my-account/row', 'row g-7');
-  $content = apply_filters('bootscore/class/woocommerce/my-account/content', 'md:col-8 lg:col-9');
+  $content = apply_filters('bootscore/class/woocommerce/my-account/content', 'md:col-8 lg:col-9 order-first md:order-last');
 
   $output = preg_replace('/<div class="woocommerce">/', '<div class="woocommerce ' . esc_attr($row) . '">', $output, 1);
   $output = preg_replace('/<div class="woocommerce-MyAccount-content">/', '<div class="woocommerce-MyAccount-content ' . esc_attr($content) . '">', $output, 1);
