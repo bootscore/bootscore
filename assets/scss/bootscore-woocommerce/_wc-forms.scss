@@ -18,8 +18,9 @@ WooCommerce Forms - Bootscore v7.0.0
   @extend .radio;
 }
 
-// Field labels
-.woocommerce .form-row > label {
+// Field labels. Not the labels wrapping a checkbox or radio (terms, remember me, ship to a different address),
+// in Bootstrap these are plain labels next to the input, without the .form-label weight
+.woocommerce .form-row > label:not(:has(> input[type="checkbox"], > input[type="radio"])) {
   @extend .form-label;
 }
 
