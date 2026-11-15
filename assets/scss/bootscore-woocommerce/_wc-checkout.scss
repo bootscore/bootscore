@@ -97,6 +97,11 @@ WooCommerce Checkout - Bootscore v7.0.0
       flex-shrink: 0;
     }
 
+    // Lets the truncated product excerpt (.text-truncate) shrink in the flex row
+    .product-name {
+      min-width: 0;
+    }
+
     .amount {
       white-space: nowrap;
     }

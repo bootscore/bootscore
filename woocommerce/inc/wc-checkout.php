@@ -91,3 +91,32 @@ add_filter('woocommerce_order_item_quantity_html', function ($html) {
 
   return $html;
 });
+
+
+/**
+ * Short description below the product name in the checkout review, one truncated line
+ *
+ * Added after the quantity badge, so the badge stays next to the name. Variations use the parent's short description.
+ * Turn off with add_filter('bootscore/woocommerce/checkout/item-excerpt', '__return_false').
+ */
+add_filter('woocommerce_checkout_cart_item_quantity', function ($html, $cart_item) {
+  if (!apply_filters('bootscore/woocommerce/checkout/item-excerpt', true) || empty($cart_item['data'])) {
+    return $html;
+  }
+
+  $product = $cart_item['data'];
+  $excerpt = $product->get_short_description();
+
+  if (!$excerpt && $product->get_parent_id()) {
+    $parent  = wc_get_product($product->get_parent_id());
+    $excerpt = $parent ? $parent->get_short_description() : '';
+  }
+
+  $excerpt = trim(wp_strip_all_tags($excerpt));
+
+  if (!$excerpt) {
+    return $html;
+  }
+
+  return $html . '<span class="product-excerpt ' . esc_attr(apply_filters('bootscore/class/woocommerce/checkout/item-excerpt', 'd-block fs-sm fg-secondary text-truncate')) . '">' . esc_html($excerpt) . '</span>';
+}, 20, 2);
