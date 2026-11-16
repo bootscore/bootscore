@@ -145,3 +145,16 @@ add_filter('woocommerce_cart_totals_coupon_html', function ($html) {
 
   return $html;
 }, 99);
+
+
+/**
+ * Order notes textarea with 4 rows instead of 2
+ *
+ * Change or remove in a child theme with a later woocommerce_checkout_fields filter.
+ */
+add_filter('woocommerce_checkout_fields', function ($fields) {
+  if (isset($fields['order']['order_comments']) && empty($fields['order']['order_comments']['custom_attributes']['rows'])) {
+    $fields['order']['order_comments']['custom_attributes']['rows'] = 4;
+  }
+  return $fields;
+});
