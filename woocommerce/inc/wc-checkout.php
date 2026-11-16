@@ -120,3 +120,28 @@ add_filter('woocommerce_checkout_cart_item_quantity', function ($html, $cart_ite
 
   return $html . '<span class="product-excerpt ' . esc_attr(apply_filters('bootscore/class/woocommerce/checkout/item-excerpt', 'd-block fs-sm fg-secondary text-truncate')) . '">' . esc_html($excerpt) . '</span>';
 }, 20, 2);
+
+
+/**
+ * Coupon remove link: trash icon instead of [Remove], like the mini cart
+ *
+ * WooCommerce runs the filtered HTML through wp_kses('post'), which strips SVG.
+ * A one-time wp_kses_allowed_html filter allows the icon for this output only.
+ * The link keeps its class, data-coupon and aria-label, so checkout.js still removes the coupon via AJAX.
+ */
+add_filter('woocommerce_cart_totals_coupon_html', function ($html) {
+  $html = str_replace('>' . __('[Remove]', 'woocommerce') . '</a>', '>' . bootscore_icon('trash', false) . '</a>', $html, $count);
+
+  if ($count) {
+    $allow_svg = function ($tags, $context) use (&$allow_svg) {
+      if ('post' !== $context) {
+        return $tags;
+      }
+      remove_filter('wp_kses_allowed_html', $allow_svg, 10);
+      return bootscore_kses_allowed_svg($tags);
+    };
+    add_filter('wp_kses_allowed_html', $allow_svg, 10, 2);
+  }
+
+  return $html;
+}, 99);

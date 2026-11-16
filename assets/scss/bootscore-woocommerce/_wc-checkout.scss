@@ -133,6 +133,12 @@ WooCommerce Checkout - Bootscore v7.0.0
       font-weight: normal;
       color: var(--fg-3);
     }
+
+    // Coupon trash icon, like the mini cart remove link
+    .woocommerce-remove-coupon {
+      margin-inline-start: var(--spacer-2);
+      color: var(--danger-fg);
+    }
   }
 
   // Payment methods as a card with the chosen method's box below its radio
