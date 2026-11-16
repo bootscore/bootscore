@@ -136,15 +136,14 @@ WooCommerce Forms - Bootscore v7.0.0
 
     // Validation, WooCommerce adds .woocommerce-invalid or .woocommerce-validated to the .form-row
     // when a field with validation (required, email, phone) loses focus
-    .woocommerce-invalid {
-      .input-text,
-      select {
-        --control-border-color: var(--danger-border);
-      }
+    // Coupon field (checkout and cart): .has-error on the input itself
+    .woocommerce-invalid :is(.input-text, select),
+    .input-text.has-error {
+      --control-border-color: var(--danger-border);
+    }
 
-      input[type="checkbox"] {
-        --check-border-color: var(--danger-border);
-      }
+    .woocommerce-invalid input[type="checkbox"] {
+      --check-border-color: var(--danger-border);
     }
 
     .woocommerce-validated {
@@ -154,9 +153,11 @@ WooCommerce Forms - Bootscore v7.0.0
       }
     }
 
-    // Error message below the field, added by WooCommerce's checkout.js. Looks like .invalid-feedback
-    // (an @extend would pull in all of Bootstrap's validation sibling selectors and hide it with display: none)
-    .checkout-inline-error-message {
+    // Error message below the field, added by WooCommerce's checkout.js, and the coupon error (checkout and cart).
+    // Looks like .invalid-feedback (an @extend would pull in all of Bootstrap's validation sibling selectors
+    // and hide it with display: none)
+    .checkout-inline-error-message,
+    .coupon-error-notice {
       margin: 0;
       font-size: var(--font-size-sm);
       color: var(--danger-fg);
