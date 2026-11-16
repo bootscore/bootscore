@@ -105,14 +105,20 @@ WooCommerce Checkout - Bootscore v7.0.0
       min-width: 6.5em;
     }
 
-    // Product name (.text-truncate) and quantity badge in one row, the name shrinks, the badge doesn't.
-    // Grid columns: name | &nbsp; (template, anonymous item) | badge | rest. Excerpt and item data span the full row below.
+    // Quantity badge before the product name (.text-truncate) in one row, the name shrinks, the badge doesn't.
+    // Visual order only, the DOM order (name, quantity) stays for screen readers.
+    // Grid columns: badge | name | &nbsp; (template, anonymous item) | rest. Excerpt and item data span the full row below.
     // min-width: 0 lets the cell shrink in the flex row
     .product-name {
       display: grid;
-      grid-template-columns: minmax(0, max-content) auto auto 1fr;
+      grid-template-columns: auto minmax(0, max-content) auto 1fr;
       align-items: baseline;
       min-width: 0;
+
+      > .product-quantity {
+        order: -1;
+        margin-inline-end: var(--spacer-2);
+      }
 
       > :is(.product-excerpt, dl.variation) {
         grid-column: 1 / -1;
