@@ -26,7 +26,7 @@ function bootscore_wc_checkout_row_open() {
 
 function bootscore_wc_checkout_customer_details_open() {
   bootscore_wc_checkout_row_open();
-  echo '<div class="' . esc_attr(apply_filters('bootscore/class/woocommerce/checkout/customer-details-col', 'lg:col-7')) . '">';
+  echo '<div class="' . esc_attr(apply_filters('bootscore/class/woocommerce/checkout/customer-details-col', 'lg:col-7 xl:col-8')) . '">';
 }
 add_action('woocommerce_checkout_before_customer_details', 'bootscore_wc_checkout_customer_details_open', 1);
 
@@ -44,7 +44,7 @@ function bootscore_wc_checkout_order_review_open() {
     bootscore_wc_checkout_row_open();
   }
 
-  echo '<div class="' . esc_attr(apply_filters('bootscore/class/woocommerce/checkout/order-review-col', 'lg:col-5')) . '">';
+  echo '<div class="' . esc_attr(apply_filters('bootscore/class/woocommerce/checkout/order-review-col', 'lg:col-5 xl:col-4')) . '">';
 }
 add_action('woocommerce_checkout_before_order_review_heading', 'bootscore_wc_checkout_order_review_open', 1);
 
