@@ -192,14 +192,17 @@ WooCommerce Checkout - Bootscore v7.0.0
     }
   }
 
-  // Terms checkbox: text and required asterisk flow inline next to the checkbox
+  // Checkboxes in the terms area (terms and custom ones hooked in there): text and required asterisk flow inline
+  // next to the checkbox. Indent and offset from the check size, the same gap as the other checkboxes
   .woocommerce-terms-and-conditions-wrapper label:has(> input[type="checkbox"]) {
+    --terms-check-indent: calc(var(--check-size, 1.25rem) + var(--spacer-3));
+
     display: block;
-    padding-inline-start: calc(1em + var(--spacer-3));
+    padding-inline-start: var(--terms-check-indent);
 
     > input[type="checkbox"] {
       float: inline-start;
-      margin-inline-start: calc(-1em - var(--spacer-3));
+      margin-inline-start: calc(var(--terms-check-indent) * -1);
     }
   }
 }
