@@ -1,0 +1,221 @@
+/*--------------------------------------------------------------
+WooCommerce Checkout - Bootscore v7.0.0
+--------------------------------------------------------------*/
+
+@use "../bootstrap/content";
+@use "../bootstrap/card";
+@use "../bootstrap/mixins/tokens" as *;
+
+// Section headings (Billing details, Additional information, Your order), no class filters in the templates
+.woocommerce-checkout :is(.woocommerce-billing-fields, .woocommerce-shipping-fields, .woocommerce-additional-fields) > h3,
+#order_review_heading {
+  @extend .h4;
+}
+
+
+@layer custom {
+
+  // Coupon form: input and button in one row, the button as wide as its text
+  .woocommerce .checkout_coupon {
+    grid-template-columns: minmax(0, 1fr) auto;
+    margin-block-end: var(--spacer-7);
+  }
+
+  // Billing, shipping and additional information stacked in the left column (#customer_details is a .col2-set)
+  #customer_details {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  // "Ship to a different address?" is a h3 with the checkbox inside, as large as a label
+  #ship-to-different-address {
+    margin-block-end: var(--spacer-5);
+    font-size: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+  }
+
+  // Review table as card: column headings like a card header, products and totals like a flush list group,
+  // name at the start, amount at the end. Card tokens only (an @extend of .card pulls in all its child rules).
+  // Padding from the card header, so the columns line up with Product and Subtotal
+  .woocommerce-checkout-review-order-table {
+    @include tokens(card.$card-tokens);
+
+    display: flex;
+    flex-direction: column;
+    margin-block-end: var(--spacer-7);
+    overflow: hidden;
+    color: var(--fg-body);
+    background-color: var(--card-bg);
+    border: var(--card-border-width) solid var(--card-border-color);
+    border-radius: var(--card-border-radius);
+    border-collapse: separate;
+
+    tbody,
+    tfoot {
+      display: block;
+    }
+
+    thead {
+      display: block;
+      background-color: var(--card-cap-bg);
+      border-block-end: var(--card-border-width) solid var(--card-border-color);
+    }
+
+    tr {
+      display: flex;
+      gap: var(--spacer-5);
+      align-items: start;
+      justify-content: space-between;
+      padding: var(--card-cap-padding-y) var(--card-cap-padding-x);
+    }
+
+    :is(tbody, tfoot) tr {
+      border-block-start: var(--card-border-width) solid var(--card-border-color);
+    }
+
+    // The card header draws the line above the first product
+    tbody tr:first-child {
+      border-block-start: 0;
+    }
+
+    th,
+    td {
+      display: block;
+      padding: 0;
+    }
+
+    // Headings shrink to their longest word, not letter by letter (.text-break on body), e.g. next to a long shipping notice
+    th {
+      overflow-wrap: normal;
+      word-break: normal;
+    }
+
+    thead th:last-child {
+      text-align: end;
+    }
+
+    :is(.product-total, tfoot td) {
+      text-align: end;
+    }
+
+    // Amounts don't break (.text-break on body), the product name wraps instead.
+    // min-width in em (amounts are text) fits up to "1.290,00 €", so names and excerpts end at the same place
+    .product-total {
+      flex-shrink: 0;
+      min-width: 6.5em;
+    }
+
+    // Quantity badge before the product name (.text-truncate) in one row, the name shrinks, the badge doesn't.
+    // Visual order only, the DOM order (name, quantity) stays for screen readers.
+    // Grid columns: badge | name | &nbsp; (template, anonymous item) | rest. Excerpt and item data below the name, the badge like a list marker.
+    // min-width: 0 lets the cell shrink in the flex row
+    .product-name {
+      display: grid;
+      grid-template-columns: auto minmax(0, max-content) auto 1fr;
+      align-items: baseline;
+      min-width: 0;
+
+      > .product-quantity {
+        order: -1;
+        margin-inline-end: var(--spacer-2);
+      }
+
+      > :is(.product-excerpt, dl.variation) {
+        grid-column: 2 / -1;
+      }
+    }
+
+    .amount {
+      white-space: nowrap;
+    }
+
+    // Total like a card footer
+    .order-total {
+      background-color: var(--card-cap-bg);
+    }
+
+    // Shipping methods at the end, the radio after its label, so all radios line up at the end.
+    // Visual order only, the DOM order (radio, label) stays for keyboard and screen readers
+    // List reset also for a single method (hidden input, not covered by the radio list rule in _wc-forms.scss)
+    #shipping_method {
+      padding-inline-start: 0;
+      margin: 0;
+      list-style: none;
+
+      li {
+        flex-wrap: nowrap;
+        justify-content: end;
+
+        > input {
+          order: 2;
+        }
+      }
+    }
+
+    // Package contents below the methods, e.g. with several shipping packages
+    .woocommerce-shipping-contents {
+      margin: 0;
+      color: var(--fg-3);
+    }
+
+    .includes_tax {
+      display: block;
+      font-weight: normal;
+      color: var(--fg-3);
+    }
+
+    // Coupon trash icon, like the mini cart remove link
+    .woocommerce-remove-coupon {
+      margin-inline-start: var(--spacer-2);
+      color: var(--danger-fg);
+    }
+  }
+
+  // Payment area, .card .card-body from PHP (wc-checkout.php): payment methods with the chosen method's box below its radio.
+  // Spacing between methods and place order from the .card-body gap
+  #payment {
+
+    // Unstyled also without radios, e.g. with only the "no available payment methods" notice
+    .payment_methods {
+      display: grid;
+      gap: var(--spacer-3);
+      padding-inline-start: 0;
+      margin: 0;
+      list-style: none;
+
+      > li > .woocommerce-info {
+        margin-block-end: 0;
+      }
+    }
+
+    .payment_box {
+      flex-basis: 100%;
+      padding: var(--spacer-4) var(--spacer-5);
+      font-size: var(--font-size-sm);
+      background-color: var(--card-cap-bg);
+      border-radius: var(--radius-5);
+
+      > :last-child {
+        margin-block-end: 0;
+      }
+    }
+
+    .place-order {
+      margin-block-end: 0;
+    }
+  }
+
+  // Checkboxes in the terms area (terms and custom ones hooked in there): text and required asterisk flow inline
+  // next to the checkbox. Indent and offset from the check size, the same gap as the other checkboxes
+  .woocommerce-terms-and-conditions-wrapper label:has(> input[type="checkbox"]) {
+    --terms-check-indent: calc(var(--check-size, 1.25rem) + var(--spacer-3));
+
+    display: block;
+    padding-inline-start: var(--terms-check-indent);
+
+    > input[type="checkbox"] {
+      float: inline-start;
+      margin-inline-start: calc(var(--terms-check-indent) * -1);
+    }
+  }
+}

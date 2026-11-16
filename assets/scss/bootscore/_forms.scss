@@ -1,0 +1,13 @@
+/*--------------------------------------------------------------
+Forms - Bootscore v7.0.0
+--------------------------------------------------------------*/
+
+@layer custom {
+
+  // Labels in the normal text weight. Bootstrap 6 falls back to 500 when --label-font-weight isn't set
+  // (forms/_labels.scss). Not `inherit`: on a custom property it inherits the property itself, which is
+  // unset on :root, so the 500 fallback would win. Set it to 500 in a child theme to get Bootstrap's look back
+  :root {
+    --label-font-weight: normal;
+  }
+}

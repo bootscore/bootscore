@@ -18,8 +18,9 @@ WooCommerce Forms - Bootscore v7.0.0
   @extend .radio;
 }
 
-// Field labels
-.woocommerce .form-row > label {
+// Field labels. Not the labels wrapping a checkbox or radio (terms, remember me, ship to a different address),
+// in Bootstrap these are plain labels next to the input, without the .form-label weight
+.woocommerce .form-row > label:not(:has(> input[type="checkbox"], > input[type="radio"])) {
   @extend .form-label;
 }
 
@@ -34,6 +35,13 @@ WooCommerce Forms - Bootscore v7.0.0
 }
 
 @layer custom {
+
+  // Loading overlay from WooCommerce's blockUI (checkout, cart, variations, add payment method).
+  // WooCommerce sets a white background as inline style, the body background follows the color mode.
+  // The mini cart items have their own overlay (_wc-mini-cart.scss)
+  .blockUI.blockOverlay:not(.woocommerce-mini-cart-item *) {
+    background-color: var(--bg-body) !important;
+  }
 
   // Password toggle in the form adorn (woocommerce.js): no button min-height, so the field keeps the input height
   .form-adorn > .show-password-input {
@@ -59,9 +67,11 @@ WooCommerce Forms - Bootscore v7.0.0
 
   .woocommerce {
 
-    // Form rows, stacked like .form-field
+    // Form rows, stacked like .form-field.
+    // align-content: start, otherwise the label and input spread out when the row next to it is taller (inline error)
     .form-row {
       display: grid;
+      align-content: start;
       gap: var(--spacer-3);
       margin: 0 0 var(--spacer-5);
 
@@ -124,16 +134,33 @@ WooCommerce Forms - Bootscore v7.0.0
       border: 0;
     }
 
-    // Validation, WooCommerce adds .woocommerce-invalid to the .form-row
-    .woocommerce-invalid {
+    // Validation, WooCommerce adds .woocommerce-invalid or .woocommerce-validated to the .form-row
+    // when a field with validation (required, email, phone) loses focus
+    // Coupon field (checkout and cart): .has-error on the input itself
+    .woocommerce-invalid :is(.input-text, select),
+    .input-text.has-error {
+      --control-border-color: var(--danger-border);
+    }
+
+    .woocommerce-invalid input[type="checkbox"] {
+      --check-border-color: var(--danger-border);
+    }
+
+    .woocommerce-validated {
       .input-text,
       select {
-        --control-border-color: var(--danger-border);
+        --control-border-color: var(--success-border);
       }
+    }
 
-      input[type="checkbox"] {
-        --check-border-color: var(--danger-border);
-      }
+    // Error message below the field, added by WooCommerce's checkout.js, and the coupon error (checkout and cart).
+    // Looks like .invalid-feedback (an @extend would pull in all of Bootstrap's validation sibling selectors
+    // and hide it with display: none)
+    .checkout-inline-error-message,
+    .coupon-error-notice {
+      margin: 0;
+      font-size: var(--font-size-sm);
+      color: var(--danger-fg);
     }
   }
 }
