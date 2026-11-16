@@ -111,13 +111,18 @@ WooCommerce Checkout - Bootscore v7.0.0
       background-color: var(--card-cap-bg);
     }
 
-    // Shipping methods, radio and label at the end
+    // Shipping methods at the end, the radio after its label, so all radios line up at the end.
+    // Visual order only, the DOM order (radio, label) stays for keyboard and screen readers
     #shipping_method {
       margin: 0;
 
       li {
         flex-wrap: nowrap;
         justify-content: end;
+
+        > input {
+          order: 2;
+        }
       }
     }
 
