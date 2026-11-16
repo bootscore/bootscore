@@ -6,12 +6,14 @@ WooCommerce Alerts - Bootscore v7.0.0
 @use "../bootstrap/buttons";
 @use "../bootstrap/helpers";
 
-// WooCommerce notices get Bootstrap alert styles
-:is(.woocommerce-error, .woocommerce-info, .woocommerce-message, .woocommerce-noreviews, .woocommerce-verification-required) {
+// WooCommerce notices get Bootstrap alert styles.
+// Errors are a list (notices/error.php), each item is its own alert, like info and success notices.
+// Errors built as div (JS) are an alert themselves
+:is(.woocommerce-error:not(ul), ul.woocommerce-error > li, .woocommerce-info, .woocommerce-message, .woocommerce-noreviews, .woocommerce-verification-required) {
   @extend .alert;
 }
 
-.woocommerce-error {
+:is(.woocommerce-error:not(ul), ul.woocommerce-error > li) {
   @extend .theme-danger;
 }
 
@@ -35,7 +37,8 @@ WooCommerce Alerts - Bootscore v7.0.0
 }
 
 @layer custom {
-  .woocommerce-error,
+  .woocommerce-error:not(ul),
+  ul.woocommerce-error > li,
   .woocommerce-info,
   .woocommerce-message,
   .woocommerce-noreviews,
@@ -56,16 +59,25 @@ WooCommerce Alerts - Bootscore v7.0.0
     }
   }
 
-  // Error notices are a list, each item gets icon | text
+  // Error list: a stack of alerts, the margin is on the list
   ul.woocommerce-error {
-    flex-direction: column;
-    align-items: stretch;
+    display: grid;
+    gap: var(--spacer-3);
+    padding: 0;
+    margin: 0 0 var(--spacer-5);
     list-style: none;
 
     > li {
+      margin: 0;
+    }
+
+    // Field errors link to their field (icon and text inside the link), laid out like the alert itself
+    > li > a {
       display: flex;
+      flex: 1 1 auto;
       gap: var(--alert-gap);
       align-items: center;
+      color: inherit;
     }
   }
 }
