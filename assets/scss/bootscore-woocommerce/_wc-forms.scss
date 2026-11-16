@@ -67,9 +67,11 @@ WooCommerce Forms - Bootscore v7.0.0
 
   .woocommerce {
 
-    // Form rows, stacked like .form-field
+    // Form rows, stacked like .form-field.
+    // align-content: start, otherwise the label and input spread out when the row next to it is taller (inline error)
     .form-row {
       display: grid;
+      align-content: start;
       gap: var(--spacer-3);
       margin: 0 0 var(--spacer-5);
 
