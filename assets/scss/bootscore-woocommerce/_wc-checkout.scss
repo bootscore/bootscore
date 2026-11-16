@@ -92,9 +92,11 @@ WooCommerce Checkout - Bootscore v7.0.0
       text-align: end;
     }
 
-    // Amounts don't break (.text-break on body), the product name wraps instead
+    // Amounts don't break (.text-break on body), the product name wraps instead.
+    // min-width in em (amounts are text) fits up to "1.290,00 €", so names and excerpts end at the same place
     .product-total {
       flex-shrink: 0;
+      min-width: 6.5em;
     }
 
     // Lets the truncated product excerpt (.text-truncate) shrink in the flex row
