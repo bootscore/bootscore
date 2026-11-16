@@ -69,6 +69,23 @@ add_filter('woocommerce_order_button_html', 'bootscore_wc_order_button_html');
 
 
 /**
+ * Product name in the review table wrapped in a span, truncated by default, so the quantity badge stays visible.
+ * Only for the review table rows (not the mini cart on the checkout page), via its before/after cart contents hooks.
+ */
+function bootscore_wc_checkout_item_name($name) {
+  return '<span class="product-title ' . esc_attr(apply_filters('bootscore/class/woocommerce/checkout/item-name', 'text-truncate')) . '">' . $name . '</span>';
+}
+
+add_action('woocommerce_review_order_before_cart_contents', function () {
+  add_filter('woocommerce_cart_item_name', 'bootscore_wc_checkout_item_name', 99);
+});
+
+add_action('woocommerce_review_order_after_cart_contents', function () {
+  remove_filter('woocommerce_cart_item_name', 'bootscore_wc_checkout_item_name', 99);
+});
+
+
+/**
  * Item quantity as badge without "×" in the checkout review, the order details (order received, my account) and pay for order
  *
  * "Quantity" stays for screen readers, which read the × before. Order quantities can contain markup for refunds
