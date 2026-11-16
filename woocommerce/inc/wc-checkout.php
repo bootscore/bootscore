@@ -158,3 +158,36 @@ add_filter('woocommerce_checkout_fields', function ($fields) {
   }
   return $fields;
 });
+
+
+/**
+ * Payment area classes, .card .card-body by default
+ *
+ * checkout/payment.php has a fixed class attribute, so the classes are added to the output:
+ * on page load (woocommerce_checkout_payment() runs on woocommerce_checkout_order_review at priority 20)
+ * and in the fragment WooCommerce sends with every checkout update.
+ */
+function bootscore_wc_checkout_payment_classes($html) {
+  $classes = trim(apply_filters('bootscore/class/woocommerce/checkout/payment', 'card card-body'));
+
+  if (!$classes) {
+    return $html;
+  }
+
+  return preg_replace('/(<div id="payment" class="woocommerce-checkout-payment)"/', '$1 ' . esc_attr($classes) . '"', $html, 1);
+}
+
+add_action('woocommerce_checkout_order_review', function () {
+  ob_start();
+}, 19);
+
+add_action('woocommerce_checkout_order_review', function () {
+  echo bootscore_wc_checkout_payment_classes(ob_get_clean()); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- WooCommerce template output
+}, 21);
+
+add_filter('woocommerce_update_order_review_fragments', function ($fragments) {
+  if (isset($fragments['.woocommerce-checkout-payment'])) {
+    $fragments['.woocommerce-checkout-payment'] = bootscore_wc_checkout_payment_classes($fragments['.woocommerce-checkout-payment']);
+  }
+  return $fragments;
+});

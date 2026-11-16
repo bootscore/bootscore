@@ -156,23 +156,16 @@ WooCommerce Checkout - Bootscore v7.0.0
     }
   }
 
-  // Payment methods as a card with the chosen method's box below its radio
-  // Payment area as card with card body padding, card tokens only (like the review table)
+  // Payment area, .card .card-body from PHP (wc-checkout.php): payment methods with the chosen method's box below its radio.
+  // Spacing between methods and place order from the .card-body gap
   #payment {
-    @include tokens(card.$card-tokens);
-
-    padding: var(--card-spacer-y) var(--card-spacer-x);
-    color: var(--card-color);
-    background-color: var(--card-bg);
-    border: var(--card-border-width) solid var(--card-border-color);
-    border-radius: var(--card-border-radius);
 
     // Unstyled also without radios, e.g. with only the "no available payment methods" notice
     .payment_methods {
       display: grid;
       gap: var(--spacer-3);
       padding-inline-start: 0;
-      margin-block-end: var(--spacer-5);
+      margin: 0;
       list-style: none;
 
       > li > .woocommerce-info {
