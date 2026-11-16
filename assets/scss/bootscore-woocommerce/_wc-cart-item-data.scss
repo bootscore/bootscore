@@ -1,0 +1,23 @@
+/*--------------------------------------------------------------
+WooCommerce Cart Item Data - Bootscore v7.0.0
+--------------------------------------------------------------*/
+
+// Variation data and other item data (cart/cart-item-data.php) in the mini cart, cart and checkout:
+// small and muted, key and value in one row
+@layer custom {
+  dl.variation {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    column-gap: var(--spacer-2);
+    margin: 0;
+    font-size: var(--font-size-sm);
+    color: var(--fg-3);
+
+    dt,
+    dd,
+    dd p {
+      margin: 0;
+      font-weight: inherit;
+    }
+  }
+}

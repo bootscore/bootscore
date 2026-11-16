@@ -84,6 +84,12 @@ WooCommerce Checkout - Bootscore v7.0.0
       padding: 0;
     }
 
+    // Headings shrink to their longest word, not letter by letter (.text-break on body), e.g. next to a long shipping notice
+    th {
+      overflow-wrap: normal;
+      word-break: normal;
+    }
+
     thead th:last-child {
       text-align: end;
     }
@@ -115,8 +121,11 @@ WooCommerce Checkout - Bootscore v7.0.0
 
     // Shipping methods at the end, the radio after its label, so all radios line up at the end.
     // Visual order only, the DOM order (radio, label) stays for keyboard and screen readers
+    // List reset also for a single method (hidden input, not covered by the radio list rule in _wc-forms.scss)
     #shipping_method {
+      padding-inline-start: 0;
       margin: 0;
+      list-style: none;
 
       li {
         flex-wrap: nowrap;
@@ -126,6 +135,12 @@ WooCommerce Checkout - Bootscore v7.0.0
           order: 2;
         }
       }
+    }
+
+    // Package contents below the methods, e.g. with several shipping packages
+    .woocommerce-shipping-contents {
+      margin: 0;
+      color: var(--fg-3);
     }
 
     .includes_tax {
