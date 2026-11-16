@@ -161,20 +161,28 @@ add_filter('woocommerce_checkout_fields', function ($fields) {
 
 
 /**
- * Payment area classes, .card .card-body by default
+ * Payment area: card classes and a separator between the payment methods and the terms
  *
- * checkout/payment.php has a fixed class attribute, so the classes are added to the output:
- * on page load (woocommerce_checkout_payment() runs on woocommerce_checkout_order_review at priority 20)
- * and in the fragment WooCommerce sends with every checkout update.
+ * checkout/payment.php has a fixed class attribute and no hook between the methods and the terms,
+ * so both are added to the output: on page load (woocommerce_checkout_payment() runs on
+ * woocommerce_checkout_order_review at priority 20) and in the fragment WooCommerce sends with every checkout update.
+ * The separator is only added when the methods list is shown (cart needs payment).
+ * Return an empty string from bootscore/class/woocommerce/checkout/payment-separator to remove it.
  */
-function bootscore_wc_checkout_payment_classes($html) {
+function bootscore_wc_checkout_payment_html($html) {
   $classes = trim(apply_filters('bootscore/class/woocommerce/checkout/payment', 'card card-body'));
 
-  if (!$classes) {
-    return $html;
+  if ($classes) {
+    $html = preg_replace('/(<div id="payment" class="woocommerce-checkout-payment)"/', '$1 ' . esc_attr($classes) . '"', $html, 1);
   }
 
-  return preg_replace('/(<div id="payment" class="woocommerce-checkout-payment)"/', '$1 ' . esc_attr($classes) . '"', $html, 1);
+  $separator = trim(apply_filters('bootscore/class/woocommerce/checkout/payment-separator', 'my-3'));
+
+  if ($separator) {
+    $html = preg_replace('/(<\/ul>\s*)(<div class="form-row place-order">)/', '$1<hr class="' . esc_attr($separator) . '">$2', $html, 1);
+  }
+
+  return $html;
 }
 
 add_action('woocommerce_checkout_order_review', function () {
@@ -182,12 +190,12 @@ add_action('woocommerce_checkout_order_review', function () {
 }, 19);
 
 add_action('woocommerce_checkout_order_review', function () {
-  echo bootscore_wc_checkout_payment_classes(ob_get_clean()); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- WooCommerce template output
+  echo bootscore_wc_checkout_payment_html(ob_get_clean()); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- WooCommerce template output
 }, 21);
 
 add_filter('woocommerce_update_order_review_fragments', function ($fragments) {
   if (isset($fragments['.woocommerce-checkout-payment'])) {
-    $fragments['.woocommerce-checkout-payment'] = bootscore_wc_checkout_payment_classes($fragments['.woocommerce-checkout-payment']);
+    $fragments['.woocommerce-checkout-payment'] = bootscore_wc_checkout_payment_html($fragments['.woocommerce-checkout-payment']);
   }
   return $fragments;
 });
