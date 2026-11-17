@@ -47,3 +47,35 @@ function bootscore_wc_quantity_input_classes($classes) {
   return $classes;
 }
 add_filter('woocommerce_quantity_input_classes', 'bootscore_wc_quantity_input_classes');
+
+
+/**
+ * Product search form (product-searchform.php, e.g. the classic product search widget) like the theme's searchform.php:
+ * input group, form-control, outline button with the search icon. The button text stays for screen readers.
+ */
+function bootscore_wc_product_search_form($form) {
+  if (!is_string($form) || '' === $form) {
+    return $form;
+  }
+
+  $tags = new WP_HTML_Tag_Processor($form);
+
+  while ($tags->next_tag()) {
+    if ('FORM' === $tags->get_tag()) {
+      $tags->add_class('input-group');
+    } elseif ('LABEL' === $tags->get_tag() || ('INPUT' === $tags->get_tag() && 'hidden' === $tags->get_attribute('type'))) {
+      // Screen reader label before and hidden post_type input after: ignored for the input group's rounded corners
+      $tags->add_class('input-group-ignore');
+    } elseif ($tags->has_class('search-field')) {
+      $tags->add_class('form-control');
+    } elseif ('BUTTON' === $tags->get_tag()) {
+      $tags->remove_class('wp-element-button');
+      $tags->add_class('input-group-btn ' . apply_filters('bootscore/class/widget/search/button', 'btn-outline theme-secondary'));
+    }
+  }
+
+  return preg_replace_callback('/(<button[^>]*>)(.*?)(<\/button>)/s', function ($m) {
+    return $m[1] . bootscore_icon('search', false) . '<span class="visually-hidden">' . esc_html(trim(wp_strip_all_tags($m[2]))) . '</span>' . $m[3];
+  }, $tags->get_updated_html(), 1);
+}
+add_filter('get_product_search_form', 'bootscore_wc_product_search_form');
