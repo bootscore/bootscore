@@ -184,10 +184,14 @@ add_filter('woocommerce_loop_add_to_cart_link', 'bootscore_loop_add_to_cart_link
 
 
 /**
- * Sale price: no underline on the new price (<ins>)
+ * Sale price: new price (<ins>) red without underline, old price (<del>) muted
+ *
+ * Everywhere WooCommerce formats a sale price: loop cards, single product, cross-sells, related products.
  */
 function bootscore_wc_format_sale_price($price, $regular_price, $sale_price) {
-  return str_replace('<ins', '<ins class="' . esc_attr(apply_filters('bootscore/class/woocommerce/sale-price', 'text-decoration-none')) . '"', $price);
+  $price = str_replace('<del', '<del class="' . esc_attr(apply_filters('bootscore/class/woocommerce/regular-price', 'fg-secondary')) . '"', $price);
+
+  return str_replace('<ins', '<ins class="' . esc_attr(apply_filters('bootscore/class/woocommerce/sale-price', 'text-decoration-none fg-danger')) . '"', $price);
 }
 add_filter('woocommerce_format_sale_price', 'bootscore_wc_format_sale_price', 10, 3);
 
