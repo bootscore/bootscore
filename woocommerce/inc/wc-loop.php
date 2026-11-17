@@ -210,3 +210,18 @@ function bootscore_loop_add_to_cart_args($args) {
   return $args;
 }
 add_filter('woocommerce_loop_add_to_cart_args', 'bootscore_loop_add_to_cart_args');
+
+
+/**
+ * Price suffix (e.g. "Inc. 19% VAT") in its own line and muted
+ *
+ * Everywhere WooCommerce shows a price with suffix: loop cards, single product, cross-sells.
+ */
+function bootscore_wc_price_suffix_classes($html) {
+  if (!is_string($html) || '' === $html) {
+    return $html;
+  }
+
+  return str_replace('class="woocommerce-price-suffix"', 'class="woocommerce-price-suffix ' . esc_attr(apply_filters('bootscore/class/woocommerce/price-suffix', 'd-block fg-secondary')) . '"', $html);
+}
+add_filter('woocommerce_get_price_suffix', 'bootscore_wc_price_suffix_classes');
