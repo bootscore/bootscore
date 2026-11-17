@@ -10,4 +10,27 @@ Forms - Bootscore v7.0.0
   :root {
     --label-font-weight: normal;
   }
+
+  // Floating labels (comment form, WooCommerce forms): textareas keep the height from their rows
+  .form-floating > textarea.form-control {
+    height: auto;
+  }
+
+  // Password fields: WooCommerce wraps the input in span.password-input, which is the .form-control (.form-adorn,
+  // woocommerce.js). The span has no placeholder, so the label only floats with focus or a value in the input
+  // The input inside gets the floating paddings, so the password toggle stays vertically centered.
+  // (one :has() on the wrapper, :has() can't be nested)
+  .form-floating > .form-adorn {
+    padding-block: 0;
+
+    > .form-ghost {
+      align-self: stretch;
+      padding-top: var(--form-floating-input-padding-t);
+      padding-bottom: var(--form-floating-input-padding-b);
+    }
+  }
+  // (one :has() on the wrapper, :has() can't be nested)
+  .form-floating:has(> .form-adorn input:placeholder-shown):not(:focus-within) > label {
+    transform: none;
+  }
 }

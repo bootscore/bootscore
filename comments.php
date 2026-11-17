@@ -114,7 +114,8 @@ if (post_password_required()) {
     'cancel_reply_link' => __('Cancel', 'bootscore'),  // that's the wordpress default value! delete it or edit it ;)
     'label_submit'      => __('Post Comment', 'bootscore'),  // that's the wordpress default value! delete it or edit it ;)
 
-    'comment_field' => '<p><textarea placeholder="' . esc_attr__('Start typing...', 'bootscore') . '" id="comment" class="form-control" name="comment" cols="45" rows="8" aria-required="true"></textarea></p>',
+    // Floating labels: label and field with placeholder=" " (needed for :placeholder-shown)
+    'comment_field' => '<p class="comment-form-comment form-floating"><label for="comment">' . esc_html__('Comment') . '</label><textarea placeholder=" " id="comment" class="form-control" name="comment" cols="45" rows="8" aria-required="true"></textarea></p>',
 
     /*'comment_notes_after' => '<p class="form-allowed-tags">' .
             __( 'You may use these <abbr title="HyperText Markup Language">HTML</abbr> tags and attributes:', 'bootscore' ) .
@@ -131,17 +132,9 @@ if (post_password_required()) {
     'fields'        => apply_filters(
       'comment_form_default_fields',
       array(
-        'author' => '<p class="comment-form-author">' . '<input id="author" class="form-control" placeholder="' . esc_attr__('Name*', 'bootscore') . '" name="author" type="text" value="' .
-                    esc_attr(isset($commenter['comment_author']) ? $commenter['comment_author'] : '') . '" size="30"' . $aria_req = '' . ' />' .
-                                                                                         '</p>',
-        'email'  => '<p class="comment-form-email">' . '<input class="form-control "id="email" placeholder="' . esc_attr__('Email* (will not be published)', 'bootscore') . '" name="email" type="text" value="' . esc_attr(isset($commenter['comment_author_email']) ? $commenter['comment_author_email'] : '') .
-                    '" size="30"' . $aria_req = '' . ' />' .
-
-                                                '</p>',
-        'url'    => '<p class="comment-form-url">' .
-                    '<input class="form-control" id="url" name="url" placeholder="' . esc_attr__('Website', 'bootscore') . '" type="text" value="' . esc_attr(isset($commenter['comment_author_url']) ? $commenter['comment_author_url'] : '') . '" size="30" /> ' .
-
-                    '</p>'
+        'author' => '<p class="comment-form-author form-floating"><label for="author">' . esc_html__('Name*', 'bootscore') . '</label><input id="author" class="form-control" placeholder=" " name="author" type="text" value="' . esc_attr(isset($commenter['comment_author']) ? $commenter['comment_author'] : '') . '" size="30" /></p>',
+        'email'  => '<p class="comment-form-email form-floating"><label for="email">' . esc_html__('Email* (will not be published)', 'bootscore') . '</label><input id="email" class="form-control" placeholder=" " name="email" type="text" value="' . esc_attr(isset($commenter['comment_author_email']) ? $commenter['comment_author_email'] : '') . '" size="30" /></p>',
+        'url'    => '<p class="comment-form-url form-floating"><label for="url">' . esc_html__('Website', 'bootscore') . '</label><input id="url" class="form-control" placeholder=" " name="url" type="text" value="' . esc_attr(isset($commenter['comment_author_url']) ? $commenter['comment_author_url'] : '') . '" size="30" /></p>',
       )
 
     ),

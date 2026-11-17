@@ -31,6 +31,15 @@ jQuery(function ($) {
 
   bootscorePasswordInputs();
 
+  // Floating labels (wc-floating-labels.php): country-select.js replaces the state field when the country changes,
+  // the new field gets .form-control and a placeholder (needed for :placeholder-shown) again
+  $(document.body).on('country_to_state_changed', function () {
+    $('.form-floating > :is(select, input.input-text)').addClass('form-control');
+    $('.form-floating > input.input-text').filter(function () {
+      return !this.getAttribute('placeholder');
+    }).attr('placeholder', ' ');
+  });
+
   // Remove the "View cart" link WooCommerce adds after the add to cart button.
   // The cart page is skipped by default, and if enabled, the mini cart footer has a "View cart" button.
   $(document.body).on('added_to_cart', function (event, fragments, cartHash, $button) {
