@@ -46,6 +46,31 @@ add_action('woocommerce_after_cart', function () {
 
 
 /**
+ * Product name in the cart table like the mini cart title: semibold, body color, no underline
+ *
+ * cart/cart.php prints the name as link (or plain text without permalink) through woocommerce_cart_item_name,
+ * which is also used by the mini cart and the checkout. Only for the cart table rows, via its before/after cart contents hooks.
+ */
+function bootscore_wc_cart_item_name($name) {
+  $classes = esc_attr(apply_filters('bootscore/class/woocommerce/cart/title', 'fw-semibold fg-body text-decoration-none'));
+
+  if (0 === strpos(trim($name), '<a ')) {
+    return preg_replace('/^\s*<a /', '<a class="' . $classes . '" ', $name, 1);
+  }
+
+  return '<span class="' . $classes . '">' . $name . '</span>';
+}
+
+add_action('woocommerce_before_cart_contents', function () {
+  add_filter('woocommerce_cart_item_name', 'bootscore_wc_cart_item_name', 99);
+});
+
+add_action('woocommerce_after_cart_contents', function () {
+  remove_filter('woocommerce_cart_item_name', 'bootscore_wc_cart_item_name', 99);
+});
+
+
+/**
  * "Product" heading over the remove, thumbnail and name columns, so it starts at the very left
  *
  * The remove and thumbnail headings only have screen reader text. cart/cart.php has no filter for the table head,
