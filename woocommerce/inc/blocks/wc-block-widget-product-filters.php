@@ -109,7 +109,13 @@ add_filter('print_styles_array', function ($handles) {
     return $handles;
   }
 
-  return array_values(array_filter($handles, function ($handle) {
-    return !(0 === strpos($handle, 'wc-blocks-style-product-filter'));
+  $styles = wp_styles();
+
+  return array_values(array_filter($handles, function ($handle) use ($styles) {
+    // WooCommerce's block styles by handle (wc-blocks-style-product-filter…, woocommerce-product-filter…-style from block.json) or by file
+    $src = isset($styles->registered[$handle]) ? (string) $styles->registered[$handle]->src : '';
+    $wc  = 0 === strpos($handle, 'wc-blocks-style') || 0 === strpos($handle, 'woocommerce') || false !== strpos($src, '/woocommerce/');
+
+    return !($wc && (false !== strpos($handle, 'product-filter') || false !== strpos($src, 'product-filter')));
   }));
 });
