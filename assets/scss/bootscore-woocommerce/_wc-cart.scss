@@ -206,6 +206,12 @@ WooCommerce Cart - Bootscore v7.0.0
     }
   }
 
+  // Cross-sells heading centered with space below, like the related products and up-sells headings
+  .cross-sells > h2 {
+    margin-block-end: var(--spacer-7);
+    text-align: center;
+  }
+
   // Layout (wc-cart.php): table, totals and cross-sells stacked below lg.
   // From lg: table and cross-sells left, totals right over both rows (7/5 at lg, 8/4 at xl like the checkout columns).
   // Rows auto | 1fr: the table row keeps its height, a taller totals column only grows the cross-sells row
