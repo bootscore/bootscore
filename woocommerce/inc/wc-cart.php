@@ -41,3 +41,27 @@ add_action('woocommerce_after_cart', function () {
  */
 remove_action('woocommerce_cart_collaterals', 'woocommerce_cross_sell_display');
 add_action('woocommerce_after_cart', 'woocommerce_cross_sell_display', 20);
+
+
+/**
+ * "Product" heading over the remove, thumbnail and name columns, so it starts at the very left
+ *
+ * The remove and thumbnail headings only have screen reader text. cart/cart.php has no filter for the table head,
+ * so the template's output is buffered via the template part hooks and the three headings become one with colspan="3".
+ */
+add_action('woocommerce_before_template_part', function ($template_name) {
+  if ('cart/cart.php' === $template_name) {
+    ob_start();
+  }
+});
+
+add_action('woocommerce_after_template_part', function ($template_name) {
+  if ('cart/cart.php' === $template_name) {
+    echo preg_replace(
+      '/<th scope="col" class="product-remove">.*?<\/th>\s*<th scope="col" class="product-thumbnail">.*?<\/th>\s*<th scope="col" class="product-name">/s',
+      '<th scope="col" class="product-name" colspan="3">',
+      ob_get_clean(),
+      1
+    ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- WooCommerce template output
+  }
+});
