@@ -115,10 +115,13 @@ WooCommerce Cart - Bootscore v7.0.0
           border: 0;
         }
 
+        // Image top lined up with the top of the title text (like vertical-align: text-top),
+        // moved down by the title's half-leading
         > .product-thumbnail {
           grid-row: 1 / span 4;
           grid-column: 1;
           align-self: start;
+          margin-block-start: calc((1lh - 1em) / 2);
         }
 
         > .product-name {

@@ -66,9 +66,12 @@ WooCommerce Mini Cart - Bootscore v7.0.0
       }
 
       // Image and title, wrapped in PHP (wc-mini-cart.php)
+      // Image top lined up with the top of the title text (like vertical-align: text-top):
+      // moved down by the title's half-leading
       .mini-cart-item-image {
         grid-row: 1 / span 6;
         grid-column: 1;
+        margin-block-start: calc((1lh - 1em) / 2);
       }
 
       .mini-cart-item-title {
