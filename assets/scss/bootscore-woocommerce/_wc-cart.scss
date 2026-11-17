@@ -23,6 +23,12 @@ WooCommerce Cart - Bootscore v7.0.0
       vertical-align: middle;
     }
 
+    // Column headings in one line, they don't break letter by letter (.text-break on body) when a column is narrow,
+    // e.g. Quantity with only products sold individually (hidden quantity field) next to the full-width name column
+    thead th {
+      white-space: nowrap;
+    }
+
     .product-remove {
       width: 1%;
     }
