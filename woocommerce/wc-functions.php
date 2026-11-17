@@ -35,6 +35,7 @@ require_once get_template_directory() . '/woocommerce/inc/wc-tabs.php';
 require_once get_template_directory() . '/woocommerce/inc/wc-my-account.php';
 require_once get_template_directory() . '/woocommerce/inc/wc-checkout.php';
 require_once get_template_directory() . '/woocommerce/inc/wc-order-received.php';
+require_once get_template_directory() . '/woocommerce/inc/wc-order-pay.php';
 //require_once get_template_directory() . '/woocommerce/inc/wc-deprecated.php'; 
 
 // Blocks

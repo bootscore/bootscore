@@ -7,8 +7,9 @@ WooCommerce My Account - Bootscore v7.0.0
 @use "../bootstrap/card";
 @use "../bootstrap/forms";
 
-// Account tables (orders, downloads, order details), also on the order received page, no class filters in WooCommerce's templates
-:is(.woocommerce-MyAccount-content, .woocommerce-order) .shop_table {
+// Account tables (orders, downloads, order details), also on the order received and pay for order page (form#order_review),
+// no class filters in WooCommerce's templates
+:is(.woocommerce-MyAccount-content, .woocommerce-order, form#order_review) .shop_table {
   @extend .table;
 }
 
@@ -44,7 +45,7 @@ WooCommerce My Account - Bootscore v7.0.0
     margin-block-end: 0;
   }
 
-  :is(.woocommerce-MyAccount-content, .woocommerce-order) .shop_table {
+  :is(.woocommerce-MyAccount-content, .woocommerce-order, form#order_review) .shop_table {
     th,
     td {
       vertical-align: middle;
