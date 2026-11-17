@@ -181,9 +181,10 @@ add_filter('woocommerce_product_review_comment_form_args', 'bootscore_wc_review_
 
 
 /**
- * "There are no reviews yet." with icon and text wrapper like the other notices (wc-notices.php)
+ * "There are no reviews yet." and "Only logged in customers who have purchased this product may leave a review."
+ * with icon and text wrapper like the other notices (wc-notices.php)
  *
- * single-product-reviews.php prints it without a filter and is loaded via comments_template(),
+ * single-product-reviews.php prints them without a filter and is loaded via comments_template(),
  * so the reviews tab callback is wrapped and its output buffered. Late priority, after other plugins changed the tabs.
  */
 function bootscore_wc_reviews_tab_callback($tabs) {
@@ -198,12 +199,11 @@ function bootscore_wc_reviews_tab_callback($tabs) {
     call_user_func_array($callback, $args);
 
     echo preg_replace_callback( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- WooCommerce template output
-      '/(<p class="woocommerce-noreviews">)(.*?)(<\/p>)/s',
+      '/(<p class="woocommerce-(?:noreviews|verification-required)">)(.*?)(<\/p>)/s',
       function ($matches) {
         return $matches[1] . bootscore_wc_notice_icon('notice') . '<span class="wc-notice-text">' . trim($matches[2]) . '</span>' . $matches[3];
       },
-      ob_get_clean(),
-      1
+      ob_get_clean()
     );
   };
 
