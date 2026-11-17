@@ -164,20 +164,28 @@ WooCommerce Cart - Bootscore v7.0.0
     margin-block-end: var(--spacer-5);
   }
 
-  // Shipping row with the calculator open: heading above, the cell with methods and form full width.
-  // cart.js shows and hides the form with jQuery (inline display: none), aria-expanded only changes after the animation
-  .cart_totals tr.shipping:has(.shipping-calculator-form:not([style*="none"])) {
+  // Shipping row: heading and methods in one line, destination and "Change address" (with the calculator form)
+  // full width below, also when the form is open. The cell's content takes part in the row's flex layout
+  // (specificity above the shared card rows in _wc-checkout.scss, which load later)
+  .cart_totals > .shop_table tr.shipping {
     flex-wrap: wrap;
+    row-gap: 0;
 
     > td {
+      display: contents;
+    }
+
+    #shipping_method {
+      margin-inline-start: auto;
+    }
+
+    :is(.woocommerce-shipping-destination, .woocommerce-shipping-calculator) {
       flex-basis: 100%;
+      text-align: end;
     }
   }
 
-  // Shipping row: destination and "Change address" below the methods, the calculator form left-aligned
   .cart_totals .shipping td {
-    min-width: 0;
-
     .woocommerce-shipping-destination {
       margin: var(--spacer-2) 0 0;
       font-size: var(--font-size-sm);
