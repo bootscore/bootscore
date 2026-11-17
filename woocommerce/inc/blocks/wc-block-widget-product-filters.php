@@ -5,7 +5,7 @@
  *
  * Bootstrap classes for the product filters block (woocommerce/product-filters) and its inner blocks:
  * active filters (removable chips), clear button, price slider, checkbox lists (rating, taxonomy, status, attribute)
- * and chips. WooCommerce's filter stylesheets are dequeued, the theme styles the block (_wc-block-widgets.scss).
+ * and chips. WooCommerce's filter stylesheets are not printed, the theme styles the block (_wc-block-widgets.scss).
  * The mobile overlay is not used, filters are always shown inline (the sidebar has its own drawer on mobile).
  *
  * Classes are also added inside <template> elements, which the Interactivity API clones for items rendered in the browser.
@@ -33,14 +33,6 @@ if (!function_exists('bootscore_wc_block_widget_product_filter_classes')) {
   function bootscore_wc_block_widget_product_filter_classes($block_content, $block) {
     if ('' === trim($block_content)) {
       return $block_content;
-    }
-
-    // WooCommerce's stylesheets for the filter blocks (enqueued when they render) are unlayered and beat the theme's
-    // layered CSS. The inner blocks render first, so all of them are enqueued here
-    foreach (wp_styles()->queue as $handle) {
-      if (0 === strpos($handle, 'wc-blocks-style-product-filter')) {
-        wp_dequeue_style($handle);
-      }
     }
 
     // Classes per WooCommerce class. Filter names: bootscore/class/woocommerce/block/product-filters/<key>
@@ -103,3 +95,21 @@ if (!function_exists('bootscore_wc_block_widget_product_filter_classes')) {
   }
 }
 add_filter('render_block_woocommerce/product-filters', 'bootscore_wc_block_widget_product_filter_classes', 10, 2);
+
+
+/**
+ * WooCommerce's stylesheets for the filter blocks are not printed on the frontend
+ *
+ * They are unlayered and beat the theme's layered CSS. WordPress may print block styles before the block renders
+ * (e.g. in the head), so they are taken out of the list of styles to print (print_styles_array), not when the block renders.
+ * That also covers styles WordPress prints inline instead of as <link>.
+ */
+add_filter('print_styles_array', function ($handles) {
+  if (is_admin()) {
+    return $handles;
+  }
+
+  return array_values(array_filter($handles, function ($handle) {
+    return !(0 === strpos($handle, 'wc-blocks-style-product-filter'));
+  }));
+});

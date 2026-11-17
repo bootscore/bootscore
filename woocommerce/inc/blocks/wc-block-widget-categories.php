@@ -31,10 +31,6 @@ if (!function_exists('bootscore_wc_block_widget_categories_classes')) {
       return $block_content;
     }
 
-    // WooCommerce's stylesheet for this block (enqueued when the block renders) is unlayered and beats the theme's
-    // layered CSS, e.g. it pulls the category image out of the item with a negative margin. The theme styles the block
-    wp_dequeue_style('wc-blocks-style-product-categories');
-
     $tags = new WP_HTML_Tag_Processor($block_content);
 
     // Dropdown: input group with select and button. The wrapper around label and select becomes d-contents,
@@ -100,3 +96,21 @@ if (!function_exists('bootscore_wc_block_widget_categories_classes')) {
   }
 }
 add_filter('render_block_woocommerce/product-categories', 'bootscore_wc_block_widget_categories_classes', 10, 2);
+
+
+/**
+ * WooCommerce's stylesheet for this block is not printed on the frontend
+ *
+ * It is unlayered and beats the theme's layered CSS, e.g. it pulls the category image out of the item with a negative margin.
+ * WordPress may print block styles before the block renders (e.g. in the head), so it is taken out of the list of styles to print (print_styles_array).
+ * That also covers styles WordPress prints inline instead of as <link>.
+ */
+add_filter('print_styles_array', function ($handles) {
+  if (is_admin()) {
+    return $handles;
+  }
+
+  return array_values(array_filter($handles, function ($handle) {
+    return !('wc-blocks-style-product-categories' === $handle);
+  }));
+});
