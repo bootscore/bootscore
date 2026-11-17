@@ -59,11 +59,21 @@ if (!function_exists('bootscore_wc_block_widget_categories_classes')) {
     $current = is_tax('product_cat') ? get_term_link(get_queried_object()) : '';
     $current = is_string($current) ? $current : '';
 
+    // list-group-flush in the block's Additional CSS class(es) goes to the list, where Bootstrap expects it
+    $flush = false;
+
     while ($tags->next_tag()) {
       $tag = $tags->get_tag();
 
-      if ('UL' === $tag && $tags->has_class('wc-block-product-categories-list')) {
+      if ($tags->has_class('wc-block-product-categories') && $tags->has_class('list-group-flush')) {
+        $tags->remove_class('list-group-flush');
+        $flush = true;
+      } elseif ('UL' === $tag && $tags->has_class('wc-block-product-categories-list')) {
         $tags->add_class(apply_filters('bootscore/class/woocommerce/block/categories/list', 'list-group'));
+
+        if ($flush && $tags->has_class('wc-block-product-categories-list--depth-0')) {
+          $tags->add_class('list-group-flush');
+        }
       } elseif ('LI' === $tag && $tags->has_class('wc-block-product-categories-list-item')) {
         $tags->add_class(apply_filters('bootscore/class/woocommerce/block/categories/list-item', 'list-group-item list-group-item-action'));
         $tags->set_bookmark('item');
@@ -80,7 +90,7 @@ if (!function_exists('bootscore_wc_block_widget_categories_classes')) {
       } elseif ($tags->has_class('wc-block-product-categories-list-item-count')) {
         $tags->add_class(apply_filters('bootscore/class/woocommerce/block/categories/count', 'badge badge-subtle theme-primary'));
       } elseif ('IMG' === $tag && null !== $tags->get_attribute('src')) {
-        $tags->add_class(apply_filters('bootscore/class/woocommerce/block/categories/image', 'rounded'));
+        $tags->add_class(apply_filters('bootscore/class/woocommerce/block/categories/image', 'rounded-2'));
       }
     }
 
