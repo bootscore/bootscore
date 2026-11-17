@@ -1,0 +1,70 @@
+/*--------------------------------------------------------------
+WooCommerce Block Widgets - Bootscore v7.0.0
+--------------------------------------------------------------*/
+
+@layer custom {
+
+  // Product categories list (wc-block-widget-categories.php): .list-group from PHP.
+  // Item: link (image and name) | count, subcategories full width below
+  .wc-block-product-categories-list-item {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacer-2) var(--spacer-3);
+    align-items: center;
+    justify-content: space-between;
+
+    > a {
+      display: inline-flex;
+      gap: var(--spacer-3);
+      align-items: center;
+      min-width: 0;
+    }
+
+    // No hover background on the parent while a subcategory is hovered
+    &:has(.list-group-item:hover):not(.active) {
+      background-color: var(--list-group-bg);
+    }
+
+    // Subcategories: rows below the parent, full item width (incl. the item padding), indented
+    > .wc-block-product-categories-list {
+      flex-basis: calc(100% + var(--list-group-item-padding-x) * 2);
+      margin: 0 calc(var(--list-group-item-padding-x) * -1) calc(var(--list-group-item-padding-y) * -1);
+      border-radius: 0;
+
+      > .list-group-item {
+        padding-inline-start: calc(var(--list-group-item-padding-x) * 2);
+        border-width: var(--list-group-border-width) 0 0;
+        border-radius: 0;
+      }
+    }
+  }
+
+  // Category image before the name
+  .wc-block-product-categories-list-item__image img {
+    display: block;
+    width: 1.75rem;
+    height: auto;
+  }
+
+  // Product categories dropdown: .input-group from PHP. The select is inside a d-contents wrapper,
+  // not a direct child, so it gets the input group's .form-control rules here
+  .wc-block-product-categories.input-group .wc-block-product-categories__dropdown > select {
+    position: relative;
+    flex: 1 1 auto;
+    width: 1%;
+    min-width: 0;
+    border-start-end-radius: 0;
+    border-end-end-radius: 0;
+
+    &:focus {
+      z-index: 5;
+    }
+  }
+
+  // Button with WooCommerce's arrow icon
+  .wc-block-product-categories__button svg {
+    width: 1em;
+    height: 1em;
+    fill: currentcolor;
+  }
+}
