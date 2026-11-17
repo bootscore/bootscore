@@ -206,8 +206,34 @@ WooCommerce Cart - Bootscore v7.0.0
     }
   }
 
-  // Cross-sells below the columns, the same space as the row gutter (g-7)
-  .woocommerce > .cross-sells {
-    margin-block-start: var(--spacer-7);
+  // Layout (wc-cart.php): table, totals and cross-sells stacked below lg.
+  // From lg: table and cross-sells left, totals right over both rows (7/5 at lg, 8/4 at xl like the checkout columns).
+  // Rows auto | 1fr: the table row keeps its height, a taller totals column only grows the cross-sells row
+  .cart-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--spacer-7);
+
+    > * {
+      min-width: 0;
+    }
+
+    @include media-breakpoint-up(lg) {
+      grid-template-rows: auto 1fr;
+      grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+
+      > .cart-layout-totals {
+        grid-row: 1 / span 2;
+        grid-column: 2;
+      }
+
+      > .cross-sells {
+        grid-column: 1;
+      }
+    }
+
+    @include media-breakpoint-up(xl) {
+      grid-template-columns: minmax(0, 8fr) minmax(0, 4fr);
+    }
   }
 }

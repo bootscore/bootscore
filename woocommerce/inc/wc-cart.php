@@ -15,32 +15,34 @@ defined('ABSPATH') || exit;
 
 
 /**
- * Columns: cart table | cart totals, cross-sells full width below
+ * Layout: cart table, cart totals and cross-sells in one grid (_wc-cart.scss)
  *
- * The row opens after the notices (woocommerce_output_all_notices at priority 10),
- * the totals column at woocommerce_before_cart_collaterals, both close at woocommerce_after_cart.
+ * DOM order table, totals, cross-sells: stacked in this order below lg. From lg the table and cross-sells
+ * are in the left column, the totals on the right over both rows, so an open shipping calculator
+ * doesn't push the cross-sells down.
+ * The wrapper opens after the notices (woocommerce_output_all_notices at priority 10),
+ * the totals at woocommerce_before_cart_collaterals, the cross-sells follow inside the wrapper.
  */
 add_action('woocommerce_before_cart', function () {
-  echo '<div class="' . esc_attr(apply_filters('bootscore/class/woocommerce/cart/row', 'row g-7')) . '">';
-  echo '<div class="' . esc_attr(apply_filters('bootscore/class/woocommerce/cart/table-col', 'lg:col-7 xl:col-8')) . '">';
+  echo '<div class="cart-layout">';
+  echo '<div class="cart-layout-table">';
 }, 20);
 
 add_action('woocommerce_before_cart_collaterals', function () {
   echo '</div>';
-  echo '<div class="' . esc_attr(apply_filters('bootscore/class/woocommerce/cart/totals-col', 'lg:col-5 xl:col-4')) . '">';
+  echo '<div class="cart-layout-totals">';
 }, 99);
 
 add_action('woocommerce_after_cart', function () {
   echo '</div>';
-  echo '</div>';
 }, 1);
 
-
-/**
- * Cross-sells below the columns instead of next to the totals
- */
 remove_action('woocommerce_cart_collaterals', 'woocommerce_cross_sell_display');
-add_action('woocommerce_after_cart', 'woocommerce_cross_sell_display', 20);
+add_action('woocommerce_after_cart', 'woocommerce_cross_sell_display', 5);
+
+add_action('woocommerce_after_cart', function () {
+  echo '</div>';
+}, 9);
 
 
 /**
