@@ -48,8 +48,9 @@ if (!function_exists('bootscore_wc_block_widget_product_filter_classes')) {
       'wc-block-product-filter-chips__show-more'            => array('show-more', 'btn-link btn-sm p-0'),
     );
 
-    $tags     = new WP_HTML_Tag_Processor($block_content);
-    $in_clear = false;
+    $tags       = new WP_HTML_Tag_Processor($block_content);
+    $in_clear   = false;
+    $clear_icon = apply_filters('bootscore/woocommerce/block/product-filters/clear-icon', true);
 
     while ($tags->next_tag()) {
       // Clear filters: core button (classes from block-buttons.php) as small outline danger button
@@ -73,6 +74,11 @@ if (!function_exists('bootscore_wc_block_widget_product_filter_classes')) {
           $tags->set_attribute('data-wp-on--click', 'actions.removeAll');
         }
         $tags->add_class(apply_filters('bootscore/class/woocommerce/block/product-filters/clear', 'btn-outline theme-danger btn-sm'));
+
+        // Square icon button with the trash icon (below)
+        if ($clear_icon) {
+          $tags->add_class('btn-icon');
+        }
         $in_clear = false;
         continue;
       }
@@ -92,6 +98,15 @@ if (!function_exists('bootscore_wc_block_widget_product_filter_classes')) {
     }
 
     $block_content = $tags->get_updated_html();
+
+    // Clear filters as trash icon (like the coupon and mini cart remove links), the button text stays for screen readers.
+    // Turn off with add_filter('bootscore/woocommerce/block/product-filters/clear-icon', '__return_false')
+    if ($clear_icon) {
+      $block_content = preg_replace_callback('/(<button[^>]*actions\.removeAll[^>]*>)(.*?)(<\/button>)/s', function ($m) {
+        $text = trim(wp_strip_all_tags($m[2]));
+        return $m[1] . bootscore_icon('trash', false) . '<span class="visually-hidden">' . esc_html($text) . '</span>' . $m[3];
+      }, $block_content, 1);
+    }
 
     // Counts as badges without WooCommerce's parentheses: (<span data-wp-text="context.item.count">3</span>)
     $block_content = preg_replace('/(class="[^"]*__count[^"]*"[^>]*>)\s*\(\s*(<span[^>]*>.*?<\/span>)\s*\)/s', '$1$2', $block_content);
