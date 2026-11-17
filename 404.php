@@ -33,7 +33,7 @@ get_header();
               <?php do_action( 'bootscore_after_title', '404' ); ?>
             </div>
             <!-- Remove this line and place some widgets -->
-            <p class="alert theme-info mb-5"><?php esc_html_e('Page not found.', 'bootscore'); ?></p>
+            <p class="alert theme-info mb-5"><?= bootscore_alert_content(esc_html__('Page not found.', 'bootscore')); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></p>
             <!-- 404 Widget -->
             <?php if (is_active_sidebar('404-page')) : ?>
               <div><?php dynamic_sidebar('404-page'); ?></div>

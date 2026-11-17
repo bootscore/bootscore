@@ -100,7 +100,7 @@ if (post_password_required()) {
   if (!comments_open() && get_comments_number() && post_type_supports(get_post_type(), 'comments')) : ?>
 
   <p class="no-comments <?= esc_attr(apply_filters('bootscore/class/comments/closed/alert', 'alert theme-info')); ?>">
-    <?php echo wp_kses_post(apply_filters('bootscore/comments/closed/text', esc_html__('Comments are closed.', 'bootscore'))); ?>
+    <?= bootscore_alert_content(wp_kses_post(apply_filters('bootscore/comments/closed/text', esc_html__('Comments are closed.', 'bootscore')))); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
   </p>
   
   <?php

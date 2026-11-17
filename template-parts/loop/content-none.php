@@ -23,7 +23,7 @@ defined('ABSPATH') || exit;
   <div class="page-content">
     <?php if (is_search()) : ?>
       <p class="alert theme-info mb-5">
-        <?php esc_html_e('Sorry, but nothing matched your search terms. Please try again with some different keywords.', 'bootscore'); ?>
+        <?= bootscore_alert_content(esc_html__('Sorry, but nothing matched your search terms. Please try again with some different keywords.', 'bootscore')); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
       </p>
       <?php get_search_form(); ?>
     <?php endif; ?>

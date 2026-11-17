@@ -98,7 +98,7 @@ if (!function_exists('woocommerce_review_display_meta')) :
     </p>
 
     <?php if ('0' === $comment->comment_approved) : ?>
-      <p class="woocommerce-review__awaiting-approval <?= esc_attr(apply_filters('bootscore/class/woocommerce/review/awaiting-approval', 'alert theme-info')); ?>"><?php esc_html_e('Your review is awaiting approval', 'woocommerce'); ?></p>
+      <p class="woocommerce-review__awaiting-approval <?= esc_attr(apply_filters('bootscore/class/woocommerce/review/awaiting-approval', 'alert theme-info')); ?>"><?= bootscore_alert_content(esc_html__('Your review is awaiting approval', 'woocommerce')); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></p>
     <?php endif;
   }
 endif;
