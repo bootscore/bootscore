@@ -20,6 +20,21 @@ jQuery(function ($) {
     button.find('.btn-loader').prop('hidden', !loading);
   }
 
+  // Runs the DOM update in a View Transition while the page is visible, otherwise directly.
+  // In a hidden tab (tab or window switched) the browser skips the transition and rejects its promises
+  // ("Transition was aborted because of invalid state. Document hidden"). The update runs either way,
+  // the rejections are caught so nothing ends up in the console
+  function bootscoreViewTransition(update) {
+    if (!document.startViewTransition || 'visible' !== document.visibilityState) {
+      update();
+      return;
+    }
+
+    const transition = document.startViewTransition(update);
+    transition.ready.catch(() => {});
+    transition.finished.catch(() => {});
+  }
+
   // 1 Handle AJAX Add To Cart
 
   // 1.1 Enable AJAX for single product pages
@@ -242,11 +257,7 @@ jQuery(function ($) {
           return;
         }
 
-        if (document.startViewTransition) {
-          document.startViewTransition(() => updateCartFragments(cart_res, res.success, number));
-        } else {
-          updateCartFragments(cart_res, res.success, number);
-        }
+        bootscoreViewTransition(() => updateCartFragments(cart_res, res.success, number));
       },
       error: function (jqXHR, textStatus, errorThrown) {
         cartItem.item.find('.blockUI').remove();
@@ -339,13 +350,7 @@ jQuery(function ($) {
           });
         };
 
-        if (document.startViewTransition) {
-          document.startViewTransition(() => {
-            hideToasts();
-          });
-        } else {
-          hideToasts();
-        }
+        bootscoreViewTransition(hideToasts);
 
         toasts_to_be_hidden = null;
       }, 5000);
