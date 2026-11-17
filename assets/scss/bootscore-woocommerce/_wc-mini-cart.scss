@@ -13,6 +13,11 @@ WooCommerce Mini Cart - Bootscore v7.0.0
 
 @layer custom {
 
+  // Empty cart message: icon | text, like the other notices (icon from wc-mini-cart.php)
+  .woocommerce-mini-cart__empty-message {
+    align-items: center;
+  }
+
   // Drawer: list scrolls, total and buttons stay at the bottom
   #drawer-cart {
     .drawer-body {

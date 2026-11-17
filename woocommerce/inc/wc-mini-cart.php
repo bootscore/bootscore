@@ -67,6 +67,16 @@ if (!function_exists('woocommerce_mini_cart')) :
     wc_get_template('cart/mini-cart.php', $args);
     $html = ob_get_clean();
 
+    // Empty cart message with icon and text wrapper like the other notices (wc-notices.php)
+    $html = preg_replace_callback(
+      '/(<p class="woocommerce-mini-cart__empty-message">)(.*?)(<\/p>)/s',
+      function ($matches) {
+        return $matches[1] . bootscore_wc_notice_icon('notice') . '<span class="wc-notice-text">' . trim($matches[2]) . '</span>' . $matches[3];
+      },
+      $html,
+      1
+    );
+
     $marker = '<!-- bootscore-mini-cart-footer-end -->';
     $footer = '<div class="woocommerce-mini-cart__footer ' . esc_attr(apply_filters('bootscore/class/woocommerce/mini-cart/footer', 'drawer-footer flex-column align-items-stretch')) . '">';
 
