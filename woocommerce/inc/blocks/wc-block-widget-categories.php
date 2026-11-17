@@ -31,6 +31,10 @@ if (!function_exists('bootscore_wc_block_widget_categories_classes')) {
       return $block_content;
     }
 
+    // WooCommerce's stylesheet for this block (enqueued when the block renders) is unlayered and beats the theme's
+    // layered CSS, e.g. it pulls the category image out of the item with a negative margin. The theme styles the block
+    wp_dequeue_style('wc-blocks-style-product-categories');
+
     $tags = new WP_HTML_Tag_Processor($block_content);
 
     // Dropdown: input group with select and button. The wrapper around label and select becomes d-contents,
