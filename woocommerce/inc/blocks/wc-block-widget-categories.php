@@ -1,10 +1,13 @@
 <?php
 
 /**
- * WooCommerce Categories Block Widget
+ * WooCommerce Product Categories Block Widget
+ *
+ * Bootstrap classes for the product categories block (woocommerce/product-categories), list and dropdown.
+ * Like the core categories block widget (inc/blocks/block-widget-categories.php).
  *
  * @package Bootscore
- * @version 6.4.0
+ * @version 7.0.0
  */
 
 
@@ -13,78 +16,107 @@ defined('ABSPATH') || exit;
 
 
 /**
- * Categories List Block
+ * Product Categories Block
  */
 if (!function_exists('bootscore_wc_block_widget_categories_classes')) {
-
+  /**
+   * Adds Bootstrap classes to the product categories block widget.
+   *
+   * @param string $block_content The block content.
+   * @param array  $block         The full block, including name and attributes.
+   * @return string The filtered block content.
+   */
   function bootscore_wc_block_widget_categories_classes($block_content, $block) {
-    // Check if the block contains the 'wc-block-product-categories-list' class.
-    if (strpos($block_content, 'wc-block-product-categories-list') !== false) {
-      $search  = array(
-        'is-list',
-        '<ul class="wc-block-product-categories-list',
-        '<li class="',
-        '<a',
-        'wc-block-product-categories-list-item__name',
-        'wc-block-product-categories-list-item-count',
-        // Has image
-        'wc-block-product-categories-list--has-images',
-        'wc-block-product-categories-list-item__image--placeholder',
-        'wc-block-product-categories-list-item__image',
-        'wp-post-image',
-        'attachment-woocommerce_thumbnail'
-      );
-      $replace = array(
-        'is-list mb-0',
-        '<ul class="wc-block-product-categories-list bs-list-group list-group',
-        '<li class="list-group-item list-group-item-action d-flex justify-content-between align-items-center ',
-        '<a class="stretched-link text-decoration-none"',
-        'wc-block-product-categories-list-item__name align-middle',
-        'badge bg-primary-subtle text-primary-emphasis',
-        // Has image
-        'has-image',
-        '',
-        'wc-cat-img d-inline-block me-2',
-        'wp-post-image border rounded-1',
-        'attachment-woocommerce_thumbnail border rounded-1'
-      );
-
-      $block_content = str_replace($search, $replace, $block_content);
+    if ('' === trim($block_content)) {
+      return $block_content;
     }
 
-    return $block_content;
+    $tags = new WP_HTML_Tag_Processor($block_content);
+
+    // Dropdown: input group with select and button. The wrapper around label and select becomes d-contents,
+    // so the select is a direct child of the input group
+    if (false !== strpos($block_content, 'wc-block-product-categories__dropdown')) {
+      while ($tags->next_tag()) {
+        if ($tags->has_class('wc-block-product-categories') && $tags->has_class('is-dropdown')) {
+          $tags->add_class(apply_filters('bootscore/class/woocommerce/block/categories/dropdown/group', 'input-group'));
+        } elseif ($tags->has_class('wc-block-product-categories__dropdown')) {
+          $tags->add_class('d-contents');
+        } elseif ('SELECT' === $tags->get_tag()) {
+          $tags->add_class(apply_filters('bootscore/class/woocommerce/block/categories/dropdown', 'form-control'));
+        } elseif ($tags->has_class('wc-block-product-categories__button')) {
+          $tags->add_class(apply_filters('bootscore/class/woocommerce/block/categories/dropdown/button', 'btn-outline theme-secondary input-group-btn'));
+        }
+      }
+
+      return apply_filters('bootscore/woocommerce/block/categories/content', $tags->get_updated_html(), $block);
+    }
+
+    // List: list group, the link stretched over the item, count as badge, the current category active
+    $current = is_tax('product_cat') ? get_term_link(get_queried_object()) : '';
+    $current = is_string($current) ? $current : '';
+
+    // list-group-flush in the block's Additional CSS class(es) goes to the list, where Bootstrap expects it
+    $flush = false;
+
+    while ($tags->next_tag()) {
+      $tag = $tags->get_tag();
+
+      if ($tags->has_class('wc-block-product-categories') && $tags->has_class('list-group-flush')) {
+        $tags->remove_class('list-group-flush');
+        $flush = true;
+      } elseif ('UL' === $tag && $tags->has_class('wc-block-product-categories-list')) {
+        $tags->add_class(apply_filters('bootscore/class/woocommerce/block/categories/list', 'list-group'));
+
+        if ($flush && $tags->has_class('wc-block-product-categories-list--depth-0')) {
+          $tags->add_class('list-group-flush');
+        }
+      } elseif ('LI' === $tag && $tags->has_class('wc-block-product-categories-list-item')) {
+        $tags->add_class(apply_filters('bootscore/class/woocommerce/block/categories/list-item', 'list-group-item list-group-item-action'));
+        $tags->set_bookmark('item');
+      } elseif ('A' === $tag) {
+        $tags->add_class(apply_filters('bootscore/class/woocommerce/block/categories/link', 'stretched-link text-decoration-none fg-reset'));
+
+        // Current category: active item, aria-current on the link
+        if ($current && untrailingslashit((string) $tags->get_attribute('href')) === untrailingslashit($current)) {
+          $tags->set_attribute('aria-current', 'page');
+          $tags->seek('item');
+          $tags->add_class('active');
+          $tags->next_tag('a');
+        }
+      } elseif ($tags->has_class('wc-block-product-categories-list-item-count')) {
+        $tags->add_class(apply_filters('bootscore/class/woocommerce/block/categories/count', 'badge badge-subtle theme-primary'));
+      } elseif ('IMG' === $tag && null !== $tags->get_attribute('src')) {
+        $tags->add_class(apply_filters('bootscore/class/woocommerce/block/categories/image', 'rounded-2'));
+      }
+    }
+
+    $tags->release_bookmark('item');
+
+    return apply_filters('bootscore/woocommerce/block/categories/content', $tags->get_updated_html(), $block);
   }
 }
 add_filter('render_block_woocommerce/product-categories', 'bootscore_wc_block_widget_categories_classes', 10, 2);
 
 
 /**
- * Categories Select Block
+ * WooCommerce's stylesheet for this block is not printed on the frontend
+ *
+ * It is unlayered and beats the theme's layered CSS, e.g. it pulls the category image out of the item with a negative margin.
+ * WordPress may print block styles before the block renders (e.g. in the head), so it is taken out of the list of styles to print (print_styles_array).
+ * That also covers styles WordPress prints inline instead of as <link>.
  */
-if (!function_exists('bootscore_wc_block_widget_categories_select_classes')) {
-
-  function bootscore_wc_block_widget_categories_select_classes($block_content, $block) {
-    // Check if the block contains the 'wc-block-product-categories is-dropdown' class.
-    if (strpos($block_content, 'is-dropdown') !== false) {
-      $search  = array(
-        'is-dropdown', 
-        'wc-block-product-categories__dropdown',
-        '<select',
-        // Button
-        'wc-block-product-categories__button'
-      );
-      $replace = array(
-        'is-dropdown input-group mb-0',
-        'wc-block-product-categories__dropdown flex-grow-1',
-        '<select class="form-select" ',
-        // Button
-        'wc-block-product-categories__button btn btn-outline-secondary'
-      );
-
-      $block_content = str_replace($search, $replace, $block_content);
-    }
-
-    return $block_content;
+add_filter('print_styles_array', function ($handles) {
+  if (is_admin()) {
+    return $handles;
   }
-}
-add_filter('render_block_woocommerce/product-categories', 'bootscore_wc_block_widget_categories_select_classes', 10, 2);
+
+  $styles = wp_styles();
+
+  return array_values(array_filter($handles, function ($handle) use ($styles) {
+    // WooCommerce's block styles by handle (wc-blocks-style-product-categories…, woocommerce-product-categories…-style from block.json) or by file
+    $src = isset($styles->registered[$handle]) ? (string) $styles->registered[$handle]->src : '';
+    $wc  = 0 === strpos($handle, 'wc-blocks-style') || 0 === strpos($handle, 'woocommerce') || false !== strpos($src, '/woocommerce/');
+
+    return !($wc && (false !== strpos($handle, 'product-categories') || false !== strpos($src, 'product-categories')));
+  }));
+});
