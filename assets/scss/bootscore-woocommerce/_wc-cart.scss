@@ -72,6 +72,11 @@ WooCommerce Cart - Bootscore v7.0.0
         .coupon-error-notice {
           flex-basis: 100%;
         }
+
+        // Narrower from lg, where the table shares the row with the totals, so Update cart stays in the same line
+        @include media-breakpoint-up(lg) {
+          width: min(100%, 20rem);
+        }
       }
 
       > [name="update_cart"] {
@@ -172,6 +177,7 @@ WooCommerce Cart - Bootscore v7.0.0
         }
 
         [name="update_cart"] {
+          flex-basis: 100%;
           float: none;
         }
       }
