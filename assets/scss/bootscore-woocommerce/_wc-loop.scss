@@ -2,6 +2,8 @@
 WooCommerce Loop - Bootscore v7.0.0
 --------------------------------------------------------------*/
 
+@use "../bootstrap/layout/breakpoints" as *;
+
 // Row, col, card, title, button and toolbar classes come from PHP (wc-loop.php, wc-result-count.php).
 
 @layer custom {
@@ -9,5 +11,14 @@ WooCommerce Loop - Bootscore v7.0.0
   // Result count (no class filter): no paragraph margin in the toolbar
   .woocommerce-result-count {
     margin-bottom: 0;
+  }
+
+  // Ordering (no class filter): below sm in its own line, the select full width
+  .woocommerce-ordering {
+    margin: 0;
+
+    @include media-breakpoint-down(sm) {
+      flex-basis: 100%;
+    }
   }
 }
