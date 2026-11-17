@@ -34,8 +34,10 @@ WooCommerce Cart - Bootscore v7.0.0
     .product-thumbnail {
       width: 5rem;
 
+      // max-width: none, so the image keeps its width next to the full-width name column
       img {
         width: 4rem;
+        max-width: none;
         height: auto;
         border-radius: var(--radius-5);
       }
@@ -74,6 +76,15 @@ WooCommerce Cart - Bootscore v7.0.0
 
       > [name="update_cart"] {
         float: inline-end;
+      }
+    }
+
+    // From md the name column takes the remaining width and lets the excerpt (.text-truncate) truncate,
+    // instead of widening the table to the excerpt's full length
+    @include media-breakpoint-up(md) {
+      td.product-name {
+        width: 100%;
+        max-width: 0;
       }
     }
 

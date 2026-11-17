@@ -71,6 +71,25 @@ add_action('woocommerce_after_cart_contents', function () {
 
 
 /**
+ * Excerpt below the product name in the cart table, one truncated line like in the mini cart
+ *
+ * Variations use the parent's excerpt (product_id is the parent).
+ * Turn off with add_filter('bootscore/woocommerce/cart/item-excerpt', '__return_false').
+ */
+add_action('woocommerce_after_cart_item_name', function ($cart_item) {
+  if (!apply_filters('bootscore/woocommerce/cart/item-excerpt', true) || empty($cart_item['product_id'])) {
+    return;
+  }
+
+  $excerpt = trim(wp_strip_all_tags(get_the_excerpt($cart_item['product_id'])));
+
+  if ($excerpt) {
+    echo '<p class="product-excerpt ' . esc_attr(apply_filters('bootscore/class/woocommerce/cart/item-excerpt', 'fs-sm fg-secondary text-truncate mb-0')) . '">' . esc_html($excerpt) . '</p>';
+  }
+}, 5);
+
+
+/**
  * "Product" heading over the remove, thumbnail and name columns, so it starts at the very left
  *
  * The remove and thumbnail headings only have screen reader text. cart/cart.php has no filter for the table head,
