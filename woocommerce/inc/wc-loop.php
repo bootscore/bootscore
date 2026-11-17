@@ -60,7 +60,7 @@ add_filter('product_cat_class', 'bootscore_wc_loop_col_class');
  * Products and categories: card > image > card-body > title, rating, price, button.
  */
 function bootscore_wc_loop_card_open() {
-  echo '<div class="' . esc_attr(apply_filters('bootscore/class/woocommerce/product/card', 'card h-100 text-center')) . '">';
+  echo '<div class="' . esc_attr(apply_filters('bootscore/class/woocommerce/product/card', 'card h-100')) . '">';
 }
 
 function bootscore_wc_loop_card_body_open() {
