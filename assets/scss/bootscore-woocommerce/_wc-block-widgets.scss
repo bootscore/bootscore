@@ -2,6 +2,9 @@
 WooCommerce Block Widgets - Bootscore v7.0.0
 --------------------------------------------------------------*/
 
+@use "../bootstrap/forms/form-range" as range;
+@use "../bootstrap/mixins/tokens" as *;
+
 @layer custom {
 
   // Product categories list (wc-block-widget-categories.php): .list-group from PHP.
@@ -66,5 +69,223 @@ WooCommerce Block Widgets - Bootscore v7.0.0
     width: 1em;
     height: 1em;
     fill: currentcolor;
+  }
+
+  // Product filters (wc-block-widget-product-filters.php). WooCommerce's filter stylesheets are dequeued.
+  // No mobile overlay: open button, overlay header and Apply footer hidden, the overlay wrappers don't create boxes.
+  // Filters stacked with space between them
+  .wc-block-product-filters {
+    :is(.wc-block-product-filters__open-overlay, .wc-block-product-filters__overlay-header, .wc-block-product-filters__overlay-footer) {
+      display: none;
+    }
+
+    :is(.wc-block-product-filters__overlay, .wc-block-product-filters__overlay-wrapper, .wc-block-product-filters__overlay-dialog) {
+      display: contents;
+    }
+
+    :is(.wc-block-product-filters__overlay-content, .wc-block-product-filters__content) {
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacer-6);
+    }
+
+    fieldset {
+      min-width: 0;
+      padding: 0;
+      margin: 0;
+      border: 0;
+    }
+  }
+
+  // Active filters: chips with a small close button, WooCommerce's icon hidden (btn-close draws its own)
+  .wc-block-product-filter-removable-chips__remove {
+    --btn-close-size: .875rem;
+
+    > svg {
+      display: none;
+    }
+  }
+
+  // Price: slider over the full width, min and max inputs below
+  .wc-block-product-filter-price-slider__content {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: var(--spacer-5) var(--spacer-3);
+  }
+
+  .wc-block-product-filter-price-slider__right input {
+    text-align: end;
+  }
+
+  // Two range inputs over one track, the part between them (--low, --high from WooCommerce) filled.
+  // Bootstrap's range tokens for track and thumb
+  .wc-block-product-filter-price-slider__range {
+    @include tokens(range.$range-tokens);
+
+    position: relative;
+    grid-column: 1 / -1;
+    height: var(--range-thumb-height);
+
+    .range-bar {
+      position: absolute;
+      inset-inline: 0;
+      top: 50%;
+      height: var(--range-track-height);
+      background: linear-gradient(
+        to right,
+        var(--range-track-bg) var(--low),
+        var(--range-track-fill-bg) var(--low),
+        var(--range-track-fill-bg) var(--high),
+        var(--range-track-bg) var(--high)
+      );
+      border-radius: var(--range-track-border-radius);
+      transform: translateY(-50%);
+    }
+
+    input[type="range"] {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      pointer-events: none;
+      appearance: none;
+      background: transparent;
+
+      &::-webkit-slider-runnable-track {
+        background: transparent;
+      }
+
+      &::-moz-range-track {
+        background: transparent;
+      }
+
+      // Thumbs (WebKit and Firefox can't be combined in one selector)
+      &::-webkit-slider-thumb {
+        width: var(--range-thumb-width);
+        height: var(--range-thumb-height);
+        pointer-events: auto;
+        cursor: pointer;
+        appearance: none;
+        background: var(--range-thumb-bg);
+        border: 0;
+        border-radius: var(--range-thumb-border-radius);
+        box-shadow: var(--range-thumb-box-shadow);
+      }
+
+      &::-moz-range-thumb {
+        width: var(--range-thumb-width);
+        height: var(--range-thumb-height);
+        pointer-events: auto;
+        cursor: pointer;
+        background: var(--range-thumb-bg);
+        border: 0;
+        border-radius: var(--range-thumb-border-radius);
+        box-shadow: var(--range-thumb-box-shadow);
+      }
+
+      &:focus-visible {
+        outline: 0;
+
+        &::-webkit-slider-thumb {
+          box-shadow: 0 0 0 .25rem color-mix(in oklch, var(--range-thumb-bg) 25%, transparent);
+        }
+
+        &::-moz-range-thumb {
+          box-shadow: 0 0 0 .25rem color-mix(in oklch, var(--range-thumb-bg) 25%, transparent);
+        }
+      }
+    }
+  }
+
+  // Checkbox lists (rating, categories, status, attributes): checkbox (.check from PHP) | text | count.
+  // WooCommerce's own check mark hidden
+  .wc-block-product-filter-checkbox-list__items {
+    display: grid;
+    gap: var(--spacer-2);
+  }
+
+  .wc-block-product-filter-checkbox-list__label {
+    display: flex;
+    gap: var(--spacer-3);
+    align-items: center;
+    margin: 0;
+    cursor: pointer;
+  }
+
+  .wc-block-product-filter-checkbox-list__input-wrapper {
+    display: flex;
+  }
+
+  .wc-block-product-filter-checkbox-list__mark {
+    display: none;
+  }
+
+  .wc-block-product-filter-checkbox-list__text-wrapper {
+    display: flex;
+    flex: 1 1 auto;
+    gap: var(--spacer-2);
+    align-items: center;
+    justify-content: space-between;
+    min-width: 0;
+  }
+
+  // Rating: WooCommerce sets the stars' width inline in % (e.g. 80% for 4 of 5), relative to a 6rem column for 5 stars
+  .wc-block-product-filter-checkbox-list__text-wrapper:has(> .wc-block-product-filter-checkbox-list__stars) {
+    display: grid;
+    grid-template-columns: 6rem auto;
+  }
+
+  .wc-block-product-filter-checkbox-list__stars {
+    display: block;
+    overflow: hidden;
+
+    svg {
+      display: block;
+      width: 6rem;
+      max-width: none;
+      height: 1.2rem;
+    }
+  }
+
+  // Attribute colors
+  :is(.wc-block-product-filter-checkbox-list__color-swatch, .wc-block-product-filter-chips__swatch) {
+    flex: none;
+    width: 1rem;
+    height: 1rem;
+    margin-inline-end: auto;
+    border: var(--border-width) solid var(--border-color);
+    border-radius: 50%;
+  }
+
+  .wc-block-product-filter-checkbox-list__text-wrapper:has(> .wc-block-product-filter-checkbox-list__color-swatch) {
+    justify-content: flex-start;
+
+    > .wc-block-product-filter-checkbox-list__count {
+      margin-inline-start: auto;
+    }
+  }
+
+  :is(.wc-block-product-filter-checkbox-list__show-more, .wc-block-product-filter-chips__show-more) {
+    margin-block-start: var(--spacer-3);
+  }
+
+  // Chips (attribute display style): small outline buttons, the selected ones like an active button
+  .wc-block-product-filter-chips__items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacer-2);
+  }
+
+  .wc-block-product-filter-chips__item[aria-checked="true"] {
+    color: var(--btn-active-color);
+    background-color: var(--btn-active-bg);
+    border-color: var(--btn-active-border-color);
+  }
+
+  .wc-block-product-filter-chips__label {
+    display: inline-flex;
+    gap: var(--spacer-2);
+    align-items: center;
   }
 }

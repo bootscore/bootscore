@@ -40,7 +40,7 @@ require_once get_template_directory() . '/woocommerce/inc/wc-order-pay.php';
 
 // Blocks
 require_once get_template_directory() . '/woocommerce/inc/blocks/wc-block-widget-categories.php';
-//require_once get_template_directory() . '/woocommerce/inc/blocks/wc-block-widget-product-filters.php';
+require_once get_template_directory() . '/woocommerce/inc/blocks/wc-block-widget-product-filters.php';
 
 
 /**
