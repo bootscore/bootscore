@@ -46,8 +46,35 @@ WooCommerce Cart - Bootscore v7.0.0
       white-space: nowrap;
     }
 
+    // Same width in all rows and on all screens, the number input's own width differs by browser
     .product-quantity .quantity {
-      max-width: 9rem;
+      width: 9rem;
+      max-width: 100%;
+    }
+
+    // Coupon (input and button in a row, error below) and Update cart at the end.
+    // The cell stays a table cell (colspan), so the coupon is inline-flex and Update cart floats to the end
+    td.actions {
+      .coupon {
+        display: inline-flex;
+        flex-wrap: wrap;
+        gap: var(--spacer-3);
+        width: min(100%, 28rem);
+        vertical-align: top;
+
+        .input-text {
+          flex: 1 1 0;
+          min-width: 0;
+        }
+
+        .coupon-error-notice {
+          flex-basis: 100%;
+        }
+      }
+
+      > [name="update_cart"] {
+        float: inline-end;
+      }
     }
 
     // Stacked below md: each product as block. Thumbnail | name and remove, then price, quantity and subtotal
@@ -108,13 +135,24 @@ WooCommerce Cart - Bootscore v7.0.0
         }
       }
 
-      // Coupon and update cart row
+      // Coupon and Update cart row, Update cart below the coupon at the end
       tr:not(.cart_item) {
         display: block;
 
         > td {
-          display: block;
+          display: flex;
+          flex-wrap: wrap;
+          gap: var(--spacer-3);
+          justify-content: flex-end;
           padding-inline: 0;
+        }
+
+        .coupon {
+          width: 100%;
+        }
+
+        [name="update_cart"] {
+          float: none;
         }
       }
     }
