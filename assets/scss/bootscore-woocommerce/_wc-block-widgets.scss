@@ -83,10 +83,21 @@ WooCommerce Block Widgets - Bootscore v7.0.0
       display: contents;
     }
 
-    :is(.wc-block-product-filters__overlay-content, .wc-block-product-filters__content) {
-      display: flex;
-      flex-direction: column;
-      gap: var(--spacer-6);
+    // Space after each filter, not as gap on the content, so other blocks in it (e.g. a card header) aren't spaced
+    :is(
+      .wp-block-woocommerce-product-filter-active,
+      .wp-block-woocommerce-product-filter-price,
+      .wp-block-woocommerce-product-filter-rating,
+      .wp-block-woocommerce-product-filter-attribute,
+      .wp-block-woocommerce-product-filter-taxonomy,
+      .wp-block-woocommerce-product-filter-status
+    ):not(:last-child) {
+      margin-block-end: var(--spacer-6);
+    }
+
+    // Clear filters below the active filter chips
+    .wp-block-woocommerce-product-filter-clear-button {
+      margin-block-start: var(--spacer-3);
     }
 
     fieldset {

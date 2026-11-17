@@ -67,6 +67,11 @@ if (!function_exists('bootscore_wc_block_widget_product_filter_classes')) {
         foreach (array('btn-solid', 'btn-outline', 'theme-primary') as $class) {
           $tags->remove_class($class);
         }
+        // WooCommerce adds the click action to .wp-block-button__link, which block-buttons.php already replaced
+        // with Bootstrap classes, so the button had no action
+        if (null === $tags->get_attribute('data-wp-on--click')) {
+          $tags->set_attribute('data-wp-on--click', 'actions.removeAll');
+        }
         $tags->add_class(apply_filters('bootscore/class/woocommerce/block/product-filters/clear', 'btn-outline theme-danger btn-sm'));
         $in_clear = false;
         continue;
