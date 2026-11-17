@@ -134,9 +134,11 @@ WooCommerce Cart - Bootscore v7.0.0
           grid-column: 2;
         }
 
+        // Trash icon in the title line, not centered between title and excerpt
         > .product-remove {
           grid-row: 1;
           grid-column: 3;
+          align-self: start;
         }
 
         > :is(.product-price, .product-quantity, .product-subtotal) {
