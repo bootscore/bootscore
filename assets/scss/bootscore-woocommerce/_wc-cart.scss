@@ -1,0 +1,279 @@
+/*--------------------------------------------------------------
+WooCommerce Cart - Bootscore v7.0.0
+--------------------------------------------------------------*/
+
+@use "../bootstrap/content";
+@use "../bootstrap/layout/breakpoints" as *;
+
+// Cart table, no class filters in cart/cart.php
+.woocommerce-cart-form__contents {
+  @extend .table;
+}
+
+// Cart totals and cross-sells headings like the checkout headings
+:is(.cart_totals, .cross-sells) > h2 {
+  @extend .h4;
+}
+
+@layer custom {
+
+  .woocommerce-cart-form__contents {
+    th,
+    td {
+      vertical-align: middle;
+    }
+
+    // Column headings in one line, they don't break letter by letter (.text-break on body) when a column is narrow,
+    // e.g. Quantity with only products sold individually (hidden quantity field) next to the full-width name column
+    thead th {
+      white-space: nowrap;
+    }
+
+    .product-remove {
+      width: 1%;
+    }
+
+    .remove {
+      color: var(--danger-fg);
+    }
+
+    .product-thumbnail {
+      width: 5rem;
+
+      // max-width: none, so the image keeps its width next to the full-width name column
+      img {
+        width: 4rem;
+        max-width: none;
+        height: auto;
+        border-radius: var(--radius-5);
+      }
+    }
+
+    // Amounts don't break (.text-break on body)
+    .amount {
+      white-space: nowrap;
+    }
+
+    // Same width in all rows and on all screens, the number input's own width differs by browser
+    .product-quantity .quantity {
+      width: 9rem;
+      max-width: 100%;
+    }
+
+    // Coupon (input and button in a row, error below) and Update cart at the end.
+    // The cell stays a table cell (colspan), so the coupon is inline-flex and Update cart floats to the end
+    td.actions {
+      .coupon {
+        display: inline-flex;
+        flex-wrap: wrap;
+        gap: var(--spacer-3);
+        width: min(100%, 28rem);
+        vertical-align: top;
+
+        .input-text {
+          flex: 1 1 0;
+          min-width: 0;
+        }
+
+        .coupon-error-notice {
+          flex-basis: 100%;
+        }
+
+        // Narrower from lg, where the table shares the row with the totals, so Update cart stays in the same line
+        @include media-breakpoint-up(lg) {
+          width: min(100%, 20rem);
+        }
+      }
+
+      > [name="update_cart"] {
+        float: inline-end;
+      }
+    }
+
+    // From md the name column takes the remaining width and lets the excerpt (.text-truncate) truncate,
+    // instead of widening the table to the excerpt's full length
+    @include media-breakpoint-up(md) {
+      td.product-name {
+        width: 100%;
+        max-width: 0;
+      }
+    }
+
+    // Stacked below md: each product as block. Thumbnail | name and remove, then price, quantity and subtotal
+    // as label (data-title) | value rows. The header row is only for screen readers
+    @include media-breakpoint-down(md) {
+      thead {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+        clip-path: inset(50%);
+        white-space: nowrap;
+      }
+
+      tr.cart_item {
+        display: grid;
+        grid-template-columns: 4rem minmax(0, 1fr) auto;
+        gap: var(--spacer-2) var(--spacer-5);
+        align-items: center;
+        padding-block: var(--spacer-5);
+        border-bottom: var(--border-width) solid var(--border-color);
+
+        > td {
+          display: block;
+          width: auto;
+          padding: 0;
+          border: 0;
+        }
+
+        // Image top lined up with the top of the title text (like vertical-align: text-top),
+        // moved down by the title's half-leading
+        > .product-thumbnail {
+          grid-row: 1 / span 4;
+          grid-column: 1;
+          align-self: start;
+          margin-block-start: calc((1lh - 1em) / 2);
+        }
+
+        > .product-name {
+          grid-row: 1;
+          grid-column: 2;
+        }
+
+        // Trash icon in the title line, not centered between title and excerpt
+        > .product-remove {
+          grid-row: 1;
+          grid-column: 3;
+          align-self: start;
+        }
+
+        > :is(.product-price, .product-quantity, .product-subtotal) {
+          display: flex;
+          grid-column: 2 / -1;
+          gap: var(--spacer-3);
+          align-items: center;
+          justify-content: space-between;
+
+          &::before {
+            font-size: var(--font-size-sm);
+            color: var(--fg-3);
+            content: attr(data-title);
+          }
+        }
+
+        // Sold individually: the quantity field is hidden (.qty-fixed), so no empty "Quantity" row.
+        // The hidden input is still submitted with the form
+        > .product-quantity:has(.qty-fixed) {
+          display: none;
+        }
+      }
+
+      // Coupon and Update cart row, Update cart below the coupon at the end
+      tr:not(.cart_item) {
+        display: block;
+
+        > td {
+          display: flex;
+          flex-wrap: wrap;
+          gap: var(--spacer-3);
+          justify-content: flex-end;
+          padding-inline: 0;
+        }
+
+        .coupon {
+          width: 100%;
+        }
+
+        [name="update_cart"] {
+          flex-basis: 100%;
+          float: none;
+        }
+      }
+    }
+  }
+
+  // Cart totals: table as card like the checkout's order review (_wc-checkout.scss), no space below the table,
+  // the button follows with the card gap
+  .cart_totals > .shop_table {
+    margin-block-end: var(--spacer-5);
+  }
+
+  // Shipping row: heading and methods in one line, destination and "Change address" (with the calculator form)
+  // full width below, also when the form is open. The cell's content takes part in the row's flex layout
+  // (specificity above the shared card rows in _wc-checkout.scss, which load later)
+  .cart_totals > .shop_table tr.shipping {
+    flex-wrap: wrap;
+    row-gap: 0;
+
+    > td {
+      display: contents;
+    }
+
+    #shipping_method {
+      margin-inline-start: auto;
+    }
+
+    :is(.woocommerce-shipping-destination, .woocommerce-shipping-calculator) {
+      flex-basis: 100%;
+      text-align: end;
+    }
+  }
+
+  .cart_totals .shipping td {
+    .woocommerce-shipping-destination {
+      margin: var(--spacer-2) 0 0;
+      font-size: var(--font-size-sm);
+      color: var(--fg-3);
+    }
+
+    .shipping-calculator-button {
+      font-size: var(--font-size-sm);
+    }
+
+    .shipping-calculator-form {
+      margin-block-start: var(--spacer-3);
+      text-align: start;
+
+      > :last-child {
+        margin-block-end: 0;
+      }
+    }
+  }
+
+  // Cross-sells heading centered with space below, like the related products and up-sells headings
+  .cross-sells > h2 {
+    margin-block-end: var(--spacer-7);
+    text-align: center;
+  }
+
+  // Layout (wc-cart.php): table, totals and cross-sells stacked below lg.
+  // From lg: table and cross-sells left, totals right over both rows (7/5 at lg, 8/4 at xl like the checkout columns).
+  // Rows auto | 1fr: the table row keeps its height, a taller totals column only grows the cross-sells row
+  .cart-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--spacer-7);
+
+    > * {
+      min-width: 0;
+    }
+
+    @include media-breakpoint-up(lg) {
+      grid-template-rows: auto 1fr;
+      grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+
+      > .cart-layout-totals {
+        grid-row: 1 / span 2;
+        grid-column: 2;
+      }
+
+      > .cross-sells {
+        grid-column: 1;
+      }
+    }
+
+    @include media-breakpoint-up(xl) {
+      grid-template-columns: minmax(0, 8fr) minmax(0, 4fr);
+    }
+  }
+}
