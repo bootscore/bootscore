@@ -205,4 +205,9 @@ WooCommerce Cart - Bootscore v7.0.0
       }
     }
   }
+
+  // Cross-sells below the columns, the same space as the row gutter (g-7)
+  .woocommerce > .cross-sells {
+    margin-block-start: var(--spacer-7);
+  }
 }
