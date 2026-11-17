@@ -157,4 +157,34 @@ WooCommerce Cart - Bootscore v7.0.0
       }
     }
   }
+
+  // Cart totals: table as card like the checkout's order review (_wc-checkout.scss), no space below the table,
+  // the button follows with the card gap
+  .cart_totals > .shop_table {
+    margin-block-end: var(--spacer-5);
+  }
+
+  // Shipping row: destination and "Change address" below the methods, the calculator form left-aligned
+  .cart_totals .shipping td {
+    min-width: 0;
+
+    .woocommerce-shipping-destination {
+      margin: var(--spacer-2) 0 0;
+      font-size: var(--font-size-sm);
+      color: var(--fg-3);
+    }
+
+    .shipping-calculator-button {
+      font-size: var(--font-size-sm);
+    }
+
+    .shipping-calculator-form {
+      margin-block-start: var(--spacer-3);
+      text-align: start;
+
+      > :last-child {
+        margin-block-end: 0;
+      }
+    }
+  }
 }

@@ -37,7 +37,8 @@ WooCommerce Checkout - Bootscore v7.0.0
   // Review table as card: column headings like a card header, products and totals like a flush list group,
   // name at the start, amount at the end. Card tokens only (an @extend of .card pulls in all its child rules).
   // Padding from the card header, so the columns line up with Product and Subtotal
-  .woocommerce-checkout-review-order-table {
+  // Order review table (checkout) and cart totals table (cart) as card
+  :is(.woocommerce-checkout-review-order-table, .cart_totals > .shop_table) {
     @include tokens(card.$card-tokens);
 
     display: flex;
@@ -94,7 +95,7 @@ WooCommerce Checkout - Bootscore v7.0.0
       text-align: end;
     }
 
-    :is(.product-total, tfoot td) {
+    :is(.product-total, tfoot td, .cart_totals td) {
       text-align: end;
     }
 
