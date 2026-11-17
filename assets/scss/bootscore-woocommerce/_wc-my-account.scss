@@ -51,11 +51,11 @@ WooCommerce My Account - Bootscore v7.0.0
     }
   }
 
-  .woocommerce-orders-table {
-    // WooCommerce prints the action buttons without whitespace between them
-    .button + .button {
-      margin-inline-start: var(--spacer-2);
-    }
+  // Order actions (Pay, View, Cancel) in the orders table and in the order details table (single order view,
+  // order received). WooCommerce prints the buttons without whitespace between them
+  .woocommerce-orders-table .button + .button,
+  .order-actions-button + .order-actions-button {
+    margin-inline-start: var(--spacer-2);
   }
 
   // Address and login/register cards, spacing like .card-body
