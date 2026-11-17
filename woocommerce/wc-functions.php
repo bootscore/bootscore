@@ -18,7 +18,6 @@ defined('ABSPATH') || exit;
 require_once get_template_directory() . '/woocommerce/inc/wc-breadcrumb.php';
 require_once get_template_directory() . '/woocommerce/inc/wc-enqueue.php';
 require_once get_template_directory() . '/woocommerce/inc/wc-forms.php';
-require_once get_template_directory() . '/woocommerce/inc/wc-floating-labels.php';
 require_once get_template_directory() . '/woocommerce/inc/wc-loop.php';
 require_once get_template_directory() . '/woocommerce/inc/wc-mini-cart.php';
 require_once get_template_directory() . '/woocommerce/inc/wc-notices.php';

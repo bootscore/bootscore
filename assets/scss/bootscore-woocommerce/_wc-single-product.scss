@@ -21,7 +21,7 @@ WooCommerce Single Product - Bootscore v7.0.0
 }
 
 // Variation labels, the template has no class filter for them
-table.variations th label {
+table.variations label {
   @extend .form-label;
 }
 
@@ -67,11 +67,6 @@ table.variations th label {
   // Variations table, stacked: label above select.
   // WooCommerce prints the Clear button after the last select and hides it with visibility: hidden,
   // positioned top end on the first label line it takes no space and the selects keep the same width.
-  // Floating labels (wc-floating-labels.php): the label is next to the select, the table head is hidden
-  table.variations tr:has(.form-floating) > th {
-    display: none;
-  }
-
   table.variations {
     &,
     tbody,
