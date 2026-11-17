@@ -41,8 +41,29 @@ WooCommerce Order received - Bootscore v7.0.0
     }
   }
 
-  // Phone and email below the address lines
-  .woocommerce-customer-details address p {
-    margin: 0;
+  // Billing and shipping address as card below its heading (no class filters in order-details-customer.php).
+  // With both addresses side by side via .col2-set, the cards in a row have the same height
+  .woocommerce-customer-details {
+    .woocommerce-column {
+      display: flex;
+      flex-direction: column;
+    }
+
+    address {
+      @include tokens(card.$card-tokens);
+
+      flex-grow: 1;
+      padding: var(--card-spacer-y) var(--card-spacer-x);
+      margin: 0;
+      color: var(--card-color);
+      background-color: var(--card-bg);
+      border: var(--card-border-width) solid var(--card-border-color);
+      border-radius: var(--card-border-radius);
+
+      // Phone and email below the address lines
+      p {
+        margin: 0;
+      }
+    }
   }
 }
