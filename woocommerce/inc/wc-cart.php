@@ -46,13 +46,13 @@ add_action('woocommerce_after_cart', function () {
 
 
 /**
- * Product name in the cart table like the mini cart title: semibold, body color, no underline
+ * Product name in the cart table like the mini cart title: semibold, body color, no underline, truncated (block for text-truncate)
  *
  * cart/cart.php prints the name as link (or plain text without permalink) through woocommerce_cart_item_name,
  * which is also used by the mini cart and the checkout. Only for the cart table rows, via its before/after cart contents hooks.
  */
 function bootscore_wc_cart_item_name($name) {
-  $classes = esc_attr(apply_filters('bootscore/class/woocommerce/cart/title', 'fw-semibold fg-body text-decoration-none'));
+  $classes = esc_attr(apply_filters('bootscore/class/woocommerce/cart/title', 'd-block fw-semibold fg-body text-decoration-none text-truncate'));
 
   if (0 === strpos(trim($name), '<a ')) {
     return preg_replace('/^\s*<a /', '<a class="' . $classes . '" ', $name, 1);
