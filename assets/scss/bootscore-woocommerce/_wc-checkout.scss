@@ -200,7 +200,8 @@ WooCommerce Checkout - Bootscore v7.0.0
       }
     }
 
-    .place-order {
+    // .place-order on the checkout, .form-row on the pay for order page
+    > .form-row {
       margin-block-end: 0;
     }
   }

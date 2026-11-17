@@ -1,0 +1,69 @@
+/*--------------------------------------------------------------
+WooCommerce Order received - Bootscore v7.0.0
+--------------------------------------------------------------*/
+
+@use "../bootstrap/content";
+@use "../bootstrap/card";
+@use "../bootstrap/mixins/tokens" as *;
+
+// Section headings of the order received page and the single order view: downloads, order details, addresses, bank details
+:is(.woocommerce-order-downloads__title, .woocommerce-order-details__title, .woocommerce-column__title, .wc-bacs-bank-details-heading) {
+  @extend .h4;
+}
+
+.wc-bacs-bank-details-account-name {
+  @extend .h6;
+}
+
+@layer custom {
+
+  // Order overview and bank details (ul.order_details, no class filters): a card with label above value,
+  // side by side as long as there is space
+  ul.order_details {
+    @include tokens(card.$card-tokens);
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 8rem), 1fr));
+    gap: var(--spacer-5);
+    padding: var(--card-spacer-y) var(--card-spacer-x);
+    margin: 0 0 var(--spacer-7);
+    font-size: var(--font-size-sm);
+    color: var(--fg-3);
+    list-style: none;
+    background-color: var(--card-bg);
+    border: var(--card-border-width) solid var(--card-border-color);
+    border-radius: var(--card-border-radius);
+
+    strong {
+      display: block;
+      font-size: var(--font-size-base);
+      color: var(--fg-body);
+    }
+  }
+
+  // Billing and shipping address as card below its heading (no class filters in order-details-customer.php).
+  // With both addresses side by side via .col2-set, the cards in a row have the same height
+  .woocommerce-customer-details {
+    .woocommerce-column {
+      display: flex;
+      flex-direction: column;
+    }
+
+    address {
+      @include tokens(card.$card-tokens);
+
+      flex-grow: 1;
+      padding: var(--card-spacer-y) var(--card-spacer-x);
+      margin: 0;
+      color: var(--card-color);
+      background-color: var(--card-bg);
+      border: var(--card-border-width) solid var(--card-border-color);
+      border-radius: var(--card-border-radius);
+
+      // Phone and email below the address lines
+      p {
+        margin: 0;
+      }
+    }
+  }
+}

@@ -9,11 +9,11 @@ WooCommerce Alerts - Bootscore v7.0.0
 // WooCommerce notices get Bootstrap alert styles.
 // Errors are a list (notices/error.php), each item is its own alert, like info and success notices.
 // Errors built as div (JS) are an alert themselves
-:is(.woocommerce-error:not(ul), ul.woocommerce-error > li, .woocommerce-info, .woocommerce-message, .woocommerce-noreviews, .woocommerce-verification-required) {
+:is(.woocommerce-error:not(ul), ul.woocommerce-error > li, .woocommerce-info, .woocommerce-message, .woocommerce-noreviews, .woocommerce-verification-required, .woocommerce-thankyou-order-received, .woocommerce-thankyou-order-failed) {
   @extend .alert;
 }
 
-:is(.woocommerce-error:not(ul), ul.woocommerce-error > li) {
+:is(.woocommerce-error:not(ul), ul.woocommerce-error > li, .woocommerce-thankyou-order-failed) {
   @extend .theme-danger;
 }
 
@@ -21,7 +21,7 @@ WooCommerce Alerts - Bootscore v7.0.0
   @extend .theme-info;
 }
 
-.woocommerce-message {
+:is(.woocommerce-message, .woocommerce-thankyou-order-received) {
   @extend .theme-success;
 }
 
@@ -48,6 +48,8 @@ WooCommerce Alerts - Bootscore v7.0.0
   .woocommerce-message,
   .woocommerce-noreviews,
   .woocommerce-verification-required,
+  .woocommerce-thankyou-order-received,
+  .woocommerce-thankyou-order-failed,
   .single_variation > p[role="alert"] {
     align-items: center;
     margin: 0 0 var(--spacer-5);

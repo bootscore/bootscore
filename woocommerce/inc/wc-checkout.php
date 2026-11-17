@@ -184,19 +184,23 @@ add_filter('woocommerce_checkout_fields', function ($fields) {
  * so both are added to the output: on page load (woocommerce_checkout_payment() runs on
  * woocommerce_checkout_order_review at priority 20) and in the fragment WooCommerce sends with every checkout update.
  * The separator is only added when the methods list is shown (cart needs payment).
+ * Also used for the pay for order page (wc-order-pay.php).
  * Return an empty string from bootscore/class/woocommerce/checkout/payment-separator to remove it.
  */
 function bootscore_wc_checkout_payment_html($html) {
   $classes = trim(apply_filters('bootscore/class/woocommerce/checkout/payment', 'card card-body'));
 
+  // Checkout: <div id="payment" class="woocommerce-checkout-payment">, pay for order page: <div id="payment">
   if ($classes) {
-    $html = preg_replace('/(<div id="payment" class="woocommerce-checkout-payment)"/', '$1 ' . esc_attr($classes) . '"', $html, 1);
+    $html = preg_replace_callback('/<div id="payment"(?: class="([^"]*)")?>/', function ($m) use ($classes) {
+      return '<div id="payment" class="' . esc_attr(trim(($m[1] ?? '') . ' ' . $classes)) . '">';
+    }, $html, 1);
   }
 
   $separator = trim(apply_filters('bootscore/class/woocommerce/checkout/payment-separator', 'my-3'));
 
   if ($separator) {
-    $html = preg_replace('/(<\/ul>\s*)(<div class="form-row place-order">)/', '$1<hr class="' . esc_attr($separator) . '">$2', $html, 1);
+    $html = preg_replace('/(<\/ul>\s*)(<div class="form-row(?: place-order)?">)/', '$1<hr class="' . esc_attr($separator) . '">$2', $html, 1);
   }
 
   return $html;
