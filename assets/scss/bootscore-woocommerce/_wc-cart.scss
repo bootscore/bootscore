@@ -164,6 +164,16 @@ WooCommerce Cart - Bootscore v7.0.0
     margin-block-end: var(--spacer-5);
   }
 
+  // Shipping row with the calculator open: heading above, the cell with methods and form full width.
+  // cart.js shows and hides the form with jQuery (inline display: none), aria-expanded only changes after the animation
+  .cart_totals tr.shipping:has(.shipping-calculator-form:not([style*="none"])) {
+    flex-wrap: wrap;
+
+    > td {
+      flex-basis: 100%;
+    }
+  }
+
   // Shipping row: destination and "Change address" below the methods, the calculator form left-aligned
   .cart_totals .shipping td {
     min-width: 0;
