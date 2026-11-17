@@ -6,10 +6,9 @@ Alerts - Bootscore v7.0.0
 // get the same look as Bootstrap's .alert-link
 @layer components {
 
-  // Icon before the text (bootscore_alert_icon(), notices): in the middle of the first text line,
-  // also when the text wraps (.alert aligns its items to the start)
-  .alert > .bs-icon:first-child {
-    margin-block: calc((1lh - 1em) / 2);
+  // Icon before the text (bootscore_alert_icon()): in the vertical middle of the alert, also when the text wraps
+  .alert:has(> .bs-icon:first-child) {
+    align-items: center;
   }
 
   .alert a:not([class]) {
