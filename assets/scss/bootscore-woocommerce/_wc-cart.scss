@@ -144,6 +144,12 @@ WooCommerce Cart - Bootscore v7.0.0
             content: attr(data-title);
           }
         }
+
+        // Sold individually: the quantity field is hidden (.qty-fixed), so no empty "Quantity" row.
+        // The hidden input is still submitted with the form
+        > .product-quantity:has(.qty-fixed) {
+          display: none;
+        }
       }
 
       // Coupon and Update cart row, Update cart below the coupon at the end
