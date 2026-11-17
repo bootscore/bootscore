@@ -1,0 +1,122 @@
+/*--------------------------------------------------------------
+WooCommerce Cart - Bootscore v7.0.0
+--------------------------------------------------------------*/
+
+@use "../bootstrap/content";
+@use "../bootstrap/layout/breakpoints" as *;
+
+// Cart table, no class filters in cart/cart.php
+.woocommerce-cart-form__contents {
+  @extend .table;
+}
+
+// Cart totals and cross-sells headings like the checkout headings
+:is(.cart_totals, .cross-sells) > h2 {
+  @extend .h4;
+}
+
+@layer custom {
+
+  .woocommerce-cart-form__contents {
+    th,
+    td {
+      vertical-align: middle;
+    }
+
+    .product-remove {
+      width: 1%;
+    }
+
+    .remove {
+      color: var(--danger-fg);
+    }
+
+    .product-thumbnail {
+      width: 5rem;
+
+      img {
+        width: 4rem;
+        height: auto;
+        border-radius: var(--radius-5);
+      }
+    }
+
+    // Amounts don't break (.text-break on body)
+    .amount {
+      white-space: nowrap;
+    }
+
+    .product-quantity .quantity {
+      max-width: 9rem;
+    }
+
+    // Stacked below md: each product as block. Thumbnail | name and remove, then price, quantity and subtotal
+    // as label (data-title) | value rows. The header row is only for screen readers
+    @include media-breakpoint-down(md) {
+      thead {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+        clip-path: inset(50%);
+        white-space: nowrap;
+      }
+
+      tr.cart_item {
+        display: grid;
+        grid-template-columns: 4rem minmax(0, 1fr) auto;
+        gap: var(--spacer-2) var(--spacer-5);
+        align-items: center;
+        padding-block: var(--spacer-5);
+        border-bottom: var(--border-width) solid var(--border-color);
+
+        > td {
+          display: block;
+          width: auto;
+          padding: 0;
+          border: 0;
+        }
+
+        > .product-thumbnail {
+          grid-row: 1 / span 4;
+          grid-column: 1;
+          align-self: start;
+        }
+
+        > .product-name {
+          grid-row: 1;
+          grid-column: 2;
+        }
+
+        > .product-remove {
+          grid-row: 1;
+          grid-column: 3;
+        }
+
+        > :is(.product-price, .product-quantity, .product-subtotal) {
+          display: flex;
+          grid-column: 2 / -1;
+          gap: var(--spacer-3);
+          align-items: center;
+          justify-content: space-between;
+
+          &::before {
+            font-size: var(--font-size-sm);
+            color: var(--fg-3);
+            content: attr(data-title);
+          }
+        }
+      }
+
+      // Coupon and update cart row
+      tr:not(.cart_item) {
+        display: block;
+
+        > td {
+          display: block;
+          padding-inline: 0;
+        }
+      }
+    }
+  }
+}
