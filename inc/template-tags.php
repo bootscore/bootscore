@@ -129,6 +129,25 @@ add_filter('get_the_archive_description', function ($description) {
 /**
  * Comments
  */
+if (!function_exists('bootscore_comments_popup_link')) :
+  /**
+   * Comments link with the post title for screen readers, used by bootscore_comments() and bootscore_comment_count().
+   */
+  function bootscore_comments_popup_link() {
+    comments_popup_link(
+      sprintf(
+        wp_kses(
+          /* translators: %s: post title, only visible to screen readers */
+          __('Leave a comment<span class="visually-hidden"> on %s</span>', 'bootscore'),
+          array('span' => array('class' => array()))
+        ),
+        wp_kses_post(get_the_title())
+      )
+    );
+  }
+endif;
+
+
 if (!function_exists('bootscore_comments')) :
   /**
    * Prints HTML with meta information for the categories, tags and comments.
@@ -137,20 +156,7 @@ if (!function_exists('bootscore_comments')) :
 
     if (!is_single() && !post_password_required() && (comments_open() || get_comments_number())) {
       echo ' <span class="comment-divider">|</span> ' . bootscore_icon('comments', false) . ' <span class="comments-link">';
-      comments_popup_link(
-        sprintf(
-          wp_kses(
-          /* translators: %s: post title */
-            __('Leave a Comment', 'bootscore'),
-            array(
-              'span' => array(
-                'class' => array(),
-              ),
-            )
-          ),
-          get_the_title()
-        )
-      );
+      bootscore_comments_popup_link();
       echo '</span>';
     }
   }
@@ -196,9 +202,7 @@ if (!function_exists('bootscore_comment_count')) :
   function bootscore_comment_count() {
     if (!post_password_required() && (comments_open() || get_comments_number())) {
       echo ' <span class="comment-divider">|</span> ' . bootscore_icon('comments', false) . ' <span class="comments-link">';
-      /* translators: %s: Name of current post. Only visible to screen readers. */
-      // comments_popup_link( sprintf( __( 'Leave a comment<span class="screen-reader-text"> on %s</span>', 'bootscore' ), get_the_title() ) );
-      comments_popup_link(sprintf(__('Leave a comment', 'bootscore'), get_the_title()));
+      bootscore_comments_popup_link();
       echo '</span>';
     }
   }
