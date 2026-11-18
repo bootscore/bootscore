@@ -28,7 +28,7 @@ Bootscore combines [Bootstrap](https://getbootstrap.com) and the [Underscores](h
 
 The Bootstrap source code is included, allowing easy on-the-fly editing Bootstrap without the need for Gulp, Node, or any other technical commands. Simply add your styles, save, and let the built-in [Picosass](https://github.com/livecanvas-team/picostrap5) compiler do the rest.
 
-Bootscore comes with full [WooCommerce](https://woo.com/) support, featuring an integrated AJAX offcanvas cart.
+Bootscore comes with full [WooCommerce](https://woocommerce.com/) support, featuring an integrated AJAX offcanvas cart.
 
 This time-saving tool is designed to swiftly create clean, mobile-first projects. If you are familiar with Bootstrap and its HTML classes, you'll feel right at home and be able to build whatever you desire.
 
@@ -88,4 +88,5 @@ Like what you see? You can support us by [sponsoring](https://github.com/sponsor
 - Bootstrap 6 WordPress Navbar Walker by AlexWebLab, [MIT License](https://github.com/AlexWebLab/bootstrap-5-wordpress-navbar-walker/blob/main/LICENSE)
 - Font Awesome [Free License](https://fontawesome.com/license/free)
 - Picosass by LiveCanvas Team, [GPL v2 or later](https://github.com/livecanvas-team/picostrap5#license)
+- Dart Sass, [MIT License](https://github.com/sass/dart-sass/blob/main/LICENSE)
 
