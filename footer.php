@@ -68,7 +68,7 @@ defined('ABSPATH') || exit;
       
       <?php do_action( 'bootscore_footer_columns_before_footer_menu' ); ?>
 
-      <!-- Bootstrap 5 Nav Walker Footer Menu -->
+      <!-- Bootstrap Nav Walker Footer Menu -->
       <?php get_template_part('template-parts/footer/footer-menu'); ?>
 
       <?php do_action( 'bootscore_footer_columns_before_container_close' ); ?>
