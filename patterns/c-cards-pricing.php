@@ -3,30 +3,29 @@
  * Title: c - Cards pricing
  * Slug: bootscore/c-cards-pricing
  * Categories: bootscore
- * https://developer.wordpress.org/themes/features/block-patterns/
- * 
+ *
  * @package Bootscore
- * @version 6.2.0
+ * @version 7.0.0
  */
 
 // Exit if accessed directly
 defined('ABSPATH') || exit;
 
 ?>
-<!-- wp:group {"metadata":{"name":"c - Cards pricing - row g-3 mb-3 row-cols-1 row-cols-md-3 hide-wp-block-classes","categories":["bootscore"],"patternName":"bootscore/c.cards-pricing"},"className":"row g-3 mb-3 row-cols-1 row-cols-md-3 hide-wp-block-classes","layout":{"type":"default"}} -->
-<div class="wp-block-group row g-3 mb-3 row-cols-1 row-cols-md-3 hide-wp-block-classes"><!-- wp:group {"metadata":{"name":"col"},"className":"col","layout":{"type":"default"}} -->
-<div class="wp-block-group col"><!-- wp:group {"metadata":{"name":"card text-center h-100"},"className":"card text-center h-100"} -->
-<div class="wp-block-group card text-center h-100"><!-- wp:heading {"metadata":{"name":"card-header h4"},"className":"card-header h4"} -->
+<!-- wp:bootscore/wrapper {"cssClass":"row g-5 mb-5 row-cols-1 md:row-cols-3","metadata":{"name":"c - Cards pricing - row g-5 mb-5 row-cols-1 md:row-cols-3","categories":["bootscore"],"patternName":"bootscore/c-cards-pricing"}} -->
+<!-- wp:bootscore/wrapper {"cssClass":"col","metadata":{"name":"col"}} -->
+<!-- wp:bootscore/wrapper {"cssClass":"card text-center h-100","metadata":{"name":"card text-center h-100"}} -->
+<!-- wp:heading {"className":"card-header h4"} -->
 <h2 class="wp-block-heading card-header h4">Free</h2>
 <!-- /wp:heading -->
 
-<!-- wp:group {"metadata":{"name":"card-body h-100 d-flex flex-column"},"className":"card-body h-100 d-flex flex-column","layout":{"type":"default"}} -->
-<div class="wp-block-group card-body h-100 d-flex flex-column"><!-- wp:heading {"level":3,"metadata":{"name":"card-title"},"className":"card-title"} -->
-<h3 class="wp-block-heading card-title">$0<small class="text-body-secondary">/mo</small></h3>
+<!-- wp:bootscore/wrapper {"cssClass":"card-body","metadata":{"name":"card-body"}} -->
+<!-- wp:heading {"level":3,"className":"fs-3xl mb-0"} -->
+<h3 class="wp-block-heading fs-3xl mb-0">$0<small class="fg-secondary">/mo</small></h3>
 <!-- /wp:heading -->
 
-<!-- wp:list {"metadata":{"name":"list-unstyled mt-3 mb-4"},"className":"list-unstyled mt-3 mb-4"} -->
-<ul class="wp-block-list list-unstyled mt-3 mb-4"><!-- wp:list-item -->
+<!-- wp:list {"className":"list-unstyled my-5"} -->
+<ul class="wp-block-list list-unstyled my-5"><!-- wp:list-item -->
 <li>10 users included</li>
 <!-- /wp:list-item -->
 
@@ -43,26 +42,26 @@ defined('ABSPATH') || exit;
 <!-- /wp:list-item --></ul>
 <!-- /wp:list -->
 
-<!-- wp:paragraph {"metadata":{"name":"card-text mt-auto"},"className":"card-text mt-auto"} -->
-<p class="card-text mt-auto"><a class="btn btn-lg  btn-outline-primary d-block" href="#">Sign up for free</a></p>
-<!-- /wp:paragraph --></div>
-<!-- /wp:group --></div>
-<!-- /wp:group --></div>
-<!-- /wp:group -->
+<!-- wp:paragraph {"className":"mt-auto mb-0"} -->
+<p class="mt-auto mb-0"><a class="btn-outline btn-lg theme-primary w-100" href="#">Sign up for free</a></p>
+<!-- /wp:paragraph -->
+<!-- /wp:bootscore/wrapper -->
+<!-- /wp:bootscore/wrapper -->
+<!-- /wp:bootscore/wrapper -->
 
-<!-- wp:group {"metadata":{"name":"col"},"className":"col","layout":{"type":"default"}} -->
-<div class="wp-block-group col"><!-- wp:group {"metadata":{"name":"card text-center h-100 border-primary"},"className":"card text-center h-100 border-primary"} -->
-<div class="wp-block-group card text-center h-100 border-primary"><!-- wp:heading {"metadata":{"name":"card-header h4 text-bg-primary border-primary"},"className":"card-header h4 text-bg-primary border-primary"} -->
-<h2 class="wp-block-heading card-header h4 text-bg-primary border-primary">Pro</h2>
+<!-- wp:bootscore/wrapper {"cssClass":"col","metadata":{"name":"col"}} -->
+<!-- wp:bootscore/wrapper {"cssClass":"card text-center h-100 border-primary","metadata":{"name":"card text-center h-100 border-primary"}} -->
+<!-- wp:heading {"className":"card-header h4 theme-primary"} -->
+<h2 class="wp-block-heading card-header h4 theme-primary">Pro</h2>
 <!-- /wp:heading -->
 
-<!-- wp:group {"metadata":{"name":"card-body h-100 d-flex flex-column"},"className":"card-body h-100 d-flex flex-column","layout":{"type":"default"}} -->
-<div class="wp-block-group card-body h-100 d-flex flex-column"><!-- wp:heading {"level":3,"metadata":{"name":"card-title"},"className":"card-title"} -->
-<h3 class="wp-block-heading card-title">$15<small class="text-body-secondary">/mo</small></h3>
+<!-- wp:bootscore/wrapper {"cssClass":"card-body","metadata":{"name":"card-body"}} -->
+<!-- wp:heading {"level":3,"className":"fs-3xl mb-0"} -->
+<h3 class="wp-block-heading fs-3xl mb-0">$15<small class="fg-secondary">/mo</small></h3>
 <!-- /wp:heading -->
 
-<!-- wp:list {"metadata":{"name":"list-unstyled mt-3 mb-4"},"className":"list-unstyled mt-3 mb-4"} -->
-<ul class="wp-block-list list-unstyled mt-3 mb-4"><!-- wp:list-item -->
+<!-- wp:list {"className":"list-unstyled my-5"} -->
+<ul class="wp-block-list list-unstyled my-5"><!-- wp:list-item -->
 <li>20 users included</li>
 <!-- /wp:list-item -->
 
@@ -79,26 +78,26 @@ defined('ABSPATH') || exit;
 <!-- /wp:list-item --></ul>
 <!-- /wp:list -->
 
-<!-- wp:paragraph {"metadata":{"name":"card-text mt-auto"},"className":"card-text mt-auto"} -->
-<p class="card-text mt-auto"><a class="btn btn-lg  btn-primary d-block" href="#">Get started</a></p>
-<!-- /wp:paragraph --></div>
-<!-- /wp:group --></div>
-<!-- /wp:group --></div>
-<!-- /wp:group -->
+<!-- wp:paragraph {"className":"mt-auto mb-0"} -->
+<p class="mt-auto mb-0"><a class="btn-solid btn-lg theme-primary w-100" href="#">Get started</a></p>
+<!-- /wp:paragraph -->
+<!-- /wp:bootscore/wrapper -->
+<!-- /wp:bootscore/wrapper -->
+<!-- /wp:bootscore/wrapper -->
 
-<!-- wp:group {"metadata":{"name":"col"},"className":"col","layout":{"type":"default"}} -->
-<div class="wp-block-group col"><!-- wp:group {"metadata":{"name":"card text-center h-100"},"className":"card text-center h-100"} -->
-<div class="wp-block-group card text-center h-100"><!-- wp:heading {"metadata":{"name":"card-header h4"},"className":"card-header h4"} -->
+<!-- wp:bootscore/wrapper {"cssClass":"col","metadata":{"name":"col"}} -->
+<!-- wp:bootscore/wrapper {"cssClass":"card text-center h-100","metadata":{"name":"card text-center h-100"}} -->
+<!-- wp:heading {"className":"card-header h4"} -->
 <h2 class="wp-block-heading card-header h4">Enterprise</h2>
 <!-- /wp:heading -->
 
-<!-- wp:group {"metadata":{"name":"card-body h-100 d-flex flex-column"},"className":"card-body h-100 d-flex flex-column","layout":{"type":"default"}} -->
-<div class="wp-block-group card-body h-100 d-flex flex-column"><!-- wp:heading {"level":3,"metadata":{"name":"card-title"},"className":"card-title"} -->
-<h3 class="wp-block-heading card-title">$29<small class="text-body-secondary">/mo</small></h3>
+<!-- wp:bootscore/wrapper {"cssClass":"card-body","metadata":{"name":"card-body"}} -->
+<!-- wp:heading {"level":3,"className":"fs-3xl mb-0"} -->
+<h3 class="wp-block-heading fs-3xl mb-0">$29<small class="fg-secondary">/mo</small></h3>
 <!-- /wp:heading -->
 
-<!-- wp:list {"metadata":{"name":"list-unstyled mt-3 mb-4"},"className":"list-unstyled mt-3 mb-4"} -->
-<ul class="wp-block-list list-unstyled mt-3 mb-4"><!-- wp:list-item -->
+<!-- wp:list {"className":"list-unstyled my-5"} -->
+<ul class="wp-block-list list-unstyled my-5"><!-- wp:list-item -->
 <li>30 users included</li>
 <!-- /wp:list-item -->
 
@@ -115,10 +114,10 @@ defined('ABSPATH') || exit;
 <!-- /wp:list-item --></ul>
 <!-- /wp:list -->
 
-<!-- wp:paragraph {"metadata":{"name":"card-text mt-auto"},"className":"card-text mt-auto"} -->
-<p class="card-text mt-auto"><a class="btn btn-lg  btn-primary d-block" href="https://themes.bootscore.me/boilerplate/contact/">Contact us</a></p>
-<!-- /wp:paragraph --></div>
-<!-- /wp:group --></div>
-<!-- /wp:group --></div>
-<!-- /wp:group --></div>
-<!-- /wp:group -->
+<!-- wp:paragraph {"className":"mt-auto mb-0"} -->
+<p class="mt-auto mb-0"><a class="btn-solid btn-lg theme-primary w-100" href="#">Contact us</a></p>
+<!-- /wp:paragraph -->
+<!-- /wp:bootscore/wrapper -->
+<!-- /wp:bootscore/wrapper -->
+<!-- /wp:bootscore/wrapper -->
+<!-- /wp:bootscore/wrapper -->

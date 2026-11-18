@@ -3,18 +3,17 @@
  * Title: l - Container
  * Slug: bootscore/l-container
  * Categories: bootscore
- * https://developer.wordpress.org/themes/features/block-patterns/
- * 
+ *
  * @package Bootscore
- * @version 6.2.0
+ * @version 7.0.0
  */
 
 // Exit if accessed directly
 defined('ABSPATH') || exit;
 
 ?>
-<!-- wp:group {"metadata":{"name":"l - Container - container hide-wp-block-classes","categories":["bootscore"],"patternName":"bootscore/l.container"},"className":"container hide-wp-block-classes","layout":{"type":"default"}} -->
-<div class="wp-block-group container hide-wp-block-classes"><!-- wp:paragraph -->
-<p>This is a <code>container</code></p>
-<!-- /wp:paragraph --></div>
-<!-- /wp:group -->
+<!-- wp:bootscore/wrapper {"cssClass":"container","metadata":{"name":"l - Container - container","categories":["bootscore"],"patternName":"bootscore/l-container"}} -->
+<!-- wp:paragraph {"className":"mb-0"} -->
+<p class="mb-0">Content inside a <code>container</code>. Use it on the <code>Blank</code> page template.</p>
+<!-- /wp:paragraph -->
+<!-- /wp:bootscore/wrapper -->

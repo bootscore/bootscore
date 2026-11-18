@@ -42,7 +42,7 @@ require_once get_template_directory() . '/inc/updater/updater-config.php';  // L
 
 // Blocks
 // Patterns
-require_once get_template_directory() . '/inc/blocks/patterns.php'; // Register pattern category and script to hide wp-block classes
+require_once get_template_directory() . '/inc/blocks/patterns.php'; // Register pattern category
 
 // Widgets
 require_once get_template_directory() . '/inc/blocks/block-widget-archives.php';        // Archive block
