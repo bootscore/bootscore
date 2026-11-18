@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Deprecated
+ * WooCommerce Legacy
  *
  * @package Bootscore
  * @version 7.0.0
