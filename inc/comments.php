@@ -90,7 +90,7 @@ if (!function_exists('bootscore_comment')) :
               </p>
 
               <?php if ('0' == $comment->comment_approved) : ?>
-                <p class="comment-awaiting-moderation alert theme-info"><?php _e('Your comment is awaiting moderation.', 'bootscore'); ?></p>
+                <p class="comment-awaiting-moderation alert theme-info"><?= bootscore_alert_content(esc_html__('Your comment is awaiting moderation.', 'bootscore')); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></p>
               <?php endif; ?>
 
               <?php comment_text(); ?>

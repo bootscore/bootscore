@@ -5,6 +5,12 @@ Alerts - Bootscore v7.0.0
 // Plain links in alerts (e.g. WordPress and WooCommerce notices)
 // get the same look as Bootstrap's .alert-link
 @layer components {
+
+  // Icon before the text (bootscore_alert_icon()): in the vertical middle of the alert, also when the text wraps
+  .alert:has(> .bs-icon:first-child) {
+    align-items: center;
+  }
+
   .alert a:not([class]) {
     font-weight: var(--font-weight-semibold);
     color: var(--alert-link-color);

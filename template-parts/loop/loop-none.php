@@ -14,6 +14,6 @@ defined('ABSPATH') || exit;
 ?>
 
 
-<div class="alert theme-info align-items-center" role="alert">
-  <?php esc_html_e('No content found.', 'bootscore'); ?>
+<div class="alert theme-info mb-5" role="alert">
+  <?= bootscore_alert_content(esc_html__('No content found.', 'bootscore')); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 </div>

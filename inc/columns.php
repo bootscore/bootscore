@@ -16,7 +16,7 @@ defined('ABSPATH') || exit;
  *
  * @param string $string The default CSS class for the main column.
  *
- * @return string The CSS class for the main column. If a sidebar is active, it will return "col-md-8 col-lg-9". Otherwise, it will return the provided $string.
+ * @return string The CSS class for the main column. If a sidebar is active, it will return "lg:col-9". Otherwise, it will return the provided $string.
  */
 function bootscore_main_col_class_sidebar($string) {
   if (is_active_sidebar('sidebar-1')) {

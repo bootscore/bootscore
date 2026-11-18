@@ -27,14 +27,14 @@ require_once get_template_directory() . '/inc/enqueue.php';                 // E
 require_once get_template_directory() . '/inc/excerpt.php';                 // Adds excerpt to pages
 require_once get_template_directory() . '/inc/icons.php';                   // Allowed HTML for inline SVG icons output via bootscore/icon/* filters
 require_once get_template_directory() . '/inc/alerts.php';                  // Alerts
-require_once get_template_directory() . '/inc/class-navwalker.php';         // Register the Bootstrap 5 navwalker
+require_once get_template_directory() . '/inc/class-navwalker.php';         // Register the Bootstrap navwalker
 require_once get_template_directory() . '/inc/navmenu.php';                 // Register the nav menus
 require_once get_template_directory() . '/inc/pagination.php';              // Pagination for loop and single posts
 require_once get_template_directory() . '/inc/password-protected-form.php'; // Form if post or page is protected by password
 require_once get_template_directory() . '/inc/template-tags.php';           // Meta information like author, date, comments, category and tags badges
 require_once get_template_directory() . '/inc/template-functions.php';      // Functions which enhance the theme by hooking into WordPress
 require_once get_template_directory() . '/inc/widgets.php';                 // Register widget area and disables Gutenberg in widgets
-require_once get_template_directory() . '/inc/deprecated.php';              // Fallback functions being dropped in v6
+require_once get_template_directory() . '/inc/legacy.php';                  // Legacy functions
 require_once get_template_directory() . '/inc/tinymce-editor.php';          // Fix body margin and font-family in backend if classic editor is used
 require_once get_template_directory() . '/inc/compiler/scss-compiler.php';  // Picosass SCSS compiler
 require_once get_template_directory() . '/inc/compiler/ts-compiler.php';    // TypeScript compiler

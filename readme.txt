@@ -50,12 +50,12 @@ Bootscore includes support for WooCommerce and Infinite Scroll in Jetpack.
 == Credits ==
 
 * Based on Underscores https://underscores.me/, (C) 2012-2017 Automattic, Inc., [GPLv2 or later](https://www.gnu.org/licenses/gpl-2.0.html)
-* normalize.css https://necolas.github.io/normalize.css/, (C) 2012-2016 Nicolas Gallagher and Jonathan Neal, [MIT](https://opensource.org/licenses/MIT)
-* Bootstrap https://getbootstrap.com/docs/5.0/about/license/
-* Bootstrap 5 Wordpress Navbar Walker by AlexWebLab: https://github.com/AlexWebLab/bootstrap-5-wordpress-navbar-walker
+* Bootstrap, MIT License https://github.com/twbs/bootstrap/blob/main/LICENSE
+* Bootstrap 6 WordPress Navbar Walker by AlexWebLab, MIT License https://github.com/AlexWebLab/bootstrap-5-wordpress-navbar-walker/blob/main/LICENSE
 * Comments Section Script by wp-bootstrap-starter https://github.com/afterimagedesigns/wp-bootstrap-starter
-* Font Awesome https://fontawesome.com/license/free
+* Font Awesome, Free License https://fontawesome.com/license/free
 * Picosass by LiveCanvas Team, GPL v2 or later https://github.com/livecanvas-team/picostrap5#license
+* Dart Sass, MIT License https://github.com/sass/dart-sass/blob/main/LICENSE
 
 
 == Changelog ==

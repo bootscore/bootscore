@@ -17,7 +17,7 @@ defined('ABSPATH') || exit;
 
 
 <?php
-// Bootstrap 5 Nav Walker
+// Bootstrap Nav Walker
 wp_nav_menu(array(
   'theme_location' => 'footer-menu',
   'container'      => false,

@@ -13,6 +13,11 @@ WooCommerce Mini Cart - Bootscore v7.0.0
 
 @layer custom {
 
+  // Empty cart message: icon | text, like the other notices (icon from wc-mini-cart.php)
+  .woocommerce-mini-cart__empty-message {
+    align-items: center;
+  }
+
   // Drawer: list scrolls, total and buttons stay at the bottom
   #drawer-cart {
     .drawer-body {
@@ -27,10 +32,13 @@ WooCommerce Mini Cart - Bootscore v7.0.0
       min-height: 0;
     }
 
+    // isolation: own stacking context, so positioned content with a z-index (e.g. the bs Swiper cross-sells,
+    // .swiper has z-index: 1) stays below the list's scrollbar instead of covering it
     .woocommerce-mini-cart {
       flex: 1 1 auto;
       min-height: 0;
       overflow-y: auto;
+      isolation: isolate;
     }
 
     .woocommerce-mini-cart__empty-message {

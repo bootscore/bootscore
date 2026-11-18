@@ -67,8 +67,18 @@ if (!function_exists('woocommerce_mini_cart')) :
     wc_get_template('cart/mini-cart.php', $args);
     $html = ob_get_clean();
 
+    // Empty cart message with icon and text wrapper like the other notices (wc-notices.php)
+    $html = preg_replace_callback(
+      '/(<p class="woocommerce-mini-cart__empty-message">)(.*?)(<\/p>)/s',
+      function ($matches) {
+        return $matches[1] . bootscore_wc_notice_icon('notice') . '<span class="wc-notice-text">' . trim($matches[2]) . '</span>' . $matches[3];
+      },
+      $html,
+      1
+    );
+
     $marker = '<!-- bootscore-mini-cart-footer-end -->';
-    $footer = '<div class="woocommerce-mini-cart__footer ' . esc_attr(apply_filters('bootscore/class/woocommerce/mini-cart/footer', 'drawer-footer flex-column align-items-stretch')) . '">';
+    $footer = '<div class="woocommerce-mini-cart__footer ' . esc_attr(apply_filters('bootscore/class/woocommerce/mini-cart/footer', 'drawer-footer flex-column align-items-stretch gap-1')) . '">';
 
     ob_start();
     do_action('bootscore_before_mini_cart_footer');
@@ -172,14 +182,14 @@ remove_action('woocommerce_widget_shopping_cart_buttons', 'woocommerce_widget_sh
 add_action('woocommerce_widget_shopping_cart_buttons', 'bootscore_wc_mini_cart_button_view_cart', 10);
 
 function bootscore_wc_mini_cart_button_view_cart() {
-  echo '<a href="' . esc_url(wc_get_cart_url()) . '" class="wc-forward ' . esc_attr(apply_filters('bootscore/class/woocommerce/mini-cart/button', 'btn-solid theme-secondary', 'view-cart')) . '">' . esc_html__('View cart', 'woocommerce') . '</a>';
+  echo '<a href="' . esc_url(wc_get_cart_url()) . '" class="wc-forward ' . esc_attr(apply_filters('bootscore/class/woocommerce/mini-cart/button', 'btn-solid btn-lg theme-secondary', 'view-cart')) . '">' . esc_html__('View cart', 'woocommerce') . '</a>';
 }
 
 remove_action('woocommerce_widget_shopping_cart_buttons', 'woocommerce_widget_shopping_cart_proceed_to_checkout', 20);
 add_action('woocommerce_widget_shopping_cart_buttons', 'bootscore_wc_mini_cart_button_checkout', 20);
 
 function bootscore_wc_mini_cart_button_checkout() {
-  echo '<a href="' . esc_url(wc_get_checkout_url()) . '" class="checkout wc-forward ' . esc_attr(apply_filters('bootscore/class/woocommerce/mini-cart/button', 'btn-solid theme-primary', 'checkout')) . '">' . esc_html__('Checkout', 'woocommerce') . '</a>';
+  echo '<a href="' . esc_url(wc_get_checkout_url()) . '" class="checkout wc-forward ' . esc_attr(apply_filters('bootscore/class/woocommerce/mini-cart/button', 'btn-solid btn-lg theme-primary', 'checkout')) . '">' . esc_html__('Checkout', 'woocommerce') . '</a>';
 }
 
 

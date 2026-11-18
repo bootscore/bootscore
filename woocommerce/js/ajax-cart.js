@@ -23,9 +23,11 @@ jQuery(function ($) {
   // Runs the DOM update in a View Transition while the page is visible, otherwise directly.
   // In a hidden tab (tab or window switched) the browser skips the transition and rejects its promises
   // ("Transition was aborted because of invalid state. Document hidden"). The update runs either way,
-  // the rejections are caught so nothing ends up in the console
+  // the rejections are caught so nothing ends up in the console.
+  // Also directly while a modal (e.g. the cart drawer) is open: WebKit (Safari, all iOS browsers) doesn't keep the
+  // blurred ::backdrop in the transition's snapshot, so the drawer backdrop flickered on every quantity update
   function bootscoreViewTransition(update) {
-    if (!document.startViewTransition || 'visible' !== document.visibilityState) {
+    if (!document.startViewTransition || 'visible' !== document.visibilityState || document.querySelector(':modal')) {
       update();
       return;
     }
@@ -57,7 +59,7 @@ jQuery(function ($) {
 
       // Ajax action
       $.ajax({
-        url: wc_add_to_cart_params.wc_ajax_url.toString().replace('%%endpoint%%', 'ace_add_to_cart'),
+        url: wc_add_to_cart_params.wc_ajax_url.toString().replace('%%endpoint%%', 'bootscore_add_to_cart'),
         data: formData,
         type: 'POST',
         processData: false,
@@ -137,7 +139,7 @@ jQuery(function ($) {
 
       $.ajax({
         type: 'POST',
-        url: wc_add_to_cart_params.wc_ajax_url.toString().replace('%%endpoint%%', 'ace_add_to_cart'),
+        url: wc_add_to_cart_params.wc_ajax_url.toString().replace('%%endpoint%%', 'bootscore_add_to_cart'),
         data: data,
         complete: function (response) {
           bootscoreButtonLoading(button.addClass('added'), false);

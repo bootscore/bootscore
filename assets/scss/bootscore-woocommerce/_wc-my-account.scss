@@ -13,9 +13,10 @@ WooCommerce My Account - Bootscore v7.0.0
   @extend .table;
 }
 
-// Order actions (Pay, View, Cancel). Same specificity as .woocommerce .button:not(.alt) (_wc-buttons.scss),
+// Order actions (Pay, View, Cancel) in the orders table and in the order details table (single order view,
+// order received). Same specificity as .woocommerce .button:not(.alt) (_wc-buttons.scss),
 // so the size tokens of .btn-sm, which come later, win
-.woocommerce .woocommerce-orders-table .button {
+.woocommerce :is(.woocommerce-orders-table .button, .button.order-actions-button) {
   @extend .btn-sm;
 }
 

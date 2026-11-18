@@ -118,6 +118,6 @@ add_action('woocommerce_after_template_part', function ($template_name) {
  */
 if (!function_exists('woocommerce_button_proceed_to_checkout')) {
   function woocommerce_button_proceed_to_checkout() {
-    echo '<a href="' . esc_url(wc_get_checkout_url()) . '" class="checkout-button wc-forward ' . esc_attr(apply_filters('bootscore/class/woocommerce/cart/proceed-to-checkout', 'btn-solid theme-primary w-100')) . '">' . esc_html__('Proceed to checkout', 'woocommerce') . '</a>';
+    echo '<a href="' . esc_url(wc_get_checkout_url()) . '" class="checkout-button wc-forward ' . esc_attr(apply_filters('bootscore/class/woocommerce/cart/proceed-to-checkout', 'btn-solid btn-lg theme-primary w-100')) . '">' . esc_html__('Proceed to checkout', 'woocommerce') . '</a>';
   }
 }

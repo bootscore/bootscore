@@ -60,7 +60,7 @@ add_filter('product_cat_class', 'bootscore_wc_loop_col_class');
  * Products and categories: card > image > card-body > title, rating, price, button.
  */
 function bootscore_wc_loop_card_open() {
-  echo '<div class="' . esc_attr(apply_filters('bootscore/class/woocommerce/product/card', 'card h-100 text-center')) . '">';
+  echo '<div class="' . esc_attr(apply_filters('bootscore/class/woocommerce/product/card', 'card h-100')) . '">';
 }
 
 function bootscore_wc_loop_card_body_open() {
@@ -184,10 +184,14 @@ add_filter('woocommerce_loop_add_to_cart_link', 'bootscore_loop_add_to_cart_link
 
 
 /**
- * Sale price: no underline on the new price (<ins>)
+ * Sale price: new price (<ins>) red without underline, old price (<del>) muted
+ *
+ * Everywhere WooCommerce formats a sale price: loop cards, single product, cross-sells, related products.
  */
 function bootscore_wc_format_sale_price($price, $regular_price, $sale_price) {
-  return str_replace('<ins', '<ins class="' . esc_attr(apply_filters('bootscore/class/woocommerce/sale-price', 'text-decoration-none')) . '"', $price);
+  $price = str_replace('<del', '<del class="' . esc_attr(apply_filters('bootscore/class/woocommerce/regular-price', 'fg-secondary')) . '"', $price);
+
+  return str_replace('<ins', '<ins class="' . esc_attr(apply_filters('bootscore/class/woocommerce/sale-price', 'text-decoration-none fg-danger')) . '"', $price);
 }
 add_filter('woocommerce_format_sale_price', 'bootscore_wc_format_sale_price', 10, 3);
 
@@ -210,3 +214,18 @@ function bootscore_loop_add_to_cart_args($args) {
   return $args;
 }
 add_filter('woocommerce_loop_add_to_cart_args', 'bootscore_loop_add_to_cart_args');
+
+
+/**
+ * Price suffix (e.g. "Inc. 19% VAT") in its own line and muted
+ *
+ * Everywhere WooCommerce shows a price with suffix: loop cards, single product, cross-sells.
+ */
+function bootscore_wc_price_suffix_classes($html) {
+  if (!is_string($html) || '' === $html) {
+    return $html;
+  }
+
+  return str_replace('class="woocommerce-price-suffix"', 'class="woocommerce-price-suffix ' . esc_attr(apply_filters('bootscore/class/woocommerce/price-suffix', 'd-block fg-secondary')) . '"', $html);
+}
+add_filter('woocommerce_get_price_suffix', 'bootscore_wc_price_suffix_classes');

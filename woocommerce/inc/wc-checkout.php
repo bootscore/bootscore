@@ -63,7 +63,7 @@ add_action('woocommerce_checkout_after_order_review', 'bootscore_wc_checkout_ord
  * and swaps the text from data-value and data-order_button_text, so the attributes stay.
  */
 function bootscore_wc_order_button_html($html) {
-  return preg_replace('/class="button alt[^"]*"/', 'class="' . esc_attr(apply_filters('bootscore/class/woocommerce/checkout/place-order', 'btn-solid theme-primary w-100')) . '"', $html, 1);
+  return preg_replace('/class="button alt[^"]*"/', 'class="' . esc_attr(apply_filters('bootscore/class/woocommerce/checkout/place-order', 'btn-solid btn-lg theme-primary w-100')) . '"', $html, 1);
 }
 add_filter('woocommerce_order_button_html', 'bootscore_wc_order_button_html');
 
@@ -111,9 +111,9 @@ add_filter('woocommerce_order_item_quantity_html', function ($html) {
 
 
 /**
- * Short description below the product name in the checkout review, one truncated line
+ * Excerpt below the product name in the checkout review, one truncated line
  *
- * Added after the quantity badge, so the badge stays next to the name. Variations use the parent's short description.
+ * Added after the quantity badge, so the badge stays next to the name.
  * Turn off with add_filter('bootscore/woocommerce/checkout/item-excerpt', '__return_false').
  */
 add_filter('woocommerce_checkout_cart_item_quantity', function ($html, $cart_item) {
@@ -121,15 +121,9 @@ add_filter('woocommerce_checkout_cart_item_quantity', function ($html, $cart_ite
     return $html;
   }
 
-  $product = $cart_item['data'];
-  $excerpt = $product->get_short_description();
-
-  if (!$excerpt && $product->get_parent_id()) {
-    $parent  = wc_get_product($product->get_parent_id());
-    $excerpt = $parent ? $parent->get_short_description() : '';
-  }
-
-  $excerpt = trim(wp_strip_all_tags($excerpt));
+  // Like the mini cart and cart: the product's excerpt (short description, or the start of the description).
+  // Variations use the parent's (product_id is the parent)
+  $excerpt = trim(wp_strip_all_tags(get_the_excerpt($cart_item['product_id'] ?? $cart_item['data']->get_id())));
 
   if (!$excerpt) {
     return $html;
