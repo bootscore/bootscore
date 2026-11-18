@@ -59,7 +59,7 @@ jQuery(function ($) {
 
       // Ajax action
       $.ajax({
-        url: wc_add_to_cart_params.wc_ajax_url.toString().replace('%%endpoint%%', 'ace_add_to_cart'),
+        url: wc_add_to_cart_params.wc_ajax_url.toString().replace('%%endpoint%%', 'bootscore_add_to_cart'),
         data: formData,
         type: 'POST',
         processData: false,
@@ -139,7 +139,7 @@ jQuery(function ($) {
 
       $.ajax({
         type: 'POST',
-        url: wc_add_to_cart_params.wc_ajax_url.toString().replace('%%endpoint%%', 'ace_add_to_cart'),
+        url: wc_add_to_cart_params.wc_ajax_url.toString().replace('%%endpoint%%', 'bootscore_add_to_cart'),
         data: data,
         complete: function (response) {
           bootscoreButtonLoading(button.addClass('added'), false);
