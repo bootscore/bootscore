@@ -14,26 +14,43 @@ defined('ABSPATH') || exit;
 
 /**
  * Allowed HTML for inline SVG icons output via bootscore/icon/* filters.
- * Extends the standard 'post' allowed tags with svg + path.
+ * Extends the standard 'post' allowed tags with svg and its basic shapes.
  */
 function bootscore_kses_allowed_svg( $tags = array() ) {
 
+  // Presentation attributes shared by all shapes, so icons from other sets (stroke-based, grouped) keep working
+  $shape = array(
+    'fill'            => true,
+    'fill-rule'       => true,
+    'clip-rule'       => true,
+    'stroke'          => true,
+    'stroke-width'    => true,
+    'stroke-linecap'  => true,
+    'stroke-linejoin' => true,
+    'opacity'         => true,
+    'transform'       => true,
+  );
+
   $svg_tags = array(
-    'svg' => array(
-      'class'    => true,
-      'xmlns'    => true,
-      'viewbox'  => true, // matched case-insensitively, output keeps original casing
-      'width'    => true,
-      'height'   => true,
-      'fill'     => true,
+    'svg' => array_merge($shape, array(
+      'class'       => true,
+      'xmlns'       => true,
+      'viewbox'     => true, // kses lowercases it, browsers restore viewBox when parsing inline SVG
+      'width'       => true,
+      'height'      => true,
       'aria-hidden' => true,
-      'role'     => true,
-      'focusable' => true,
-    ),
-    'path' => array(
-      'd'    => true,
-      'fill' => true,
-    ),
+      'role'        => true,
+      'focusable'   => true,
+    )),
+    'g'        => $shape,
+    'path'     => array_merge($shape, array('d' => true)),
+    'circle'   => array_merge($shape, array('cx' => true, 'cy' => true, 'r' => true)),
+    'ellipse'  => array_merge($shape, array('cx' => true, 'cy' => true, 'rx' => true, 'ry' => true)),
+    'rect'     => array_merge($shape, array('x' => true, 'y' => true, 'width' => true, 'height' => true, 'rx' => true, 'ry' => true)),
+    'line'     => array_merge($shape, array('x1' => true, 'y1' => true, 'x2' => true, 'y2' => true)),
+    'polyline' => array_merge($shape, array('points' => true)),
+    'polygon'  => array_merge($shape, array('points' => true)),
+    'title'    => array(),
   );
 
   return array_merge( $tags, $svg_tags );
@@ -49,7 +66,7 @@ if (!function_exists('bootscore_icon_defaults')) {
    * Returns the default SVG markup for a given icon name.
    * Each icon is still individually filterable via bootscore/icon/{name}.
    *
-   * @param string $name Icon name (search, trash, home, tag, comments, arrow-rotate, menu, chevron-up).
+   * @param string $name Icon name, a key of the array below.
    * @return string Default SVG markup, or empty string if the icon name is unknown.
    */
   function bootscore_icon_defaults($name) {
