@@ -24,7 +24,7 @@ defined('ABSPATH') || exit;
 function bootscore_wc_single_product_row_open() {
   echo '<div class="' . esc_attr(apply_filters('bootscore/class/woocommerce/single-product/row', 'row g-7 mb-12')) . '">';
   echo '<div class="' . esc_attr(apply_filters('bootscore/class/woocommerce/single-product/gallery-col', 'md:col-6')) . '">';
-  echo '<div class="' . esc_attr(apply_filters('bootscore/class/woocommerce/single-product/gallery-wrapper', 'position-relative')) . '">';
+  echo '<div class="' . esc_attr(apply_filters('bootscore/class/woocommerce/single-product/gallery/wrapper', 'position-relative')) . '">';
 }
 add_action('woocommerce_before_single_product_summary', 'bootscore_wc_single_product_row_open', 1);
 
