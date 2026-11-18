@@ -13,19 +13,6 @@ defined('ABSPATH') || exit;
 
 
 /**
- * Comment reply
- */
-function bootscore_reply() {
-
-  if (is_singular() && comments_open() && get_option('thread_comments')) {
-    wp_enqueue_script('comment-reply');
-  }
-}
-
-add_action('wp_enqueue_scripts', 'bootscore_reply');
-
-
-/**
  * Comment walker with filterable class on the replies list
  */
 if (!class_exists('Bootscore_Walker_Comment')) :
@@ -39,7 +26,7 @@ if (!class_exists('Bootscore_Walker_Comment')) :
       }
 
       $tag   = ('ol' === $args['style']) ? 'ol' : 'ul';
-      $class = trim('children ' . apply_filters('bootscore/class/comment/children', '', $depth));
+      $class = trim('children ' . apply_filters('bootscore/class/comment/children', 'list-unstyled ms-12', $depth));
 
       $output .= '<' . $tag . ' class="' . esc_attr($class) . '">' . "\n";
     }
@@ -119,18 +106,10 @@ endif;
 
 
 /**
- * Nested comments <ul>
- */
-add_filter('bootscore/class/comment/children', function ($class) {
-  return 'list-unstyled ms-12';
-});
-
-
-/**
  * h2 Reply Title
  */
-add_filter('comment_form_defaults', 'custom_reply_title');
-function custom_reply_title($defaults) {
+add_filter('comment_form_defaults', 'bootscore_comment_reply_title');
+function bootscore_comment_reply_title($defaults) {
   $defaults['title_reply_before'] = '<h2 id="reply-title" class="h4">';
   $defaults['title_reply_after']  = '</h2>';
 
@@ -162,23 +141,27 @@ add_filter('comment_form_default_fields', 'bootscore_change_comment_form_cookies
 
 
 /**
- * Open comment author link in new tab
- */
-add_filter('get_comment_author_link', 'open_comment_author_link_in_new_window');
-function open_comment_author_link_in_new_window($author_link) {
-  return str_replace("<a", "<a target='_blank'", $author_link);
-}
-
-
-/**
  * Open links in comments in new tab
+ *
+ * WordPress already adds rel="nofollow ugc" to these links, so only target and noopener are added.
  */
-if (!function_exists('bs_comment_links_in_new_tab')) :
-  function bs_comment_links_in_new_tab($text) {
-    return str_replace('<a', '<a target="_blank" rel="nofollow"', $text);
+if (!function_exists('bootscore_comment_links_new_tab')) :
+  function bootscore_comment_links_new_tab($html) {
+    $tags = new WP_HTML_Tag_Processor($html);
+
+    while ($tags->next_tag('a')) {
+      $tags->set_attribute('target', '_blank');
+      $rel = trim((string) $tags->get_attribute('rel'));
+      if (!preg_match('/\bnoopener\b/', $rel)) {
+        $tags->set_attribute('rel', trim($rel . ' noopener'));
+      }
+    }
+
+    return $tags->get_updated_html();
   }
 
-  add_filter('comment_text', 'bs_comment_links_in_new_tab');
+  add_filter('comment_text', 'bootscore_comment_links_new_tab');
+  add_filter('get_comment_author_link', 'bootscore_comment_links_new_tab');
 endif;
 
 
@@ -197,7 +180,7 @@ add_filter('cancel_comment_reply_link', function ($link_html) {
  */
 if (!function_exists('bootscore_comment_button')) :
   function bootscore_comment_button($args) {
-    $args['class_submit'] = 'btn-solid theme-primary'; // since WP 4.1
+    $args['class_submit'] = apply_filters('bootscore/class/comment/submit', 'btn-solid theme-primary');
 
     return $args;
   }
