@@ -45,7 +45,7 @@
      * 3. Adds a badge with the woocommecerce out of stock message that is removeable via filter
      */
     function bootscore_ajax_cart_btn_loader() {
-      return '<span class="btn-loader ' . esc_attr(apply_filters('bootscore/class/woocommerce/btn-loader', 'spinner-border position-absolute top-0 bottom-0 start-0 end-0 m-auto')) . '" role="status" hidden><span class="visually-hidden">' . esc_html__('Loading...', 'bootscore') . '</span></span>';
+      return '<span class="btn-loader ' . esc_attr(apply_filters('bootscore/class/woocommerce/ajax-cart/loader', 'spinner-border position-absolute top-0 bottom-0 start-0 end-0 m-auto')) . '" role="status" hidden><span class="visually-hidden">' . esc_html__('Loading...', 'bootscore') . '</span></span>';
     }
 
     function bootscore_add_btn_loader_to_loop($html, $product, $args) {
@@ -65,7 +65,7 @@
 
       // Check if product is in stock
       if ( !$product->is_in_stock() &&
-           apply_filters('bootscore/woocommerce/loop/show-out-of-stock-badge', true, $product) ) {
+           apply_filters('bootscore/woocommerce/loop/out-of-stock-badge', true, $product) ) {
 
         $badge_html =
           '<p class="' . apply_filters('bootscore/class/woocommerce/loop/out-of-stock-badge', 'badge bg-secondary text-wrap mt-2 mb-0')  . '">' .
@@ -113,8 +113,8 @@
 
       ob_start();
       // Border is only visible while a toast is shown (_wc-mini-cart.scss)
-      $border = ' ' . apply_filters('bootscore/class/woocommerce/toast-container/border', 'border-top');
-      echo '<div class="toast-container ' . esc_attr(apply_filters('bootscore/class/woocommerce/toast-container', 'position-static w-100 overflow-hidden px-5') . $border) . '">';
+      $border = ' ' . apply_filters('bootscore/class/woocommerce/ajax-cart/toast-container/border', 'border-top');
+      echo '<div class="toast-container ' . esc_attr(apply_filters('bootscore/class/woocommerce/ajax-cart/toast-container', 'position-static w-100 overflow-hidden px-5') . $border) . '">';
 
       $atLeastOneNotice = false;
       foreach ($notice_types as $notice_type) {

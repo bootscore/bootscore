@@ -221,7 +221,7 @@ function bootscore_wc_mini_cart_item_details($html, $cart_item, $cart_item_key) 
   if (apply_filters('bootscore/woocommerce/mini-cart/item-excerpt', true)) {
     $excerpt = wp_strip_all_tags(get_the_excerpt($product_id));
     if ($excerpt) {
-      $before .= '<p class="mini-cart-item-excerpt ' . esc_attr(apply_filters('bootscore/class/woocommerce/mini-cart/excerpt', 'fs-sm fg-secondary text-truncate mb-0')) . '">' . esc_html($excerpt) . '</p>';
+      $before .= '<p class="mini-cart-item-excerpt ' . esc_attr(apply_filters('bootscore/class/woocommerce/mini-cart/item-excerpt', 'fs-sm fg-secondary text-truncate mb-0')) . '">' . esc_html($excerpt) . '</p>';
     }
   }
 
@@ -238,7 +238,7 @@ function bootscore_wc_mini_cart_item_details($html, $cart_item, $cart_item_key) 
     }
 
     if ($stock_message) {
-      $before .= '<span class="mini-cart-item-stock ' . esc_attr(apply_filters('bootscore/class/woocommerce/mini-cart/stock', 'badge theme-danger')) . '">' . esc_html($stock_message) . '</span>';
+      $before .= '<span class="mini-cart-item-stock ' . esc_attr(apply_filters('bootscore/class/woocommerce/mini-cart/item-stock', 'badge theme-danger')) . '">' . esc_html($stock_message) . '</span>';
     }
   }
 

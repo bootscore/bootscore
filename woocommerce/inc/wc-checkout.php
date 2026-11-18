@@ -92,7 +92,7 @@ add_action('woocommerce_review_order_after_cart_contents', function () {
  * (<del>2</del> <ins>1</ins>), so the order filter keeps the inner HTML.
  */
 function bootscore_wc_quantity_badge($quantity_html) {
-  $classes = apply_filters('bootscore/class/woocommerce/item-quantity', 'badge badge-subtle theme-primary');
+  $classes = apply_filters('bootscore/class/woocommerce/checkout/item-quantity', 'badge badge-subtle theme-primary');
 
   return ' <span class="product-quantity ' . esc_attr($classes) . '"><span class="visually-hidden">' . esc_html__('Quantity', 'woocommerce') . ': </span>' . $quantity_html . '</span>';
 }
