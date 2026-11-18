@@ -193,7 +193,7 @@ if (!function_exists('woocommerce_template_single_meta')) :
       };
     };
     $cat_badge = $badge(apply_filters('bootscore/class/badge/category', 'badge', 'woocommerce'));
-    $tag_badge = $badge(apply_filters('bootscore/class/badge/tag', 'badge', 'woocommerce'), apply_filters('bootscore/show/tag/icon', true) ? bootscore_icon('tag', false) . ' ' : '');
+    $tag_badge = $badge(apply_filters('bootscore/class/badge/tag', 'badge', 'woocommerce'), apply_filters('bootscore/meta/tag-icon', true) ? bootscore_icon('tag', false) . ' ' : '');
 
     add_filter('term_links-product_cat', $cat_badge);
     add_filter('term_links-product_tag', $tag_badge);

@@ -58,7 +58,7 @@ if (!function_exists('bootscore_date')) :
     
     // Check if modified time is different from the published time
     if (get_the_time('U') !== get_the_modified_time('U')) {
-      $show_updated_time = apply_filters('bootscore/meta/time/updated', true);
+      $show_updated_time = apply_filters('bootscore/meta/updated', true);
       
       // If filter returns false, don't display modified time
       if (!$show_updated_time) {
@@ -231,7 +231,7 @@ if (!function_exists('bootscore_tags')) :
     }
 
     $class = apply_filters('bootscore/class/badge/tag', 'badge', $context);
-    $icon  = apply_filters('bootscore/show/tag/icon', true) ? bootscore_icon('tag', false) . ' ' : '';
+    $icon  = apply_filters('bootscore/meta/tag-icon', true) ? bootscore_icon('tag', false) . ' ' : '';
 
     echo '<p class="' . esc_attr(apply_filters('bootscore/class/badge/tag/wrapper', 'tags-badge d-flex flex-wrap gap-1', $context)) . '">';
 
