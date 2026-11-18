@@ -45,7 +45,7 @@ if (!function_exists('bootscore_breadcrumb')) :
       return;
     }
 
-    echo '<nav aria-label="breadcrumb" class="' . esc_attr(apply_filters('bootscore/class/breadcrumb/nav', 'overflow-x-auto text-nowrap', $context)) . '">' . PHP_EOL;
+    echo '<nav aria-label="' . esc_attr__('Breadcrumb', 'bootscore') . '" class="' . esc_attr(apply_filters('bootscore/class/breadcrumb/nav', 'overflow-x-auto text-nowrap', $context)) . '">' . PHP_EOL;
     echo '<ol class="breadcrumb ' . esc_attr(apply_filters('bootscore/class/breadcrumb/ol', 'flex-nowrap', $context)) . '">' . PHP_EOL;
 
     // Home link, first item, no divider
