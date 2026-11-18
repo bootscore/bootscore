@@ -63,7 +63,7 @@ add_action('woocommerce_checkout_after_order_review', 'bootscore_wc_checkout_ord
  * and swaps the text from data-value and data-order_button_text, so the attributes stay.
  */
 function bootscore_wc_order_button_html($html) {
-  return preg_replace('/class="button alt[^"]*"/', 'class="' . esc_attr(apply_filters('bootscore/class/woocommerce/checkout/place-order', 'btn-solid theme-primary w-100')) . '"', $html, 1);
+  return preg_replace('/class="button alt[^"]*"/', 'class="' . esc_attr(apply_filters('bootscore/class/woocommerce/checkout/place-order', 'btn-solid btn-lg theme-primary w-100')) . '"', $html, 1);
 }
 add_filter('woocommerce_order_button_html', 'bootscore_wc_order_button_html');
 
