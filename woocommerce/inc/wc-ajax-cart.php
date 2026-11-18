@@ -16,8 +16,8 @@
    * We can add and use a title="" in /loop/add-to-cart.php as well instead using this filter
    * https://github.com/bootscore/bootscore/commit/598d1f1b4454f8826985a7c2210568bd5a814fe1
    */
-  add_filter("woocommerce_loop_add_to_cart_args", "filter_wc_loop_add_to_cart_args", 20, 2);
-  function filter_wc_loop_add_to_cart_args($args, $product) {
+  add_filter("woocommerce_loop_add_to_cart_args", "bootscore_wc_loop_add_to_cart_args", 20, 2);
+  function bootscore_wc_loop_add_to_cart_args($args, $product) {
     if ($product->supports('ajax_add_to_cart') && $product->is_purchasable() && $product->is_in_stock()) {
       $args['attributes']['product-title'] = $product->get_name();
     }
@@ -294,8 +294,8 @@
     }
     add_action('woocommerce_before_mini_cart', 'bootscore_ajax_cart_nonce');
 
-    add_filter('bootscore/woocommerce/ajax-cart/update-qty/validate-update', 'validate_qty_before_update', 10, 4);
-    function validate_qty_before_update($passed, $cart_item_key, $cart_item, $qty) {
+    add_filter('bootscore/woocommerce/ajax-cart/update-qty/validate-update', 'bootscore_wc_validate_qty_before_update', 10, 4);
+    function bootscore_wc_validate_qty_before_update($passed, $cart_item_key, $cart_item, $qty) {
       // Decline the Ajax request if the product is not purchasable.
       $product = $cart_item['data'];
       if ($product) {
@@ -310,8 +310,8 @@
       return $passed;
     }
 
-    add_filter('woocommerce_widget_cart_item_quantity', 'add_minicart_quantity_fields', 10, 3);
-    function add_minicart_quantity_fields($html, $cart_item, $cart_item_key) {
+    add_filter('woocommerce_widget_cart_item_quantity', 'bootscore_wc_mini_cart_quantity_fields', 10, 3);
+    function bootscore_wc_mini_cart_quantity_fields($html, $cart_item, $cart_item_key) {
       $_product = apply_filters('woocommerce_cart_item_product', $cart_item['data'], $cart_item, $cart_item_key);
       if ($_product->is_sold_individually()) {
         $min_quantity = 1;
