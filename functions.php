@@ -34,7 +34,7 @@ require_once get_template_directory() . '/inc/password-protected-form.php'; // F
 require_once get_template_directory() . '/inc/template-tags.php';           // Meta information like author, date, comments, category and tags badges
 require_once get_template_directory() . '/inc/template-functions.php';      // Functions which enhance the theme by hooking into WordPress
 require_once get_template_directory() . '/inc/widgets.php';                 // Register widget area and disables Gutenberg in widgets
-require_once get_template_directory() . '/inc/legacy.php';                  // Fallback functions being dropped in v6
+require_once get_template_directory() . '/inc/legacy.php';                  // Legacy functions
 require_once get_template_directory() . '/inc/tinymce-editor.php';          // Fix body margin and font-family in backend if classic editor is used
 require_once get_template_directory() . '/inc/compiler/scss-compiler.php';  // Picosass SCSS compiler
 require_once get_template_directory() . '/inc/compiler/ts-compiler.php';    // TypeScript compiler
