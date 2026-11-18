@@ -64,7 +64,7 @@ require_once get_template_directory() . '/inc/blocks/block-image.php';       // 
 require_once get_template_directory() . '/inc/blocks/block-wrap.php'; // Wrapper block
 
 // Disable unsupported blocks and patterns
-if (apply_filters('bootscore/disable/unsupported/blocks', false)) {
+if (apply_filters('bootscore/block/disable-unsupported', false)) {
   require_once get_template_directory() .'/inc/blocks/disable-unsupported-blocks.php';
 }
 
