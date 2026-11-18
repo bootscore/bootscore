@@ -68,7 +68,7 @@
            apply_filters('bootscore/woocommerce/loop/out-of-stock-badge', true, $product) ) {
 
         $badge_html =
-          '<p class="' . apply_filters('bootscore/class/woocommerce/loop/out-of-stock-badge', 'badge bg-secondary text-wrap mt-2 mb-0')  . '">' .
+          '<p class="' . esc_attr(apply_filters('bootscore/class/woocommerce/loop/out-of-stock-badge', 'badge bg-secondary text-wrap mt-2 mb-0')) . '">' .
           esc_html(
             apply_filters('bootscore/woocommerce/loop/out-of-stock-badge-text',
               apply_filters('woocommerce_out_of_stock_message', __('This product is currently out of stock and unavailable.', 'woocommerce'))
