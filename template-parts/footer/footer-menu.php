@@ -17,14 +17,15 @@ defined('ABSPATH') || exit;
 
 
 <?php
-// Bootstrap Nav Walker
+// Bootstrap 6 Nav Walker
 wp_nav_menu(array(
-  'theme_location' => 'footer-menu',
-  'container'      => false,
-  'menu_class'     => '',
-  'fallback_cb'    => '__return_false',
-  'items_wrap'     => '<ul id="footer-menu" class="nav %2$s">%3$s</ul>',
-  'depth'          => 1,
-  'walker'         => new bootstrap_6_wp_nav_menu_walker()
+  'theme_location'       => 'footer-menu',
+  'container'            => 'nav',
+  'container_aria_label' => __('Footer menu', 'bootscore'),
+  'menu_class'           => '',
+  'fallback_cb'          => '__return_false',
+  'items_wrap'           => '<ul id="footer-menu" class="nav %2$s">%3$s</ul>',
+  'depth'                => 1,
+  'walker'               => new bootstrap_6_wp_nav_menu_walker()
 ));
 ?>
