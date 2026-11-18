@@ -128,7 +128,8 @@ add_action('wp_footer', function () {
         <?php } else { ?>
         setTimeout(function () {
           const url = new URL(window.location.href);
-          url.search = "";
+          // Remove only the compiler parameters, keep the rest (e.g. ?p=123 with plain permalinks)
+          ['compile_ts', 'ts_nocache', 'autorecompile'].forEach((param) => url.searchParams.delete(param));
           window.location.href = url.href;
         }, 3000);
         <?php } ?>
