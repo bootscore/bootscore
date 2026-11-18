@@ -184,6 +184,31 @@ add_filter('woocommerce_loop_add_to_cart_link', 'bootscore_wc_loop_add_to_cart_l
 
 
 /**
+ * Out of stock badge below the button, with and without the AJAX cart
+ *
+ * Remove the badge: add_filter('bootscore/woocommerce/loop/out-of-stock-badge', '__return_false');
+ * Badge instead of the Read more button: add_filter('bootscore/woocommerce/loop/out-of-stock-remove-read-more', '__return_true');
+ */
+function bootscore_wc_loop_out_of_stock_badge($html, $product) {
+  if (!($product instanceof WC_Product) || $product->is_in_stock() || !apply_filters('bootscore/woocommerce/loop/out-of-stock-badge', true, $product)) {
+    return $html;
+  }
+
+  $badge_html =
+    '<p class="' . esc_attr(apply_filters('bootscore/class/woocommerce/loop/out-of-stock-badge', 'badge bg-secondary text-wrap mt-2 mb-0')) . '">' .
+    esc_html(apply_filters('bootscore/woocommerce/loop/out-of-stock-badge-text', apply_filters('woocommerce_out_of_stock_message', __('This product is currently out of stock and unavailable.', 'woocommerce')), $product)) .
+    '</p>';
+
+  if (apply_filters('bootscore/woocommerce/loop/out-of-stock-remove-read-more', false)) {
+    return str_replace('mt-2', 'mt-auto', $badge_html);
+  }
+
+  return $html . $badge_html;
+}
+add_filter('woocommerce_loop_add_to_cart_link', 'bootscore_wc_loop_out_of_stock_badge', 13, 2);
+
+
+/**
  * Sale price: new price (<ins>) red without underline, old price (<del>) muted
  *
  * Everywhere WooCommerce formats a sale price: loop cards, single product, cross-sells, related products.

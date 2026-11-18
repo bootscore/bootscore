@@ -16,8 +16,8 @@
    * We can add and use a title="" in /loop/add-to-cart.php as well instead using this filter
    * https://github.com/bootscore/bootscore/commit/598d1f1b4454f8826985a7c2210568bd5a814fe1
    */
-  add_filter("woocommerce_loop_add_to_cart_args", "bootscore_wc_loop_add_to_cart_args", 20, 2);
-  function bootscore_wc_loop_add_to_cart_args($args, $product) {
+  add_filter("woocommerce_loop_add_to_cart_args", "bootscore_ajax_cart_product_title_arg", 20, 2);
+  function bootscore_ajax_cart_product_title_arg($args, $product) {
     if ($product->supports('ajax_add_to_cart') && $product->is_purchasable() && $product->is_in_stock()) {
       $args['attributes']['product-title'] = $product->get_name();
     }
@@ -39,10 +39,8 @@
      */
 
     /**
-     * Handles the add to cart button adaptions in the loop
-     * 1. Adds a btn-loader element to the add to cart button if the item is in stock
-     * 2. Adds a filter to remove the "Add to cart" button if the item is out of stock
-     * 3. Adds a badge with the woocommecerce out of stock message that is removeable via filter
+     * Adds a btn-loader element to the add to cart button if the item is in stock.
+     * The out of stock badge is in wc-loop.php, it shows with and without the AJAX cart.
      */
     function bootscore_ajax_cart_btn_loader() {
       return '<span class="btn-loader ' . esc_attr(apply_filters('bootscore/class/woocommerce/ajax-cart/loader', 'spinner-border position-absolute top-0 bottom-0 start-0 end-0 m-auto')) . '" role="status" hidden><span class="visually-hidden">' . esc_html__('Loading...', 'bootscore') . '</span></span>';
@@ -61,27 +59,6 @@
       } else {
         // If the product is not purchasable, we return the original HTML without the btn-loader
         $return_html .= $html;
-      }
-
-      // Check if product is in stock
-      if ( !$product->is_in_stock() &&
-           apply_filters('bootscore/woocommerce/loop/out-of-stock-badge', true, $product) ) {
-
-        $badge_html =
-          '<p class="' . esc_attr(apply_filters('bootscore/class/woocommerce/loop/out-of-stock-badge', 'badge bg-secondary text-wrap mt-2 mb-0')) . '">' .
-          esc_html(
-            apply_filters('bootscore/woocommerce/loop/out-of-stock-badge-text',
-              apply_filters('woocommerce_out_of_stock_message', __('This product is currently out of stock and unavailable.', 'woocommerce'))
-              , $product )
-          ) .
-          '</p>';
-
-        // If the product is out of stock, we add the option to return without the "read more" button
-        if ( apply_filters('bootscore/woocommerce/loop/out-of-stock-remove-read-more', false) ) {
-          return str_replace('mt-2', 'mt-auto', $badge_html);
-        }
-
-        $return_html .= $badge_html;
       }
 
       return $return_html;
