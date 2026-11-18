@@ -16,15 +16,16 @@ defined( 'ABSPATH' ) || exit;
 
 // Unique id, so the menu can be used more than once on a page (e.g. navbar and drawer)
 $text_id = wp_unique_id('bs-theme-toggler-text-');
+$text    = apply_filters('bootscore/dark-mode/menu/button/text', __('Toggle theme', 'bootscore'));
 
 ?>
 
 <div class="dark-mode-menu">
-  <button class="<?= esc_attr( apply_filters('bootscore/class/dark-mode/menu/button', 'btn-solid') ); ?> bs-theme-toggler" type="button" aria-expanded="false" data-bs-toggle="menu" aria-label="Toggle theme (auto)">
+  <button class="<?= esc_attr( apply_filters('bootscore/class/dark-mode/menu/button', 'btn-solid') ); ?> bs-theme-toggler" type="button" aria-expanded="false" data-bs-toggle="menu" aria-label="<?= esc_attr($text); ?> (auto)">
     <span class="light icon"><?php bootscore_icon('sun'); ?></span>
     <span class="dark icon"><?php bootscore_icon('moon'); ?></span>
     <span class="auto icon"><?php bootscore_icon('circle-half-stroke'); ?></span>
-    <span id="<?= esc_attr($text_id); ?>" class="<?= esc_attr( apply_filters('bootscore/class/dark-mode/menu/button/text', 'visually-hidden') ); ?> bs-theme-toggler-text"><?= esc_html( apply_filters('bootscore/dark-mode/menu/button/text', __('Toggle theme', 'bootscore')) ); ?></span>
+    <span id="<?= esc_attr($text_id); ?>" class="<?= esc_attr( apply_filters('bootscore/class/dark-mode/menu/button/text', 'visually-hidden') ); ?> bs-theme-toggler-text"><?= esc_html($text); ?></span>
   </button>
   <div class="menu <?= esc_attr( apply_filters('bootscore/class/dark-mode/menu/menu', '') ); ?>" aria-labelledby="<?= esc_attr($text_id); ?>">
     <button type="button" class="menu-item" data-bs-theme-value="light" aria-pressed="false">

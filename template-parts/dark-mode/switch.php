@@ -5,7 +5,7 @@
  * Template Version: 7.0.0
  *
  * Output by the [bs-dark-mode] shortcode of the bs Dark Mode plugin.
- * Override it in the child theme: child-theme/template-parts/dark-mode/sc-switch.php
+ * Override it in the child theme: child-theme/template-parts/dark-mode/switch.php
  *
  * @package Bootscore
  */
