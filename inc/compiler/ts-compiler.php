@@ -51,7 +51,7 @@ function bootscore_ts_compiler_js_file() {
   return $js_dir . 'bootscore.min.js';
 }
 
-// TESTING: should the compiler run on this page load?
+// Should the compiler run on this page load?
 // True if explicitly requested via ?compile_ts=1, OR if an admin is
 // viewing the frontend and bootscore.min.js doesn't exist yet.
 function bootscore_ts_compiler_should_compile() {
