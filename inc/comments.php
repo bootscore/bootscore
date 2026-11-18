@@ -51,7 +51,7 @@ if (!function_exists('bootscore_comment')) :
 
       <li id="comment-<?php comment_ID(); ?>" <?php comment_class('media alert theme-info'); ?>>
       <div class="comment-body">
-        <?php _e('Pingback:', 'bootscore'); ?><?php comment_author_link(); ?><?php edit_comment_link(__('Edit', 'bootscore'), '<span class="edit-link">', '</span>'); ?>
+        <?php esc_html_e('Pingback:', 'bootscore'); ?><?php comment_author_link(); ?><?php edit_comment_link(__('Edit', 'bootscore'), '<span class="edit-link">', '</span>'); ?>
       </div>
 
     <?php else : ?>
