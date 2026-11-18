@@ -6,7 +6,12 @@
  * @link https://jetpack.com/
  *
  * @package Bootscore
+ * @version 7.0.0
  */
+
+
+// Exit if accessed directly
+defined('ABSPATH') || exit;
 
 /**
  * Jetpack setup function.
@@ -29,7 +34,7 @@ function bootscore_jetpack_setup() {
   // Add theme support for Content Options.
   add_theme_support('jetpack-content-options', array(
     'post-details'    => array(
-      'stylesheet' => 'bootscore-style',
+      'stylesheet' => 'bootscore',
       'date'       => '.posted-on',
       'categories' => '.cat-links',
       'tags'       => '.tags-links',

@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Sidebar left
+ * Template Name: Left Sidebar
  * Template Post Type: post
  * Template Version: 7.0.0
  *

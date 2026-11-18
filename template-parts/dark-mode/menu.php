@@ -1,13 +1,14 @@
 <?php
-/*
+
+/**
  * Dark Mode Menu Template
+ * Template Version: 7.0.0
  *
  * Output by the [bs-dark-mode] shortcode of the bs Dark Mode plugin.
  * Override it in the child theme: child-theme/template-parts/dark-mode/menu.php
  *
  * @package Bootscore
- * @version 7.0.0
-*/
+ */
 
 
 // Exit if accessed directly

@@ -1,7 +1,7 @@
 <?php
 /**
  * Template part for displaying custom loop items
- * Template Version: 6.4.0
+ * Template Version: 7.0.0
  *
  * This template provides an action hook for developers to inject
  * completely custom loop item markup.

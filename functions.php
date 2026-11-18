@@ -48,7 +48,7 @@ require_once get_template_directory() . '/inc/blocks/patterns.php'; // Register 
 require_once get_template_directory() . '/inc/blocks/block-widget-archives.php';        // Archive block
 require_once get_template_directory() . '/inc/blocks/block-widget-calendar.php';        // Calendar block
 require_once get_template_directory() . '/inc/blocks/block-widget-categories.php';      // Categories block
-require_once get_template_directory() . '/inc/blocks/block-widget-latest-comments.php'; // Latest posts block
+require_once get_template_directory() . '/inc/blocks/block-widget-latest-comments.php'; // Latest comments block
 require_once get_template_directory() . '/inc/blocks/block-widget-latest-posts.php';    // Latest posts block
 require_once get_template_directory() . '/inc/blocks/block-widget-search.php';          // Searchform block
 

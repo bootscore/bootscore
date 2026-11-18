@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Full width image
+ * Template Name: Full Width Image
  * Template Post Type: post
  * Template Version: 7.0.0
  *

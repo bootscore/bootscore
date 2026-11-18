@@ -4,7 +4,7 @@
  * Template part for displaying taxonomy TERM loop items in cards-overlay (hero template).
  * Counterpart to cards-overlay.php (posts), used by bs-loop when 'type=""'
  * is a taxonomy rather than a post type (e.g. type="category" layout="overlay").
- * Template Version: 6.5.0
+ * Template Version: 7.0.0
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
