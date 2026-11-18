@@ -37,7 +37,7 @@ if (!function_exists('bootscore_widgets_init')) :
       'name'          => esc_html__('Top Nav', 'bootscore'),
       'id'            => 'top-nav',
       'description'   => esc_html__('Add widgets here.', 'bootscore'),
-      'before_widget' => '<div class="widget top-nav-widget ' . esc_attr(apply_filters('bootscore/class/header/action/spacer', 'ms-1 ms-md-2', 'top-nav-widget')) . '">',
+      'before_widget' => '<div class="widget top-nav-widget ' . esc_attr(apply_filters('bootscore/class/header/action/spacer', 'ms-1 md:ms-2', 'top-nav-widget')) . '">',
       'after_widget'  => '</div>',
       'before_title'  => '<div class="widget-title d-none">',
       'after_title'   => '</div>'
@@ -49,7 +49,7 @@ if (!function_exists('bootscore_widgets_init')) :
       'name'          => esc_html__('Top Nav 2', 'bootscore'),
       'id'            => 'top-nav-2',
       'description'   => esc_html__('Add widgets here.', 'bootscore'),
-      'before_widget' => '<div class="widget top-nav-widget-2 ' . esc_attr(apply_filters('bootscore/class/header/top-nav-widget-2', 'd-lg-flex align-items-lg-center mt-2 lg:mt-0 lg:ms-3')) . '">',
+      'before_widget' => '<div class="widget top-nav-widget-2 ' . esc_attr(apply_filters('bootscore/class/header/top-nav-widget-2', 'lg:d-flex lg:align-items-center mt-2 lg:mt-0 lg:ms-3')) . '">',
       'after_widget'  => '</div>',
       'before_title'  => '<div class="widget-title d-none">',
       'after_title'   => '</div>'

@@ -63,12 +63,12 @@ $term_count_label = apply_filters(
 
   <div class="<?= esc_attr(apply_filters('bootscore/class/loop/card/img-overlay', 'card-img-overlay d-flex flex-column', 'cards-overlay')); ?>">
 
-    <div class="<?= esc_attr(apply_filters('bootscore/class/loop/card/img-overlay/content/wrapper', 'bg-body bg-opacity-50 bd-blur bd-saturate-150 rounded-3 p-3 mt-auto', 'cards-overlay')); ?>">
+    <div class="<?= esc_attr(apply_filters('bootscore/class/loop/card/img-overlay/content/wrapper', 'bg-body bg-50 bd-blur bd-saturate-150 rounded-3 p-3 mt-auto', 'cards-overlay')); ?>">
 
       <?php do_action('bootscore_before_loop_title', 'cards-overlay'); ?>
 
       <?php if ($term_link) : ?>
-        <a class="<?= esc_attr(apply_filters('bootscore/class/loop/card/title/link', 'text-body text-decoration-none', 'cards-overlay')); ?>" href="<?= esc_url($term_link); ?>">
+        <a class="<?= esc_attr(apply_filters('bootscore/class/loop/card/title/link', 'fg-body text-decoration-none', 'cards-overlay')); ?>" href="<?= esc_url($term_link); ?>">
           <h2 class="<?= esc_attr(apply_filters('bootscore/class/loop/card/title', 'h5', 'cards-overlay')); ?>"><?= esc_html($term->name); ?></h2>
         </a>
       <?php else : ?>
@@ -78,7 +78,7 @@ $term_count_label = apply_filters(
       <?php do_action('bootscore_after_loop_title', 'cards-overlay'); ?>
 
       <?php if (apply_filters('bootscore/loop/meta', true, 'cards-overlay') && $term->count > 0) : ?>
-        <p class="meta small mb-2 text-body-secondary">
+        <p class="meta small mb-2 fg-secondary">
           <?= esc_html($term->count . ' ' . $term_count_label); ?>
         </p>
       <?php endif; ?>
