@@ -126,10 +126,6 @@
             'notices' => array_filter($all_notices[$notice_type] ?? []),
           ]);
           echo '</div>';
-          // Issue that that would only be visible on the "first" notice of each type as they are all shown in 1 toast. therefore hidden for now.
-          // The only solution I can think of would be to rewrite the notice.php files.
-          //echo '<button type="button" class="btn-close m-auto position-absolute end-0 top-0 p-2" data-bs-dismiss="toast" aria-label="Close"></button>';
-
           echo '</div>';
 
           $atLeastOneNotice = true;
@@ -341,4 +337,4 @@
       return $output;
     }
   }
-  
+  

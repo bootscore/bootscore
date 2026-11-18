@@ -107,27 +107,16 @@ if (post_password_required()) {
   endif; ?>
 
   <?php comment_form($args = array(
-    'id_form'           => 'commentform',  // that's the wordpress default value! delete it or edit it ;)
+    'id_form'           => 'commentform',
     'id_submit'         => 'commentsubmit',
-    'title_reply'       => __('Leave a Comment', 'bootscore'),  // that's the wordpress default value! delete it or edit it ;)
-    'title_reply_to'    => __('Leave a Comment to %s', 'bootscore'),  // that's the wordpress default value! delete it or edit it ;)
-    'cancel_reply_link' => __('Cancel', 'bootscore'),  // that's the wordpress default value! delete it or edit it ;)
-    'label_submit'      => __('Post Comment', 'bootscore'),  // that's the wordpress default value! delete it or edit it ;)
+    'title_reply'       => __('Leave a Comment', 'bootscore'),
+    'title_reply_to'    => __('Leave a Comment to %s', 'bootscore'),
+    'cancel_reply_link' => __('Cancel', 'bootscore'),
+    'label_submit'      => __('Post Comment', 'bootscore'),
 
     'comment_field' => '<p><textarea placeholder="' . esc_attr__('Start typing...', 'bootscore') . '" id="comment" class="form-control" name="comment" cols="45" rows="8" aria-required="true"></textarea></p>',
 
-    /*'comment_notes_after' => '<p class="form-allowed-tags">' .
-            __( 'You may use these <abbr title="HyperText Markup Language">HTML</abbr> tags and attributes:', 'bootscore' ) .
-            '</p><div class="alert theme-info">' . allowed_tags() . '</div>'*/
-
-    // So, that was the needed stuff to have bootstrap basic styles for the form elements and buttons
-
-    // Basically you can edit everything here!
-    // Checkout the docs for more: http://codex.wordpress.org/Function_Reference/comment_form
-    // Another note: some classes are added in the bootstrap-wp.js - ckeck from line 1
-
-
-    // Custom Bootstrap Formfields
+    // Bootstrap form fields, see https://developer.wordpress.org/reference/functions/comment_form/
     'fields'        => apply_filters(
       'comment_form_default_fields',
       array(
@@ -145,7 +134,6 @@ if (post_password_required()) {
       )
 
     ),
-    // Custom Formfields End 
 
   ));
 
