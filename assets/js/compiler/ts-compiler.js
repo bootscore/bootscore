@@ -204,10 +204,8 @@ async function runTsCompiler(theCode, esbuildParams) {
 
   //SMART DEFAULTS FOR THE COMPILER
 
-  // DECISION NEEDED: 'iife' + a global (matching Bootstrap's own dist/js/bootstrap.bundle.min.js
-  // UMD-style global) keeps enqueue.php able to use a plain <script> tag, same as today.
-  // 'esm' would require switching the enqueue to <script type="module">. Flag if you'd rather
-  // go the module route instead - affects how bootscore.min.js gets loaded in enqueue.php later.
+  // 'iife' with the global `bootstrap` (like Bootstrap's own bootstrap.bundle.min.js), so enqueue.php
+  // loads bootscore.min.js with a plain <script> tag and scripts can use bootstrap.Drawer etc.
   if (!esbuildParams.bundle) esbuildParams.bundle = true;
   if (!esbuildParams.format) esbuildParams.format = 'iife';
   if (!esbuildParams.globalName) esbuildParams.globalName = 'bootstrap';
