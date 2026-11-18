@@ -79,6 +79,9 @@ function bootscore_get_main_sass() {
 // this map. Must be declared before the picosass.js <script> tag below.
 add_action('wp_head', function () {
   if (!bootscore_picosass_should_compile()) return;
+
+  $scss_compiler_file = get_template_directory() . '/assets/js/compiler/scss-compiler.js';
+  $scss_compiler_ver  = file_exists($scss_compiler_file) ? filemtime($scss_compiler_file) : '7.0.0';
   ?>
     <script type="importmap">
     {
@@ -87,7 +90,7 @@ add_action('wp_head', function () {
       }
     }
     </script>
-    <script type="module" src="<?php echo get_template_directory_uri() ?>/assets/js/compiler/scss-compiler.js"></script>
+    <script type="module" src="<?php echo get_template_directory_uri() ?>/assets/js/compiler/scss-compiler.js?v=<?php echo $scss_compiler_ver ?>"></script>
 
     <template id="the-scss" class="prevent-autocompile" baseurl="<?php echo bootscore_picosass_scss_uri() ?>"
       <?php if (is_child_theme()): ?> fallback_baseurl="<?php echo get_template_directory_uri() . '/assets/scss/' ?>" <?php endif ?> >
