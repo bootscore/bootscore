@@ -19,6 +19,9 @@
 
 # Bootscore
 
+> [!NOTE]
+> This is the development branch of Bootscore v7 (Bootstrap 6). It is work in progress and not ready for production. For the current stable version, see the [`main`](https://github.com/bootscore/bootscore/tree/main) branch and the [releases](https://github.com/bootscore/bootscore/releases).
+
 [![Github All Releases](https://img.shields.io/github/downloads/bootscore/bootscore/total.svg)](https://github.com/bootscore/bootscore/releases)
 [![Packagist Prerelease](https://img.shields.io/packagist/vpre/bootscore/bootscore?logo=packagist&logoColor=fff)](https://packagist.org/packages/bootscore/bootscore)
 [![Backers on Open Collective](https://img.shields.io/opencollective/backers/bootscore?logo=opencollective&logoColor=fff)](https://opencollective.com/bootscore)
