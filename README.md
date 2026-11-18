@@ -26,7 +26,7 @@
 
 Bootscore combines [Bootstrap](https://getbootstrap.com) and the [Underscores](https://underscores.me) theme boiler template in a compact starter theme for outstanding [WordPress](https://wordpress.org/) projects. It does not include customizer settings, logo upload functionality, or drag-and-drop features. Customization in Bootscore is entirely achievable through its `.php`, `.scss`, and `.js` files, requiring basic coding skills for editing. 
 
-The Bootstrap source code is included, allowing easy on-the-fly editing Bootstrap without the need for Gulp, Node, or any other technical commands. Simply add your styles, save, and let the built-in [scssphp](https://github.com/scssphp/scssphp) compiler do the rest.
+The Bootstrap source code is included, allowing easy on-the-fly editing Bootstrap without the need for Gulp, Node, or any other technical commands. Simply add your styles, save, and let the built-in [Picosass](https://github.com/livecanvas-team/picostrap5) compiler do the rest.
 
 Bootscore comes with full [WooCommerce](https://woo.com/) support, featuring an integrated AJAX offcanvas cart.
 
@@ -40,7 +40,7 @@ This time-saving tool is designed to swiftly create clean, mobile-first projects
   - [Discussions](#discussions)
   - [Issues](#issues)
   - [Pull requests](#pull-requests)
-  - [Blog & Twitter](#blog--twitter)
+  - [Blog](#blog)
 - [Sponsor this project](#sponsor-this-project)
 - [License & credits](#license--credits)
 
@@ -76,8 +76,8 @@ If you find a bug or have a feature idea, feel welcome to open an [issue](https:
 ### Pull requests
 We’re delighted if you'd like to contribute. Simply fork the repository, make your changes, and create a pull request. Every PR will be reviewed, and if everything looks good, we’ll merge your changes into the `main` branch.
 
-### Blog & Twitter
-For important updates, read our [blog](https://bootscore.me/category/blog/) and follow us on [Twitter](https://twitter.com/_bootscore). This way, you'll stay informed about anything new that you should know.
+### Blog
+For important updates, read our [blog](https://bootscore.me/category/blog/). This way, you'll stay informed about anything new that you should know.
 
 ## Sponsor this project
 Like what you see? You can support us by [sponsoring](https://github.com/sponsors/bootscore) this project. Every contribution is highly appreciated, as it helps us maintain high motivation and continually develop the project.
@@ -87,5 +87,5 @@ Like what you see? You can support us by [sponsoring](https://github.com/sponsor
 - Bootstrap, [MIT License](https://github.com/twbs/bootstrap/blob/main/LICENSE)
 - Bootstrap 6 WordPress Navbar Walker by AlexWebLab, [MIT License](https://github.com/AlexWebLab/bootstrap-5-wordpress-navbar-walker/blob/main/LICENSE)
 - Font Awesome [Free License](https://fontawesome.com/license/free)
-- scssphp by Leaf Corcoran, [MIT License](https://github.com/scssphp/scssphp/blob/master/LICENSE.md)
+- Picosass by LiveCanvas Team, [GPL v2 or later](https://github.com/livecanvas-team/picostrap5#license)
 
