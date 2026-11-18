@@ -63,7 +63,7 @@ defined('ABSPATH') || exit;
         <dialog class="drawer drawer-<?= esc_attr(apply_filters('bootscore/class/drawer/direction', 'end', 'menu')); ?>" tabindex="-1" id="drawer-navbar" aria-labelledby="drawer-navbar-label">
           <div class="drawer-header <?= esc_attr(apply_filters('bootscore/class/drawer/header', '', 'menu')); ?>">
             <span class="h5 drawer-title" id="drawer-navbar-label"><?= esc_html(apply_filters('bootscore/header/navbar/drawer/title', __('Menu', 'bootscore'))); ?></span>
-            <button type="button" class="btn-close text-reset" data-bs-dismiss="drawer" aria-label="<?php esc_attr_e('Close', 'bootscore'); ?>"></button>
+            <button type="button" class="btn-close" data-bs-dismiss="drawer" aria-label="<?php esc_attr_e('Close', 'bootscore'); ?>"></button>
           </div>
           <div class="drawer-body <?= esc_attr(apply_filters('bootscore/class/drawer/body', '', 'menu')); ?>">
 
