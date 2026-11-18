@@ -14,7 +14,7 @@
 defined('ABSPATH') || exit;
 
 
-if (!apply_filters('bootscore/sidebar/has_widgets', is_active_sidebar('sidebar-1'), 'sidebar-1')) {
+if (!apply_filters('bootscore/sidebar/has-widgets', is_active_sidebar('sidebar-1'), 'sidebar-1')) {
   return;
 }
 ?>

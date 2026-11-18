@@ -17,7 +17,7 @@ defined('ABSPATH') || exit;
 
 
 <!-- Drawer account -->
-<?php if (apply_filters('bootscore/enable_account', true) && !is_account_page() && !is_checkout()) : ?>
+<?php if (apply_filters('bootscore/woocommerce/account', true) && !is_account_page() && !is_checkout()) : ?>
   <dialog class="drawer drawer-<?= esc_attr(apply_filters('bootscore/class/drawer/direction', 'end', 'account')); ?>" tabindex="-1" id="drawer-account" aria-labelledby="drawer-account-label">
     <div class="drawer-header <?= esc_attr(apply_filters('bootscore/class/drawer/header', '', 'account')); ?>">
       <span class="h5 drawer-title" id="drawer-account-label"><?= esc_html(apply_filters('bootscore/header/account/drawer/title', __('Account', 'bootscore'))); ?></span>
@@ -26,7 +26,7 @@ defined('ABSPATH') || exit;
     <div class="drawer-body position-relative <?= esc_attr(apply_filters('bootscore/class/drawer/body', '', 'account')); ?>">
       <?php do_action('bootscore_before_drawer_account'); ?>
       <div class="drawer-account-content">
-        <?php if (!apply_filters('bootscore/wc_ajax_login', true)) : ?>
+        <?php if (!apply_filters('bootscore/woocommerce/ajax-login', true)) : ?>
           <?= bootscore_wc_account_drawer_content(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
         <?php endif; ?>
       </div>

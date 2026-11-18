@@ -71,7 +71,7 @@ function bootscore_picosass_should_compile() {
 function bootscore_get_main_sass() {
   $entry_file = bootscore_picosass_scss_dir() . 'bootscore.scss';
   $sass = file_exists($entry_file) ? file_get_contents($entry_file) : '';
-  return apply_filters('bootscore/compiler/main_sass', $sass);
+  return apply_filters('bootscore/compiler/main-sass', $sass);
 }
 
 
@@ -166,8 +166,8 @@ add_action('wp_ajax_bootscore_save_css_bundle', function () {
   $compiled_css = stripslashes($_POST['css']);
 
   // Off by default - enable with:
-  // add_filter('bootscore/compiler/enable_sourcemap', '__return_true');
-  $enable_sourcemap = apply_filters('bootscore/compiler/enable_sourcemap', false);
+  // add_filter('bootscore/compiler/sourcemap', '__return_true');
+  $enable_sourcemap = apply_filters('bootscore/compiler/sourcemap', false);
   $has_sourcemap    = $enable_sourcemap && isset($_POST['sourceMap']) && $_POST['sourceMap'] !== "";
 
   if ($has_sourcemap) {

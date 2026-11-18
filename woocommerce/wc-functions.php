@@ -48,10 +48,10 @@ require_once get_template_directory() . '/woocommerce/inc/blocks/wc-block-widget
  *
  * Enabled/Disabled based on the setting in backend under WooCommerce > Settings > Products > Enable AJAX add to cart buttons on archives.
  * Disable file via filter 
- * add_filter('bootscore/load_ajax_cart', '__return_false');
+ * add_filter('bootscore/woocommerce/ajax-cart', '__return_false');
  */
 function bootscore_register_ajax_cart() {
-  if (apply_filters('bootscore/load_ajax_cart', true)) {
+  if (apply_filters('bootscore/woocommerce/ajax-cart', true)) {
     $ajax_cart_en = 'yes' === get_option('woocommerce_enable_ajax_add_to_cart');
     if ($ajax_cart_en) {
       require_once get_template_directory() . '/woocommerce/inc/wc-ajax-cart.php';
@@ -67,11 +67,11 @@ add_action('after_setup_theme', 'bootscore_register_ajax_cart');
   * Disable cart page, "View Cart" button in mini-cart and redirect cart page to checkout
   *
   * Enable default cart page and buttons via filter
-  * add_filter('bootscore/skip_cart', '__return_false');
+  * add_filter('bootscore/woocommerce/skip-cart', '__return_false');
   */
 function bootscore_register_cart_file() {
   // Check the filter first
-  $skip_cart_filter = apply_filters('bootscore/skip_cart', true);
+  $skip_cart_filter = apply_filters('bootscore/woocommerce/skip-cart', true);
   // Check the AJAX cart option
   $ajax_cart_en = 'yes' === get_option('woocommerce_enable_ajax_add_to_cart');
 
@@ -91,11 +91,11 @@ add_action('after_setup_theme', 'bootscore_register_cart_file');
  * 1. Better user experience. Login happens immediately and the user can directly access his account
  * 2. Removes one of the last parts of the template that makes full page caching possible even for logged in users.
  *
- * Optout of ajax login: add_filter('bootscore/wc_ajax_login', '__return_false');
+ * Optout of ajax login: add_filter('bootscore/woocommerce/ajax-login', '__return_false');
  */
 
 function bootscore_register_ajax_login_file() {
-  if (apply_filters('bootscore/wc_ajax_login', true)) {
+  if (apply_filters('bootscore/woocommerce/ajax-login', true)) {
     require_once get_template_directory() . '/woocommerce/inc/wc-ajax-login.php';
   }
 }

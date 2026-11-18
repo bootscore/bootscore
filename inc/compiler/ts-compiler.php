@@ -66,7 +66,7 @@ function bootscore_ts_compiler_should_compile() {
 function bootscore_get_main_ts() {
   $entry_file = bootscore_ts_compiler_dir() . 'bootscore.ts';
   $ts = file_exists($entry_file) ? file_get_contents($entry_file) : '';
-  return apply_filters('bootscore/compiler/main_ts', $ts);
+  return apply_filters('bootscore/compiler/main-ts', $ts);
 }
 
 
@@ -150,8 +150,8 @@ add_action('wp_ajax_bootscore_save_js_bundle', function () {
   $compiled_js = stripslashes($_POST['js']);
 
   // Shared with the SCSS compiler - off by default, enable with:
-  // add_filter('bootscore/compiler/enable_sourcemap', '__return_true');
-  $enable_sourcemap = apply_filters('bootscore/compiler/enable_sourcemap', false);
+  // add_filter('bootscore/compiler/sourcemap', '__return_true');
+  $enable_sourcemap = apply_filters('bootscore/compiler/sourcemap', false);
   $has_sourcemap    = $enable_sourcemap && isset($_POST['sourceMap']) && $_POST['sourceMap'] !== "";
 
   if ($has_sourcemap) {

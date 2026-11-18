@@ -3,7 +3,7 @@
 /**
  * WooCommerce Cart page
  *
- * Loaded when the cart page is enabled (bootscore/skip_cart false or AJAX add to cart off), see wc-functions.php.
+ * Loaded when the cart page is enabled (bootscore/woocommerce/skip-cart false or AJAX add to cart off), see wc-functions.php.
  *
  * @package Bootscore
  * @version 7.0.0
