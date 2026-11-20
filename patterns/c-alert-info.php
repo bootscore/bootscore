@@ -12,7 +12,7 @@
 defined('ABSPATH') || exit;
 
 ?>
-<!-- wp:bootscore/wrapper {"cssClass":"alert theme-info","metadata":{"name":"c - Alert info - alert theme-info","categories":["bootscore"],"patternName":"bootscore/c-alert-info"}} -->
+<!-- wp:bootscore/wrapper {"cssClass":"alert theme-info mb-5","metadata":{"name":"c - Alert info - alert theme-info mb-5","categories":["bootscore"],"patternName":"bootscore/c-alert-info"}} -->
 <!-- wp:html -->
 <?php bootscore_icon('circle-info'); ?>
 <!-- /wp:html -->
