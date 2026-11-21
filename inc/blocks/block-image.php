@@ -25,7 +25,7 @@ if (!function_exists('bootscore_block_image_classes')) {
    */
   function bootscore_block_image_classes($block_content, $block) {
 
-    // Card images (card-img-top, card-img-bottom, card-img): Bootstrap expects the <img> itself as card child,
+    // Card images (card-img-top, card-img-bottom, card-img-start, card-img-end, card-img): Bootstrap expects the <img> itself as card child,
     // so print the image without the <figure> and move the card classes to it
     $card_image = bootscore_block_image_card($block_content);
     if ($card_image !== null) {
@@ -85,7 +85,7 @@ if (!function_exists('bootscore_block_image_card')) {
     $is_card = false;
 
     foreach ($tags->class_list() as $class) {
-      if (in_array($class, array('card-img-top', 'card-img-bottom', 'card-img'), true)) {
+      if (in_array($class, array('card-img-top', 'card-img-bottom', 'card-img-start', 'card-img-end', 'card-img'), true)) {
         $is_card = true;
       }
       // Keep the figure's own classes, drop WordPress' block classes
