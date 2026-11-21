@@ -70,7 +70,7 @@ function bootscore_wc_wrapper_start() {
       <?php do_action('bootscore_after_primary_open', 'woocommerce'); ?>
 
       <div class="row">
-        <div class="<?= esc_attr(apply_filters('bootscore/class/main/col', 'col')); ?>">
+        <div class="<?= esc_attr(apply_filters('bootscore/class/main/col', 'col', 'woocommerce')); ?>">
 
           <main id="main" class="site-main">
   <?php

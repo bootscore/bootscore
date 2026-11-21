@@ -24,7 +24,7 @@ defined('ABSPATH') || exit;
 function bootscore_wc_single_product_row_open() {
   echo '<div class="' . esc_attr(apply_filters('bootscore/class/woocommerce/single-product/row', 'row g-7 mb-12')) . '">';
   echo '<div class="' . esc_attr(apply_filters('bootscore/class/woocommerce/single-product/gallery-col', 'md:col-6')) . '">';
-  echo '<div class="' . esc_attr(apply_filters('bootscore/class/woocommerce/single-product/gallery-wrapper', 'position-relative')) . '">';
+  echo '<div class="' . esc_attr(apply_filters('bootscore/class/woocommerce/single-product/gallery/wrapper', 'position-relative')) . '">';
 }
 add_action('woocommerce_before_single_product_summary', 'bootscore_wc_single_product_row_open', 1);
 
@@ -193,7 +193,7 @@ if (!function_exists('woocommerce_template_single_meta')) :
       };
     };
     $cat_badge = $badge(apply_filters('bootscore/class/badge/category', 'badge', 'woocommerce'));
-    $tag_badge = $badge(apply_filters('bootscore/class/badge/tag', 'badge', 'woocommerce'), apply_filters('bootscore/show/tag/icon', true) ? bootscore_icon('tag', false) . ' ' : '');
+    $tag_badge = $badge(apply_filters('bootscore/class/badge/tag', 'badge', 'woocommerce'), apply_filters('bootscore/meta/tag-icon', true) ? bootscore_icon('tag', false) . ' ' : '');
 
     add_filter('term_links-product_cat', $cat_badge);
     add_filter('term_links-product_tag', $tag_badge);

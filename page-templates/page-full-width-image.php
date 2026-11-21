@@ -49,7 +49,7 @@ get_header();
           <?php do_action( 'bootscore_after_featured_image', 'page-full-width-image' ); ?>
           
           <div class="row">
-            <div class="<?= esc_attr(apply_filters('bootscore/class/main/col', 'col')); ?>">
+            <div class="<?= esc_attr(apply_filters('bootscore/class/main/col', 'col', 'page-full-width-image')); ?>">
 
               <div class="entry-content">
                 <?php the_content(); ?>

@@ -40,7 +40,7 @@ function bootscore_wc_scripts() {
     ],
     // Classes for markup built by WooCommerce's single-product.js, set in woocommerce.js
     'classes' => [
-      'galleryTrigger' => apply_filters('bootscore/class/woocommerce/single-product/gallery-trigger', 'btn-solid btn-sm btn-icon position-absolute top-0 end-0 z-2 mt-5 me-5'),
+      'galleryTrigger' => apply_filters('bootscore/class/woocommerce/single-product/gallery/trigger', 'btn-solid btn-sm btn-icon position-absolute top-0 end-0 z-2 mt-5 me-5'),
       'starRating'     => apply_filters('bootscore/class/woocommerce/star-rating', 'd-inline-flex gap-1 fg-body'),
       // Columns from woocommerce_product_thumbnails_columns, 2 more on large screens so the thumbnails stay small.
       // mt-0 replaces the negative row margin, so the space above the first row is the gutter, same as between the thumbnails
@@ -58,13 +58,13 @@ function bootscore_wc_scripts() {
   wp_enqueue_script('bootscore-woocommerce', get_template_directory_uri() . '/woocommerce/js/woocommerce.js', $deps, date('YmdHi', filemtime(__DIR__ . '/../js/woocommerce.js')), true);
 
   // Ajax login
-  if (apply_filters('bootscore/wc_ajax_login', true)) {
+  if (apply_filters('bootscore/woocommerce/ajax-login', true)) {
     wp_enqueue_script('bootscore-ajax-login', get_template_directory_uri() . '/woocommerce/js/ajax-login.js', ['jquery', 'bootscore', 'bootscore-woocommerce'], date('YmdHi', filemtime(__DIR__ . '/../js/ajax-login.js')), true);
     wp_set_script_translations('bootscore-ajax-login', 'bootscore', get_template_directory() . '/languages');
   }
 
   // Ajax cart, same condition as wc-ajax-cart.php in wc-functions.php
-  if (apply_filters('bootscore/load_ajax_cart', true) && 'yes' === get_option('woocommerce_enable_ajax_add_to_cart')) {
+  if (apply_filters('bootscore/woocommerce/ajax-cart', true) && 'yes' === get_option('woocommerce_enable_ajax_add_to_cart')) {
     wp_enqueue_script('bootscore-ajax-cart', get_template_directory_uri() . '/woocommerce/js/ajax-cart.js', ['wc-add-to-cart', 'bootscore'], date('YmdHi', filemtime(__DIR__ . '/../js/ajax-cart.js')), true);
   }
 }

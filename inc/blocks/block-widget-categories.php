@@ -51,7 +51,7 @@ if (!function_exists('bootscore_block_widget_categories_classes')) {
         ')'
       );
       $replace = array(
-        'wp-block-categories-list bs-list-group list-group',
+        'wp-block-categories-list list-group',
         'cat-item list-group-item list-group-item-action d-flex justify-content-between align-items-center',
         'current-cat active',
         '<a class="stretched-link text-decoration-none fg-reset"',

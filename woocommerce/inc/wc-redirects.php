@@ -26,7 +26,7 @@ function bootscore_wc_redirect_session() {
  * Failed login → my account
  *
  * The login form in the account drawer posts to the current page (when AJAX login is off via
- * bootscore/wc_ajax_login), the error notice would be hidden in the closed drawer.
+ * bootscore/woocommerce/ajax-login), the error notice would be hidden in the closed drawer.
  */
 function bootscore_wc_redirect_on_login_failed() {
   bootscore_wc_redirect_session();

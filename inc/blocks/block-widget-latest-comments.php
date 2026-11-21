@@ -31,7 +31,7 @@ if (!function_exists('bootscore_block_widget_latest_comments_classes')) {
       $tag = $tags->get_tag();
 
       if ('OL' === $tag && $tags->has_class('wp-block-latest-comments')) {
-        $tags->add_class('bs-list-group list-group');
+        $tags->add_class('list-group');
       } elseif ($tags->has_class('wp-block-latest-comments__comment')) {
         $tags->remove_class('wp-block-latest-comments__comment');
         $tags->add_class('list-group-item list-group-item-action fg-secondary d-flex align-items-start');

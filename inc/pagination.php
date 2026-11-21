@@ -30,8 +30,7 @@ if (!function_exists('bootscore_pagination_render')) :
     }
 
     if (1 != $pages) {
-      echo '<nav aria-label="Page navigation">';
-      echo '<span class="visually-hidden">' . esc_html__('Page navigation', 'bootscore') . '</span>';
+      echo '<nav aria-label="' . esc_attr__('Page navigation', 'bootscore') . '">';
       echo '<ul class="pagination justify-content-center mb-4">';
 
       if ($paged > 2 && $paged > $range + 1 && $showitems < $pages) {

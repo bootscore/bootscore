@@ -14,14 +14,14 @@
 defined('ABSPATH') || exit;
 
 
-if (!apply_filters('bootscore/sidebar/has_widgets', is_active_sidebar('sidebar-1'), 'sidebar-1')) {
+if (!apply_filters('bootscore/sidebar/has-widgets', is_active_sidebar('sidebar-1'), 'sidebar-1')) {
   return;
 }
 ?>
 <div class="<?= esc_attr(apply_filters('bootscore/class/sidebar/col', 'lg:col-3 order-first lg:order-2')); ?>">
   <aside id="secondary" class="widget-area">
 
-    <button class="<?= esc_attr(apply_filters('bootscore/class/drawer/breakpoint', 'lg', 'sidebar')); ?>:d-none <?= esc_attr(apply_filters('bootscore/sidebar/drawer/class/button', 'btn w-100 mb-7 d-flex justify-content-between align-items-center')); ?>" type="button" data-bs-toggle="drawer" data-bs-target="#sidebar" aria-controls="sidebar">
+    <button class="<?= esc_attr(apply_filters('bootscore/class/drawer/breakpoint', 'lg', 'sidebar')); ?>:d-none <?= esc_attr(apply_filters('bootscore/class/sidebar/drawer/button', 'btn w-100 mb-7 d-flex justify-content-between align-items-center')); ?>" type="button" data-bs-toggle="drawer" data-bs-target="#sidebar" aria-controls="sidebar">
       <?= esc_html(apply_filters('bootscore/sidebar/drawer/button/text', __('Open side menu', 'bootscore'))); ?> <?php bootscore_icon('ellipsis-vertical'); ?>
     </button>
 

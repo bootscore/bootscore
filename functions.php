@@ -42,13 +42,13 @@ require_once get_template_directory() . '/inc/updater/updater-config.php';  // L
 
 // Blocks
 // Patterns
-require_once get_template_directory() . '/inc/blocks/patterns.php'; // Register pattern category and script to hide wp-block classes
+require_once get_template_directory() . '/inc/blocks/patterns.php'; // Register pattern category
 
 // Widgets
 require_once get_template_directory() . '/inc/blocks/block-widget-archives.php';        // Archive block
 require_once get_template_directory() . '/inc/blocks/block-widget-calendar.php';        // Calendar block
 require_once get_template_directory() . '/inc/blocks/block-widget-categories.php';      // Categories block
-require_once get_template_directory() . '/inc/blocks/block-widget-latest-comments.php'; // Latest posts block
+require_once get_template_directory() . '/inc/blocks/block-widget-latest-comments.php'; // Latest comments block
 require_once get_template_directory() . '/inc/blocks/block-widget-latest-posts.php';    // Latest posts block
 require_once get_template_directory() . '/inc/blocks/block-widget-search.php';          // Searchform block
 
@@ -64,7 +64,7 @@ require_once get_template_directory() . '/inc/blocks/block-image.php';       // 
 require_once get_template_directory() . '/inc/blocks/block-wrap.php'; // Wrapper block
 
 // Disable unsupported blocks and patterns
-if (apply_filters('bootscore/disable/unsupported/blocks', false)) {
+if (apply_filters('bootscore/block/disable-unsupported', false)) {
   require_once get_template_directory() .'/inc/blocks/disable-unsupported-blocks.php';
 }
 

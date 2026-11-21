@@ -70,7 +70,7 @@ function bootscore_wc_product_search_form($form) {
       $tags->add_class('form-control');
     } elseif ('BUTTON' === $tags->get_tag()) {
       $tags->remove_class('wp-element-button');
-      $tags->add_class('input-group-btn ' . apply_filters('bootscore/class/widget/search/button', 'btn-outline theme-secondary'));
+      $tags->add_class('input-group-btn ' . apply_filters('bootscore/class/search/button', 'btn-outline theme-secondary'));
     }
   }
 

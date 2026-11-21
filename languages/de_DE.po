@@ -97,7 +97,7 @@ msgstr ""
 
 #: template-parts/header/offcanvas-woocommerce.php:28
 msgid "Close"
-msgstr ""
+msgstr "Schließen"
 
 #: theme.json:1
 msgctxt "Color name"
@@ -641,3 +641,78 @@ msgstr "Dein Beitrag wartet auf die Moderation."
 #: woocommerce/inc/wc-single-product-reviews.php:108
 msgid "Your review...*"
 msgstr "Deine Bewertung...*"
+
+msgid "Nothing found. Please try a different search term."
+msgstr "Keine Ergebnisse. Bitte versuche einen anderen Suchbegriff."
+
+msgid "bs Isotope requires the <a href=\"%s\" target=\"_blank\">bs Loop</a> plugin to be installed and activated."
+msgstr "bs Isotope benötigt das Plugin <a href=\"%s\" target=\"_blank\">bs Loop</a>. Es muss installiert und aktiviert sein."
+
+msgid "bs Swiper requires the <a href=\"%s\" target=\"_blank\">bs Loop</a> plugin to be installed and activated."
+msgstr "bs Swiper benötigt das Plugin <a href=\"%s\" target=\"_blank\">bs Loop</a>. Es muss installiert und aktiviert sein."
+
+msgid "bs Swiper"
+msgstr "bs Swiper"
+
+msgid "Swiper carousel pattern"
+msgstr "Swiper-Karussell-Vorlage"
+
+msgid "Related posts"
+msgstr "Ähnliche Beiträge"
+
+msgid "Load more"
+msgstr "Mehr laden"
+
+msgid "No more items"
+msgstr "Keine weiteren Einträge"
+
+msgid "Security check failed."
+msgstr "Sicherheitsprüfung fehlgeschlagen."
+
+msgid "Invalid query data."
+msgstr "Ungültige Abfragedaten."
+
+msgid "Toggle TOC navigation"
+msgstr "Inhaltsverzeichnis-Navigation umschalten"
+
+msgid "Widget Visibility"
+msgstr "Widget-Sichtbarkeit"
+
+msgid "Visibility rule"
+msgstr "Sichtbarkeitsregel"
+
+msgid "Always show"
+msgstr "Immer anzeigen"
+
+msgid "Show only when…"
+msgstr "Nur anzeigen, wenn…"
+
+msgid "Hide when…"
+msgstr "Ausblenden, wenn…"
+
+msgid "Conditions"
+msgstr "Bedingungen"
+
+msgid "URLs"
+msgstr "URLs"
+
+msgid "Widget is visible when ANY entry matches."
+msgstr "Das Widget ist sichtbar, wenn EIN Eintrag zutrifft."
+
+msgid "Widget is hidden when ANY entry matches."
+msgstr "Das Widget ist ausgeblendet, wenn EIN Eintrag zutrifft."
+
+msgid "Wildcards supported."
+msgstr "Platzhalter werden unterstützt."
+
+msgid "One condition per line, e.g.:"
+msgstr "Eine Bedingung pro Zeile, z. B.:"
+
+msgid "One path per line, e.g.:"
+msgstr "Ein Pfad pro Zeile, z. B.:"
+
+msgid "Add at least one condition or URL, or the widget will always be hidden."
+msgstr "Füge mindestens eine Bedingung oder URL hinzu, sonst ist das Widget immer ausgeblendet."
+
+msgid "Add at least one condition or URL, or the widget will always be shown."
+msgstr "Füge mindestens eine Bedingung oder URL hinzu, sonst wird das Widget immer angezeigt."

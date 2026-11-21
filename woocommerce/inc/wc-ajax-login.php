@@ -41,7 +41,7 @@ function bootscore_load_account() {
  * @return string|null The IP address of the client, or null if it cannot be determined.
  */
   function bootscore_get_user_ip() {
-    global $user_ip;
+    static $user_ip = null;
 
     if (!is_null($user_ip)) { // We've already discovered the browser's IP address.
       return $user_ip;
@@ -96,8 +96,10 @@ function bootscore_ajax_login() {
     'errorMessage' => ''
   ];
 
-  $username = sanitize_text_field($_POST['username'] ?? '');
-  $password = sanitize_text_field($_POST['password'] ?? '');
+  // Like wp_signon(): the password is used as entered, sanitize_text_field() would change passwords with
+  // characters like < or % and those users couldn't log in
+  $username = trim(wp_unslash($_POST['username'] ?? '')); // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- checked by wp_authenticate()
+  $password = wp_unslash($_POST['password'] ?? ''); // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- passwords are not sanitized
 
 
   // If the nonce is not the right one, output: 'Login form expired, please refresh page.'

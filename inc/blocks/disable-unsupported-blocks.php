@@ -69,6 +69,9 @@ add_filter('allowed_block_types_all', function ($allowed_blocks, $editor_context
     'woocommerce/product-filters',
   ];
 
+  // Add or remove blocks, e.g. a plugin's block: add_filter('bootscore/block/supported', fn($blocks) => [...$blocks, 'my-plugin/block']);
+  $supported_blocks = apply_filters('bootscore/block/supported', $supported_blocks);
+
   // Restrict to supported blocks in post editor or block-based Widgets screen
   if (
     !empty($editor_context->post) ||

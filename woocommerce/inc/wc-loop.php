@@ -60,11 +60,11 @@ add_filter('product_cat_class', 'bootscore_wc_loop_col_class');
  * Products and categories: card > image > card-body > title, rating, price, button.
  */
 function bootscore_wc_loop_card_open() {
-  echo '<div class="' . esc_attr(apply_filters('bootscore/class/woocommerce/product/card', 'card h-100')) . '">';
+  echo '<div class="' . esc_attr(apply_filters('bootscore/class/woocommerce/loop/card', 'card h-100')) . '">';
 }
 
 function bootscore_wc_loop_card_body_open() {
-  echo '<div class="' . esc_attr(apply_filters('bootscore/class/woocommerce/product/card/card-body', 'card-body')) . '">';
+  echo '<div class="' . esc_attr(apply_filters('bootscore/class/woocommerce/loop/card-body', 'card-body')) . '">';
 }
 
 function bootscore_wc_loop_div_close() {
@@ -144,11 +144,11 @@ endif;
  * Product image with card-img-top class
  */
 remove_action('woocommerce_before_shop_loop_item_title', 'woocommerce_template_loop_product_thumbnail', 10);
-add_action('woocommerce_before_shop_loop_item_title', 'bootscore_loop_product_thumbnail', 10);
+add_action('woocommerce_before_shop_loop_item_title', 'bootscore_wc_loop_product_thumbnail', 10);
 
-function bootscore_loop_product_thumbnail() {
+function bootscore_wc_loop_product_thumbnail() {
   global $product;
-  $classes = apply_filters('bootscore/class/woocommerce/product/loop/img', 'card-img-top');
+  $classes = apply_filters('bootscore/class/woocommerce/loop/product-img', 'card-img-top');
 
   echo $product ? $product->get_image('woocommerce_thumbnail', array('class' => $classes)) : ''; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 }
@@ -158,10 +158,10 @@ function bootscore_loop_product_thumbnail() {
  * Category image with card-img-top class
  */
 remove_action('woocommerce_before_subcategory_title', 'woocommerce_subcategory_thumbnail', 10);
-add_action('woocommerce_before_subcategory_title', 'bootscore_loop_category_thumbnail', 10);
+add_action('woocommerce_before_subcategory_title', 'bootscore_wc_loop_category_thumbnail', 10);
 
-function bootscore_loop_category_thumbnail($category) {
-  $classes      = apply_filters('bootscore/class/woocommerce/category/loop/img', 'card-img-top');
+function bootscore_wc_loop_category_thumbnail($category) {
+  $classes      = apply_filters('bootscore/class/woocommerce/loop/category-img', 'card-img-top');
   $thumbnail_id = get_term_meta($category->term_id, 'thumbnail_id', true);
 
   if ($thumbnail_id) {
@@ -175,12 +175,37 @@ function bootscore_loop_category_thumbnail($category) {
 /**
  * Add to cart button: container at the bottom of the card, above the stretched title link
  */
-function bootscore_loop_add_to_cart_link($html) {
+function bootscore_wc_loop_add_to_cart_link($html) {
   $classes = apply_filters('bootscore/class/woocommerce/loop/add-to-cart', 'add-to-cart-container position-relative z-2 mt-auto');
 
   return '<div class="' . esc_attr($classes) . '">' . $html . '</div>';
 }
-add_filter('woocommerce_loop_add_to_cart_link', 'bootscore_loop_add_to_cart_link');
+add_filter('woocommerce_loop_add_to_cart_link', 'bootscore_wc_loop_add_to_cart_link');
+
+
+/**
+ * Out of stock badge below the button, with and without the AJAX cart
+ *
+ * Remove the badge: add_filter('bootscore/woocommerce/loop/out-of-stock-badge', '__return_false');
+ * Badge instead of the Read more button: add_filter('bootscore/woocommerce/loop/out-of-stock-remove-read-more', '__return_true');
+ */
+function bootscore_wc_loop_out_of_stock_badge($html, $product) {
+  if (!($product instanceof WC_Product) || $product->is_in_stock() || !apply_filters('bootscore/woocommerce/loop/out-of-stock-badge', true, $product)) {
+    return $html;
+  }
+
+  $badge_html =
+    '<p class="' . esc_attr(apply_filters('bootscore/class/woocommerce/loop/out-of-stock-badge', 'badge bg-secondary text-wrap mt-2 mb-0')) . '">' .
+    esc_html(apply_filters('bootscore/woocommerce/loop/out-of-stock-badge-text', apply_filters('woocommerce_out_of_stock_message', __('This product is currently out of stock and unavailable.', 'woocommerce')), $product)) .
+    '</p>';
+
+  if (apply_filters('bootscore/woocommerce/loop/out-of-stock-remove-read-more', false)) {
+    return str_replace('mt-2', 'mt-auto', $badge_html);
+  }
+
+  return $html . $badge_html;
+}
+add_filter('woocommerce_loop_add_to_cart_link', 'bootscore_wc_loop_out_of_stock_badge', 13, 2);
 
 
 /**
@@ -199,7 +224,7 @@ add_filter('woocommerce_format_sale_price', 'bootscore_wc_format_sale_price', 10
 /**
  * Bootstrap button classes for the add to cart button
  */
-function bootscore_loop_add_to_cart_args($args) {
+function bootscore_wc_loop_add_to_cart_args($args) {
   $button = apply_filters('bootscore/class/woocommerce/loop/add-to-cart/button', 'btn-solid theme-primary w-100 position-relative');
 
   if (empty($args['class']) || !is_string($args['class'])) {
@@ -213,7 +238,7 @@ function bootscore_loop_add_to_cart_args($args) {
 
   return $args;
 }
-add_filter('woocommerce_loop_add_to_cart_args', 'bootscore_loop_add_to_cart_args');
+add_filter('woocommerce_loop_add_to_cart_args', 'bootscore_wc_loop_add_to_cart_args');
 
 
 /**

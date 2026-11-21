@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Full width image
+ * Template Name: Full Width Image
  * Template Post Type: post
  * Template Version: 7.0.0
  *
@@ -54,7 +54,7 @@ get_header();
           <?php do_action( 'bootscore_after_featured_image', 'single-full-width-image' ); ?>
 
           <div class="row">
-            <div class="<?= esc_attr(apply_filters('bootscore/class/main/col', 'col')); ?>">
+            <div class="<?= esc_attr(apply_filters('bootscore/class/main/col', 'col', 'single-full-width-image')); ?>">
 
               <div class="entry-content d-flow-root">
                 <?php the_content(); ?>
