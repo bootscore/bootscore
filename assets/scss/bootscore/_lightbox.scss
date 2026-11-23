@@ -1,0 +1,19 @@
+/*--------------------------------------------------------------
+Lightbox - Bootscore v7.0.0
+--------------------------------------------------------------*/
+
+
+// WordPress image lightbox (Image block, "Enlarge on click").
+// WordPress prints the background and button colors as inline styles from the global styles,
+// white and black without theme.json colors. Use the body colors instead, so the lightbox
+// follows the light and dark mode. !important is needed to beat the inline styles.
+@layer components {
+  .wp-lightbox-overlay .scrim {
+    background-color: var(--bg-body) !important;
+  }
+
+  .wp-lightbox-overlay .wp-lightbox-close-button,
+  .wp-lightbox-overlay .wp-lightbox-navigation-button {
+    fill: var(--fg-body) !important;
+  }
+}
