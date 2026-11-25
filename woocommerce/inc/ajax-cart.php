@@ -162,7 +162,10 @@
     function bootscore_qty_update() {
       if (isset($_POST['number'])) {
         $cart_item_key = isset($_POST['key']) ? sanitize_text_field(wp_unslash($_POST['key'])) : '';
-        $qty = isset($_POST['number']) ? sanitize_text_field(wp_unslash($_POST['number'])) : '';
+        // Whole number, like WooCommerce's own cart form. Decimals only if a shop allows them on purpose with the
+        // woocommerce_stock_amount filter. A value that isn't a number becomes -1 and is rejected below.
+        $qty_raw = wp_unslash($_POST['number']);
+        $qty = is_numeric($qty_raw) ? wc_stock_amount($qty_raw) : -1;
         $max = isset($_POST['max']) ? sanitize_text_field(wp_unslash($_POST['max'])) : '';
         $step = isset($_POST['step']) ? sanitize_text_field(wp_unslash($_POST['step'])) : '';
         $nonce = isset($_POST['nonce']) ? sanitize_text_field(wp_unslash($_POST['nonce'])) : '';
@@ -183,7 +186,8 @@
           wp_send_json_error($response_item);
         }
 
-        if ($cart_item_key && $qty >= 0) {
+        // The key has to be in the cart
+        if ($cart_item_key && WC()->cart->get_cart_item($cart_item_key) && $qty >= 0) {
           $response_item = apply_filters('bootscore/woocommerce/ajax-cart/update-qty/response/before-update', $response_item, $cart_item_key);
           $cart_content_before = WC()->cart->get_cart();
 
