@@ -145,7 +145,10 @@
       }
 
       $cart_item_key = isset($_POST['key']) ? sanitize_text_field(wp_unslash($_POST['key'])) : '';
-      $qty           = (int) wp_unslash($_POST['number']);
+      // Whole number, like WooCommerce's own cart form. Decimals only if a shop allows them on purpose with the
+      // woocommerce_stock_amount filter. A value that isn't a number becomes -1 and is rejected below.
+      $qty_raw       = wp_unslash($_POST['number']);
+      $qty           = is_numeric($qty_raw) ? wc_stock_amount($qty_raw) : -1;
       $nonce         = isset($_POST['nonce']) ? sanitize_text_field(wp_unslash($_POST['nonce'])) : '';
 
       $response = array(
