@@ -60,7 +60,7 @@ if (!function_exists('bootscore_comment')) :
 
         <article id="div-comment-<?php comment_ID(); ?>" class="comment-body d-flex mb-5">
 
-          <span class="avatar me-3">
+          <span class="avatar flex-shrink-0 me-3">
             <?php echo get_avatar($comment, 80, '', '', array('class' => esc_attr(apply_filters('bootscore/class/comment/avatar', 'avatar-img')))); ?> 
           </span>
 

@@ -69,7 +69,7 @@ endif;
  */
 if (!function_exists('woocommerce_review_display_gravatar')) :
   function woocommerce_review_display_gravatar($comment) {
-    echo '<span class="avatar me-3">' . get_avatar($comment, apply_filters('woocommerce_review_gravatar_size', 80), '', '', ['class' => esc_attr(apply_filters('bootscore/class/comment/avatar', 'avatar-img'))]) . '</span>';
+    echo '<span class="avatar flex-shrink-0 me-3">' . get_avatar($comment, apply_filters('woocommerce_review_gravatar_size', 80), '', '', ['class' => esc_attr(apply_filters('bootscore/class/comment/avatar', 'avatar-img'))]) . '</span>';
   }
 endif;
 
