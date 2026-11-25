@@ -20,8 +20,8 @@ defined('ABSPATH') || exit;
 <!-- /wp:bootscore/wrapper -->
 
 <!-- wp:bootscore/wrapper {"cssClass":"lg:col-6 d-flex flex-column justify-content-center","metadata":{"name":"lg:col-6 d-flex flex-column justify-content-center"}} -->
-<!-- wp:heading {"className":"fs-5xl fw-bold mb-3"} -->
-<h2 class="wp-block-heading fs-5xl fw-bold mb-3">Hero</h2>
+<!-- wp:heading -->
+<h2 class="wp-block-heading">Hero</h2>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph {"className":"fs-lg"} -->

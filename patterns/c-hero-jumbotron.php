@@ -13,8 +13,8 @@ defined('ABSPATH') || exit;
 
 ?>
 <!-- wp:bootscore/wrapper {"cssClass":"mb-5 p-12 text-center bg-1 rounded-7","metadata":{"name":"c - Hero jumbotron - p-12 text-center bg-1 rounded-7","categories":["bootscore"],"patternName":"bootscore/c-hero-jumbotron"}} -->
-<!-- wp:heading {"level":1,"className":"fs-5xl fw-bold mb-3"} -->
-<h1 class="wp-block-heading fs-5xl fw-bold mb-3">Basic jumbotron</h1>
+<!-- wp:heading -->
+<h2 class="wp-block-heading">Basic jumbotron</h2>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph {"className":"fs-lg mb-0"} -->

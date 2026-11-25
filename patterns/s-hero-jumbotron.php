@@ -14,8 +14,8 @@ defined('ABSPATH') || exit;
 ?>
 <!-- wp:bootscore/wrapper {"tagName":"section","cssClass":"py-12 bg-1","metadata":{"name":"s - Hero jumbotron - section py-12 bg-1","categories":["bootscore"],"patternName":"bootscore/s-hero-jumbotron"}} -->
 <!-- wp:bootscore/wrapper {"cssClass":"container text-center","metadata":{"name":"container text-center"}} -->
-<!-- wp:heading {"className":"fs-5xl fw-bold mb-3"} -->
-<h2 class="wp-block-heading fs-5xl fw-bold mb-3">Hero jumbotron</h2>
+<!-- wp:heading -->
+<h2 class="wp-block-heading">Hero jumbotron</h2>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph {"className":"fs-lg"} -->

@@ -12,7 +12,7 @@
 defined('ABSPATH') || exit;
 
 ?>
-<!-- wp:bootscore/wrapper {"tagName":"section","cssClass":"py-12","metadata":{"name":"s - Hero image left - section py-12","categories":["bootscore"],"patternName":"bootscore/s-hero-img-left"}} -->
+<!-- wp:bootscore/wrapper {"tagName":"section","cssClass":"py-12 bg-1","metadata":{"name":"s - Hero image left - section py-12 bg-1","categories":["bootscore"],"patternName":"bootscore/s-hero-img-left"}} -->
 <!-- wp:bootscore/wrapper {"cssClass":"container","metadata":{"name":"container"}} -->
 <!-- wp:bootscore/wrapper {"cssClass":"row g-7","metadata":{"name":"row g-7"}} -->
 <!-- wp:bootscore/wrapper {"cssClass":"lg:col-6","metadata":{"name":"lg:col-6"}} -->
@@ -22,8 +22,8 @@ defined('ABSPATH') || exit;
 <!-- /wp:bootscore/wrapper -->
 
 <!-- wp:bootscore/wrapper {"cssClass":"lg:col-6 d-flex flex-column justify-content-center","metadata":{"name":"lg:col-6 d-flex flex-column justify-content-center"}} -->
-<!-- wp:heading {"className":"fs-5xl fw-bold mb-3"} -->
-<h2 class="wp-block-heading fs-5xl fw-bold mb-3">Hero</h2>
+<!-- wp:heading -->
+<h2 class="wp-block-heading">Hero</h2>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph {"className":"fs-lg"} -->
