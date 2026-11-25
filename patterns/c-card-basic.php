@@ -13,8 +13,8 @@ defined('ABSPATH') || exit;
 
 ?>
 <!-- wp:bootscore/wrapper {"cssClass":"card mb-5","metadata":{"name":"c - Card basic - card mb-5","categories":["bootscore"],"patternName":"bootscore/c-card-basic"}} -->
-<!-- wp:image {"sizeSlug":"large","className":"card-img-top mb-0"} -->
-<figure class="wp-block-image size-large card-img-top mb-0"><img src="https://dummyimage.com/1200x900/6c757d/ffffff" alt=""/></figure>
+<!-- wp:image {"sizeSlug":"large","className":"card-img-top"} -->
+<figure class="wp-block-image size-large card-img-top"><img src="https://dummyimage.com/1200x900/6c757d/ffffff" alt=""/></figure>
 <!-- /wp:image -->
 
 <!-- wp:bootscore/wrapper {"cssClass":"card-body","metadata":{"name":"card-body"}} -->

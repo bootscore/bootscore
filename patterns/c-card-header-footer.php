@@ -17,8 +17,8 @@ defined('ABSPATH') || exit;
 <h2 class="wp-block-heading card-header h6">Card header</h2>
 <!-- /wp:heading -->
 
-<!-- wp:image {"sizeSlug":"large","className":"mb-0"} -->
-<figure class="wp-block-image size-large mb-0"><img src="https://dummyimage.com/1200x900/6c757d/ffffff" alt=""/></figure>
+<!-- wp:image {"sizeSlug":"large","className":"card-img rounded-0"} -->
+<figure class="wp-block-image size-large card-img rounded-0"><img src="https://dummyimage.com/1200x900/6c757d/ffffff" alt=""/></figure>
 <!-- /wp:image -->
 
 <!-- wp:bootscore/wrapper {"cssClass":"card-body","metadata":{"name":"card-body"}} -->
