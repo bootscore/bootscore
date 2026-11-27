@@ -161,6 +161,9 @@
       if (!wp_verify_nonce($nonce, 'bootscore_update_cart')) {
         wc_add_notice(__('Nonce verification failed', 'bootscore'), 'error');
         $response['fragments'] = bootscore_ajax_add_to_cart_add_fragments(array());
+        // A stale nonce stays in the mini cart until it's rendered again, for example after logging in with the same cart
+        // or in a tab left open past the nonce lifetime. The refresh brings a fresh nonce, so the next click works.
+        $response['force_fragments_refresh'] = true;
         wp_send_json_error($response);
       }
 
