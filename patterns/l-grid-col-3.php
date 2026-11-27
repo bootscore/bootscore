@@ -3,46 +3,45 @@
  * Title: l - Grid 3/3/3/3
  * Slug: bootscore/l-grid-col-3
  * Categories: bootscore
- * https://developer.wordpress.org/themes/features/block-patterns/
- * 
+ *
  * @package Bootscore
- * @version 6.2.0
+ * @version 7.0.0
  */
 
 // Exit if accessed directly
 defined('ABSPATH') || exit;
 
 ?>
-<!-- wp:group {"metadata":{"name":"l - Grid 3/3/3/3 - row g-3 mb-3 hide-wp-block-classes","categories":["bootscore"],"patternName":"bootscore/l.grid-col-3"},"className":"row g-3 mb-3 hide-wp-block-classes","layout":{"type":"default"}} -->
-<div class="wp-block-group row g-3 mb-3 hide-wp-block-classes"><!-- wp:group {"metadata":{"name":"col-md-6 col-lg-3"},"className":"col-md-6 col-lg-3","layout":{"type":"default"}} -->
-<div class="wp-block-group col-md-6 col-lg-3"><!-- wp:group {"metadata":{"name":"placeholder - h-100 p-4 bg-primary-subtle d-flex align-items-center justify-content-center rounded"},"className":"h-100 p-4 bg-primary-subtle d-flex align-items-center justify-content-center text-center rounded","layout":{"type":"default"}} -->
-<div class="wp-block-group h-100 p-4 bg-primary-subtle d-flex align-items-center justify-content-center text-center rounded"><!-- wp:paragraph {"metadata":{"name":"mb-0"},"className":"mb-0"} -->
-<p class="mb-0"><code>col-md-6 col-lg-3</code></p>
-<!-- /wp:paragraph --></div>
-<!-- /wp:group --></div>
-<!-- /wp:group -->
+<!-- wp:bootscore/wrapper {"cssClass":"row g-5 mb-5","metadata":{"name":"l - Grid 3/3/3/3 - row g-5 mb-5","categories":["bootscore"],"patternName":"bootscore/l-grid-col-3"}} -->
+<!-- wp:bootscore/wrapper {"cssClass":"md:col-6 lg:col-3","metadata":{"name":"md:col-6 lg:col-3"}} -->
+<!-- wp:bootscore/wrapper {"cssClass":"h-100 p-7 bg-subtle-primary d-flex align-items-center justify-content-center text-center rounded","metadata":{"name":"h-100 p-7 bg-subtle-primary d-flex align-items-center justify-content-center text-center rounded"}} -->
+<!-- wp:paragraph {"className":"mb-0"} -->
+<p class="mb-0"><code>md:col-6 lg:col-3</code></p>
+<!-- /wp:paragraph -->
+<!-- /wp:bootscore/wrapper -->
+<!-- /wp:bootscore/wrapper -->
 
-<!-- wp:group {"metadata":{"name":"col-md-6 col-lg-3"},"className":"col-md-6 col-lg-3","layout":{"type":"default"}} -->
-<div class="wp-block-group col-md-6 col-lg-3"><!-- wp:group {"metadata":{"name":"placeholder - h-100 p-4 bg-primary-subtle d-flex align-items-center justify-content-center rounded"},"className":"h-100 p-4 bg-primary-subtle d-flex align-items-center justify-content-center text-center rounded","layout":{"type":"default"}} -->
-<div class="wp-block-group h-100 p-4 bg-primary-subtle d-flex align-items-center justify-content-center text-center rounded"><!-- wp:paragraph {"metadata":{"name":"mb-0"},"className":"mb-0"} -->
-<p class="mb-0"><code>col-md-6 col-lg-3</code></p>
-<!-- /wp:paragraph --></div>
-<!-- /wp:group --></div>
-<!-- /wp:group -->
+<!-- wp:bootscore/wrapper {"cssClass":"md:col-6 lg:col-3","metadata":{"name":"md:col-6 lg:col-3"}} -->
+<!-- wp:bootscore/wrapper {"cssClass":"h-100 p-7 bg-subtle-primary d-flex align-items-center justify-content-center text-center rounded","metadata":{"name":"h-100 p-7 bg-subtle-primary d-flex align-items-center justify-content-center text-center rounded"}} -->
+<!-- wp:paragraph {"className":"mb-0"} -->
+<p class="mb-0"><code>md:col-6 lg:col-3</code></p>
+<!-- /wp:paragraph -->
+<!-- /wp:bootscore/wrapper -->
+<!-- /wp:bootscore/wrapper -->
 
-<!-- wp:group {"metadata":{"name":"col-md-6 col-lg-3"},"className":"col-md-6 col-lg-3","layout":{"type":"default"}} -->
-<div class="wp-block-group col-md-6 col-lg-3"><!-- wp:group {"metadata":{"name":"placeholder - h-100 p-4 bg-primary-subtle d-flex align-items-center justify-content-center rounded"},"className":"h-100 p-4 bg-primary-subtle d-flex align-items-center justify-content-center text-center rounded","layout":{"type":"default"}} -->
-<div class="wp-block-group h-100 p-4 bg-primary-subtle d-flex align-items-center justify-content-center text-center rounded"><!-- wp:paragraph {"metadata":{"name":"mb-0"},"className":"mb-0"} -->
-<p class="mb-0"><code>col-md-6 col-lg-3</code></p>
-<!-- /wp:paragraph --></div>
-<!-- /wp:group --></div>
-<!-- /wp:group -->
+<!-- wp:bootscore/wrapper {"cssClass":"md:col-6 lg:col-3","metadata":{"name":"md:col-6 lg:col-3"}} -->
+<!-- wp:bootscore/wrapper {"cssClass":"h-100 p-7 bg-subtle-primary d-flex align-items-center justify-content-center text-center rounded","metadata":{"name":"h-100 p-7 bg-subtle-primary d-flex align-items-center justify-content-center text-center rounded"}} -->
+<!-- wp:paragraph {"className":"mb-0"} -->
+<p class="mb-0"><code>md:col-6 lg:col-3</code></p>
+<!-- /wp:paragraph -->
+<!-- /wp:bootscore/wrapper -->
+<!-- /wp:bootscore/wrapper -->
 
-<!-- wp:group {"metadata":{"name":"col-md-6 col-lg-3"},"className":"col-md-6 col-lg-3","layout":{"type":"default"}} -->
-<div class="wp-block-group col-md-6 col-lg-3"><!-- wp:group {"metadata":{"name":"placeholder - h-100 p-4 bg-primary-subtle d-flex align-items-center justify-content-center rounded"},"className":"h-100 p-4 bg-primary-subtle d-flex align-items-center justify-content-center text-center rounded","layout":{"type":"default"}} -->
-<div class="wp-block-group h-100 p-4 bg-primary-subtle d-flex align-items-center justify-content-center text-center rounded"><!-- wp:paragraph {"metadata":{"name":"mb-0"},"className":"mb-0"} -->
-<p class="mb-0"><code>col-md-6 col-lg-3</code></p>
-<!-- /wp:paragraph --></div>
-<!-- /wp:group --></div>
-<!-- /wp:group --></div>
-<!-- /wp:group -->
+<!-- wp:bootscore/wrapper {"cssClass":"md:col-6 lg:col-3","metadata":{"name":"md:col-6 lg:col-3"}} -->
+<!-- wp:bootscore/wrapper {"cssClass":"h-100 p-7 bg-subtle-primary d-flex align-items-center justify-content-center text-center rounded","metadata":{"name":"h-100 p-7 bg-subtle-primary d-flex align-items-center justify-content-center text-center rounded"}} -->
+<!-- wp:paragraph {"className":"mb-0"} -->
+<p class="mb-0"><code>md:col-6 lg:col-3</code></p>
+<!-- /wp:paragraph -->
+<!-- /wp:bootscore/wrapper -->
+<!-- /wp:bootscore/wrapper -->
+<!-- /wp:bootscore/wrapper -->

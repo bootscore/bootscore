@@ -36,7 +36,7 @@ get_header();
 
           <div class="<?= esc_attr(apply_filters('bootscore/class/container', 'container', 'page-full-width-image')); ?> <?= esc_attr(apply_filters('bootscore/class/featured-full-width-img/container', 'position-relative pb-5', 'page-full-width-image')); ?>">
             <?php do_action( 'bootscore_before_title', 'page-full-width-image' ); ?>
-            <div class="<?= esc_attr(apply_filters('bootscore/class/full-width-img-title-wrapper', 'full-width-img-title-wrapper card border-0 card-body bg-body bg-50 bd-blur bd-saturate-150 w-fit', 'page-full-width-image')); ?>">
+            <div class="<?= esc_attr(apply_filters('bootscore/class/full-width-img-title-wrapper', 'full-width-img-title-wrapper card border-0 card-body bg-body bg-opacity-50 bd-blur bd-saturate-150 w-fit', 'page-full-width-image')); ?>">
               <?php the_title('<h1 class="entry-title ' . esc_attr(apply_filters('bootscore/class/entry/title', '', 'page-full-width-image')) . '">', '</h1>'); ?>
             </div>
             <?php do_action( 'bootscore_after_title', 'page-full-width-image' ); ?>
@@ -49,7 +49,7 @@ get_header();
           <?php do_action( 'bootscore_after_featured_image', 'page-full-width-image' ); ?>
           
           <div class="row">
-            <div class="<?= esc_attr(apply_filters('bootscore/class/main/col', 'col')); ?>">
+            <div class="<?= esc_attr(apply_filters('bootscore/class/main/col', 'col', 'page-full-width-image')); ?>">
 
               <div class="entry-content">
                 <?php the_content(); ?>

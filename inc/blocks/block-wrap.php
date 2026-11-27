@@ -68,7 +68,7 @@ if ( ! function_exists( 'bs_wrapper_register_block' ) ) {
 
 /**
  * Attribute names that may be output besides data-* and aria-*.
- * Extend with the 'bs_wrapper_allowed_attributes' filter.
+ * Extend with the 'bootscore/block/wrap/allowed-attributes' filter.
  */
 if ( ! function_exists( 'bs_wrapper_allowed_attributes' ) ) {
   function bs_wrapper_allowed_attributes() {
@@ -91,7 +91,7 @@ if ( ! function_exists( 'bs_wrapper_allowed_attributes' ) ) {
       'disabled',
     );
 
-    return apply_filters( 'bs_wrapper_allowed_attributes', $allowed );
+    return apply_filters( 'bootscore/block/wrap/allowed-attributes', $allowed );
   }
 }
 

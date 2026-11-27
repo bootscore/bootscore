@@ -26,10 +26,10 @@ if (!function_exists('bootscore_mini_cart')) :
     $count = WC()->cart->cart_contents_count; ?>
     <span class="cart-content d-contents">
       <?php if ($count > 0) { ?>
-        <?php if(apply_filters('bootscore/woocommerce/header/show_cart_total', true)): ?>
-          <span class="cart-content-count <?= esc_attr(apply_filters('bootscore/class/header/cart/badge', 'position-absolute top-0 start-100 translate-middle badge theme-danger')); ?>"><?= esc_html($count); ?></span><span class="cart-total <?= esc_attr(apply_filters('bootscore/class/header/cart/total', 'd-none md:d-inline')); ?>"><?= wp_kses_post(WC()->cart->get_cart_subtotal()); ?></span>
+        <?php if(apply_filters('bootscore/woocommerce/header/cart-total', true)): ?>
+          <span class="cart-content-count <?= esc_attr(apply_filters('bootscore/class/woocommerce/header/cart-count', 'position-absolute top-0 start-100 translate-middle badge theme-danger')); ?>"><?= esc_html($count); ?></span><span class="cart-total <?= esc_attr(apply_filters('bootscore/class/woocommerce/header/cart-total', 'd-none md:d-inline')); ?>"><?= wp_kses_post(WC()->cart->get_cart_subtotal()); ?></span>
         <?php else: ?>
-          <span class="cart-content-count <?= esc_attr(apply_filters('bootscore/class/header/cart/badge', 'position-absolute top-0 start-100 translate-middle badge theme-danger')); ?>"><?= esc_html($count); ?></span>
+          <span class="cart-content-count <?= esc_attr(apply_filters('bootscore/class/woocommerce/header/cart-count', 'position-absolute top-0 start-100 translate-middle badge theme-danger')); ?>"><?= esc_html($count); ?></span>
         <?php endif; ?>
       <?php } ?>
     </span>
@@ -208,8 +208,8 @@ add_filter('woocommerce_cart_item_remove_link', 'bootscore_wc_cart_item_remove_l
  * Priority 20, after the quantity input from wc-ajax-cart.php (priority 10), which replaces the default output.
  *
  * Disable via filter:
- * add_filter('bootscore/woocommerce/mini-cart/show_excerpt', '__return_false');
- * add_filter('bootscore/woocommerce/mini-cart/show_stock', '__return_false');
+ * add_filter('bootscore/woocommerce/mini-cart/item-excerpt', '__return_false');
+ * add_filter('bootscore/woocommerce/mini-cart/item-stock', '__return_false');
  */
 function bootscore_wc_mini_cart_item_details($html, $cart_item, $cart_item_key) {
   $_product   = apply_filters('woocommerce_cart_item_product', $cart_item['data'], $cart_item, $cart_item_key);
@@ -218,15 +218,15 @@ function bootscore_wc_mini_cart_item_details($html, $cart_item, $cart_item_key) 
   $before = '';
 
   // Excerpt
-  if (apply_filters('bootscore/woocommerce/mini-cart/show_excerpt', true)) {
+  if (apply_filters('bootscore/woocommerce/mini-cart/item-excerpt', true)) {
     $excerpt = wp_strip_all_tags(get_the_excerpt($product_id));
     if ($excerpt) {
-      $before .= '<p class="mini-cart-item-excerpt ' . esc_attr(apply_filters('bootscore/class/woocommerce/mini-cart/excerpt', 'fs-sm fg-secondary text-truncate mb-0')) . '">' . esc_html($excerpt) . '</p>';
+      $before .= '<p class="mini-cart-item-excerpt ' . esc_attr(apply_filters('bootscore/class/woocommerce/mini-cart/item-excerpt', 'fs-sm fg-secondary text-truncate mb-0')) . '">' . esc_html($excerpt) . '</p>';
     }
   }
 
   // Stock badge, sold individually or low stock (threshold from WooCommerce > Settings > Products > Inventory)
-  if (apply_filters('bootscore/woocommerce/mini-cart/show_stock', true)) {
+  if (apply_filters('bootscore/woocommerce/mini-cart/item-stock', true)) {
     $stock_quantity = $_product->get_stock_quantity();
     $stock_message  = '';
 
@@ -238,7 +238,7 @@ function bootscore_wc_mini_cart_item_details($html, $cart_item, $cart_item_key) 
     }
 
     if ($stock_message) {
-      $before .= '<span class="mini-cart-item-stock ' . esc_attr(apply_filters('bootscore/class/woocommerce/mini-cart/stock', 'badge theme-danger')) . '">' . esc_html($stock_message) . '</span>';
+      $before .= '<span class="mini-cart-item-stock ' . esc_attr(apply_filters('bootscore/class/woocommerce/mini-cart/item-stock', 'badge theme-danger')) . '">' . esc_html($stock_message) . '</span>';
     }
   }
 

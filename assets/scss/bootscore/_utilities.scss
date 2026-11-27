@@ -17,7 +17,7 @@ $utilities: (
     important: true,
   ),
 
-  // Min viewport height: add 75
+  // Min viewport height: min-vh-60, min-vh-70, min-vh-100
   "min-viewport-height": (
     property: min-height,
     class: min-vh,

@@ -32,13 +32,13 @@ get_header();
               <h1 class="entry-title <?= esc_attr(apply_filters('bootscore/class/entry/title', '', '404')); ?>">404</h1>
               <?php do_action( 'bootscore_after_title', '404' ); ?>
             </div>
-            <!-- Remove this line and place some widgets -->
-            <p class="alert theme-info mb-5"><?= bootscore_alert_content(esc_html__('Page not found.', 'bootscore')); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></p>
-            <!-- 404 Widget -->
+            <!-- 404 Page widget area, the alert shows while it is empty -->
             <?php if (is_active_sidebar('404-page')) : ?>
               <div><?php dynamic_sidebar('404-page'); ?></div>
+            <?php else : ?>
+              <p class="alert theme-info mb-5"><?= bootscore_alert_content(esc_html__('Page not found.', 'bootscore')); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></p>
             <?php endif; ?>
-            <a class="btn-outline theme-primary" href="<?= esc_url(home_url()); ?>" role="button"><?php esc_html_e('Back Home &raquo;', 'bootscore'); ?></a>
+            <a class="btn-outline theme-primary" href="<?= esc_url(home_url()); ?>"><?php esc_html_e('Back Home &raquo;', 'bootscore'); ?></a>
           </div>
         </section><!-- .error-404 -->
 

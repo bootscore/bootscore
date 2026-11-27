@@ -8,8 +8,9 @@
 @use "bootscore/color-mode";
 @use "bootscore/forms";
 @use "bootscore/selection";
-@use "bootscore/legacy";
 @use "bootscore/header";
 @use "bootscore/icons";
+@use "bootscore/lightbox";
 @use "bootscore/markup";
 @use "bootscore/top-button";
+@use "bootscore/legacy"; // Last, like wc-legacy

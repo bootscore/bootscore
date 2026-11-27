@@ -52,14 +52,14 @@ if (!function_exists('bootscore_block_widget_search_classes')) {
 
         // Input needs trailing margin when the button sits outside the input wrapper
         if (!$inside) {
-          $tags->add_class(apply_filters('bootscore/class/widget/search/input/spacer', 'me-3'));
+          $tags->add_class(apply_filters('bootscore/class/search/input/spacer', 'me-3'));
         }
       }
 
       elseif ($tags->has_class('wp-block-search__button')) {
         $tags->remove_class('wp-block-search__button');
         $tags->remove_class('wp-element-button');
-        $tags->add_class('wp-block-search__btn ' . apply_filters('bootscore/class/widget/search/button', 'btn-outline theme-secondary'));
+        $tags->add_class('wp-block-search__btn ' . apply_filters('bootscore/class/search/button', 'btn-outline theme-secondary'));
 
         if ($inside) {
           $tags->add_class('input-group-btn');

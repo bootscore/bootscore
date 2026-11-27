@@ -23,11 +23,6 @@ defined('ABSPATH') || exit;
  * Used to decide whether the PicoSASS baseurl/fallback_baseurl should
  * point at the child theme (with the parent as fallback) or just the
  * parent theme directly.
- *
- * NOTE: This used to live in the old scssphp-based scss-compiler.php.
- * Keep it defined here now that that file is no longer required -
- * is_child_theme() short-circuits around it on the main theme, so a
- * missing definition only breaks child-theme installs, silently.
  */
 function bootscore_child_has_scss() {
   return file_exists(get_stylesheet_directory() . '/assets/scss/bootscore.scss');
@@ -35,7 +30,6 @@ function bootscore_child_has_scss() {
 
 
 // Where Bootscore's own SCSS lives, with child-theme fallback support
-// (matches the `shouldProcessChild()` logic in your existing scss-compiler.php)
 function bootscore_picosass_scss_dir() {
   return (is_child_theme() && bootscore_child_has_scss())
     ? get_stylesheet_directory() . '/assets/scss/'
@@ -55,7 +49,7 @@ function bootscore_picosass_css_file() {
   return $css_dir . 'bootscore.min.css';
 }
 
-// TESTING: should the compiler run on this page load?
+// Should the compiler run on this page load?
 // True if explicitly requested via ?compile_sass=1, OR if an admin is
 // viewing the frontend and bootscore.min.css doesn't exist yet (e.g. right
 // after activation, or after deleting the css folder to test this).
@@ -71,7 +65,7 @@ function bootscore_picosass_should_compile() {
 function bootscore_get_main_sass() {
   $entry_file = bootscore_picosass_scss_dir() . 'bootscore.scss';
   $sass = file_exists($entry_file) ? file_get_contents($entry_file) : '';
-  return apply_filters('bootscore/compiler/main_sass', $sass);
+  return apply_filters('bootscore/compiler/main-sass', $sass);
 }
 
 
@@ -85,6 +79,9 @@ function bootscore_get_main_sass() {
 // this map. Must be declared before the picosass.js <script> tag below.
 add_action('wp_head', function () {
   if (!bootscore_picosass_should_compile()) return;
+
+  $scss_compiler_file = get_template_directory() . '/assets/js/compiler/scss-compiler.js';
+  $scss_compiler_ver  = file_exists($scss_compiler_file) ? filemtime($scss_compiler_file) : '7.0.0';
   ?>
     <script type="importmap">
     {
@@ -93,7 +90,7 @@ add_action('wp_head', function () {
       }
     }
     </script>
-    <script type="module" src="<?php echo get_template_directory_uri() ?>/assets/js/compiler/scss-compiler.js"></script>
+    <script type="module" src="<?php echo get_template_directory_uri() ?>/assets/js/compiler/scss-compiler.js?v=<?php echo $scss_compiler_ver ?>"></script>
 
     <template id="the-scss" class="prevent-autocompile" baseurl="<?php echo bootscore_picosass_scss_uri() ?>"
       <?php if (is_child_theme()): ?> fallback_baseurl="<?php echo get_template_directory_uri() . '/assets/scss/' ?>" <?php endif ?> >
@@ -144,7 +141,8 @@ add_action('wp_footer', function () {
         <?php } else { ?>
         setTimeout(function () {
           const url = new URL(window.location.href);
-          url.search = "";
+          // Remove only the compiler parameters, keep the rest (e.g. ?p=123 with plain permalinks)
+          ['compile_sass', 'sass_nocache', 'autorecompile'].forEach((param) => url.searchParams.delete(param));
           window.location.href = url.href;
         }, 3000);
         <?php } ?>
@@ -166,8 +164,8 @@ add_action('wp_ajax_bootscore_save_css_bundle', function () {
   $compiled_css = stripslashes($_POST['css']);
 
   // Off by default - enable with:
-  // add_filter('bootscore/compiler/enable_sourcemap', '__return_true');
-  $enable_sourcemap = apply_filters('bootscore/compiler/enable_sourcemap', false);
+  // add_filter('bootscore/compiler/sourcemap', '__return_true');
+  $enable_sourcemap = apply_filters('bootscore/compiler/sourcemap', false);
   $has_sourcemap    = $enable_sourcemap && isset($_POST['sourceMap']) && $_POST['sourceMap'] !== "";
 
   if ($has_sourcemap) {

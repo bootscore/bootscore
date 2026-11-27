@@ -3,32 +3,31 @@
  * Title: c - Card basic with image
  * Slug: bootscore/c-card-basic
  * Categories: bootscore
- * https://developer.wordpress.org/themes/features/block-patterns/
- * 
+ *
  * @package Bootscore
- * @version 6.2.0
+ * @version 7.0.0
  */
 
 // Exit if accessed directly
 defined('ABSPATH') || exit;
 
 ?>
-<!-- wp:group {"metadata":{"name":"c - Card with image - card mb-3 hide-wp-block-classes","categories":["bootscore"],"patternName":"bootscore/c.card-basic"},"className":"card mb-3 hide-wp-block-classes"} -->
-<div class="wp-block-group card mb-3 hide-wp-block-classes"><!-- wp:image {"sizeSlug":"large","metadata":{"name":"card-img-top mb-0"},"className":"card-img-top mb-0"} -->
-<figure class="wp-block-image size-large card-img-top mb-0"><img src="https://dummyimage.com/1200x900/6c757d/ffffff" alt=""/></figure>
+<!-- wp:bootscore/wrapper {"cssClass":"card mb-5","metadata":{"name":"c - Card basic - card mb-5","categories":["bootscore"],"patternName":"bootscore/c-card-basic"}} -->
+<!-- wp:image {"sizeSlug":"large","className":"card-img-top"} -->
+<figure class="wp-block-image size-large card-img-top"><img src="https://dummyimage.com/1200x900/6c757d/ffffff" alt=""/></figure>
 <!-- /wp:image -->
 
-<!-- wp:group {"metadata":{"name":"card-body"},"className":"card-body","layout":{"type":"default"}} -->
-<div class="wp-block-group card-body"><!-- wp:heading {"metadata":{"name":"card-title h5"},"className":"card-title h5"} -->
-<h2 class="wp-block-heading card-title h5">Card title</h2>
+<!-- wp:bootscore/wrapper {"cssClass":"card-body","metadata":{"name":"card-body"}} -->
+<!-- wp:heading {"className":"h5 mb-0"} -->
+<h2 class="wp-block-heading h5 mb-0">Card title</h2>
 <!-- /wp:heading -->
 
-<!-- wp:paragraph {"metadata":{"name":"card-text"},"className":"card-text"} -->
-<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+<!-- wp:paragraph {"className":"mb-0"} -->
+<p class="mb-0">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
 <!-- /wp:paragraph -->
 
-<!-- wp:paragraph {"metadata":{"name":"card-text"},"className":"card-text"} -->
-<p class="card-text"><a class="btn btn-primary" href="#">Button</a></p>
-<!-- /wp:paragraph --></div>
-<!-- /wp:group --></div>
-<!-- /wp:group -->
+<!-- wp:paragraph {"className":"mb-0"} -->
+<p class="mb-0"><a class="btn-solid theme-primary" href="#">Button</a></p>
+<!-- /wp:paragraph -->
+<!-- /wp:bootscore/wrapper -->
+<!-- /wp:bootscore/wrapper -->

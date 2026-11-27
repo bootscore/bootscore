@@ -25,8 +25,9 @@ if (!function_exists('bootscore_block_table_classes')) {
    */
   function bootscore_block_table_classes($block_content, $block) {
 
-    $tags    = new WP_HTML_Tag_Processor($block_content);
-    $striped = false;
+    $tags          = new WP_HTML_Tag_Processor($block_content);
+    $striped       = false;
+    $table_classes = array();
 
     // <figure class="wp-block-table">
     if ($tags->next_tag(array('tag_name' => 'FIGURE', 'class_name' => 'wp-block-table'))) {
@@ -34,12 +35,24 @@ if (!function_exists('bootscore_block_table_classes')) {
 
       $tags->remove_class('wp-block-table');
       $tags->remove_class('is-style-stripes');
+
+      // Table classes from Advanced → Additional CSS class(es), like table-bordered or table-sm, land on the figure.
+      // Bootstrap needs them on the <table>, so they move there. table-responsive belongs to the wrapper and stays.
+      foreach ($tags->class_list() as $class) {
+        if (str_starts_with($class, 'table-') && $class !== 'table-responsive') {
+          $table_classes[] = $class;
+        }
+      }
+      foreach ($table_classes as $class) {
+        $tags->remove_class($class);
+      }
+
       $tags->add_class('table-responsive text-nowrap'); // text-nowrap because tables inherit text-wrap from <body>
     }
 
     // <table>
     if ($tags->next_tag('table')) {
-      $tags->add_class(trim('table ' . ($striped ? 'table-striped ' : '') . apply_filters('bootscore/class/block/table', '')));
+      $tags->add_class(trim('table ' . ($striped ? 'table-striped ' : '') . implode(' ', $table_classes) . ' ' . apply_filters('bootscore/class/block/table', '')));
     }
 
     $block_content = $tags->get_updated_html();

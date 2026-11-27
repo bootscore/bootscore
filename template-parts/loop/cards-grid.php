@@ -24,7 +24,7 @@ $context = 'cards-grid';
 
   <?php do_action('bootscore_before_loop_thumbnail', 'cards-grid'); ?>
     
-  <?php if ( has_post_thumbnail() ) : ?>
+  <?php if (has_post_thumbnail() && !post_password_required()) : ?>
     <?php the_post_thumbnail('medium', array('class' => esc_attr(apply_filters('bootscore/class/loop/card/image', 'card-img-top', 'cards-grid')))); ?>
   <?php endif; ?>
 
@@ -59,7 +59,7 @@ $context = 'cards-grid';
       <?php endif; ?>
     <?php endif; ?>
 
-    <?php if (apply_filters('bootscore/loop/excerpt', true, 'cards-grid')) : ?>
+    <?php if (apply_filters('bootscore/loop/excerpt', true, 'cards-grid') && !post_password_required()) : ?>
       <p class="<?= esc_attr(apply_filters('bootscore/class/loop/excerpt', 'excerpt', 'cards-grid')); ?>">
         <?= wp_kses_post(get_the_excerpt()); ?>
       </p>

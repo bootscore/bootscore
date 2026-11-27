@@ -51,7 +51,7 @@ function bootscore_ts_compiler_js_file() {
   return $js_dir . 'bootscore.min.js';
 }
 
-// TESTING: should the compiler run on this page load?
+// Should the compiler run on this page load?
 // True if explicitly requested via ?compile_ts=1, OR if an admin is
 // viewing the frontend and bootscore.min.js doesn't exist yet.
 function bootscore_ts_compiler_should_compile() {
@@ -66,7 +66,7 @@ function bootscore_ts_compiler_should_compile() {
 function bootscore_get_main_ts() {
   $entry_file = bootscore_ts_compiler_dir() . 'bootscore.ts';
   $ts = file_exists($entry_file) ? file_get_contents($entry_file) : '';
-  return apply_filters('bootscore/compiler/main_ts', $ts);
+  return apply_filters('bootscore/compiler/main-ts', $ts);
 }
 
 
@@ -128,7 +128,8 @@ add_action('wp_footer', function () {
         <?php } else { ?>
         setTimeout(function () {
           const url = new URL(window.location.href);
-          url.search = "";
+          // Remove only the compiler parameters, keep the rest (e.g. ?p=123 with plain permalinks)
+          ['compile_ts', 'ts_nocache', 'autorecompile'].forEach((param) => url.searchParams.delete(param));
           window.location.href = url.href;
         }, 3000);
         <?php } ?>
@@ -150,8 +151,8 @@ add_action('wp_ajax_bootscore_save_js_bundle', function () {
   $compiled_js = stripslashes($_POST['js']);
 
   // Shared with the SCSS compiler - off by default, enable with:
-  // add_filter('bootscore/compiler/enable_sourcemap', '__return_true');
-  $enable_sourcemap = apply_filters('bootscore/compiler/enable_sourcemap', false);
+  // add_filter('bootscore/compiler/sourcemap', '__return_true');
+  $enable_sourcemap = apply_filters('bootscore/compiler/sourcemap', false);
   $has_sourcemap    = $enable_sourcemap && isset($_POST['sourceMap']) && $_POST['sourceMap'] !== "";
 
   if ($has_sourcemap) {

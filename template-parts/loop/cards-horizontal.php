@@ -28,7 +28,7 @@ $context = 'cards-horizontal';
 
     <?php do_action('bootscore_before_loop_thumbnail', 'cards-horizontal'); ?>
 
-    <?php if (has_post_thumbnail()) : ?>
+    <?php if (has_post_thumbnail() && !post_password_required()) : ?>
       <div class="<?= esc_attr(apply_filters('bootscore/class/loop/card/image/col', 'md:col-5 lg:col-6 xl:col-5 2xl:col-4', 'cards-horizontal')); ?>">
         <?php the_post_thumbnail('medium', array('class' => esc_attr(apply_filters('bootscore/class/loop/card/image', 'h-100 object-fit-cover', 'cards-horizontal')))); ?>
       </div>
@@ -66,7 +66,7 @@ $context = 'cards-horizontal';
           <?php endif; ?>
         <?php endif; ?>
         
-        <?php if (apply_filters('bootscore/loop/excerpt', true, 'cards-horizontal')) : ?>
+        <?php if (apply_filters('bootscore/loop/excerpt', true, 'cards-horizontal') && !post_password_required()) : ?>
           <p class="<?= esc_attr(apply_filters('bootscore/class/loop/excerpt', 'excerpt', 'cards-horizontal')); ?>">
             <?= wp_kses_post(get_the_excerpt()); ?>
           </p>

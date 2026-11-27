@@ -4,7 +4,7 @@
  * Patterns
  *
  * @package Bootscore
- * @version 6.2.0
+ * @version 7.0.0
  */
 
 
@@ -14,7 +14,10 @@ defined('ABSPATH') || exit;
 
 /*
  * Register pattern category
- */ 
+ *
+ * The patterns in /patterns are built with the wrapper block (inc/blocks/block-wrap.php),
+ * which outputs only the tag, classes and attributes that are set.
+ */
 function bootscore_pattern_category() {
   register_block_pattern_category(
     'bootscore',
@@ -24,52 +27,18 @@ function bootscore_pattern_category() {
 add_action('init', 'bootscore_pattern_category');
 
 
-/**
- * Remove specific classes conditionally
- * - wp-block-group
- * - is-layout-flow
- * - wp-block-group-is-layout-flow
- * - wp-block-heading
- * - wp-block-list
- * - wp-block-image
- * - is-layout-constrained
- * - -is-layout-constrained
- * if `hide-wp-block-classes` class is set to a parent group.
+/*
+ * Inserted patterns are editable right away
+ *
+ * Since WordPress 7.0 the editor locks an inserted pattern to content-only editing: text and images can be changed,
+ * the structure only after "Detach". Bootscore's patterns are starting points made to be changed, so the lock is off.
+ * Turn it back on, for example for clients: add_filter('bootscore/block/patterns/content-only', '__return_true');
  */
-function bootscore_remove_block_classes($block_content, $block) {
-  // Check if the block is one of the target block types
-  if (in_array($block['blockName'], ['core/group', 'core/heading', 'core/list', 'core/image'], true)) {
-    // Specify the outer class to look for
-    $required_outer_class = 'hide-wp-block-classes';
-
-    // Check if the required class exists in the outer <div>
-    if (strpos($block_content, $required_outer_class) !== false) {
-      // Remove the unwanted classes
-      $block_content = preg_replace(
-        '/\bwp-block-group\b|\bis-layout-flow\b|\bwp-block-group-is-layout-flow\b|\bwp-block-heading\b|\bwp-block-list\b|\bwp-block-image\b|\bis-layout-constrained\b|\b\-is-layout-constrained\b/',
-        '',
-        $block_content
-      );
-
-      // Clean up any remaining `class` attribute
-      $block_content = preg_replace_callback(
-        '/class="([^"]*)"/',
-        function ($matches) {
-          // Split the class names, remove empty or invalid ones
-          $classes = array_filter(array_map('trim', explode(' ', $matches[1])), function ($class) {
-              return $class !== '-' && $class !== '';
-          });
-
-          // Rebuild the `class` attribute or return an empty string if no classes remain
-          return !empty($classes) ? 'class="' . implode(' ', $classes) . '"' : '';
-        },
-        $block_content
-      );
-
-      // Remove any leftover empty `class=""` attributes
-      $block_content = preg_replace('/\sclass=""/', '', $block_content);
-    }
+function bootscore_patterns_editable($settings) {
+  if (!apply_filters('bootscore/block/patterns/content-only', false)) {
+    $settings['disableContentOnlyForUnsyncedPatterns'] = true;
   }
-  return $block_content;
+
+  return $settings;
 }
-add_filter('render_block', 'bootscore_remove_block_classes', 10, 2);
+add_filter('block_editor_settings_all', 'bootscore_patterns_editable');

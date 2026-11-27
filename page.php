@@ -29,7 +29,7 @@ get_header();
       <?php do_action( 'bootscore_after_primary_open', 'page' ); ?>
 
       <div class="row">
-        <div class="<?= esc_attr(apply_filters('bootscore/class/main/col', 'col')); ?>">
+        <div class="<?= esc_attr(apply_filters('bootscore/class/main/col', 'col', 'page')); ?>">
 
           <main id="main" class="site-main">
 

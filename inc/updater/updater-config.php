@@ -41,7 +41,7 @@ add_action('init', function() {
     'slug' => 'bootscore',
     'current_version' => $theme->get('Version') ?: '1.0.0',
     'source' => 'github',
-    'github_repo' => 'bopotscore/bootscore', // TODO: confirm this is the correct org/repo
+    'github_repo' => 'bootscore/bootscore',
     'name' => 'Bootscore',
   ));
 });

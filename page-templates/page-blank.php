@@ -2,7 +2,7 @@
 
 /**
  * Template Name: Blank
- * Template Version: 6.3.1
+ * Template Version: 7.0.0
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
@@ -11,6 +11,9 @@
 
 // Exit if accessed directly
 defined('ABSPATH') || exit;
+
+// Set global template context for custom layout hooks
+$GLOBALS['bootscore_template_context'] = 'page-blank';
 
 get_header();
 ?>

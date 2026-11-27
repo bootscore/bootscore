@@ -23,7 +23,7 @@ $context = 'cards-overlay';
 
   <?php do_action('bootscore_before_loop_thumbnail', 'cards-overlay'); ?>
     
-  <?php if ( has_post_thumbnail() ) : ?>
+  <?php if (has_post_thumbnail() && !post_password_required()) : ?>
     <a href="<?php the_permalink(); ?>" aria-hidden="true" tabindex="-1">
       <?php the_post_thumbnail('full', array('class' => esc_attr(apply_filters('bootscore/class/loop/card/image', 'img-card-overlay', 'cards-overlay')))); ?>
     </a>
@@ -33,7 +33,7 @@ $context = 'cards-overlay';
 
   <div class="<?= esc_attr(apply_filters('bootscore/class/loop/card/img-overlay', 'card-img-overlay d-flex flex-column p-0', 'cards-overlay')); ?>">
 
-    <div class="card-body bg-body bg-50 bd-blur bd-saturate-150 rounded-5 p-5 m-5 mt-auto flex-grow-0">
+    <div class="card-body bg-body bg-opacity-50 bd-blur bd-saturate-150 rounded-5 p-5 m-5 mt-auto flex-grow-0">
 
       <?php if (apply_filters('bootscore/loop/category', true, 'cards-overlay')) : ?>
         <?php bootscore_categories(); ?>
@@ -63,7 +63,7 @@ $context = 'cards-overlay';
         <?php endif; ?>
       <?php endif; ?>
       
-      <?php if (apply_filters('bootscore/loop/excerpt', true, 'cards-overlay')) : ?>
+      <?php if (apply_filters('bootscore/loop/excerpt', true, 'cards-overlay') && !post_password_required()) : ?>
         <p class="<?= esc_attr(apply_filters('bootscore/class/loop/excerpt', 'excerpt', 'cards-overlay')); ?>">
           <?= wp_kses_post(get_the_excerpt()); ?>
         </p>

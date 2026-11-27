@@ -32,7 +32,7 @@ if (!function_exists('bootscore_block_widget_latest_posts_classes')) {
       $tag = $tags->get_tag();
 
       if ('UL' === $tag && $tags->has_class('wp-block-latest-posts__list')) {
-        $tags->add_class('bs-list-group list-group');
+        $tags->add_class('list-group');
 
         // Remove the layout classes WordPress adds (is-layout-flow, wp-block-latest-posts-is-layout-flow)
         foreach (iterator_to_array($tags->class_list()) as $class) {
